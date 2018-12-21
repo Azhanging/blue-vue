@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "axios": "^0.18.0",
+    "blue-validate": "^1.0.10",
+    "element-ui": "^2.4.11",
+    "fastclick": "^1.0.6",
+    "mint-ui": "^2.2.13",
+    "vue-awesome-swiper": "^3.1.3"
+  }
+}

@@ -1,0 +1,105 @@
+import upload from 'vue-upload-component';
+import utils from '$utils';
+
+export function useUpload(Vue) {
+  Vue.component('upload', upload);
+}
+
+//默认上传配置信息
+const uploadConfig = {
+  eventArgs: {
+    newFile: null,
+    oldFile: null
+  },
+  hooks: {
+    success(res) {
+    },
+    error(res) {
+    }
+  }
+};
+
+function uploadError(opts) {
+  const { type, maxCount } = opts;
+  let info = '';
+  switch (type) {
+    case 'size':
+      info = `文件过大，已移除文件`;
+      break;
+    case 'denied':
+      info = `上传失败`;
+      break;
+    case 'timeout':
+      info = `上传超时`
+      break;
+    case 'max-count':
+      info = `文件最多可上传${maxCount}个`
+      break;
+  }
+  return info;
+}
+
+//upload mixin
+export function uploadMixin() {
+  return {
+    methods: {
+      $upload(upload, _opts = {}) {
+
+        this.$loadding({
+          text: '上传中...'
+        });
+
+        const opts = utils.extend(uploadConfig, _opts);
+
+        let { newFile, oldFile } = opts.eventArgs;
+
+        if (upload.tips == undefined) {
+          upload.tips = true;
+        }
+
+        //上传错误
+        if (newFile && newFile.error) {
+
+          upload.remove(newFile);
+
+          if (!upload.tips) return;
+
+          upload.tips = false;
+
+          this.$toast(uploadError({
+            type: newFile.error,
+            maxCount: opts.maxCount
+          }));
+
+          setTimeout(() => {
+            upload.tips = true;
+          }, 4000);
+
+          utils.hook(this, opts.hooks.error);
+        }
+
+        if (newFile && newFile.success) {
+          this.$closeLoadding();
+          const res = JSON.parse(newFile.response || "{}");
+          if (res.info) {
+            this.$toast({
+              message: '上传失败',
+              iconClass: 'icon icon-error'
+            });
+          } else {
+            this.$toast({
+              message: '上传成功'
+            });
+            utils.hook(this, opts.hooks.success, [res]);
+          }
+        }
+
+        upload.active = true;
+
+      },
+      $removeFile(upload, index) {
+        upload.files.splice(index, 1);
+      }
+    }
+  }
+}
