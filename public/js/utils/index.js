@@ -40,13 +40,13 @@ class Utils {
     return bool === false;
   }
 
-  isFunction(fn){
+  isFunction(fn) {
     return typeof fn === 'function';
   }
 
   hook(context, callback = function () {
-  }, args = []){
-    if(typeof callback === 'function'){
+  }, args = []) {
+    if (typeof callback === 'function') {
       callback.apply(context, args);
     }
   }
@@ -103,9 +103,11 @@ class Utils {
     return _obj;
   }
 
-  extend(object, _object) {
+  extend(object, _object, isDeep = true) {
 
-    object = this.deepCopy(object);
+    if (isDeep) {
+      object = this.deepCopy(object);
+    }
 
     const oldObjKeys = this.each(object, (obj, key) => {
       return key;
@@ -122,7 +124,7 @@ class Utils {
         if (!object[key]) {
           object[key] = {};
         }
-        this.extend(object[key], obj);
+        this.extend(object[key], obj, isDeep);
       }
       object[key] = obj;
     });
@@ -161,7 +163,7 @@ class Utils {
 
 const utils = new Utils();
 
-function utilsInVue(Vue){
+function utilsInVue(Vue) {
   Vue.prototype.$utils = utils;
 }
 

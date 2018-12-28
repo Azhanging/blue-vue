@@ -4,9 +4,6 @@
 			<router-link to="/components/mint-ui/scroll">
 				scroll
 			</router-link>
-			<router-link to="/components/mint-ui/picker">
-				picker
-			</router-link>
 		</div>
 
 		<m-transition>

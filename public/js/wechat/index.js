@@ -39,9 +39,13 @@ export function wxShareInVue(Vue) {
 
 //if in wechat ,get wechat config in program
 export function useWeChatInVue(Vue) {
-  if (config.env.isWeChat) {
-    getWeChatConfig();
-    wxShareInVue(Vue);
+  try{
+    if (config.env.isWeChat && wx) {
+      getWeChatConfig();
+      wxShareInVue(Vue);
+    }
+  }catch(e){
+    console.warn(e);
   }
 }
 
@@ -49,12 +53,7 @@ export function useWeChatInVue(Vue) {
 export function getWeChatConfig() {
   axios.get('').then((res) => {
     const { data } = res;
-    store.commit('setWeChat', {
-      appId: 'wx878c4a26964486ca',
-      timestamp: '1544582974',
-      nonceStr: 'TSXARpdRw3hIbuUX',
-      signature: 'f78e1fbd642ee293549ecf542773f84daecfa41a'
-    });
+    store.commit('setWeChat', data);
   }).then(() => {
     setWxSdkConfig();
   });
@@ -73,10 +72,12 @@ export function setWxSdkConfig() {
       'onMenuShareAppMessage'
     ]
   });
+
   wx.ready(() => {
     readyStatus = true;
     shareTask.task();
   });
+
 }
 
 export function wxShare(opts = {}) {
@@ -92,25 +93,28 @@ export function wxShare(opts = {}) {
 //set share
 export function share(opts = {}) {
 
-  console.log(config);
+  const title = opts.title || config.weChat.share.title;
+  const desc = opts.desc || opts.title || config.weChat.share.desc || title;
+  const link = opts.link || config.weChat.share.link || location.href;
+  const imgUrl = opts.imgUrl || config.weChat.share.imgUrl;
 
   wx.onMenuShareTimeline({
-    title: opts.title || config.weChat.share.title,
-    link: opts.link || config.weChat.share.link,
-    imgUrl: opts.imgUrl || config.weChat.share.imgUrl,
-    success: function () {
+    title,
+    link,
+    imgUrl,
+    success() {
       utils.hook(this, opts.success);
     }
   });
 
   wx.onMenuShareAppMessage({
-    title: opts.title || config.weChat.share.title,
-    desc: opts.desc || opts.title || config.weChat.share.desc || config.weChat.share.title,
-    link: opts.link || config.weChat.share.link || location.href,
-    imgUrl: opts.imgUrl || config.weChat.share.imgUrl,
+    title,
+    desc,
+    link,
+    imgUrl,
     type: opts.type || 'link',
     dataUrl: opts.dataUrl || "",
-    success: function () {
+    success() {
       utils.hook(this, opts.success);
     }
   });

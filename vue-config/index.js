@@ -9,8 +9,10 @@ function resolve(dir) {
 module.exports = {
   resolve: {
     alias: {
+      '$config': resolve(`./config`),
       '$components': resolve(`./components`),
-      '$load': resolve(`./components/use-in-vue/mint-ui/m-scroll/load`),
+      '$scroll': resolve(`./components/m-scroll/index`),
+      '$page-list': resolve(`./components/m-page-list/index`),
       '$public': resolve(`./public`),
       '$utils': resolve(`./public/js/utils/index-esm`),
       '$upload': resolve(`./components/vue-upload-component/upload`),

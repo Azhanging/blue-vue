@@ -1,4 +1,4 @@
-import lgPreview from './vue-picture-preview.vue'
+import lgPreview from './vue-picture-preview.vue';
 
 export default {
   install: function (Vue, options) {

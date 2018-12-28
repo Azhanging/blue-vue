@@ -6,9 +6,10 @@
 				:name="slot.name"
 				:class="slot.className"
 				v-model="slot.value"
-				@change="changePicker(index)"
+				@change="changePicker($event,index)"
 				v-show="slot.values.length > 0"
 			>
+				<option value="">请选择</option>
 				<option :value="item.id" v-for="item in slot.values">
 					{{item.name}}
 				</option>
@@ -45,7 +46,7 @@
     const values = [];
     const slots = this.slots;
     slots.forEach((slot, index) => {
-      this.changePicker(index, true);
+      this.changePicker(null, index, true);
     });
     this.values = values;
   }
@@ -54,7 +55,9 @@
   function clearNextAllSlot(index) {
     const slots = this.slots;
     for (; index < slots.length; index++) {
-      slots[index].values = [];
+      const item = slots[index];
+      item.values = [];
+      item.value = "";
     }
   }
 
@@ -94,7 +97,7 @@
       }
     },
     methods: {
-      changePicker(index, isInit = false) {
+      changePicker($event, index, isInit = false) {
         const slots = this.slots;
         const slot = slots[index];
         const prevIndex = index - 1;
@@ -102,6 +105,10 @@
         const prevSlot = slots[prevIndex];
         if (index == 0 || prevSlot.value) {
           const _index = isInit ? index : nextIndex;
+          if($event && !$event.target.value){
+            clearNextAllSlot.call(this, _index);
+            return;
+          }
           getSlotsItemData.call(this, {
             index: _index,
             id: (function () {
@@ -116,13 +123,14 @@
               }
             })()
           });
-          clearNextAllSlot.call(this, _index);
+          if(!isInit){
+            clearNextAllSlot.call(this, _index);
+          }
         }
       }
     },
     mounted() {
       initPicker.call(this);
-      window.picker = this;
     }
   }
 </script>

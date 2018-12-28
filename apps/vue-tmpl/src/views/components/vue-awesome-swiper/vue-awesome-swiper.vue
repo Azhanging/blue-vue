@@ -1,20 +1,17 @@
 <template>
 	<div class="children-page">
-		<pull-to>
+		<m-scroll>
 			<swiper :options="swiperOption" ref="swiper">
 				<swiper-slide v-for="(slide, index) in banners" :key="index">
 					<div style="height:100px;">{{ slide }}</div>
 				</swiper-slide>
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 			</swiper>
-		</pull-to>
+		</m-scroll>
 	</div>
 </template>
 
 <script>
-	import { swiper, swiperSlide } from 'vue-awesome-swiper';
-  import PullTo from 'vue-pull-to';
-
   export default {
     name: "vue-awesome-swiper",
     data() {
@@ -28,11 +25,6 @@
         },
         swiper: {}
       }
-    },
-    components: {
-      swiper,
-      swiperSlide,
-      PullTo
     },
 	  methods:{
       swiperUpdate(){

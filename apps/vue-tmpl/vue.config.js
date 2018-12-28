@@ -21,7 +21,7 @@ module.exports = {
     }
   }),
   devServer: {
-    proxy: 'https://pc.dtb315.com'
+    proxy: 'http://fw.dtb315.com'
   },
   assetsDir: 'static'
 };

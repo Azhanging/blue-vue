@@ -7,7 +7,7 @@
 		>
 			<ul class="reset-ul">
 				<li v-for="item in load.data.lists">
-					<img :src="item.list_img" v-preview="item.list_img"/>
+					<img :src="item.home_img" v-preview="item.home_img" width="20"/>
 					<span>{{item.name}}</span>
 				</li>
 			</ul>
@@ -25,32 +25,29 @@
 
 <script>
 
-	import { loadMixin, loadEndHook, loadNoHasListData } from '$load';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
 
   export default {
     name: "scroll",
-    mixins: [loadMixin()],
+    mixins: [scrollMixin()],
     data() {
       return {}
     },
     methods: {
       api() {
-        return this.$axios.get('/home/home/getrecommendforyou', {
+        return this.$axios.get('/enroll', {
           params: {
-            page: this.load.params.page++
+            p: this.load.params.page++
           }
         }).then((res) => {
-          if (loadNoHasListData.call(this, {
-              result: res
+          if (scrollNoHasListData.call(this, {
+              result: res,
+              listKey: 'list'
             })) {
-            loadEndHook.call(this);
+            return scrollEndHook.call(this);
           } else {
-            this.load.data.lists = this.load.data.lists.concat(res.data);
+            this.load.data.lists = this.load.data.lists.concat(res.data.list);
           }
-        }).then(() => {
-          return {
-            disabled: this.load.state.disabled
-          };
         });
       }
     }

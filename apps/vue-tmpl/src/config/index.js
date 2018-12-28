@@ -1,5 +1,5 @@
 import $utils from '$utils';
-import { config } from '$public/js/config'
+import { config } from '$config'
 
 const programConfig = $utils.extend(config, {});
 

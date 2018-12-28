@@ -83,8 +83,7 @@ export function uploadMixin() {
           const res = JSON.parse(newFile.response || "{}");
           if (res.info) {
             this.$toast({
-              message: '上传失败',
-              iconClass: 'icon icon-error'
+              message: '上传失败'
             });
           } else {
             this.$toast({

@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
-    "blue-validate": "^1.0.10",
-    "element-ui": "^2.4.11",
+    "blue-validate": "^1.1.4",
     "fastclick": "^1.0.6",
     "mint-ui": "^2.2.13",
-    "vue-awesome-swiper": "^3.1.3"
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-picture-preview": "^1.2.0",
+    "vue-upload-component": "^2.8.16"
   }
 }
