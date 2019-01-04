@@ -1,35 +1,40 @@
 <template>
-	<div class="row">
+	<m-view>
+		<div class="bc-row">
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/vue-awesome-swiper" class="bc-t-base">vue-awesome-swiper</router-link>
+			</div>
 
-		<div class="row pd-10 t-c">
-			<router-link to="/components/vue-awesome-swiper">vue-awesome-swiper</router-link>
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/vue-upload-component" class="bc-t-base">vue-upload-component</router-link>
+			</div>
+
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/scroll" class="bc-t-base">scroll</router-link>
+			</div>
+
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/blue-validate" class="bc-t-base">blue-validate</router-link>
+			</div>
+
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/picker" class="bc-t-base">picker</router-link>
+			</div>
+
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/page-list" class="bc-t-base">page-list</router-link>
+			</div>
+
+			<div class="bc-row bc-pd-10 bc-t-c">
+				<router-link to="/components/swiper-scroll" class="bc-t-base">swiper-scroll</router-link>
+			</div>
+
+			<m-transition>
+				<router-view/>
+			</m-transition>
+
 		</div>
-
-		<div class="row pd-10 t-c">
-			<router-link to="/components/vue-upload-component">vue-upload-component</router-link>
-		</div>
-
-		<div class="row pd-10 t-c">
-			<router-link to="/components/mint-ui">mint-ui</router-link>
-		</div>
-
-		<div class="row pd-10 t-c">
-			<router-link to="/components/blue-validate">blue-validate</router-link>
-		</div>
-
-		<div class="row pd-10 t-c">
-			<router-link to="/components/picker">picker</router-link>
-		</div>
-
-		<div class="row pd-10 t-c">
-			<router-link to="/components/page-list">page-list</router-link>
-		</div>
-
-		<m-transition>
-			<router-view class="children-page"/>
-		</m-transition>
-
-	</div>
+	</m-view>
 </template>
 
 <script>

@@ -1,7 +1,9 @@
 <template>
-	<div class="row overflow-hide">
-		<m-picker :slots="slots" :ajax="ajax"></m-picker>
-	</div>
+	<m-view>
+		<div class="row overflow-hide">
+			<m-picker :slots="slots" :ajax="ajax"></m-picker>
+		</div>
+	</m-view>
 </template>
 
 <script>
@@ -11,20 +13,24 @@ export default {
     return {
       slots: [{
         values: [],
-        className: 'g-input mg-10',
+        wrapClassName: 'bc-select-down-icon bc-mg-10',
+        className: 'bc-input',
+        value: '659005'
+      }, {
+        values: [],
+        wrapClassName: 'bc-select-down-icon bc-mg-10',
+        className: 'bc-input',
         value: '44'
-      },{
+      }, {
         values: [],
-        className: 'g-input mg-10',
+        wrapClassName: 'bc-select-down-icon bc-mg-10',
+        className: 'bc-input',
         value: '4402'
-      },{
+      }, {
         values: [],
-        className: 'g-input mg-10',
+        wrapClassName: 'bc-select-down-icon bc-mg-10',
+        className: 'bc-input',
         value: '440204'
-      },{
-        values: [],
-        className: 'g-input mg-10',
-        value: ''
       }],
       ajax: {
         url: '/common/next_child'

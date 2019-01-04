@@ -1,5 +1,5 @@
 <template>
-	<div class="children-page">
+	<m-view>
 		<m-scroll>
 			<swiper :options="swiperOption" ref="swiper">
 				<swiper-slide v-for="(slide, index) in banners" :key="index">
@@ -8,7 +8,7 @@
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 			</swiper>
 		</m-scroll>
-	</div>
+	</m-view>
 </template>
 
 <script>
@@ -26,13 +26,13 @@
         swiper: {}
       }
     },
-	  methods:{
-      swiperUpdate(){
+    methods: {
+      swiperUpdate() {
         this.swiper.update();
       }
-	  },
+    },
     mounted() {
-      this.$axios.get('http://localhost:8080/#/').then((res)=>{
+      this.$axios.get('http://localhost:8080/#/').then((res) => {
         console.log(res);
       });
       this.$nextTick(() => {

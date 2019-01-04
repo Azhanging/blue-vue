@@ -1,10 +1,11 @@
 <template>
-	<div id="app" class="t-333 reset-all-a">
+	<div id="app" class="bc-t-666 bc-f-0_9">
 		<m-transition>
 			<keep-alive>
 				<router-view/>
 			</keep-alive>
 		</m-transition>
+		<!-- 图片预览的组件 -->
 		<lg-preview></lg-preview>
 	</div>
 </template>
@@ -14,16 +15,3 @@
     name: 'app'
   };
 </script>
-
-<style lang="scss">
-	.children-page {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		overflow: scroll;
-		-webkit-overflow-scrolling: touch;
-		background-color: white;
-	}
-</style>

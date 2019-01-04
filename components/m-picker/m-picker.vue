@@ -2,18 +2,19 @@
 	<span>
 		<template v-for="(slot,index) in slots">
 			<!-- 联动的数据 -->
-			<select
-				:name="slot.name"
-				:class="slot.className"
-				v-model="slot.value"
-				@change="changePicker($event,index)"
-				v-show="slot.values.length > 0"
-			>
-				<option value="">请选择</option>
-				<option :value="item.id" v-for="item in slot.values">
-					{{item.name}}
-				</option>
-			</select>
+			<span class="bc-select-wrap" :class="slot.wrapClassName" v-show="slot.values.length > 0">
+				<select
+					:name="slot.name"
+					:class="slot.className"
+					v-model="slot.value"
+					@change="changePicker($event,index)"
+				>
+					<option value="">请选择</option>
+					<option :value="item.id" v-for="item in slot.values">
+						{{item.name}}
+					</option>
+				</select>
+			</span>
 		</template>
 	</span>
 </template>
@@ -38,7 +39,9 @@
     }).then((res) => {
       let { data } = res;
       data = this.got(data);
-      this.slots[index].values = data;
+      if (this.slots[index]) {
+        this.slots[index].values = data;
+      }
     });
   }
 
@@ -105,7 +108,7 @@
         const prevSlot = slots[prevIndex];
         if (index == 0 || prevSlot.value) {
           const _index = isInit ? index : nextIndex;
-          if($event && !$event.target.value){
+          if ($event && !$event.target.value) {
             clearNextAllSlot.call(this, _index);
             return;
           }
@@ -123,7 +126,7 @@
               }
             })()
           });
-          if(!isInit){
+          if (!isInit) {
             clearNextAllSlot.call(this, _index);
           }
         }
@@ -136,5 +139,7 @@
 </script>
 
 <style scoped lang="scss">
-
+	.bc-select-wrap {
+		display: inline-block;
+	}
 </style>

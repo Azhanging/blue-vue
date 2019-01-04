@@ -6,11 +6,11 @@ import { inBrowser } from "../public/js/in-browser";
 export function extendInVue(opts = {}) {
   const { Vue } = opts;
   if (inBrowser()) {
-    //extend in Vue
+    //extend weChat in Vue
     useWeChatInVue(Vue);
   }
   //extend program in Vue
   extendConfigInVue(Vue);
-//extend utils in Vue
+  //extend utils in Vue
   extendUtilsInVue(Vue);
 }

@@ -1,61 +1,59 @@
 <template>
-	<div class="pd-10">
-
-		<div class="row">
-			<div>单个</div>
-			<div class="row">
+	<m-view>
+		<div class="bc-pd-10">
+			<div class="bc-row">
+				<div class="bc-pd-b-5">单个</div>
+				<div class="bc-row">
 					<span v-for="(img,index) in uploadImg">
 						<img :src="img" alt="" width="50" height="50">
 						<a @click="removeUpload($refs['oneUpload'],uploadImg,index)">删除</a>
 					</span>
+				</div>
+				<div>
+					<upload
+						accept="image/png,image/gif,image/jpeg,image/webp"
+						ref="oneUpload"
+						input-id="input"
+						name="imgFile"
+						post-action="/Upload/index_img"
+						@input-file="inputOneFile"
+						:upload-data="uploadImg"
+					>
+						<button class="bc-btn bc-btn-primary bc-bd-radius-4">
+							单张图片
+						</button>
+					</upload>
+				</div>
 			</div>
-			<div>
-				<upload
-					accept="image/png,image/gif,image/jpeg,image/webp"
-					ref="oneUpload"
-					input-id="input"
-					name="imgFile"
-					post-action="/Upload/index_img"
-					@input-file="inputOneFile"
-					:upload-data="uploadImg"
-				>
-					<button class="g-btn g-btn-primary">
-						单张图片
-					</button>
-				</upload>
-			</div>
-		</div>
 
-		<div class="row">
-			<div>多个</div>
-			<div>
+			<div class="bc-row">
+				<div class="bc-pd-b-5">多个</div>
+				<div>
 
-				<div class="row">
+					<div class="bc-row">
 					<span v-for="(img,index) in uploadImgs">
 						<img :src="img" alt="" width="50" height="50">
 						<a @click="removeUpload($refs['upload'],uploadImgs,index)">删除</a>
 					</span>
+					</div>
+
+					<upload
+						:multiple="true"
+						accept="image/png,image/gif,image/jpeg,image/webp"
+						ref="upload"
+						input-id="inputs"
+						name="imgFile"
+						post-action="/Upload/index_img"
+						@input-file="inputFile"
+						:maximum="5"
+						:upload-data="uploadImgs"
+					>
+						<button class="bc-btn bc-btn-primary">上传图片</button>
+					</upload>
 				</div>
-
-				<upload
-					:multiple="true"
-					accept="image/png,image/gif,image/jpeg,image/webp"
-					ref="upload"
-					input-id="inputs"
-					name="imgFile"
-					post-action="/Upload/index_img"
-					@input-file="inputFile"
-					:maximum="5"
-					:upload-data="uploadImgs"
-				>
-					<button class="g-btn g-btn-primary">上传图片</button>
-				</upload>
 			</div>
-
 		</div>
-
-
-	</div>
+	</m-view>
 </template>
 
 <script>

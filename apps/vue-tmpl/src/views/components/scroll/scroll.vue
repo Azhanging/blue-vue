@@ -1,26 +1,28 @@
-<script src="../../../../../../../node_modules/vue-picture-preview/index.js"></script>
+
 <template>
-	<div class="row">
-		<m-scroll
-			:api="api"
-			:disabled="load.state.disabled"
-		>
-			<ul class="reset-ul">
-				<li v-for="item in load.data.lists">
-					<img :src="item.home_img" v-preview="item.home_img" width="20"/>
-					<span>{{item.name}}</span>
-				</li>
-			</ul>
-			<template slot="load-down">
-				<div class="t-c pd-10" v-if="load.state.hasMore">
-					数据加载中...
-				</div>
-				<div class="t-c pd-10" v-else>
-					暂无数据...
-				</div>
-			</template>
-		</m-scroll>
-	</div>
+	<m-view>
+		<div class="bc-row">
+			<m-scroll
+				:api="api"
+				:disabled="load.state.disabled"
+			>
+				<ul class="bc-reset-ul">
+					<li v-for="item in load.data.lists" class="bc-pd-10">
+						<img :src="item.home_img" v-preview="item.home_img" width="50"/>
+						<span>{{item.name}}</span>
+					</li>
+				</ul>
+				<template slot="load-down">
+					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
+						数据加载中...
+					</div>
+					<div class="bc-t-c bc-pd-10" v-else>
+						暂无数据...
+					</div>
+				</template>
+			</m-scroll>
+		</div>
+	</m-view>
 </template>
 
 <script>
@@ -48,6 +50,8 @@
           } else {
             this.load.data.lists = this.load.data.lists.concat(res.data.list);
           }
+        }).catch(()=>{
+          return scrollEndHook.call(this);
         });
       }
     }

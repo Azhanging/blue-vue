@@ -1,6 +1,10 @@
 export const config = {
+  view: {
+    title: "blue vue tmpl title"       //public document title
+  },
   env: {
-    isWeChat: /MicroMessenger/ig.test(navigator.userAgent)
+    isWeChat: /MicroMessenger/ig.test(navigator.userAgent),
+    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent)
   },
   path: {
     base: '',

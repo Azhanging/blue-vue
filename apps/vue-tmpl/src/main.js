@@ -6,8 +6,10 @@ import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
 import { extendInVue } from '../../../extend-in-vue';
 
+import '@/assets/scss/blue-component.scss';
+
 //css
-import '@/assets/scss/mint-ui.scss';
+/*import '@/assets/scss/mint-ui.scss';*/
 
 //使用插件到Vue，相对于公共的插件
 useInVue({
@@ -27,11 +29,12 @@ Vue.config.silent = true;
 Vue.config.warnHandler = false;
 
 /*close localhost wechat alert*/
-window.alert = (e) => {
+/*window.alert = (e) => {
   console.log(`wechat error:${e}`)
-};
+};*/
 
-window.app = new Vue({
+
+new Vue({
   router,
   store,
   render: h => h(App)
