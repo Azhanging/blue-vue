@@ -1,11 +1,43 @@
 <template>
-	<span class="inline-block">
+	<div>
+		<!-- 列表数据slot -->
 		<slot></slot>
-		<slot name="pagination"
-      :pages="pages"
-      :pageJump="pageJump"
-		></slot>
-	</span>
+
+		<slot name="pagination">
+			<!-- 页码 -->
+			<div class="bc-row bc-t-c m-page-list" v-show="allPage > 0">
+
+				<a class="m-page-num" href="javascript:void(0);" @click="pageJump(1)">
+					首页
+				</a>
+
+				<a class="m-page-num" href="javascript:void(0);" v-show="current != 1" @click="pageJump(current-1)">
+					上一页
+				</a>
+
+				<a v-for="index in pages" :class="{'m-page-num': current == index}" href="javascript:void(0);" @click="pageJump(index)">
+					{{index}}
+				</a>
+
+				<a class="m-page-num" href="javascript:void(0);" v-show="allPage != current && allPage != 0 " @click="pageJump(current + 1)">
+					下一页
+				</a>
+
+				<a class="m-page-num" href="javascript:void(0);" @click="pageJump(allPage)">
+					末页
+				</a>
+
+				<span>共 {{allPage}} 页，到第</span>
+
+				<input type="text" class="bc-input bc-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
+
+				<a class="m-page-num" @click="pageJump(inputPageNum)">
+					确定
+				</a>
+			</div>
+		</slot>
+
+	</div>
 </template>
 
 <script>
@@ -13,7 +45,9 @@
     name: "m-page-list",
     props: {
       pageListData: {
-        default: {},
+        default() {
+          return {};
+        },
         type: Object
       },
       current: {
@@ -27,6 +61,11 @@
       allPage: {
         default: 1,
         type: Number
+      }
+    },
+    data() {
+      return {
+        inputPageNum: ''
       }
     },
     computed: {
@@ -52,6 +91,7 @@
     },
     methods: {
       pageJump(page) {
+        this.inputPageNum = '';
         if (page == this.current || page < 1 || page > this.allPage || isNaN(page)) return;
         this.$emit('page-jump', {
           current: page,
@@ -63,7 +103,15 @@
 </script>
 
 <style scoped lang="scss">
-	.inline-block {
-		display: inline-block;
+	@import '@/assets/scss/blue-component-config.scss';
+
+	.m-page-list {
+		.m-page-num {
+			display: inline-block;
+			padding: 4px;
+			margin: 4px;
+			background-color: $color-base;
+			color: white;
+		}
 	}
 </style>

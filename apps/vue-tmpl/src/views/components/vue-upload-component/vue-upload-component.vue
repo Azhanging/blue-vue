@@ -1,5 +1,6 @@
 <template>
-	<m-view>
+	<m-view-home>
+		<m-header :title="'上传图片'"></m-header>
 		<div class="bc-pd-10">
 			<div class="bc-row">
 				<div class="bc-pd-b-5">单个</div>
@@ -53,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-	</m-view>
+	</m-view-home>
 </template>
 
 <script>

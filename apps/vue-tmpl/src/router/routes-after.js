@@ -1,3 +1,5 @@
+//router after each 相关的业务
+
 import config from '@config';
 import utils from '$utils';
 
@@ -15,7 +17,6 @@ export function afterHook(opts) {
   const { to, unMatchHook } = opts;
   const { title, afterHook } = to.meta;
   docTitle(title);
-
   if (afterHook) {
     routerAfterHook(afterHook);
   } else {

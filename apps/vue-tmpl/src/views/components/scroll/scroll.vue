@@ -1,6 +1,7 @@
 
 <template>
-	<m-view>
+	<m-view-home :has-nav="false">
+		<m-header :title="'下拉加载'"></m-header>
 		<div class="bc-row">
 			<m-scroll
 				:api="api"
@@ -22,7 +23,7 @@
 				</template>
 			</m-scroll>
 		</div>
-	</m-view>
+	</m-view-home>
 </template>
 
 <script>

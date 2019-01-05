@@ -5,11 +5,15 @@ import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
 import { extendInVue } from '../../../extend-in-vue';
-
+import { setViewport } from '$public/js/set-viewport';
+import { programComponent } from './components';
 import '@/assets/scss/blue-component.scss';
 
 //css
 /*import '@/assets/scss/mint-ui.scss';*/
+
+//移动端设置viewport
+setViewport();
 
 //使用插件到Vue，相对于公共的插件
 useInVue({
@@ -19,6 +23,11 @@ useInVue({
 
 //扩展到vue上
 extendInVue({
+  Vue
+});
+
+//当前项目组件
+programComponent({
   Vue
 });
 

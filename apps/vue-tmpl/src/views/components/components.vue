@@ -1,5 +1,6 @@
 <template>
-	<m-view>
+	<m-view-home>
+		<m-header :title="'组件列表'"></m-header>
 		<div class="bc-row">
 			<div class="bc-row bc-pd-10 bc-t-c">
 				<router-link to="/components/vue-awesome-swiper" class="bc-t-base">vue-awesome-swiper</router-link>
@@ -34,7 +35,7 @@
 			</m-transition>
 
 		</div>
-	</m-view>
+	</m-view-home>
 </template>
 
 <script>

@@ -5,8 +5,13 @@
 		<div class="m-view-scroll">
 			<slot></slot>
 		</div>
+
 		<!-- 浮层 -->
-		<m-suspend :scrollDistance="scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></m-suspend>
+		<slot name="suspend" :scroll="scroll"></slot>
+
+		<!-- 底部导航 -->
+		<slot name="nav"></slot>
+
 	</div>
 </template>
 
@@ -29,6 +34,7 @@
 </script>
 
 <style scoped lang="scss">
+
 	.m-view {
 		position: fixed;
 		top: 0;
@@ -37,6 +43,7 @@
 		left: 0;
 		z-index: 120;
 		background-color: white;
+		padding-bottom: 48px;
 	}
 
 	.m-view-scroll {
@@ -45,4 +52,5 @@
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 	}
+
 </style>

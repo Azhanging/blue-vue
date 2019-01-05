@@ -1,49 +1,48 @@
 <template>
-	<m-view>
-		<m-scroll>
-			<form action="" @submit="submit" class="bc-v-m" id="form">
+	<m-view-home>
+		<m-header :title="'验证相关'"></m-header>
+		<form action="" @submit="submit" class="bc-v-m" id="form">
+			<div class="bc-pd-10">
+				<span>textarea：</span><textarea name="textarea" class="bc-input" id="" cols="30" rows="10" v-blue-validate="valid" v-model="input"></textarea>
+				<a @click="change">
+					change
+				</a>
+			</div>
 
-				<div class="bc-pd-10">
-					<span>textarea：</span><textarea name="textarea" class="bc-input" id="" cols="30" rows="10" v-blue-validate="valid" v-model="input"></textarea>
-					<a @click="change">
-						change
-					</a>
-				</div>
+			<div class="bc-pd-10">
+				<span>input-text：</span><input type="text" name="text" class="bc-input"
+				                               v-blue-validate="{validate:[{type:()=>textValidate(input)},{type:'m'},{type:/.+/,info:'不能为空不能为空不能为空不能为空不能为空不能为空'}],name:'文本框'}">
+			</div>
 
-				<div class="bc-pd-10">
-					<span>input-text：</span><input type="text" name="text" class="bc-input"
-					                               v-blue-validate="{validate:[{type:()=>textValidate(input)},{type:'m'},{type:/.+/,info:'不能为空不能为空不能为空不能为空不能为空不能为空'}],name:'文本框'}">
-				</div>
+			<div class="bc-pd-10 v-m">
+				<span>radio：</span>
+				<label>
+					<input type="radio" v-blue-validate name="radio0" v-model="radio0" value="1">
+					<span>radio1</span>
+				</label>
+				<label>
+					<input type="radio" v-blue-validate name="radio0" v-model="radio0" value="2">
+					<span>radio2</span>
+				</label>
+			</div>
 
-				<div class="bc-pd-10 v-m">
-					<span>radio：</span>
-					<label>
-						<input type="radio" v-blue-validate name="radio0" v-model="radio0" value="1">
-						<span>radio1</span>
-					</label>
-					<label>
-						<input type="radio" v-blue-validate name="radio0" v-model="radio0" value="2">
-						<span>radio2</span>
-					</label>
-				</div>
+			<div class="bc-pd-10">
+				<span>checked：</span>
+				<label>
+					<input type="checkbox" v-blue-validate name="checkbox0" v-model="checkbox" value="1" id="checkbox" class="bc-checkbox">
+					<span>checkbox1</span>
+				</label>
+				<label>
+					<input type="checkbox" v-blue-validate name="checkbox0" v-model="checkbox" value="2">
+					<span>checkbox2</span>
+				</label>
+			</div>
 
-				<div class="bc-pd-10">
-					<span>checked：</span>
-					<label>
-						<input type="checkbox" v-blue-validate name="checkbox0" v-model="checkbox" value="1" id="checkbox" class="bc-checkbox">
-						<span>checkbox1</span>
-					</label>
-					<label>
-						<input type="checkbox" v-blue-validate name="checkbox0" v-model="checkbox" value="2">
-						<span>checkbox2</span>
-					</label>
-				</div>
+			<div class="bc-pd-10">
 
-				<div class="bc-pd-10">
+				<span>select：</span>
 
-					<span>select：</span>
-
-					<span class="bc-select-down-icon">
+				<span class="bc-select-down-icon">
 					<select name="select0" v-blue-validate="{validated:function(args){console(args)}}" class="bc-input" v-model="select">
 						<option value="">请选择</option>
 						<option value="1">1</option>
@@ -51,7 +50,7 @@
 					</select>
 				</span>
 
-					<span class="bc-select-down-icon bc-mg-l-10">
+				<span class="bc-select-down-icon bc-mg-l-10">
 					<select name="select1" v-blue-validate class="bc-input" v-model="select">
 						<option value="">请选择</option>
 						<option value="1">111111111111111111111111111111</option>
@@ -59,7 +58,7 @@
 					</select>
 				</span>
 
-					<span class="bc-select-down-icon bc-mg-l-10">
+				<span class="bc-select-down-icon bc-mg-l-10">
 					<select name="select2" v-blue-validate class="bc-input">
 						<option value="">请选择</option>
 						<option value="1">1</option>
@@ -67,23 +66,20 @@
 					</select>
 				</span>
 
-				</div>
-				<div class="bc-pd-10">
-					<input type="text" value="123" class="bc-input">
-				</div>
-				<div class="bc-pd-10">
-					<input type="text" value="456" class="bc-input">
-				</div>
+			</div>
+			<div class="bc-pd-10">
+				<input type="text" value="123" class="bc-input">
+			</div>
+			<div class="bc-pd-10">
+				<input type="text" value="456" class="bc-input">
+			</div>
 
-				<div class="bc-pd-10">
-					<button class="bc-btn bc-btn-success">提交</button>
-				</div>
+			<div class="bc-pd-10">
+				<button class="bc-btn bc-btn-success">提交</button>
+			</div>
 
-			</form>
-			<!-- 浮层 -->
-			<m-suspend></m-suspend>
-		</m-scroll>
-	</m-view>
+		</form>
+	</m-view-home>
 </template>
 
 <script>

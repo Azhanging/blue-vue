@@ -5,7 +5,9 @@ import { useUpload } from '../components/vue-upload-component/upload';
 import { inBrowser } from "$public/js/in-browser";
 import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
 import Picker from '../components/m-picker/m-picker';
-import View from '../components/m-view/m-view';
+import MHeader from '../components/m-header/m-header';
+import MView from '../components/m-view/m-view';
+import MNav from '../components/m-nav/m-nav';
 import Suspend from '../components/m-suspend/m-suspend';
 import Transition from '../components/m-transition/m-transition';
 import vuePicturePreview from 'vue-picture-preview';
@@ -42,8 +44,12 @@ export function useInVue(opts = {}) {
   useMintUi(Vue);
   //axios
   useAxios(Vue, Axios);
-  //页面的视图组件，每个页面都必须加，提供scroll相关数据
-  Vue.component('m-view', View);
+  //公共头部
+  Vue.component('m-header', MHeader);
+  //主视图
+  Vue.component('m-view', MView);
+  //底部导航
+  Vue.component('m-nav', MNav);
   //浮层
   Vue.component('m-suspend', Suspend);
   //路由过渡动画组件

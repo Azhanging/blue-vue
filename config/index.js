@@ -3,8 +3,8 @@ export const config = {
     title: "blue vue tmpl title"       //public document title
   },
   env: {
-    isWeChat: /MicroMessenger/ig.test(navigator.userAgent),
-    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent)
+    isWeChat: /MicroMessenger/ig.test(navigator.userAgent),       //是否在微信端
+    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent)  //是否为移动设备
   },
   path: {
     base: '',
@@ -15,7 +15,7 @@ export const config = {
     storage: {}
   },
   weChat: {     //微信相关
-    share: {      //分享相关
+    share: {      //公共的分享相关
       title: "blue-vue-tmpl",
       deps: "blue-vue-tmpl is vue public template",
       imgUrl: "",
@@ -24,10 +24,11 @@ export const config = {
   },
   error: {},
   axios: {
-    timeout: 6000
+    timeout: 10000
   }
 };
 
+// this.programConfig 为当前项目配置信息
 export function extendConfigInVue(Vue) {
   Vue.mixin({
     data() {

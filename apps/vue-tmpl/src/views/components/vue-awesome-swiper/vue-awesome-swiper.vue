@@ -1,5 +1,6 @@
 <template>
-	<m-view>
+	<m-view-home>
+		<m-header :title="'轮播组件'"></m-header>
 		<m-scroll>
 			<swiper :options="swiperOption" ref="swiper">
 				<swiper-slide v-for="(slide, index) in banners" :key="index">
@@ -8,7 +9,7 @@
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 			</swiper>
 		</m-scroll>
-	</m-view>
+	</m-view-home>
 </template>
 
 <script>
@@ -32,9 +33,6 @@
       }
     },
     mounted() {
-      this.$axios.get('http://localhost:8080/#/').then((res) => {
-        console.log(res);
-      });
       this.$nextTick(() => {
         this.swiper = this.$refs['swiper'];
         this.swiperUpdate();

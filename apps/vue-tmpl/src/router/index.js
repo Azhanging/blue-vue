@@ -36,8 +36,8 @@ const router = new Router({
       path: 'blue-validate',
       component: Validate,
       meta: {
-        afterHook() {
-          wxShare({
+        afterHook() {     //router after each 钩子
+          wxShare({       //特定的微信分享
             title: 'blue-validate'
           });
         },

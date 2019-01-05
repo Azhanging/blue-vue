@@ -22,9 +22,13 @@ function requestInterceptors() {
     setHeader(axiosConfig);
     setFormData(axiosConfig);
     setProxy(axiosConfig);
-    $loadding({
-      text: false
-    });
+    //是否loadding显示
+    if(axiosConfig.isLoadding === undefined ||
+      axiosConfig.isLoadding === false){
+      $loadding({
+        text: false
+      });
+    }
     return axiosConfig;
   }, function (error) {
     return Promise.reject(error);
@@ -52,6 +56,7 @@ function responseInterceptors() {
   });
 }
 
+//ssr set url
 function setInServer(axiosConfig) {
   if (!inBrowser()) {
     axiosConfig.url = `${config.path.base}${axiosConfig.url}`;
