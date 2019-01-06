@@ -1,6 +1,6 @@
 
 <template>
-	<m-view-home :has-nav="false">
+	<m-home-view :router-level="2">
 		<m-header :title="'下拉加载'"></m-header>
 		<div class="bc-row">
 			<m-scroll
@@ -23,7 +23,7 @@
 				</template>
 			</m-scroll>
 		</div>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

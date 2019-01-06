@@ -1,7 +1,7 @@
 <template>
-	<transition :name="transitionName" mode="out-in">
-		<slot></slot>
-	</transition>
+  <transition :name="transitionName" mode="out-in">
+    <slot></slot>
+  </transition>
 </template>
 
 <script>
@@ -28,45 +28,45 @@
 </script>
 
 <style lang="scss">
-	.slide-left-enter-active,
-	.slide-left-leave-active,
-	.slide-top-enter-active,
-	.slide-top-leave-active,
-	.slide-right-enter-active,
-	.slide-right-leave-active {
-		transition: all .5s;
-	}
+  .slide-left-enter-active,
+  .slide-left-leave-active,
+  .slide-top-enter-active,
+  .slide-top-leave-active,
+  .slide-right-enter-active,
+  .slide-right-leave-active {
+    transition: all .4s;
+  }
 
-	.slide-left-enter,
-	.slide-left-leave-active,
-	.slide-top-enter,
-	.slide-top-leave-active,
-	.slide-right-enter,
-	.slide-right-leave-active {
-		opacity: 0;
-	}
+  .slide-left-enter,
+  .slide-left-leave-active,
+  .slide-top-enter,
+  .slide-top-leave-active,
+  .slide-right-enter,
+  .slide-right-leave-active {
+    opacity: 0;
+  }
 
-	.slide-top-enter {
-		transform: translateY(100px);
-	}
+  .slide-top-enter {
+    transform: translateY(100px);
+  }
 
-	.slide-top-leave-active {
-		transform: translateY(200px);
-	}
+  .slide-top-leave-active {
+    transform: translateY(200px);
+  }
 
-	.slide-left-enter {
-		transform: translateX(-100px);
-	}
+  .slide-left-enter {
+    transform: translateX(-100px);
+  }
 
-	.slide-left-leave-active {
-		transform: translateX(100px);
-	}
+  .slide-left-leave-active {
+    transform: translateX(100px);
+  }
 
-	.slide-right-enter {
-		transform: translateX(100px);
-	}
+  .slide-right-enter {
+    transform: translateX(100px);
+  }
 
-	.slide-right-leave-active {
-		transform: translateX(-100px);
-	}
+  .slide-right-leave-active {
+    transform: translateX(-100px);
+  }
 </style>

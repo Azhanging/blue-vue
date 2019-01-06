@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import { wxShare } from '$wechat';
 import { routerAfterEach } from "./routes-after";
+import { navigator } from '$public/js/navigator';
 
 const Home = () => import(`../views/home/index.vue`);
 const Components = () => import(`../views/components/components.vue`);
@@ -16,6 +17,7 @@ const SwiperScroll = () => import(`../views/components/swiper-scroll/swiper-scro
 Vue.use(Router);
 
 const router = new Router({
+  namespace: true,
   routes: [{
     path: '/',
     name: 'home',
@@ -41,7 +43,8 @@ const router = new Router({
             title: 'blue-validate'
           });
         },
-        title: '验证标题'
+        title: '验证标题',
+        nav: false
       }
     }, {
       path: 'page-list',
@@ -67,7 +70,10 @@ const router = new Router({
       }]
     }, {
       path: 'scroll',
-      component: Scroll
+      component: Scroll,
+      meta: {
+        nav: 'components'
+      }
     }]
   }]
 });

@@ -1,6 +1,6 @@
 <template>
-	<m-view-home>
-		<m-header :title="'分页组件'"></m-header>
+	<m-home-view>
+		<m-header :title="'分页组件'" :router-level="2"></m-header>
 		<div class="bc-pd-15">
 			<m-page-list
 				:all-page="pageList.state.allPage"
@@ -26,7 +26,7 @@
 
 			</m-page-list>
 		</div>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

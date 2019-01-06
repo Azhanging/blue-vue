@@ -1,5 +1,5 @@
 <template>
-	<m-view-home>
+	<m-home-view>
 		<m-header :title="'滑动组件'"></m-header>
 		<m-swiper-scroll @scroll-left="scrollLeft" :active-class-name="'bc-t-success'" :current-index="scrollIndex">
 			<template slot="items">
@@ -11,7 +11,7 @@
 				</a>
 			</template>
 		</m-swiper-scroll>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

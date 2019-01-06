@@ -5,5 +5,8 @@ export const state = {
     timestamp: '',
     nonceStr: '',
     signature: ''
+  },
+  view: {
+    navigator: ''
   }
 };

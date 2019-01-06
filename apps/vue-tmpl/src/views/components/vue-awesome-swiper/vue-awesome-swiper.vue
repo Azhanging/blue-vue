@@ -1,5 +1,5 @@
 <template>
-	<m-view-home>
+	<m-home-view :router-level="2">
 		<m-header :title="'轮播组件'"></m-header>
 		<m-scroll>
 			<swiper :options="swiperOption" ref="swiper">
@@ -9,7 +9,7 @@
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 			</swiper>
 		</m-scroll>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

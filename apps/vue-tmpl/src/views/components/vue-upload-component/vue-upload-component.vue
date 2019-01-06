@@ -1,5 +1,5 @@
 <template>
-	<m-view-home>
+	<m-home-view :router-level="2">
 		<m-header :title="'上传图片'"></m-header>
 		<div class="bc-pd-10">
 			<div class="bc-row">
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

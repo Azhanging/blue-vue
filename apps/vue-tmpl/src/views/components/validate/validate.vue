@@ -1,5 +1,5 @@
 <template>
-	<m-view-home>
+	<m-home-view :router-level="2">
 		<m-header :title="'验证相关'"></m-header>
 		<form action="" @submit="submit" class="bc-v-m" id="form">
 			<div class="bc-pd-10">
@@ -79,7 +79,7 @@
 			</div>
 
 		</form>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

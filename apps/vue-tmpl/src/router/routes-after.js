@@ -2,10 +2,11 @@
 
 import config from '@config';
 import utils from '$utils';
+import { navigator } from "../../../../public/js/navigator";
 
 export function routerAfterEach(opts) {
   const { router, unMatchHook } = opts;
-  router.afterEach((to, from) => {
+  router.afterEach((to) => {
     afterHook({
       to,
       unMatchHook
@@ -15,8 +16,9 @@ export function routerAfterEach(opts) {
 
 export function afterHook(opts) {
   const { to, unMatchHook } = opts;
-  const { title, afterHook } = to.meta;
+  const { title, afterHook, nav } = to.meta;
   docTitle(title);
+  navigator(nav);
   if (afterHook) {
     routerAfterHook(afterHook);
   } else {

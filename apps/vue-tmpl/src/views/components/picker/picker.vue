@@ -1,10 +1,10 @@
 <template>
-	<m-view-home>
+	<m-home-view>
 		<m-header :title="'多级联动'"></m-header>
 		<div class="row overflow-hide">
 			<m-picker :slots="slots" :ajax="ajax"></m-picker>
 		</div>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>

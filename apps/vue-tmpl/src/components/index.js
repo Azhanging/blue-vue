@@ -1,8 +1,8 @@
-import MNavHome from './m-nav-home/m-nav-home';
-import MViewHome from './m-view-home/m-view-home';
+import MNavigator from './m-navigator/m-navigator';
+import MHomeView from './m-home-view/m-home-view';
 
 export function programComponent(opts) {
   const { Vue } = opts;
-  Vue.component('m-nav-home', MNavHome);
-  Vue.component('m-view-home', MViewHome);
+  Vue.component('m-navigator', MNavigator);
+  Vue.component('m-home-view', MHomeView);
 }

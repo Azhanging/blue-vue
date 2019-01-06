@@ -1,5 +1,5 @@
 <template>
-	<m-view-home>
+	<m-home-view>
 		<m-header :title="'组件列表'"></m-header>
 		<div class="bc-row">
 			<div class="bc-row bc-pd-10 bc-t-c">
@@ -35,7 +35,7 @@
 			</m-transition>
 
 		</div>
-	</m-view-home>
+	</m-home-view>
 </template>
 
 <script>
