@@ -21,7 +21,11 @@ export const config = {
       imgUrl: "",
       link: ""
     },
-
+    getConfigApi: {
+      type: 'get',
+      url: '',
+      data: {}
+    }
   },
   error: {},
   axios: {

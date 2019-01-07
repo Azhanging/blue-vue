@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Axios from 'axios';
 import App from './App.vue';
-import config from '@config';
 import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';

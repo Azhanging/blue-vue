@@ -54,7 +54,13 @@ export function useWeChatInVue(Vue) {
 
 //get wechat config in server
 export function getWeChatConfig() {
-  axios.get('').then((res) => {
+  const weChatConfig = config.weChat;
+  const getConfig = weChatConfig.getConfigApi;
+  axios({
+    method: getConfig.type,
+    url: getConfig.url,
+    data: getConfig.data
+  }).then((res) => {
     const { data } = res;
     store.commit('setWeChat', data);
   }).then(() => {
