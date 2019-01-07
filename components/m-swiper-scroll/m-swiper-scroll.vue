@@ -41,8 +41,8 @@
         Velocity(scrollElm, "scroll", {
           axis: 'x',
           duration: 180,
-          container: scrollElm,
           MobileHA: true,
+          container: scrollElm,
           offset: elmOffsetLeft - scrollElm.scrollLeft
         });
 

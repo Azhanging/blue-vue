@@ -4,7 +4,8 @@ export const config = {
   },
   env: {
     isWeChat: /MicroMessenger/ig.test(navigator.userAgent),       //是否在微信端
-    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent)  //是否为移动设备
+    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent),  //是否为移动设备
+    isIphone: /iPhone/ig.test(navigator.userAgent)
   },
   path: {
     base: '',

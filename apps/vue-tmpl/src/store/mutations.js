@@ -4,9 +4,6 @@ const mutations = {
   },
   setNavigator(state, navigator) {
     state.view.navigator = navigator;
-  },
-  setRouterLevel(state, level) {
-    state.router.level = level;
   }
 };
 

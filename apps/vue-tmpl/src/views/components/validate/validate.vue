@@ -43,7 +43,7 @@
 				<span>select：</span>
 
 				<span class="bc-select-down-icon">
-					<select name="select0" v-blue-validate="{validated:function(args){console(args)}}" class="bc-input" v-model="select">
+					<select name="select0" class="bc-input" v-model="select">
 						<option value="">请选择</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -119,7 +119,6 @@ export default {
       if (!result.status) {
         event.preventDefault();
       }
-      console.log(result);
     },
     console(args) {
       console.log(args);

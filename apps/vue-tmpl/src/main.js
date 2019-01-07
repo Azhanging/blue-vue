@@ -4,7 +4,8 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
-import { setViewport } from '$public/js/set-viewport';
+import { iosFixed } from '$public/js/ios-fixed';
+import { setViewport } from '$public/js/viewport';
 import { programComponent } from './components';
 import '@/assets/scss/blue-component.scss';
 
@@ -25,6 +26,9 @@ programComponent({
   Vue
 });
 
+//解决ios下fixed的bug
+iosFixed();
+
 Vue.config.productionTip = false;
 
 /*close vue wran and tips*/
@@ -36,3 +40,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app');
+
+

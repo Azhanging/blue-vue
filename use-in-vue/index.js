@@ -18,7 +18,10 @@ import Suspend from '../components/m-suspend/m-suspend';
 import Transition from '../components/m-transition/m-transition';
 import vuePicturePreview from 'vue-picture-preview';
 import PageList from '../components/m-page-list/m-page-list';
-import BlueValidate from 'blue-validate';
+/*import BlueValidate from 'blue-validate';*/
+
+import BlueValidate from '../../blue-validate/src/index';
+
 import fastclick from 'fastclick';
 
 // 注：

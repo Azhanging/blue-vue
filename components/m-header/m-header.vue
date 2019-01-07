@@ -54,6 +54,7 @@
 	.m-header {
 		position: sticky;
 		top: 0;
+		z-index: 200;
 		background-color: #fff;
 		border-top: 1px solid #f5f5f5;
 		border-bottom: 1px solid #e5e5e5;

@@ -10,6 +10,9 @@
 </template>
 
 <script>
+
+	import Velocity from 'velocity-animate';
+
   export default {
     name: "m-suspend",
     props: {
@@ -35,13 +38,12 @@
     methods: {
       backToTop() {
         if (this.backElement) {
-          this.backElement.scrollTop = 0;
-        } else {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-          if (pageYOffset in window) {
-            window.pageYOffset = 0;
-          }
+          Velocity(this.backElement, "scroll", {
+            container: this.backElement,
+            duration: 180,
+            MobileHA: true,
+            offset: -this.backElement.scrollTop
+          });
         }
       }
     }
