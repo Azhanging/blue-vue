@@ -81,7 +81,7 @@ const router = new Router({
 //router after each
 routerAfterEach({
   router,
-  unMatchHook() {
+  unAfterHook() {
     wxShare();
   }
 });

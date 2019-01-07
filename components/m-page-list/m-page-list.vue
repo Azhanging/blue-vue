@@ -15,7 +15,7 @@
 					上一页
 				</a>
 
-				<a v-for="index in pages" :class="{'m-page-num': current == index}" href="javascript:void(0);" @click="pageJump(index)">
+				<a v-for="index in pages" :class="{'m-page-num': current == index,'bc-t-666': current != index}" href="javascript:void(0);" @click="pageJump(index)">
 					{{index}}
 				</a>
 
@@ -29,7 +29,7 @@
 
 				<span>共 {{allPage}} 页，到第</span>
 
-				<input type="text" class="bc-input bc-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
+				<input type="text" class="bc-input bc-t-c bc-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
 
 				<a class="m-page-num" @click="pageJump(inputPageNum)">
 					确定
@@ -108,10 +108,13 @@
 	.m-page-list {
 		.m-page-num {
 			display: inline-block;
-			padding: 4px;
+			padding: 4px 10px;
 			margin: 4px;
 			background-color: $color-base;
 			color: white;
+			&:hover {
+				background-color: $color-base - 22;
+			}
 		}
 	}
 </style>

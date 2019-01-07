@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Axios from 'axios';
 import App from './App.vue';
+import config from '@config';
 import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
-import { extendInVue } from '../../../extend-in-vue';
 import { setViewport } from '$public/js/set-viewport';
 import { programComponent } from './components';
 import '@/assets/scss/blue-component.scss';
@@ -21,11 +21,6 @@ useInVue({
   Axios
 });
 
-//扩展到vue上
-extendInVue({
-  Vue
-});
-
 //当前项目组件
 programComponent({
   Vue
@@ -36,12 +31,6 @@ Vue.config.productionTip = false;
 /*close vue wran and tips*/
 Vue.config.silent = true;
 Vue.config.warnHandler = false;
-
-/*close localhost wechat alert*/
-/*window.alert = (e) => {
-  console.log(`wechat error:${e}`)
-};*/
-
 
 new Vue({
   router,

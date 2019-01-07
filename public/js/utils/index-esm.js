@@ -161,7 +161,7 @@ class Utils {
 
 const utils = new Utils();
 
-export function extendUtilsInVue(Vue){
+export function useUtilsInVue(Vue){
   Vue.prototype.$utils = utils;
 }
 

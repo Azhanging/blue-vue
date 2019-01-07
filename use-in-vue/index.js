@@ -3,6 +3,12 @@ import { useAxios } from './axios/index';
 import { useMintUi } from './mint-ui/index';
 import { useUpload } from '../components/vue-upload-component/upload';
 import { inBrowser } from "$public/js/in-browser";
+
+import { useWeChatInVue } from '$wechat';
+import { useConfigInVue } from '../config/index';
+import { useUtilsInVue } from '../public/js/utils/index-esm';
+
+
 import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
 import Picker from '../components/m-picker/m-picker';
 import MHeader from '../components/m-header/m-header';
@@ -28,6 +34,7 @@ export function useInVue(opts = {}) {
   const { Vue, Axios } = opts;
 
   if (inBrowser()) {
+    useWeChatInVue(Vue);
     //use fastclick
     fastclick.attach(document.body);
     //图片预览组件
@@ -39,6 +46,11 @@ export function useInVue(opts = {}) {
     //swiper
     useVueAwesomeSwiper(Vue);
   }
+
+  //extend program in Vue
+  useConfigInVue(Vue);
+  //extend utils in Vue
+  useUtilsInVue(Vue);
 
   //use mint
   useMintUi(Vue);

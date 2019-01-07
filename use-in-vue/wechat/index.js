@@ -43,6 +43,9 @@ export function useWeChatInVue(Vue) {
     if (config.env.isWeChat && wx) {
       getWeChatConfig();
       wxShareInVue(Vue);
+      window.alert = (e) => {
+        console.log(`wechat error:${e}`)
+      };
     }
   } catch (e) {
     console.warn(e);
@@ -53,12 +56,7 @@ export function useWeChatInVue(Vue) {
 export function getWeChatConfig() {
   axios.get('').then((res) => {
     const { data } = res;
-    store.commit('setWeChat', {
-      appId: 'wx878c4a26964486ca',
-      timestamp: '1546478261',
-      nonceStr: 'hz6vNG63uu0WOcBe',
-      signature: '89d30583b770390942bdb3248ac60fc4a4998ea8'
-    }, data);
+    store.commit('setWeChat', data);
   }).then(() => {
     setWxSdkConfig();
   });

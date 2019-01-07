@@ -7,6 +7,7 @@ import getters from './getters';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
+  namespaced: true,
   state,
   mutations,
   getters

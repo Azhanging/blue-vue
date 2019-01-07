@@ -20,7 +20,8 @@ export const config = {
       deps: "blue-vue-tmpl is vue public template",
       imgUrl: "",
       link: ""
-    }
+    },
+
   },
   error: {},
   axios: {
@@ -29,7 +30,7 @@ export const config = {
 };
 
 // this.programConfig 为当前项目配置信息
-export function extendConfigInVue(Vue) {
+export function useConfigInVue(Vue) {
   Vue.mixin({
     data() {
       return {

@@ -7,6 +7,6 @@ export const state = {
     signature: ''
   },
   view: {
-    navigator: ''
+    navigator: ''     //导航
   }
 };

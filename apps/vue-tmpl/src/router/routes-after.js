@@ -5,24 +5,24 @@ import utils from '$utils';
 import { navigator } from "../../../../public/js/navigator";
 
 export function routerAfterEach(opts) {
-  const { router, unMatchHook } = opts;
+  const { router, unAfterHook } = opts;
   router.afterEach((to) => {
     afterHook({
       to,
-      unMatchHook
+      unAfterHook
     });
   });
 }
 
 export function afterHook(opts) {
-  const { to, unMatchHook } = opts;
+  const { to, unAfterHook } = opts;
   const { title, afterHook, nav } = to.meta;
   docTitle(title);
   navigator(nav);
   if (afterHook) {
     routerAfterHook(afterHook);
   } else {
-    unMatchRouter(unMatchHook);
+    unRouterAfterHook(unAfterHook);
   }
 }
 
@@ -37,6 +37,6 @@ function routerAfterHook(afterHook) {
 }
 
 //没有匹配到的路由
-function unMatchRouter(unMatchHook) {
-  utils.hook(null, unMatchHook);
+function unRouterAfterHook(unAfterHook) {
+  utils.hook(null, unAfterHook);
 }
