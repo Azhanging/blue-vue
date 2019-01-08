@@ -2,6 +2,7 @@ import store from '@store';
 import axios from 'axios';
 import utils from '$utils';
 import config from '@config';
+import router from '@router';
 
 const { state } = store;
 
@@ -64,7 +65,12 @@ export function getWeChatConfig() {
     data: getConfig.data
   }).then((res) => {
     const { data } = res;
-    store.commit('setWeChat', data);
+    store.commit('setWeChat', {
+      appId: 'wx878c4a26964486ca',
+      timestamp: '1546919285',
+      nonceStr: 'Z2j8mU2PEpqv4tVG',
+      signature: 'f59dcdd2d19ddb037bf0431dc8516524b9147159'
+    } || data);
   }).then(() => {
     setWxSdkConfig();
   });
@@ -92,6 +98,7 @@ export function setWxSdkConfig() {
 
 }
 
+//微信分享，会在ready后执行
 export function wxShare(opts = {}) {
   if (readyStatus == false) {
     weChatTask.add(() => {
@@ -107,9 +114,9 @@ export function share(opts = {}) {
   try {
     const title = opts.title || config.weChat.share.title;
     const desc = opts.desc || opts.title || config.weChat.share.desc || title;
-    const link = opts.link || config.weChat.share.link || location.href;
+    const link = weChatShareLink(opts);
     const imgUrl = opts.imgUrl || config.weChat.share.imgUrl;
-
+    //朋友圈分享
     wx.onMenuShareTimeline({
       title,
       link,
@@ -118,7 +125,7 @@ export function share(opts = {}) {
         utils.hook(this, opts.success);
       }
     });
-
+    //朋友分享
     wx.onMenuShareAppMessage({
       title,
       desc,
@@ -132,6 +139,16 @@ export function share(opts = {}) {
     });
   } catch (e) {
     console.warn(e);
+  }
+}
+
+//微信分享的url可能是动态需要的配置，可以为String或者Function
+function weChatShareLink(opts) {
+  const link = opts.link || config.weChat.share.link || router.getHref();
+  if (utils.isStr(link)) {
+    return link;
+  } else if (utils.isFunction(link)) {
+    return utils.hook(null, link);
   }
 }
 

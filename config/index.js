@@ -20,7 +20,9 @@ export const config = {
       title: "blue-vue-tmpl",
       deps: "blue-vue-tmpl is vue public template",
       imgUrl: "",
-      link: ""
+      link: "" || function(link){
+        return `${link}?p=1`;
+      }
     },
     getConfig: {
       type: 'get',

@@ -1,5 +1,6 @@
 import $utils from '$utils';
-import { config } from '$config'
+import { config } from '$config';
+import router from '@router';
 
 const programConfig = $utils.extend(config, {
   view: {
@@ -9,6 +10,11 @@ const programConfig = $utils.extend(config, {
   weChat: {
     getConfig: {
       url: ''
+    },
+    share: {
+      link() {
+        return router.getHref();
+      }
     }
   }
 });

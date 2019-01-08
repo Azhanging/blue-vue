@@ -47,7 +47,7 @@ class Utils {
   hook(context, callback = function () {
   }, args = []){
     if(typeof callback === 'function'){
-      callback.apply(context, args);
+      return callback.apply(context, args);
     }
   }
 

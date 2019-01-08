@@ -7,6 +7,7 @@ import { useInVue } from '../../../use-in-vue';
 import { iosFixed } from '$public/js/ios-fixed';
 import { setViewport } from '$public/js/viewport';
 import { programComponent } from './components';
+
 import '@/assets/scss/blue-component.scss';
 
 //css

@@ -8,7 +8,6 @@ import { useWeChatInVue } from '$wechat';
 import { useConfigInVue } from '../config/index';
 import { useUtilsInVue } from '../public/js/utils/index-esm';
 
-
 import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
 import Picker from '../components/m-picker/m-picker';
 import MHeader from '../components/m-header/m-header';
@@ -18,10 +17,7 @@ import Suspend from '../components/m-suspend/m-suspend';
 import Transition from '../components/m-transition/m-transition';
 import vuePicturePreview from 'vue-picture-preview';
 import PageList from '../components/m-page-list/m-page-list';
-/*import BlueValidate from 'blue-validate';*/
-
-import BlueValidate from '../../blue-validate/src/index';
-
+import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
 // 注：
@@ -49,12 +45,10 @@ export function useInVue(opts = {}) {
     //swiper
     useVueAwesomeSwiper(Vue);
   }
-
   //extend program in Vue
   useConfigInVue(Vue);
   //extend utils in Vue
   useUtilsInVue(Vue);
-
   //use mint
   useMintUi(Vue);
   //axios

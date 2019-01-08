@@ -103,7 +103,8 @@
 </script>
 
 <style scoped lang="scss">
-	@import '@/assets/scss/blue-component-config.scss';
+
+	@import '@/assets/scss/config.scss';
 
 	.m-page-list {
 		.m-page-num {

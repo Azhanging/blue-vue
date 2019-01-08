@@ -2,8 +2,9 @@
 
 import config from '@config';
 import utils from '$utils';
-import { navigator } from "../../../../public/js/navigator";
+import { navigator } from "$public/js/navigator";
 
+//main
 export function routerAfterEach(opts) {
   const { router, unAfterHook } = opts;
   router.afterEach((to) => {
@@ -14,6 +15,7 @@ export function routerAfterEach(opts) {
   });
 }
 
+//hook
 export function afterHook(opts) {
   const { to, unAfterHook } = opts;
   const { title, afterHook, nav } = to.meta;
