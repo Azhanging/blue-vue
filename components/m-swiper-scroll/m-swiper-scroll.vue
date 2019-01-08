@@ -1,6 +1,6 @@
 <template>
-	<div class="bc-overflow-hide">
-		<div class="bc-row m-swiper-scroll">
+	<div class="m-swiper-scroll-container">
+		<div class="bc-row m-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">
 			<slot name="items" :scroll-left-to="scrollLeftTo"></slot>
 		</div>
 	</div>
@@ -13,6 +13,10 @@
   export default {
     name: "m-swiper-scroll",
     props: {
+      direction: {
+        default: 'x',
+        type: String
+      },
       activeClassName: {
         type: String,
         default: ''
@@ -23,34 +27,50 @@
       }
     },
     watch: {
-      currentIndex(val, oldVal) {
-        this.scrollLeftTo();
+      currentIndex(val) {
+        this.scrollTo();
       }
     },
     methods: {
-      scrollLeftTo() {
+      scrollTo() {
+
+        const direction = this.direction;
         const index = this.currentIndex;
         const wrapElm = this.$el;
         const scrollElm = wrapElm.children[0];
         const elm = scrollElm.children[index];
-        const elmWidth = elm.offsetWidth;
-        const elmLeft = elm.offsetLeft;
-        const parentWidth = scrollElm.offsetWidth;
-        const elmOffsetLeft = (elmLeft - ((parentWidth - elmWidth) / 2));
+
+        let elmWidth, elmLeft, scrollElmWidth;
+        let elmHeight, elmTop, scrollElmHeight;
+        let distance, offset;
+
+        if (direction == 'x') {
+          elmWidth = elm.offsetWidth;
+          elmLeft = elm.offsetLeft;
+          scrollElmWidth = scrollElm.offsetWidth;
+          distance = (elmLeft - ((scrollElmWidth - elmWidth) / 2));
+          offset = distance - scrollElm.scrollLeft;
+        } else if (direction == 'y') {
+          elmHeight = elm.offsetHeight;
+          elmTop = elm.offsetTop;
+          scrollElmHeight = scrollElm.offsetHeight;
+          distance = (elmTop - ((scrollElmHeight - elmHeight) / 2));
+          offset = distance - scrollElm.scrollTop;
+        }
 
         Velocity(scrollElm, "scroll", {
-          axis: 'x',
+          axis: direction,
           duration: 180,
           MobileHA: true,
           container: scrollElm,
-          offset: elmOffsetLeft - scrollElm.scrollLeft
+          offset
         });
 
         this.activeElm(elm);
 
-        this.$emit('scroll-left', {
+        this.$emit('scrolled', {
           elm,
-          offsetLeft: elmOffsetLeft
+          offset: distance
         });
 
       },
@@ -67,7 +87,7 @@
         });
       },
       initScrollTo() {
-        this.scrollLeftTo(this.currentIndex);
+        this.scrollTo(this.currentIndex);
       }
     },
     mounted() {
@@ -77,11 +97,22 @@
 </script>
 
 <style scoped lang="scss">
-	.m-swiper-scroll {
-		overflow-x: scroll;
-		overflow-y: hidden;
-		white-space: nowrap;
-		word-break: break-all;
-		-webkit-overflow-scrolling: touch;
+	.m-swiper-scroll-container {
+		position: relative;
+		overflow: hidden;
+		.m-swiper-scroll {
+			white-space: nowrap;
+			word-break: break-all;
+			-webkit-overflow-scrolling: touch;
+			&.direction-x {
+				overflow-x: scroll;
+				overflow-y: hidden;
+			}
+			&.direction-y {
+				overflow-y: scroll;
+				overflow-x: hidden;
+				height: 100%;
+			}
+		}
 	}
 </style>
