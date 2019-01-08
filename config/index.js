@@ -22,7 +22,7 @@ export const config = {
       imgUrl: "",
       link: ""
     },
-    getConfigApi: {
+    getConfig: {
       type: 'get',
       url: '',
       data: {}

@@ -8,7 +8,7 @@ const { state } = store;
 let readyStatus = false;
 
 //share queue
-class ShareQueueTask {
+class WeChatQueueTask {
   constructor() {
     this.reset();
   }
@@ -31,8 +31,10 @@ class ShareQueueTask {
   }
 }
 
-const shareTask = new ShareQueueTask();
+//微信任务队列
+const weChatTask = new WeChatQueueTask();
 
+//微信 分享
 export function wxShareInVue(Vue) {
   Vue.prototype.$wxShare = wxShare;
 }
@@ -54,8 +56,8 @@ export function useWeChatInVue(Vue) {
 
 //get wechat config in server
 export function getWeChatConfig() {
-  const weChatConfig = config.weChat;
-  const getConfig = weChatConfig.getConfigApi;
+  const weChat = config.weChat;
+  const getConfig = weChat.getConfig;
   axios({
     method: getConfig.type,
     url: getConfig.url,
@@ -68,6 +70,7 @@ export function getWeChatConfig() {
   });
 }
 
+//set wechat config
 export function setWxSdkConfig() {
 
   wx.config({
@@ -84,14 +87,14 @@ export function setWxSdkConfig() {
 
   wx.ready(() => {
     readyStatus = true;
-    shareTask.task();
+    weChatTask.task();
   });
 
 }
 
 export function wxShare(opts = {}) {
   if (readyStatus == false) {
-    shareTask.add(() => {
+    weChatTask.add(() => {
       share(opts);
     });
   } else {

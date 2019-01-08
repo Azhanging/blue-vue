@@ -7,8 +7,8 @@ const programConfig = $utils.extend(config, {
     navigator: 'home'
   },
   weChat: {
-    getConfigApi: {
-      url: '/getConfigApi'
+    getConfig: {
+      url: ''
     }
   }
 });
