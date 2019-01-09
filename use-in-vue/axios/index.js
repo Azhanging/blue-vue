@@ -23,8 +23,8 @@ function requestInterceptors() {
     setFormData(axiosConfig);
     setProxy(axiosConfig);
     //是否loadding显示
-    if(axiosConfig.isLoadding === undefined ||
-      axiosConfig.isLoadding === false){
+    if (axiosConfig.isLoadding === undefined ||
+      axiosConfig.isLoadding === false) {
       $loadding({
         text: false
       });
@@ -38,6 +38,7 @@ function requestInterceptors() {
 //response interceptors
 function responseInterceptors() {
   axios.interceptors.response.use(function (res) {
+
     $closeLoadding();
     //success state
     if (res.status == 200) {

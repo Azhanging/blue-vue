@@ -2,14 +2,21 @@
   max-width: 320px;
 }
 
+//indicator图层的样式添加
+.mint-indicator {
+  position: relative;
+  z-index: 1000000;
+}
+
 /* 覆盖mint-ui的primary颜色，改为微信UI的绿色 */
+/*
 $color-primary: #1aad19;
 
 .mint-header {
   background-color: $color-primary;
 }
 .mint-button:not(.is-disabled):active::after {
-  opacity: .2 /* .6 */
+  opacity: .2 !* .6 *!
 }
 .mint-button--primary {
   background-color: $color-primary;
@@ -57,4 +64,4 @@ $color-primary: #1aad19;
 }
 .mint-datetime-action {
   color: $color-primary;
-}
+}*/

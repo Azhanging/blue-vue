@@ -11,7 +11,7 @@ import { programComponent } from './components';
 import '@/assets/scss/blue-component.scss';
 
 //css
-/*import '@/assets/scss/mint-ui.scss';*/
+import '@/assets/scss/mint-ui.scss';
 
 //移动端设置viewport
 setViewport();
