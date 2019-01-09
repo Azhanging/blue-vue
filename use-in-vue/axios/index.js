@@ -4,7 +4,7 @@ import config from '@config';
 import utils from '$utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
-import { inBrowser } from "../../public/js/in-browser";
+import { inBrowser } from "$public/js/in-browser";
 
 export function useAxios(Vue, opts) {
   requestInterceptors();

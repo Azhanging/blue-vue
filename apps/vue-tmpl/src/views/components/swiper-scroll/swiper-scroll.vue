@@ -4,7 +4,7 @@
 
 		<!-- x-滑动 -->
 		<m-swiper-scroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
-			<template slot="items">
+			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-inline-block bc-t-base"
 				   @click="activeIndex(i-1)"
@@ -16,7 +16,7 @@
 
 		<!-- y-滑动 -->
 		<m-swiper-scroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bc-t-success'" :current-index="scrollIndex" direction="y">
-			<template slot="items">
+			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-block bc-t-base"
 				   @click="activeIndex(i-1)"

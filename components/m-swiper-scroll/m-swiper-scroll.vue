@@ -1,7 +1,7 @@
 <template>
 	<div class="m-swiper-scroll-container">
 		<div class="bc-row m-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">
-			<slot name="items" :scroll-left-to="scrollLeftTo"></slot>
+			<slot name="scroll-items" :scroll-to="scrollTo"></slot>
 		</div>
 	</div>
 </template>

@@ -29,7 +29,7 @@
       },
       hasNav: {
         default: true,
-        type: Boolean
+        type: [Boolean, String]
       }
     },
     computed: {

@@ -16,7 +16,9 @@ module.exports = {
       '$public': resolve(`./public`),
       '$utils': resolve(`./public/js/utils/index-esm`),
       '$upload': resolve(`./components/vue-upload-component/upload`),
-      '$wechat': resolve(`./use-in-vue/wechat`)
+      '$wechat': resolve(`./use-in-vue/wechat`),
+      '$use-in-vue': resolve(`./use-in-vue`),
+      '$use-in-vue-router': resolve(`./use-in-vue-router`),
     }
   }
 };

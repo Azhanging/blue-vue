@@ -7,7 +7,7 @@ export function useInVueRouter(Router) {
     if (this.mode === 'hash') {
       return `${location.host}/#${fullPath}`;
     } else if (this.mode === 'history') {
-      return `${location.host}/${fullPath}`;
+      return `${location.host}${fullPath}`;
     }
   }
 }

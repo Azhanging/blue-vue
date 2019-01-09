@@ -2,8 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import { wxShare } from '$wechat';
 import { navigator } from '$public/js/navigator';
-import { useInVueRouter } from '../../../../use-in-vue-router';
-import { routerAfterEach } from "../../../../use-in-vue-router/router-after";
+import { useInVueRouter } from '$use-in-vue-router';
+import { routerAfterEach } from "$use-in-vue-router/router-after";
 
 //路由地址
 import home from './home';

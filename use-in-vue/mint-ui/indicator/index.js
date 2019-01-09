@@ -1,5 +1,5 @@
 import { Indicator } from 'mint-ui';
-import { inBrowser } from "../../../public/js/in-browser";
+import { inBrowser } from "$public/js/in-browser";
 
 export function setIndicator(Vue) {
 
