@@ -22,17 +22,9 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/store/mutations.js" />
       <change beforePath="" afterPath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/store/state.js" />
       <change beforePath="" afterPath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/vue.config.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/js/device.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/main.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/main.js" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/components/index.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/router/components/index.js" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/store/getters.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/store/getters.js" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/validate/validate.vue" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/validate/validate.vue" />
-      <change beforePath="$PROJECT_DIR$/components/m-page-list/m-page-list.vue" afterPath="$PROJECT_DIR$/components/m-page-list/m-page-list.vue" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
-      <change beforePath="$PROJECT_DIR$/public/js/ios-fixed.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/use-in-vue-router/router-after.js" afterPath="$PROJECT_DIR$/use-in-vue-router/router-after.js" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue" />
+      <change beforePath="$PROJECT_DIR$/components/m-picker/m-picker.vue" afterPath="$PROJECT_DIR$/components/m-picker/m-picker.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,117 +38,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="device.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/device.js">
+      <file leaf-file-name="m-picker.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/m-picker/m-picker.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="46">
+              <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
               <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="n#!!block;n#device#0" expanded="false" />
-                <element signature="n#!!block;n#setViewport#0" expanded="false" />
-                <element signature="n#!!block;n#mobileFocus#0" expanded="false" />
-                <element signature="n#!!block;n#iosFocus#0" expanded="false" />
-                <element signature="n#!!block;n#androidResize#0" expanded="false" />
+                <element signature="e#854#1019#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#269#295#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="in-browser.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/in-browser.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/config/index.js">
+      <file leaf-file-name="picker.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="437">
-              <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="25" column="17" lean-forward="true" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/use-in-vue-router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="42" lean-forward="true" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validate.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/validate/validate.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="13" column="79" lean-forward="false" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="router-after.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-after.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-              <folding>
-                <element signature="e#27#56#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/router/components/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+              <caret line="46" column="7" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -176,8 +74,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>logError</find>
-      <find>overflow</find>
       <find>loadEvent</find>
       <find>m-children-view</find>
       <find>m-page-view</find>
@@ -206,6 +102,8 @@
       <find>scrollLeftTo</find>
       <find>nav</find>
       <find>afterEach</find>
+      <find>values</find>
+      <find>slot.values</find>
     </findStrings>
     <replaceStrings>
       <replace>m-transition</replace>
@@ -231,8 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/components/m-home-nav/m-home-nav.vue" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/components/index.js" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/App.vue" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/store/state.js" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/components/m-navigator/m-navigator.vue" />
@@ -245,7 +141,6 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/public/js/navigator.js" />
         <option value="$PROJECT_DIR$/components/m-suspend/m-suspend.vue" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/components.vue" />
         <option value="$PROJECT_DIR$/components/m-header/m-header.vue" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/home/index.vue" />
         <option value="$PROJECT_DIR$/../blue-validate/src/validate/form-validate.js" />
@@ -269,7 +164,6 @@
         <option value="$PROJECT_DIR$/vue-config/index.js" />
         <option value="$PROJECT_DIR$/components/m-view/m-view.vue" />
         <option value="$PROJECT_DIR$/components/m-swiper-scroll/m-swiper-scroll.vue" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/swiper-scroll/swiper-scroll.vue" />
         <option value="$PROJECT_DIR$/public/scss/blue-component/src/scss/form/button/index.scss" />
         <option value="$PROJECT_DIR$/public/scss/blue-component/src/scss/form/input/index.scss" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/store/getters.js" />
@@ -282,6 +176,10 @@
         <option value="$PROJECT_DIR$/public/js/device.js" />
         <option value="$PROJECT_DIR$/use-in-vue-router/router-after.js" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js" />
+        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/components.vue" />
+        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/swiper-scroll/swiper-scroll.vue" />
+        <option value="$PROJECT_DIR$/components/m-picker/m-picker.vue" />
+        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue" />
       </list>
     </option>
   </component>
@@ -305,7 +203,7 @@
     </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1932" />
@@ -381,12 +279,37 @@
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
               <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="use-in-vue-router" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="picker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
+              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="m-picker" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -561,12 +484,12 @@
       <workItem from="1546909703302" duration="1481000" />
       <workItem from="1546912564349" duration="20225000" />
       <workItem from="1546995642050" duration="19904000" />
-      <workItem from="1547081380097" duration="7671000" />
+      <workItem from="1547081380097" duration="20088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="518130000" />
+    <option name="totallyTimeSpent" value="530547000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -578,11 +501,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18387777" sideWeight="0.41993958" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25869337" sideWeight="0.48932928" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17281349" sideWeight="0.48932928" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22209822" sideWeight="0.40358272" order="7" side_tool="true" content_ui="tabs" />
@@ -635,53 +558,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="46" />
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/assets/scss/config.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="46" column="3" lean-forward="false" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#53#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/m-scroll/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/axios/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/assets/scss/mint-ui.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -724,6 +605,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -810,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/components/m-home-view/m-home-view.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-207">
@@ -848,13 +723,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/swiper-scroll/swiper-scroll.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scss/blue-component/src/scss/config/extend.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -873,6 +741,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -880,6 +749,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +846,7 @@
         <state relative-caret-position="276">
           <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
             <element signature="n#!!block;n#device#0" expanded="false" />
             <element signature="n#!!block;n#setViewport#0" expanded="false" />
             <element signature="n#!!block;n#mobileFocus#0" expanded="false" />
@@ -1007,7 +877,7 @@
         <state relative-caret-position="437">
           <caret line="19" column="3" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1017,16 +887,6 @@
         <state relative-caret-position="-253">
           <caret line="13" column="79" lean-forward="false" selection-start-line="13" selection-start-column="79" selection-end-line="13" selection-end-column="79" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-after.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="e#27#56#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,9 +905,83 @@
         <state relative-caret-position="398">
           <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#269#295#0" expanded="true" />
+            <element signature="e#0#22#0" expanded="false" />
+            <element signature="e#269#295#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-after.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#27#56#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/components.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/vue-upload-component/vue-upload-component.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/swiper-scroll/swiper-scroll.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="41" lean-forward="true" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding>
+            <element signature="n#m-swiper-scroll#0;n#m-home-view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#m-swiper-scroll#1;n#m-home-view#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#m-swiper-scroll#1;n#m-home-view#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="54" column="23" lean-forward="true" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/m-transition/m-transition.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/m-picker/m-picker.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="39" lean-forward="false" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding>
+            <element signature="e#854#1019#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="46" column="7" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

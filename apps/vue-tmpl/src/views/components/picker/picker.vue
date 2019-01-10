@@ -2,7 +2,24 @@
 	<m-home-view>
 		<m-header :title="'多级联动'"></m-header>
 		<div class="row overflow-hide">
-			<m-picker :slots="slots" :ajax="ajax"></m-picker>
+			<m-picker :slots="slots" :ajax="ajax">
+				<template slot-scope="scope">
+					<!-- 联动的数据 -->
+					<span class="bc-select-wrap bc-select-down-icon bc-mg-10" v-for="(slot,index) in slots" v-show="slot.values.length > 0">
+						<select
+							class="bc-input"
+							:name="slot.name"
+							v-model="slot.value"
+							@change="scope.changePicker($event,index)"
+						>
+							<option value="">请选择</option>
+							<option :value="item.id" v-for="item in slot.values">
+								{{item.name}}
+							</option>
+						</select>
+					</span>
+				</template>
+			</m-picker>
 		</div>
 	</m-home-view>
 </template>
@@ -14,23 +31,15 @@ export default {
     return {
       slots: [{
         values: [],
-        wrapClassName: 'bc-select-down-icon bc-mg-10',
-        className: 'bc-input',
         value: '659005'
       }, {
         values: [],
-        wrapClassName: 'bc-select-down-icon bc-mg-10',
-        className: 'bc-input',
         value: '44'
       }, {
         values: [],
-        wrapClassName: 'bc-select-down-icon bc-mg-10',
-        className: 'bc-input',
         value: '4402'
       }, {
         values: [],
-        wrapClassName: 'bc-select-down-icon bc-mg-10',
-        className: 'bc-input',
         value: '440204'
       }],
       ajax: {

@@ -1,21 +1,6 @@
 <template>
 	<span>
-		<template v-for="(slot,index) in slots">
-			<!-- 联动的数据 -->
-			<span class="bc-select-wrap" :class="slot.wrapClassName" v-show="slot.values.length > 0">
-				<select
-					:name="slot.name"
-					:class="slot.className"
-					v-model="slot.value"
-					@change="changePicker($event,index)"
-				>
-					<option value="">请选择</option>
-					<option :value="item.id" v-for="item in slot.values">
-						{{item.name}}
-					</option>
-				</select>
-			</span>
-		</template>
+		<slot :change-picker="changePicker"></slot>
 	</span>
 </template>
 
@@ -30,7 +15,7 @@
   function getSlotsItemData(opts) {
     const { index } = opts;
     const params = utils.extend(this.ajax.params, {
-      id: opts.id
+      [this.ajax.key]: opts.id
     });
     this.$axios({
       url: this.ajax.url,
@@ -76,8 +61,6 @@
       slots: {
         default: [/*{
           values: [],
-          name: '',   //form name
-          className: '',
           value: ''
         }*/]
       },
