@@ -3,42 +3,38 @@
 import config from '@config';
 import utils from '$utils';
 import { navigator } from "$public/js/navigator";
+import { $closeLoadding } from "$use-in-vue/mint-ui/indicator";
 
 //main
 export function routerAfterEach(opts) {
-  const { router, unAfterHook } = opts;
-  router.afterEach((to) => {
-    afterHook({
+  const { router, unAfterHook, afterEach } = opts;
+  router.afterEach((to, form) => {
+    $closeLoadding();
+    //项目内使用的after each
+    utils.hook(null, afterEach, [{ to, form }]);
+    //公共的after hook
+    routerAfterHook({
       to,
+      form,
       unAfterHook
     });
   });
 }
 
 //hook
-export function afterHook(opts) {
+export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
-  const { title, afterHook, nav } = to.meta;
+  const { title, afterHook, navigator: navigatorName } = to.meta;
   docTitle(title);
-  navigator(nav);
+  navigator(navigatorName);
   if (afterHook) {
-    routerAfterHook(afterHook);
+    utils.hook(null, afterHook);
   } else {
-    unRouterAfterHook(unAfterHook);
+    utils.hook(null, unAfterHook);
   }
 }
 
 //document title
 function docTitle(title) {
   document.title = title || config.view.title;
-}
-
-//after hook
-function routerAfterHook(afterHook) {
-  utils.hook(null, afterHook);
-}
-
-//没有匹配到的路由
-function unRouterAfterHook(unAfterHook) {
-  utils.hook(null, unAfterHook);
 }

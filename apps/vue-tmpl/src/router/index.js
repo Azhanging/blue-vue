@@ -22,6 +22,10 @@ const router = new Router({
 //router after each
 routerAfterEach({
   router,
+  //根据项目需要的after each（可选）
+  afterEach(to, from) {
+    console.log(to, from);
+  },
   unAfterHook() {
     wxShare();
   }

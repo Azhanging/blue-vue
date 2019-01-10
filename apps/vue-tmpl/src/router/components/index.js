@@ -31,7 +31,7 @@ const components = {
         });
       },
       title: '验证标题',
-      nav: false
+      navigator: false
     }
   }, {
     path: 'page-list',
@@ -44,7 +44,10 @@ const components = {
     component: Swiper
   }, {
     path: 'vue-upload-component',
-    component: Upload
+    component: Upload,
+    meta: {
+      navigator: false
+    }
   }, {
     path: 'picker',
     component: Picker
@@ -59,7 +62,7 @@ const components = {
     path: 'scroll',
     component: Scroll,
     meta: {
-      nav: 'components'
+      navigator: 'components'
     }
   }]
 };

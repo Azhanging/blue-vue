@@ -4,8 +4,7 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
-import { iosFixed } from '$public/js/ios-fixed';
-import { setViewport } from '$public/js/viewport';
+import { device } from '$public/js/device';
 import { useInVueProgram } from './use-in-vue-program';
 
 //公共css，项目配置项assets/scss/config
@@ -14,10 +13,8 @@ import '@/assets/scss/blue-component.scss';
 //预设mint-ui中的css
 import '@/assets/scss/mint-ui.scss';
 
-//移动端设置viewport，计算来源查看blue-component中的viewport.scss
-setViewport();
-//解决ios下fixed的bug
-iosFixed();
+//设备相关
+device();
 
 //使用插件到Vue，相对于公共的插件
 useInVue({

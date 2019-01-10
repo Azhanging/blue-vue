@@ -2,6 +2,7 @@
 	<m-home-view :router-level="2">
 		<m-header :title="'验证相关'"></m-header>
 		<form action="" @submit="submit" class="bc-v-m" id="form">
+
 			<div class="bc-pd-10">
 				<span>textarea：</span><textarea name="textarea" class="bc-input" id="" cols="30" rows="10" v-blue-validate="valid" v-model="input"></textarea>
 				<a @click="change">
