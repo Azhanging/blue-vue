@@ -10,6 +10,9 @@
 		<!-- 浮层 -->
 		<slot name="suspend" :scroll="scroll"></slot>
 
+		<!-- 底部 -->
+		<slot name="footer"></slot>
+
 	</div>
 </template>
 

@@ -26,15 +26,22 @@ function mobileFocus() {
   }
 }
 
+//ios device
 function iosFocus() {
+
   let lastNav;
   document.body.addEventListener('focusin', () => {
     lastNav = store.state.view.navigator;
-    store.commit('setNavigator', false);
+    focusHook({
+      type: 'focusin'
+    });
   });
 
   document.body.addEventListener('focusout', () => {
-    store.commit('setNavigator', lastNav);
+    focusHook({
+      type: 'focusout',
+      lastNav
+    });
     Vue.nextTick(() => {
       setTimeout(() => {
         document.body.scrollTop = document.body.scrollHeight;
@@ -43,16 +50,38 @@ function iosFocus() {
   });
 }
 
-function androidResize(){
+//android device
+function androidResize() {
   let lastNav;
-  const originalHeight = document.documentElement.clientHeight || document.body.clientHeight;
+  const originalHeight = getClientHeight();
   window.onresize = function () {
-    const resizeHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    const resizeHeight = getClientHeight();
     if (resizeHeight - 0 < originalHeight - 0) {
       lastNav = store.state.view.navigator;
-      store.commit('setNavigator', false);
+      focusHook({
+        type: 'focusin'
+      });
     } else {
-      store.commit('setNavigator', lastNav);
+      focusHook({
+        type: 'focusout',
+        lastNav
+      });
     }
+  }
+}
+
+//获取窗口的大小
+function getClientHeight() {
+  return document.documentElement.clientHeight || document.body.clientHeight;
+}
+
+//切换状态后的钩子
+function focusHook(opts) {
+  if (opts.type === 'focusout') {
+    store.commit('setNavigator', opts.lastNav);
+    store.commit('setPageFooter', true);
+  } else if (opts.type === 'focusin') {
+    store.commit('setNavigator', false);
+    store.commit('setPageFooter', false);
   }
 }

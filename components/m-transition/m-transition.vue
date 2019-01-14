@@ -51,7 +51,7 @@
   }
 
   .slide-top-leave-active {
-    transform: translateY(200px);
+    transform: translateY(100px);
   }
 
   .slide-left-enter {

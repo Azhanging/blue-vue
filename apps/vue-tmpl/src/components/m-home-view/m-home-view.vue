@@ -1,13 +1,17 @@
 <template>
-  <m-view :has-nav="view.navigator" :router-level="routerLevel">
+	<m-view :has-nav="view.navigator" :router-level="routerLevel">
 
-    <slot></slot>
+		<slot></slot>
 
-    <template slot="suspend" slot-scope="scope">
-      <m-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></m-suspend>
-    </template>
+		<template slot="suspend" slot-scope="scope">
+			<m-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></m-suspend>
+		</template>
 
-  </m-view>
+		<template slot="footer">
+			<slot name="footer"></slot>
+		</template>
+
+	</m-view>
 </template>
 
 <script>
@@ -39,7 +43,7 @@
 </script>
 
 <style scoped lang="scss">
-  .no-nav {
+	.no-nav {
 
-  }
+	}
 </style>

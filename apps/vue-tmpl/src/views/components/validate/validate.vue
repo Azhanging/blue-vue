@@ -1,7 +1,9 @@
 <template>
-	<m-home-view :router-level="2">
+	<m-home-view :router-level="2" style="padding-bottom:58px;">
+
 		<m-header :title="'验证相关'"></m-header>
-		<form action="" @submit="submit" class="bc-v-m" id="form">
+
+		<form action="" class="bc-v-m">
 
 			<div class="bc-pd-10">
 				<span>textarea：</span><textarea name="textarea" class="bc-input" id="" cols="30" rows="10" v-blue-validate="valid" v-model="input"></textarea>
@@ -68,62 +70,78 @@
 				</span>
 
 			</div>
+
 			<div class="bc-pd-10">
 				<input type="text" value="123" class="bc-input">
 			</div>
+
 			<div class="bc-pd-10">
 				<input type="text" value="456" class="bc-input">
 			</div>
 
-			<div class="bc-pd-10">
-				<button class="bc-btn bc-btn-success">提交</button>
-			</div>
-
 		</form>
+
+		<!-- 固定到底部提交按钮 -->
+		<div slot="footer" class="bc-ps-f bc-row" style="left:0;bottom:0;" v-show="pageFooter" @click="submit">
+			<button class="bc-btn bc-btn-success bc-w-100" style="padding-top:12px;padding-bottom:12px;">提交</button>
+		</div>
+
 	</m-home-view>
 </template>
 
 <script>
-export default {
-  name: "validate",
-  data() {
-    return {
-      input: '',
-      radio0: '',
-      checkbox: [],
-      select: '',
-      valid: {
-        validate: [{ type: '*' }]
-      }
-    }
-  },
-  methods: {
-    change() {
-      this.input = `aaaaaaaaaaa`;
-      this.radio0 = 1;
-      this.checkbox = [1];
-      this.select = 1;
-      this.select = 1;
-      this.$nextTick(() => {
-        this.$validate(document.querySelector('#form'));
-      });
-      //this.valid = { validate: [] };
-    },
-    textValidate(data) {
+
+	import store from '@store';
+
+  export default {
+    name: "validate",
+    data() {
       return {
-        info: '输入有误有问题',
-        status: data.length === 11
-      };
-    },
-    submit($event) {
-      const result = this.$validate($event);
-      if (!result.status) {
-        event.preventDefault();
+        input: '',
+        radio0: '',
+        checkbox: [],
+        select: '',
+        valid: {
+          validate: [{ type: '*' }]
+        }
       }
     },
-    console(args) {
-      console.log(args);
+    computed: {
+      pageFooter() {
+        return store.state.view.pageFooter;
+      }
+    },
+    methods: {
+      change() {
+        const parent = this.$parent.$el;
+        const form = parent.querySelectorAll('form')[0];
+        this.input = `aaaaaaaaaaa`;
+        this.radio0 = 1;
+        this.checkbox = [1];
+        this.select = 1;
+        this.select = 1;
+        this.$nextTick(() => {
+          this.$validate(form);
+        });
+      },
+      textValidate(data) {
+        return {
+          info: '输入有误有问题',
+          status: data.length === 11
+        };
+      },
+      submit() {
+        const parent = this.$parent.$el;
+        const form = parent.querySelectorAll('form')[0];
+        const result = this.$validate(form);
+        if (result.status) {
+          form.submit();
+        }
+      },
+      console(args) {
+        console.log(args);
+      }
     }
-  }
-}
+  };
+
 </script>

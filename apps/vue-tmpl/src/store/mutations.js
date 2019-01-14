@@ -1,10 +1,9 @@
-const mutations = {
-  setWeChat(state, weChat) {
-    state.weChat = weChat;
-  },
-  setNavigator(state, navigator) {
-    state.view.navigator = navigator;
-  }
-};
+import utils from '$utils';
+import publicMutation from '$config/store/mutations';
+
+//扩展公共的mutations
+const mutations = utils.extend(publicMutation, {
+  /*项目相关mutation*/
+});
 
 export default mutations;
