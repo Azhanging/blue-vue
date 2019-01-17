@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
-    "blue-validate": "^1.1.9",
+    "blue-validate": "^1.1.11",
     "fastclick": "^1.0.6",
     "mint-ui": "^2.2.13",
     "velocity-animate": "^1.5.2",
