@@ -37,7 +37,8 @@ const components = {
     path: 'page-list',
     component: PageList,
     meta: {
-      title: 'page list'
+      title: 'page list',
+      navigator: 'page'     //不存在的导航，默认设置为false
     }
   }, {
     path: 'vue-awesome-swiper',

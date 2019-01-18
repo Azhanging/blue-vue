@@ -1,5 +1,5 @@
 <template>
-	<m-home-view :router-level="2" style="padding-bottom:58px;">
+	<m-home-view :router-level="2" style="padding-bottom:48px;">
 
 		<m-header :title="'验证相关'"></m-header>
 

@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-  <m-nav v-if="nav" :nav="nav" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></m-nav>
+	<m-nav v-if="nav" :nav="nav" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></m-nav>
 </template>
 
 <script>
@@ -12,7 +12,7 @@
     data() {
       return {
         activeIndex: -1,
-        allNav: {
+        allNavigator: {
           'home': {
             nav: [{
               content: '首页',
@@ -45,7 +45,7 @@
               content: 'scroll',
               to: '/components/scroll'
             }],
-            active(){
+            active() {
               const currentRouter = this.$router.currentRoute;
               const path = currentRouter.fullPath;
               if (/^\/components\/scroll/.test(path)) {
@@ -63,7 +63,7 @@
         return store.state.view.navigator;
       },
       nav() {
-        const currentNav = this.allNav[this.navName];
+        const currentNav = this.allNavigator[this.navName];
         return currentNav && currentNav.nav;
       }
     },
@@ -74,8 +74,13 @@
     },
     methods: {
       activeNav() {
-        if (this.navName) {
-          this.allNav[this.navName].active.call(this);
+        //匹配到对应导航配置
+	      const nav = this.allNavigator[this.navName];
+        if (nav) {
+          nav.active.call(this);
+        } else if (this.navName !== false) {
+          //没有配置到导航配置，直接设置为没有导航
+          store.commit('setNavigator', false);
         }
       }
     },
@@ -84,7 +89,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

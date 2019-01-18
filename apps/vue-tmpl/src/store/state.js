@@ -1,5 +1,5 @@
 import utils from '$utils';
-import { state as publicState } from '$config/store/state';
+import publicState from '$config/store/state';
 
 //扩展公共的state
 const state = utils.extend(publicState, {
