@@ -1,3 +1,4 @@
+<!-- 加载更多的组件 -->
 <template>
 	<div
 		:infinite-scroll-distance="distance"

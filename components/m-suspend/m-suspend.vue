@@ -1,3 +1,4 @@
+<!-- 浮层组件 -->
 <template>
 	<div class="suspend">
 		<!-- 回到顶部 -->
@@ -16,6 +17,7 @@
   export default {
     name: "m-suspend",
     props: {
+      //对应的m-view中的element
       backElement: {
         type: Element
       },
@@ -37,14 +39,13 @@
     },
     methods: {
       backToTop() {
-        if (this.backElement) {
-          Velocity(this.backElement, "scroll", {
-            container: this.backElement,
-            duration: 180,
-            MobileHA: true,
-            offset: -this.backElement.scrollTop
-          });
-        }
+        if (!this.backElement) return;
+        Velocity(this.backElement, "scroll", {
+          container: this.backElement,
+          duration: 180,
+          MobileHA: true,
+          offset: -this.backElement.scrollTop
+        });
       }
     }
   }

@@ -1,9 +1,10 @@
+<!-- 头部组件 -->
 <template>
 	<div class="m-header">
 		<div class="m-header-container">
 			<div class="m-header-control">
 				<slot name="left-control">
-					<a class="m-header-btn" @click="back">
+					<a class="m-header-btn" @click="leftControlHandler">
 						<span class="bc-arrow bc-arrow-l bc-arrow"></span>
 					</a>
 				</slot>
@@ -23,17 +24,20 @@
   export default {
     name: "m-header",
     props: {
+      //左边控制
       leftControl: {
         default: '',
         type: String
       },
+      //标题
       title: {
         type: [String, Function],
         default: ""
       }
     },
     methods: {
-      back() {
+      //左边控制的方法
+      leftControlHandler() {
         const utils = this.$utils;
         const leftControl = this.leftControl;
         if (leftControl && utils.isStr(leftControl)) {
@@ -69,8 +73,13 @@
 				}
 			}
 			.m-header-title {
+				max-width: 190px;
 				padding: 10px;
 				font-size: 1rem;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				word-wrap: normal;
+				white-space: nowrap;
 			}
 		}
 	}

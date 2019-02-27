@@ -1,5 +1,5 @@
 <template>
-	<m-home-view>
+	<m-home-view :router-level="2">
 		<m-header :title="'多级联动'"></m-header>
 		<div class="row overflow-hide">
 			<m-picker :slots="slots" :ajax="ajax">

@@ -1,3 +1,4 @@
+<!-- 底部导航组件 -->
 <template>
   <div class="m-nav">
     <div class="m-nav-list">

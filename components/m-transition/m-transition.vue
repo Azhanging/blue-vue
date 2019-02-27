@@ -14,7 +14,7 @@
       }
     },
     watch: {
-      '$route'(to, from) {
+      ['$route'](to, from) {
         if (this.transition) {
           this.transitionName = this.transition;
         } else {

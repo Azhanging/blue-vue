@@ -68,7 +68,7 @@
 
 	.m-view-scroll {
 		width: 100%;
-		height: 100%;
+		height: calc(100% + 1px);
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 	}

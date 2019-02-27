@@ -1,3 +1,4 @@
+<!-- 滑动组件 -->
 <template>
 	<div class="m-swiper-scroll-container">
 		<div class="bc-row m-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">

@@ -26,17 +26,15 @@
       ...mapState(['view'])
     },
     props: {
+      //路由层级，用于多个position fixed的时候使用
       routerLevel: {
         default: 1,
         type: Number
       },
+      //是否有浮动的层级
       hasSuspend: {
         default: true,
         type: Boolean
-      },
-      routerLevel: {
-        default: 1,
-        type: Number
       }
     }
   }
