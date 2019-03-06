@@ -1,6 +1,6 @@
 import store from '@store';
 import axios from 'axios';
-import utils from '$utils';
+import utils from 'blue-utils';
 import config from '@config';
 import router from '@router';
 

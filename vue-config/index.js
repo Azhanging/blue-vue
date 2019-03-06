@@ -7,18 +7,20 @@ function resolve(dir) {
 //public webpack config
 //$开头的为公共别名路径
 module.exports = {
-  resolve: {
-    alias: {
-      '$config': resolve(`./config`),
-      '$components': resolve(`./components`),
-      '$scroll': resolve(`./components/m-scroll/index`),
-      '$page-list': resolve(`./components/m-page-list/index`),
-      '$public': resolve(`./public`),
-      '$utils': resolve(`./public/js/utils/index-esm`),
-      '$upload': resolve(`./components/vue-upload-component/upload`),
-      '$wechat': resolve(`./use-in-vue/wechat`),
-      '$use-in-vue': resolve(`./use-in-vue`),
-      '$use-in-vue-router': resolve(`./use-in-vue-router`),
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '$config': resolve(`./config`),
+        '$components': resolve(`./components`),
+        '$scroll': resolve(`./components/m-scroll/index`),
+        '$page-list': resolve(`./components/m-page-list/index`),
+        '$public': resolve(`./public`),
+        '$upload': resolve(`./components/vue-upload-component/upload`),
+        '$wechat': resolve(`./use-in-vue/wechat`),
+        '$use-in-vue': resolve(`./use-in-vue`),
+        '$use-in-vue-router': resolve(`./use-in-vue-router`),
+      }
     }
-  }
+  },
+  filenameHashing: false
 };

@@ -9,6 +9,11 @@ vue项目文件夹
 ### ./vue-config 
 公共的vue配置信息，项目的vue.config.js extend当前配置
 
+需要修改chunk对应的name不带hash的把./vue-config/app.js替换
+项目中的node_modules/@vue/cli-service/lib/config/app.js,
+其中还默认的非chunk包加上hash（hash由html-webpack-plugin提供），
+有需要的自行修改这个app.js
+
 ### ./components 
 公共的组件
 

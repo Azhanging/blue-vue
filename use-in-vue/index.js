@@ -6,7 +6,7 @@ import { inBrowser } from "$public/js/in-browser";
 
 import { useWeChatInVue } from '$wechat';
 import { useConfigInVue } from '../config/index';
-import { useUtilsInVue } from '../public/js/utils/index-esm';
+import utils from 'blue-utils';
 
 import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
 import Picker from '../components/m-picker/m-picker';
@@ -48,7 +48,7 @@ export function useInVue(opts = {}) {
   //extend program in Vue
   useConfigInVue(Vue);
   //extend utils in Vue
-  useUtilsInVue(Vue);
+  Vue.prototype.$utils = utils;
   //use mint
   useMintUi(Vue);
   //axios

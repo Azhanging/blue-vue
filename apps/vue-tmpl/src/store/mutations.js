@@ -1,4 +1,4 @@
-import utils from '$utils';
+import utils from 'blue-utils';
 import publicMutation from '$config/store/mutations';
 
 //扩展公共的mutations

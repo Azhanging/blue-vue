@@ -1,6 +1,5 @@
 const publicVueConfig = require('../../vue-config');
-const utils = require('../../public/js/utils');
-
+const utils = require('blue-utils');
 const path = require('path');
 
 function resolve(dir) {

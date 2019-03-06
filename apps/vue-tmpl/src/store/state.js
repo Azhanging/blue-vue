@@ -1,4 +1,4 @@
-import utils from '$utils';
+import utils from 'blue-utils';
 import publicState from '$config/store/state';
 
 //扩展公共的state

@@ -1,5 +1,5 @@
 import upload from 'vue-upload-component';
-import utils from '$utils';
+import utils from 'blue-utils';
 
 export function useUpload(Vue) {
   Vue.component('upload', upload);

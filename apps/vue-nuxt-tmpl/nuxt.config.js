@@ -1,6 +1,6 @@
 const pkg = require('./package');
 const vueConfig = require('./vue.config');
-const utils = require('../../public/js/utils');
+const utils = require('blue-utils');
 
 module.exports = {
   mode: 'universal',

@@ -1,5 +1,5 @@
 import publicGetters from '$config/store/getters';
-import utils from '$utils';
+import utils from 'blue-utils';
 
 //扩展公共的getters
 const getters = utils.extend(publicGetters,{

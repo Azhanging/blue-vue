@@ -1,7 +1,7 @@
 //router after each 相关的业务
 
 import config from '@config';
-import utils from '$utils';
+import utils from 'blue-utils';
 import { navigator } from "$public/js/navigator";
 import { $closeLoadding } from "$use-in-vue/mint-ui/indicator";
 

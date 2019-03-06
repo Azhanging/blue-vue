@@ -1,7 +1,7 @@
 import axios from 'axios';
 import router from '@router';
 import config from '@config';
-import utils from '$utils';
+import utils from 'blue-utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import { inBrowser } from "$public/js/in-browser";

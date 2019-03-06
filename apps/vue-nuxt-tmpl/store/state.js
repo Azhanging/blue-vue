@@ -1,4 +1,4 @@
-import utils from '$utils';
+import utils from 'blue-utils';
 import { state as publicState } from '$config/store/state';
 
 //extend public state in program

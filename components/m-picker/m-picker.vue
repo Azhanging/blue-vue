@@ -6,7 +6,7 @@
 
 <script>
 
-	import utils from '$utils';
+	import utils from 'blue-utils';
 
   function initPicker() {
     initPickerValues.call(this);
