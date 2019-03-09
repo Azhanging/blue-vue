@@ -105,7 +105,7 @@
 
 <style scoped lang="scss">
 
-	@import '@/assets/scss/config.scss';
+	@import '@/assets/css/config.scss';
 
 	html[data-mobile-device="true"] {
 		.m-page-btn {

@@ -1,5 +1,5 @@
 <template>
-	<div id="app" class="bc-t-666 bc-f-0_9">
+	<div id="app" class="bc-t-666 bc-f-14rp">
 
 		<m-transition>
 			<router-view/>

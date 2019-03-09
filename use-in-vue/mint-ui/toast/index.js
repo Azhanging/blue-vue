@@ -1,5 +1,5 @@
 import { Toast } from 'mint-ui';
-import { inBrowser } from "$public/js/in-browser";
+import { inBrowser } from "$assets/js/in-browser";
 
 let lastToast;
 

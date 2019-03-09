@@ -2,7 +2,7 @@
 
 import config from '@config';
 import utils from 'blue-utils';
-import { navigator } from "$public/js/navigator";
+import { navigator } from "$assets/js/navigator";
 import { $closeLoadding } from "$use-in-vue/mint-ui/indicator";
 
 //main

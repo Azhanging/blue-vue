@@ -14,7 +14,7 @@ module.exports = {
         '$components': resolve(`./components`),
         '$scroll': resolve(`./components/m-scroll/index`),
         '$page-list': resolve(`./components/m-page-list/index`),
-        '$public': resolve(`./public`),
+        '$assets': resolve(`./assets`),
         '$upload': resolve(`./components/vue-upload-component/upload`),
         '$wechat': resolve(`./use-in-vue/wechat`),
         '$use-in-vue': resolve(`./use-in-vue`),

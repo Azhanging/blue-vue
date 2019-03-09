@@ -4,23 +4,32 @@ import config from '@config';
 import utils from 'blue-utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
-import { inBrowser } from "$public/js/in-browser";
+import { inBrowser } from "$assets/js/in-browser";
 
 export function useAxios(Vue, opts) {
-  requestInterceptors();
-  responseInterceptors();
+
+  const $Axios = axios.create({
+    timeout: config.axios.timeout,
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  });
+
+  requestInterceptors($Axios);
+  responseInterceptors($Axios);
   //axios in vue prototype
-  Vue.prototype.$axios = axios;
+  Vue.prototype.$axios = $Axios;
 }
 
 //request interceptors
-function requestInterceptors() {
-  axios.interceptors.request.use(function (axiosConfig) {
+function requestInterceptors($Axios) {
+  $Axios.interceptors.request.use(function (axiosConfig) {
     axiosConfig.timeout = config.axios.timeout;
     //ssr server set base path
     setInServer(axiosConfig);
-    setHeader(axiosConfig);
+
     setFormData(axiosConfig);
+    //ssr axios proxy
     setProxy(axiosConfig);
     //是否loadding显示
     if (axiosConfig.isLoadding === undefined ||
@@ -36,9 +45,8 @@ function requestInterceptors() {
 }
 
 //response interceptors
-function responseInterceptors() {
-  axios.interceptors.response.use(function (res) {
-
+function responseInterceptors($Axios) {
+  $Axios.interceptors.response.use(function (res) {
     $closeLoadding();
     //success state
     if (res.status == 200) {
@@ -62,14 +70,6 @@ function setInServer(axiosConfig) {
   if (!inBrowser()) {
     axiosConfig.url = `${config.path.base}${axiosConfig.url}`;
   }
-}
-
-//set request header
-export function setHeader(axiosConfig) {
-  const headers = axiosConfig.headers;
-  headers['X-Requested-With'] = 'XMLHttpRequest';
-  headers['Session'] = 'sessionKey';
-  headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 }
 
 //set x-www-form-urlencoded data

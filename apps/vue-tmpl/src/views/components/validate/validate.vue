@@ -135,7 +135,11 @@
         const form = parent.querySelectorAll('form')[0];
         const result = this.$validate(form);
         if (result.status) {
-          form.submit();
+          this.$axios.post('/aa',{
+            data: 1
+          }).then((result)=>{
+            console.log(result);
+          });
         }
       },
       console(args) {

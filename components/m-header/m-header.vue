@@ -76,6 +76,7 @@
 				max-width: 190px;
 				padding: 10px;
 				font-size: 1rem;
+				line-height: 1rem;
 				text-overflow: ellipsis;
 				overflow: hidden;
 				word-wrap: normal;

@@ -2,7 +2,7 @@ import { useVueAwesomeSwiper } from './swiper/index';
 import { useAxios } from './axios/index';
 import { useMintUi } from './mint-ui/index';
 import { useUpload } from '../components/vue-upload-component/upload';
-import { inBrowser } from "$public/js/in-browser";
+import { inBrowser } from "$assets/js/in-browser";
 
 import { useWeChatInVue } from '$wechat';
 import { useConfigInVue } from '../config/index';

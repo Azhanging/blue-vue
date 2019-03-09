@@ -4,14 +4,14 @@ import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
 import { useInVue } from '../../../use-in-vue';
-import { device } from '$public/js/device';
+import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
 
 //公共css，项目配置项assets/scss/config
-import '@/assets/scss/blue-component.scss';
+import '@/assets/css/blue-component.scss';
 
 //预设mint-ui中的css
-import '@/assets/scss/mint-ui.scss';
+import '@/assets/css/mint-ui.scss';
 
 //设备相关
 device();
