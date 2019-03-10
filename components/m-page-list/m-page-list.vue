@@ -129,10 +129,6 @@
 				border: 1px solid $color-base;
 				color: white;
 			}
-			&:hover {
-				background-color: $color-base - 22;
-				color: white;
-			}
 		}
 	}
 </style>
