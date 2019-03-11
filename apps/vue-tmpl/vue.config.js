@@ -22,7 +22,7 @@ module.exports = utils.extend(publicVueConfig, {
     }
   },
   devServer: {
-    proxy: 'http://pc.fuwu.dtb315.com'
+    proxy: 'https://www.dtb315.com'
   },
   assetsDir: 'static'
 });

@@ -4,8 +4,22 @@
 		<m-scroll :api="api" :disabled="load.state.disabled">
 			<ul class="bc-reset-ul">
 				<li v-for="item in load.data.lists" class="bc-pd-10">
-					<!--<img :src="item.home_img" v-preview="item.home_img" width="50"/>-->
-					<span>{{item.address}}</span>
+					<a href="" class="bc-t-666">
+						<div class="bc-media" v-blue-photo-swiper="{itemTag:'DIV'}">
+							<div class="bc-media-left">
+								<img :src="item.list_img" width="50" data-size="0x0" :msrc="item.list_img"/>
+							</div>
+							<div class="bc-media-body">
+								<span>{{item.name}}</span>
+							</div>
+						</div>
+					</a>
+					<!--<ul class="bc-reset-ul" v-blue-photo-swiper="{itemTag:'LI'}">
+						<li>
+							<img :src="item.list_img" alt="" width="50" data-size="0x0" :msrc="item.list_img">
+						</li>
+					</ul>-->
+
 				</li>
 			</ul>
 			<template slot="load-down">
@@ -32,18 +46,19 @@
     },
     methods: {
       api() {
-        return this.$axios.get('/enroll', {
+        const page = this.load.params.page++;
+        return this.$axios.get('/home/home/getRecommendForYou', {
           params: {
-            p: this.load.params.page++
+            p: page,
+            page: page
           }
         }).then((res) => {
           if (scrollNoHasListData.call(this, {
-              result: res,
-              listKey: 'list'
+              result: res
             })) {
             return scrollEndHook.call(this);
           } else {
-            this.load.data.lists = this.load.data.lists.concat(res.data.list);
+            this.load.data.lists = this.load.data.lists.concat(res.data);
           }
         }).catch(() => {
           return scrollEndHook.call(this);

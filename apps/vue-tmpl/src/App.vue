@@ -9,7 +9,7 @@
 		<m-navigator></m-navigator>
 
 		<!-- 图片预览的组件 -->
-		<lg-preview></lg-preview>
+		<blue-photo-swiper></blue-photo-swiper>
 
 	</div>
 </template>

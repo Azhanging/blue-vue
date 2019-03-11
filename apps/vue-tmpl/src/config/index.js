@@ -7,6 +7,9 @@ const programConfig = $utils.extend(config, {
     title: "我是项目默认标题",
     navigator: 'home'
   },
+  path: {
+
+  },
   weChat: {
     getConfig: {
       url: ''
