@@ -47,7 +47,7 @@ export function useInVue(opts = {}) {
 
     //图片预览组件PhotoSwipe
     Vue.use(photoSwipe);
-    Vue.component('blue-photo-swiper', photoSwipeComponent);
+    Vue.component('blue-photo-swipe', photoSwipeComponent);
 
     //验证规则
     Vue.use(BlueValidate);
