@@ -2,10 +2,10 @@ import { useVueAwesomeSwiper } from './swiper/index';
 import { useAxios } from './axios/index';
 import { useMintUi } from './mint-ui/index';
 import { useUpload } from '../components/vue-upload-component/upload';
-import { inBrowser } from "$assets/js/in-browser";
+import { Base64 } from 'js-base64';   //base64
+import inBrowser from "$assets/js/in-browser";
 
 import { useWeChatInVue } from '$wechat';
-import { useConfigInVue } from '../config/index';
 import utils from 'blue-utils';
 
 import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
@@ -19,6 +19,7 @@ import Transition from '../components/m-transition/m-transition';
 import PageList from '../components/m-page-list/m-page-list';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
+import config from '@config';
 
 
 import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
@@ -42,9 +43,6 @@ export function useInVue(opts = {}) {
     //use fastclick
     fastclick.attach(document.body);
 
-    //图片预览组件
-    /*Vue.use(vuePicturePreview);*/
-
     //图片预览组件PhotoSwipe
     Vue.use(photoSwipe);
     Vue.component('blue-photo-swipe', photoSwipeComponent);
@@ -60,10 +58,13 @@ export function useInVue(opts = {}) {
   }
 
   //extend program in Vue
-  useConfigInVue(Vue);
+  Vue.prototype.$config = config;
 
   //extend utils in Vue
   Vue.prototype.$utils = utils;
+
+  //base64
+  Vue.prototype.$base64 = Base64;
 
   //use mint
   useMintUi(Vue);

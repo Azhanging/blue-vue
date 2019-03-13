@@ -19,7 +19,7 @@
     name: "mint-ui",
     beforeRouteEnter(to, from, next) {
       next((vm) => {
-        if (vm.programConfig.env.isWeChat) {
+        if (vm.$config.env.isWeChat) {
           vm.$wxShare({
             title: "mint page",
             desp: "mint page"

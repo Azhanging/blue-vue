@@ -4,7 +4,7 @@ import config from '@config';
 import utils from 'blue-utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
-import { inBrowser } from "$assets/js/in-browser";
+import inBrowser from "$assets/js/in-browser";
 
 export function useAxios(Vue, opts) {
 

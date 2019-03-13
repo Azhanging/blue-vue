@@ -3,9 +3,11 @@ import axios from 'axios';
 import utils from 'blue-utils';
 import config from '@config';
 import router from '@router';
+import { shareLink } from '$assets/js/share';
 
 const { state } = store;
 
+//微信ready状态
 let readyStatus = false;
 
 //share queue
@@ -27,7 +29,7 @@ class WeChatQueueTask {
 
   reset() {
     this.queue = [() => {
-      share();
+      weChatShare();
     }];
   }
 }
@@ -35,7 +37,7 @@ class WeChatQueueTask {
 //微信任务队列
 const weChatTask = new WeChatQueueTask();
 
-//微信 分享
+//微信 分享 in vue
 export function wxShareInVue(Vue) {
   Vue.prototype.$wxShare = wxShare;
 }
@@ -102,20 +104,20 @@ export function setWxSdkConfig() {
 export function wxShare(opts = {}) {
   if (readyStatus == false) {
     weChatTask.add(() => {
-      share(opts);
+      weChatShare(opts);
     });
   } else {
-    share(opts);
+    weChatShare(opts);
   }
 }
 
-//set share
-export function share(opts = {}) {
+//微信分享配置
+function weChatShare(opts = {}) {
   try {
-    const title = opts.title || config.weChat.share.title;
-    const desc = opts.desc || opts.title || config.weChat.share.desc || title;
-    const link = weChatShareLink(opts);
-    const imgUrl = opts.imgUrl || config.weChat.share.imgUrl;
+    const title = opts.title || config.share.title;
+    const desc = opts.desc || opts.title || config.share.desc || title;
+    const link = shareLink(opts);
+    const imgUrl = opts.imgUrl || config.share.imgUrl;
     //朋友圈分享
     wx.onMenuShareTimeline({
       title,
@@ -142,13 +144,5 @@ export function share(opts = {}) {
   }
 }
 
-//微信分享的url可能是动态需要的配置，可以为String或者Function
-function weChatShareLink(opts) {
-  const link = opts.link || config.weChat.share.link || router.getHref();
-  if (utils.isStr(link)) {
-    return link;
-  } else if (utils.isFunction(link)) {
-    return utils.hook(null, link);
-  }
-}
+
 

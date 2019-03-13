@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   view: {
     title: "blue vue tmpl title"       //public document title
   },
@@ -17,18 +17,22 @@ export const config = {
     storage: {}
   },
   weChat: {     //微信相关
-    share: {      //公共的分享相关
-      title: "blue-vue-tmpl",
-      deps: "blue-vue-tmpl is vue public template",
-      imgUrl: "",
-      link: "" || function (link) {
-        return `${link}?p=1`;
-      }
-    },
     getConfig: {
       type: 'get',
       url: '',
       data: {}
+    }
+  },
+  share: {      //公共的分享相关
+    title: "blue-vue-tmpl",
+    deps: "blue-vue-tmpl is vue public template",
+    imgUrl: "",
+    link: "" || function (link) {
+      return link;
+    },
+    //分享相关的参数的
+    params: {
+      phone: 'n'
     }
   },
   error: {},
@@ -37,13 +41,4 @@ export const config = {
   }
 };
 
-// this.programConfig 为当前项目配置信息
-export function useConfigInVue(Vue) {
-  Vue.mixin({
-    data() {
-      return {
-        programConfig: config
-      }
-    }
-  });
-}
+export default config;

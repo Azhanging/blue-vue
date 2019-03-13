@@ -6,6 +6,9 @@ const state = utils.extend(publicState, {
   /*项目相关的state*/
   view: {
     navigator: 'home'
+  },
+  userInfo: {
+    phone: 15014392369
   }
 });
 
