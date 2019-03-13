@@ -4,26 +4,30 @@ const config = {
   },
   env: {
     isWeChat: /MicroMessenger/ig.test(navigator.userAgent),       //是否在微信端
-    isWap: /iPhone|Android|Windows Phone|KFAPWI|MeeGo/.test(navigator.userAgent),  //是否为移动设备
-    isIphone: /iPhone/ig.test(navigator.userAgent),
+    isWap: /iPhone|iPad|Android|Windows Phone|KFAPWI|MeeGo/ig.test(navigator.userAgent),  //是否为移动设备
+    isIPhone: /iPhone/ig.test(navigator.userAgent),
+    isIPad: /iPad/ig.test(navigator.userAgent),
     isAndroid: /Android/ig.test(navigator.userAgent)
   },
   path: {
     base: '',
-    static: '',
-    ['404']: ''
+    static: ''
   },
   session: {
     storage: {}
   },
-  weChat: {     //微信相关
+
+  //微信相关
+  weChat: {
     getConfig: {
       type: 'get',
       url: '',
       data: {}
     }
   },
-  share: {      //公共的分享相关
+
+  //公共的分享相关
+  share: {
     title: "blue-vue-tmpl",
     deps: "blue-vue-tmpl is vue public template",
     imgUrl: "",
@@ -35,7 +39,11 @@ const config = {
       phone: 'n'
     }
   },
-  error: {},
+  error: {
+    404: {
+      page: ''
+    }
+  },
   axios: {
     timeout: 10000
   }

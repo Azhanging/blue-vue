@@ -14,7 +14,9 @@ import '@/assets/css/blue-component.scss';
 import '@/assets/css/mint-ui.scss';
 
 //设备相关
-device();
+device({
+  Vue
+});
 
 //使用插件到Vue，相对于公共的插件
 useInVue({

@@ -38,8 +38,8 @@ class WeChatQueueTask {
 const weChatTask = new WeChatQueueTask();
 
 //微信 分享 in vue
-export function wxShareInVue(Vue) {
-  Vue.prototype.$wxShare = wxShare;
+export function weChatShareInVue(Vue) {
+  Vue.prototype.$weChatShare = weChatShare;
 }
 
 //if in wechat ,get wechat config in program
@@ -47,9 +47,9 @@ export function useWeChatInVue(Vue) {
   try {
     if (config.env.isWeChat && wx) {
       getWeChatConfig();
-      wxShareInVue(Vue);
+      weChatShareInVue(Vue);
       window.alert = (e) => {
-        console.log(`wechat error:${e}`)
+        console.log(`blue-vue-tmpl wechat error:${e}`)
       };
     }
   } catch (e) {
@@ -74,12 +74,12 @@ export function getWeChatConfig() {
       signature: 'f59dcdd2d19ddb037bf0431dc8516524b9147159'
     } || data);
   }).then(() => {
-    setWxSdkConfig();
+    setWeChatSdkConfig();
   });
 }
 
 //set wechat config
-export function setWxSdkConfig() {
+export function setWeChatSdkConfig() {
 
   wx.config({
     debug: true,
@@ -101,18 +101,18 @@ export function setWxSdkConfig() {
 }
 
 //微信分享，会在ready后执行
-export function wxShare(opts = {}) {
+export function weChatShare(opts = {}) {
   if (readyStatus == false) {
     weChatTask.add(() => {
-      weChatShare(opts);
+      setWeChatShare(opts);
     });
   } else {
-    weChatShare(opts);
+    setWeChatShare(opts);
   }
 }
 
 //微信分享配置
-function weChatShare(opts = {}) {
+function setWeChatShare(opts = {}) {
   try {
     const title = opts.title || config.share.title;
     const desc = opts.desc || opts.title || config.share.desc || title;

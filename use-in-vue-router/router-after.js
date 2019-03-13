@@ -11,7 +11,7 @@ export function routerAfterEach(opts) {
   router.afterEach((to, form) => {
     $closeLoadding();
     //项目内使用的after each
-    utils.hook(null, afterEach, [{ to, form }]);
+    utils.hook(null, afterEach, [to, form]);
     //公共的after hook
     routerAfterHook({
       to,

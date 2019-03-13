@@ -17,6 +17,7 @@ export function useAxios(Vue, opts) {
 
   requestInterceptors($Axios);
   responseInterceptors($Axios);
+
   //axios in vue prototype
   Vue.prototype.$axios = $Axios;
 }
@@ -52,9 +53,9 @@ function responseInterceptors($Axios) {
     if (res.status == 200) {
       return res;
     } else if (res.status >= 400 && res.status <= 599) {
-      const errorPage = config.error.pages['400'];
+      const errorPath = config.error[400].path;
       //error or server error
-      router.replace(errorPage.path, errorPage.complete);
+      router.replace(errorPath);
     }
   }, function (error) {
     $closeLoadding();
@@ -74,16 +75,7 @@ function setInServer(axiosConfig) {
 
 //set x-www-form-urlencoded data
 function setFormData(axiosConfig) {
-  axiosConfig.data = paramsStringify(axiosConfig.data);
-}
-
-//set form type
-export function paramsStringify(params) {
-  const _params = [];
-  utils.each(params, (item, key) => {
-    _params.push(`${key}=${item}`);
-  });
-  return _params.join('&');
+  axiosConfig.data = utils.stringifyParams(axiosConfig.data);
 }
 
 //ssr axios proxy

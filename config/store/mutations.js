@@ -11,9 +11,9 @@ const mutations = {
     state.view.navigator = navigator;
   },
 
-  //设置page底部状态，focus相关
-  setPageFooter(state, status) {
-    state.view.pageFooter = status;
+  //设置page底部fixed状态，focus相关
+  setPageFixed(state, status) {
+    state.view.pageFixed = status;
   },
 
   //设置用户信息

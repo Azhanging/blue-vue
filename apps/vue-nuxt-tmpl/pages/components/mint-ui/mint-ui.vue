@@ -20,7 +20,7 @@
     beforeRouteEnter(to, from, next) {
       next((vm) => {
         if (vm.$config.env.isWeChat) {
-          vm.$wxShare({
+          vm.$weChatShare({
             title: "mint page",
             desp: "mint page"
           });

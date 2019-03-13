@@ -1,4 +1,4 @@
-import { wxShare } from '$wechat';
+import { weChatShare } from '$wechat';
 
 const Components = () => import(`../../views/components/components.vue`);
 const Swiper = () => import(`../../views/components/vue-awesome-swiper/vue-awesome-swiper.vue`);
@@ -15,7 +15,7 @@ const components = {
   component: Components,
   meta: {
     afterHook() {
-      wxShare({
+      weChatShare({
         title: 'components'
       });
     },
@@ -26,7 +26,7 @@ const components = {
     component: Validate,
     meta: {
       afterHook() {     //router after each 钩子
-        wxShare({       //特定的微信分享
+        weChatShare({       //特定的微信分享
           title: 'blue-validate'
         });
       },

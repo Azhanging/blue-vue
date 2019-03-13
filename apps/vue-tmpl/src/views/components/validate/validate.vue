@@ -82,7 +82,7 @@
 		</form>
 
 		<!-- 固定到底部提交按钮 -->
-		<div slot="footer" class="bc-ps-f bc-row" style="left:0;bottom:0;" v-show="pageFooter" @click="submit">
+		<div slot="footer" class="bc-ps-f bc-row" style="left:0;bottom:0;" v-show="pageFixed" @click="submit">
 			<button class="bc-btn bc-btn-success bc-w-100" style="padding-top:12px;padding-bottom:12px;">提交</button>
 		</div>
 
@@ -107,8 +107,8 @@
       }
     },
     computed: {
-      pageFooter() {
-        return store.state.view.pageFooter;
+      pageFixed() {
+        return store.state.view.pageFixed;
       }
     },
     methods: {

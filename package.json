@@ -2,7 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "blue-photoswipe-component": "^1.0.7",
-    "blue-utils": "^1.0.1",
+    "blue-utils": "^1.0.2",
     "blue-validate": "^1.1.11",
     "fastclick": "^1.0.6",
     "js-base64": "^2.5.1",

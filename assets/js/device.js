@@ -1,13 +1,15 @@
-import Vue from 'vue';
 import store from '@store';
 import config from '@config';
 
 //main
-export function device() {
+export function device(opts) {
+
+  const { Vue } = opts;
+
   //移动设备相关
   if (config.env.isWap) {
     setViewport();
-    mobileFocus();
+    mobileFocus(Vue);
   }
 }
 
@@ -18,16 +20,16 @@ export function setViewport() {
 }
 
 //处理移动端软键盘问题
-function mobileFocus() {
-  if (config.env.isIphone) {
-    iosFocus();
+function mobileFocus(Vue) {
+  if (config.env.isIPhone || config.env.isIPad) {
+    iosFocus(Vue);
   } else if (config.env.isAndroid) {
     androidResize();
   }
 }
 
 //ios device
-function iosFocus() {
+function iosFocus(Vue) {
 
   let lastNav;
   document.body.addEventListener('focusin', () => {
@@ -42,6 +44,8 @@ function iosFocus() {
       type: 'focusout',
       lastNav
     });
+
+    //ios focus fixed bug
     Vue.nextTick(() => {
       setTimeout(() => {
         document.body.scrollTop = document.body.scrollHeight;
@@ -79,9 +83,9 @@ function getClientHeight() {
 function focusHook(opts) {
   if (opts.type === 'focusout') {
     store.commit('setNavigator', opts.lastNav);
-    store.commit('setPageFooter', true);
+    store.commit('setPageFixed', true);
   } else if (opts.type === 'focusin') {
     store.commit('setNavigator', false);
-    store.commit('setPageFooter', false);
+    store.commit('setPageFixed', false);
   }
 }

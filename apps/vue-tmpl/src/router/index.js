@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import { wxShare } from '$wechat';
+import { weChatShare } from '$wechat';
 import { navigator } from '$assets/js/navigator';
 import { useInVueRouter } from '$use-in-vue-router';
 import { routerAfterEach } from "$use-in-vue-router/router-after";
@@ -27,7 +27,7 @@ routerAfterEach({
     console.log(to, from);
   },
   unAfterHook() {
-    wxShare();
+    weChatShare();
   }
 });
 
