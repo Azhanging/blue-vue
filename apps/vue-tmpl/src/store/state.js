@@ -7,9 +7,7 @@ const state = utils.extend(publicState, {
   view: {
     navigator: 'home'
   },
-  userInfo: {
-    phone: 15014392369
-  }
+  userInfo: {}
 });
 
 export default state;

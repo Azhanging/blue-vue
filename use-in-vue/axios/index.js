@@ -6,29 +6,28 @@ import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
 
-export function useAxios(Vue, opts) {
+const $Axios = axios.create({
+  timeout: config.axios.timeout,
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest'
+  }
+});
 
-  const $Axios = axios.create({
-    timeout: config.axios.timeout,
-    headers: {
-      'X-Requested-With': 'XMLHttpRequest'
-    }
-  });
+requestInterceptors($Axios);
 
-  requestInterceptors($Axios);
-  responseInterceptors($Axios);
+responseInterceptors($Axios);
 
+export function useAxiosInVue(Vue, opts) {
   //axios in vue prototype
   Vue.prototype.$axios = $Axios;
 }
 
 //request interceptors
 function requestInterceptors($Axios) {
-  $Axios.interceptors.request.use(function (axiosConfig) {
-    axiosConfig.timeout = config.axios.timeout;
+  $Axios.interceptors.request.use((axiosConfig) => {
     //ssr server set base path
     setInServer(axiosConfig);
-
+    //set form data type
     setFormData(axiosConfig);
     //ssr axios proxy
     setProxy(axiosConfig);
@@ -40,24 +39,25 @@ function requestInterceptors($Axios) {
       });
     }
     return axiosConfig;
-  }, function (error) {
+  }, (error) => {
     return Promise.reject(error);
   });
 }
 
 //response interceptors
 function responseInterceptors($Axios) {
-  $Axios.interceptors.response.use(function (res) {
+  $Axios.interceptors.response.use((res) => {
+    const status = res.status;
+    const error = config.error;
     $closeLoadding();
-    //success state
-    if (res.status == 200) {
+    //success httprequest state
+    if (status == 200) {
       return res;
-    } else if (res.status >= 400 && res.status <= 599) {
-      const errorPath = config.error[400].path;
-      //error or server error
+    } else if (status >= 400 && status <= 599) {
+      const errorPath = error[status] ? error[status].path : error[400].path;
       router.replace(errorPath);
     }
-  }, function (error) {
+  }, (error) => {
     $closeLoadding();
     $toast({
       message: error.message
@@ -84,3 +84,5 @@ function setProxy(axiosConfig) {
     axiosConfig.url = `/api${axiosConfig.url}`;
   }
 }
+
+export default $Axios;

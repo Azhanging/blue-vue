@@ -19,7 +19,13 @@ const mutations = {
   //设置用户信息
   setUserInfo(state, uerInfo) {
     state.userInfo = uerInfo;
+  },
+
+  //设置用户手机
+  setPhone(state, phone) {
+    state.userInfo.phone = phone;
   }
+
 };
 
 export default mutations;

@@ -39,9 +39,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss">
-	.no-nav {
-
-	}
-</style>

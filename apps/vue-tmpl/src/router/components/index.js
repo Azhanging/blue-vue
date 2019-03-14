@@ -63,7 +63,13 @@ const components = {
     path: 'scroll',
     component: Scroll,
     meta: {
-      navigator: 'components'
+      title: 'scroll',
+      navigator: 'components',
+      afterHook() {
+        weChatShare({
+          title: 'scroll'
+        });
+      }
     }
   }]
 };

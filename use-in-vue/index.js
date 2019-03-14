@@ -1,10 +1,9 @@
 import { useVueAwesomeSwiper } from './swiper/index';
-import { useAxios } from './axios/index';
+import { useAxiosInVue } from './axios/index';
 import { useMintUi } from './mint-ui/index';
 import { useUpload } from '../components/vue-upload-component/upload';
 import { Base64 } from 'js-base64';   //base64
 import inBrowser from "$assets/js/in-browser";
-
 import { useWeChatInVue } from '$wechat';
 import utils from 'blue-utils';
 
@@ -70,7 +69,7 @@ export function useInVue(opts = {}) {
   useMintUi(Vue);
 
   //axios
-  useAxios(Vue, Axios);
+  useAxiosInVue(Vue);
 
   //公共头部
   Vue.component('m-header', MHeader);

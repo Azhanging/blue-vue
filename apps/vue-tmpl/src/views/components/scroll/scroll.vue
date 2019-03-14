@@ -20,7 +20,7 @@
 					<ul class="bc-reset-ul" v-blue-photoswipe="{itemTagName:'LI'}">
 						<li v-for="i in 4">
 							<img :src="item.list_img" alt="" width="50" data-size="0x0" :msrc="item.list_img"
-									 :title="`测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下${i}`"
+							     :title="`测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下${i}`"
 							>
 						</li>
 					</ul>
@@ -69,10 +69,11 @@
           return scrollEndHook.call(this);
         });
       }
+    },
+    mounted() {
+      this.$nextTick(() => {
+				document.title = '123';
+      });
     }
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

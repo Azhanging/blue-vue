@@ -8,6 +8,7 @@ import { routerAfterEach } from "$use-in-vue-router/router-after";
 //路由地址
 import home from './home';
 import components from './components';
+import bindPhone from "./bind-phone";
 
 Vue.use(Router);
 
@@ -16,7 +17,7 @@ useInVueRouter(Router);
 
 const router = new Router({
   namespace: true,
-  routes: [home, components]
+  routes: [home, bindPhone, components]
 });
 
 //router after each

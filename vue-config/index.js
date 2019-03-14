@@ -19,6 +19,8 @@ module.exports = {
         '$wechat': resolve(`./use-in-vue/wechat`),
         '$use-in-vue': resolve(`./use-in-vue`),
         '$use-in-vue-router': resolve(`./use-in-vue-router`),
+        '$axios': resolve(`./use-in-vue/axios`),
+        '$api': resolve(`./api`)
       }
     }
   },
