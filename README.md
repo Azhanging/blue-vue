@@ -26,7 +26,7 @@ vue项目文件夹
 ### ./config 
 公共的配置信息，项目的config extend当前配置
 
-### ./public
+### ./assets
 公共的资源文件 js || scss || css ...
 
 ### ./use-in-vue
