@@ -5,7 +5,7 @@ import utils from 'blue-utils';
 import { Base64 } from 'js-base64';
 
 //分享的url可能是动态需要的配置，可以为String或者Function
-export function shareLink(opts) {
+export function shareLink(opts = {}) {
   //获取的link 配置 -> 默认分享 -> 当前页面
   const link = opts.link || config.share.link || router.$getHref();
   if (utils.isStr(link)) {

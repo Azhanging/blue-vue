@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import Axios from 'axios';
 import App from './App.vue';
 import router from './router/index';
 import store from './store/index';
@@ -20,8 +19,7 @@ device({
 
 //使用插件到Vue，相对于公共的插件
 useInVue({
-  Vue,
-  Axios
+  Vue
 });
 
 //当前项目构建的插件|组件入口

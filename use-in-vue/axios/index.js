@@ -52,7 +52,12 @@ function responseInterceptors($Axios) {
     $closeLoadding();
     //success httprequest state
     if (status == 200) {
-      return res;
+      const { code } = res.data;
+      if (code === 40001) {
+
+      } else {
+        return res;
+      }
     } else if (status >= 400 && status <= 599) {
       const errorPath = error[status] ? error[status].path : error[400].path;
       router.replace(errorPath);

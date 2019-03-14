@@ -2,7 +2,6 @@ import store from '@store';
 import axios from 'axios';
 import utils from 'blue-utils';
 import config from '@config';
-import router from '@router';
 import { shareLink } from '$assets/js/share';
 
 const { state } = store;
@@ -13,6 +12,7 @@ let readyStatus = false;
 //share queue
 class WeChatQueueTask {
   constructor() {
+    this.queue = [];
     this.reset();
   }
 
@@ -45,7 +45,7 @@ export function weChatShareInVue(Vue) {
 //if in wechat ,get wechat config in program
 export function useWeChatInVue(Vue) {
   try {
-    if (config.env.isWeChat && wx) {
+    if (config.device.isWeChat && wx) {
       getWeChatConfig();
       weChatShareInVue(Vue);
       window.alert = (e) => {
@@ -67,12 +67,7 @@ export function getWeChatConfig() {
     data: getConfig.data
   }).then((res) => {
     const { data } = res;
-    store.commit('setWeChat', {
-      appId: 'wx878c4a26964486ca',
-      timestamp: '1546919285',
-      nonceStr: 'Z2j8mU2PEpqv4tVG',
-      signature: 'f59dcdd2d19ddb037bf0431dc8516524b9147159'
-    } || data);
+    store.commit('setWeChat', data);
   }).then(() => {
     setWeChatSdkConfig();
   });
@@ -143,6 +138,7 @@ function setWeChatShare(opts = {}) {
     console.warn(e);
   }
 }
+
 
 
 

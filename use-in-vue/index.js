@@ -33,7 +33,7 @@ import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
 //使用插件到vue上
 export function useInVue(opts = {}) {
 
-  const { Vue, Axios } = opts;
+  const { Vue } = opts;
 
   if (inBrowser()) {
 

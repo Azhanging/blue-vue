@@ -1,5 +1,7 @@
 import store from '@store';
 import config from '@config';
+import inBrowser from "$assets/js/in-browser";
+import nativeApp from '$assets/js/native-app';
 
 //main
 export function device(opts) {
@@ -7,7 +9,16 @@ export function device(opts) {
   const { Vue } = opts;
 
   //移动设备相关
-  if (config.env.isWap) {
+  if (inBrowser() && config.device.isWap) {
+
+    //给app webview调用，挂载到window全局
+    window.nativeApp = nativeApp;
+
+    //添加native任务
+    nativeApp.addTask(() => {
+      config.device.isApp = true;
+    });
+
     setViewport();
     mobileFocus(Vue);
   }
@@ -21,9 +32,9 @@ export function setViewport() {
 
 //处理移动端软键盘问题
 function mobileFocus(Vue) {
-  if (config.env.isIPhone || config.env.isIPad) {
+  if (config.device.isIPhone || config.device.isIPad) {
     iosFocus(Vue);
-  } else if (config.env.isAndroid) {
+  } else if (config.device.isAndroid) {
     androidResize();
   }
 }

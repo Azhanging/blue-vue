@@ -1,14 +1,21 @@
-import $utils from 'blue-utils';
+import utils from 'blue-utils';
 import publicConfig from '$config';
 import router from '@router';
 
+//环境
+import env from './env';
+
 //合并公共的配置
-const config = $utils.extend(publicConfig, {
+const config = utils.extend(publicConfig, {
   view: {
     title: "我是项目默认标题",
     navigator: 'home'
   },
-  path: {},
+  env,
+  path: {
+    base: location.origin,
+    static: location.origin
+  },
   weChat: {
     getConfig: {
       url: ''
