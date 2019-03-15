@@ -7,3 +7,12 @@ export function apiBindPhone(params) {
     .post(config.bind.phone.url, params)
     .then((result) => result);
 }
+
+//绑定角色
+export function apiBindRelation(params) {
+  const bindConfig = config.bind.relation;
+  const shareParams = config.share.params;
+  return $Axios.post(bindConfig.url, {
+    [shareParams.phone]: params[shareParams.phone]
+  });
+}

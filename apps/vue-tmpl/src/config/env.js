@@ -1,6 +1,13 @@
-//当前文件配置环境信息
+import isBrowser from '$assets/js/in-browser';
 
-const host = location.host;
+//默认host
+let host = `localhost`;
+
+//避免 ssr 处理问题
+if(isBrowser()){
+  //当前文件配置环境信息
+  host = location.host;
+}
 
 //开发环境
 const dev = (() => {

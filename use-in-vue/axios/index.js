@@ -33,7 +33,7 @@ function requestInterceptors($Axios) {
     setProxy(axiosConfig);
     //是否loadding显示
     if (axiosConfig.isLoadding === undefined ||
-      axiosConfig.isLoadding === false) {
+      axiosConfig.isLoadding === true) {
       $loadding({
         text: false
       });
@@ -51,7 +51,7 @@ function responseInterceptors($Axios) {
     const error = config.error;
     $closeLoadding();
     //success httprequest state
-    if (status == 200) {
+    if (status === 200) {
       const { code } = res.data;
       if (code === 40001) {
 

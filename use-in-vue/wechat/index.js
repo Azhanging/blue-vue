@@ -1,5 +1,5 @@
 import store from '@store';
-import axios from 'axios';
+import $Axios from '$axios';
 import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
@@ -61,7 +61,7 @@ export function useWeChatInVue(Vue) {
 export function getWeChatConfig() {
   const weChat = config.weChat;
   const getConfig = weChat.getConfig;
-  axios({
+  $Axios({
     method: getConfig.type,
     url: getConfig.url,
     data: getConfig.data
@@ -97,7 +97,7 @@ export function setWeChatSdkConfig() {
 
 //微信分享，会在ready后执行
 export function weChatShare(opts = {}) {
-  if (readyStatus == false) {
+  if (readyStatus === false) {
     weChatTask.add(() => {
       setWeChatShare(opts);
     });
@@ -113,6 +113,7 @@ function setWeChatShare(opts = {}) {
     const desc = opts.desc || opts.title || config.share.desc || title;
     const link = shareLink(opts);
     const imgUrl = opts.imgUrl || config.share.imgUrl;
+
     //朋友圈分享
     wx.onMenuShareTimeline({
       title,
@@ -122,6 +123,7 @@ function setWeChatShare(opts = {}) {
         utils.hook(this, opts.success);
       }
     });
+
     //朋友分享
     wx.onMenuShareAppMessage({
       title,

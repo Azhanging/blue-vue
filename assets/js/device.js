@@ -92,10 +92,11 @@ function getClientHeight() {
 
 //切换状态后的钩子
 function focusHook(opts) {
-  if (opts.type === 'focusout') {
-    store.commit('setNavigator', opts.lastNav);
+  const { type, lastNav } = opts;
+  if (type === 'focusout') {
+    store.commit('setNavigator', lastNav);
     store.commit('setPageFixed', true);
-  } else if (opts.type === 'focusin') {
+  } else if (type === 'focusin') {
     store.commit('setNavigator', false);
     store.commit('setPageFixed', false);
   }
