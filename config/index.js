@@ -1,23 +1,15 @@
-const userAgent = navigator.userAgent;
+import { getCurrentDevice } from '$assets/js/device';
 
 const config = {
 
   //视图相关
   view: {
-    title: "blue vue tmpl title",       //public document title
-    navigator: false
+    title: "blue vue tmpl title",       //默认的文档标题
+    navigator: false                    //默认的导航名，定义到的m-navigator中使用
   },
 
   //设备
-  device: {
-    isWeChat: /MicroMessenger/ig.test(userAgent),       //是否在微信端
-    isWap: /iPhone|iPad|Android|Windows Phone|KFAPWI|MeeGo/ig.test(userAgent),  //是否为移动设备
-    isIPhone: /iPhone/ig.test(userAgent),
-    isIPad: /iPad/ig.test(userAgent),
-    isAndroid: /Android/ig.test(userAgent),
-    isApp: false,                            //是否在app webview
-  },
-
+  device: getCurrentDevice(),
 
   //环境相关
   env: {
@@ -28,8 +20,8 @@ const config = {
 
   //路径相关
   path: {
-    base: '',
-    static: ''
+    base: '',                     //域名
+    static: ''                    //静态资源域名
   },
 
   //登录状态 （方案暂不采用http header处理）

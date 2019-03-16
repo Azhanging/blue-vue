@@ -3,7 +3,7 @@ import publicConfig from '$config';
 import router from '@router';
 
 //环境
-import env from './env';
+const env = require('./env');
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {

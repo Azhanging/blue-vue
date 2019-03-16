@@ -2,17 +2,52 @@
 	<m-home-view>
 		<m-header :title="'首页'"></m-header>
 		<div class="bc-t-c bc-pd-10 bc-overflow-hide">
-			<div>
-				<router-link to="/components" class="bc-t-c bc-t-333">
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-primary bc-btn-line">
 					components
 				</router-link>
 			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-success bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-info bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-333 bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-666 bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-999 bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-red bc-btn-line">
+					components
+				</router-link>
+			</div>
+			<div class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/components" class="bc-btn bc-btn-danger bc-btn-line">
+					components
+				</router-link>
+			</div>
+
 		</div>
 	</m-home-view>
 </template>
 
 <script>
-
   export default {
     name: "home"
   }

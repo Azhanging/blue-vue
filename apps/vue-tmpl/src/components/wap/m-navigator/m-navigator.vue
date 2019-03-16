@@ -16,13 +16,13 @@
           'home': {
             nav: [{
               content: '首页',
-              icon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-              activeIcon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
+              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
+              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
               to: '/'
             }, {
               content: '组件',
-              icon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
-              activeIcon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
+              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
+              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
               to: '/components'
             }],
             active() {
@@ -38,8 +38,8 @@
           'components': {
             nav: [{
               content: '组件',
-              icon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
-              activeIcon: 'https://pc.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
+              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
+              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
               to: '/components'
             }, {
               content: 'scroll',
