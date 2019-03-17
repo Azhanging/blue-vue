@@ -1,7 +1,7 @@
 <template>
-	<m-home-view :router-level="2">
-		<m-header :title="'下拉加载'"></m-header>
-		<m-scroll :api="api" :disabled="load.state.disabled">
+	<bv-home-view :router-level="2">
+		<bv-header :title="'下拉加载'"></bv-header>
+		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<ul class="bc-reset-ul">
 				<li v-for="item in load.data.lists" class="bc-pd-10">
 					<a href="" class="bc-t-666">
@@ -35,8 +35,8 @@
 					暂无数据...
 				</div>
 			</template>
-		</m-scroll>
-	</m-home-view>
+		</bv-scroll>
+	</bv-home-view>
 </template>
 
 <script>

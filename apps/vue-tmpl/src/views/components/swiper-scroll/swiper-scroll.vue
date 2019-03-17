@@ -1,9 +1,9 @@
 <template>
-	<m-home-view :router-level="2">
-		<m-header :title="'滑动组件'"></m-header>
+	<bv-home-view :router-level="2">
+		<bv-header :title="'滑动组件'"></bv-header>
 
 		<!-- x-滑动 -->
-		<m-swiper-scroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
+		<bv-swiper-scroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
 			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-inline-block bc-t-base"
@@ -12,10 +12,10 @@
 					选项{{i}}
 				</a>
 			</template>
-		</m-swiper-scroll>
+		</bv-swiper-scroll>
 
 		<!-- y-滑动 -->
-		<m-swiper-scroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bc-t-success'" :current-index="scrollIndex" direction="y">
+		<bv-swiper-scroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bc-t-success'" :current-index="scrollIndex" direction="y">
 			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-block bc-t-base"
@@ -24,9 +24,9 @@
 					选项{{i}}
 				</a>
 			</template>
-		</m-swiper-scroll>
+		</bv-swiper-scroll>
 
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

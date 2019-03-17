@@ -1,6 +1,6 @@
 <template>
-	<m-home-view :router-level="2">
-		<m-header :title="'上传图片'"></m-header>
+	<bv-home-view :router-level="2">
+		<bv-header :title="'上传图片'"></bv-header>
 		<div class="bc-pd-10">
 			<div class="bc-row">
 				<div class="bc-pd-b-5">单个</div>
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

@@ -1,17 +1,17 @@
 <template>
-	<m-view :has-nav="view.navigator" :router-level="routerLevel">
+	<bv-view :has-nav="view.navigator" :router-level="routerLevel">
 
 		<slot></slot>
 
 		<template slot="suspend" slot-scope="scope">
-			<m-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></m-suspend>
+			<bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></bv-suspend>
 		</template>
 
 		<template slot="footer">
 			<slot name="footer"></slot>
 		</template>
 
-	</m-view>
+	</bv-view>
 </template>
 
 <script>
@@ -21,7 +21,7 @@
   const { mapState } = Vuex;
 
   export default {
-    name: "m-home-view",
+    name: "bv-home-view",
     computed: {
       ...mapState(['view'])
     },

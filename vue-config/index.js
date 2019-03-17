@@ -12,7 +12,7 @@ module.exports = {
       alias: {
         '$config': resolve(`./config`),
         '$components': resolve(`./components`),
-        '$scroll': resolve(`./components/m-scroll/index`),
+        '$scroll': resolve(`./components/bv-scroll/index`),
         '$page-list': resolve(`./components/m-page-list/index`),
         '$assets': resolve(`./assets`),
         '$upload': resolve(`./components/vue-upload-component/upload`),

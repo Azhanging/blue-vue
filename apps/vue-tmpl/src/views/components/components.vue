@@ -1,6 +1,6 @@
 <template>
-	<m-home-view>
-		<m-header :title="'组件列表'"></m-header>
+	<bv-home-view>
+		<bv-header :title="'组件列表'"></bv-header>
 		<div class="bc-row">
 			<div class="bc-row bc-pd-10 bc-t-c">
 				<router-link to="/components/vue-awesome-swiper" class="bc-t-base">vue-awesome-swiper</router-link>
@@ -30,18 +30,21 @@
 				<router-link to="/components/swiper-scroll" class="bc-t-base">swiper-scroll</router-link>
 			</div>
 
-			<m-transition>
+			<bv-transition>
 				<router-view/>
-			</m-transition>
+			</bv-transition>
 
 		</div>
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>
 
   export default {
-    name: "components"
+    name: "components",
+		created(){
+      this.$axios.get('')
+		}
   }
 </script>
 

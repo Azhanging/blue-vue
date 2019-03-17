@@ -6,25 +6,25 @@
 
 		<slot name="pagination">
 			<!-- 页码 -->
-			<div class="bc-row bc-t-c m-page-list" v-show="allPage > 0">
+			<div class="bc-row bc-t-c bv-page-list" v-show="allPage > 0">
 
-				<a class="m-page-btn active" href="javascript:void(0);" @click="pageJump(1)">
+				<a class="bv-page-btn active" href="javascript:void(0);" @click="pageJump(1)">
 					首页
 				</a>
 
-				<a class="m-page-btn active" href="javascript:void(0);" v-show="current != 1" @click="pageJump(current-1)">
+				<a class="bv-page-btn active" href="javascript:void(0);" v-show="current != 1" @click="pageJump(current-1)">
 					上一页
 				</a>
 
-				<a v-for="index in pages" class="m-page-btn" :class="{'active': current == index,'bc-t-666': current != index}" href="javascript:void(0);" @click="pageJump(index)">
+				<a v-for="index in pages" class="bv-page-btn" :class="{'active': current == index,'bc-t-666': current != index}" href="javascript:void(0);" @click="pageJump(index)">
 					{{index}}
 				</a>
 
-				<a class="m-page-btn active" href="javascript:void(0);" v-show="allPage != current && allPage != 0 " @click="pageJump(current + 1)">
+				<a class="bv-page-btn active" href="javascript:void(0);" v-show="allPage != current && allPage != 0 " @click="pageJump(current + 1)">
 					下一页
 				</a>
 
-				<a class="m-page-btn active" href="javascript:void(0);" @click="pageJump(allPage)">
+				<a class="bv-page-btn active" href="javascript:void(0);" @click="pageJump(allPage)">
 					末页
 				</a>
 
@@ -32,7 +32,7 @@
 
 				<input type="text" class="bc-input bc-t-c bc-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
 
-				<a class="m-page-btn active" @click="pageJump(inputPageNum)">
+				<a class="bv-page-btn active" @click="pageJump(inputPageNum)">
 					确定
 				</a>
 			</div>
@@ -43,7 +43,7 @@
 
 <script>
 	export default {
-    name: "m-page-list",
+    name: "bv-page-list",
     props: {
       pageListData: {
         default() {
@@ -108,17 +108,17 @@
 	@import '@/assets/css/config.scss';
 
 	html[data-mobile-device="true"] {
-		.m-page-btn {
+		.bv-page-btn {
 			padding: 4px 10px 2px 10px;
 		}
-		.m-page-btn {
+		.bv-page-btn {
 			&:hover {
 			}
 		}
 	}
 
-	.m-page-list {
-		.m-page-btn {
+	.bv-page-list {
+		.bv-page-btn {
 			display: inline-block;
 			padding: 4px 10px;
 			margin: 4px;

@@ -7,15 +7,14 @@ import inBrowser from "$assets/js/in-browser";
 import { useWeChatInVue } from '$wechat';
 import utils from 'blue-utils';
 
-import SwiperScroll from '../components/m-swiper-scroll/m-swiper-scroll';
-import Picker from '../components/m-picker/m-picker';
-import MHeader from '../components/m-header/m-header';
-import MView from '../components/m-view/m-view';
-import MNav from '../components/m-nav/m-nav';
-import Suspend from '../components/m-suspend/m-suspend';
-import Transition from '../components/m-transition/m-transition';
-/*import vuePicturePreview from 'vue-picture-preview';*/
-import PageList from '../components/m-page-list/m-page-list';
+import BvSwiperScroll from '../components/bv-swiper-scroll/bv-swiper-scroll';
+import BvPicker from '../components/bv-picker/bv-picker';
+import BvHeader from '../components/bv-header/bv-header';
+import BvView from '../components/bv-view/bv-view';
+import BvNav from '../components/bv-nav/bv-nav';
+import BvSuspend from '../components/bv-suspend/bv-suspend';
+import BvTransition from '../components/bv-transition/bv-transition';
+import BvPageList from '../components/bv-page-list/bv-page-list';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 import config from '@config';
@@ -72,26 +71,26 @@ export function useInVue(opts = {}) {
   useAxiosInVue(Vue);
 
   //公共头部
-  Vue.component('m-header', MHeader);
+  Vue.component('bv-header', BvHeader);
 
   //主视图
-  Vue.component('m-view', MView);
+  Vue.component('bv-view', BvView);
 
   //底部导航
-  Vue.component('m-nav', MNav);
+  Vue.component('bv-nav', BvNav);
 
   //浮层
-  Vue.component('m-suspend', Suspend);
+  Vue.component('bv-suspend', BvSuspend);
 
   //路由过渡动画组件
-  Vue.component('m-transition', Transition);
+  Vue.component('bv-transition', BvTransition);
 
   //多级联动
-  Vue.component('m-picker', Picker);
+  Vue.component('bv-picker', BvPicker);
 
   //分页列表
-  Vue.component('m-page-list', PageList);
+  Vue.component('bv-page-list', BvPageList);
 
   //滑动模块
-  Vue.component('m-swiper-scroll', SwiperScroll);
+  Vue.component('bv-swiper-scroll', BvSwiperScroll);
 }

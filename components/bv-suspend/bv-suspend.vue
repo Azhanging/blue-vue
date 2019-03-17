@@ -15,7 +15,7 @@
 	import Velocity from 'velocity-animate';
 
   export default {
-    name: "m-suspend",
+    name: "bv-suspend",
     props: {
       //对应的m-view中的element
       backElement: {

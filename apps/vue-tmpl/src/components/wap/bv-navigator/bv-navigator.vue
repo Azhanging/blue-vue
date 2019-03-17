@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-	<m-nav v-if="nav" :nav="nav" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></m-nav>
+	<bv-nav v-if="nav" :nav="nav" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></bv-nav>
 </template>
 
 <script>
@@ -8,7 +8,7 @@
   import store from '@store';
 
   export default {
-    name: "m-home-nav",
+    name: "bv-home-nav",
     data() {
       return {
         activeIndex: -1,

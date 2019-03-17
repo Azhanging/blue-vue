@@ -1,7 +1,7 @@
 <!-- 滑动组件 -->
 <template>
-	<div class="m-swiper-scroll-container">
-		<div class="bc-row m-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">
+	<div class="bv-swiper-scroll-container">
+		<div class="bc-row bv-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">
 			<slot name="scroll-items" :scroll-to="scrollTo"></slot>
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 	import Velocity from 'velocity-animate';
 
   export default {
-    name: "m-swiper-scroll",
+    name: "bv-swiper-scroll",
     props: {
       direction: {
         default: 'x',
@@ -98,10 +98,10 @@
 </script>
 
 <style scoped lang="scss">
-	.m-swiper-scroll-container {
+	.bv-swiper-scroll-container {
 		position: relative;
 		overflow: hidden;
-		.m-swiper-scroll {
+		.bv-swiper-scroll {
 			white-space: nowrap;
 			word-break: break-all;
 			-webkit-overflow-scrolling: touch;

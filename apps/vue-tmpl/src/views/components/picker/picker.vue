@@ -1,8 +1,8 @@
 <template>
-	<m-home-view :router-level="2">
-		<m-header :title="'多级联动'"></m-header>
+	<bv-home-view :router-level="2">
+		<bv-header :title="'多级联动'"></bv-header>
 		<div class="row overflow-hide">
-			<m-picker :slots="slots" :ajax="ajax">
+			<bv-picker :slots="slots" :ajax="ajax">
 				<template slot-scope="scope">
 					<!-- 联动的数据 -->
 					<span class="bc-select-wrap bc-select-down-icon bc-mg-10" v-for="(slot,index) in slots" v-show="slot.values.length > 0">
@@ -19,9 +19,9 @@
 						</select>
 					</span>
 				</template>
-			</m-picker>
+			</bv-picker>
 		</div>
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

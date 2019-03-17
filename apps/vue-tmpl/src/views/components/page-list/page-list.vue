@@ -1,8 +1,8 @@
 <template>
-	<m-home-view>
-		<m-header :title="'分页组件'" :router-level="2"></m-header>
+	<bv-home-view>
+		<bv-header :title="'分页组件'" :router-level="2"></bv-header>
 		<div class="bc-pd-15">
-			<m-page-list
+			<bv-page-list
 				:all-page="pageList.state.allPage"
 				:current="pageList.state.current"
 				:page-list-data="pageList"
@@ -24,9 +24,9 @@
 					</div>
 				</div>
 
-			</m-page-list>
+			</bv-page-list>
 		</div>
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

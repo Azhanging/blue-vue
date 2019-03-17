@@ -1,9 +1,9 @@
 <!-- 每个页面的主视图组件 必须使用 -->
 <template>
-	<div class="m-view" :class="{'no-nav-view':!hasNav}" :style="`z-index:${100 * routerLevel};`">
+	<div class="bv-view" :class="{'no-nav-view':!hasNav}" :style="`z-index:${100 * routerLevel};`">
 
 		<!-- scroll 层 -->
-		<div class="m-view-scroll">
+		<div class="bv-view-scroll">
 			<slot></slot>
 		</div>
 
@@ -24,7 +24,7 @@
   const { mapState } = Vuex;
 
   export default {
-    name: "m-view",
+    name: "bv-view",
     props: {
       routerLevel: {
         default: 1,
@@ -53,7 +53,7 @@
 
 <style scoped lang="scss">
 
-	.m-view {
+	.bv-view {
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -66,7 +66,7 @@
 		}
 	}
 
-	.m-view-scroll {
+	.bv-view-scroll {
 		width: 100%;
 		height: calc(100% + 1px);
 		overflow-y: scroll;

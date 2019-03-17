@@ -1,6 +1,6 @@
 <template>
-	<m-home-view>
-		<m-header :title="'绑定手机'"></m-header>
+	<bv-home-view>
+		<bv-header :title="'绑定手机'"></bv-header>
 		<div class="bc-row bc-t-c">
 			<div class="bc-row bc-mg-t-10rp">
 				绑定手机：<input type="text" class="bc-input" v-model="phone">
@@ -9,7 +9,7 @@
 				<button class="bc-btn bc-btn-primary" @click="bind">绑定</button>
 			</div>
 		</div>
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

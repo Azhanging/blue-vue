@@ -1,7 +1,7 @@
 <template>
-	<m-home-view :router-level="2" style="padding-bottom:48px;">
+	<bv-home-view :router-level="2">
 
-		<m-header :title="'验证相关'"></m-header>
+		<bv-header :title="'验证相关'"></bv-header>
 
 		<form action="" class="bc-v-m">
 
@@ -86,7 +86,7 @@
 			<button class="bc-btn bc-btn-success bc-w-100" style="padding-top:12px;padding-bottom:12px;">提交</button>
 		</div>
 
-	</m-home-view>
+	</bv-home-view>
 </template>
 
 <script>

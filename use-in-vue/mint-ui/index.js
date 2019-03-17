@@ -1,6 +1,6 @@
 import 'mint-ui/lib/style.css';
 import MintUI from 'mint-ui';
-import MScroll from '../../components/m-scroll/m-scroll';
+import BvScroll from '../../components/bv-scroll/bv-scroll';
 import { setToast } from './toast/index';
 import { setIndicator } from './indicator/index';
 import { MessageBox, Lazyload } from 'mint-ui';
@@ -14,7 +14,7 @@ export function useMintUi(Vue) {
   Vue.use(Lazyload);
 
   //Vue infinite-scroll in program
-  Vue.component('m-scroll', MScroll);
+  Vue.component('bv-scroll', BvScroll);
 
   //set toast
   setToast(Vue);
