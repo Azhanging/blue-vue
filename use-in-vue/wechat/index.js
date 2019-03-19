@@ -62,11 +62,11 @@ export function getWeChatConfig() {
   const weChat = config.weChat;
   const getConfig = weChat.getConfig;
   $Axios({
-    method: getConfig.type,
-    url: getConfig.url,
-    data: getConfig.data
+    method: getConfig.type || 'get',
+    url: getConfig.url || '',
+    data: getConfig.data || ''
   }).then((res) => {
-    const { data } = res;
+    const { data } = res.data;
     store.commit('setWeChat', data);
   }).then(() => {
     setWeChatSdkConfig();

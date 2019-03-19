@@ -3,18 +3,33 @@ import publicConfig from '$config';
 import router from '@router';
 
 //环境
-const env = require('./env');
+import env from './env';
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
   view: {
-    title: "我是项目默认标题",
+    title: "生命驾校",
     navigator: 'home'
   },
   env,
   path: {
     base: location.origin,
-    static: location.origin
+    static: (() => {
+	    let path = '';
+	    if (env.dev) {
+		    path = 'https://pc.dtb315.cn';
+	    } else if (env.beta) {
+		    path = 'https://beta.dtb315.cn';
+	    } else {
+		    path = 'https://www.dtb315.com';
+	    }
+	    return `${path}/Static/spa/life_driving_school`;
+    })()
+  },
+  weChat: {
+    getConfig: {
+      url: ''
+    }
   },
   share: {
     title: "blue-vue-tmpl",

@@ -17,7 +17,9 @@ import BvTransition from '../components/bv-transition/bv-transition';
 import BvPageList from '../components/bv-page-list/bv-page-list';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
+
 import config from '@config';
+import { share } from '$assets/js/share';
 
 
 import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
@@ -63,6 +65,9 @@ export function useInVue(opts = {}) {
 
   //base64
   Vue.prototype.$base64 = Base64;
+
+  //公共的分享规则 app, browser, wechat
+  Vue.prototype.$share = share;
 
   //use mint
   useMintUi(Vue);

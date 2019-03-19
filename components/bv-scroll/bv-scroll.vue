@@ -33,7 +33,7 @@
       },
       immediateCheck: {
         type: [String, Boolean],
-        default: true
+        default: true   //会立即执行一次loadEvent
       },
       api: {
         type: [Function, Boolean],

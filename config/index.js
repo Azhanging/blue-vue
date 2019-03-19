@@ -33,7 +33,7 @@ const config = {
   weChat: {
     getConfig: {
       type: 'get',
-      url: '',
+      url: '/api/wechat_config/index',
       data: {}
     }
   },
@@ -48,7 +48,8 @@ const config = {
     },
     //分享相关的参数的
     params: {
-      phone: 'n'
+      phone: 'n',
+      redirectUrl: 'redirect_url'
     }
   },
 

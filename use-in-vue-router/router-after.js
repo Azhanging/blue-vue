@@ -25,12 +25,16 @@ export function routerAfterEach(opts) {
 export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
   const { title, afterHook, navigator: navigatorName } = to.meta;
+
   //文档标题
   docTitle(title);
+
   //导航状态
   navigator(navigatorName);
+
   //绑定相关
   bind(opts);
+
   //目标路由的hook处理
   if (afterHook) {
     utils.hook(null, afterHook);

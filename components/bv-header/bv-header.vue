@@ -43,6 +43,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import '@css/index.scss';
+  
   .m-header {
     position: sticky;
     top: 0;
@@ -63,7 +65,7 @@
       .m-header-title {
         max-width: 190px;
         padding: 10px;
-        font-size: 1rem;
+        font-size: rem(18);
         text-overflow: ellipsis;
         overflow: hidden;
         word-wrap: normal;

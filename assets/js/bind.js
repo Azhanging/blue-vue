@@ -3,13 +3,16 @@ import store from '@store';
 import router from '@router';
 import { apiBindRelation } from '$api';
 
-//bind rela
+//bind
 export function bind(opts) {
   const { to } = opts;
   const query = to.query;
 
-  //has bind rela params
-  if (hasBindRelationParams(query)) {
+  //检测是否存在绑定关系（暂时不用这套业务逻辑）
+  if (hasBindRelationParams(query) && false) {
+    bindRelation(query);
+  } else {
+    //针对旧业务绑定关系
     bindRelation(query);
   }
 
@@ -21,9 +24,16 @@ export function bind(opts) {
 
 //绑定关系处理
 function bindRelation(params) {
-  apiBindRelation(params).then((res) => {
-    console.log(res.data);
-  });
+  if (false) {
+    apiBindRelation(params).then((res) => {
+      console.log(res.data);
+    });
+  } else {
+    const redirect_url = window._assign.redirect_url;
+    if (redirect_url && redirect_url !== '{$redirect_url}') {
+      location.href = `${config.path.base}${redirect_url}`;
+    }
+  }
 }
 
 //检查绑定关系参数
