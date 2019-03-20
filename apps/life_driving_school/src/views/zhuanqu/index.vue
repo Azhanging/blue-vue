@@ -1,11 +1,10 @@
 <template>
-	<bv-home-view v-if='$config.device.isWap' class='wap'>
+	<bv-home-view v-if='$config.device.isWap' class='wap' :router-level='2'>
 		
-		<bv-home-header :title="'生命导航'" :type="1"></bv-home-header>
+		<w-home-header :title="'生命导航'" :type="1"></w-home-header>
 		
 		
-		<bv-home-nav  :active-class-name="'bc-t-danger'"></bv-home-nav>
-		
+		<w-home-nav  :active-index='4' ></w-home-nav>
 		
 	</bv-home-view>
 	
@@ -17,11 +16,15 @@
 </template>
 
 <script>
+
 	export default {
 		name: "zhuanqu",
 		data() {
-			return {}
+			return {
+			
+			}
 		},
+	
 		methods:{
 		
 		},

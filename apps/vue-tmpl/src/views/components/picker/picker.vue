@@ -43,7 +43,7 @@ export default {
         value: '440204'
       }],
       ajax: {
-        url: '/common/next_child'
+        url: ''
       }
     };
   }

@@ -1,10 +1,10 @@
 <template>
-	<bv-home-view v-if='$config.device.isWap' class='wap' :router-level='3'>
+	<bv-home-view v-if='$config.device.isWap' class='wap' :router-level='2'>
 		
 		<w-home-header :title='"详情"' ></w-home-header>
 		
 		
-		<div>
+		<div v-for="i in 300">
 			内容内容
 		</div>
 		

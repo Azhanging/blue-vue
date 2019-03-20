@@ -7,6 +7,11 @@
 			<slot></slot>
 		</div>
 
+		<!-- 公共的view层子路由 -->
+		<bv-transition>
+			<router-view/>
+		</bv-transition>
+
 		<!-- 浮层 -->
 		<slot name="suspend" :scroll="scroll"></slot>
 
@@ -18,7 +23,7 @@
 
 <script>
 
-  import { setViewEvent } from './index';
+  import { setViewEvent, setParentViewScroll, findParentView } from './index';
   import Vuex from 'vuex';
 
   const { mapState } = Vuex;
@@ -47,6 +52,12 @@
     },
     mounted() {
       setViewEvent.call(this);
+    },
+    destroyed() {
+      setParentViewScroll({
+        scrollElm: findParentView(),
+        type: 'destroyed'
+      });
     }
   }
 </script>
@@ -60,17 +71,17 @@
 		bottom: 48px;
 		left: 0;
 		z-index: 100;
-		background-color: white;
+		background-color: rgba(255, 255, 255, 1);
 		&.no-nav-view {
 			bottom: 0;
 		}
-	}
 
-	.bv-view-scroll {
-		width: 100%;
-		height: calc(100% + 1px);
-		overflow-y: scroll;
-		-webkit-overflow-scrolling: touch;
+		.bv-view-scroll {
+			width: 100%;
+			height: calc(100% + 1px);
+			overflow-y: scroll;
+			-webkit-overflow-scrolling: touch;
+		}
 	}
 
 </style>

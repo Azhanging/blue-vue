@@ -30,24 +30,12 @@
 				<router-link to="/components/swiper-scroll" class="bc-t-base">swiper-scroll</router-link>
 			</div>
 
-			<bv-transition>
-				<router-view/>
-			</bv-transition>
-
 		</div>
 	</bv-home-view>
 </template>
 
 <script>
-
   export default {
-    name: "components",
-		created(){
-      this.$axios.get('')
-		}
+    name: "components"
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

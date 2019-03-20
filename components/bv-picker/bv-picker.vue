@@ -14,7 +14,7 @@
 
   function getSlotsItemData(opts) {
     const { index } = opts;
-    const params = utils.extend(this.ajax.params, {
+    const params = utils.extend(this.ajax.params || {}, {
       [this.ajax.key]: opts.id
     });
     this.$axios({

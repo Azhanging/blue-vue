@@ -18,6 +18,8 @@ import BvPageList from '../components/bv-page-list/bv-page-list';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
+import timeFilter from '$assets/js/timer.js'
+
 import config from '@config';
 import { share } from '$assets/js/share';
 
@@ -56,6 +58,8 @@ export function useInVue(opts = {}) {
     //swiper
     useVueAwesomeSwiper(Vue);
   }
+
+	Vue.filter('timeFilter', timeFilter)
 
   //extend program in Vue
   Vue.prototype.$config = config;

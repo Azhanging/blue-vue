@@ -1,13 +1,11 @@
 <template>
 	<bv-home-view v-if='$config.device.isWap' class='wap'>
 		
-		<bv-scroll :api="api" :disabled="load.state.disabled">
+		<div style='position: sticky;top: 0;left: 0' class='bc-bg-white'>
 			
-			<w-home-header :title='title' :type=2 ></w-home-header>
+			<w-home-header :title='title' :type=2></w-home-header>
 			
-			
-			<w-home-nav  @router-to='_init' :active-index='activeIndex'></w-home-nav>
-			
+			<w-home-nav @router-to='_init' :active-index='activeIndex'></w-home-nav>
 			
 			<div class='scroll-x'>
 				<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
@@ -18,15 +16,15 @@
 						>
 							{{item.name}}
 						</a>
-					
 					</template>
 				</bv-swiper-scroll>
 			</div>
 			
 			<sorting :allSel='allSel' @send_sel='receive_sel'></sorting>
-			
+		</div>
+		
+		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<list :list='load.data.lists'></list>
-
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
 					数据加载中...
@@ -37,10 +35,6 @@
 			</template>
 		</bv-scroll>
 		
-		
-		<bv-transition>
-			<router-view/>
-		</bv-transition>
 	
 	</bv-home-view>
 	
@@ -109,7 +103,6 @@
 				//列表数据
 				list_data: [1, 2, 3],
 				activeIndex: 0,
-		
 			}
 		},
 		methods: {
@@ -117,8 +110,11 @@
 				const { params } = opts;
 				this.setNavActive(params);
 				this.setHeaderTitle(params);
-				this.allSelCopy = this.$utils.deepCopy(this.allSel);
-
+				//初始化选中项
+				this.allSel = this.$utils.deepCopy(this.allSelCopy);
+				this.scrollIndex = 0;
+				//获取数据
+				this.apiGetData()
 			},
 			api() {
 				const page = this.load.params.page++;
@@ -140,7 +136,12 @@
 				});
 			},
 			apiGetData() {
-
+				var data = {
+					nav: this.activeIndex,
+					scroll: this.scrollIndex,
+					...this.allSel,
+				}
+				console.log(data)
 			},
 
 			select(item, index) {
@@ -149,15 +150,15 @@
 
 				this.apiGetData();
 			},
-	/*		selectZone(msg) {
-				this.allSel = this.$utils.deepCopy(this.allSelCopy);
-				let { id } = msg
-			},*/
+			/*		selectZone(msg) {
+						this.allSel = this.$utils.deepCopy(this.allSelCopy);
+						let { id } = msg
+					},*/
 			receive_sel(obj) {
 				console.log(obj)
 			},
-			setNavActive(params){
-				this.activeIndex =  params.type == "zexun" ? 2 : 3;
+			setNavActive(params) {
+				this.activeIndex = params.type == "zexun" ? 2 : 3;
 				console.log(this.activeIndex)
 			},
 			setHeaderTitle(params) {
@@ -173,9 +174,11 @@
 		},
 		mounted() {
 			const currentRoute = this.$router.currentRoute;
+			this.allSelCopy = this.$utils.deepCopy(this.allSel);
 			this._init({
 				params: currentRoute.params
 			});
+
 		}
 	}
 </script>
@@ -183,16 +186,16 @@
 <style lang='scss' scoped>
 	@import '@css/index.scss';
 	
-	.wap{
-		.scroll-x{
+	.wap {
+		.scroll-x {
 			border-bottom: 1px #eee solid;
-			.scroll_active{
+			.scroll_active {
 				color: $color-base !important;
 			}
-			a{
+			a {
 				border-right: 1px #eee solid;
 			}
 		}
-
+		
 	}
 </style>

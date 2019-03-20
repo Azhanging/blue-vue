@@ -43,6 +43,12 @@
 				</router-link>
 			</div>
 
+			<div v-for="i in 30" class="bc-t-c bc-mg-t-10rp">
+				<router-link to="/test-scroll" class="bc-btn bc-btn-danger bc-btn-line">
+					test-scroll
+				</router-link>
+			</div>
+
 		</div>
 	</bv-home-view>
 </template>

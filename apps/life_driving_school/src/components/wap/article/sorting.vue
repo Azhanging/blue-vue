@@ -1,16 +1,16 @@
 <template>
 	<div class='bc-flex bc-pd-10 sorting'>
 		<span @click='default_sel' :class='allSel.isRecommend?"bc-t-base bc-mg-r-30":"bc-mg-r-30"'>默认</span>
-		<div class='bc-ps-r bc-mg-r-40'>
+		<div class='bc-ps-r bc-mg-r-40' @click.stop='pl_time'>
 			时间
-			<span :class='allSel.isTime==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"' @click='pl_time(1)'></span>
-			<span :class='allSel.isTime==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"' @click='pl_time(2)'></span>
+			<span :class='allSel.isTime==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
+			<span :class='allSel.isTime==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 		
 		</div>
-		<div class='bc-ps-r  bc-mg-r-40'>
+		<div class='bc-ps-r  bc-mg-r-40' @click.stop='scan'>
 			浏览
-			<span :class='allSel.isScan==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"' @click='scan(1)'></span>
-			<span :class='allSel.isScan==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"' @click='scan(2)'></span>
+			<span :class='allSel.isScan==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
+			<span :class='allSel.isScan==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 		
 		</div>
 	</div>
@@ -51,15 +51,14 @@
 				this.get_sel()
 
 			},
-			pl_time(action_num){
-				console.log(action_num)
+			pl_time(){
+				this.allSel.isTime = this.allSel.isTime == 1 ?  2 : 1;
 				this.allSel.isRecommend = false;
-				this.allSel.isTime = action_num;
 				this.get_sel()
 			},
-			scan(action_num){
+			scan(){
+				this.allSel.isScan = this.allSel.isScan == 1 ?  2 : 1
 				this.allSel.isRecommend = false;
-				this.allSel.isScan = action_num;
 				this.get_sel()
 			},
 			get_sel(){
@@ -83,14 +82,14 @@
 		}
 		.up{
 			position: absolute;
-			right: rem(-16);
-			top: rem(-2);
+			right: rem(-18);
+			top: rem(-1);
 		}
 		.down{
 			position: absolute;
 
-			right: rem(-16);
-			top: rem(7);
+			right: rem(-18);
+			top: rem(6);
 		}
 	}
 </style>

@@ -65,7 +65,7 @@
       .m-header-title {
         max-width: 190px;
         padding: 10px;
-        font-size: rem(18);
+        font-size: rem(15);
         text-overflow: ellipsis;
         overflow: hidden;
         word-wrap: normal;
