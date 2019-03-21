@@ -6,10 +6,11 @@ import { useInVueRouter } from '$use-in-vue-router';
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 
 //路由地址
-import home from './home';
-import article from './article';
-import zhuanqu from './zhuanqu';
+import lifeRouter from './life_school/index'
 import bindPhone from "./bind-phone";
+//商城
+import shopRouter from './shop/index'
+
 
 Vue.use(Router);
 
@@ -19,13 +20,8 @@ useInVueRouter(Router);
 const router = new Router({
   namespace: true,
   routes: [
-    {
-      path:'/',
-      redirect:'/home'
-    },
-    home,
-	  article,
-	  zhuanqu,
+    ...lifeRouter,
+    ...shopRouter,
     bindPhone
   ]
 });

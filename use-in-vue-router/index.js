@@ -6,11 +6,11 @@ export function useInVueRouter(Router) {
   //获取当前地址href，直接获取location.href会出现路由未更新前的地址
   Router.prototype.$getHref = function () {
     const fullPath = this.currentRoute.fullPath;
-    const host = location.host;
+    const origin = location.origin;
     if (this.mode === 'hash') {
-      return `${host}/#${fullPath}`;
+      return `${origin}/#${fullPath}`;
     } else if (this.mode === 'history') {
-      return `${host}${fullPath}`;
+      return `${origin}${fullPath}`;
     }
   };
 

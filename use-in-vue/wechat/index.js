@@ -6,8 +6,16 @@ import { shareLink } from '$assets/js/share';
 
 const { state } = store;
 
+//微信 分享 in vue
+export function weChatShareInVue(Vue) {
+  Vue.prototype.$weChatShare = weChatShare;
+}
+
 //微信ready状态
-let readyStatus = false;
+let weChatReadyStatus = false;
+
+//微信的任务队列id
+let weChatTaskQueueId = 0;
 
 //share queue
 class WeChatQueueTask {
@@ -25,6 +33,7 @@ class WeChatQueueTask {
       this.queue[i]();
     }
     this.reset();
+    //console.log(`run weChat task id:${weChatTaskQueueId}`);
   }
 
   reset() {
@@ -37,16 +46,10 @@ class WeChatQueueTask {
 //微信任务队列
 const weChatTask = new WeChatQueueTask();
 
-//微信 分享 in vue
-export function weChatShareInVue(Vue) {
-  Vue.prototype.$weChatShare = weChatShare;
-}
-
 //if in wechat ,get wechat config in program
 export function useWeChatInVue(Vue) {
   try {
     if (config.device.isWeChat && wx) {
-      getWeChatConfig();
       weChatShareInVue(Vue);
       window.alert = (e) => {
         console.log(`blue-vue-tmpl wechat error:${e}`)
@@ -59,25 +62,34 @@ export function useWeChatInVue(Vue) {
 
 //get wechat config in server
 export function getWeChatConfig() {
+  if(!config.device.isWeChat || !wx) return;
+  //重新改变ready的状态
+  weChatReadyStatus = false;
   const weChat = config.weChat;
   const getConfig = weChat.getConfig;
   $Axios({
     method: getConfig.type || 'get',
     url: getConfig.url || '',
-    data: getConfig.data || ''
+    data: getConfig.data || '',
+    isLoading: false
   }).then((res) => {
     const { data } = res.data;
     store.commit('setWeChat', data);
   }).then(() => {
-    setWeChatSdkConfig();
+    setWeChatSdkConfig({
+      id: ++weChatTaskQueueId
+    });
   });
 }
 
 //set wechat config
-export function setWeChatSdkConfig() {
+export function setWeChatSdkConfig(opts) {
+
+  //任务的id
+  const { id } = opts;
 
   wx.config({
-    debug: true,
+    debug: config.env.prod ? false : true,
     appId: state.weChat.appId,
     timestamp: state.weChat.timestamp,
     nonceStr: state.weChat.nonceStr,
@@ -89,15 +101,19 @@ export function setWeChatSdkConfig() {
   });
 
   wx.ready(() => {
-    readyStatus = true;
-    weChatTask.task();
+    //当前的任务处理
+    if (id !== weChatTaskQueueId) return;
+    weChatReadyStatus = true;
+    weChatTask.task({
+      id
+    });
   });
 
 }
 
 //微信分享，会在ready后执行
 export function weChatShare(opts = {}) {
-  if (readyStatus === false) {
+  if (weChatReadyStatus === false) {
     weChatTask.add(() => {
       setWeChatShare(opts);
     });

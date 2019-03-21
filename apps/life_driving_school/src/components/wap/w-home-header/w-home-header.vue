@@ -3,6 +3,8 @@
 		
 		<!--0返回  1点通宝图标 2无 -->
 		
+		<slot></slot>
+		
 		<template v-if="type !== 0">
 			<template slot="left-control">
 				<slot name="left-control">

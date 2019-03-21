@@ -7,6 +7,8 @@
 
   import store from '@store';
 
+  import { matchRouter } from '$components/bv-nav';
+
   export default {
     name: "bv-home-nav",
     data() {
@@ -28,7 +30,9 @@
             active() {
               const currentRouter = this.$router.currentRoute;
               const path = currentRouter.fullPath;
-              if (/^\/component.*/.test(path)) {
+              if (matchRouter([
+                  /^\/component.*/,    //组件路由
+                ], path)) {
                 this.activeIndex = 1;
               } else {
                 this.activeIndex = 0;
@@ -48,7 +52,9 @@
             active() {
               const currentRouter = this.$router.currentRoute;
               const path = currentRouter.fullPath;
-              if (/^\/components\/scroll/.test(path)) {
+              if (matchRouter([
+                  /^\/components\/scroll/,    //组件滑动路由
+                ], path)) {
                 this.activeIndex = 1;
               } else {
                 this.activeIndex = 0;
@@ -75,7 +81,7 @@
     methods: {
       activeNav() {
         //匹配到对应导航配置
-	      const nav = this.allNavigator[this.navName];
+        const nav = this.allNavigator[this.navName];
         if (nav) {
           nav.active.call(this);
         } else if (this.navName !== false) {

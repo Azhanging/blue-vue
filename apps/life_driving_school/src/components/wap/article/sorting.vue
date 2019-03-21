@@ -19,7 +19,10 @@
 <script>
 	export default {
 		props:{
-			scroll_list:[],
+			scroll_list:{
+				type:Array,
+				default:[]
+			},
 			// 选中结果
 			allSel:{
 				//推荐

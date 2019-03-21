@@ -2,6 +2,7 @@ const viewScrollClassName = '.bv-view-scroll';
 
 function getScrollElm() {
   const viewElm = this.$el;
+  console.log(viewElm)
   const scrollElm = viewElm.children[0];
   return scrollElm;
 }
@@ -60,9 +61,11 @@ export function setParentViewScroll(opts = {}) {
 
 //查找父级的view元素
 export function findParentView() {
+  const elm = getScrollElm.call(this);
   const viewScrolls = document.querySelectorAll(viewScrollClassName);
-  if (viewScrolls.length >= 2) {
-    return viewScrolls[viewScrolls.length - 2];
+  if (viewScrolls.length >= 2 && elm) {
+    const findIndex = [].indexOf.call(viewScrolls, elm);
+    return viewScrolls[findIndex - 1];
   }
   return null;
 }

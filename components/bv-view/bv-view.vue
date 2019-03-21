@@ -55,7 +55,7 @@
     },
     destroyed() {
       setParentViewScroll({
-        scrollElm: findParentView(),
+        scrollElm: findParentView.call(this),
         type: 'destroyed'
       });
     }
@@ -78,7 +78,7 @@
 
 		.bv-view-scroll {
 			width: 100%;
-			height: calc(100% + 1px);
+			height: 100%;
 			overflow-y: scroll;
 			-webkit-overflow-scrolling: touch;
 		}

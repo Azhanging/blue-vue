@@ -14,6 +14,8 @@
         <slot name="right-control"></slot>
       </div>
     </div>
+    
+    <slot></slot>
   </div>
 </template>
 
@@ -51,10 +53,10 @@
     z-index: 200;
     background-color: #fff;
     border-top: 1px solid #f5f5f5;
-    border-bottom: 1px solid #e5e5e5;
     .m-header-container {
       display: flex;
       align-items: center;
+      border-bottom: 1px solid #e5e5e5;
       .m-header-control {
         flex: 1;
         .m-header-btn {

@@ -6,6 +6,13 @@
 <script>
 
   import store from '@store';
+  
+  import config from '@config';
+  import  router from "@router";
+  
+  import {activeNav} from '@assets/js/activePath';
+  
+  const staticPath = config.path.static;
 
   export default {
     name: "bv-home-nav",
@@ -16,38 +23,33 @@
           'home': {
             nav: [{
               content: '生命驾校',
-              icon: `${this.$config.path.static}/img/public/home1.png`,
-              activeIcon:`${this.$config.path.static}/img/public/home2.png`,
+              icon: `${staticPath}/img/public/home1.png`,
+              activeIcon:`${staticPath}/img/public/home2.png`,
               to: '/'
             }, {
               content: '商城',
-	            icon: `${this.$config.path.static}/img/public/shangchen1.png`,
-	            activeIcon:`${this.$config.path.static}/img/public/shangchen2.png`,
-              to: '/components'
+	            icon: `${staticPath}/img/public/shangchen1.png`,
+	            activeIcon:`${staticPath}/img/public/shangchen2.png`,
+              to: '/shop'
             }, {
               content: '驾校中心',
-	            icon: `${this.$config.path.static}/img/public/fenlei1.png`,
-	            activeIcon:`${this.$config.path.static}/img/public/fenlei2.png`,
-              to: '/components'
+	            icon: `${staticPath}/img/public/fenlei1.png`,
+	            activeIcon:`${staticPath}/img/public/fenlei2.png`,
+              to: '/'
             }, {
               content: '发现',
-	            icon: `${this.$config.path.static}/img/public/faxian1.png`,
-	            activeIcon:`${this.$config.path.static}/img/public/faxian2.png`,
-              to: '/components'
+	            icon: `${staticPath}/img/public/faxian1.png`,
+	            activeIcon:`${staticPath}/img/public/faxian2.png`,
+              to: '/'
             }, {
               content: '我的',
-	            icon: `${this.$config.path.static}/img/public/my1.png`,
-	            activeIcon:`${this.$config.path.static}/img/public/my2.png`,
-              to: '/components'
+	            icon: `${staticPath}/img/public/my1.png`,
+	            activeIcon:`${staticPath}/img/public/my2.png`,
+              to: '/'
             }],
             active() {
-              const currentRouter = this.$router.currentRoute;
-              const path = currentRouter.fullPath;
-              if (/^\/component.*/.test(path)) {
-                this.activeIndex = 1;
-              } else {
-                this.activeIndex = 0;
-              }
+              const path = router.currentRoute.fullPath;
+	            this.activeIndex = activeNav(path)
             }
           },
           'components': {

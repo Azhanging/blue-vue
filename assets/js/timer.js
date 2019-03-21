@@ -1,4 +1,4 @@
-
+//全局时间过滤器
 var timeFilter = function (val) {
 
 	const [time,type] = val

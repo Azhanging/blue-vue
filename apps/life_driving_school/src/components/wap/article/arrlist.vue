@@ -11,8 +11,8 @@
 			<div class='bc-flex bc-flex-jc-sb  bc-flex-ai-c bc-pd-t-10'>
 				<div class='action bc-flex bc-f-13rp'>
 					<div  @click.stop='share'><i class='iconfont iconzhuanfa'></i><span>&nbsp;2536</span></div>
-					<div  @click.stop='like'><i class='iconfont iconxin'></i><span>&nbsp;2536</span></div>
-					<div  @click.stop='zan'><i class='iconfont icondianzan'></i><span>&nbsp;2536</span></div>
+					<div><i class='iconfont iconxin'></i><span>&nbsp;2536</span></div>
+					<div><i class='iconfont icondianzan'></i><span>&nbsp;2536</span></div>
 				</div>
 				<div class='bc-f-13rp t-888'>
 					{{[1548946491687,'type1'] | timeFilter}}
@@ -25,8 +25,10 @@
 <script>
 	export default {
 		props:{
-			list:[],
-			
+			list:{
+				type:Array,
+				default:[]
+			}
 		},
 		data() {
 			return {
@@ -35,15 +37,10 @@
 		},
 		methods:{
 			detailClick(){
-				this.$router.push({'path':'/article/zexun/detail'})
+				const currentPath = this.$router.currentRoute.fullPath;
+				this.$router.push({'path':`${currentPath}/detail`})
 			},
 			share(){
-			
-			},
-			like(){
-			
-			},
-			zan(){
 			
 			}
 		},

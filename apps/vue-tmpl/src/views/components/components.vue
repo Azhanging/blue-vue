@@ -36,6 +36,9 @@
 
 <script>
   export default {
-    name: "components"
+    name: "components",
+    mounted() {
+      this.$axios.get('/api/test/index').then((result) => result);
+    }
   }
 </script>

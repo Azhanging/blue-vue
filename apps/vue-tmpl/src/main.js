@@ -5,6 +5,7 @@ import store, { createStore } from './store/index';
 import { useInVue } from '../../../use-in-vue';
 import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
+import user from '$assets/js/user';
 
 //公共css，项目配置项assets/scss/config
 import '@/assets/css/blue-component.scss';
@@ -36,6 +37,10 @@ Vue.config.warnHandler = false;
 new Vue({
   router,
   store,
+  created() {
+    //用户相关
+    user();
+  },
   render: h => h(App)
 }).$mount('#app');
 

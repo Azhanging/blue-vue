@@ -38,20 +38,48 @@ const components = {
     component: PageList,
     meta: {
       title: 'page list',
-      navigator: 'page'     //不存在的导航，默认设置为false
+      navigator: 'page',     //不存在的导航，默认设置为false
+      afterHook() {
+        weChatShare({       //特定的微信分享
+          title: 'page-list'
+        });
+      }
     }
   }, {
     path: 'vue-awesome-swiper',
-    component: Swiper
+    component: Swiper,
+    meta: {
+      title: '滑动组件',
+      afterHook() {
+        weChatShare({       //特定的微信分享
+          title: 'page-list'
+        });
+      }
+    }
   }, {
     path: 'vue-upload-component',
     component: Upload,
     meta: {
-      navigator: false
+      title: '上传组件',
+      navigator: false,
+      afterHook() {
+        weChatShare({       //特定的微信分享
+          title: '上传组件'
+        });
+      }
     }
   }, {
     path: 'picker',
-    component: Picker
+    component: Picker,
+    meta: {
+      title: '滚动组件',
+      navigator: false,
+      afterHook() {
+        weChatShare({       //特定的微信分享
+          title: '滚动组件'
+        });
+      }
+    }
   }, {
     path: 'swiper-scroll',
     component: SwiperScroll,

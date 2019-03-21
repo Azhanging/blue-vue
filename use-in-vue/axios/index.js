@@ -5,6 +5,7 @@ import utils from 'blue-utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
+import login from '$assets/js/login';
 
 const $Axios = axios.create({
   timeout: config.axios.timeout,
@@ -25,6 +26,7 @@ export function useAxiosInVue(Vue, opts) {
 //request interceptors
 function requestInterceptors($Axios) {
   $Axios.interceptors.request.use((axiosConfig) => {
+    const isLoding = axiosConfig.isLoading;
     //ssr server set base path
     setInServer(axiosConfig);
     //set form data type
@@ -32,8 +34,8 @@ function requestInterceptors($Axios) {
     //ssr axios proxy
     setProxy(axiosConfig);
     //是否loadding显示
-    if (axiosConfig.isLoadding === undefined ||
-      axiosConfig.isLoadding === true) {
+    if (isLoding === undefined ||
+      isLoding === true) {
       $loadding({
         text: false
       });
@@ -53,8 +55,9 @@ function responseInterceptors($Axios) {
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
-      if (code === 40001) {
-
+      //未登录
+      if (code === 10001) {
+        login();
       } else {
         return res;
       }
@@ -63,10 +66,20 @@ function responseInterceptors($Axios) {
       router.replace(errorPath);
     }
   }, (error) => {
+    const isLoading = error.config.isLoading;
     $closeLoadding();
-    $toast({
-      message: error.message
-    });
+
+    //处理超时信息
+    if (/timeout/ig.test(error.message)) {
+      error.message = '数据请求超时，请刷新';
+    }
+
+    if (isLoading === undefined ||
+      isLoading === true) {
+      $toast({
+        message: error.message
+      });
+    }
     return Promise.reject(error);
   });
 }

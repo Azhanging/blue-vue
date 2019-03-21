@@ -1,39 +1,41 @@
 <template>
 	<bv-home-view v-if='$config.device.isWap' class='wap'>
 		
-		<div style='position: sticky;top: 0;left: 0' class='bc-bg-white'>
+			<w-home-header :title='title' :type=2>
+				
+				<w-home-nav @router-to='_init' :active-index='activeIndex'></w-home-nav>
+				
+				<div class='scroll-x'>
+					<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
+						<template slot="scroll-items">
+							<a href="javascript:;" v-for="(item,index) in scroll_list"
+							   class="bc-mg-tb-15 bc-pd-lr-10 bc-inline-block bc-t-666"
+							   @click="select(item,index)"
+							>
+								{{item.name}}
+							</a>
+						</template>
+					</bv-swiper-scroll>
+				</div>
+				
+				<sorting :allSel='allSel' @send_sel='receive_sel'></sorting>
+				
+			</w-home-header>
 			
-			<w-home-header :title='title' :type=2></w-home-header>
 			
-			<w-home-nav @router-to='_init' :active-index='activeIndex'></w-home-nav>
-			
-			<div class='scroll-x'>
-				<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
-					<template slot="scroll-items">
-						<a href="javascript:;" v-for="(item,index) in scroll_list"
-						   class="bc-mg-tb-15 bc-pd-lr-10 bc-inline-block bc-t-666"
-						   @click="select(item,index)"
-						>
-							{{item.name}}
-						</a>
-					</template>
-				</bv-swiper-scroll>
-			</div>
-			
-			<sorting :allSel='allSel' @send_sel='receive_sel'></sorting>
-		</div>
+
 		
-		<bv-scroll :api="api" :disabled="load.state.disabled">
-			<list :list='load.data.lists'></list>
-			<template slot="load-down">
-				<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
-					数据加载中...
-				</div>
-				<div class="bc-t-c bc-pd-10" v-else>
-					暂无数据...
-				</div>
-			</template>
-		</bv-scroll>
+			<bv-scroll :api="api" :disabled="load.state.disabled">
+				<list :list='load.data.lists'></list>
+				<template slot="load-down">
+					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
+						数据加载中...
+					</div>
+					<div class="bc-t-c bc-pd-10" v-else>
+						暂无数据...
+					</div>
+				</template>
+			</bv-scroll>
 		
 	
 	</bv-home-view>
