@@ -41,7 +41,7 @@ export function routerAfterHook(opts) {
   navigator(navigatorName);
 
   //绑定相关
-  bind(opts);
+  //bind(opts);
 
   //目标路由的hook处理
   if (afterHook) {

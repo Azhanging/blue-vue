@@ -2,24 +2,33 @@ import config from '@config';
 import store from '@store';
 import router from '@router';
 import { apiBindRelation } from '$api';
+import RouterNext from '$use-in-vue-router/router-next';
 
-//bind
+//bind (绑定的业务部分在路由next前处理完)
 export function bind(opts) {
-  const { to } = opts;
+  const { to, from } = opts;
   const query = to.query;
+
+  const routerNext = new RouterNext({
+    to,
+    from
+  });
 
   //检测是否存在绑定关系（暂时不用这套业务逻辑）
   if (hasBindRelationParams(query) && false) {
     bindRelation(query);
   } else {
     //针对旧业务绑定关系
-    bindRelation(query);
+    routerNext.add(bindRelation(query));
   }
 
   //bind phone
   if (false) {
-    bindPhone(opts);
+    routerNext.add(bindPhone(opts));
   }
+
+  return routerNext.run();
+
 }
 
 //绑定关系处理
@@ -32,7 +41,9 @@ function bindRelation(params) {
     const redirect_url = window._assign.redirect_url;
     if (redirect_url && redirect_url !== '{$redirect_url}') {
       location.href = `${config.path.base}${redirect_url}`;
+      return false;
     }
+    return true;
   }
 }
 
@@ -63,5 +74,7 @@ function bindPhone(opts) {
   if (!phone && false) {
     location.href = `${config.path.base}/?url=${encodeURIComponent(router.$getHref())}`;
   }
+
+  return false;
 
 }

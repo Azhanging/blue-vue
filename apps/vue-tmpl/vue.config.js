@@ -34,7 +34,7 @@ module.exports = utils.extend(publicVueConfig, {
         target: (() => {
           let path = '';
           if (env.dev) {
-            path = 'http://192.168.177.21' ||'https://pc.dtb315.cn';
+            path = 'https://pc.dtb315.cn';
           } else if (env.beta) {
             path = 'https://beta.dtb315.cn';
           } else {
