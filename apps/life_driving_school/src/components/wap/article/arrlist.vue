@@ -23,6 +23,7 @@
 </template>
 
 <script>
+	import router from '@router'
 	export default {
 		props:{
 			list:{
@@ -37,11 +38,14 @@
 		},
 		methods:{
 			detailClick(){
-				const currentPath = this.$router.currentRoute.fullPath;
-				this.$router.push({'path':`${currentPath}/detail`})
+				this.$router.push({'path':`${router.currentRoute.fullPath}/detail`})
 			},
 			share(){
-			
+				if(this.$config.device.isApp){
+					this.$share()
+				}else{
+					this.$router.push({'path':`${router.currentRoute.fullPath}/detail`})
+				}
 			}
 		},
 		mounted() {

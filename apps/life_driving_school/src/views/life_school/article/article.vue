@@ -21,9 +21,6 @@
 				<sorting :allSel='allSel' @send_sel='receive_sel'></sorting>
 				
 			</w-home-header>
-			
-			
-
 		
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 				<list :list='load.data.lists'></list>

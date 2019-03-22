@@ -31,7 +31,7 @@ function shareLinkParams(link) {
     const origin = link.split('?')[0];
 
     //路径中的query
-    const linkQuery = utils.parseParams(link);
+    const linkQuery = utils.parseParams(utils.getLinkParams(link));
 
     //默认扩展手机号参数
     const resultLink = utils.extend(linkQuery, {

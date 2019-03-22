@@ -2,7 +2,6 @@ const viewScrollClassName = '.bv-view-scroll';
 
 function getScrollElm() {
   const viewElm = this.$el;
-  console.log(viewElm)
   const scrollElm = viewElm.children[0];
   return scrollElm;
 }

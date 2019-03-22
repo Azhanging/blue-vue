@@ -9,6 +9,7 @@ import { routerAfterEach } from "$use-in-vue-router/router-after";
 import home from './home';
 import components from './components';
 import bindPhone from "./bind-phone";
+import errorPage from "./error-page";
 
 Vue.use(Router);
 
@@ -17,7 +18,12 @@ useInVueRouter(Router);
 
 const router = new Router({
   namespace: true,
-  routes: [home, bindPhone, components]
+  routes: [
+    home,       //首页
+    bindPhone,  //绑定手机
+    components, //组件
+    errorPage   //错误页
+  ]
 });
 
 //router after each
@@ -25,7 +31,7 @@ routerAfterEach({
   router,
   //根据项目需要的after each（可选）
   afterEach(to, from) {
-    console.log(to, from);
+    //console.log(to, from);
   },
   unAfterHook() {
     weChatShare();

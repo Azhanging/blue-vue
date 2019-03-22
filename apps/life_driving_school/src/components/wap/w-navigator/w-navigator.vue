@@ -30,7 +30,9 @@
               content: '商城',
 	            icon: `${staticPath}/img/public/shangchen1.png`,
 	            activeIcon:`${staticPath}/img/public/shangchen2.png`,
-              to: '/shop'
+              to(){
+              	location.href = `${config.path.base}/home/index/index`;
+              }
             }, {
               content: '驾校中心',
 	            icon: `${staticPath}/img/public/fenlei1.png`,

@@ -50,6 +50,6 @@ module.exports = utils.extend(publicVueConfig, {
     }
   },
   outputDir: `${programPath}`,
-  indexPath: `${programPath}/Templates/wap/home/index/home.html`,
+  indexPath: `./Templates/wap/home/index/home.html`,
   assetsDir: 'Static/spa/vue-tmpl'
 });

@@ -7,6 +7,8 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
+const programPath = `../../../../dajiankang`;
+
 //合并两个配置
 module.exports = utils.extend(publicVueConfig, {
   //webpack config extend public webpack config
@@ -29,5 +31,7 @@ module.exports = utils.extend(publicVueConfig, {
   devServer: {
     proxy: 'https://www.dtb315.com'
   },
-  assetsDir: 'static'
+  outputDir: `${programPath}`,
+  indexPath: `./Templates/wap/home/index/home.html`,
+  assetsDir: 'Static/spa/life_driving_school'
 });

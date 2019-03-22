@@ -7,7 +7,7 @@ import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 
 //main
-export function routerAfterEach(opts) {
+export function routerAfterEach(opts = {}) {
   const { router, unAfterHook, afterEach } = opts;
   router.afterEach((to, from) => {
 

@@ -4,7 +4,7 @@ const config = {
 
   //视图相关
   view: {
-    title: "blue vue tmpl title",       //默认的文档标题
+    title: "blue-vue-tmpl-title",       //默认的文档标题
     navigator: false                    //默认的导航名，定义到的m-navigator中使用
   },
 
@@ -48,8 +48,8 @@ const config = {
     },
     //分享相关的参数的
     params: {
-      phone: 'n',
-      redirectUrl: 'redirect_url'
+      phone: 'n',                     //绑定参数
+      redirectUrl: 'redirect_url'     //绑定后重定向回来的参数
     }
   },
 
@@ -71,7 +71,7 @@ const config = {
   //错误相关
   error: {
     404: {
-      page: ''
+      path: '/404'
     }
   },
 

@@ -49,37 +49,56 @@ function requestInterceptors($Axios) {
 //response interceptors
 function responseInterceptors($Axios) {
   $Axios.interceptors.response.use((res) => {
+
     const status = res.status;
-    const error = config.error;
+
     $closeLoadding();
+
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
       //未登录
       if (code === 10001) {
         login();
+        $toast({
+          message: '跳转登录中...',
+          duration: 10000
+        });
       } else {
         return res;
       }
-    } else if (status >= 400 && status <= 599) {
-      const errorPath = error[status] ? error[status].path : error[400].path;
-      router.replace(errorPath);
     }
+
   }, (error) => {
+
     const isLoading = error.config.isLoading;
+
+    const status = error.response.status;
+
+    const errorConfig = config.error;
+
+    const isTimeout = /timeout/ig.test(error.message);
+
     $closeLoadding();
 
-    //处理超时信息
-    if (/timeout/ig.test(error.message)) {
+    //处理超时信息，重写信息
+    if (isTimeout) {
       error.message = '数据请求超时，请刷新';
     }
 
-    if (isLoading === undefined ||
-      isLoading === true) {
+    if ((isLoading === undefined ||
+        isLoading === true) && isTimeout) {
       $toast({
         message: error.message
       });
     }
+
+    //跳转指定的错误状态页
+    if (status >= 400 && status < 600) {
+      const errorPath = errorConfig[status] ? errorConfig[status].path : errorConfig[404].path;
+      router.replace(errorPath);
+    }
+
     return Promise.reject(error);
   });
 }
