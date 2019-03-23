@@ -1,5 +1,5 @@
 import axios from 'axios';
-import router from '@router';
+import router, { routerId } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
 import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
@@ -26,7 +26,9 @@ export function useAxiosInVue(Vue, opts) {
 //request interceptors
 function requestInterceptors($Axios) {
   $Axios.interceptors.request.use((axiosConfig) => {
-    const isLoding = axiosConfig.isLoading;
+    //把路由当前路由的id设置给axios config中
+    axiosConfig.routerId = routerId.getCurrentRouterId();
+    const isLoading = axiosConfig.isLoading;
     //ssr server set base path
     setInServer(axiosConfig);
     //set form data type
@@ -34,8 +36,8 @@ function requestInterceptors($Axios) {
     //ssr axios proxy
     setProxy(axiosConfig);
     //是否loadding显示
-    if (isLoding === undefined ||
-      isLoding === true) {
+    if (isLoading === undefined ||
+      isLoading === true) {
       $loadding({
         text: false
       });
@@ -49,11 +51,8 @@ function requestInterceptors($Axios) {
 //response interceptors
 function responseInterceptors($Axios) {
   $Axios.interceptors.response.use((res) => {
-
     const status = res.status;
-
     $closeLoadding();
-
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
@@ -68,26 +67,26 @@ function responseInterceptors($Axios) {
         return res;
       }
     }
-
   }, (error) => {
-
-    const isLoading = error.config.isLoading;
-
-    const status = error.response.status;
-
-    const errorConfig = config.error;
-
+    const axiosConfig = error.config;
     const isTimeout = /timeout/ig.test(error.message);
-
+    const status = isTimeout ? 'timeout' : error.response.status;
+    const errorConfig = config.error;
     $closeLoadding();
+
+    //检查当前的路由标识和当前路由中的id标识是否一样
+    //不一样不去执行后面异步的操作
+    if (!routerId.isCurrentRoute(axiosConfig.routerId)) {
+      return Promise.reject(error);
+    }
 
     //处理超时信息，重写信息
     if (isTimeout) {
       error.message = '数据请求超时，请刷新';
     }
 
-    if ((isLoading === undefined ||
-        isLoading === true) && isTimeout) {
+    //只有超时有提示
+    if (isTimeout) {
       $toast({
         message: error.message
       });

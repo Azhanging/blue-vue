@@ -11,7 +11,7 @@ import BvSwiperScroll from '../components/bv-swiper-scroll/bv-swiper-scroll';
 import BvPicker from '../components/bv-picker/bv-picker';
 import BvHeader from '../components/bv-header/bv-header';
 import BvView from '../components/bv-view/bv-view';
-import BvNav from '../components/bv-nav/bv-nav';
+import BvTabBar from '../components/bv-tab-bar/bv-tab-bar';
 import BvSuspend from '../components/bv-suspend/bv-suspend';
 import BvTransition from '../components/bv-transition/bv-transition';
 import BvPageList from '../components/bv-page-list/bv-page-list';
@@ -86,7 +86,7 @@ export function useInVue(opts = {}) {
   Vue.component('bv-view', BvView);
 
   //底部导航
-  Vue.component('bv-nav', BvNav);
+  Vue.component('bv-tab-bar', BvTabBar);
 
   //浮层
   Vue.component('bv-suspend', BvSuspend);

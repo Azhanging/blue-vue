@@ -6,7 +6,7 @@
     </bv-transition>
 
     <!-- 底部导航 -->
-    <bv-navigator></bv-navigator>
+    <w-tab-bar></w-tab-bar>
 
     <!-- 图片预览的组件 -->
     <blue-photo-swipe></blue-photo-swipe>

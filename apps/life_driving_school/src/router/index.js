@@ -3,27 +3,43 @@ import Router from 'vue-router';
 import { weChatShare } from '$wechat';
 import { navigator } from '$assets/js/navigator';
 import { useInVueRouter } from '$use-in-vue-router';
+import RouterId from '$use-in-vue-router/router-id';
+import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 
+Vue.use(Router);
+
 //路由地址
+import errorPage from "./error-page";
 import lifeRouter from './life_school/index'
 import bindPhone from "./bind-phone";
 //商城
 import shopRouter from './shop/index'
 
-
-Vue.use(Router);
-
 //router相关的插件
 useInVueRouter(Router);
 
+//路由标记
+export const routerId = new RouterId();
+
 const router = new Router({
   namespace: true,
-  routes: [
+  routes: routerId.addIds([
     ...lifeRouter,
     ...shopRouter,
-    bindPhone
-  ]
+    bindPhone,
+    errorPage   //错误页
+  ])
+});
+
+//router before each
+routerBeforeEach({
+  router,
+  beforeEach(to, from) {
+    //四种情况，path，false，Error参照官方文档中的next处理 true 或者 undefined 走默认的next()处理
+    //处理多层级的的next状态查看一下RouterNext的处理
+    return true;
+  }
 });
 
 //router after each

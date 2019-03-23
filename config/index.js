@@ -77,7 +77,7 @@ const config = {
 
   //request相关
   axios: {
-    timeout: 1000000
+    timeout: 10000
   }
 
 };

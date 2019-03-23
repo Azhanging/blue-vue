@@ -57,6 +57,7 @@
     },
     mounted() {
       this.auto();
+      this.$axios.get('/api/test/index');
     }
   }
 </script>

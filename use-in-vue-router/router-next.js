@@ -1,7 +1,6 @@
 /*
 * 处理路由下一跳
 * */
-
 import utils from 'blue-utils';
 
 class RouterNext {
@@ -18,13 +17,14 @@ class RouterNext {
     }
   }
 
-  run() {
+  nextStatus() {
     const nextStatusHooks = this.nextStatusHooks;
     const preventRouterNext = this.constructor.preventRouterNext;
     const { to, from } = this.options;
     const nextStatusHooksLen = (nextStatusHooks || []).length;
 
-    //四种情况，path，false，Error参照官方文档中的next处理 true 或者 undefined 走默认的next()处理
+    //四种情况，path，false，Error参照官方文档中的next处理
+    // true 或者 undefined（没有返回值） 走默认的next()处理
     for (let i = 0; i < nextStatusHooksLen; i++) {
       const nextStatus = nextStatusHooks[i];
       if (preventRouterNext(nextStatus)) {

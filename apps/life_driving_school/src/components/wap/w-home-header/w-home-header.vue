@@ -22,7 +22,7 @@
 				<div class="bc-t-r">
 					<i class='iconfont iconliaotian bc-t-base bc-f-20rp bc-mg-r-10'></i>
 					<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10'></i>
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10' @click='$share'></i>
+					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10' v-if="$config.device.isApp" @click='$share'></i>
 				</div>
 			</slot>
 		</template>

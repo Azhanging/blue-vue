@@ -27,7 +27,7 @@ export function bind(opts) {
     routerNext.add(bindPhone(opts));
   }
 
-  return routerNext.run();
+  return routerNext.nextStatus();
 
 }
 

@@ -1,15 +1,18 @@
 //router before each 相关的业务
-
 import utils from 'blue-utils';
-
 import { bind } from '$assets/js/bind';
-
 import RouterNext from './router-next';
+import { routerId } from '@router';
 
 //main
 export function routerBeforeEach(opts = {}) {
   const { router, beforeEach } = opts;
   router.beforeEach((to, from, next) => {
+
+    //设置路由标识
+    routerId.setCurrentRouterId(to.meta.id);
+
+    //实例化router next
     const routerNext = new RouterNext({
       to,
       from
@@ -17,10 +20,6 @@ export function routerBeforeEach(opts = {}) {
 
     //项目内使用的before each
     routerNext.add([
-      (to, from) => {
-        console.log(to, from);
-        return true;
-      },
       utils.hook(null, beforeEach, [to, from]),
       //公共的after hook
       routerBeforeHook({
@@ -29,7 +28,8 @@ export function routerBeforeEach(opts = {}) {
       })
     ]);
 
-    const nextStatue = routerNext.run();
+    //路由的下一跳状态，决定路由何去何从
+    const nextStatue = routerNext.nextStatus();
 
     //next的状态
     if (RouterNext.preventRouterNext(nextStatue)) {
@@ -43,13 +43,10 @@ export function routerBeforeEach(opts = {}) {
 
 //router after hook
 export function routerBeforeHook(opts) {
-
   const routerNext = new RouterNext(opts);
-
   routerNext.add([
     //绑定相关
     bind(opts)
   ]);
-
-  return routerNext.run();
+  return routerNext.nextStatus();
 }

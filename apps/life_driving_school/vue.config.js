@@ -29,7 +29,7 @@ module.exports = utils.extend(publicVueConfig, {
     }
   },
   devServer: {
-    proxy: 'https://www.dtb315.com'
+    proxy: 'https://pc.dtb315.cn'
   },
   outputDir: `${programPath}`,
   indexPath: `./Templates/wap/home/index/home.html`,

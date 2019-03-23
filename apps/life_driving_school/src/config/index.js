@@ -26,11 +26,6 @@ const config = utils.extend(publicConfig, {
 	    return `${path}/Static/spa/life_driving_school`;
     })()
   },
-  weChat: {
-    getConfig: {
-      url: ''
-    }
-  },
   share: {
     title: "blue-vue-tmpl",
     deps: "blue-vue-tmpl is vue public template",
