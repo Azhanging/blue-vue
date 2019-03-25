@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import { weChatShare } from '$wechat';
 import { navigator } from '$assets/js/navigator';
 import { useInVueRouter } from '$use-in-vue-router';
-import RouterId from '$use-in-vue-router/router-id';
+import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 
@@ -20,11 +20,11 @@ import shopRouter from './shop/index'
 useInVueRouter(Router);
 
 //路由标记
-export const routerId = new RouterId();
+export const routerID = new RouterID();
 
 const router = new Router({
   namespace: true,
-  routes: routerId.addIds([
+  routes: routerID.addIds([
     ...lifeRouter,
     ...shopRouter,
     bindPhone,

@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import { weChatShare } from '$wechat';
 import { navigator } from '$assets/js/navigator';
 import { useInVueRouter } from '$use-in-vue-router';
-import RouterId from '$use-in-vue-router/router-id';
+import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 
@@ -19,12 +19,12 @@ import errorPage from "./error-page";
 useInVueRouter(Router);
 
 //路由标记
-export const routerId = new RouterId();
+export const routerID = new RouterID();
 
 //路由实例
 const router = new Router({
   namespace: true,
-  routes: routerId.addIds([
+  routes: routerID.addIds([
     home,       //首页
     bindPhone,  //绑定手机
     components, //组件
@@ -61,7 +61,6 @@ export function createRouter() {
     namespace: true,
     routes: [home, bindPhone, components]
   });
-
   return router;
 }
 

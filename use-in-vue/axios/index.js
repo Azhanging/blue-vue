@@ -1,8 +1,8 @@
 import axios from 'axios';
-import router, { routerId } from '@router';
+import router, { routerID } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
-import { $loadding, $closeLoadding } from '../mint-ui/indicator/index';
+import { $loading, $closeLoading } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
 import login from '$assets/js/login';
@@ -18,7 +18,7 @@ requestInterceptors($Axios);
 
 responseInterceptors($Axios);
 
-export function useAxiosInVue(Vue, opts) {
+export function useAxiosInVue(Vue, opts = {}) {
   //axios in vue prototype
   Vue.prototype.$axios = $Axios;
 }
@@ -27,7 +27,7 @@ export function useAxiosInVue(Vue, opts) {
 function requestInterceptors($Axios) {
   $Axios.interceptors.request.use((axiosConfig) => {
     //把路由当前路由的id设置给axios config中
-    axiosConfig.routerId = routerId.getCurrentRouterId();
+    axiosConfig.routerID = routerID.getCurrentRouterID();
     const isLoading = axiosConfig.isLoading;
     //ssr server set base path
     setInServer(axiosConfig);
@@ -36,9 +36,9 @@ function requestInterceptors($Axios) {
     //ssr axios proxy
     setProxy(axiosConfig);
     //是否loadding显示
-    if (isLoading === undefined ||
-      isLoading === true) {
-      $loadding({
+    if (isLoading === undefined || isLoading === true) {
+      //设置当前的loading的id
+      axiosConfig.loadingID = $loading({
         text: false
       });
     }
@@ -52,7 +52,11 @@ function requestInterceptors($Axios) {
 function responseInterceptors($Axios) {
   $Axios.interceptors.response.use((res) => {
     const status = res.status;
-    $closeLoadding();
+    const axiosConfig = res.config;
+    const isLoading = axiosConfig.isLoading;
+    if (isLoading === undefined || isLoading === true) {
+      $closeLoading(axiosConfig.loadingID);
+    }
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
@@ -72,11 +76,11 @@ function responseInterceptors($Axios) {
     const isTimeout = /timeout/ig.test(error.message);
     const status = isTimeout ? 'timeout' : error.response.status;
     const errorConfig = config.error;
-    $closeLoadding();
+    $closeLoading(axiosConfig.loadingID);
 
     //检查当前的路由标识和当前路由中的id标识是否一样
     //不一样不去执行后面异步的操作
-    if (!routerId.isCurrentRoute(axiosConfig.routerId)) {
+    if (!routerID.isCurrentRoute(axiosConfig.routerID)) {
       return Promise.reject(error);
     }
 

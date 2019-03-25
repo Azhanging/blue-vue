@@ -7,21 +7,28 @@ export function setIndicator(Vue) {
   Vue.prototype.$indicator = Indicator;
 
   //open loadding
-  Vue.prototype.$loadding = $loadding;
+  Vue.prototype.$loading = $loading;
 
   //close loadding
-  Vue.prototype.$closeLoadding = $closeLoadding;
+  Vue.prototype.$closeLoading = $closeLoading;
 
 }
 
-export function $closeLoadding() {
-  if(inBrowser()){
+//loading的id
+export let loadingID = 0;
+
+export function $closeLoading(id) {
+  if (!inBrowser()) return;
+  if (!id || (id === loadingID)) {
     Indicator.close();
+    console.log('close',id);
+    return;
   }
+  console.log('unclose',id);
 }
 
-export function $loadding(opts = {}) {
-  if(inBrowser()){
+export function $loading(opts = {}) {
+  if (inBrowser()) {
     let config = {
       text: opts.text || '加载中...',
       spinnerType: opts.spinnerType || 'snake'
@@ -30,5 +37,7 @@ export function $loadding(opts = {}) {
       delete config.text;
     }
     Indicator.open(config);
+    return ++loadingID;
   }
+  return 0;
 }

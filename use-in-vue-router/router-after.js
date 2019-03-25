@@ -1,7 +1,7 @@
 //router after each 相关的业务
 import utils from 'blue-utils';
 import { navigator } from "$assets/js/navigator";
-import { $closeLoadding } from "$use-in-vue/mint-ui/indicator";
+import { $closeLoading } from "$use-in-vue/mint-ui/indicator";
 import { $closeToast } from "$use-in-vue/mint-ui/toast";
 import { bind } from '$assets/js/bind';
 import { docTitle } from '$assets/js/document';
@@ -11,7 +11,7 @@ import { getWeChatConfig } from '$wechat';
 export function routerAfterEach(opts = {}) {
   const { router, unAfterHook, afterEach } = opts;
   router.afterEach((to, from) => {
-    $closeLoadding();
+    $closeLoading();
     $closeToast();
     //项目内使用的after each
     utils.hook(null, afterEach, [to, from]);

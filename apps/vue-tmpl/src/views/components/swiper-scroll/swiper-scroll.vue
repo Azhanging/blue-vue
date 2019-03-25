@@ -57,11 +57,7 @@
     },
     mounted() {
       this.auto();
-      this.$axios.get('/api/test/index');
+      this.$axios.get('/member/index.html?bottom=1&type=memcache&_=1553481844479');
     }
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

@@ -1,12 +1,12 @@
 import utils from 'blue-utils';
 
-class RouterId {
+class RouterID {
   constructor(opts) {
     this.options = opts;
     //计算id累计
     this.id = 0;
     //当前的路由id
-    this.currentRouterId = 0;
+    this.currentRouterID = 0;
   }
 
   addIds(routes = []) {
@@ -23,19 +23,19 @@ class RouterId {
   }
 
   //设置当前路由id
-  setCurrentRouterId(id) {
-    this.currentRouterId = id;
+  setCurrentRouterID(id) {
+    this.currentRouterID = id;
   }
 
   //判断是否为当前的路由
   isCurrentRoute(id) {
-    return this.currentRouterId === id;
+    return this.currentRouterID === id;
   }
 
   //获取当前的路由id
-  getCurrentRouterId(){
-    return this.currentRouterId;
+  getCurrentRouterID(){
+    return this.currentRouterID;
   }
 }
 
-export default RouterId;
+export default RouterID;

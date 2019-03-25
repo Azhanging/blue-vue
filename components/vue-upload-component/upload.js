@@ -45,7 +45,7 @@ export function uploadMixin() {
     methods: {
       $upload(upload, _opts = {}) {
 
-        this.$loadding({
+        this.$loading({
           text: '上传中...'
         });
 
@@ -79,7 +79,7 @@ export function uploadMixin() {
         }
 
         if (newFile && newFile.success) {
-          this.$closeLoadding();
+          this.$closeLoading();
           const res = JSON.parse(newFile.response || "{}");
           if (res.info) {
             this.$toast({

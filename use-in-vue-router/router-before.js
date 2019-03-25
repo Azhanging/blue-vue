@@ -2,7 +2,7 @@
 import utils from 'blue-utils';
 import { bind } from '$assets/js/bind';
 import RouterNext from './router-next';
-import { routerId } from '@router';
+import { routerID } from '@router';
 
 //main
 export function routerBeforeEach(opts = {}) {
@@ -10,7 +10,7 @@ export function routerBeforeEach(opts = {}) {
   router.beforeEach((to, from, next) => {
 
     //设置路由标识
-    routerId.setCurrentRouterId(to.meta.id);
+    routerID.setCurrentRouterID(to.meta.id);
 
     //实例化router next
     const routerNext = new RouterNext({
