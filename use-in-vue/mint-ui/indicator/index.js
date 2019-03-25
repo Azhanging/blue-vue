@@ -21,10 +21,7 @@ export function $closeLoading(id) {
   if (!inBrowser()) return;
   if (!id || (id === loadingID)) {
     Indicator.close();
-    console.log('close',id);
-    return;
   }
-  console.log('unclose',id);
 }
 
 export function $loading(opts = {}) {
