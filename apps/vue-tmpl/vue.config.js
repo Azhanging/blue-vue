@@ -38,6 +38,13 @@ module.exports = utils.extend(publicVueConfig, {
       }
     }
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@css/index.scss";`
+      }
+    }
+  },
   outputDir: `${programPath}`,
   indexPath: `./Templates/wap/home/index/home.html`,
   assetsDir: 'Static/spa/vue-tmpl'

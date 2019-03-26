@@ -35,10 +35,10 @@
 				nav: [
 					{
 					nav_name: '首页',
-					path: '/home'
+					path: '/'
 				}, {
 					nav_name: '生命计划',
-					path: '/home'
+					path: '/'
 				}, {
 					nav_name: '资讯',
 					path: '/article/zexun',

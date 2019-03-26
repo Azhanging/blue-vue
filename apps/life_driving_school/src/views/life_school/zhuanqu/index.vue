@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view v-if='$config.device.isWap' class='wap' :router-level='2'>
+	<bv-home-view class='wap' :router-level='2'>
 		
 		<w-home-header :title="'生命导航'" :type="1"></w-home-header>
 		

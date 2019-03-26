@@ -31,6 +31,13 @@ module.exports = utils.extend(publicVueConfig, {
   devServer: {
     proxy: 'https://pc.dtb315.cn'
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@css/index.scss";`
+      }
+    }
+  },
   outputDir: `${programPath}`,
   indexPath: `./Templates/wap/home/index/home.html`,
   assetsDir: 'Static/spa/life_driving_school'

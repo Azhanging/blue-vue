@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view v-if='$config.device.isWap' class='wap' :router-level='2'>
+	<bv-home-view class='wap' :router-level='2'>
 		
 		<w-home-header :title='"详情"' ></w-home-header>
 		
@@ -36,9 +36,3 @@
 		}
 	}
 </script>
-
-<style lang='scss' scoped>
-	@import '@css/index.scss';
-
-	
-</style>

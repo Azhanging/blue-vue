@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view v-if='$config.device.isWap' class='wap'>
+	<bv-home-view class='wap'>
 		
 			<w-home-header :title='title' :type=2>
 				
@@ -183,8 +183,6 @@
 </script>
 
 <style lang='scss' scoped>
-	@import '@css/index.scss';
-	
 	.wap {
 		.scroll-x {
 			border-bottom: 1px #eee solid;
