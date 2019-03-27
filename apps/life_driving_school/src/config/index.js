@@ -9,7 +9,7 @@ import env from './env';
 const config = utils.extend(publicConfig, {
   view: {
     title: "生命驾校",
-    navigator: 'home'
+    tabBar: 'home'
   },
   env,
   path: {

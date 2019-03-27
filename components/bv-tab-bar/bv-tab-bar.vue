@@ -2,7 +2,7 @@
 <template>
 	<div class="bv-tab-bar" :style="`background-color: ${backgroundColor};`">
 		<div class="bv-tab-bar-list">
-			<div class="bv-tab-bar-item" v-for="(item,index) in nav">
+			<div class="bv-tab-bar-item" v-for="(item,index) in list">
 				<a @click="routerTo(item.to)"
 				   :class="[activeIndex !== index ? unActiveClassName : activeClassName]"
 				>
@@ -22,7 +22,7 @@
   export default {
     name: "bv-tab-bar",
     props: {
-      nav: {
+      list: {
         default() {
           return [];
         },

@@ -1,6 +1,6 @@
 //router after each 相关的业务
 import utils from 'blue-utils';
-import { navigator } from "$assets/js/navigator";
+import { tabBar } from "$assets/js/tab-bar";
 import { $closeLoading } from "$use-in-vue/mint-ui/indicator";
 import { $closeToast } from "$use-in-vue/mint-ui/toast";
 import { bind } from '$assets/js/bind';
@@ -29,12 +29,12 @@ export function routerAfterEach(opts = {}) {
 //router after hook
 export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
-  const { title, afterHook, navigator: navigatorName } = to.meta;
+  const { title, afterHook, tabBar: tabBarName } = to.meta;
 
   //文档标题
   docTitle(title);
   //导航状态
-  navigator(navigatorName);
+  tabBar(tabBarName);
 
   //目标路由的hook处理
   if (afterHook) {

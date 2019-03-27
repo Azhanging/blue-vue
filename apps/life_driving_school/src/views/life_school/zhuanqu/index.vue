@@ -29,18 +29,7 @@
 		
 		},
 		mounted() {
-		
+			this.$axios.get('/api/test/index');
 		}
 	}
 </script>
-
-<style lang='scss' scoped>
-	.wap{
-	
-	}
-	
-	.pc{
-	
-	}
-
-</style>

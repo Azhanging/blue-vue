@@ -31,14 +31,14 @@ const components = {
         });
       },
       title: '验证标题',
-      navigator: false
+      tabBar: false
     }
   }, {
     path: 'page-list',
     component: PageList,
     meta: {
       title: 'page list',
-      navigator: 'page',     //不存在的导航，默认设置为false
+      tabBar: 'page',     //不存在的导航，默认设置为false
       afterHook() {
         weChatShare({       //特定的微信分享
           title: 'page-list'
@@ -61,7 +61,7 @@ const components = {
     component: Upload,
     meta: {
       title: '上传组件',
-      navigator: false,
+      tabBar: false,
       afterHook() {
         weChatShare({       //特定的微信分享
           title: '上传组件'
@@ -73,7 +73,7 @@ const components = {
     component: Picker,
     meta: {
       title: '滚动组件',
-      navigator: false,
+      tabBar: false,
       afterHook() {
         weChatShare({       //特定的微信分享
           title: '滚动组件'
@@ -92,7 +92,7 @@ const components = {
     component: Scroll,
     meta: {
       title: 'scroll',
-      navigator: 'components',
+      tabBar: 'components',
       afterHook() {
         weChatShare({
           title: 'scroll'

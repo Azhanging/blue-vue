@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import { weChatShare } from '$wechat';
-import { navigator } from '$assets/js/navigator';
 import { useInVueRouter } from '$use-in-vue-router';
 import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
@@ -12,7 +11,6 @@ Vue.use(Router);
 //路由地址
 import errorPage from "./error-page";
 import lifeRouter from './life_school/index'
-import bindPhone from "./bind-phone";
 //商城
 import shopRouter from './shop/index'
 
@@ -27,7 +25,6 @@ const router = new Router({
   routes: routerID.addIds([
     ...lifeRouter,
     ...shopRouter,
-    bindPhone,
     errorPage   //错误页
   ])
 });

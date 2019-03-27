@@ -5,8 +5,10 @@ import utils from 'blue-utils';
 import { $loading, $closeLoading } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
-import login from '$assets/js/login';
+import errcodes from '$err-code/errcodes';    //错误码
+import { errCodeHandler } from '$err-code';   //错误码处理
 
+//柯里化 axios
 const $Axios = axios.create({
   timeout: config.axios.timeout,
   headers: {
@@ -60,15 +62,14 @@ function responseInterceptors($Axios) {
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
-      //未登录
-      if (code === 10001) {
-        login();
-        $toast({
-          message: '跳转登录中...',
-          duration: 10000
-        });
-      } else {
+      //success code
+      if (code === errcodes.SUCCESS) {
         return res;
+      } else {
+        //error code错误码处理
+        errCodeHandler({
+          code
+        });
       }
     }
   }, (error) => {

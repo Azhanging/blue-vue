@@ -3,6 +3,7 @@ import store from '@store';
 import router from '@router';
 import { apiBindRelation } from '$api';
 import RouterNext from '$use-in-vue-router/router-next';
+import { $toast } from "../../use-in-vue/mint-ui/toast";
 
 //bind (绑定的业务部分在路由next前处理完)
 export function bind(opts) {
@@ -22,7 +23,7 @@ export function bind(opts) {
     routerNext.add(bindRelation(query));
   }
 
-  //bind phone
+  //绑定手机
   if (false) {
     routerNext.add(bindPhone(opts));
   }
@@ -59,7 +60,7 @@ function hasBindRelationParams(query) {
 }
 
 //绑定手机
-function bindPhone(opts) {
+export function bindPhone(opts) {
   const { to } = opts;
   const userInfo = store.state.userInfo;
   const phone = userInfo.phone;
@@ -70,9 +71,13 @@ function bindPhone(opts) {
     router.replace(`${bindPhonePath}?redirect_path=${encodeURIComponent(router.$getHref())}`);
   }
 
-  //老项目跳转绑定手机，业务待定，未开放
-  if (!phone && false) {
-    location.href = `${config.path.base}/?url=${encodeURIComponent(router.$getHref())}`;
+  //老项目跳转绑定手机
+  if (!phone) {
+    $toast({
+      message: '跳转绑定手机中...',
+      duration: 10000
+    });
+    location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.$getHref())}`;
   }
 
   return false;

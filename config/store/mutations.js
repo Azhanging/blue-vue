@@ -7,8 +7,8 @@ const mutations = {
   },
 
   //设置导航状态
-  setNavigator(state, navigator) {
-    state.view.navigator = navigator;
+  setTabBar(state, tabBar) {
+    state.view.tabBar = tabBar;
   },
 
   //设置page底部fixed状态，focus相关

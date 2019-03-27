@@ -38,7 +38,7 @@ meta.title：页面的标题，不填写会默认读取config中的view.title
 
 meta.nav：页面的导航，false || 'navName'，false为不显示导航，
 navName为你自己定义的导航名，
-具体使用查看（公共组件m-nav）和（项目组件m-navigator）
+具体使用查看（公共组件bv-tab-bar）和（项目组件w-tab-bar）
 
 meta.afterHook：router afterEach后的执行，路由走完后会走当前钩子,
 如当前路由是需要单独设置分享信息的，需要在当前的钩子执行 weChatShare方法，

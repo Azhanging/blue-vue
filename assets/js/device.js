@@ -79,7 +79,7 @@ function iosFocus(Vue) {
 
   let lastNav;
   document.body.addEventListener('focusin', () => {
-    lastNav = store.state.view.navigator;
+    lastNav = store.state.view.tabBar;
     focusHook({
       type: 'focusin'
     });
@@ -107,7 +107,7 @@ function androidResize() {
   window.onresize = function () {
     const resizeHeight = getClientHeight();
     if (resizeHeight - 0 < originalHeight - 0) {
-      lastNav = store.state.view.navigator;
+      lastNav = store.state.view.tabBar;
       focusHook({
         type: 'focusin'
       });
@@ -129,10 +129,10 @@ function getClientHeight() {
 function focusHook(opts) {
   const { type, lastNav } = opts;
   if (type === 'focusout') {
-    store.commit('setNavigator', lastNav);
+    store.commit('setTabBar', lastNav);
     store.commit('setPageFixed', true);
   } else if (type === 'focusin') {
-    store.commit('setNavigator', false);
+    store.commit('setTabBar', false);
     store.commit('setPageFixed', false);
   }
 }

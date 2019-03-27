@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-	<bv-tab-bar v-if="nav" :nav="nav" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></bv-tab-bar>
+	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></bv-tab-bar>
 </template>
 
 <script>
@@ -14,9 +14,9 @@
     data() {
       return {
         activeIndex: -1,
-        allNavigator: {
+        allTabBar: {
           'home': {
-            nav: [{
+            list: [{
               content: '首页',
               icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
               activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
@@ -40,7 +40,7 @@
             }
           },
           'components': {
-            nav: [{
+            list: [{
               content: '组件',
               icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
               activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
@@ -65,12 +65,12 @@
       }
     },
     computed: {
-      navName() {
-        return store.state.view.navigator;
+      tabBarName() {
+        return store.state.view.tabBar;
       },
-      nav() {
-        const currentNav = this.allNavigator[this.navName];
-        return currentNav && currentNav.nav;
+      list() {
+        const currentNav = this.allTabBar[this.tabBarName];
+        return currentNav && currentNav.list;
       }
     },
     watch: {
@@ -81,12 +81,12 @@
     methods: {
       activeNav() {
         //匹配到对应导航配置
-        const nav = this.allNavigator[this.navName];
+        const nav = this.allTabBar[this.tabBarName];
         if (nav) {
           nav.active.call(this);
-        } else if (this.navName !== false) {
+        } else if (this.tabBarName !== false) {
           //没有配置到导航配置，直接设置为没有导航
-          store.commit('setNavigator', false);
+          store.commit('setTabBar', false);
         }
       }
     },

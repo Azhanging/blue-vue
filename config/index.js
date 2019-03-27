@@ -5,7 +5,7 @@ const config = {
   //视图相关
   view: {
     title: "blue-vue-tmpl-title",       //默认的文档标题
-    navigator: false                    //默认的导航名，定义到的m-navigator中使用
+    tabBar: false                    //默认的导航名，定义到的bv-tab-bar中使用
   },
 
   //设备

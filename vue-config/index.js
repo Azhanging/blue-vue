@@ -20,7 +20,8 @@ module.exports = {
         '$use-in-vue': resolve(`./use-in-vue`),
         '$use-in-vue-router': resolve(`./use-in-vue-router`),
         '$axios': resolve(`./use-in-vue/axios`),
-        '$api': resolve(`./api`)
+        '$api': resolve(`./api`),
+        '$err-code': resolve(`./err-code`)
       }
     }
   },

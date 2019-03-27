@@ -1,5 +1,5 @@
 <template>
-	<bv-view :has-nav="view.navigator" :router-level="routerLevel">
+	<bv-view :has-nav="view.tarBar" :router-level="routerLevel">
 
 		<slot></slot>
 

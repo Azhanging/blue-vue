@@ -31,14 +31,14 @@ const components = {
         });
       },
       title: '验证标题',
-      navigator: false
+      tabBar: false
     }
   }, {
     path: 'page-list',
     component: PageList,
     meta: {
       title: 'page list',
-      navigator: 'page'     //不存在的导航，默认设置为false
+      tabBar: 'page'     //不存在的导航，默认设置为false
     }
   }, {
     path: 'vue-awesome-swiper',
@@ -47,7 +47,7 @@ const components = {
     path: 'vue-upload-component',
     component: Upload,
     meta: {
-      navigator: false
+      tabBar: false
     }
   }, {
     path: 'picker',
@@ -64,7 +64,7 @@ const components = {
     component: Scroll,
     meta: {
       title: 'scroll',
-      navigator: 'components',
+      tabBar: 'components',
       afterHook() {
         weChatShare({
           title: 'scroll'

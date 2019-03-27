@@ -9,7 +9,7 @@ const env = require('./env');
 const config = utils.extend(publicConfig, {
   view: {
     title: "我是项目默认标题",
-    navigator: 'home'
+    tabBar: 'home'
   },
   env,
   path: {

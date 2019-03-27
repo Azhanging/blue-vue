@@ -5,7 +5,7 @@ const error = {
   name: "404",
   component: ErrorPage404,
   meta: {
-    navigator: false
+    tabBar: false
   }
 };
 
