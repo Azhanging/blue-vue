@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view>
-		<bv-header :title="'组件列表'"></bv-header>
+		<bv-header :header="{title:{value:'组件列表'}}"/>
 		<div class="bc-row">
 			<div class="bc-row bc-pd-10 bc-t-c">
 				<router-link to="/components/vue-awesome-swiper" class="bc-t-base">vue-awesome-swiper</router-link>

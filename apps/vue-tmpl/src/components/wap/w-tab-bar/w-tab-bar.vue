@@ -1,13 +1,14 @@
 <!-- 主页的导航 -->
 <template>
-	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"></bv-tab-bar>
+	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"/>
 </template>
 
 <script>
 
   import store from '@store';
-
   import { matchRouter } from '$components/bv-tab-bar';
+  import homeTabBar from './home-tab-bar';
+  import componentTabBar from './component-tab-bar';
 
   export default {
     name: "w-tab-bar",
@@ -15,52 +16,8 @@
       return {
         activeIndex: -1,
         allTabBar: {
-          'home': {
-            list: [{
-              content: '首页',
-              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
-              to: '/'
-            }, {
-              content: '组件',
-              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
-              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
-              to: '/components'
-            }],
-            active() {
-              const currentRouter = this.$router.currentRoute;
-              const path = currentRouter.fullPath;
-              if (matchRouter([
-                  /^\/component.*/,    //组件路由
-                ], path)) {
-                this.activeIndex = 1;
-              } else {
-                this.activeIndex = 0;
-              }
-            }
-          },
-          'components': {
-            list: [{
-              content: '组件',
-              icon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',
-              activeIcon: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
-              to: '/components'
-            }, {
-              content: 'scroll',
-              to: '/components/scroll'
-            }],
-            active() {
-              const currentRouter = this.$router.currentRoute;
-              const path = currentRouter.fullPath;
-              if (matchRouter([
-                  /^\/components\/scroll/,    //组件滑动路由
-                ], path)) {
-                this.activeIndex = 1;
-              } else {
-                this.activeIndex = 0;
-              }
-            }
-          }
+          'home': homeTabBar,
+          'components': componentTabBar
         }
       }
     },
@@ -70,16 +27,16 @@
       },
       list() {
         const currentNav = this.allTabBar[this.tabBarName];
-        return currentNav && currentNav.list;
+        return currentNav && currentNav.list.items;
       }
     },
     watch: {
       ['$route']() {
-        this.activeNav();
+        this.activeTabBar();
       }
     },
     methods: {
-      activeNav() {
+      activeTabBar() {
         //匹配到对应导航配置
         const nav = this.allTabBar[this.tabBarName];
         if (nav) {
@@ -91,7 +48,7 @@
       }
     },
     mounted() {
-      this.activeNav();
+      this.activeTabBar();
     }
   }
 </script>

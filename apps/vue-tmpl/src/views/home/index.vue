@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view>
-		<bv-header :title="'首页'"></bv-header>
+		<bv-header :header="{title:{value:'首页'}}"/>
 		<div class="bc-t-c bc-pd-10 bc-overflow-hide">
 			<div class="bc-t-c bc-mg-t-10rp">
 				<router-link to="/components" class="bc-btn bc-btn-primary bc-btn-line">

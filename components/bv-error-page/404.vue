@@ -1,11 +1,14 @@
 <template>
-	<bv-view>
+	<bv-view style="background-color: #f4f4f4;" :has-nav="false">
 		<div class="bc-t-c">
-			<div class="bc-pd-tb-15rp bc-f-20rp">
-				404网页不见了
+			<div class="bc-pd-tb-30rp">
+				<img :src="`${$config.path.static}/img/public/error-page/404.png`" alt="" class="icon-404">
+			</div>
+			<div class="bc-t-c bc-t-base">
+				页面找不到了哦~
 			</div>
 			<div class="bc-pd-tb-15rp">
-				<a href="javascript:;" @click="$router.push('/')" class="bc-t-999">
+				<a href="javascript:;" @click="$router.push('/')" class=" bc-t-base">
 					回到首页 >>
 				</a>
 			</div>
@@ -15,6 +18,12 @@
 
 <script>
 	export default {
-	  name: "404"
-	}
+    name: "404"
+  }
 </script>
+
+<style scoped lang="scss">
+	.icon-404 {
+		width: rem(160);
+	}
+</style>

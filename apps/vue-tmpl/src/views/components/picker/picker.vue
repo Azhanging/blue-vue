@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :title="'多级联动'"></bv-header>
+		<bv-header :header="{title:{value:'多级联动'}}"/>
 		<div class="row overflow-hide">
 			<bv-picker :slots="slots" :ajax="ajax">
 				<template slot-scope="scope">

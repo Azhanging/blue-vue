@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :title="'上传图片'"></bv-header>
+		<bv-header :header="{title:{value:'上传图片'}}"/>
 		<div class="bc-pd-10">
 			<div class="bc-row">
 				<div class="bc-pd-b-5">单个</div>

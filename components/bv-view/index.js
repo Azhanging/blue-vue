@@ -27,6 +27,9 @@ export function setViewEvent() {
       this.scroll.top = elm.scrollTop;
     }, 150);
 
+    //滑动的时候也隐藏子菜单的状态
+    this.hideTabBarSubMenu();
+
   }, false);
 
   //ios move的时候产生卡顿的问题

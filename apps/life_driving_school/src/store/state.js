@@ -7,7 +7,13 @@ const state = utils.extend(publicState, {
   view: {
     tabBar: 'home'
   },
-  userInfo: {}
+  userInfo: {},
+	//聊天信息
+  msg:{},
+	token:null,
+	websocket: {
+		status: false //当前的链接状态
+	},
 });
 
 export default state;

@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :title="'下拉加载'"></bv-header>
+		<bv-header :header="{title:{value:'下拉加载'}}"/>
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<ul class="bc-reset-ul">
 				<li v-for="item in load.data.lists" class="bc-pd-10">

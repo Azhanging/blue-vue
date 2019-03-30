@@ -19,7 +19,8 @@ const components = {
         title: 'components'
       });
     },
-    title: 'component'
+    title: 'component',
+    tabBar: 'components'
   },
   children: [{
     path: 'blue-validate',

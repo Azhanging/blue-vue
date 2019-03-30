@@ -1,6 +1,6 @@
 <!-- 每个页面的主视图组件 必须使用 -->
 <template>
-	<div class="bv-view" :class="{'no-nav-view':!hasNav}" :style="`z-index:${100 * routerLevel};`">
+	<div class="bv-view" :class="{'no-nav-view':!hasNav}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu">
 
 		<!-- scroll 层 -->
 		<div class="bv-view-scroll">
@@ -24,6 +24,7 @@
 <script>
 
   import { setViewEvent, setParentViewScroll, findParentView } from './index';
+  import { setTabBarSubMenuStatus } from '$components/bv-tab-bar';
   import Vuex from 'vuex';
 
   const { mapState } = Vuex;
@@ -48,6 +49,14 @@
         scroll: {
           top: 0
         }
+      }
+    },
+    methods: {
+      hideTabBarSubMenu() {
+        //设置子菜单的状态
+        setTabBarSubMenuStatus({
+          tabBarSubMenuStatus: false
+        });
       }
     },
     mounted() {

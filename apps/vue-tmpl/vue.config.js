@@ -27,6 +27,7 @@ module.exports = utils.extend(publicVueConfig, {
   },
   devServer: {
     //根据环境配置相关代理
+    open: true,
     proxy: {
       '/': {
         ws: false,      //避免把hot代理了

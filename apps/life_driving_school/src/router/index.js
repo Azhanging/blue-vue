@@ -6,13 +6,10 @@ import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 
-Vue.use(Router);
-
 //路由地址
-import errorPage from "./error-page";
-import lifeRouter from './life_school/index'
-//商城
-import shopRouter from './shop/index'
+import routes from './routes';
+
+Vue.use(Router);
 
 //router相关的插件
 useInVueRouter(Router);
@@ -22,11 +19,7 @@ export const routerID = new RouterID();
 
 const router = new Router({
   namespace: true,
-  routes: routerID.addIds([
-    ...lifeRouter,
-    ...shopRouter,
-    errorPage   //错误页
-  ])
+  routes: routerID.addIds(routes)
 });
 
 //router before each

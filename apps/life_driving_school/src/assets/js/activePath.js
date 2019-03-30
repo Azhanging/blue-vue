@@ -2,7 +2,7 @@
 
 import { matchRouter } from '$components/bv-tab-bar';
 
-export function activeNav(path) {
+export function activeTabBar(path) {
   let activeIndex;
   if (matchRouter([
       /^\/shop/       //商城

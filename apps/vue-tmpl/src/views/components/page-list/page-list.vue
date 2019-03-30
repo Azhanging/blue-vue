@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view>
-		<bv-header :title="'分页组件'" :router-level="2"></bv-header>
+		<bv-header :header="{title:{value:'分页组件'}}"/>
 		<div class="bc-pd-15">
 			<bv-page-list
 				:all-page="pageList.state.allPage"

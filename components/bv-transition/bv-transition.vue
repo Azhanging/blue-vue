@@ -1,12 +1,12 @@
 <template>
-  <transition :name="transitionName" mode="out-in">
-    <slot></slot>
+  <transition :name="transitionName" mode="in-out">
+    <slot/>
   </transition>
 </template>
 
 <script>
   export default {
-    name: "m-transition",
+    name: "bv-transition",
     props: ['transition'],
     data() {
       return {
@@ -43,7 +43,7 @@
   .slide-top-leave-active,
   .slide-right-enter,
   .slide-right-leave-active {
-    opacity: 0;
+	  opacity: 0;
   }
 
   .slide-top-enter {

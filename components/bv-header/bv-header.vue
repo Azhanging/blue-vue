@@ -1,38 +1,49 @@
 <!-- 头部组件 -->
 <template>
-  <div class="m-header">
-    <div class="m-header-container">
-      <div class="m-header-control">
-        <slot name="left-control">
-          <a class="m-header-btn" @click="leftControlHandler">
-            <span class="bc-arrow bc-arrow-l bc-arrow"></span>
-          </a>
-        </slot>
-      </div>
-      <div class="m-header-title">{{title}}</div>
-      <div class="m-header-control">
-        <slot name="right-control"></slot>
-      </div>
-    </div>
-    
-    <slot></slot>
-  </div>
+	<div class="bv-header">
+		<div class="bv-header-container" :style="`background-color:white;border-bottom:1px solid #e5e5e5;${header.style}`">
+			<div class="bv-header-control">
+				<slot name="left-control">
+					<a class="bv-header-btn" @click="leftControlHandler">
+						<span class="bc-arrow bc-arrow-l"></span>
+					</a>
+				</slot>
+			</div>
+			<div class="bv-header-title" :style="header.title && header.title.style">
+				{{(header.title && header.title.value) || $config.view.title}}
+			</div>
+			<div class="bv-header-control">
+				<!-- 有操作的插槽 -->
+				<slot name="right-control"/>
+			</div>
+		</div>
+		<!-- 额外的插槽 -->
+		<slot/>
+	</div>
 </template>
 
 <script>
 
   export default {
-    name: "m-header",
+    name: "bv-header",
     props: {
       //左边控制
       leftControl: {
         default: '',
         type: String
       },
-      //标题
-      title: {
-        type: [String, Function],
-        default: ""
+      //头部组件的配置信息
+      header: {
+        default() {
+          return {
+            /*title: {
+              style: '',
+              value: ''
+            },
+            style: ''*/
+          }
+        },
+        type: Object
       }
     },
     methods: {
@@ -45,34 +56,32 @@
 </script>
 
 <style scoped lang="scss">
-  @import '@css/index.scss';
-  
-  .m-header {
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    background-color: #fff;
-    border-top: 1px solid #f5f5f5;
-    .m-header-container {
-      display: flex;
-      align-items: center;
-      border-bottom: 1px solid #e5e5e5;
-      .m-header-control {
-        flex: 1;
-        .m-header-btn {
-          display: inline-block;
-          padding: 10px;
-        }
-      }
-      .m-header-title {
-        max-width: 190px;
-        padding: 10px;
-        font-size: rem(15);
-        text-overflow: ellipsis;
-        overflow: hidden;
-        word-wrap: normal;
-        white-space: nowrap;
-      }
-    }
-  }
+	.bv-header {
+		position: sticky;
+		top: 0;
+		z-index: 200;
+		background-color: #fff;
+		border-top: 1px solid #f5f5f5;
+		.bv-header-container {
+			display: flex;
+			align-items: center;
+			.bv-header-control {
+				flex: 1;
+				.bv-header-btn {
+					display: inline-block;
+					padding: 10px;
+				}
+			}
+			.bv-header-title {
+				max-width: 190px;
+				padding: 10px;
+				font-size: rem(18);
+				font-weight: 400;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				word-wrap: normal;
+				white-space: nowrap;
+			}
+		}
+	}
 </style>

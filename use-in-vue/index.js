@@ -18,10 +18,9 @@ import BvPageList from '../components/bv-page-list/bv-page-list';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
-import timeFilter from '$assets/js/timer.js'
-
 import config from '@config';
 import { share } from '$assets/js/share';
+import { filter } from './filter'
 
 
 import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
@@ -42,6 +41,9 @@ export function useInVue(opts = {}) {
 
     useWeChatInVue(Vue);
 
+    //时间过滤
+	  filter(Vue);
+
     //use fastclick
     fastclick.attach(document.body);
 
@@ -59,7 +61,6 @@ export function useInVue(opts = {}) {
     useVueAwesomeSwiper(Vue);
   }
 
-	Vue.filter('timeFilter', timeFilter)
 
   //extend program in Vue
   Vue.prototype.$config = config;
@@ -72,6 +73,7 @@ export function useInVue(opts = {}) {
 
   //公共的分享规则 app, browser, wechat
   Vue.prototype.$share = share;
+
 
   //use mint
   useMintUi(Vue);

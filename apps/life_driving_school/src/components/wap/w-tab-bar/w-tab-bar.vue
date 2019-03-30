@@ -6,13 +6,7 @@
 <script>
 
   import store from '@store';
-
-  import config from '@config';
-  import router from "@router";
-
-  import { activeNav } from '@assets/js/activePath';
-
-  const staticPath = config.path.static;
+  import homeTabBer from './home-tab-bar';
 
   export default {
     name: "w-tab-bar",
@@ -20,40 +14,7 @@
       return {
         activeIndex: -1,
         allTabBar: {
-          'home': {
-            list: [{
-              content: '生命驾校',
-              icon: `${staticPath}/img/public/home1.png`,
-              activeIcon: `${staticPath}/img/public/home2.png`,
-              to: '/'
-            }, {
-              content: '商城',
-              icon: `${staticPath}/img/public/shangchen1.png`,
-              activeIcon: `${staticPath}/img/public/shangchen2.png`,
-              to() {
-                location.href = `${config.path.base}/home/index/index`;
-              }
-            }, {
-              content: '驾校中心',
-              icon: `${staticPath}/img/public/fenlei1.png`,
-              activeIcon: `${staticPath}/img/public/fenlei2.png`,
-              to: '/'
-            }, {
-              content: '发现',
-              icon: `${staticPath}/img/public/faxian1.png`,
-              activeIcon: `${staticPath}/img/public/faxian2.png`,
-              to: '/'
-            }, {
-              content: '我的',
-              icon: `${staticPath}/img/public/my1.png`,
-              activeIcon: `${staticPath}/img/public/my2.png`,
-              to: '/'
-            }],
-            active() {
-              const path = router.currentRoute.fullPath;
-              this.activeIndex = activeNav(path)
-            }
-          }
+          'home': homeTabBer
         }
       }
     },
@@ -63,7 +24,7 @@
       },
       list() {
         const currentNav = this.allTabBar[this.tabBarName];
-        return currentNav && currentNav.list;
+        return currentNav && currentNav.list.items;
       }
     },
     watch: {

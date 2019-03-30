@@ -13,6 +13,7 @@ import '@/assets/css/blue-component.scss';
 //预设mint-ui中的css
 import '@/assets/css/mint-ui.scss';
 
+
 //设备相关
 device({
 	Vue
