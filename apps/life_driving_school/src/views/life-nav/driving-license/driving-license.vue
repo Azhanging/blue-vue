@@ -108,7 +108,7 @@
 	import driving_list from '../components/driving_list';
 
 	export default {
-		name: "driving_license",
+		name: "driving-license",
 		components: {
 			growTab,
 			driving_list

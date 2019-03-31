@@ -94,7 +94,7 @@
 
 <script>
 	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
-	import growTab from "../components/grow_tab"
+	import growTab from "./components/grow_tab"
 	import router from '@router';
 	export default {
 		name: "grow",

@@ -89,7 +89,7 @@
 				this.$router.push({'path': `/video`})
 			},
 			to_fitness_test() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/fitness_test`})
+				this.$router.push({'path': `${router.currentRoute.fullPath}/fitness-test`})
 			}
 		}
 	}

@@ -10,7 +10,7 @@ const grow = {
 	meta:{
 		tabBar: false
 	},
-	component: resolve => require(['@/views/grow/grow/grow.vue'], resolve),
+	component: resolve => require(['@/views/grow/grow.vue'], resolve),
 	children:[
 		video,
 		zhuanqu,

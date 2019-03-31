@@ -4,7 +4,7 @@ const ecosystem = {
     meta:{
         tabBar: false
     },
-    component: () => import("@views/ecosystem"),
+    component: () => import("@views/ecosystem/ecosystem.vue"),
 };
 
 export default ecosystem;

@@ -16,16 +16,16 @@
 				nav: [
 					{
 						nav_name: '首页',
-						path: '/life_nav'
+						path: '/life-nav'
 					},{
 						nav_name: '驾照课程',
-						path: '/life_nav/driving_license'
+						path: '/life-nav/driving-license'
 					},{
 						nav_name: '问答专区',
-						path: '/life_nav/question_answer'
+						path: '/life-nav/question-answer'
 					},{
 						nav_name: '为您推荐',
-						path: '/life_nav/recommend'
+						path: '/life-nav/recommend'
 					}]
 			}
 		},

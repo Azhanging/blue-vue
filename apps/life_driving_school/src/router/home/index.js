@@ -3,11 +3,11 @@
 const home = {
   path: '/',
   name: 'home',
-  component: resolve => require(['@/views/home/index.vue'], resolve),
+  component: resolve => require(['@/views/home/home.vue'], resolve),
   children:[{
     path: 'sign',
     name: 'home',
-    component: resolve => require(['@/views/home/sign.vue'], resolve),
+    component: resolve => require(['@/views/home/sign/sign.vue'], resolve),
   }]
 };
 

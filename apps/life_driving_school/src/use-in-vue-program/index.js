@@ -1,5 +1,5 @@
 import BvHomeView from '../components/public/bv-home-view/bv-home-view';
-import BvBindPhone from '../components/public/bv-bind-phone/bv-bind-phone';
+/*import BvBindPhone from '../components/public/bv-bind-phone/bv-bind-phone';*/
 
 import WTabBar from '../components/wap/w-tab-bar/w-tab-bar';
 import WHomeHeader from '../components/wap/w-home-header/w-home-header';
@@ -24,7 +24,7 @@ export function useInVueProgram(opts) {
 
 	//移动PC公共使用的组件
 	Vue.component('bv-home-view', BvHomeView);
-	Vue.component('bv-bind-phone', BvBindPhone);
+	//Vue.component('bv-bind-phone', BvBindPhone);
 
 
 }

@@ -1,18 +1,18 @@
 <!-- 浮层组件 -->
 <template>
-	<div class="suspend">
-		<!-- 回到顶部 -->
-		<div class="back-to-top" v-show="backToTopShow">
-			<a href="javascript:;" @click="backToTop">
-				<img src="//www.dtb315.com/Static/wap/home/images/scrollTop.png?v=13mqr11?v=0" width="30" height="30">
-			</a>
-		</div>
-	</div>
+  <div class="suspend">
+    <!-- 回到顶部 -->
+    <div class="back-to-top" v-show="backToTopShow">
+      <a href="javascript:;" @click="backToTop">
+        <img src="//www.dtb315.com/Static/wap/home/images/scrollTop.png?v=13mqr11?v=0" width="30" height="30">
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
 
-	import Velocity from 'velocity-animate';
+  import Velocity from 'velocity-animate';
 
   export default {
     name: "bv-suspend",
@@ -52,11 +52,13 @@
 </script>
 
 <style scoped lang="scss">
-	.suspend {
-		position: fixed;
-		z-index: 1;
-		right: 10px;
-		bottom: 60px;
-	}
+  .suspend {
+    position: fixed;
+    z-index: 1;
+    right: 10px;
+    bottom: 60px;
+    bottom: calc(constant(safe-area-inset-bottom) + 60px);
+    bottom: calc(env(safe-area-inset-bottom) + 60px);
+  }
 
 </style>

@@ -2,7 +2,7 @@ import article from "./article";
 import errorPage from "./error-page";
 import home from "./home";
 import lifeNav from "./life-nav";
-import industry from "./industry-research";
+import industry from "./industry";
 import grow from "./grow";
 import ecosystem from "./ecosystem";
 

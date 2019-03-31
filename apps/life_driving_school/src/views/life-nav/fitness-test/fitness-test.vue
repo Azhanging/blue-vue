@@ -60,7 +60,7 @@
     name: "fitness_test",
     methods:{
       to_test_results(){
-        this.$router.push({'path':`${router.currentRoute.fullPath}/test_results`})
+        this.$router.push({'path':`${router.currentRoute.fullPath}/test-results`})
       }
     }
   }
