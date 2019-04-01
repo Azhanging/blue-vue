@@ -31,8 +31,8 @@ useInVueProgram({
 Vue.config.productionTip = false;
 
 /*close vue wran and tips*/
-Vue.config.silent = true;
-Vue.config.warnHandler = false;
+/*Vue.config.silent = true;
+Vue.config.warnHandler = false;*/
 
 new Vue({
   router,

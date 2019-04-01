@@ -4,7 +4,7 @@ const componentTabBar = {
   list: {
     items: [{
       content: {
-        value: '组件',
+        value: '首页',
         fontSize: 10
       },
       icon: {
@@ -15,7 +15,7 @@ const componentTabBar = {
         direction: 'left',
         style: 'width:20px;height:20px;',
       },
-      to: '/components',
+      to: '/',
       className: 'bc-pd-6'
     }, {
       content: {
@@ -35,15 +35,16 @@ const componentTabBar = {
         list: {
           items: [{
             content: {
-              value: '子菜单1'
+              value: '子菜单子菜单1'
             },
             className: 'bc-bd-b-white',
             to: '/'
           }, {
             content: {
-              value: '子菜单1'
+              value: '子菜单2'
             }
-          }]
+          }],
+          style: 'border:1px solid white;'
         },
         arrow: {
           background: '#ca9f75'
@@ -67,20 +68,23 @@ const componentTabBar = {
         list: {
           items: [{
             content: {
-              value: '子菜单4'
+              value: '子菜单子菜单4'
             },
             className: 'bc-bd-b-white',
             to: '/'
           }, {
             content: {
-              value: '子菜单5',
+              value: '子菜单子菜单5',
             },
+            to: '/',
             className: 'bc-bd-b-white'
           }, {
             content: {
               value: '子菜单6'
-            }
-          }]
+            },
+            to: '/'
+          }],
+          style: 'border:1px solid #e5e5e5;'
         },
         arrow: {
           background: '#333'

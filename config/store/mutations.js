@@ -12,8 +12,8 @@ const mutations = {
   },
 
   //设置导航子菜单状态
-  setTabBarSubMenu(state, status) {
-    state.view.tabBarSubMenu = status;
+  setTabBarSubmenuIndex(state, index) {
+    state.view.tabBarSubmenuIndex = index;
   },
 
   //设置page底部fixed状态，focus相关

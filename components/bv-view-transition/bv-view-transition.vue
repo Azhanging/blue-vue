@@ -1,5 +1,5 @@
 <template>
-  <transition :name="transition" mode="in-out">
+  <transition :name="transitionName" mode="in-out">
     <slot/>
   </transition>
 </template>
@@ -7,10 +7,21 @@
 <script>
   export default {
     name: "bv-transition",
-    props: {
-      transition: {
-        default: 'slide-right',
-        type: String
+    props: ['transition'],
+    data() {
+      return {
+        transitionName: 'slide-right'
+      }
+    },
+    watch: {
+      ['$route'](to, from) {
+        if (this.transition) {
+          this.transitionName = this.transition;
+        } else {
+          const toDepth = to.path.split('/').length;
+          const fromDepth = from.path.split('/').length;
+          this.transitionName = toDepth < fromDepth ? 'slide-left' : 'slide-right';
+        }
       }
     }
   }
@@ -33,7 +44,6 @@
   .slide-right-enter,
   .slide-right-leave-active {
     opacity: 0;
-    pointer-events: none;
   }
 
   .slide-top-enter {

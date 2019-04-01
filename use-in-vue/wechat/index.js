@@ -3,8 +3,9 @@ import $Axios from '$axios';
 import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
-//项目的分享
-import { programShare } from '@assets/js/share';
+
+//项目的分享成功执行
+import { shareSuccess } from '@assets/js/share';
 
 const { state } = store;
 
@@ -35,7 +36,6 @@ class WeChatQueueTask {
       this.queue[i]();
     }
     this.reset();
-    //console.log(`run weChat task id:${weChatTaskQueueId}`);
   }
 
   reset() {
@@ -138,7 +138,7 @@ function setWeChatShare(opts = {}) {
       link,
       imgUrl,
       success() {
-        utils.hook(this, share);
+        utils.hook(this, shareSuccess);
         utils.hook(this, opts.success);
       }
     });

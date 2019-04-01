@@ -1,7 +1,6 @@
-import utils from 'blue-utils';
+//公共的过滤器
 
-
-export function filter(Vue){
+export function useFilter(Vue){
 	Vue.filter('timeFilter', timeFilter);
 	Vue.filter('cutImage',cutImage);
 }
@@ -23,7 +22,7 @@ export function timeFilter(time,val='Y-M-D') {
 }
 
 //裁剪过滤器
-function cutImage(val, w, h) {
+export function cutImage(val, w, h) {
 	if (!val) return val;
 	var url = '',
 		hasParme = (val.indexOf('?') == -1);

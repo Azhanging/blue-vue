@@ -1,7 +1,7 @@
 //router before each 相关的业务
 import utils from 'blue-utils';
 import RouterNext from './router-next';
-import { setTabBarSubMenuStatus } from '$components/bv-tab-bar';
+import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
 import { bind } from '$assets/js/bind';
 import { routerID } from '@router';
 
@@ -10,8 +10,8 @@ export function routerBeforeEach(opts = {}) {
   const { router, beforeEach } = opts;
   router.beforeEach((to, from, next) => {
     //设置子菜单的状态
-    setTabBarSubMenuStatus({
-      tabBarSubMenuStatus: false
+    setTabBarSubmenuIndex({
+      tabBarSubMenuStatus: -1
     });
     //设置路由标识
     routerID.setCurrentRouterID(to.meta.id);

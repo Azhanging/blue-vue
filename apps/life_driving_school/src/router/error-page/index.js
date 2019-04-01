@@ -1,4 +1,4 @@
-const ErrorPage404 = () => import(`$components/bv-error-page/404.vue`);
+const ErrorPage404 = () => import(`$components/bv-error-page/error-page-404.vue`);
 
 const error = {
   path: '/404',

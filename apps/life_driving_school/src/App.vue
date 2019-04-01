@@ -1,9 +1,9 @@
 <template>
 	<div id="app" class="bc-t-666 bc-f-14rp">
 		
-		<bv-transition>
+		<bv-view-transition>
 			<router-view/>
-		</bv-transition>
+		</bv-view-transition>
 		
 		<!-- 底部导航 -->
 		<w-tab-bar></w-tab-bar>

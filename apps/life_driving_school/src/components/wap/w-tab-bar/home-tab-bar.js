@@ -121,7 +121,7 @@ const homeTabBar = {
       },
       children: getChildren({
         items: [{
-          value: '我是学员员',
+          value: '我是学员',
           to: '/'
         }, {
           value: '我是教练',

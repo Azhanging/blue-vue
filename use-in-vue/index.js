@@ -13,6 +13,7 @@ import BvHeader from '../components/bv-header/bv-header';
 import BvView from '../components/bv-view/bv-view';
 import BvTabBar from '../components/bv-tab-bar/bv-tab-bar';
 import BvSuspend from '../components/bv-suspend/bv-suspend';
+import BvViewTransition from '../components/bv-view-transition/bv-view-transition';
 import BvTransition from '../components/bv-transition/bv-transition';
 import BvPageList from '../components/bv-page-list/bv-page-list';
 import BvBindPhone from '../components/bv-bind-phone/bv-bind-phone';
@@ -21,7 +22,7 @@ import fastclick from 'fastclick';
 
 import config from '@config';
 import { share } from '$assets/js/share';
-import { filter } from './filter'
+import { useFilter } from './filter'
 
 
 import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
@@ -41,9 +42,6 @@ export function useInVue(opts = {}) {
   if (inBrowser()) {
 
     useWeChatInVue(Vue);
-
-    //时间过滤
-	  filter(Vue);
 
     //use fastclick
     fastclick.attach(document.body);
@@ -75,6 +73,8 @@ export function useInVue(opts = {}) {
   //公共的分享规则 app, browser, wechat
   Vue.prototype.$share = share;
 
+  //过滤器
+  useFilter(Vue);
 
   //use mint
   useMintUi(Vue);
@@ -94,10 +94,13 @@ export function useInVue(opts = {}) {
   //浮层
   Vue.component('bv-suspend', BvSuspend);
 
-  //路由过渡动画组件
+  //路由视图过渡动画组件
+  Vue.component('bv-view-transition', BvViewTransition);
+
+  //过渡动画组件
   Vue.component('bv-transition', BvTransition);
 
-  //多级联动
+  //多view-级联动
   Vue.component('bv-picker', BvPicker);
 
   //分页列表

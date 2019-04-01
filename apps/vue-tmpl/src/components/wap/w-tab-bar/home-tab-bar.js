@@ -13,11 +13,8 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
       to: '/',
-      className: 'bc-pd-5'
+      className: 'bc-pd-5 bc-bd-r-e5e'
     }, {
       content: {
         value: '首页',
@@ -29,11 +26,8 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'bottom'
       },
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
       to: '/',
-      className: 'bc-pd-5',
+      className: 'bc-pd-5 bc-bd-r-e5e',
       fontSize: 10
     }, {
       content: {

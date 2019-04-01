@@ -21,15 +21,16 @@ export function computSubMenuPosition(opts = {}) {
     //导航宽度
     const tabBarWidth = tabBar.offsetWidth;
     //item的宽度
-    const menuElmWidth = menuElm.parentNode.offsetWidth;
+    const menuElmWidth = menuElm.offsetWidth;
     //item的left
-    const menuElmLeft = menuElm.parentNode.offsetLeft;
+    const menuElmLeft = menuElm.offsetLeft;
     //子菜单
-    const submenuElm = document.querySelector('#tarBarSubMenu');
+    const submenuElm = menuElm.lastElementChild;
     //子菜单的宽度
     const submenuElmWidth = submenuElm.offsetWidth;
 
     let left = menuElmLeft + (menuElmWidth - submenuElmWidth) / 2;
+
     if (left + submenuElmWidth > tabBarWidth) {
       submenuElm.style.left = 'initial';
       submenuElm.style.right = 0;
@@ -41,7 +42,7 @@ export function computSubMenuPosition(opts = {}) {
 }
 
 //设置导航子菜单状态
-export function setTabBarSubMenuStatus(opts = {}) {
-  const { tabBarSubMenuStatus } = opts;
-  store.commit('setTabBarSubMenu', tabBarSubMenuStatus);
+export function setTabBarSubmenuIndex(opts = {}) {
+  const { tabBarSubmenuIndex } = opts;
+  store.commit('setTabBarSubmenuIndex', tabBarSubmenuIndex);
 }

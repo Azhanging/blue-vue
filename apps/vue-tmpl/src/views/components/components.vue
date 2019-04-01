@@ -36,9 +36,6 @@
 
 <script>
   export default {
-    name: "components",
-	  mounted(){
-      this.$axios.get('/home/home/getRecommendForYou?page=1&P=1&p=1&Page=1');
-	  }
+    name: "components"
   }
 </script>

@@ -81,19 +81,19 @@
 				</div>
 			</div>
 			<div v-if="temp===1">
-				<bv-transition>
+				<bv-view-transition>
 					<driving_list></driving_list>
-				</bv-transition>
+				</bv-view-transition>
 			</div>
 			<div v-if="temp===2">
-				<bv-transition>
+				<bv-view-transition>
 					<driving_list></driving_list>
-				</bv-transition>
+				</bv-view-transition>
 			</div>
 			<div v-if="temp===3">
-				<bv-transition>
+				<bv-view-transition>
 					<driving_list></driving_list>
-				</bv-transition>
+				</bv-view-transition>
 			</div>
 		</div>
 

@@ -8,9 +8,9 @@
 		</div>
 
 		<!-- 公共的view层子路由 -->
-		<bv-transition>
+		<bv-view-transition>
 			<router-view/>
-		</bv-transition>
+		</bv-view-transition>
 
 		<!-- 浮层 -->
 		<slot name="suspend" :scroll="scroll"></slot>
@@ -27,7 +27,7 @@
 <script>
 
   import { setViewEvent, setParentViewScroll, findParentView } from './index';
-  import { setTabBarSubMenuStatus } from '$components/bv-tab-bar';
+  import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
   import Vuex from 'vuex';
 
   const { mapState } = Vuex;
@@ -57,8 +57,8 @@
     methods: {
       hideTabBarSubMenu() {
         //设置子菜单的状态
-        setTabBarSubMenuStatus({
-          tabBarSubMenuStatus: false
+        setTabBarSubmenuIndex({
+          tabBarSubMenuStatus: -1
         });
       }
     },
