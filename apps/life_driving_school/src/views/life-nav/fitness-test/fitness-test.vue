@@ -1,54 +1,54 @@
 <template>
   <bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
-    <w-home-header :title='{
+    <w-home-header :header='{
             title:{
                 value: "健康测试"
             }
         }'></w-home-header>
 
-    <div class="fitness_test_box">
-      <div class="fitness_test_tit">
+    <div class="fitness-test-box">
+      <div class="fitness-test-tit">
         1.在设计APP界面时候，通常使用的分辨率是
       </div>
-      <div class="fitness_test_main">
-        <div class="fitness_test_item">
-          <label class="fitness_test_item_l" for="fitness_test_item_l_A">
-            <input type="radio" id="fitness_test_item_l_A">
+      <div class="fitness-test-main">
+        <div class="fitness-test-item">
+          <label class="fitness-test-item-l" for="fitness-test-item-l-A">
+            <input type="radio" id="fitness-test-item-l-A">
             A
           </label>
-          <div class="fitness_test_item_r">72dpi，常规设计方法</div>
+          <div class="fitness-test-item-r">72dpi，常规设计方法</div>
         </div>
-        <div class="fitness_test_item">
-          <label class="fitness_test_item_l" for="fitness_test_item_l_B">
-            <input type="radio" id="fitness_test_item_l_B">
+        <div class="fitness-test-item">
+          <label class="fitness-test-item-l" for="fitness-test-item-l-B">
+            <input type="radio" id="fitness-test-item-l-B">
             B
           </label>
-          <div class="fitness_test_item_r">144dpi，考虑高清分辨率</div>
+          <div class="fitness-test-item-r">144dpi，考虑高清分辨率</div>
         </div>
-        <div class="fitness_test_item">
-          <label class="fitness_test_item_l" for="fitness_test_item_l_C">
-            <input type="radio" id="fitness_test_item_l_C">
+        <div class="fitness-test-item">
+          <label class="fitness-test-item-l" for="fitness-test-item-l-C">
+            <input type="radio" id="fitness-test-item-l-C">
             C
           </label>
-          <div class="fitness_test_item_r">300dpi，方便输出打印规范</div>
+          <div class="fitness-test-item-r">300dpi，方便输出打印规范</div>
         </div>
-        <div class="fitness_test_item">
-          <label class="fitness_test_item_l" for="fitness_test_item_l_D">
-            <input type="radio" id="fitness_test_item_l_D">
+        <div class="fitness-test-item">
+          <label class="fitness-test-item-l" for="fitness-test-item-l-D">
+            <input type="radio" id="fitness-test-item-l-D">
             D
           </label>
-          <div class="fitness_test_item_r">以上都是可以，随设备而不同使用</div>
+          <div class="fitness-test-item-r">以上都是可以，随设备而不同使用</div>
         </div>
       </div>
-      <div class="fitness_test_btn">
+      <div class="fitness-test-btn">
         <i class="iconfont iconxiangzuo"></i> 上一题
       </div>
     </div>
 
 
-    <div class="fitness_test_fix">
-      <div class="fitness_test_fix_l"><span>1</span>/1000000</div>
-      <div class="fitness_test_fix_r" @click="to_test_results">提交</div>
+    <div class="fitness-test-fix">
+      <div class="fitness-test-fix-l"><span>1</span>/1000000</div>
+      <div class="fitness-test-fix-r" @click="to_test_results">提交</div>
     </div>
 
   </bv-home-view>
@@ -57,7 +57,7 @@
 <script>
   import router from '@router';
   export default {
-    name: "fitness_test",
+    name: "fitness-test",
     methods:{
       to_test_results(){
         this.$router.push({'path':`${router.currentRoute.fullPath}/test-results`})
@@ -67,25 +67,25 @@
 </script>
 
 <style scoped lang="scss">
-.fitness_test_box{
+.fitness-test-box{
   background: #fff;
   margin-bottom: 45px;
-  .fitness_test_tit{
+  .fitness-test-tit{
     font-size: rem(16);
     color: #333;
     padding: 15px 15px 0;
   }
-  .fitness_test_main{
+  .fitness-test-main{
     overflow: hidden;
     padding:0 15px 15px;
-    .fitness_test_item{
+    .fitness-test-item{
       padding: 10px;
       background: #f4f4f4;
       margin-top: 15px;
       border-radius: 3px;
       display: flex;
       align-items: center;
-      .fitness_test_item_l{
+      .fitness-test-item-l{
         width: rem(30);
         height: rem(30);
         background: #fff;
@@ -100,14 +100,14 @@
           position: absolute;left: 0;
         }
       }
-      .fitness_test_item_r{
+      .fitness-test-item-r{
         flex: 1;
         font-size: rem(14);
         color: #333;
       }
     }
   }
-  .fitness_test_btn{
+  .fitness-test-btn{
     padding: 12px;
     text-align: center;
     background: #fff;
@@ -120,7 +120,7 @@
   }
 }
 
-  .fitness_test_fix{
+  .fitness-test-fix{
     position: fixed;
     left: 0;
     right: 0;
@@ -130,7 +130,7 @@
     height: 45px;
     display: flex;
     align-items: center;
-    .fitness_test_fix_l{
+    .fitness-test-fix-l{
       flex: 1;
       font-size: rem(16);
       color: #666;
@@ -139,7 +139,7 @@
         color: #CA9F75;
       }
     }
-    .fitness_test_fix_r{
+    .fitness-test-fix-r{
       padding: 0 35px;
       background: #CA9F75;
       color: #fff;

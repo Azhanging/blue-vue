@@ -1,5 +1,5 @@
 <template>
-	<w-home-header :title='"成长系统"'>
+	<w-home-header :header='header'>
 		<w-home-nav  :nav='nav' :active-index='growIndex'></w-home-nav>
 		
 		<slot name='second_tab'></slot>
@@ -15,6 +15,11 @@
 		},
 		data() {
 			return {
+				header: {
+					title:{
+						value:'成长系统'
+					}
+				},
 				nav: [
 					{
 						nav_name: '上大夫学院',

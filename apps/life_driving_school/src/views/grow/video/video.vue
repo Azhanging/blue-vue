@@ -7,14 +7,14 @@
 			<bv-scroll>
 				<swiper :options="swiperOption" ref="swiper">
 					<swiper-slide v-for="(slide, index) in banners" :key="index">
-						<div style="height:100px;">{{ slide }}</div>
+						<img :src='slide' style="width:100%">
 					</swiper-slide>
 					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 				</swiper>
 			</bv-scroll>
 		</div>
 		
-		<img width='100%' class='bc-block' src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>
+		<!--<img width='100%' class='bc-block' src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>-->
 		<div class='bc-f-11rp bc-bg-white notice bc-mg-b-10rp bc-pd-lr-15rp bc-v-m'>
 			<i class='iconfont iconyinliang-di bc-t-base bc-f-18rp '></i>
 			<span >公告：直播时间为{{1548946491687 | timeFilter("Y.M.D")}}</span>
@@ -58,8 +58,8 @@
 </template>
 
 <script>
-	import growTab from "../components/grow_tab";
-	import videoItem from "../components/video_item";
+	import growTab from "@components/wap/grow/w-grow-tab";
+	import videoItem from "@components/wap/grow/w-video-item";
 
 	export default {
 		name: "video",
@@ -69,12 +69,18 @@
 		},
 		data() {
 			return {
-				banners: [1, 2, 3, 4],
+				banners: [
+					'https://imagedev.dtb315.com/581933.jpg',
+					'https://imagedev.dtb315.com/581930.jpg',
+					'https://imagedev.dtb315.com/581926.jpg'
+				],
 				swiperOption: {
 					pagination: {
 						el: "#pagination"
 					},
-					loop: true
+					loop: true,
+					autoplay:true,
+					
 				},
 				swiper: {},
 				videoList:[

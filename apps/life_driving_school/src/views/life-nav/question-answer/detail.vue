@@ -1,13 +1,13 @@
 <template>
 	<bv-home-view class='wap' :router-level='3' style="background: #ededed;">
 
-		<w-home-header :title='{
+		<w-home-header :header='{
             title:{
                 value: "提交问题"
             }
         }'></w-home-header>
 
-		<div class="Submit_questions">
+		<div class="Submit-questions">
 			<h3>选择问题分类</h3>
 			<div>
 				<select id="btnSelect">
@@ -20,7 +20,7 @@
 				<textarea placeholder="输入内容"></textarea>
 			</div>
 			<p>您的问题，我们收到后会尽快处理。</p>
-			<input type="button" value="提交" class="Submit_sub">
+			<input type="button" value="提交" class="Submit-sub">
 		</div>
 
 
@@ -35,21 +35,21 @@
 </script>
 
 <style scoped lang="scss">
-	.Submit_questions {
+	.Submit-questions {
 		h3, p {
 			margin: 0;
 			padding: 0;
 		}
 
 		h3 {
-			padding: 10px 15px;
+			padding: rem(10) rem(15);
 			font-size: rem(14);
 			color: #999;
 			font-weight: normal;
 		}
 
 		p {
-			padding: 10px 15px;
+			padding: rem(10) rem(15);
 			font-size: rem(12);
 			color: #a5a5a5;
 			font-weight: normal;
@@ -57,7 +57,7 @@
 
 		div {
 			background: #fff;
-			padding: 15px;
+			padding: rem(15);
 			position: relative;
 
 			select {
@@ -69,7 +69,7 @@
 
 			label {
 				position: absolute;
-				right: 20px;
+				right: rem(20);
 				top: 30%;
 			}
 
@@ -82,14 +82,14 @@
 			}
 		}
 
-		.Submit_sub {
+		.Submit-sub {
 			margin: 0 5%;
 			width: 90%;
 			box-sizing: border-box;
 			border: 0;
-			height: 45px;
+			height: rem(45);
 			background: rgba(202, 159, 117, 1);
-			border-radius: 4px;
+			border-radius: rem(4);
 			color: #fff;
 			font-size: rem(18);
 			font-weight: bold;

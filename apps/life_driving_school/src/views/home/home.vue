@@ -7,17 +7,11 @@
       },
       style:`background: rgba(255,246,238,1);border-bottom:none !important;`
 		}" :type="2">
-			<div slot="right-control">
-				<div class="bc-t-r">
-					<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'></i>
-				</div>
-			</div>
 		</w-home-header>
 
 		<div class="bc-g-bg-e5e">
 			<!--tab 首页 资讯 产业研究-->
-			<div class="bc-flex bc-flex-jc-c bc-t-c home-nav bc-pd-lr-41rp">
+			<div class="bc-flex bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
 				<div class='bc-flex-1 bc-pd-tb-5rp' v-for="(item, index) in nav" :key="index">
 					<a @click="routerTo(item)"
 					   :class="[0 !== index ? '' : 'active']"
@@ -32,7 +26,7 @@
 				<a class="bc-block" href="javascript:;">
 					<img class="bc-w-100" :src="`${$config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
 				</a>
-				<a class="qiandao" href="javascript:;" @click="signIn">
+				<a class="qiandao" href="javascript:;">
 					<img class="bc-ps-a" :src="`${$config.path.static}/img/home/qiandao.png`" alt="签到">
 				</a>
 			</div>
@@ -49,7 +43,9 @@
 					<img class="bc-inline-block three-system-title" :src="`${$config.path.static}/img/home/three_system.png`">
 				</div>
 				<div class="bc-t-c bc-mg-t-13rp">
-					<img class="bc-inline-block chengzhang-system" :src="`${$config.path.static}/img/home/chengzhang_system.png`">
+					<router-link to="/grow">
+						<img class="bc-inline-block chengzhang-system" :src="`${$config.path.static}/img/home/chengzhang_system.png`">
+					</router-link>
 				</div>
 				<div class=" bc-t-c bc-mg-t-3rp">
 					<img class="bc-inline-block bozhong-system" :src="`${$config.path.static}/img/home/bozhong_system.png`">
@@ -154,37 +150,38 @@
 						</a>
 					</li>
 				</ul>
-
 			</div>
-
 		</div>
 
-		<!-- 绑定手机号 -->
-		<bv-bind-phone/>
+		<template slot="other">
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
 
 	</bv-home-view>
 </template>
 
 <script>
+	import router from '@router';
 
   export default {
     name: "home",
     data() {
       return {
-        nav: [
-          {
-            nav_name: '首页',
-            path: '/'
-          }, {
-            nav_name: '资讯',
-            path: '/article/zixun',
-            params: {
-              type: "zixun"
-            }
-          }, {
-            nav_name: '产业研究',
-            path: '/industry'
-          }]
+        nav: [{
+          nav_name: '首页',
+          path: '/'
+        }, {
+          nav_name: '资讯',
+          path: '/zixun'
+        }, {
+          nav_name: '产业研究',
+          path: '/industry'
+        }],
+        //绑定手机的状态
+        showBindPhoneStatus: (() => {
+          return router.currentRoute.fullPath === '/';
+        })()
       }
     },
     methods: {
@@ -192,15 +189,11 @@
         const path = item.path;
         this.$router.push(path);
       },
-      signIn() {
-        // 手机号绑定判断
-        let isSign = true;
-        if (isSign) {
-          this.$router.push({ 'path': '/sign' })
-        } else {
-          // https://pc.dtb315.cn/member/index.html?bottom=1&type=memcache
-          location.href = `${this.$config.path.base}${this.$config.bind.phone.url}`;
-        }
+      search() {
+        this.$router.push('/search');
+      },
+      closeBindPhone() {
+        this.showBindPhoneStatus = false;
       }
     },
   }

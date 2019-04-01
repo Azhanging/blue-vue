@@ -3,6 +3,8 @@ import $Axios from '$axios';
 import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
+//项目的分享
+import { programShare } from '@assets/js/share';
 
 const { state } = store;
 
@@ -62,7 +64,7 @@ export function useWeChatInVue(Vue) {
 
 //get wechat config in server
 export function getWeChatConfig() {
-  if(!config.device.isWeChat || !wx) return;
+  if (!config.device.isWeChat || !wx) return;
   //重新改变ready的状态
   weChatReadyStatus = false;
   const weChat = config.weChat;
@@ -136,6 +138,7 @@ function setWeChatShare(opts = {}) {
       link,
       imgUrl,
       success() {
+        utils.hook(this, share);
         utils.hook(this, opts.success);
       }
     });

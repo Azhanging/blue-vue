@@ -15,7 +15,7 @@
 		<div class='bc-pd-15rp bc-mg-b-10rp bc-bg-white' v-for='type in typelist'>
 			<div class='bc-flex bc-flex-jc-sb bc-mg-b-7rp'>
 				<span class='bc-f-18rp'>国学</span>
-				<div class='bc-f-12rp bc-t-333' @click='golist(type.id)'>全部&nbsp;12<i class='iconfont '></i></div>
+				<div class='bc-f-12rp bc-t-333' @click='golist(type.id)'>全部&nbsp;12<i class='iconfont iconyou'></i></div>
 			</div>
 			<div class='scroll-x'>
 				<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
@@ -53,8 +53,8 @@
 </template>
 
 <script>
-	import growTab from "../components/grow_tab";
-
+	import growTab from "@components/wap/grow/w-grow-tab";
+	import router from '@router';
 	export default {
 		name: "special",
 		components:{
@@ -86,7 +86,7 @@
 			
 			},
 			golist(id){
-				this.$router.push({path:'/zhuanqu/column',query:{id:id}})
+				this.$router.push({'path': `${router.currentRoute.fullPath}/column`})
 			},
 			getData() {
 				var data = {

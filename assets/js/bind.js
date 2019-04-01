@@ -60,26 +60,32 @@ function hasBindRelationParams(query) {
 }
 
 //绑定手机
-export function bindPhone(opts) {
+export function bindPhone(opts = {}) {
   const { to } = opts;
   const userInfo = store.state.userInfo;
   const phone = userInfo.phone;
   const bindPhonePath = config.bind.phone.path;
 
   //没有绑定手机跳转到指定的链接，指定的链接必须存在，业务待定，未开放（使用于新项目绑定内跳转）
-  /*if (!phone && bindPhonePath && to.path !== bindPhonePath && false) {
+  if (!phone && bindPhonePath && to && to.path !== bindPhonePath && false) {
     router.replace(`${bindPhonePath}?redirect_path=${encodeURIComponent(router.$getHref())}`);
-  }*/
+  }
 
   //老项目跳转绑定手机
+  //老项目跳转绑定手机
   if (!phone) {
-    $toast({
-      message: '跳转绑定手机中...',
-      duration: 10000
-    });
-    location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.$getHref())}`;
+    redirectBindPhone();
   }
 
   return false;
 
+}
+
+//重定向到绑定手机的页面
+export function redirectBindPhone(){
+  $toast({
+    message: '跳转绑定手机中...',
+    duration: 10000
+  });
+  location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.$getHref())}`;
 }

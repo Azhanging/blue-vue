@@ -1,10 +1,10 @@
 <template>
 	<bv-home-view class='wap' :router-level='2'>
-		<growTab :growIndex='3' :title='{
+		<life_nav_tab :growIndex='3' :title='{
             title:{
                 value: "健康导航"
             }
-        }'></growTab>
+        }'></life_nav_tab>
 		<recommend_list></recommend_list>
 
 	</bv-home-view>
@@ -12,13 +12,13 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import growTab from "../components/life_nav_tab"
-	import recommend_list from "../components/recommend_list"
+	import life_nav_tab from "../components/life-nav-tab"
+	import recommend_list from "../components/recommend-list"
 
 	export default {
 		name: "index",
 		components: {
-			growTab,
+			life_nav_tab,
 			recommend_list
 		},
 	}

@@ -29,7 +29,7 @@
 
 		<w-sorting :allSel='allSel' @send_sel='receive_sel' style="background:rgba(244,244,244,1);"></w-sorting>
 
-		<bv-scroll :api="api" :disabled="load.state.disabled">
+		<bv-scroll :api="api" :disabled="true">
 				<w-arrlist :list='load.data.lists'></w-arrlist>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -58,7 +58,7 @@
 
 
 	export default {
-		name: "ze-xun",
+		name: "zixun",
 		mixins: [scrollMixin()],
 		components: {
 			'w-sorting': WSorting,
@@ -128,23 +128,23 @@
 				this.apiGetData()
 			},
 			api() {
-				// const page = this.load.params.page++;
-				// return this.$axios.get('/home/home/getRecommendForYou', {
-				// 	params: {
-				// 		p: page,
-				// 		page: page
-				// 	}
-				// }).then((res) => {
-				// 	if (scrollNoHasListData.call(this, {
-				// 			result: res
-				// 		})) {
-				// 		return scrollEndHook.call(this);
-				// 	} else {
-				// 		this.load.data.lists = this.load.data.lists.concat(res.data);
-				// 	}
-				// }).catch(() => {
-				// 	return scrollEndHook.call(this);
-				// });
+				const page = this.load.params.page++;
+				return this.$axios.get('/home/home/getRecommendForYou', {
+					params: {
+						p: page,
+						page: page
+					}
+				}).then((res) => {
+					if (scrollNoHasListData.call(this, {
+							result: res
+						})) {
+						return scrollEndHook.call(this);
+					} else {
+						this.load.data.lists = this.load.data.lists.concat(res.data);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
 
 				this.load.data.lists = [1,2,3]
 			},
@@ -171,7 +171,7 @@
 				console.log(obj)
 			},
 			setNavActive(params) {
-				this.activeIndex = params.type === "zixun" ?  1: 2;
+				// this.activeIndex = params.type === "zixun" ?  1: 2;
 				console.log(this.activeIndex)
 			},
 			setHeaderTitle(params) {

@@ -6,7 +6,15 @@ const short_course = {
 		tabBar: false
 	},
 	component: resolve => require(['@/views/grow/short/short.vue'], resolve),
-	children:[]
+	children:[
+		{
+			path:'shortdetail',
+			meta:{
+				tabBar: false
+			},
+			component: resolve => require(['@/views/grow/short/shortdetail.vue'], resolve),
+		}
+	]
 };
 
 export default short_course;

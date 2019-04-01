@@ -15,6 +15,7 @@ import BvTabBar from '../components/bv-tab-bar/bv-tab-bar';
 import BvSuspend from '../components/bv-suspend/bv-suspend';
 import BvTransition from '../components/bv-transition/bv-transition';
 import BvPageList from '../components/bv-page-list/bv-page-list';
+import BvBindPhone from '../components/bv-bind-phone/bv-bind-phone';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
@@ -104,4 +105,7 @@ export function useInVue(opts = {}) {
 
   //滑动模块
   Vue.component('bv-swiper-scroll', BvSwiperScroll);
+
+  //绑定手机
+  Vue.component('bv-bind-phone', BvBindPhone);
 }

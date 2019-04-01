@@ -5,6 +5,22 @@ import router from '@router';
 //环境
 import env from './env';
 
+//环境域名路径
+const path = (() => {
+  let path = '';
+  if (env.dev) {
+    path = 'http://pc.lifest.dtb315.com';
+  } else if (env.beta) {
+    path = 'http://beta.lifest.dtb315.com';
+  } else {
+    path = 'http://lifest.dtb315.com';
+  }
+  return path;
+})();
+
+//静态资源路径
+const staticPath = `${path}/static`;
+
 //合并公共的配置
 const config = utils.extend(publicConfig, {
   view: {
@@ -14,22 +30,12 @@ const config = utils.extend(publicConfig, {
   env,
   path: {
     base: location.origin,
-    static: (() => {
-	    let path = '';
-	    if (env.dev) {
-		    path = 'https://pc.dtb315.cn';
-	    } else if (env.beta) {
-		    path = 'https://beta.dtb315.cn';
-	    } else {
-		    path = 'https://www.dtb315.com';
-	    }
-	    return `${path}/Static/spa/life_driving_school`;
-    })()
+    static: staticPath
   },
   share: {
-    title: "blue-vue-tmpl",
-    deps: "blue-vue-tmpl is vue public template",
-    imgUrl: "",
+    title: "生命驾校·智慧导航",
+    deps: "智慧引领生活，幸福从心成长——生命驾校幸福工程。",
+    imgUrl: `${staticPath}/img/public/share/default-share-img.png`,
     link() {
       return router.$getHref();
     }

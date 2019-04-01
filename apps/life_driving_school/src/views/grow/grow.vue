@@ -54,7 +54,7 @@
 			<div class='bc-pd-10rp'>
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<!--数据循环-->
-					<div class='bc-flex courseList bc-pd-tb-10rp' v-for='item in courseList'>
+					<div class='bc-flex courseList bc-pd-tb-10rp' v-for='item in courseList' @click='godetail'>
 						<img class='bc-mg-r-10rp' src='https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t' alt=''>
 						<div class='bc-flex-1 bc-flex bc-flex-d-c bc-flex-jc-sb'>
 							<span class='bc-f-16rp bc-t-ellipsis bc-t-ellipsis-2'>精选标题精选标题精选标题精选标题精选标题精选标题</span>
@@ -94,7 +94,7 @@
 
 <script>
 	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
-	import growTab from "./components/grow_tab"
+	import growTab from "@components/wap/grow/w-grow-tab"
 	import router from '@router';
 	export default {
 		name: "grow",
@@ -170,6 +170,9 @@
 			},
 			api(){
 			
+			},
+			godetail(){
+				this.$router.push({path:'/grow/cosdetail',query:{id:22}})
 			},
 			to_books(){
 				this.$router.push({'path': `${router.currentRoute.fullPath}/books`})

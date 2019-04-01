@@ -1,8 +1,10 @@
 <template>
 	<div class='arrlist'>
-		<div v-for='item in list' class='bc-mg-b-10rp bc-bg-white bc-pd-10rp' @click='detailClick'>
-			 <w-itemdata :itemList='item'></w-itemdata>
+		
+		<div v-for='item in list' @click='detailClick' class='itemList bc-pd-10rp bc-bd-b-e5e'>
+			<W-itemdata :itemList='item'></W-itemdata>
 		</div>
+		
 	</div>
 </template>
 
@@ -13,7 +15,7 @@
 		props:{
 			list:{
 				type:Array,
-				default:[]
+				default:[1,2,3]
 			}
 		},
 		data() {
@@ -30,6 +32,8 @@
 			}
 		},
 		mounted() {
+			this.list = [1,2,3]
+			console.log(this.list)
 		}
 	}
 </script>
@@ -40,11 +44,11 @@
 		color:#888
 	}
 	
-	.arrlist{
-		background-color: #f5f5f5;
-		.right_img{
-			width: rem(144);
-			height: rem(96);
+	.itemList {
+		background-color: white;
+		.left_img{
+			width: rem(120);
+			height: rem(80);
 		}
 		.action{
 			color:#888;
@@ -54,6 +58,7 @@
 					color:#C1A77D;
 				}
 			}
+			
 		}
 	}
 </style>

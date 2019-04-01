@@ -15,6 +15,9 @@
 		<!-- 浮层 -->
 		<slot name="suspend" :scroll="scroll"></slot>
 
+		<!-- 其他的 -->
+		<slot name="other"></slot>
+
 		<!-- 底部 -->
 		<slot name="footer"></slot>
 
@@ -77,6 +80,7 @@
 		position: fixed;
 		top: 0;
 		right: 0;
+		bottom: 47px;
 		bottom: calc(constant(safe-area-inset-bottom) + 47px);
 		bottom: calc(env(safe-area-inset-bottom) + 47px);
 		left: 0;

@@ -1,7 +1,7 @@
 <template>
 	<div class="expense_l_box">
 		<div class="expense_list">
-			<itemList v-for="item in list" :itemL="item"></itemList>
+			<itemList></itemList>
 		</div>
 	</div>
 </template>
@@ -17,7 +17,6 @@
 		},
 		data() {
 			return {
-				list: [1, 2, 3]
 			}
 		},
 		methods: {}

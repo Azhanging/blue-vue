@@ -179,7 +179,7 @@
 	.bv-tab-bar {
 		position: fixed;
 		width: auto;
-		z-index: 100000;
+		z-index: 10000;
 		left: 0;
 		bottom: 0;
 		width: 100%;

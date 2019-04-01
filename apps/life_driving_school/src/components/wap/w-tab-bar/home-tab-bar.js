@@ -58,7 +58,7 @@ const homeTabBar = {
         value: '首页',
         fontSize: 13
       },
-      className: 'bc-pd-tb-17',
+      className: 'bc-pd-tb-16',
       link: {
         className: 'bc-bd-r-e5e'
       },
@@ -69,7 +69,7 @@ const homeTabBar = {
         fontSize: 11
       },
       icon: subMenuIcon,
-      className: 'bc-pd-tb-17',
+      className: 'bc-pd-tb-16',
       link: {
         className: 'bc-bd-r-e5e'
       },
@@ -80,7 +80,7 @@ const homeTabBar = {
         fontSize: 11
       },
       icon: subMenuIcon,
-      className: 'bc-pd-tb-17',
+      className: 'bc-pd-tb-16',
       link: {
         className: 'bc-bd-r-e5e'
       },
@@ -107,7 +107,7 @@ const homeTabBar = {
         value: '购物宝',
         fontSize: 11
       },
-      className: 'bc-pd-tb-17',
+      className: 'bc-pd-tb-16',
       link: {
         className: 'bc-bd-r-e5e'
       },
@@ -135,7 +135,7 @@ const homeTabBar = {
         }]
       }),
       icon: subMenuIcon,
-      className: 'bc-pd-tb-17'
+      className: 'bc-pd-tb-16'
     }]
   },
   active() {

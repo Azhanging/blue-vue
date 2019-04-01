@@ -6,13 +6,27 @@ const special = {
 	meta:{
 		tabBar: false
 	},
-	component: resolve => require(['@/views/grow/zhuanqu/special.vue'], resolve),
+	component: resolve => require(['@/views/grow/zhuanqu/zhuanqu.vue'], resolve),
 	children:[{
 		path:'column',
 		meta:{
 			tabBar: false
 		},
-		component: resolve => require(['@/views/grow/zhuanqu/column.vue'], resolve),
+		component: () => import("@/views/grow/zhuanqu/column/column.vue"),
+		children:[{
+			path:'album',
+			meta:{
+				tabBar: false
+			},
+			component: () => import("@/views/grow/zhuanqu/column/album.vue"),
+			children:[{
+				path:'album-detail',
+				meta:{
+					tabBar: false
+				},
+				component: () => import("@/views/grow/zhuanqu/column/album-detail.vue"),
+			}]
+		}]
 	}]
 };
 

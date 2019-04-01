@@ -12,6 +12,13 @@ const grow = {
 	},
 	component: resolve => require(['@/views/grow/grow.vue'], resolve),
 	children:[
+		{
+			path:'cosdetail',
+			component: resolve => require(['@/views/grow/cosdetail.vue'], resolve),
+			meta:{
+				tabBar: false
+			},
+		},
 		video,
 		zhuanqu,
 		short,

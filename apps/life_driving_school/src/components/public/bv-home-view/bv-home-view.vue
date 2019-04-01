@@ -7,8 +7,8 @@
 			<bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></bv-suspend>
 		</template>
 
-		<template slot="footer">
-			<slot name="footer"></slot>
+		<template slot="other">
+			<slot name="other"></slot>
 		</template>
 
 	</bv-view>

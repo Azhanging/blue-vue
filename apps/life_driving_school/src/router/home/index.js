@@ -1,13 +1,19 @@
-// const Home = () => import(`@/views/home`);
+const Home = () => import(`@/views/home/home`);
+const Sign = () => import ('@/views/home/sign');
+const Search = () => import ('@/views/home/search');
 
 const home = {
   path: '/',
   name: 'home',
-  component: resolve => require(['@/views/home/home.vue'], resolve),
+  component: Home,
   children:[{
     path: 'sign',
     name: 'home',
-    component: resolve => require(['@/views/home/sign/sign.vue'], resolve),
+    component: Sign,
+  },{
+    path: 'search',
+    name: 'search',
+    component: Search
   }]
 };
 

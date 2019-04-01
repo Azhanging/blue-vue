@@ -1,65 +1,65 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background: #ededed;">
-		<growTab :growIndex='2' :title='{
+		<life_nav_tab :growIndex='2' :title='{
             title:{
                 value: "生命导航"
             }
-        }'></growTab>
+        }'></life_nav_tab>
 
-		<div class="question_lists">
-			<div class="question_item" v-for="(item,index) in list">
-				<div class="question_ask">
-					<div class="question_ask_l"><i>Q</i></div>
-					<div class="question_ask_c">怎么才能调养身体，将自己脱离亚健康状态？</div>
-					<div class="question_ask_r"><i class="iconfont icongengduo"></i></div>
+		<div class="question-lists">
+			<div class="question-item" v-for="(item,index) in list">
+				<div class="question-ask">
+					<div class="question-ask-l"><i>Q</i></div>
+					<div class="question-ask-c">怎么才能调养身体，将自己脱离亚健康状态？</div>
+					<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>
 				</div>
-				<div class="question_answer">
-					<div class="question_answer_l">
+				<div class="question-answer">
+					<div class="question-answer-l">
 						<i>A</i>
 					</div>
-					<div class="question_answer_r">
+					<div class="question-answer-r">
 						滚滚长江东逝水，浪花淘尽英雄。是非成败转头空。青山依旧在，几度夕阳红。白发渔樵江渚上，惯看秋月春风。一壶浊酒喜相逢。古今多少事，都付笑谈中。
 					</div>
 				</div>
 
-				<div class="question_review" v-if="ifshow===index">
+				<div class="question-review" v-if="ifshow===index">
 					<h2>全部评论</h2>
-					<div class="question_review_top">
-						<div class="question_review_top_l">
+					<div class="question-review-top">
+						<div class="question-review-top-l">
 							<img src="https://image.dtb315.com/76343.jpg">
 						</div>
-						<div class="question_review_top_r">
-							<div class="question_review_top_tit">
-								<div class="question_review_top_tit_l">聪明的一休</div>
-								<div class="question_review_top_tit_r">
+						<div class="question-review-top-r">
+							<div class="question-review-top-tit">
+								<div class="question-review-top-tit-l">聪明的一休</div>
+								<div class="question-review-top-tit-r">
 									<span><i class="iconfont icondianzan"></i> 2222</span>
 									<span><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
-							<div class="question_review_top_time">1小时前</div>
-							<div class="question_review_top_box">猫和老鼠你好，我是聪明的一休</div>
-							<div class="question_review_top_reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
+							<div class="question-review-top-time">1小时前</div>
+							<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
+							<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
 						</div>
 					</div>
-					<div class="question_review_top">
-						<div class="question_review_top_l">
+					<div class="question-review-top">
+						<div class="question-review-top-l">
 							<img src="https://image.dtb315.com/76343.jpg">
 						</div>
-						<div class="question_review_top_r">
-							<div class="question_review_top_tit">
-								<div class="question_review_top_tit_l">鼠妹的小夏目</div>
-								<div class="question_review_top_tit_r">
+						<div class="question-review-top-r">
+							<div class="question-review-top-tit">
+								<div class="question-review-top-tit-l">鼠妹的小夏目</div>
+								<div class="question-review-top-tit-r">
 									<span><i class="iconfont icondianzan"></i> 155</span>
 									<span><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
-							<div class="question_review_top_time">2小时前</div>
-							<div class="question_review_top_box">你好，我是鼠妹的夏目</div>
+							<div class="question-review-top-time">2小时前</div>
+							<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="question_btn" @click="if_s_click(index)">展开评论
+				<div class="question-btn" @click="ifsClick(index)">展开评论
 					<i class="iconfont"
 					   :class="[{iconxiangxia1:(ifshow!==index)},{iconxiangshang1:(ifshow===index)}]"></i>
 				</div>
@@ -69,10 +69,15 @@
 
 		</div>
 
-		<div class="question_quiz" @click='detailClick'>
+		<div class="question-quiz" @click='detailClick'>
 			提问
 		</div>
 
+		<div class="reply_mask" v-if="reply_show"></div>
+		<div class="reply_show" v-if="reply_show">
+			<div class="reply_item">回复</div>
+			<div class="reply_item" @click="btn_reply_h">取消</div>
+		</div>
 
 	</bv-home-view>
 </template>
@@ -80,12 +85,12 @@
 <script>
 	import router from '@router';
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import growTab from "../components/life_nav_tab"
+	import life_nav_tab from "../components/life-nav-tab"
 
 	export default {
 		name: "index",
 		components: {
-			growTab
+			life_nav_tab
 		},
 		data() {
 			return {
@@ -94,11 +99,12 @@
 					{id: 1},
 					{id: 1},
 				],
-				ifshow: ''
+				ifshow: '',
+				reply_show:false
 			}
 		},
 		methods: {
-			if_s_click(index) {
+			ifsClick(index) {
 				if (this.ifshow === index) {
 					this.ifshow = '';
 				} else {
@@ -107,6 +113,12 @@
 			},
 			detailClick() {
 				this.$router.push({'path': `${router.currentRoute.fullPath}/detail`})
+			},
+			btn_reply() {
+				this.reply_show = true
+			},
+			btn_reply_h() {
+				this.reply_show = false
 			}
 		}
 	}
@@ -118,28 +130,28 @@
 		padding: 0;
 	}
 
-	.question_lists {
-		padding: 10px 15px 0;
+	.question-lists {
+		padding: rem(10) rem(15) 0;
 
-		.question_item {
+		.question-item {
 			background: #fff;
-			margin-bottom: 15px;
-			border-radius: 3px;
+			margin-bottom: rem(15);
+			border-radius: rem(3);
 			font-size: rem(14);
 
-			.question_ask {
-				padding: 15px;
+			.question-ask {
+				padding: rem(15);
 				display: flex;
 
-				.question_ask_l {
-					width: 15px;
-					height: 15px;
+				.question-ask-l {
+					width: rem(15);
+					height: rem(15);
 					background: #CA9F75;
 					vertical-align: middle;
-					line-height: 15px;
+					line-height: rem(15);
 					text-align: center;
-					margin-top: 2px;
-					margin-right: 7px;
+					margin-top: rem(2);
+					margin-right: rem(7);
 
 					i {
 						font-style: normal;
@@ -147,26 +159,26 @@
 					}
 				}
 
-				.question_ask_c {
+				.question-ask-c {
 					flex: 1;
-					line-height: 20px;
+					line-height: rem(20);
 					color: #333;
 				}
 			}
 
-			.question_answer {
+			.question-answer {
 				display: flex;
-				padding: 0 15px;
+				padding: 0 rem(15);
 
-				.question_answer_l {
-					width: 15px;
-					height: 15px;
+				.question-answer-l {
+					width: rem(15);
+					height: rem(15);
 					background: #CA9F75;
 					vertical-align: middle;
-					line-height: 15px;
+					line-height: rem(15);
 					text-align: center;
-					margin-top: 2px;
-					margin-right: 7px;
+					margin-top: rem(2);
+					margin-right: rem(7);
 
 					i {
 						font-style: normal;
@@ -174,37 +186,37 @@
 					}
 				}
 
-				.question_answer_r {
+				.question-answer-r {
 					flex: 1;
 					background: #F7F7F7;
-					padding: 10px;
+					padding: rem(10);
 					color: #666;
 				}
 
 			}
 
-			.question_review {
+			.question-review {
 				overflow: hidden;
 
 				h2 {
 					border-top: 1px solid #e5e5e5;
-					margin-top: 15px;
+					margin-top: rem(15);
 					font-weight: normal;
 					color: #333;
 					font-size: rem(14);
-					padding: 15px 15px 20px;
+					padding: rem(15) rem(15) rem(10);
 				}
 
-				.question_review_top {
-					padding: 0 15px;
+				.question-review-top {
+					padding: 0 rem(15);
 					display: flex;
-
-					.question_review_top_l {
-						width: 38px;
-						height: 38px;
+					margin-top: rem(10);
+					.question-review-top-l {
+						width: rem(38);
+						height: rem(38);
 						border-radius: 100%;
 						overflow: hidden;
-						margin-right: 15px;
+						margin-right: rem(15);
 
 						img {
 							vertical-align: top;
@@ -212,38 +224,38 @@
 						}
 					}
 
-					.question_review_top_r {
+					.question-review-top-r {
 						flex: 1;
 
-						.question_review_top_tit {
+						.question-review-top-tit {
 							display: flex;
-							line-height: 20px;
+							line-height: rem(20);
 							font-size: rem(14);
 
-							.question_review_top_tit_l {
+							.question-review-top-tit-l {
 								flex: 1;
 							}
 
-							.question_review_top_tit_r {
+							.question-review-top-tit-r {
 								span {
-									margin-left: 10px;
+									margin-left: rem(10);
 								}
 							}
 						}
 
-						.question_review_top_time {
+						.question-review-top-time {
 							font-size: rem(12);
 						}
 
-						.question_review_top_box {
-							margin: 10px 0;
+						.question-review-top-box {
+							margin: rem(10) 0;
 							font-size: rem(14);
 							color: #333;
 						}
 
-						.question_review_top_reply {
+						.question-review-top-reply {
 							background: #F7F7F7;
-							padding: 10px;
+							padding: rem(10);
 							color: #666;
 
 							span {
@@ -254,26 +266,54 @@
 				}
 			}
 
-			.question_btn {
+			.question-btn {
 				text-align: center;
-				padding: 12px;
+				padding: rem(12);
 				color: #CA9F75;
 			}
 		}
 	}
 
-	.question_quiz {
+	.question-quiz {
 		position: fixed;
-		right: 5px;
-		bottom: 100px;
-		width: 44px;
-		height: 44px;
+		right: rem(5);
+		bottom: rem(100);
+		width: rem(44);
+		height: rem(44);
 		border-radius: 100%;
 		overflow: hidden;
 		background: #CA9F75;
 		font-size: rem(14);
 		color: #fff;
-		line-height: 44px;
+		line-height: rem(44);
 		text-align: center;
+	}
+
+	.reply_mask{
+		position: fixed;
+		left: 0;
+		right: 0;
+		top:0;
+		bottom: 0;
+		background: rgba(000,000,000,.5);
+		z-index: 200;
+	}
+	.reply_show{
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: #fff;
+		z-index: 201;
+		.reply_item{
+			padding: rem(15);
+			text-align: center;
+			color: #333;
+			font-size: rem(18);
+			border-bottom: 1px solid #e5e5e5;
+			&:last-child{
+				border-bottom: 0;
+			}
+		}
 	}
 </style>

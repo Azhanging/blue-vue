@@ -1,51 +1,51 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
-		<growTab :growIndex='1' :title='{
+		<life_nav_tab :growIndex='1' :title='{
             title:{
                 value: "生命导航"
             }
-        }'></growTab>
+        }'></life_nav_tab>
 
-		<div class="driving_top">
-			<div class="driving_title">
-				<div><i class="driving_title_r"></i></div>
+		<div class="driving-top">
+			<div class="driving-title">
+				<div><i class="driving-title-r"></i></div>
 				<h3>阶段测试</h3>
-				<div><i class="driving_title_l"></i></div>
+				<div><i class="driving-title-l"></i></div>
 			</div>
 
 			<bv-scroll>
 				<swiper :options="swiperOption" ref="swiper">
 					<swiper-slide v-for="(slide, index) in banners" :key="index">
 
-						<div class="driving_slide">
-							<div class="driving_learn">
-								<div class="driving_learn_img">
+						<div class="driving-slide">
+							<div class="driving-learn">
+								<div class="driving-learn-img">
 									<img src="https://image.dtb315.com/31713.jpg?val=Thumb">
 								</div>
-								<div class="driving_learn_desc">
+								<div class="driving-learn-desc">
 									<h3>您已学习至：</h3>
 									<p>初阶&nbsp;第三课《财富的真相》</p>
 								</div>
 							</div>
 
-							<div class="driving_topic">
-								<div class="driving_topic_img">
+							<div class="driving-topic">
+								<div class="driving-topic-img">
 									<img src="https://image.dtb315.com/31713.jpg?val=Thumb">
 								</div>
-								<div class="driving_topic_desc">
-									<div class="driving_topic_desc_tit">
+								<div class="driving-topic-desc">
+									<div class="driving-topic-desc-tit">
 										<div>初阶课程测试（选择题）</div>
 										<i class="iconfont iconbianji"></i>
 									</div>
-									<div class="driving_topic_desc_xing">
+									<div class="driving-topic-desc-xing">
 										<i class="iconfont iconiconfontxingxing"></i>
 										<i class="iconfont iconiconfontxingxing"></i>
 										<i class="iconfont iconiconfontxingxing"></i>
 										<i class="iconfont iconiconfontxingxing"></i>
 										<i class="iconfont iconiconfontxingxing"></i>
 									</div>
-									<div class="driving_topic_desc_progress">
-										<div class="driving_topic_desc_l">
+									<div class="driving-topic-desc-progress">
+										<div class="driving-topic-desc-l">
 											<progress value="40" max="100"></progress>
 										</div>
 										<div><span>40</span>/100道</div>
@@ -62,8 +62,8 @@
 
 		</div>
 
-		<div class="driving-List">
-			<div class="driving-List-tab">
+		<div class="driving_list">
+			<div class="driving_list-tab">
 				<div
 					v-on:click="tabqh(1)"
 					:class="{active:(temp===1)}">
@@ -104,13 +104,13 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import growTab from "../components/life_nav_tab"
-	import driving_list from '../components/driving_list';
+	import life_nav_tab from "../components/life-nav-tab"
+	import driving_list from '../components/driving-list';
 
 	export default {
 		name: "driving-license",
 		components: {
-			growTab,
+			life_nav_tab,
 			driving_list
 		},
 		data() {
@@ -148,17 +148,16 @@
 		margin: 0;
 		padding: 0;
 	}
-
-	.driving_top {
+	.driving-top {
 		background: #fff;
 		overflow: hidden;
-		padding: 0 15px;
+		padding: 0 rem(15);
 
-		.driving_title {
-			padding: 20px;
+		.driving-title {
+			padding: rem(20);
 			display: flex;
-			height: 20px;
-			line-height: 20px;
+			height: rem(20);
+			line-height: rem(20);
 			align-items: center;
 
 			div {
@@ -173,41 +172,41 @@
 				}
 
 				i {
-					width: 6px;
-					height: 6px;
+					width: rem(6);
+					height: rem(6);
 					background: #CA9F75;
 					position: absolute;
-					top: -3px;
+					top: rem(-3);
 					right: 0;
 					transform: rotate(-60deg);
 				}
 
-				.driving_title_l {
+				.driving-title-l {
 					right: auto;
 					left: 0;
 				}
 			}
 
 			h3 {
-				margin: 0 5px;
+				margin: 0 rem(5);
 			}
 		}
 
 
-		.driving_slide {
+		.driving-slide {
 			overflow: hidden;
 
-			.driving_learn {
+			.driving-learn {
 				display: flex;
 				background: #A9A892;
-				padding: 20px;
-				border-radius: 5px;
+				padding: rem(20);
+				border-radius: rem(5);
 				overflow: hidden;
 
-				.driving_learn_img {
-					width: 40px;
+				.driving-learn-img {
+					width: rem(40);
 					overflow: hidden;
-					margin: 0 20px;
+					margin: 0 rem(20);
 
 					img {
 						width: 100%;
@@ -215,13 +214,13 @@
 					}
 				}
 
-				.driving_learn_desc {
+				.driving-learn-desc {
 					flex: 1;
 					color: #fff;
 
 					h3 {
 						font-size: rem(16);
-						margin: 8px 0;
+						margin: rem(8) 0;
 					}
 
 					p {
@@ -230,15 +229,15 @@
 				}
 			}
 
-			.driving_topic {
+			.driving-topic {
 				display: flex;
-				padding: 15px 0 30px;
+				padding: rem(15) 0 rem(30);
 
-				.driving_topic_img {
-					width: 95px;
-					height: 60px;
+				.driving-topic-img {
+					width: rem(95);
+					height: rem(60);
 					overflow: hidden;
-					margin-right: 12px;
+					margin-right: rem(12);
 
 					img {
 						vertical-align: top;
@@ -246,10 +245,10 @@
 					}
 				}
 
-				.driving_topic_desc {
+				.driving-topic-desc {
 					flex: 1;
 
-					.driving_topic_desc_tit {
+					.driving-topic-desc-tit {
 						display: flex;
 
 						div {
@@ -259,28 +258,28 @@
 						}
 					}
 
-					.driving_topic_desc_xing {
-						height: 15px;
-						line-height: 15px;
+					.driving-topic-desc-xing {
+						height: rem(15);
+						line-height: rem(15);
 
 						i {
 							font-size: rem(14);
 						}
 					}
 
-					.driving_topic_desc_progress {
+					.driving-topic-desc-progress {
 						display: flex;
 						color: #999;
 						font-size: rem(10);
 
-						.driving_topic_desc_l {
+						.driving-topic-desc-l {
 							flex: 1;
 
 							progress {
 								border: 0;
 								background: #999;
-								height: 3px;
-								border-radius: 3px;
+								height: rem(3);
+								border-radius: rem(3);
 
 								&::-webkit-progress-bar {
 									background: transparent;
@@ -303,24 +302,24 @@
 
 	.swiper-pagination .swiper-pagination-bullet-active {
 		background: #CA9F75;
-		width: 12px;
+		width: rem(12);
 	}
 
-	.driving-List {
-		margin-top: 10px;
+	.driving_list {
+		margin-top: rem(10);
 		background: #fff;
-		padding: 0 15px;
+		padding: 0 rem(15);
 		overflow: hidden;
 
-		.driving-List-tab {
-			margin: 20px 0;
+		.driving_list-tab {
+			margin: rem(20) 0;
 			display: flex;
-			height: 30px;
+			height: rem(30);
 			border: 1px solid #CA9F75;
 			box-sizing: border-box;
 			overflow: hidden;
-			border-radius: 5px;
-			line-height: 30px;
+			border-radius: rem(5);
+			line-height: rem(30);
 
 			div {
 				flex: 1;
