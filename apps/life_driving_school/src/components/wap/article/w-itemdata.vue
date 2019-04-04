@@ -1,17 +1,23 @@
 <template>
 	<div class='bc-flex'>
-		<img class='left_img' src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>
+		<!--生命导航-驾照课程列表显示 top-->
+		<i class="driving-radio iconfont iconxuanzhong" v-if="ifAchieve"></i>
+		<!--生命导航-驾照课程列表显示 end-->
+
+		<div class=""></div>
+
+		<img class='left_img' :src='itemList.src_img' alt=''>
 		<div class='bc-flex-1 bc-mg-l-10rp'>
-			<div>
-				<span class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-f-15rp'>文字文字文字文字文字文字文字文字文字文字</span>
-				<div class='t-888 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-t-8 bc-f-12rp'>ff 文字ddd ff 文字dddff 文字dddff 文字dddff 文字ddd</div>
-			</div>
+
+				<span class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-b-8 bc-f-15rp'>{{itemList.name}}</span>
+				<div class='t-888 bc-t-ellipsis bc-t-ellipsis-2  bc-f-12rp'>{{itemList.description}}</div>
+
 			<div class='bc-flex bc-flex-jc-sb  bc-flex-ai-c bc-pd-t-10rp bc-t-999'>
 				<div class='action bc-flex bc-f-12rp'>
-					<i class='iconfont iconeye- bc-f-12rp'></i><span>&nbsp;2536</span>
+					<i class='iconfont iconeye- bc-f-12rp'></i><span>&nbsp;{{itemList.click_num}}</span>
 				</div>
 				<div class='bc-f-12rp t-888'>
-					{{1548946491687 | timeFilter("Y-M-D")}}
+					{{itemList.create_time | timeFilter("Y-M-D")}}
 				</div>
 			</div>
 		</div>
@@ -25,6 +31,10 @@
 			itemList:{
 				type:Object,
 				default:{}
+			},
+			ifAchieve:{
+				type:String,
+				default:false
 			}
 		},
 		data() {
@@ -64,7 +74,14 @@
 				color:#C1A77D;
 			}
 		}
-		
+
 	}
-	
+	.bc-flex{
+		position: relative;
+		.driving-radio{
+			position: absolute;
+			left: rem(5);
+			top: rem(3);
+		}
+	}
 </style>

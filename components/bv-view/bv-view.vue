@@ -1,6 +1,6 @@
 <!-- 每个页面的主视图组件 必须使用 -->
 <template>
-	<div class="bv-view" :class="{'no-nav-view':!hasNav}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu">
+	<div class="bv-view" :class="{'no-tab-bar':!view.tabBar}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu">
 
 		<!-- scroll 层 -->
 		<div class="bv-view-scroll">
@@ -39,7 +39,7 @@
         default: 1,
         type: Number
       },
-      hasNav: {
+      hasTabBar: {
         default: true,
         type: [Boolean, String]
       }
@@ -86,7 +86,7 @@
 		left: 0;
 		z-index: 100;
 		background-color: rgba(255, 255, 255, 1);
-		&.no-nav-view {
+		&.no-tab-bar {
 			bottom: 0;
 		}
 

@@ -26,9 +26,10 @@
 				<a class="bc-block" href="javascript:;">
 					<img class="bc-w-100" :src="`${$config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
 				</a>
-				<a class="qiandao" href="javascript:;">
-					<img class="bc-ps-a" :src="`${$config.path.static}/img/home/qiandao.png`" alt="签到">
+				<a href="javascript:;" @click.stop="sign">
+					<img class="qiandao bc-ps-a" :src="`${$config.path.static}/img/home/qiandao.png`" alt="签到">
 				</a>
+
 			</div>
 
 			<!--三大系统-->
@@ -88,11 +89,51 @@
 						<img class="inline-block shengtaiquan-title" :src="`${$config.path.static}/img/home/shengtaiquan.png`">
 					</a>
 				</div>
-				<div class="bc-mg-t-19rp bc-t-c">
-					<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_xiaofei.png`">
-					<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_touzi.png`">
-					<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
-				</div>
+
+					<div class='scroll-x bc-pd-15rp bc-bg-white bc-t-c'>
+						<bv-swiper-scroll :active-class-name="'scroll_active'">
+							<template slot="scroll-items">
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+										<div class='scroll_img bc-ps-r bc-t-c'>
+											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_xiaofei.png`">
+										</div>
+									</div>
+								</div>
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+										<div class='scroll_img bc-ps-r bc-t-c'>
+											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_touzi.png`">
+										</div>
+									</div>
+								</div>
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+										<div class='scroll_img bc-ps-r bc-t-c'>
+											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+										</div>
+									</div>
+								</div>
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+										<div class='scroll_img bc-ps-r bc-t-c'>
+											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+										</div>
+									</div>
+								</div>
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+										<div class='scroll_img bc-ps-r bc-t-c'>
+											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+										</div>
+									</div>
+								</div>
+							</template>
+						</bv-swiper-scroll>
+					</div>
+
+
+
 			</div>
 
 			<!--推荐-->
@@ -189,11 +230,16 @@
         const path = item.path;
         this.$router.push(path);
       },
-      search() {
-        this.$router.push('/search');
-      },
       closeBindPhone() {
         this.showBindPhoneStatus = false;
+      },
+      sign() {
+        if (!this.showBindPhoneStatus) {
+          // 绑定手机
+	        this.showBindPhoneStatus = true;
+        } else {
+          this.$router.push('/sign');
+        }
       }
     },
   }
@@ -203,12 +249,10 @@
 
 	.huilianwang {
 		.qiandao {
-			img {
 				left: rem(5);
 				bottom: rem(5);
 				width: rem(69);
 				height: rem(39);
-			}
 		}
 	}
 
@@ -251,11 +295,11 @@
 			height: rem(88);
 		}
 		.bozhong-system {
-			width: rem(177);
+			width: rem(170);
 			height: rem(77);
 		}
 		.shouhuo-system {
-			width: rem(177);
+			width: rem(170);
 			height: rem(77);
 		}
 	}
@@ -284,10 +328,19 @@
 			width: rem(120);
 			height: rem(30);
 		}
-		.shengtaiquan-item {
-			width: rem(108);
-			height: rem(108);
+		.scroll-x {
+			border-bottom: 1px #eee solid;
+			.scroll_img{
+				width: rem(108);
+				height: rem(108);
+			}
 		}
+
+			.shengtaiquan-item {
+				width: rem(108);
+				height: rem(108);
+			}
+
 	}
 
 	.tuijian {

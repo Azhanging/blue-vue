@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
+	<bv-home-view class='wap' :router-level='4' style='background-color: #f4f4f4;'>
 		<w-home-header :header="{
 			title:{
 				value: '第一篇 观念'

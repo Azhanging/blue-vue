@@ -71,7 +71,7 @@ const config = {
   //错误相关
   error: {
     404: {
-      path: '/404'
+      path: '/error-page/error-page-404'
     }
   },
 

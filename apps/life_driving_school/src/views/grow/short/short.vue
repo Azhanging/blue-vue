@@ -2,8 +2,6 @@
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
 		
 		<growTab :growIndex='2'></growTab>
-		<!--<w-home-nav  :nav='nav' :active-index='2'></w-home-nav>-->
-		
 		
 		<div class='scroll-x bc-bg-white'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
@@ -23,25 +21,6 @@
 		
 		<div class='bc-pd-10rp bc-bg-white'>
 			<bv-scroll :api="api" :disabled="load.state.disabled">
-				<!--<div v-for='item in load.data.lists' @click='' class='itemList bc-pd-10rp bc-bd-b-e5e'>-->
-					<!--<div class='bc-flex'>-->
-						<!--<img class='left_img' src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>-->
-						<!--<div class='bc-flex-1 bc-mg-l-10rp'>-->
-							<!--<div>-->
-								<!--<span class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-f-15rp'>文字文字文字文字文字文字文字文字文字文字</span>-->
-								<!--<div class='t-888 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-t-8 bc-f-12rp'>ff 文字ddd ff 文字dddff 文字dddff 文字dddff 文字ddd</div>-->
-							<!--</div>-->
-							<!--<div class='bc-flex bc-flex-jc-sb  bc-flex-ai-c bc-pd-t-10rp bc-t-999'>-->
-								<!--<div class='action bc-flex bc-f-12rp'>-->
-									<!--<i class='iconfont iconeye- bc-f-12rp'></i><span>&nbsp;2536</span>-->
-								<!--</div>-->
-								<!--<div class='bc-f-12rp t-888'>-->
-									<!--{{1548946491687 | timeFilter("Y-M-D")}}-->
-								<!--</div>-->
-							<!--</div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
 				<w-arrlist :list='load.data.lists'></w-arrlist>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -53,9 +32,7 @@
 				</template>
 			</bv-scroll>
 		</div>
-	
 		
-	
 	
 	</bv-home-view>
 	

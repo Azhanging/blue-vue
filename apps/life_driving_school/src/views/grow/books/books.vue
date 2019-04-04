@@ -1,17 +1,19 @@
 <template>
-	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
+	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
 
-		<div class="books_top">
-			<div class="books_top_btn">
-				<i class="iconfont iconxiangzuo"></i>
+		<div class="books-top">
+			<div class="books-top-btn">
+				<a @click='$router.back()'>
+					<i class="iconfont iconxiangzuo"></i>
+				</a>
 			</div>
-			<div class="books_top_box">
-				<div class="books_top_box_l">
+			<div class="books-top-box">
+				<div class="books-top-box-l">
 					<img src="https://image.dtb315.com/327000.jpg?val=Thumb">
 				</div>
-				<div class="books_top_box_r">
-					<div class="books_top_box_r_title">健康驾照</div>
-					<div class="books_top_box_r_desc">
+				<div class="books-top-box-r">
+					<div class="books-top-box-r-title">健康驾照</div>
+					<div class="books-top-box-r-desc">
 						<div>
 							篇数<br>
 							<strong>4</strong>
@@ -29,16 +31,16 @@
 			</div>
 		</div>
 
-		<div class="books_lists">
-			<div class="books_list_item" v-for="i in 4" @click="to_chapter">
-				<div class="books_list_item_l">
+		<div class="books-lists">
+			<router-link :to="`${currentFullPath}/chapter`" class="books-list-item" v-for="i in 4">
+				<div class="books-list-item-l">
 					<h3><span>第一篇</span>观念</h3>
 					<p><span>9</span>个章节</p>
 				</div>
-				<div class="books_list_item_r">
+				<div class="books-list-item-r">
 					<i class="iconfont iconyou"></i>
 				</div>
-			</div>
+			</router-link>
 
 		</div>
 
@@ -49,29 +51,32 @@
 	import router from '@router';
 	export default {
 		name: "books",
-		methods: {
-			to_chapter(){
-				this.$router.push({'path': `${router.currentRoute.fullPath}/chapter`})
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
 			}
+		},
+		methods: {
 		}
 	}
 </script>
 
 <style scoped lang="scss">
 	h3,p{margin: 0;padding: 0;}
-.books_top{
-	background: #544339;
+.books-top{
+	background: url("http://pc.lifest.dtb315.com/static/img/grow/grow4@2x.png") no-repeat;
+	background-size: 100% 100%;
 	color: #fff;
 	position: relative;
-	.books_top_btn{
+	.books-top-btn{
 		position: absolute;
 		left: rem(15);
 		top:rem(15);
 		z-index: 9;
 	}
-	.books_top_box{
+	.books-top-box{
 		padding: rem(44) rem(15) 0;
-		.books_top_box_l{
+		.books-top-box-l{
 			position: absolute;
 			left: rem(15);
 			width: rem(80);
@@ -84,12 +89,12 @@
 				vertical-align: top;
 			}
 		}
-		.books_top_box_r{
+		.books-top-box-r{
 			margin-left: rem(110);
-			.books_top_box_r_title{
+			.books-top-box-r-title{
 				font-size: rem(18);
 			}
-			.books_top_box_r_desc{
+			.books-top-box-r-desc{
 				display: flex;
 				padding: rem(12) 0;
 				font-size: rem(14);
@@ -107,10 +112,10 @@
 	}
 }
 
-.books_lists{
+.books-lists{
 	overflow: hidden;
 	margin-top: rem(45);
-	.books_list_item{
+	.books-list-item{
 		background: #fff;
 		border-left: rem(10) solid #CA9F75;
 		display: flex;
@@ -118,7 +123,8 @@
 		padding-left: rem(20);
 		padding-right: rem(15);
 		align-items: center;
-		.books_list_item_l{
+		color: #666;
+		.books-list-item-l{
 			flex: 1;
 			padding: rem(10) 0;
 			h3{
@@ -132,7 +138,7 @@
 				margin-top: rem(8);
 			}
 		}
-		.books_list_item_r{
+		.books-list-item-r{
 
 		}
 	}

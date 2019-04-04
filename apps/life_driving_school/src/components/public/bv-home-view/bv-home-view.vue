@@ -1,5 +1,5 @@
 <template>
-	<bv-view :has-nav="view.tabBar" :router-level="routerLevel">
+	<bv-view :router-level="routerLevel">
 
 		<slot></slot>
 
@@ -11,20 +11,16 @@
 			<slot name="other"></slot>
 		</template>
 
+		<template slot="footer">
+			<slot name="footer"></slot>
+		</template>
+
 	</bv-view>
 </template>
 
 <script>
-
-  import Vuex from 'vuex';
-
-  const { mapState } = Vuex;
-
   export default {
     name: "bv-home-view",
-    computed: {
-      ...mapState(['view'])
-    },
     props: {
       //路由层级，用于多个position fixed的时候使用
       routerLevel: {

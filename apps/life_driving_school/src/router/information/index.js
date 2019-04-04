@@ -1,5 +1,5 @@
 const Zixun  = () => import('@/views/zixun/zixun');
-const ZixunDetail = () => import(`@views/zixun/zixun-detail`);
+const ZixunDetail = () => import(`@views/zixun/detail/zixun-detail`);
 
 
 const info = {
@@ -9,7 +9,10 @@ const info = {
   children: [{
     path: 'detail',
     name: 'zixun-detail',
-    component: ZixunDetail
+    component: ZixunDetail,
+    meta:{
+      tabBar: false
+    }
   }]
 };
 

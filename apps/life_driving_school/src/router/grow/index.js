@@ -2,6 +2,7 @@ import short from './short/index';
 import zhuanqu from './zhuanqu/index';
 import video from './video/index';
 import books from './books';
+import detail from './detail';
 
 
 const grow = {
@@ -12,13 +13,7 @@ const grow = {
 	},
 	component: resolve => require(['@/views/grow/grow.vue'], resolve),
 	children:[
-		{
-			path:'cosdetail',
-			component: resolve => require(['@/views/grow/cosdetail.vue'], resolve),
-			meta:{
-				tabBar: false
-			},
-		},
+		detail,
 		video,
 		zhuanqu,
 		short,

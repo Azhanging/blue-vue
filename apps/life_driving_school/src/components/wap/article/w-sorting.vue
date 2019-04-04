@@ -4,17 +4,16 @@
 		<div class='bc-bg-white bc-mg-r-30rp sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='pl_time'>
 				时间
-				<span :class='allSel.isTime==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
-				<span :class='allSel.isTime==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
-			
+				<span :class='allSel.isTime===1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
+				<span :class='allSel.isTime===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 			</div>
 		</div>
 	
 		<div class='bc-bg-white sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='scan'>
 				浏览量
-				<span :class='allSel.isScan==1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
-				<span :class='allSel.isScan==2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
+				<span :class='allSel.isScan===1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
+				<span :class='allSel.isScan===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 			</div>
 		</div>
 	
@@ -44,7 +43,11 @@
 				isScan:{
 					type:Number,
 					default:-1
-				}
+				},
+        column_id: {
+				  type: Number,
+	        default: 6
+        }
 			}
 		},
 		data() {
@@ -60,14 +63,16 @@
 
 			},
 			pl_time(){
-				this.allSel.isTime = this.allSel.isTime == 1 ?  2 : 1;
+				this.allSel.isTime = this.allSel.isTime === 1 ?  2 : 1;
 				this.allSel.isRecommend = false;
+				this.allSel.isScan = -1;
 				this.get_sel()
 			},
 			scan(){
-				this.allSel.isScan = this.allSel.isScan == 1 ?  2 : 1
+				this.allSel.isScan = this.allSel.isScan === 1 ?  2 : 1;
 				this.allSel.isRecommend = false;
-				this.get_sel()
+        this.allSel.isTime = -1;
+        this.get_sel()
 			},
 			get_sel(){
 				this.$emit('send_sel',this.allSel)

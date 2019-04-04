@@ -1,5 +1,5 @@
 <template>
-	<div class="life_nav_list">
+	<div class="life-nav-list">
 		<div class='bc-flex courseList bc-pd-tb-10rp' v-for='i in 2'>
 			<div class="driving-radio">
 				<input type="radio" checked id="driv-radio">
@@ -18,9 +18,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 </template>
 
 <script>
@@ -36,7 +33,7 @@
 
 <style scoped lang="scss">
 
-	.life_nav_list {
+	.life-nav-list {
 		overflow: hidden;
 		.courseList{
 			border-bottom: 1px #e5e5e5 solid;

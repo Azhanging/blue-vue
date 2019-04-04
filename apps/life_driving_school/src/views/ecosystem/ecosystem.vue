@@ -9,11 +9,11 @@
         }'
 
 			></w-home-header>
-			<div class="banner_img">
+			<div class="banner-img">
 				<img src="http://image.dtb315.com/5217013.jpg">
 			</div>
 
-			<div class="growsystem_tab">
+			<div class="growsystem-tab">
 				<div
 					@click="tabqh(true)"
 					:class="{active:(temp===true)}">
@@ -47,8 +47,8 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import information from './components/tab/information';
-	import course from './components/tab/course';
+	import information from './components/information';
+	import course from './components/course';
 
 	export default {
 		name: "expense",
@@ -81,7 +81,7 @@
 </script>
 
 <style scoped lang="scss">
-	.banner_img {
+	.banner-img {
 		overflow: hidden;
 
 		img {
@@ -90,7 +90,7 @@
 		}
 	}
 
-	.growsystem_tab {
+	.growsystem-tab {
 		display: flex;
 		margin: 20px 15px;
 		height: 30px;

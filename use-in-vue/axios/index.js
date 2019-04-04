@@ -5,8 +5,8 @@ import utils from 'blue-utils';
 import { $loading, $closeLoading } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
-import errcodes from '$err-code/errcodes';    //错误码
-import { errCodeHandler } from '$err-code';   //错误码处理
+import errcodes from '$errcode/errcodes';    //错误码
+import { errCodeHandler } from '$errcode';   //错误码处理
 
 //柯里化 axios
 const $Axios = axios.create({

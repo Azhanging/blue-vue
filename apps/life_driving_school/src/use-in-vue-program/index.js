@@ -23,5 +23,5 @@ export function useInVueProgram(opts) {
 
 	//移动PC公共使用的组件
 	Vue.component('bv-home-view', BvHomeView);
-	//Vue.component('bv-bind-phone', BvBindPhone);
+
 }

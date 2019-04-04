@@ -21,9 +21,11 @@
 			<slot name="right-control">
 				<div class="bc-t-r">
 					<!--<i class='iconfont iconliaotian bc-t-base bc-f-20rp bc-mg-r-10rp'></i>-->
-					<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
+					<router-link to="/search">
+						<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
+					</router-link>
 					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' v-if="$config.device.isApp" @click='$share'></i>-->
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'></i>
+					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="$config.device.isApp"></i>
 				</div>
 			</slot>
 		</template>

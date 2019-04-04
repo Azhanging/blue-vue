@@ -1,21 +1,21 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
-		
+
 		<growTab :growIndex='3'>
 			<template slot='second_tab'>
-				<div  class='bc-flex bc-flex-jc-sa sec_tab bc-bd-b-e5e'>
-					<p v-for='(item,index) in second_tab' @click='secTab(index)' :class='index == tab_idx?"sec_active":""'>
+				<div  class='bc-flex bc-flex-jc-sa sec-tab bc-bd-b-e5e'>
+					<p v-for='(item,index) in second_tab' @click='secTab(index)' :class='index == tab_idx?"sec-active":""'>
 						{{item}}
 					</p>
 				</div>
 			</template>
 		</growTab>
-		
+
 		<!--列表-->
 		<div class='bc-pd-15rp bc-mg-b-10rp bc-bg-white' v-for='type in typelist'>
 			<div class='bc-flex bc-flex-jc-sb bc-mg-b-7rp'>
 				<span class='bc-f-18rp'>国学</span>
-				<div class='bc-f-12rp bc-t-333' @click='golist(type.id)'>全部&nbsp;12<i class='iconfont iconyou'></i></div>
+				<router-link :to="`${currentFullPath}/column`" class='bc-f-12rp bc-t-333'>全部&nbsp;12<i class='iconfont iconyou'></i></router-link>
 			</div>
 			<div class='scroll-x'>
 				<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
@@ -32,18 +32,18 @@
 				</bv-swiper-scroll>
 			</div>
 		</div>
-		
-		
-		
-		
-		
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
 	</bv-home-view>
-	
+
 	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
@@ -78,24 +78,26 @@
 				]
 			}
 		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
 		methods:{
 			secTab(index){
 				this.tab_idx = index
 			},
 			select(item, index) {
-			
+
 			},
-			golist(id){
-				this.$router.push({'path': `${router.currentRoute.fullPath}/column`})
-			},
+
 			getData() {
 				var data = {
 					tab_idx: this.tab_idx,
-					
 				}
 				console.log(data)
 			},
-		
+
 		},
 		mounted(){
 			this.getData()
@@ -108,13 +110,13 @@
 		color:#888
 	}
 	.wap {
-		.sec_tab{
+		.sec-tab{
 			p{
 				margin: 0;
 				height: rem(40);
 				line-height: rem(40);
 			}
-			.sec_active{
+			.sec-active{
 				color:$color-base;
 				border-bottom: 2px $color-base solid;
 			}
@@ -125,7 +127,7 @@
 				height: rem(125);
 				box-shadow:0px 2px 4px 0px rgba(0, 0, 0, 0.2)
 			}
-			
+
 		}
 	}
 </style>

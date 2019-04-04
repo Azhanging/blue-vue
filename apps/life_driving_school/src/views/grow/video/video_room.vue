@@ -4,9 +4,9 @@
 		
 		<div ref='viewBox' id="videoH">
 			<w-home-header :header='header'>
-				<div slot='right-control' class='bc-t-r'>
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp'  @click='$share'></i>
-				</div>
+				<!--<div slot='right-control' class='bc-t-r'>-->
+					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp'  @click='$share'></i>-->
+				<!--</div>-->
 				
 				<div class='video_wrap'>
 					<!--未开播-->
@@ -14,9 +14,9 @@
 						<img width='100%' class='bc-block bc-ps-a bgImg' :src="`${$config.path.static}/img/grow/video.png`" alt=''>
 						<div class='bc-ps-a time bc-f-12rp bc-t-white bc-v-m'>
 							<i class='iconfont iconshijian'></i>
-							<span class='bc-mg-l-6rp'>倒计时：{{1548946491687 | timeFilter("D天 h时 min分 s秒")}}</span>
+							<span class='bc-mg-l-6rp'>倒计时：{{diffTime | backTimeFilter}}</span>
 						</div>
-						<div class='bc-ps-a refresh'>
+						<div class='bc-ps-a refresh' @click='$router.go(0)'>
 							<i class='iconfont iconshuaxin'></i>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 			
 		</div>
 		
-		<template slot='footer'>
+		<template slot='other'>
 			<!--底部发送-->
 			<div class='send_wrap bc-ps-f bc-pd-lr-15rp bc-pd-tb-10rp  bc-flex bc-flex-ai-c bc-bg-white'>
 				<!--<i class='iconfont iconbiaoqing bc-f-22rp'></i>-->
@@ -97,7 +97,7 @@
 					}
 				},
 				tabNum:1,
-				haveVideo:true, //是否开播
+				haveVideo:false, //是否开播
 				chatList:[
 					{
 						name:'MEME',
@@ -123,7 +123,10 @@
 				],//聊天数据
 				textareaRow:1,
 				socket:{}, //储存websocket对象
-				textareaVal:"" //发的信息
+				textareaVal:"" ,//发的信息
+				playTime:1554259633000,
+				diffTime:0,
+
 			}
 		},
 		computed: {
@@ -134,6 +137,21 @@
 		methods:{
 			video_tab(num){
 				this.tabNum = num
+			},
+			timer() {
+				const dataTimer = setTimeout(()=> {
+					var todayDateTime =  new Date().getTime();
+					var playDate = this.playTime;
+					//当前时间大于活动开始时间，开始直播
+					if (todayDateTime - playDate > 0) {
+						// this.activityStatus = 2;
+						clearTimeout(dataTimer);
+						return;
+					}else{
+						this.diffTime = Number(playDate) - Number(todayDateTime);  //时间差
+					}
+					setTimeout(this.timer());
+				}, 1000);
 			},
 			send(){
 				this.socket.send(JSON.stringify({
@@ -151,7 +169,6 @@
 				this.inputVal = '';
 				this.blur();
 			},
-
 			blur() {
 				document.getElementById('chatContent').focus();
 			},
@@ -198,12 +215,18 @@
 				});
 			},
 			init(){
-				this.socket = new WebSocketChat(url);
-				this.receiveMsg();
-				this.videoPlay_init()
+				if(this.haveVideo){
+					this.socket = new WebSocketChat(url);
+					this.receiveMsg();
+					this.videoPlay_init();
+				}else{
+					this.timer(); //直播未开始时倒计时
+				}
+			
+				
 			}
 		},
-		beforeRouteLeave (to, from, next) {
+		destroy () {
 			this.socket.onclose()
 		},
 		mounted(){

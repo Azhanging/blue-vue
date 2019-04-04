@@ -1,6 +1,6 @@
 <!-- 绑定手机弹层 -->
 <template>
-	<div class="bv-bind-phone-container" v-if="showBindPhone">
+	<div class="bv-bind-phone-container" :class="{'no-tab-bar':!view.tabBar}" v-if="showBindPhone">
 		<div class="bv-bind-phone">
 			<div class="bc-row bc-t-r bc-pd-t-17rp bc-pd-b-14rp bc-pd-lr-17rp">
 				<i class="iconfont iconclose bc-f-17rp" @click.stop="closeBindPhone"></i>
@@ -26,8 +26,12 @@
 </template>
 
 <script>
+
 	import store from '@store';
   import { bindPhone } from '$assets/js/bind';
+  import Vuex from 'vuex';
+
+  const { mapState } = Vuex;
 
   export default {
     name: "bv-bind-phone",
@@ -47,7 +51,8 @@
           !userInfo.phone &&
           this.showBindPhoneStatus
         );
-      }
+      },
+      ...mapState(['view'])
     },
     methods: {
       //跳转绑定手机
@@ -68,12 +73,16 @@
 		z-index: 10000;
 		top: 0;
 		left: 0;
+		right: 0;
 		bottom: 47px;
 		bottom: calc(constant(safe-area-inset-bottom) + 47px);
 		bottom: calc(env(safe-area-inset-bottom) + 47px);
-		right: 0;
 		background-color: rgba(0, 0, 0, .6);
 		text-align: center;
+		//没有tab-bar
+		&.no-tab-bar {
+			bottom: 0;
+		}
 		.bv-bind-phone {
 			position: absolute;
 			top: 50%;

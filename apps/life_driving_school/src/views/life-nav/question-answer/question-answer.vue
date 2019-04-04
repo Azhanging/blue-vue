@@ -33,7 +33,7 @@
 								<div class="question-review-top-tit-l">聪明的一休</div>
 								<div class="question-review-top-tit-r">
 									<span><i class="iconfont icondianzan"></i> 2222</span>
-									<span><i class="iconfont icongengduo"></i></span>
+									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
 							<div class="question-review-top-time">1小时前</div>
@@ -50,7 +50,7 @@
 								<div class="question-review-top-tit-l">鼠妹的小夏目</div>
 								<div class="question-review-top-tit-r">
 									<span><i class="iconfont icondianzan"></i> 155</span>
-									<span><i class="iconfont icongengduo"></i></span>
+									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
 							<div class="question-review-top-time">2小时前</div>
@@ -69,14 +69,14 @@
 
 		</div>
 
-		<div class="question-quiz" @click='detailClick'>
+		<router-link :to="`${currentFullPath}/detail`" class="question-quiz">
 			提问
-		</div>
+		</router-link>
 
-		<div class="reply_mask" v-if="reply_show"></div>
-		<div class="reply_show" v-if="reply_show">
-			<div class="reply_item">回复</div>
-			<div class="reply_item" @click="btn_reply_h">取消</div>
+		<div class="reply-mask" v-if="reply_show"></div>
+		<div class="reply-show" v-if="reply_show">
+			<div class="reply-item">回复</div>
+			<div class="reply-item" @click="btn_reply_h">取消</div>
 		</div>
 
 	</bv-home-view>
@@ -85,7 +85,7 @@
 <script>
 	import router from '@router';
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import life_nav_tab from "../components/life-nav-tab"
+	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 
 	export default {
 		name: "index",
@@ -103,6 +103,11 @@
 				reply_show:false
 			}
 		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
 		methods: {
 			ifsClick(index) {
 				if (this.ifshow === index) {
@@ -110,9 +115,6 @@
 				} else {
 					this.ifshow = index;
 				}
-			},
-			detailClick() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/detail`})
 			},
 			btn_reply() {
 				this.reply_show = true
@@ -289,7 +291,7 @@
 		text-align: center;
 	}
 
-	.reply_mask{
+	.reply-mask{
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -298,14 +300,14 @@
 		background: rgba(000,000,000,.5);
 		z-index: 200;
 	}
-	.reply_show{
+	.reply-show{
 		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		background: #fff;
 		z-index: 201;
-		.reply_item{
+		.reply-item{
 			padding: rem(15);
 			text-align: center;
 			color: #333;

@@ -28,8 +28,8 @@
 
 		<div class="bc-reset-ul bc-media album-list">
 			<!--文章-->
-			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2" @click="to_album_detail">
-				<a class="t-333" @click="to_album">
+			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
+				<router-link :to="`${currentFullPath}/album-detail`" class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
 							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
@@ -43,12 +43,12 @@
 						</div>
 					</div>
 					<div class="album-item-but">原创文章<span class="bc-mg-l-20rp">03-04</span></div>
-				</a>
+				</router-link>
 			</div>
 
 			<!--视频-->
 			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
-				<a class="t-333" @click="to_album">
+				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
 							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
@@ -75,7 +75,7 @@
 
 			<!--图集-->
 			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
-				<a class="t-333" @click="to_album">
+				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
 							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
@@ -99,7 +99,7 @@
 
 			<!--音频-->
 			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
-				<a class="t-333" @click="to_album">
+				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
 							<img class="tuijian-article-img album-item-audio-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
@@ -129,10 +129,13 @@
 	import router from '@router';
 	export default {
 		name: "album",
-		methods: {
-			to_album_detail() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/album-detail`})
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
 			}
+		},
+		methods: {
+
 		}
 	}
 </script>

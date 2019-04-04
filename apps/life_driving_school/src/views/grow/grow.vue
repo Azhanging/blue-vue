@@ -1,27 +1,15 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
 		
-		<!--<w-home-header :title='"成长系统"'>-->
-			<!--&lt;!&ndash;<template slot='right-control'>&ndash;&gt;-->
-				<!--&lt;!&ndash;<div class="bc-t-r">&ndash;&gt;-->
-					<!--&lt;!&ndash;<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>&ndash;&gt;-->
-					<!--&lt;!&ndash;<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp'  @click='$share'></i>&ndash;&gt;-->
-				<!--&lt;!&ndash;</div>&ndash;&gt;-->
-			<!--&lt;!&ndash;</template>&ndash;&gt;-->
-			<!--<w-home-nav  :nav='nav' :active-index='0'></w-home-nav>-->
-		<!--</w-home-header>-->
-		<!---->
 		<growTab :growIndex='0'></growTab>
 		
 		
 		<div class='scroll-x bc-pd-15rp bc-bg-white bc-mg-b-10rp'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'">
 				<template slot="scroll-items">
-					<div href="javascript:;" v-for="(item,index) in scroll_list"
-					   class=" bc-mg-r-15rp bc-inline-block bc-t-666"
-					   @click="select(item,index)"
-					>
-						<div class='bc-flex bc-flex-d-c bc-flex-ai-c' @click="to_books">
+					<router-link to='/grow/books' v-for="(item,index) in scroll_list"
+					   class=" bc-mg-r-15rp bc-inline-block bc-t-666">
+						<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 							<div class='scroll_img bc-mg-b-10rp bc-ps-r bc-t-c'>
 								<img :src='item.img' alt='' width='100%' height='100%' class=''>
 								<div  class='bc-f-12rp bc-ps-a bc-w-100 bc-pd-tb-3rp bc-t-white scroll_read'>
@@ -32,7 +20,7 @@
 							<span>{{item.name}}</span>
 						</div>
 						
-					</div>
+					</router-link>
 				</template>
 			</bv-swiper-scroll>
 		</div>
@@ -54,19 +42,7 @@
 			<div class='bc-pd-10rp'>
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<!--数据循环-->
-					<div class='bc-flex courseList bc-pd-tb-10rp' v-for='item in courseList' @click='godetail'>
-						<img class='bc-mg-r-10rp' src='https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t' alt=''>
-						<div class='bc-flex-1 bc-flex bc-flex-d-c bc-flex-jc-sb'>
-							<span class='bc-f-16rp bc-t-ellipsis bc-t-ellipsis-2'>精选标题精选标题精选标题精选标题精选标题精选标题</span>
-							<div class='bc-flex bc-flex-jc-sb bc-t-999'>
-								<div class='bc-f-12rp'>
-									<i class='iconfont iconeye- bc-f-12rp'></i>&nbsp;
-									<span>222</span>
-								</div>
-								<span class=' bc-f-12rp'>{{1548946491687 | timeFilter}}</span>
-							</div>
-						</div>
-					</div>
+					<w-arrlist :list='load.data.lists'></w-arrlist>
 					<template slot="load-down">
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
@@ -94,13 +70,16 @@
 
 <script>
 	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
-	import growTab from "@components/wap/grow/w-grow-tab"
-	import router from '@router';
+	import growTab from "@components/wap/grow/w-grow-tab";
+	import WArrlist from '@components/wap/article/w-arrlist';
+	import { $toast } from "$use-in-vue/mint-ui/toast";
+
 	export default {
 		name: "grow",
 		mixins: [scrollMixin()],
 		components:{
-			growTab
+			growTab,
+			WArrlist
 		},
 		data() {
 			return {
@@ -146,37 +125,60 @@
 						id: 1
 					}
 				],
-				nav: [
-					{
-						nav_name: '上大夫学院',
-						path: '/grow'
-					},{
-						nav_name: '视频直播',
-						path: '/grow'
-					},{
-						nav_name: '精选短课',
-						path: '/short'
-					},{
-						nav_name: '专区',
-						path: '/zhuanqu'
-					}],
 				//列表数据
 				list_data: [1, 2, 3],
+				role:0,//学员
+			}
+		},
+		watch:{
+			$route(to,from){
+				if(to.path == '/grow'){
+				
+				}
 			}
 		},
 		methods:{
 			selCourse(index){
-				this.tabIdx = index
+				this.tabIdx = index;
+				if(this.role == 0 && (index == 1 || index == 2)){
+					if(index == 1 ){
+						$toast({
+							message: '暂无分校身份',
+							duration: 10000
+						});
+					}else{
+						$toast({
+							message: '暂无教练身份',
+							duration: 10000
+						});
+					}
+				}
 			},
-			api(){
-			
-			},
-			godetail(){
-				this.$router.push({path:'/grow/cosdetail',query:{id:22}})
-			},
-			to_books(){
-				this.$router.push({'path': `${router.currentRoute.fullPath}/books`})
+			api() {
+				// const page = this.load.params.page++;
+				// return this.$axios.get('/home/home/getRecommendForYou', {
+				// 	params: {
+				// 		p: page,
+				// 		page: page
+				// 	}
+				// }).then((res) => {
+				// 	if (scrollNoHasListData.call(this, {
+				// 			result: res
+				// 		})) {
+				// 		return scrollEndHook.call(this);
+				// 	} else {
+				// 		this.load.data.lists = this.load.data.lists.concat(res.data);
+				// 	}
+				// }).catch(() => {
+				// 	return scrollEndHook.call(this);
+				// });
+
+				this.load.data.lists = [1, 2, 3, 4]
 			}
+		
+		},
+	
+		mounted(){
 		}
 	
 	}

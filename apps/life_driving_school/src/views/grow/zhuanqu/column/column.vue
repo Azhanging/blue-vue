@@ -8,8 +8,8 @@
 		}"></w-home-header>
 
 		<div class="bc-reset-ul bc-media column-list">
-			<div class="bc-pd-b-10rp bc-pd-t-10rp column-item" v-for="i in 6">
-				<a class="t-333" @click="to_album">
+			<div class="bc-pd-b-10rp bc-pd-t-10rp column-item" v-for="item in lists">
+				<router-link :to="`${currentFullPath}/album`" class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
 							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
@@ -22,13 +22,13 @@
 							</div>
 						</div>
 					</div>
-				</a>
+				</router-link>
 			</div>
 		</div>
-	
-	
-	
-	
+
+
+
+
 	</bv-home-view>
 </template>
 
@@ -38,12 +38,20 @@
 		name: "special",
 		components:{
 		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
 		data() {
+			return {
+				lists:[
+					{},{},{}
+				]
+			}
 		},
 		methods:{
-			to_album() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/album`})
-			}
+
 		},
 		mounted(){
 		}

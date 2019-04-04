@@ -1,23 +1,27 @@
 <template>
 	<div>
 		<div class="recommend-li" v-for="item in list">
-			<div class="recommend-li-top" @click="ifdetail">
-				<div class="recommend-li-top-img">
-					<img src="https://image.dtb315.com/76343.jpg">
+			<router-link :to="`${currentFullPath}/detail`">
+				<div class="recommend-li-top">
+					<div class="recommend-li-top-img">
+						<img src="https://image.dtb315.com/76343.jpg">
+					</div>
+					<div class="recommend-li-top-tit">
+						<h3>风和日丽</h3>
+						<p>2019-02-19</p>
+					</div>
 				</div>
-				<div class="recommend-li-top-tit">
-					<h3>风和日丽</h3>
-					<p>2019-02-19</p>
-				</div>
-			</div>
+			</router-link>
 
 			<div class="recommend-li-box">
-				<div class="recommend-li-box-p" @click="ifdetail">
-					生活中有很多食物并不是所有人都能吃的，一些
-					人吃了以后就会生病了。大漠粮芯藻这种食物很
-					多人都听过，但是没有吃过的。螺旋藻这种食物
-					营养丰富，同样的也不是所有人都适合吃的。那
-					么到底螺旋藻适合哪些人吃呢?
+				<div class="recommend-li-box-p">
+					<router-link :to="`${currentFullPath}/detail`">
+						生活中有很多食物并不是所有人都能吃的，一些
+						人吃了以后就会生病了。大漠粮芯藻这种食物很
+						多人都听过，但是没有吃过的。螺旋藻这种食物
+						营养丰富，同样的也不是所有人都适合吃的。那
+						么到底螺旋藻适合哪些人吃呢?
+					</router-link>
 				</div>
 				<div class="recommend-li-box-imgb">
 					<!--<div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
@@ -39,23 +43,27 @@
 		</div>
 
 		<div class="recommend-li" v-for="item in list">
-			<div class="recommend-li-top">
-				<div class="recommend-li-top-img">
-					<img src="https://image.dtb315.com/76343.jpg">
+			<router-link :to="`${currentFullPath}/detail`">
+				<div class="recommend-li-top">
+					<div class="recommend-li-top-img">
+						<img src="https://image.dtb315.com/76343.jpg">
+					</div>
+					<div class="recommend-li-top-tit">
+						<h3>风和日丽</h3>
+						<p>2019-02-19</p>
+					</div>
 				</div>
-				<div class="recommend-li-top-tit">
-					<h3>风和日丽</h3>
-					<p>2019-02-19</p>
-				</div>
-			</div>
+			</router-link>
 
 			<div class="recommend-li-box">
 				<div class="recommend-li-box-p">
-					生活中有很多食物并不是所有人都能吃的，一些
-					人吃了以后就会生病了。大漠粮芯藻这种食物很
-					多人都听过，但是没有吃过的。螺旋藻这种食物
-					营养丰富，同样的也不是所有人都适合吃的。那
-					么到底螺旋藻适合哪些人吃呢?
+					<router-link :to="`${currentFullPath}/detail`">
+						生活中有很多食物并不是所有人都能吃的，一些
+						人吃了以后就会生病了。大漠粮芯藻这种食物很
+						多人都听过，但是没有吃过的。螺旋藻这种食物
+						营养丰富，同样的也不是所有人都适合吃的。那
+						么到底螺旋藻适合哪些人吃呢?
+					</router-link>
 				</div>
 
 				<div class="recommend-li-box-video">
@@ -100,10 +108,12 @@
 				}]
 			}
 		},
-		methods: {
-			ifdetail() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/detail`})
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
 			}
+		},
+		methods: {
 		}
 	}
 </script>
@@ -165,6 +175,9 @@
 				color: #333;
 				line-height: rem(24);
 				margin-bottom: rem(15);
+				a{
+					color: #333;
+				}
 			}
 
 			.recommend-li-box-imgb {

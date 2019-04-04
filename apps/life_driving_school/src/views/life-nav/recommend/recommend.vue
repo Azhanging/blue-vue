@@ -12,7 +12,7 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import life_nav_tab from "../components/life-nav-tab"
+	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 	import recommend_list from "../components/recommend-list"
 
 	export default {

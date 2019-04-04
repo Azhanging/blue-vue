@@ -14,7 +14,7 @@
 					<div class="question-review-top-l">
 						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="question-review-top_r">
+					<div class="question-review-top-r">
 						<div class="question-review-top-tit">
 							<div class="question-review-top-tit-l">聪明的一休</div>
 							<div class="question-review-top-tit-r">
@@ -31,12 +31,12 @@
 					<div class="question-review-top-l">
 						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="question-review-top_r">
+					<div class="question-review-top-r">
 						<div class="question-review-top-tit">
 							<div class="question-review-top-tit-l">鼠妹的小夏目</div>
 							<div class="question-review-top-tit-r">
 								<span><i class="iconfont icondianzan"></i> 155</span>
-								<span><i class="iconfont icongengduo"></i></span>
+								<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
 							</div>
 						</div>
 						<div class="question-review-top-time">2小时前</div>
@@ -58,10 +58,10 @@
 			</div>
 		</div>
 
-		<div class="reply_mask" v-if="reply_show"></div>
-		<div class="reply_show" v-if="reply_show">
-			<div class="reply_item">回复</div>
-			<div class="reply_item" @click="btn_reply_h">取消</div>
+		<div class="reply-mask" v-if="reply_show"></div>
+		<div class="reply-show" v-if="reply_show">
+			<div class="reply-item">回复</div>
+			<div class="reply-item" @click="btn_reply_h">取消</div>
 		</div>
 
 	</bv-home-view>
@@ -112,7 +112,7 @@
 					}
 				}
 
-				.question-review-top_r {
+				.question-review-top-r {
 					flex: 1;
 
 					.question-review-top-tit {
@@ -214,7 +214,7 @@
 		}
 	}
 
-	.reply_mask{
+	.reply-mask{
 		position: fixed;
 		left: 0;
 		right: 0;
@@ -223,14 +223,14 @@
 		background: rgba(000,000,000,.5);
 		z-index: 200;
 	}
-	.reply_show{
+	.reply-show{
 		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
 		background: #fff;
 		z-index: 201;
-		.reply_item{
+		.reply-item{
 			padding: rem(15);
 			text-align: center;
 			color: #333;

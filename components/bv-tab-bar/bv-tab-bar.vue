@@ -1,107 +1,109 @@
 <!-- 底部导航组件 -->
 <template>
-  <div class="bv-tab-bar" id="tabBar" style="background:white;">
-    <!-- 底部导航列表 -->
-    <div class="bv-tab-bar-list-container">
-      <div class="bv-tab-bar-list">
-        <!-- 跳转 -->
-        <a class="bv-tab-bar-item"
-           v-for="(item, index) in list"
-           :class="[
+  <bv-transition transition-name="slide-top">
+    <div class="bv-tab-bar" id="tabBar" style="background:white;">
+      <!-- 底部导航列表 -->
+      <div class="bv-tab-bar-list-container">
+        <div class="bv-tab-bar-list">
+          <!-- 跳转 -->
+          <a class="bv-tab-bar-item"
+             v-for="(item, index) in list"
+             :class="[
              item.className,
              activeIndex !== index ? unActiveClassName : activeClassName,     //选中的className
 				     item.link && item.link.className                                 //针对链接的样式
            ]"
-           :style="item.style"
-           :key="`bv-tab-bar-item-${index}`"
-           @click.stop="routerTo($event, item, index)"
-        >
+             :style="item.style"
+             :key="`bv-tab-bar-item-${index}`"
+             @click.stop="routerTo($event, item, index)"
+          >
 
-          <!-- 方向为top的时候出现 -->
-          <div v-if="item.icon && item.icon.direction && (item.icon.direction === 'top')">
-            <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
-          </div>
+            <!-- 方向为top的时候出现 -->
+            <div v-if="item.icon && item.icon.direction && (item.icon.direction === 'top')">
+              <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
+            </div>
 
-          <!-- 内容以及左右方向的icon -->
-          <div v-if="item.content" class="bv-tab-bar-content bc-flex bc-flex-ai-c bc-flex-jc-c">
+            <!-- 内容以及左右方向的icon -->
+            <div v-if="item.content" class="bv-tab-bar-content bc-flex bc-flex-ai-c bc-flex-jc-c">
 
-            <!-- 方向为left的时候出现 -->
-            <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"
-                             v-if="item.icon && item.icon.direction && (item.icon.direction === 'left')"/>
+              <!-- 方向为left的时候出现 -->
+              <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"
+                               v-if="item.icon && item.icon.direction && (item.icon.direction === 'left')"/>
 
-            <span
-                    :style="`padding-${item.icon && item.icon.direction &&
+              <span
+                :style="`padding-${item.icon && item.icon.direction &&
               (item.icon.direction === 'top' &&
               item.icon.direction !== 'left' &&
               item.icon.direction !== 'right') ? 'top' : (item.icon && item.icon.direction)}: 4px;` +
              `font-size:${item.content.fontSize}px;` +
              item.content.style"
-                    :class="[item.content.className]"
-            >
+                :class="[item.content.className]"
+              >
             {{item.content.value}}
           </span>
 
-            <!-- 方向为right的时候出现 -->
-            <template v-if="item.icon && item.icon.direction && (item.icon.direction === 'right')">
+              <!-- 方向为right的时候出现 -->
+              <template v-if="item.icon && item.icon.direction && (item.icon.direction === 'right')">
+                <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
+              </template>
+
+            </div>
+
+            <!-- 方向为bottom的时候出现 -->
+            <div v-if="item.icon && item.icon.direction && (item.icon.direction === 'bottom')">
               <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
-            </template>
+            </div>
 
-          </div>
-
-          <!-- 方向为bottom的时候出现 -->
-          <div v-if="item.icon && item.icon.direction && (item.icon.direction === 'bottom')">
-            <bv-tab-bar-icon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
-          </div>
-
-          <!-- 子菜单 -->
-          <bv-transition transition="slide-top">
             <!-- 子菜单 -->
-            <div class="tab-bar-submenu"
-                 v-show="tabBarSubMenuIndex === index"
-            >
-              <!-- 子菜单列表容器 -->
-              <div class="tab-bar-submenu-list-wrap" v-if="item.children" :style="item.children.style">
-                <!--子菜单列表-->
-                <div class="tab-bar-submenu-list" :style="item.children.list.style" v-if="item.children.list">
-                  <div class="tab-bar-submenu-list-item bc-t-hide"
-                       v-if="item.children.list.items.length > 0"
-                       v-for="(submenu, index) in item.children.list.items"
-                       :key="`tab-bar-submenu-list-item-${index}`"
-                       :class="submenu.className"
-                       :style="submenu.style"
-                  >
-                    <a href="javascript:;"
-                       :class="[
+            <bv-transition transition-name="slide-top">
+              <!-- 子菜单 -->
+              <div class="tab-bar-submenu"
+                   v-show="tabBarSubMenuIndex === index"
+              >
+                <!-- 子菜单列表容器 -->
+                <div class="tab-bar-submenu-list-wrap" v-if="item.children" :style="item.children.style">
+                  <!--子菜单列表-->
+                  <div class="tab-bar-submenu-list" :style="item.children.list.style" v-if="item.children.list">
+                    <div class="tab-bar-submenu-list-item bc-t-hide"
+                         v-if="item.children.list.items.length > 0"
+                         v-for="(submenu, index) in item.children.list.items"
+                         :key="`tab-bar-submenu-list-item-${index}`"
+                         :class="submenu.className"
+                         :style="submenu.style"
+                    >
+                      <a href="javascript:;"
+                         :class="[
                      item.children.unActiveClassName,
                      submenu.link && submenu.link.className
                    ]"
-                       :style="submenu.link && submenu.link.style"
-                       @click.stop="routerTo($event,submenu,index)"
-                    >
+                         :style="submenu.link && submenu.link.style"
+                         @click.stop="routerTo($event,submenu,index)"
+                      >
                   <span :style="`font-size:${submenu.content.fontSize}px;` + submenu.content.style">
                     {{submenu.content.value}}
                   </span>
-                    </a>
+                      </a>
+                    </div>
                   </div>
                 </div>
+
+                <!-- 子菜单箭头容器 -->
+                <div class="tab-bar-submenu-arrow-wrap" v-if="item.children && item.children.arrow">
+                  <!-- 子菜单箭头 -->
+                  <i class="tab-bar-submenu-arrow" :style="`border-top: 7px solid ${item.children.arrow.background};`"></i>
+                </div>
+
               </div>
+            </bv-transition>
 
-              <!-- 子菜单箭头容器 -->
-              <div class="tab-bar-submenu-arrow-wrap" v-if="item.children && item.children.arrow">
-                <!-- 子菜单箭头 -->
-                <i class="tab-bar-submenu-arrow" :style="`border-top: 7px solid ${item.children.arrow.background};`"></i>
-              </div>
-
-            </div>
-          </bv-transition>
-
-        </a>
+          </a>
+        </div>
       </div>
+
+      <!--  -->
+
     </div>
-
-    <!--  -->
-
-  </div>
+  </bv-transition>
 </template>
 
 <script>

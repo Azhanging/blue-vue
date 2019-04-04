@@ -1,19 +1,25 @@
 const Home = () => import(`@/views/home/home`);
-const Sign = () => import ('@/views/home/sign');
-const Search = () => import ('@/views/home/search');
+const Sign = () => import ('@/views/sign/sign');
+const Search = () => import ('@/views/search/search');
 
 const home = {
   path: '/',
   name: 'home',
   component: Home,
-  children:[{
+  children: [{
     path: 'sign',
     name: 'home',
     component: Sign,
-  },{
+    meta: {
+      tabBar: false
+    }
+  }, {
     path: 'search',
     name: 'search',
-    component: Search
+    component: Search,
+    meta: {
+      tabBar: false
+    }
   }]
 };
 

@@ -10,44 +10,33 @@
         }'
 			></life_nav_tab>
 
-			<div class="life_nav_banner">
+			<div class="life-nav-banner">
 				<img src="http://image.dtb315.com/5217013.jpg">
 			</div>
 
-			<div class="life_nav_icon">
-				<div class="life_nav_icon_li">
-					<div class="life_nav_icon_liimg"><img src="https://image.dtb315.com/5580002.jpg?val=Thumb"></div>
+			<div class="life-nav-icon">
+				<div class="life-nav-icon-li">
+					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.com/static/img/life-nav/1@2x.png"></div>
 					<p>驾照简介</p>
 				</div>
-				<div class="life_nav_icon_li" @click="to_video">
-					<div class="life_nav_icon_liimg"><img src="https://image.dtb315.com/5580002.jpg?val=Thumb"></div>
-					<p>视频直播</p>
+				<div class="life-nav-icon-li">
+					<router-link to="/grow/video">
+						<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.com/static/img/life-nav/2@2x.png"></div>
+						<p>视频直播</p>
+					</router-link>
 				</div>
-				<div class="life_nav_icon_li" @click="to_fitness_test">
-					<div class="life_nav_icon_liimg"><img src="https://image.dtb315.com/5580002.jpg?val=Thumb"></div>
-					<p>健康测试</p>
+				<div class="life-nav-icon-li">
+					<router-link :to="`${currentFullPath}/fitness-test`">
+						<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.com/static/img/life-nav/3@2x.png"></div>
+						<p>健康测试</p>
+					</router-link>
 				</div>
 			</div>
 
-			<div class="life_nav_information">
+			<div class="life-nav-information">
 				<h2>精选资讯</h2>
-				<div class="life_nav_list">
+				<w-arrlist :list='load.data.lists'></w-arrlist>
 
-					<div class='bc-flex courseList bc-pd-tb-10rp' v-for='i in 2'>
-						<img class='bc-mg-r-10rp' src='https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t' alt=''>
-						<div class='bc-flex-1 bc-flex bc-flex-d-c bc-flex-jc-sb'>
-							<span class='bc-f-16rp bc-t-ellipsis bc-t-ellipsis-2'>精选标题精选标题精选标题精选标题精选标题精选标题</span>
-							<div class='bc-flex bc-flex-jc-sb bc-t-999'>
-								<div class='bc-f-12rp'>
-									<i class='iconfont iconeye- bc-f-12rp'></i>&nbsp;
-									<span>222</span>
-								</div>
-								<span class=' bc-f-12rp'>{{1548946491687 | timeFilter}}</span>
-							</div>
-						</div>
-					</div>
-
-				</div>
 			</div>
 
 			<template slot="load-down">
@@ -65,22 +54,26 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
-	import life_nav_tab from "./components/life-nav-tab";
+	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
+	import WArrlist from '@components/wap/article/w-arrlist'
 	import router from '@router';
 
 	export default {
 		name: "index",
+		mixins: [scrollMixin()],
 		components: {
-			life_nav_tab
+			life_nav_tab,
+			'w-arrlist': WArrlist
+		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
 		},
 		methods: {
-			to_video() {
-				this.$router.push({'path': `grow/video`})
-			},
-			to_fitness_test() {
-				this.$router.push({'path': `${router.currentRoute.fullPath}/fitness-test`})
-			}
-		}
+
+		},
+
 	}
 </script>
 
@@ -90,7 +83,7 @@
 		padding: 0;
 	}
 
-	.life_nav_banner {
+	.life-nav-banner {
 		overflow: hidden;
 
 		img {
@@ -99,12 +92,12 @@
 		}
 	}
 
-	.life_nav_icon {
+	.life-nav-icon {
 		padding: rem(20) rem(15);
 		display: flex;
 		background: #fff;
 
-		.life_nav_icon_li {
+		.life-nav-icon-li {
 			width: rem(110);
 			height: rem(80);
 			background: #f4f4f4;
@@ -114,7 +107,7 @@
 				margin-right: 0;
 			}
 
-			.life_nav_icon_liimg {
+			.life-nav-icon-liimg {
 				width: rem(37);
 				height: rem(37);
 				border-radius: 100%;
@@ -134,8 +127,8 @@
 		}
 	}
 
-	.life_nav_information {
-		padding: 0 rem(15);
+	.life-nav-information {
+		/*padding: 0 rem(15);*/
 		margin-top: rem(10);
 		background: #fff;
 
@@ -143,18 +136,9 @@
 			font-size: rem(16);
 			font-weight: normal;
 			color: #424243;
-			padding: rem(15) 0 0;
+			padding: rem(15) rem(15) 0;
 		}
 
-		.life_nav_list {
-			overflow: hidden;
-			.courseList{
-				border-bottom: 1px #e5e5e5 solid;
-				img{
-					width: rem(120);
-					height: rem(80);
-				}
-			}
-		}
+
 	}
 </style>

@@ -1,8 +1,7 @@
 <template>
 	<div class='arrlist'>
-		
-		<div v-for='item in list' @click='detailClick' class='itemList bc-pd-10rp bc-bd-b-e5e'>
-			<W-itemdata :itemList='item'></W-itemdata>
+		<div v-for='item in list' @click='detailClick' class='itemList bc-pd-10rp bc-bd-b-e5e' :key="item.id">
+			<W-itemdata :itemList='item' :ifAchieve="ifAchieve"></W-itemdata>
 		</div>
 		
 	</div>
@@ -16,6 +15,10 @@
 			list:{
 				type:Array,
 				default:[1,2,3]
+			},
+			ifAchieve:{
+				type:String,
+				default:''
 			}
 		},
 		data() {

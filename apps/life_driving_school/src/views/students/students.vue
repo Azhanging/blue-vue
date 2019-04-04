@@ -1,0 +1,302 @@
+<template>
+	<bv-home-view class='wap' :router-level='1' style="background: #f4f4f4">
+		<w-home-header :header='{
+            title:{
+                value: "学员中心"
+            }
+        }'
+
+		>
+			<div slot="right-control">
+				<div class="bc-t-r">
+					<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base' @click="to_message"></i>
+				</div>
+			</div>
+		</w-home-header>
+
+		<div class="students-top">
+			<div class="students-top-box">
+				<div class="students-top-box-l">
+					<router-link :to="`${currentFullPath}/qr-code`">
+						<div class="students-top-box-img"><img src="https://image.dtb315.com/76343.jpg"></div>
+						<div class="students-top-box-ewm iconfont iconico"></div>
+					</router-link>
+				</div>
+				<div class="students-top-box-c">
+					<div class="students-top-box-tit">菩提花开</div>
+					<div class="students-top-box-p">账号：13456789101</div>
+				</div>
+				<div class="students-top-box-r">
+					<router-link to="/sign" class="students-top-box-btn"></router-link><!--签到-->
+					<button class="students-top-box-jf">积分：<strong>5454</strong></button>
+				</div>
+			</div>
+		</div>
+
+		<div class="students-progress">
+			<div class="progress-title">学习进度</div>
+			<div class="progress-li">
+				<div class="progress-li-name">《财富驾照》：初级 第三课 如何获得财富</div>
+				<div class="progress-li-box">
+					<div class="progress-li-box-item back1"></div>
+					<div class="progress-li-box-item back2"></div>
+					<div class="progress-li-box-item back3"></div>
+				</div>
+			</div>
+
+			<div class="progress-li">
+				<div class="progress-li-name">《健康驾照》：初级 第三课 如何驾驭生命</div>
+				<div class="progress-li-box">
+					<div class="progress-li-box-item back1"></div>
+					<div class="progress-li-box-item back2"></div>
+					<div class="progress-li-box-item back3"></div>
+				</div>
+			</div>
+
+			<div class="progress-li">
+				<div class="progress-li-name">《婚姻驾照》：初级 第一课 相敬如宾</div>
+				<div class="progress-li-box">
+					<div class="progress-li-box-item back1"></div>
+					<div class="progress-li-box-item"></div>
+					<div class="progress-li-box-item"></div>
+				</div>
+			</div>
+
+			<div class="progress-li">
+				<div class="progress-li-name">《育子驾照》：尚未开始学习</div>
+				<div class="progress-li-box">
+					<div class="progress-li-box-item"></div>
+					<div class="progress-li-box-item"></div>
+					<div class="progress-li-box-item"></div>
+				</div>
+			</div>
+
+			<div class="progress-li">
+				<div class="progress-li-name">《心灵驾照》：尚未开始学习</div>
+				<div class="progress-li-box">
+					<div class="progress-li-box-item back1"></div>
+					<div class="progress-li-box-item back2"></div>
+					<div class="progress-li-box-item back3"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="students-icon">
+
+			<div class="students-icon-item" >
+				<router-link :to="`${currentFullPath}/collection`">
+					<img src="http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png"/>
+					<div>我的收藏</div>
+				</router-link>
+			</div>
+			<div class="students-icon-item">
+				<router-link :to="`${currentFullPath}/history`">
+					<img src="http://pc.lifest.dtb315.com/static/img/students/liulanlishi@2x.png"/>
+					<div>浏览历史</div>
+				</router-link>
+			</div>
+			<div class="students-icon-item">
+				<router-link :to="`${currentFullPath}/contribute`">
+					<img src="http://pc.lifest.dtb315.com/static/img/students/woyaotougao@2x.png"/>
+					<div>我要投稿</div>
+				</router-link>
+			</div>
+			<div class="students-icon-item">
+				<img src="http://pc.lifest.dtb315.com/static/img/students/yaoqinghaoyou@2x.png"/>
+				<div>邀请好友</div>
+			</div>
+		</div>
+
+		<div class="students-list">
+			<div class="students-list-box">
+				<div class="students-list-title">获取积分</div>
+				<i class="iconfont iconyou"></i>
+			</div>
+			<div class="students-list-box">
+				<div class="students-list-title">线下课程</div>
+				<i class="iconfont iconyou"></i>
+			</div>
+			<div class="students-list-box">
+				<div class="students-list-title">微信社群</div>
+				<i class="iconfont iconyou"></i>
+			</div>
+			<router-link :to="`${currentFullPath}/feedback`">
+				<div class="students-list-box">
+						<div class="students-list-title">问题反馈</div>
+						<i class="iconfont iconyou"></i>
+				</div>
+			</router-link>
+		</div>
+
+		<template slot="other">
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
+
+	</bv-home-view>
+</template>
+
+<script>
+	import router from '@router';
+	export default {
+		name: "students",
+		data() {
+			return {
+				//绑定手机的状态
+				showBindPhoneStatus: (() => {
+					return router.currentRoute.fullPath === '/students';
+				})()
+			}
+		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
+		methods: {
+			closeBindPhone() {
+				this.showBindPhoneStatus = false;
+			},
+		}
+	}
+</script>
+
+<style scoped lang="scss">
+.students-top{
+	background: #46505A;
+	padding: rem(20) rem(15) 0;
+	.students-top-box{
+		background: url("http://pc.lifest.dtb315.com/static/img/students/xyzxbg@2x.png") no-repeat;
+		background-size: 100% 100%;
+		padding: rem(20) rem(15);
+		display: flex;
+		.students-top-box-l{
+			width: rem(60);
+			position: relative;
+			margin-right: rem(15);
+			.students-top-box-img{
+				border: 2px solid #fff;
+				border-radius: 100%;
+				overflow: hidden;
+				img{width: 100%;min-height: 100%;vertical-align: top;}
+			}
+			.students-top-box-ewm{
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				color: #9D8563;
+				font-size: rem(16);
+			}
+		}
+		.students-top-box-c{
+			flex: 1;
+			.students-top-box-tit{
+				margin-top: rem(8);
+				color: #333333;
+				font-size: rem(18);
+			}
+			.students-top-box-p{
+				color: #CDA669;
+				font-size: rem(12);
+				white-space:nowrap;
+				margin-top: rem(3);
+			}
+		}
+		.students-top-box-r{
+			text-align: right;
+			.students-top-box-btn{
+				background: url("http://pc.lifest.dtb315.com/static/img/students/students@2x.png") no-repeat;
+				background-size: 100%;
+				height: rem(30);
+				line-height: rem(30);
+				width: rem(60);
+				text-align: center;
+				font-size: rem(14);
+				color: #fff;
+				display: inline-block;
+			}
+			.students-top-box-jf{
+				margin-top: rem(3);
+				color: #666;
+				font-size: rem(12);
+				strong{
+					font-size: rem(18);
+					color: #333;
+				}
+			}
+		}
+	}
+}
+.students-progress{
+	background: #fff;
+	padding: 0 rem(15);
+	overflow: hidden;
+	.progress-title{
+		padding: rem(20);
+		text-align: center;
+		font-size: rem(16);
+		color: #333;
+	}
+	.progress-li{
+		margin-bottom: rem(20);
+		.progress-li-name{
+			font-size: rem(12);
+			color: #666;
+		}
+		.progress-li-box{
+			background: #e5e5e5;
+			height: rem(10);
+			margin-top: rem(8);
+			border-radius: rem(5);
+			display: flex;
+			overflow: hidden;
+			.progress-li-box-item{
+				flex: 1;
+				&.back1{
+					background: #CA9F75;
+				}
+				&.back2{
+					background: #DAB189;
+				}
+				&.back3{
+					background: #EFC9A4;
+				}
+			}
+		}
+	}
+}
+.students-icon{
+	background: #fff;
+	overflow: hidden;
+	margin: rem(10) 0;
+	display: flex;
+	.students-icon-item{
+		flex: 1;
+		padding: rem(20) rem(10);
+		text-align: center;
+		a{display: block;}
+		img{
+			width: rem(40);
+			height: rem(40);
+		}
+		div{
+			color: #666;
+			font-size: rem(14);
+			margin-top: rem(3);
+		}
+	}
+}
+.students-list{
+	background: #fff;
+	.students-list-box{
+		border-bottom: 1px solid #e5e5e5;
+		padding: rem(15);
+		display: flex;
+		.students-list-title{
+			flex: 1;
+			color: #333;
+			font-size: rem(16);
+		}
+	}
+}
+</style>

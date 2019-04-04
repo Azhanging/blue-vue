@@ -1,5 +1,5 @@
 <template>
-  <transition :name="transition" mode="in-out">
+  <transition :name="transitionName" mode="in-out">
     <slot/>
   </transition>
 </template>
@@ -8,7 +8,7 @@
   export default {
     name: "bv-transition",
     props: {
-      transition: {
+      transitionName: {
         default: 'slide-right',
         type: String
       }

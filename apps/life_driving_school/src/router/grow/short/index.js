@@ -8,11 +8,11 @@ const short_course = {
 	component: resolve => require(['@/views/grow/short/short.vue'], resolve),
 	children:[
 		{
-			path:'shortdetail',
+			path:'detail',
 			meta:{
 				tabBar: false
 			},
-			component: resolve => require(['@/views/grow/short/shortdetail.vue'], resolve),
+			component: resolve => require(['@/views/grow/short/detail.vue'], resolve),
 		}
 	]
 };

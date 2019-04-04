@@ -11,35 +11,17 @@
         1.在设计APP界面时候，通常使用的分辨率是
       </div>
       <div class="fitness-test-main">
-        <div class="fitness-test-item">
-          <label class="fitness-test-item-l" for="fitness-test-item-l-A">
-            <input type="radio" id="fitness-test-item-l-A">
-            A
+
+        <div class="fitness-test-item" :class="{active:(thisIndex===index)}" v-for="(item,index) in fitness_test" @click="btn_radio(index)">
+          <label class="fitness-test-item-l">
+            <input type="radio" :checked="thisIndex===index">
+            {{ item.t }}
           </label>
-          <div class="fitness-test-item-r">72dpi，常规设计方法</div>
+          <div class="fitness-test-item-r">{{ item.contents }}</div>
         </div>
-        <div class="fitness-test-item">
-          <label class="fitness-test-item-l" for="fitness-test-item-l-B">
-            <input type="radio" id="fitness-test-item-l-B">
-            B
-          </label>
-          <div class="fitness-test-item-r">144dpi，考虑高清分辨率</div>
-        </div>
-        <div class="fitness-test-item">
-          <label class="fitness-test-item-l" for="fitness-test-item-l-C">
-            <input type="radio" id="fitness-test-item-l-C">
-            C
-          </label>
-          <div class="fitness-test-item-r">300dpi，方便输出打印规范</div>
-        </div>
-        <div class="fitness-test-item">
-          <label class="fitness-test-item-l" for="fitness-test-item-l-D">
-            <input type="radio" id="fitness-test-item-l-D">
-            D
-          </label>
-          <div class="fitness-test-item-r">以上都是可以，随设备而不同使用</div>
-        </div>
+
       </div>
+
       <div class="fitness-test-btn">
         <i class="iconfont iconxiangzuo"></i> 上一题
       </div>
@@ -48,7 +30,7 @@
 
     <div class="fitness-test-fix">
       <div class="fitness-test-fix-l"><span>1</span>/1000000</div>
-      <div class="fitness-test-fix-r" @click="to_test_results">提交</div>
+      <router-link :to="`${currentFullPath}/test-results`" class="fitness-test-fix-r">提交</router-link>
     </div>
 
   </bv-home-view>
@@ -58,9 +40,25 @@
   import router from '@router';
   export default {
     name: "fitness-test",
+    data() {
+      return {
+        fitness_test:[
+          {t:'A',contents:'72dpi，常规设计方法'},
+          {t:'B',contents:'144dpi，考虑高清分辨率'},
+          {t:'C',contents:'300dpi，方便输出打印规范'},
+          {t:'D',contents:'以上都是可以，随设备而不同使用'},
+        ],
+        thisIndex:true
+      }
+    },
+    computed:{
+      currentFullPath(){
+        return this.$router.currentRoute.fullPath;
+      }
+    },
     methods:{
-      to_test_results(){
-        this.$router.push({'path':`${router.currentRoute.fullPath}/test-results`})
+      btn_radio(t_idx) {
+        this.thisIndex=t_idx;
       }
     }
   }
@@ -69,35 +67,41 @@
 <style scoped lang="scss">
 .fitness-test-box{
   background: #fff;
-  margin-bottom: 45px;
+  margin-bottom: rem(45);
   .fitness-test-tit{
     font-size: rem(16);
     color: #333;
-    padding: 15px 15px 0;
+    padding: rem(15) rem(15) 0;
   }
   .fitness-test-main{
     overflow: hidden;
-    padding:0 15px 15px;
+    padding:0 rem(15) rem(15);
     .fitness-test-item{
-      padding: 10px;
+      padding: rem(10);
       background: #f4f4f4;
-      margin-top: 15px;
-      border-radius: 3px;
+      margin-top: rem(15);
+      border-radius: rem(3);
       display: flex;
       align-items: center;
       .fitness-test-item-l{
         width: rem(30);
         height: rem(30);
         background: #fff;
-        border-radius: 5px;
+        border-radius: rem(5);
         line-height: rem(30);
         text-align: center;
         font-size: rem(14);
         color: #999;
-        margin-right: 8px;
+        margin-right: rem(8);
         input[type="radio"]{
           opacity: 0;
           position: absolute;left: 0;
+        }
+      }
+      &.active{
+        .fitness-test-item-l{
+          background: #CA9F75;
+          color: #fff;
         }
       }
       .fitness-test-item-r{
@@ -108,7 +112,7 @@
     }
   }
   .fitness-test-btn{
-    padding: 12px;
+    padding: rem(12);
     text-align: center;
     background: #fff;
     border-top: 1px solid #e4e4e4;
@@ -127,24 +131,24 @@
     bottom: 0;
     z-index: 9;
     background: #fff;
-    height: 45px;
+    height: rem(45);
     display: flex;
     align-items: center;
     .fitness-test-fix-l{
       flex: 1;
       font-size: rem(16);
       color: #666;
-      padding: 0 15px;
+      padding: 0 rem(15);
       span{
         color: #CA9F75;
       }
     }
     .fitness-test-fix-r{
-      padding: 0 35px;
+      padding: 0 rem(35);
       background: #CA9F75;
       color: #fff;
-      height: 45px;
-      line-height: 45px;
+      height: rem(45);
+      line-height: rem(45);
       text-align: center;
       font-size: rem(18);
     }

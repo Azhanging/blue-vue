@@ -40,10 +40,9 @@ export function scrollEndHook() {
 
 //检查load中列表数据是否存在
 export function scrollNoHasListData(opts) {
-  const { result, listKey } = opts;
-  const resData = result.data;
-  if (!resData || (typeof resData === 'string')) return {};
-  let data = resData;
+  const { resultData, listKey } = opts;
+  if (!resultData || (typeof resultData === 'string')) return {};
+  let data = resultData;
   if (listKey) {
     (listKey.split('.') || []).forEach(function (key) {
       data = data[key];
