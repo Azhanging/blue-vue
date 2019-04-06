@@ -32,7 +32,7 @@
 		</div>
 
 		<div class="books-lists">
-			<router-link :to="`${currentFullPath}/chapter`" class="books-list-item" v-for="i in 4">
+			<router-link :to="`${currentFullPath}/chapter`" class="books-list-item" v-for="i in 4" :key="i">
 				<div class="books-list-item-l">
 					<h3><span>第一篇</span>观念</h3>
 					<p><span>9</span>个章节</p>

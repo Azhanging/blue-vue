@@ -7,7 +7,7 @@
 		<div class='scroll-x bc-pd-15rp bc-bg-white bc-mg-b-10rp'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'">
 				<template slot="scroll-items">
-					<router-link to='/grow/books' v-for="(item,index) in scroll_list"
+					<router-link to='/grow/books' v-for="(item,index) in scroll_list" :key="item.id"
 					   class=" bc-mg-r-15rp bc-inline-block bc-t-666">
 						<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 							<div class='scroll_img bc-mg-b-10rp bc-ps-r bc-t-c'>

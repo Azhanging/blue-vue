@@ -58,13 +58,16 @@
             page: page
           }
         }).then((res) => {
-          if (scrollNoHasListData.call(this, {
-              result: res
-            })) {
-            return scrollEndHook.call(this);
-          } else {
-            this.load.data.lists = this.load.data.lists.concat(res.data);
-          }
+	        const { data: resultData } = res.data;
+	        if (scrollNoHasListData.call(this, {
+			        resultData,
+			        listKey: 'list'
+		        })) {
+		        return scrollEndHook.call(this);
+	        } else {
+		        this.load.data.lists = this.load.data.lists.concat(resultData.list);
+		        this.scroll_list = resultData.class;
+	        }
         }).catch(() => {
           return scrollEndHook.call(this);
         });

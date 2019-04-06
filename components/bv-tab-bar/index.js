@@ -1,23 +1,13 @@
 import store from '@store';
 
-//匹配的路由
-export function matchRouter(routesRegExp = [], path) {
-  for (let i = 0; i < routesRegExp.length; i++) {
-    const routerRegExp = routesRegExp[0];
-    routerRegExp.lastIndex = 0;
-    if (routerRegExp.test(path)) {
-      return true;
-    }
-  }
-  return false;
-}
-
 //计算子菜单的位置
 export function computSubMenuPosition(opts = {}) {
   const { menuElm } = opts;
   this.$nextTick(() => {
     //导航
     const tabBar = document.querySelector('#tabBar');
+    //子菜单内容
+    const tabBarSubmenuElm = tabBar.lastElementChild;
     //导航宽度
     const tabBarWidth = tabBar.offsetWidth;
     //item的宽度

@@ -1,18 +1,18 @@
 //匹配路由,确定底部导航active
 
-import { matchRouter } from '$components/bv-tab-bar';
+import router from '@router';
 
-export function activeTabBar(path) {
+export function activeTabBar() {
   let activeIndex;
-  if (matchRouter([
+  if (router.matchRoutes([
       /^\/shop/       //商城
-    ], path)) {
+    ])) {
     activeIndex = 1;
-  } else if (matchRouter([
+  } else if (router.matchRoutes([
       /^\/article\//,   //资讯，公开课
       /^\/$/,            //首页
       /^\/zhuanqu\//,    //专区
-    ], path)) {
+    ])) {
     activeIndex = 0;
   }
   return activeIndex;

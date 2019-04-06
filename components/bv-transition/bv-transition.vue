@@ -9,7 +9,7 @@
     name: "bv-transition",
     props: {
       transitionName: {
-        default: 'slide-right',
+        default: 'right',
         type: String
       }
     }
@@ -17,46 +17,51 @@
 </script>
 
 <style lang="scss">
-  .slide-left-enter-active,
-  .slide-left-leave-active,
-  .slide-top-enter-active,
-  .slide-top-leave-active,
-  .slide-right-enter-active,
-  .slide-right-leave-active {
+  .opacity-enter-active,
+  .opacity-leave-active,
+  .left-enter-active,
+  .left-leave-active,
+  .top-enter-active,
+  .top-leave-active,
+  .right-enter-active,
+  .right-leave-active {
     transition: all .4s;
   }
 
-  .slide-left-enter,
-  .slide-left-leave-active,
-  .slide-top-enter,
-  .slide-top-leave-active,
-  .slide-right-enter,
-  .slide-right-leave-active {
+
+  .opacity-enter,
+  .opacity-leave-active,
+  .left-enter,
+  .left-leave-active,
+  .top-enter,
+  .top-leave-active,
+  .right-enter,
+  .right-leave-active {
     opacity: 0;
     pointer-events: none;
   }
 
-  .slide-top-enter {
+  .top-enter {
     transform: translateY(100px);
   }
 
-  .slide-top-leave-active {
+  .top-leave-active {
     transform: translateY(100px);
   }
 
-  .slide-left-enter {
+  .left-enter {
     transform: translateX(-100px);
   }
 
-  .slide-left-leave-active {
+  .left-leave-active {
     transform: translateX(100px);
   }
 
-  .slide-right-enter {
+  .right-enter {
     transform: translateX(100px);
   }
 
-  .slide-right-leave-active {
+  .right-leave-active {
     transform: translateX(-100px);
   }
 </style>

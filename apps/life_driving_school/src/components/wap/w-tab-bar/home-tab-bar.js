@@ -1,5 +1,4 @@
-import router from "@router";
-import { activeTabBar } from '@assets/js/activePath';
+import { activeTabBar } from './active-path';
 import utils from 'blue-utils';
 
 const subMenuColor = `#ca9f75`;
@@ -58,10 +57,7 @@ const homeTabBar = {
         value: '首页',
         fontSize: 13
       },
-      className: 'bc-pd-tb-17',
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
+      className: 'bc-pd-tb-17 bc-bd-r-e5e',
       to: '/'
     }, {
       content: {
@@ -69,10 +65,7 @@ const homeTabBar = {
         fontSize: 11
       },
       icon: subMenuIcon,
-      className: 'bc-pd-tb-17',
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
+      className: 'bc-pd-tb-17 bc-bd-r-e5e',
       to: '/'
     }, {
       content: {
@@ -80,10 +73,7 @@ const homeTabBar = {
         fontSize: 11
       },
       icon: subMenuIcon,
-      className: 'bc-pd-tb-17',
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
+      className: 'bc-pd-tb-17 bc-bd-r-e5e',
       children: getChildren({
         items: [{
           value: '健康驾照',
@@ -107,10 +97,7 @@ const homeTabBar = {
         value: '购物宝',
         fontSize: 11
       },
-      className: 'bc-pd-tb-17',
-      link: {
-        className: 'bc-bd-r-e5e'
-      },
+      className: 'bc-pd-tb-17 bc-bd-r-e5e',
       to() {
         location.href = 'https://www.dtb315.com';
       }
@@ -139,8 +126,7 @@ const homeTabBar = {
     }]
   },
   active() {
-    const path = router.currentRoute.fullPath;
-    this.activeIndex = activeTabBar(path)
+    this.activeIndex = activeTabBar()
   }
 };
 

@@ -10,8 +10,7 @@
              v-for="(item, index) in list"
              :class="[
              item.className,
-             activeIndex !== index ? unActiveClassName : activeClassName,     //选中的className
-				     item.link && item.link.className                                 //针对链接的样式
+             activeIndex !== index ? unActiveClassName : activeClassName     //选中的className
            ]"
              :style="item.style"
              :key="`bv-tab-bar-item-${index}`"
@@ -32,15 +31,15 @@
 
               <span
                 :style="`padding-${item.icon && item.icon.direction &&
-              (item.icon.direction === 'top' &&
-              item.icon.direction !== 'left' &&
-              item.icon.direction !== 'right') ? 'top' : (item.icon && item.icon.direction)}: 4px;` +
-             `font-size:${item.content.fontSize}px;` +
-             item.content.style"
-                :class="[item.content.className]"
-              >
-            {{item.content.value}}
-          </span>
+		              (item.icon.direction === 'top' &&
+		              item.icon.direction !== 'left' &&
+		              item.icon.direction !== 'right') ? 'top' : (item.icon && item.icon.direction)}: 4px;` +
+		             `font-size:${item.content.fontSize}px;` +
+		             item.content.style"
+		                :class="[item.content.className]"
+		              >
+		            {{item.content.value}}
+		          </span>
 
               <!-- 方向为right的时候出现 -->
               <template v-if="item.icon && item.icon.direction && (item.icon.direction === 'right')">
@@ -55,7 +54,7 @@
             </div>
 
             <!-- 子菜单 -->
-            <bv-transition transition-name="slide-top">
+            <bv-transition transition-name="opacity">
               <!-- 子菜单 -->
               <div class="tab-bar-submenu"
                    v-show="tabBarSubMenuIndex === index"
@@ -99,9 +98,6 @@
           </a>
         </div>
       </div>
-
-      <!--  -->
-
     </div>
   </bv-transition>
 </template>
@@ -217,7 +213,7 @@
     .tab-bar-submenu {
       position: absolute;
       bottom: 95%;
-      z-index: 9500;
+      z-index: 9700;
       .tab-bar-submenu-list-wrap {
         padding: rem(3);
         .tab-bar-submenu-list {
