@@ -1,6 +1,6 @@
 <!-- 底部导航组件 -->
 <template>
-  <bv-transition transition-name="slide-top">
+  <bv-transition transition-name="top">
     <div class="bv-tab-bar" id="tabBar" style="background:white;">
       <!-- 底部导航列表 -->
       <div class="bv-tab-bar-list-container">

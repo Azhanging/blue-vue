@@ -25,5 +25,12 @@ module.exports = {
       }
     }
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "@css/index.scss";`
+      }
+    }
+  },
   filenameHashing: false
 };
