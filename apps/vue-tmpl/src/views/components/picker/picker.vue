@@ -1,7 +1,11 @@
 <template>
 	<bv-home-view :router-level="2">
 		<bv-header :header="{title:{value:'多级联动'}}"/>
-		<div class="row overflow-hide">
+
+		<div class="bc-pd-10rp">
+			select联动：
+		</div>
+		<div class="bc-row bc-overflow-hide">
 			<bv-picker :slots="slots" :ajax="ajax">
 				<template slot-scope="scope">
 					<!-- 联动的数据 -->
@@ -21,6 +25,15 @@
 				</template>
 			</bv-picker>
 		</div>
+
+		<div class="bc-pd-10rp">
+			<a href="" class="bc-btn bc-btn-primary">
+				点击联动
+			</a>
+		</div>
+
+		<bv-picker-windows />
+
 	</bv-home-view>
 </template>
 
@@ -43,13 +56,9 @@ export default {
         value: '440204'
       }],
       ajax: {
-        url: ''
+        url: '/member/personal/next_child'
       }
     };
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

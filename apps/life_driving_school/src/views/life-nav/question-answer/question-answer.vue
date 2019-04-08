@@ -5,77 +5,103 @@
                 value: "生命导航"
             }
         }'></life_nav_tab>
+		<bv-scroll :api="api" :disabled="true">
 
-		<div class="question-lists">
-			<div class="question-item" v-for="(item,index) in list">
-				<div class="question-ask">
-					<div class="question-ask-l"><i>Q</i></div>
-					<div class="question-ask-c">怎么才能调养身体，将自己脱离亚健康状态？</div>
-					<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>
-				</div>
-				<div class="question-answer">
-					<div class="question-answer-l">
-						<i>A</i>
+			<div class="question-lists">
+				<div class="question-item" v-for="(item,index) in load.data.lists">
+					<div class="question-ask">
+						<div class="question-ask-l"><i>Q</i></div>
+						<div class="question-ask-c">{{ item.question }}</div>
+						<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>
 					</div>
-					<div class="question-answer-r">
-						滚滚长江东逝水，浪花淘尽英雄。是非成败转头空。青山依旧在，几度夕阳红。白发渔樵江渚上，惯看秋月春风。一壶浊酒喜相逢。古今多少事，都付笑谈中。
-					</div>
-				</div>
-
-				<div class="question-review" v-if="ifshow===index">
-					<h2>全部评论</h2>
-					<div class="question-review-top">
-						<div class="question-review-top-l">
-							<img src="https://image.dtb315.com/76343.jpg">
+					<div class="question-answer">
+						<div class="question-answer-l">
+							<i>A</i>
 						</div>
-						<div class="question-review-top-r">
-							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">聪明的一休</div>
-								<div class="question-review-top-tit-r">
-									<span><i class="iconfont icondianzan"></i> 2222</span>
-									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-								</div>
+						<div class="question-answer-r">
+							{{ item.answer }}
+						</div>
+					</div>
+
+					<div class="question-review" v-if="ifshow===index">
+						<h2>全部评论</h2>
+						<div class="question-review-top">
+							<div class="question-review-top-l">
+								<img src="https://image.dtb315.com/76343.jpg">
 							</div>
-							<div class="question-review-top-time">1小时前</div>
-							<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
-							<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
-						</div>
-					</div>
-					<div class="question-review-top">
-						<div class="question-review-top-l">
-							<img src="https://image.dtb315.com/76343.jpg">
-						</div>
-						<div class="question-review-top-r">
-							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">鼠妹的小夏目</div>
-								<div class="question-review-top-tit-r">
-									<span><i class="iconfont icondianzan"></i> 155</span>
-									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
+							<div class="question-review-top-r">
+								<div class="question-review-top-tit">
+									<div class="question-review-top-tit-l">聪明的一休</div>
+									<div class="question-review-top-tit-r">
+										<span><i class="iconfont icondianzan"></i> 2222</span>
+										<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
+									</div>
 								</div>
+								<div class="question-review-top-time">1小时前</div>
+								<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
+								<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
 							</div>
-							<div class="question-review-top-time">2小时前</div>
-							<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
+						</div>
+						<div class="question-review-top">
+							<div class="question-review-top-l">
+								<img src="https://image.dtb315.com/76343.jpg">
+							</div>
+							<div class="question-review-top-r">
+								<div class="question-review-top-tit">
+									<div class="question-review-top-tit-l">鼠妹的小夏目</div>
+									<div class="question-review-top-tit-r">
+										<span><i class="iconfont icondianzan"></i> 155</span>
+										<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
+									</div>
+								</div>
+								<div class="question-review-top-time">2小时前</div>
+								<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
+							</div>
 						</div>
 					</div>
+
+					<div class="question-btn" @click="ifsClick(index)">展开评论
+						<i class="iconfont"
+						   :class="[{iconxiangxia1:(ifshow!==index)},{iconxiangshang1:(ifshow===index)}]"></i>
+					</div>
+
 				</div>
 
-				<div class="question-btn" @click="ifsClick(index)">展开评论
-					<i class="iconfont"
-					   :class="[{iconxiangxia1:(ifshow!==index)},{iconxiangshang1:(ifshow===index)}]"></i>
-				</div>
 
 			</div>
 
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else>
+					暂无数据...
+				</div>
+			</template>
+		</bv-scroll>
 
-		</div>
 
 		<router-link :to="`${currentFullPath}/detail`" class="question-quiz">
 			提问
 		</router-link>
 
+
+		<div class="review-txt" v-if="review_txt">
+			<div class="review-txt-l">
+				<i class="iconfont iconbianji"></i><input ref="review_hf" :autofocus="focus" type="text" placeholder="评论...">
+			</div>
+			<div class="review-txt-r">
+				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
+				<div><i class="iconfont iconxingxing"></i></div>
+				<div><i class="iconfont icondianzan"></i></div>
+				<div><i class="iconfont icon-"></i></div>
+			</div>
+		</div>
+
+
 		<div class="reply-mask" v-if="reply_show"></div>
 		<div class="reply-show" v-if="reply_show">
-			<div class="reply-item">回复</div>
+			<div class="reply-item" @click="btn_reply_txt()">回复</div>
 			<div class="reply-item" @click="btn_reply_h">取消</div>
 		</div>
 
@@ -87,20 +113,18 @@
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 
+
 	export default {
 		name: "index",
+		mixins: [scrollMixin()],
 		components: {
 			life_nav_tab
 		},
 		data() {
 			return {
-				list: [
-					{id: 1},
-					{id: 1},
-					{id: 1},
-				],
 				ifshow: '',
-				reply_show:false
+				reply_show:false,
+				review_txt:false
 			}
 		},
 		computed:{
@@ -121,6 +145,36 @@
 			},
 			btn_reply_h() {
 				this.reply_show = false
+			},
+			btn_reply_txt(){
+				this.reply_show = false;
+				this.review_txt = true;
+				//this.$refs.review_hf.focus();
+				this.$nextTick(()=>{
+					this.$refs.review_hf.focus()
+				})
+			},
+
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/feedback/getList', {
+					params: {
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						return scrollEndHook.call(this);
+					} else {
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+
 			}
 		}
 	}
@@ -131,7 +185,64 @@
 		margin: 0;
 		padding: 0;
 	}
+	.review-txt {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 9;
+		height: rem(50);
+		background: #fff;
+		padding: rem(10) rem(15);
+		display: flex;
+		box-sizing: border-box;
 
+		.review-txt-l {
+			width: rem(155);
+			display: flex;
+			height: rem(30);
+			background: #f7f7f7;
+			color: #999;
+			box-sizing: border-box;
+			padding: 0 rem(15);
+			align-items: center;
+
+			input[type='text'] {
+				flex: 1;
+				background: none;
+				height: rem(30);
+				outline: none;
+				border: 0;
+				margin-left: rem(10);
+			}
+		}
+
+		.review-txt-r {
+			flex: 1;
+			text-align: center;
+			line-height: rem(30);
+
+			div {
+				display: inline-block;
+				margin: 0 rem(8);
+				position: relative;
+
+				span {
+					position: absolute;
+					left: rem(10);
+					top: -2px;
+					background: #FE6270;
+					height: rem(12);
+					border-radius: rem(3);
+					line-height: rem(12);
+					vertical-align: middle;
+					color: #fff;
+					padding: 1px 3px;
+					font-size: rem(10);
+				}
+			}
+		}
+	}
 	.question-lists {
 		padding: rem(10) rem(15) 0;
 

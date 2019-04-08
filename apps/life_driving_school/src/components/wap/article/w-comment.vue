@@ -23,19 +23,19 @@
 						<div class="bc-flex-1 bc-pd-t-7rp">
 							{{item.support}}
 						</div>
-						<div class="bc-flex-1 bc-f-b bc-f-16rp" @click.stop="reply(isReply)">...</div>
+						<div class="bc-flex-1 bc-f-b bc-f-20rp" @click.stop="reply(isReply, 1, item.id)">...</div>
 					</div>
 				</div>
 				<div class="bc-flex">
 					<div class="bc-flex-2"></div>
 					<div class="bc-flex-9">
-						<ul class="bc-reset-ul">
-							<li class="bc-flex" v-for="(responser, index) in item.reply" :key="index">
+						<ul class="bc-reset-ul" v-if="item.reply && item.reply.length>0">
+							<li class="bc-flex" v-for="(res, index) in item.reply" :key="index">
 								<div class="bc-flex-8">
-									<span class="bc-f-b" style="color:#607E9F">@{{item.name}}</span>
-									<span> {{item.content}} </span>
+									<span class="bc-f-b" style="color:#607E9F">@{{res.name}}</span>
+									<span> {{res.content}} </span>
 								</div>
-								<div class="bc-flex-2 bc-f-b bc-f-16rp bc-pd-b-20rp" @click.stop="reply(isReply)">
+								<div class="bc-flex-2 bc-f-b bc-f-20rp" @click.stop="reply(isReply, 1, item.id)">
 									...
 								</div>
 							</li>
@@ -63,59 +63,50 @@ export default {
   name: "comment",
 	props: {
 		comment: {
-      articleId: {
-        type: Number,
-	      default: 100
-      },
-      commentNum: {
+      commentNum: {// 评论条数
         type: Number,
 	      default: 3330
-      }, // 评论条数
-			status: {
-        type: Number,
-				default: 0 //  0为评论作者 1为评论别人的评论 2为评论别人的别人
-			},
-      discussants : [
-          {
-            id: 1,
-            name: "聪明的一休",
-            avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-            time: '3小时前',
-            content: "很好，内容很适合我！",
-            support: 100, // 点赞数量
-            reply: [
-              {
-                id: 2,
-                name: "Winter",
-                avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                responder: "聪明的一休",
-                reviewers: "又学到了一招又学到了一招又学到了一招",
-                time: "4小时前",
-                content: "通道中人",
-                support: 100, // 点赞数量
-                reply: {
-                  id: 2,
-                  name: "CiCi",
-                  avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                  responder: "Winter",
-                  reviewers: "又学到了一招又学到了一招又学到了一招",
-                  time: "5小时前",
-                  content: "你学到了哪一招？",
-                  support: 100, // 点赞数量
-                }
-              },
-            ]
-          },
-          {
-            id: 5,
-            name: "Steven",
-            avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-            time: "4小时前",
-            content: "好,讲得非常好，good, very good!",
-            support: 100, // 点赞数量
-            reply: []
-          }
-        ]
+      },
+      discussants: [
+        {
+          id: 1,
+          name: "聪明的一休",
+          avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
+          time: '3小时前',
+          content: "很好，内容很适合我！",
+          support: 100, // 点赞数量
+          reply: [
+            {
+              id: 2,
+              name: "Winter",
+              avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
+              reviewers: "又学到了一招又学到了一招又学到了一招",
+              time: "4小时前",
+              content: "通道中人",
+              support: 100, // 点赞数量
+
+            },
+            {
+              id: 2,
+              name: "CiCi",
+              avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
+              reviewers: "又学到了一招又学到了一招又学到了一招",
+              time: "5小时前",
+              content: "你学到了哪一招？",
+              support: 100, // 点赞数量
+            }
+          ]
+        },
+        {
+          id: 5,
+          name: "Steven",
+          avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
+          time: "4小时前",
+          content: "好,讲得非常好，好,讲得非常好好,讲得非常好好,讲得非常好好,讲得非常好",
+          support: 100, // 点赞数量
+          reply: []
+        }
+      ]
 		}
 	},
 	data() {
@@ -141,14 +132,17 @@ export default {
         this.isAdd = true;
       }
     },
-    reply(isReply) {
+    reply(isReply, commentStatus, id) {
       if (isReply) {
 				this.whetherReplyMask = true;
 	      this.isReply = false;
+        this.$emit('release', {commentStatus, id});
       } else {
         this.whetherReplyMask = false;
         this.isReply = true;
       }
+
+
     },
     confirmReply() {
       this.whetherReplyMask = false;

@@ -7,7 +7,7 @@ const info = {
   name: 'zixun',
   component: Zixun,
   children: [{
-    path: 'detail',
+    path: 'detail/:id',
     name: 'zixun-detail',
     component: ZixunDetail,
     meta:{

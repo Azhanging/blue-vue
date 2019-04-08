@@ -20,7 +20,7 @@
       },
       activeClassName: {
         type: String,
-        default: ''
+        default: 'default-class'
       },
       currentIndex: {
         type: Number,

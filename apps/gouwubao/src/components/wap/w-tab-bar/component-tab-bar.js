@@ -1,4 +1,4 @@
-import { matchRouter } from '$components/bv-tab-bar';
+import router from '@router';
 
 const componentTabBar = {
   list: {
@@ -93,14 +93,12 @@ const componentTabBar = {
     }]
   },
   active() {
-    const currentRouter = this.$router.currentRoute;
-    const path = currentRouter.fullPath;
-    if (matchRouter([
+    if (router.matchRoutes([
         /^\/components\/scroll/,    //组件滑动路由
-      ], path)) {
+      ])) {
       this.activeIndex = 1;
     } else {
-      this.activeIndex = 0;
+      this.activeIndex = 2;
     }
   }
 };

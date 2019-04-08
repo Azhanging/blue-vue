@@ -7,19 +7,6 @@
 					components
 				</router-link>
 			</div>
-
-			<div class="bc-t-c bc-mg-t-10rp">
-				<router-link to="/test-scroll" class="bc-btn bc-btn-danger bc-btn-line">
-					test-scroll
-				</router-link>
-			</div>
-
-			<div class="bc-t-c bc-mg-t-10rp">
-				<router-link to="/test-login" class="bc-btn bc-btn-danger bc-btn-line">
-					test-login
-				</router-link>
-			</div>
-
 		</div>
 	</bv-home-view>
 </template>

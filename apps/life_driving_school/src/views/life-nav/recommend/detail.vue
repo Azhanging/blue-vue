@@ -79,9 +79,9 @@
 		</div>
 
 
-		<div class="review-txt">
+		<div class="review-txt" v-if="review_txt">
 			<div class="review-txt-l">
-				<i class="iconfont iconbianji"></i><input type="text" placeholder="写评论...">
+				<i class="iconfont iconbianji"></i><input ref="review_hf" :autofocus="focus" type="text" placeholder="写评论...">
 			</div>
 			<div class="review-txt-r">
 				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
@@ -93,7 +93,7 @@
 
 		<div class="reply-mask" v-if="reply_show"></div>
 		<div class="reply-show" v-if="reply_show">
-			<div class="reply-item">回复</div>
+			<div class="reply-item" @click="btn_reply_txt()">回复</div>
 			<div class="reply-item" @click="btn_reply_h">取消</div>
 		</div>
 	</bv-home-view>
@@ -118,7 +118,8 @@
 						{src: 'https://image.dtb315.com/327703.jpg?val=Thumb'}
 					]
 				}],
-				reply_show:false
+				reply_show:false,
+				review_txt:false
 			}
 		},
 		methods:{
@@ -127,6 +128,14 @@
 			},
 			btn_reply_h() {
 				this.reply_show = false
+			},
+			btn_reply_txt(){
+				this.reply_show = false;
+				this.review_txt = true;
+				//this.$refs.review_hf.focus();
+				this.$nextTick(()=>{
+					this.$refs.review_hf.focus()
+				})
 			}
 		}
 	}

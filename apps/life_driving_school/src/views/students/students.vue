@@ -9,7 +9,9 @@
 		>
 			<div slot="right-control">
 				<div class="bc-t-r">
-					<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base' @click="to_message"></i>
+					<router-link :to="`${currentFullPath}/message`">
+						<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base'></i>
+					</router-link>
 				</div>
 			</div>
 		</w-home-header>
@@ -292,6 +294,7 @@
 		border-bottom: 1px solid #e5e5e5;
 		padding: rem(15);
 		display: flex;
+		color: #666;
 		.students-list-title{
 			flex: 1;
 			color: #333;

@@ -22,7 +22,7 @@
       method: 'post',
       data: params
     }).then((res) => {
-      let { data } = res;
+      let { data } = res.data;
       data = this.got(data);
       if (this.slots[index]) {
         this.slots[index].values = data;
@@ -59,10 +59,9 @@
         }
       },
       slots: {
-        default: [/*{
-          values: [],
-          value: ''
-        }*/]
+        default() {
+          return [];
+        }
       },
       ajax: {
         validator(value) {
@@ -84,35 +83,37 @@
     },
     methods: {
       changePicker($event, index, isInit = false) {
-        const slots = this.slots;
-        const slot = slots[index];
-        const prevIndex = index - 1;
-        const nextIndex = index + 1;
-        const prevSlot = slots[prevIndex];
-        if (index == 0 || prevSlot.value) {
-          const _index = isInit ? index : nextIndex;
-          if ($event && !$event.target.value) {
-            clearNextAllSlot.call(this, _index);
-            return;
-          }
-          getSlotsItemData.call(this, {
-            index: _index,
-            id: (function () {
-              if (isInit) {
-                if (index == 0) {
-                  return 0
+        this.$nextTick(()=>{
+          const slots = this.slots;
+          const slot = slots[index];
+          const prevIndex = index - 1;
+          const nextIndex = index + 1;
+          const prevSlot = slots[prevIndex];
+          if (index == 0 || prevSlot.value) {
+            const _index = isInit ? index : nextIndex;
+            if ($event && !$event.target.value) {
+              clearNextAllSlot.call(this, _index);
+              return;
+            }
+            getSlotsItemData.call(this, {
+              index: _index,
+              id: (function () {
+                if (isInit) {
+                  if (index == 0) {
+                    return 0
+                  } else {
+                    return prevSlot.value;
+                  }
                 } else {
-                  return prevSlot.value;
+                  return slot.value
                 }
-              } else {
-                return slot.value
-              }
-            })()
-          });
-          if (!isInit) {
-            clearNextAllSlot.call(this, _index);
+              })()
+            });
+            if (!isInit) {
+              clearNextAllSlot.call(this, _index);
+            }
           }
-        }
+        });
       }
     },
     mounted() {

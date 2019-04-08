@@ -15,6 +15,7 @@
 		</w-home-header>
 
 		<div class="qr-code-box">
+			<button class="qr-code-box-btn">保存</button>
 			<div class="qr-code-img">
 				<img src="https://p.ssl.qhimg.com/d/inn/0444533a/Snip20160525_6.png">
 			</div>
@@ -64,10 +65,26 @@
 
 <style scoped lang="scss">
 .qr-code-box{
-	margin: rem(15) rem(38);
+	margin: rem(15) auto;
+	width: rem(300);
+	height: rem(350);
+	border-radius: rem(3);
 	overflow: hidden;
-	background: #a1ccbe;
+	background: url("http://pc.lifest.dtb315.com/static/img/students/qr-code-box.png") center no-repeat;
+	background-size: 100% 100%;
 	text-align: center;
+	position: relative;
+	.qr-code-box-btn{
+		position: absolute;
+		right: rem(10);
+		top:rem(10);
+		width: rem(40);
+		height: rem(40);
+		background: rgba(255,255,255,.5);
+		border-radius: 100%;
+		font-size: rem(14);
+		color: #30766F;
+	}
 	.qr-code-img{
 		width: rem(164);
 		margin: rem(30) auto 0;
@@ -87,8 +104,7 @@
 	}
 	.qr-code-desc{
 		width: rem(270);
-		background: #fff;
-		margin: rem(10) auto;
+		margin: rem(15) auto;
 		overflow: hidden;
 		padding: rem(8);
 		box-sizing: border-box;

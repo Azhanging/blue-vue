@@ -8,7 +8,7 @@ const env = require('./env');
 //合并公共的配置
 const config = utils.extend(publicConfig, {
   view: {
-    title: "我是项目默认标题",
+    title: "大健康·点通宝·购物宝",
     tabBar: 'home'
   },
   env,

@@ -11,12 +11,6 @@ import routes from './routes';
 
 Vue.use(Router);
 
-//路由地址
-import home from './home';
-import components from './components';
-import bindPhone from "./bind-phone";
-import errorPage from "./error-page";
-
 //router相关的插件
 useInVueRouter(Router);
 

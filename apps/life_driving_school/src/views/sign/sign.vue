@@ -12,19 +12,19 @@
 		<div class="bc-pd-15rp sign-in">
 			<div class="sign-label ">
 				<div class="sign-label-content bc-bg-white bc-c-f bc-t-c bc-bd-radius-10" >
-					<div class="bc-mg-t-30rp bc-f-14rp">
+					<div class=" bc-f-14rp bc-v-m">
 						<span class="bc-t-999">已坚持</span>
-						<span class="sign-label-content-day-wrap bc-inline-block">
-							<span class="sign-label-content-day bc-t-red bc-inline-block bc-t-white ">
+						<div class="sign-label-content-day-wrap bc-inline-block">
+							<span class="sign-label-content-day bc-t-red bc-t-white ">
 								27
 							</span>
-						</span>
+						</div>
 						<span class="bc-t-999">天签到</span>
 					</div>
-					<div class="bc-mg-t-18rp bc-f-16rp" style="color:#CA9F75;">
+					<div class="sign-label-time bc-f-16rp" style="color:#CA9F75;">
 						2019\1\19 星期六
 					</div>
-					<div class="bc-mg-t-15rp">
+					<div class="">
 						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
 						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
 						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
@@ -129,7 +129,7 @@
     mounted() {
 			this.$axios.get('/api/Sign/index.html')
 				.then((res) => {
-
+					console.log(res);
 				})
     },
     components: {
@@ -151,20 +151,23 @@
 			.sign-label-content {
 				height: rem(330);
 				.sign-label-content-day-wrap {
-					width: rem(80);
+					transform: translateY(rem(-30));
+					width: rem(75);
+					height: rem(80);
 					.sign-label-content-day {
-						position: absolute;
+						display: inline-block;
 						box-sizing: border-box;
-						left: rem(145);
-						top: rem(47);
-						width: rem(85);
-						height: rem(90);
+						width: 100%;
+						height: 100%;
 						background: url($base-url + '/img/home/sign_in_day_bg.png') no-repeat;
-						background-position: center;
+						background-position: top;
 						background-size: 100% 100%;
 						font-size: rem(40);
-						padding-top: rem(12);
+						padding-top: rem(10);
 					}
+				}
+				.sign-label-time {
+					transform: translateY(rem(-15));
 				}
 
 				.head-portrait {

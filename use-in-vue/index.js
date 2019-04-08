@@ -9,6 +9,8 @@ import utils from 'blue-utils';
 
 import BvSwiperScroll from '../components/bv-swiper-scroll/bv-swiper-scroll';
 import BvPicker from '../components/bv-picker/bv-picker';
+import BvPickerWindows from '../components/bv-picker-windows/bv-picker-windows';
+
 import BvHeader from '../components/bv-header/bv-header';
 import BvView from '../components/bv-view/bv-view';
 import BvTabBar from '../components/bv-tab-bar/bv-tab-bar';
@@ -102,6 +104,7 @@ export function useInVue(opts = {}) {
 
   //多view-级联动
   Vue.component('bv-picker', BvPicker);
+  Vue.component('bv-picker-windows', BvPickerWindows);
 
   //分页列表
   Vue.component('bv-page-list', BvPageList);

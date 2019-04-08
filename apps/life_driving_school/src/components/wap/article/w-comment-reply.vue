@@ -7,14 +7,14 @@
 			</div>
 			<div class="bc-flex-2 ">
 				<span class="bc-inline-block bc-ps-r">
-					<i class='iconfont iconpinglun bc-f-20rp bc-mg-lr-12rp' ></i>
+					<i class='iconfont iconpinglun bc-f-20rp bc-mg-lr-10rp' ></i>
 					<span class="info-num bc-f-10rp">{{comment.commentNum}}</span>
 				</span>
-				<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-12rp' v-if="true"></i>
-				<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-12rp' v-else></i>
-				<i class='iconfont iconzan bc-f-20rp bc-mg-lr-12rp' v-if="true" v-else></i>
-				<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-12rp' v-else></i>
-				<i class='iconfont icon- bc-f-20rp bc-mg-lr-12rp' ></i>
+				<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="true"></i>
+				<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-10rp' v-else></i>
+				<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-if="true" v-else></i>
+				<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp' v-else></i>
+				<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' ></i>
 			</div>
 		</div>
 	</div>
