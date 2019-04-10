@@ -1,22 +1,31 @@
 <template>
 	<bv-home-view class='wap' :router-level='2'>
 
-		<w-article-detail :detail="detail.info" :header="{
+		<w-article-detail :info="detail.info" :header="{
 			title:{
 				value: '资讯详情'
 			}
 			}"></w-article-detail>
 
-		<w-comment :comment="detail.comment" @release="releaseComment"></w-comment>
-		<!--<button @click.stop="submitForm" style="position:fixed;z-index:200000;top:0">点击发布</button>-->
+		<w-comment :comment="detail.comment" @release="releaseComment" @deleteComment="deleteComment"></w-comment>
+		<button @click.stop="submitForm" style="position:fixed;z-index:200000;top:0">点击发布</button>
+
+		<template slot="other">
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
 
 		<!--回复模块-->
 		<template slot="footer">
-
-			<form action="" method="" @submit.prevent="submitForm">
-				<w-comment-reply :comment="detail.comment" ></w-comment-reply>
-			</form>
-
+			<!--<form action="" method="" @submit.prevent="submitForm">-->
+			<!--</form>-->
+			<w-comment-reply :comment="detail.comment" @bindPhone="bindPhone"></w-comment-reply>
+			<div class="reply bc-ps-f bc-w-100 bc-t-c " style="left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.2);z-index:20000;" v-if="whetherDeleteMask" @click="cancelWhetherDeleteMask">
+				<div class="bc-ps-a bc-bg-white bc-w-100" style="left:0;bottom:0;">
+					<div class="bc-bd-b-e5e bc-pd-tb-10rp" @click.stop="confirmDelete">删除</div>
+					<div class="bc-pd-tb-10rp" @click.stop="cancelDelete">取消</div>
+				</div>
+			</div>
 		</template>
 
 	</bv-home-view>
@@ -32,7 +41,7 @@
 		import WArticleDetail from '@components/wap/article/w-article-detail';
     import WComment from '@components/wap/article/w-comment';
     import WCommentReply from '@components/wap/article/w-comment-reply';
-    import store from '@store';
+    import router from '@router';
 
     export default {
       name: "zixun-detail",
@@ -40,119 +49,206 @@
         return {
           detail: {
             info: {
-              title: '我是标题',
-              time: 0 || (new Date()).getTime(),
-              readers: 2000,
-              support: 1111
+              name: '我是标题',
+              create_time: '',
+              click_num: 2000,
+              fabulous_num: 1111
             },
             comment: {
-              commentNum: 3330, // 评论条数
-              discussants: [
-                {
-                  id: 1,
-                  name: "聪明的一休",
-                  avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                  time: '3小时前',
-                  content: "很好，内容很适合我！",
-                  support: 100, // 点赞数量
-                  reply: [
-                    {
-                      id: 2,
-                      name: "Winter",
-                      avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                      reviewers: "又学到了一招又学到了一招又学到了一招",
-                      time: "4小时前",
-                      content: "通道中人",
-                      support: 100, // 点赞数量
-
-                    },
-                    {
-                      id: 2,
-                      name: "CiCi",
-                      avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                      reviewers: "又学到了一招又学到了一招又学到了一招",
-                      time: "5小时前",
-                      content: "你学到了哪一招？",
-                      support: 100, // 点赞数量
-                    }
-                  ]
-                },
-                {
-                  id: 5,
-                  name: "Steven",
-                  avatar_src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA',
-                  time: "4小时前",
-                  content: "好,讲得非常好，好,讲得非常好好,讲得非常好好,讲得非常好好,讲得非常好",
-                  support: 100, // 点赞数量
-                  reply: []
-                }
-              ]
+              count: 3330, // 评论条数
+              fabulous_num: 0,
+              list: []
             },
           },
-          commentStatus: 0,  //    0为评论文章  1为评论别人
+          commentStatus: 0,  //  0为评论文章  1为评论别人 2为自己
           id: 0,
-          userId: 0, // 用户id
-          userName: '', // 用户名称
-          userAvatar: '' // 用户头像
+	        sonid: 0,
+          whetherDeleteMask: false,
+	        timer: 0,
+          //绑定手机的状态
+          showBindPhoneStatus: (() => {
+            return router.currentRoute.fullPath === '/';
+          })()
         }
       },
+	    computed:{
+        userInfo(){
+          return this.$store.state.userInfo;
+        }
+	    },
       mounted() {
-        // 获取用保护信息中的ID name avatar
-        this.userId = store.state.userInfo.userId || '205';
-        this.userName = store.state.userInfo.userName || 'lei';
-        this.userAvatar = store.state.userInfo.userAvatar || 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554267693719&di=54cd3c613f9b0b8081672e4b8aa0a600&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Feac4b74543a982260290b87c79c820054b90ebec.png%3Ftoken%3D673d57831aea0fb5b580d11e478dcda7%26s%3D81A4DF104B7143868AC8F5540300C0BA';
+        // 内容
+        this.$axios.get(`/api/Article/info.html`, {
+          params: {
+            article_id: this.$route.params.id
+          }
+        }).then(res => {
+          const {data} = res.data;
+	        this.detail.info = data;
+	        this.detail.info.content = JSON.parse(data.content);
+	        }).catch(error => {
+	          console.log(error);
+        });
+
+        // 评论
+        this.$axios.get(`/api/Comment/index.html`, {
+          params: {
+            article_id: this.$route.params.id
+          }
+        }).then(res => {
+          const {data} = res.data;
+          this.detail.comment = data;
+          console.log('评论',data)
+        }).catch(error => {
+          console.log(error);
+        });
+
+        // 浏览量 10分钟一次
+        this.timer = setInterval(()=>{
+          this.$axios.get(` /api/article/click_num.html`, {
+            params: {
+              article_id: this.$route.params.id
+            }
+          }).then(res => {
+
+          }).catch(err => {
+            console.log(err);
+          })
+        }, 600000);
+
       },
       methods: {
-        releaseComment(rel) {
-          this.commentStatus = rel.commentStatus;
-          this.id = rel.id;
+        releaseComment(opts) {
+          this.commentStatus = opts.commentStatus;
+          this.id = opts.id;
         },
         submitForm() {
-          // 发送请求
-          // this.$axios.post('', {
-          //   params: {
-          //     avatar: this.avatar,
-          //     name: this.name,
-          //     id: this.id
-	        //     userId: this.userId
-          //   }
-          // }).then(res => {
-          //   let content = '我就是回复内容！';
-          //   this.detail.comment.commentNum ++ ;
-          // }).error(res => {
-          //   console.log(res);
+          // if (!this.showBindPhoneStatus) {
+          //   // 绑定手机 再进行登录判断
+          //   if ($config.session.storage){}
+          //   this.showBindPhoneStatus = true;
+          // } else {
+          // }
 
-          let targetIndex = this.detail.comment.discussants.findIndex((item, index) => {
-            return this.id === item.id;
+          let newComment;
+          // 发送请求
+          this.$axios.post('/api/comment/common', {
+              article_id: this.$route.params.id,
+	            id: this.id,
+	            content: this.detail.comment.editComment,
+              m_id: this.userInfo.id
+          }).then(res => {
+            const { data } = res.data;
+            if (this.commentStatus === 0) {
+	            newComment = {
+		            id: data.id ,
+		            article_id: data.article_id,
+		            nickname: data.nickname ,
+	              head_img: data.head_img,
+		            m_id: data.m_id,
+	              time: data.time,
+	              content: data.content ,
+	              fabulous: data.fabulous || 0 , // 点赞数量
+	              reply: []
+	            };
+            } else if (this.commentStatus === 1) {
+              newComment = {
+                id: data.id ,
+                nickname_reply: data.nickname_reply,
+                head_img: data.head_img,
+                m_id: data.m_id,
+                time: data.time,
+                content: data.content ,
+                fabulous: data.fabulous || 0 , // 点赞数量
+              };
+            }
+
+            this.detail.comment.list = this.detail.comment.list ? this.detail.comment.list : [];
+            if (this.commentStatus === 1 ) {
+              let targetIndex = this.detail.comment.list.findIndex((item, index) => {
+                return this.id === item.id;
+              });
+              // 回复他人评论  如果是自己（弹出删除 取消）
+              this.detail.comment.list[targetIndex].reply.unshift(newComment);
+            } else if(this.commentStatus === 0) {
+              // 默认回复文章
+              this.detail.comment.list.unshift(newComment);
+            }
+            // 恢复默认评论文章状态
+            this.commentStatus = 0;
+
+          }).catch(error => {
+            console.log(error);
           });
 
-          let newComment = {
-            id: this.userId,
-            name: this.userName,
-            avatar_src: this.userAvatar,
-            time: "4小时前",
-            content: '11111111111111111111',
-            support: 100, // 点赞数量
-            reply: []
-          };
 
-          if (this.commentStatus === 1) {
-            // 回复他人评论
-            this.detail.comment.discussants[targetIndex].reply.push(newComment);
-          } else {
-            // 默认回复文章
-            this.detail.comment.discussants.push(newComment);
+        },
+        deleteComment(opts) {
+          const {commentStatus, id, sonid} = opts;
+          this.commentStatus = commentStatus;// 如果是自己就是0
+          this.id = id;
+          this.sonid = sonid;
+          if (commentStatus === 2) {
+            this.whetherDeleteMask = true;
           }
+        },
+        cancelWhetherDeleteMask() {
+          this.whetherDeleteMask = false;
+        },
+        confirmDelete() {
+          this.whetherDeleteMask = false;
+          this.$messageBox({
+            message: '是否删除该评论？',
+            title: '提示',
+            confirmButtonText: '是',
+            cancelButtonText: '否',
+            showCancelButton: true,
+          }).then(action => {
+            if (action === 'confirm') {     //确认的回调
+              let targetOneIndex;
+	            let targetTwoIndex;
+							// 第一层
+               targetOneIndex = this.detail.comment.list.findIndex((item) => {
+                return this.id === item.id;
+              });
+               console.log("targetOneIndex", targetOneIndex)
+							// 第二层
+							if (this.sonid && this.sonid !== 0 ) {
+	               targetTwoIndex = this.detail.comment.list[targetOneIndex].reply.findIndex((item)=>{
+									return this.sonid === item.m_id;
+	              });
+                console.log("targetTwoIndex", targetTwoIndex)
+                this.detail.comment.list[targetOneIndex].reply.splice(targetTwoIndex, 1);
+							} else {
+                this.detail.comment.list.splice(targetOneIndex, 1);
+              }
 
-          // 恢复默认评论文章状态
-          this.commentStatus = 0;
+            }
+          }).catch(err => {
+            if (err === 'cancel') {     //取消的回调
+              console.log(2);
+            }
+          });
+        },
+        cancelDelete() {
+          this.whetherDeleteMask = false;
+        },
+        bindPhone() {
+          // if (!this.showBindPhoneStatus) {
+          //   // 绑定手机 再进行登录判断
+          //   if ($config.session.storage){}
+          //   this.showBindPhoneStatus = true;
+          // } else {
+          // }
         }
       },
+	    destroyed() {
+        clearInterval(this.timer);
+	    },
       components: {
         'w-article-detail': WArticleDetail,
         'w-comment': WComment,
         'w-comment-reply': WCommentReply
       }
-
     }
 </script>

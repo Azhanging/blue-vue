@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
+	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
 		
 		<growTab :growIndex='2'></growTab>
 		

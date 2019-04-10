@@ -29,12 +29,14 @@
 
 							<div class="driving-topic">
 								<div class="driving-topic-img">
-									<img src="https://image.dtb315.com/31713.jpg?val=Thumb">
+									<img src="https://image.dtb315.com/31713.jpg?val=Thumb" :src="`http://pc.lifest.dtb315.com`+slide.src_img">
 								</div>
 								<div class="driving-topic-desc">
 									<div class="driving-topic-desc-tit">
-										<div>初阶课程测试（选择题）</div>
-										<i class="iconfont iconbianji"></i>
+										<div>{{ slide.name }}课程测试（选择题）</div>
+										<router-link :to="`${currentFullPath}/fitness-test`">
+											<i class="iconfont iconbianji" ></i>
+										</router-link>
 									</div>
 									<div class="driving-topic-desc-xing">
 										<i class="iconfont iconiconfontxingxing" :class="((index+1)*20)<=xing_num?'active':''" v-for="(i,index) in 5"></i>
@@ -58,38 +60,28 @@
 				</swiper>
 			</bv-scroll>
 
-
 		</div>
 
 		<div class="driving-list">
 			<div class="driving-list-tab">
 				<div
-					v-on:click="tabqh(1)"
-					:class="{active:(temp===1)}">
-					初阶
-				</div>
-				<div
-					v-on:click="tabqh(2)"
-					:class="{active:(temp===2)}">
-					中阶
-				</div>
-				<div
-					v-on:click="tabqh(3)"
-					:class="{active:(temp===3)}">
-					高阶
+					v-for="(item,index) in level"
+					v-on:click="tabqh(index)"
+					:class="{active:(temp===index)}"
+				>
+					{{ item }}
 				</div>
 			</div>
+
 			<bv-scroll>
+
+				<div v-if="temp===0">
+					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
+				</div>
 				<div v-if="temp===1">
 					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
 				</div>
 				<div v-if="temp===2">
-					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
-				</div>
-				<div v-if="temp===3">
-					<!--<bv-view-transition>
-						<driving_list></driving_list>
-					</bv-view-transition>-->
 					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
 				</div>
 
@@ -106,7 +98,6 @@
 
 		</div>
 
-
 	</bv-home-view>
 </template>
 
@@ -116,7 +107,7 @@
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 	import driving_list from '../components/driving-list';
 	import WArrlist from '@components/wap/article/w-arrlist'
-
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "driving-license",
 		components: {
@@ -124,9 +115,14 @@
 			driving_list,
 			'w-arrlist': WArrlist
 		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
 		data() {
 			return {
-				temp: 1,
+				temp: 0,
 				banners: [1, 2, 3, 4],
 				swiperOption: {
 					pagination: {
@@ -138,7 +134,9 @@
 				xing_num:65, //星星点亮个数
 				th_progressValue:40,//传的分数
 				progressValue:0,//显示分数
-				achieveMsg:true
+				achieveMsg:true,
+				level:['初阶','中阶','高阶'],
+				this_level: 1
 			}
 		},
 		methods: {
@@ -146,8 +144,35 @@
 				this.swiper.update();
 			},
 			tabqh(t) {
+				if(this.this_level==0){
+					$toast({
+						message: '您只有初阶权限',
+						duration: 3000
+					});
+					return;
+				}
+				if(this.this_level==1 && t==2){
+					$toast({
+						message: '您没有高阶权限',
+						duration: 3000
+					});
+					return;
+				}
 				this.temp = t;
 			},
+			//课程阶段
+			item_progress(){
+
+				return this.$axios.get('/api/examination/level', {
+					params:{
+						column_id:"32"
+					},
+				}).then((res) => {
+					//console.log(res.data)
+					this.banners[0] = res.data.data
+				});
+
+			}
 		},
 		mounted() {
 			this.$nextTick(() => {
@@ -161,8 +186,11 @@
 					this.progressValue=i;
 				},800)
 			}
-		}
+
+			this.item_progress();
+		},
 	}
+
 </script>
 
 <style scoped lang="scss">
@@ -280,6 +308,7 @@
 							color: #333;
 							font-size: rem(16);
 						}
+						i{color: #999;}
 					}
 
 					.driving-topic-desc-xing {

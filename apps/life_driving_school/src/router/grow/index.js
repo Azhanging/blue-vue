@@ -13,11 +13,11 @@ const grow = {
 	},
 	component: resolve => require(['@/views/grow/grow.vue'], resolve),
 	children:[
-		detail,
 		video,
 		zhuanqu,
 		short,
-		books
+		books,
+		detail,
 	]
 };
 

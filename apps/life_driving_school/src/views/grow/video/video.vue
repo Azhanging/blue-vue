@@ -3,49 +3,55 @@
 		
 		<growTab :growIndex='1'></growTab>
 		
-		<div class='bc-bg-white'>
-			<bv-scroll>
-				<swiper :options="swiperOption" ref="swiper">
-					<swiper-slide v-for="(slide, index) in banners" :key="index">
-						<img :src='slide' style="width:100%">
-					</swiper-slide>
-					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
-				</swiper>
-			</bv-scroll>
-		</div>
+		<!--<div class='bc-bg-white'>-->
+			<!--<bv-scroll>-->
+				<!--<swiper :options="swiperOption" ref="swiper">-->
+					<!--<swiper-slide v-for="(slide, index) in banners" :key="index">-->
+						<!--<img :src='slide' style="width:100%">-->
+					<!--</swiper-slide>-->
+					<!--<div class="swiper-pagination" id="pagination" slot="pagination"></div>-->
+				<!--</swiper>-->
+			<!--</bv-scroll>-->
+		<!--</div>-->
 		
-		<!--<img width='100%' class='bc-block' src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>-->
+		<img width='100%' class='bc-block' :src="banners.img" alt=''>
 		<div class='bc-f-11rp bc-bg-white notice bc-mg-b-10rp bc-pd-lr-15rp bc-v-m'>
 			<i class='iconfont iconyinliang-di bc-t-base bc-f-18rp '></i>
-			<span >公告：直播时间为{{1548946491687 | timeFilter("Y.M.D")}}</span>
+			<span >{{banners.content}}</span>
 		</div>
 		
-		<!--数据循环  正在直播 直播预告 历史直播-->
-		<videoItem :videoList='videoList'></videoItem>
-	
+		<!--数据循环  正在直播  -->
+		<videoItem :videoList='resvideo.data_live' type='0'></videoItem>
+		<!--直播预告-->
+		<videoItem :videoList='resvideo.data_notice' type='1'></videoItem>
+
 		<!--为您推荐-->
 		<div class='scroll-x bc-bg-white bc-pd-15rp bc-mg-b-10rp'>
 			<span class='bc-f-18rp'>为您推荐</span>
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<div  slot="scroll-items">
-					<div v-for="(item,index) in scroll_list"
+					<router-link :to="`/grow/video/room?id=${item.id}`" v-for="(item,index) in resvideo.data_recommend"
 					     class=" bc-mg-r-10rp  bc-inline-block bc-t-c bc-pd-t-10rp"
 					     @click="select(item,index)"
 					>
 						<div class='bc-ps-r'>
-							<img src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>
+							<img :src='item.cover' alt=''>
 							<div class='bc-ps-a replay'>
 								<i class='iconfont iconhuifang1 bc-f-10rp'></i>
 								<span class='bc-mg-l-3rp bc-f-10rp'>回放</span>
 							</div>
 						</div>
-						<div class='bc-f-14rp ' style='font-weight: 500'>月色摇曳疏影</div>
-						<div class='bc-f-12rp bc-t-666 '>{{1548946491687 | timeFilter("Y.M.D")}}</div>
+						<div class='bc-f-14rp t-hide' style='font-weight: 500'>{{item.title}}</div>
+						<div class='bc-f-12rp bc-t-666 '>{{item.start_time | timeFilter("Y.M.D")}}</div>
 					
-					</div>
+					</router-link>
 				</div>
 			</bv-swiper-scroll>
 		</div>
+		
+		<!--历史直播-->
+		<videoItem :videoList='resvideo.data_history' type='2'></videoItem>
+	
 	
 	</bv-home-view>
 	
@@ -69,11 +75,11 @@
 		},
 		data() {
 			return {
-				banners: [
-					'https://imagedev.dtb315.com/581933.jpg',
-					'https://imagedev.dtb315.com/581930.jpg',
-					'https://imagedev.dtb315.com/581926.jpg'
-				],
+				banners:{
+					img:'http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg',
+					content:''
+				},
+				resvideo:{},
 				swiperOption: {
 					pagination: {
 						el: "#pagination"
@@ -90,33 +96,44 @@
 			}
 		},
 		methods:{
-			secTab(index){
-				this.tab_idx = index
-			},
 			select(item, index) {
 
 			},
-			swiperUpdate() {
-				this.swiper.update();
-			},
+			// swiperUpdate() {
+				// this.swiper.update();
+			// },
 			golist(id){
 				// this.$router.push({path:'/special/column',query:{id:id}})
 			},
 			getData() {
-				var data = {
-					tab_idx: this.tab_idx,
-
-				}
-				console.log(data)
+				this.$axios.get('api/live_video/index').then((res) => {
+					this.resvideo = res.data.data
+				}).catch((error) => {
+					console.log(error);
+				});
 			},
-
+			getBanner(){
+				this.$axios.get('api/notice/index',{
+					params: {
+						type: 2
+					}
+				}).then((res) => {
+					this.banners = res.data.data;
+				}).catch((error) => {
+					console.log(error);
+				});
+			},
+			init(){
+				this.getData();
+				this.getBanner()
+			}
 		},
 		mounted(){
-			this.getData();
-			this.$nextTick(() => {
-				this.swiper = this.$refs['swiper'];
-				this.swiperUpdate();
-			});
+			this.init();
+			// this.$nextTick(() => {
+			// 	this.swiper = this.$refs['swiper'];
+			// 	this.swiperUpdate();
+			// });
 		}
 	}
 </script>

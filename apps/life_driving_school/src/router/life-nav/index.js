@@ -6,24 +6,25 @@ const life_nav = {
     },
     component: () => import("@views/life-nav/life-nav.vue"),
     children: [{
-        path: 'fitness-test',
-        component: () => import("@views/life-nav/fitness-test/fitness-test"),
-        meta: {
-            tabBar: false
-        },
-        children: [{
-            path: 'test-results',
-            component: () => import("@views/life-nav/fitness-test/test-results"),
-            meta: {
-                tabBar: false
-            }
-        }]
-    },{
         path: 'driving-license',
         component: () => import("@views/life-nav/driving-license/driving-license"),
         meta: {
             tabBar: false
-        }
+        },
+        children: [{
+            path: 'fitness-test',
+            component: () => import("@views/life-nav/driving-license/fitness-test/fitness-test"),
+            meta: {
+                tabBar: false
+            },
+            children: [{
+                path: 'test-results',
+                component: () => import("@views/life-nav/driving-license/fitness-test/test-results"),
+                meta: {
+                    tabBar: false
+                }
+            }]
+        }]
     },{
         path: 'question-answer',
         component: () => import("@views/life-nav/question-answer/question-answer"),
@@ -31,8 +32,14 @@ const life_nav = {
             tabBar: false
         },
         children: [{
+            path: 'questions',
+            component: () => import("@views/life-nav/question-answer/questions/questions"),
+            meta: {
+                tabBar: false
+            }
+        },{
             path: 'detail',
-            component: () => import("@views/life-nav/question-answer/detail"),
+            component: () => import("@views/life-nav/question-answer/detail/detail"),
             meta: {
                 tabBar: false
             }

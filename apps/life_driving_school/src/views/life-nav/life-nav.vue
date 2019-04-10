@@ -26,7 +26,7 @@
 					</router-link>
 				</div>
 				<div class="life-nav-icon-li">
-					<router-link :to="`${currentFullPath}/fitness-test`">
+					<router-link to="/">
 						<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.com/static/img/life-nav/3@2x.png"></div>
 						<p>健康测试</p>
 					</router-link>

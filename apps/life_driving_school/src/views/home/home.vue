@@ -234,12 +234,13 @@
         this.showBindPhoneStatus = false;
       },
       sign() {
-        if (!this.showBindPhoneStatus) {
-          // 绑定手机
-	        this.showBindPhoneStatus = true;
-        } else {
+        // if (!this.showBindPhoneStatus) {
+        //   // 绑定手机 再进行登录判断
+	      //   if ($config.session.storage){}
+	      //   this.showBindPhoneStatus = true;
+        // } else {
+        // }
           this.$router.push('/sign');
-        }
       }
     },
   }

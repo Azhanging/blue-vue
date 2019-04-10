@@ -37,12 +37,12 @@
 				<div v-if='tabNum == 1'>
 					<!--未开播-->
 					<div class='bc-t-c' v-if='!haveVideo'>
-						<p class='bc-f-16rp bc-mg-t-30rp'>直播标题</p>
-						<span class='bc-t-999'>本次直播将于 {{1548946491687 | timeFilter("Y年M月D日 h:min")}} 开始</span>
+						<p class='bc-f-16rp bc-mg-t-30rp'>{{resVideo.title}}</p>
+						<span class='bc-t-999'>本次直播将于 {{resVideo.start_time | timeFilter("Y年M月D日 h:min")}} 开始</span>
 					</div>
-					<!--开播聊天-->
+					<!--直播聊天-->
 					<div v-if='haveVideo'>
-						<chat :chatList='chatList'></chat>
+						<chat :chatList='chatList' :userInfoId='userInfoId'></chat>
 					</div>
 				</div>
 				
@@ -50,7 +50,7 @@
 				<div  v-else class='bc-pd-tb-30rp bc-pd-lr-15rp' >
 					<div class='bc-f-16rp bc-mg-b-15rp'>主题介绍</div>
 					<div class='bc-f-14rp bc-t-999  intro'>
-						在网络应用场景下：表情是日常生活的艺术化表达，被喻为语音与文字以外的第三种语言。富有创意，精心为聊天场景制作的表情，不仅可以增加用户在聊天中的乐趣，还能收到意想不到的表达效果。
+						{{resVideo.content}}
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 			<div class='send_wrap bc-ps-f bc-pd-lr-15rp bc-pd-tb-10rp  bc-flex bc-flex-ai-c bc-bg-white'>
 				<!--<i class='iconfont iconbiaoqing bc-f-22rp'></i>-->
 				<!--<div contenteditable="true"  style="-webkit-user-select: text" class='bc-mg-r-15rp bc-flex-1 textWrap'></div>-->
-				<textarea class='bc-mg-lr-15rp bc-flex-1' v-model="textareaVal" :rows='textareaRow'   @focus="textareaRow = 2" @blur="textareaRow = 1" placeholder='来说点什么' ></textarea>
+				<textarea id='chatContent' class='bc-mg-lr-15rp bc-flex-1' v-model="textareaVal" :rows='textareaRow'   @focus="textareaRow = 2" @blur="textareaRow = 1" placeholder='来说点什么' ></textarea>
 				<div class='sendBtn bc-t-white bc-t-c' @click='send'>发送</div>
 			</div>
 		</template>
@@ -82,6 +82,8 @@
 	import chat from "@components/wap/grow/w-chat"
 	import WebSocketChat from '@assets/js/chat.js';
 	import VideoPlayer from '@assets/js/videoplayer';
+	import utils from 'blue-utils';
+	import store from '@store';
 
 
 	export default {
@@ -96,35 +98,23 @@
 						value:'直播间'
 					}
 				},
+				userInfoId:-1,
+				resVideo:{},
+				player:{},
+				haveVideo:true,
 				tabNum:1,
-				haveVideo:false, //是否开播
-				chatList:[
-					{
-						name:'MEME',
-						img:'https://imagedev.dtb315.com/626033.jpg?val=Thumb',
-						msg:'有灵魂的设计师是这样设计的-干货特辑有灵魂的设计师是',
-						time:1548946491687,
-						type:'1'   //1是别人，0是自己
-					},
-					{
-						name:'CYAN',
-						img:'https://imagedev.dtb315.com/462515.jpg?val=Thumb',
-						time:1548946491687,
-						msg:'特辑有灵魂的设计师是',
-						type:'0'   //1是别人，0是自己
-					},
-					{
-						name:'YOYOYO',
-						img:'https://imagedev.dtb315.com/612569.jpg?val=Thumb',
-						time:1548946491687,
-						msg:'特辑有灵魂的设计师是',
-						type:'1'   //1是别人，0是自己
-					}
-				],//聊天数据
+				video:{
+					isLive:false, //是否直播
+					url:'',
+					cover:'',
+					videoId : '',
+					playauth : '',
+					cover: '',
+				},
+				chatList:[],//聊天数据
 				textareaRow:1,
 				socket:{}, //储存websocket对象
 				textareaVal:"" ,//发的信息
-				playTime:1554259633000,
 				diffTime:0,
 
 			}
@@ -138,14 +128,16 @@
 			video_tab(num){
 				this.tabNum = num
 			},
+			//倒计时
 			timer() {
 				const dataTimer = setTimeout(()=> {
 					var todayDateTime =  new Date().getTime();
-					var playDate = this.playTime;
+					var playDate = this.resVideo.start_time;
 					//当前时间大于活动开始时间，开始直播
 					if (todayDateTime - playDate > 0) {
 						// this.activityStatus = 2;
 						clearTimeout(dataTimer);
+						// this.$router.go(0);
 						return;
 					}else{
 						this.diffTime = Number(playDate) - Number(todayDateTime);  //时间差
@@ -153,84 +145,178 @@
 					setTimeout(this.timer());
 				}, 1000);
 			},
+			//发送消息
 			send(){
-				this.socket.send(JSON.stringify({
-					type: 'say',
-					content: this.inputVal,
-					room_id: config.room_id,
-					uid: state.me.id,
-					to_uid: state.user.id,
-					token: state.token
-				}));
+
+				this.$axios({
+					method: 'post',
+					url:'/api/client/send_message',
+					data:{
+						type:'chatMessage',
+						live_video_id:this.$route.query.id,
+						content:this.textareaVal
+					}
+				}).then((res)=>{
+
+				});
+				
+				
+				// this.$axios.post('/api/client/send_message', {
+				//
+				// 	 type:'chatMessage',
+				// 	 live_video_id:this.$route.query.id,
+				// 	 content:this.textareaVal
+				//
+				// }).then((res) => {
+				//
+				// });
+
+				// this.socket.send(JSON.stringify({
+				// 	type: 'say',
+				// 	content: this.inputVal,
+				// 	room_id: config.room_id,
+				// 	uid: state.me.id,
+				// 	to_uid: state.user.id,
+				// 	token: state.token
+				// }));
 				
 				this.clear();
 			},
 			clear() {
-				this.inputVal = '';
+				this.textareaVal = '';
 				this.blur();
 			},
 			blur() {
 				document.getElementById('chatContent').focus();
 			},
+			//接收消息
 			receiveMsg(){
+				var that = this;
 				this.socket.onMessage((evt) => {
 					const data = JSON.parse(evt.data),
-						type = data.type;
-
-
-					if (type == 'say') {
-
-						//接受到信息，更新到用户信息列表中
-						var chatdata = {
-							id: data.id,
-							msg: {
-								id: data.msg.id,
-								msg: data.msg.msg,
-								time: data.msg.time
-							},
-							head: data.head,
-							username: data.from_client_name,
-							token: store.state.token
-						};
-				
-					}
-
+						type = data.data.type,
+						id = this.$route.query.id;
+					switch(type){
+						// 服务端ping客户端
+						case 'ping':
+							// $.post("/api/client/send_message",{type:'ping'},function(){})
+							break;
+						case 'init':
+							// 利用jquery发起ajax请求，将client_id发给后端进行uid绑定
+							this.$axios.post('/api/client/bind', {
+									client_id:data.data.client_id,
+									live_video_id:id,
+							}).then((res) => {
+							
+							})
+							break;
+						// 监测聊天数据
+						case 'chatMessage':
+							that.chatList.push(data.data);
+							console.log(that.chatList)
+							break;
+					};
 				})
 			},
-			videoPlay_init(){
-				var player = new VideoPlayer({
+			//获取直播地址
+			getDirectVideo(url){
+				this.$axios.get('api/live_video/get_live_play_url',{
+					params:{
+						play_url:url
+					}
+				}).then((res) => {
+					this.video.url = res.data.data.url;
+					this.video.isLive = true;
+					this.videoPlay_init(this.video);
+				}).catch((error) => {
+					console.log(error);
+				});
+			},
+			getVideo(id){
+				this.$axios.get('api/live_video/get_play_auth',{
+					params:{
+						videoId:id
+					}
+				}).then((res) => {
+						this.video = utils.extend(this.video,res.data.data);
+						this.videoPlay_init(this.video);
+				}).catch((error) => {
+					console.log(error);
+				});
+			},
+			videoPlay_init(video){
+				console.log(video)
+				this.player = new VideoPlayer({
 					id: 'J_prismPlayer',
 					autoplay: true,
-					isLive: false,
-
+					isLive: video.isLive,
+					width:'100%',
 					playsinline: true,
 					controlBarVisibility: 'hover',
-					source: "//player.alicdn.com/resource/player/qupai.mp4",
+					//直播
+					source:video.url,
+					//点播
+					vid : video.videoId,
+					playauth : video.playauth,
+
 					useH5Prism: true,
 					useFlashPrism: false,
 					x5_video_position: 'normal',
 					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
 					x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
-					cover: 'http://liveroom-img.oss-cn-qingdao.aliyuncs.com/logo.png'
+					cover:video.cover,
+
+					// skinLayout:false
+				});
+				console.log(this.player)
+			},
+			//获取视频详情
+			getVideoDetail(){
+				this.$axios.get('api/live_video/detail',{
+					params:{
+						live_video_id:this.$route.query.id
+					}
+				}).then((res) => {
+					this.resVideo = res.data.data.video_info;
+					this.video.cover = this.resVideo.cover;
+					this.haveVideoFn();
+					if(this.resVideo.status == 2 ){
+						//直播时判断直播有没有开始
+						if(this.haveVideo){
+							this.getDirectVideo(this.resVideo.play_url)
+						}
+					}else if(this.resVideo.status == 1 || this.resVideo.status == 3){
+						this.getVideo(this.resVideo.videoId)
+					}
+					
+				}).catch((error) => {
+					console.log(error);
 				});
 			},
 			init(){
+				this.getVideoDetail()
+			},
+			//判断是否有视频
+			haveVideoFn(){
+				var nowTime = new Date().getTime();
+				this.haveVideo = nowTime < this.resVideo.start_time ? false :true;
 				if(this.haveVideo){
-					this.socket = new WebSocketChat(url);
+					//直播或者历史
+					console.log('链接')
+					this.socket = new WebSocketChat("ws://120.132.112.2:2348");
 					this.receiveMsg();
-					this.videoPlay_init();
+					
 				}else{
 					this.timer(); //直播未开始时倒计时
 				}
-			
-				
 			}
 		},
 		destroy () {
 			this.socket.onclose()
 		},
 		mounted(){
-			this.init()
+			this.init();
+			this.userInfoId = store.state.userInfo.id
 		}
 	}
 </script>
@@ -239,7 +325,7 @@
 	.wap {
 		.video{
 			width: 100%;
-			height:rem(210);
+			max-height:rem(210) !important;
 			background-color: #f4f4f4;
 			.bgImg{
 				width: rem(116);
@@ -330,4 +416,28 @@
 			}
 		}
 	}
+	
+	.enter-x5-player video.center
+	{
+		object-position:50% 50% !important;
+	}
+	
+	.prism-progress-cursor
+	{
+		margin-left:0px !important;
+	}
+	
+	/*.enter-x5-player video
+	{
+		object-position: 0px 10px;
+		/*height:auto !important;*/
+	
+	/*}*/
+	
+	
+	video::-webkit-media-controls {
+		display:none !important;
+	}
+
+
 </style>

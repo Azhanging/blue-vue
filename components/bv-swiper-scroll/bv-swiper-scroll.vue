@@ -1,7 +1,12 @@
 <!-- 滑动组件 -->
 <template>
 	<div class="bv-swiper-scroll-container">
-		<div class="bc-row bv-swiper-scroll" :class="{'direction-x':direction== 'x','direction-y':direction== 'y'}">
+		<div class="bc-row bv-swiper-scroll"
+		     :class="[
+		       direction== 'x' && 'direction-x',
+		       direction== 'y' && 'direction-y'
+		     ]"
+		>
 			<slot name="scroll-items" :scroll-to="scrollTo"></slot>
 		</div>
 	</div>
@@ -24,66 +29,69 @@
       },
       currentIndex: {
         type: Number,
-        default: 0
+        default: -1
       }
     },
     watch: {
-      currentIndex(val) {
+      currentIndex() {
         this.scrollTo();
       }
     },
     methods: {
       scrollTo() {
+				this.$nextTick(()=>{
+          const direction = this.direction;
+          const index = this.currentIndex;
+          const wrapElm = this.$el;
+          const scrollElm = wrapElm.children[0];
+          const elm = scrollElm.children[index];
 
-        const direction = this.direction;
-        const index = this.currentIndex;
-        const wrapElm = this.$el;
-        const scrollElm = wrapElm.children[0];
-        const elm = scrollElm.children[index];
+          if(!elm) return;
 
-        let elmWidth, elmLeft, scrollElmWidth;
-        let elmHeight, elmTop, scrollElmHeight;
-        let distance, offset;
+          let elmWidth, elmLeft, scrollElmWidth;
+          let elmHeight, elmTop, scrollElmHeight;
+          let distance, offset;
 
-        if (direction == 'x') {
-          elmWidth = elm.offsetWidth;
-          elmLeft = elm.offsetLeft;
-          scrollElmWidth = scrollElm.offsetWidth;
-          distance = (elmLeft - ((scrollElmWidth - elmWidth) / 2));
-          offset = distance - scrollElm.scrollLeft;
-        } else if (direction == 'y') {
-          elmHeight = elm.offsetHeight;
-          elmTop = elm.offsetTop;
-          scrollElmHeight = scrollElm.offsetHeight;
-          distance = (elmTop - ((scrollElmHeight - elmHeight) / 2));
-          offset = distance - scrollElm.scrollTop;
-        }
+          if (direction == 'x') {
+            elmWidth = elm.offsetWidth;
+            elmLeft = elm.offsetLeft;
+            scrollElmWidth = scrollElm.offsetWidth;
+            distance = (elmLeft - ((scrollElmWidth - elmWidth) / 2));
+            offset = distance - scrollElm.scrollLeft;
+          } else if (direction == 'y') {
+            elmHeight = elm.offsetHeight;
+            elmTop = elm.offsetTop;
+            scrollElmHeight = scrollElm.offsetHeight;
+            distance = (elmTop - ((scrollElmHeight - elmHeight) / 2));
+            offset = distance - scrollElm.scrollTop;
+          }
 
-        Velocity(scrollElm, "scroll", {
-          axis: direction,
-          duration: 180,
-          MobileHA: true,
-          container: scrollElm,
-          offset
-        });
+          Velocity(scrollElm, "scroll", {
+            axis: direction,
+            duration: 180,
+            MobileHA: true,
+            container: scrollElm,
+            offset
+          });
 
-        this.activeElm(elm);
+          this.activeElm(elm);
 
-        this.$emit('scrolled', {
-          elm,
-          offset: distance
-        });
-
+          this.$emit('scrolled', {
+            elm,
+            offset: distance
+          });
+				});
       },
       activeElm(elm) {
         const _this = this;
         const parent = elm.parentNode;
         const children = parent.children;
+        const activeClassName = _this.activeClassName.trim() || '';
         [].forEach.call(children, (_elm) => {
           if (_elm != elm) {
-            _elm.classList.remove(_this.activeClassName);
+            _elm.classList.remove.apply(_elm.classList,activeClassName.split(' '));
           } else {
-            _elm.classList.add(_this.activeClassName);
+            _elm.classList.add.apply(_elm.classList,activeClassName.split(' '));
           }
         });
       },

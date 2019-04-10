@@ -8,11 +8,11 @@
 		<bv-scroll :api="api" :disabled="true">
 
 			<div class="question-lists">
-				<div class="question-item" v-for="(item,index) in load.data.lists">
+				<router-link :to="`${currentFullPath}/detail`" class="question-item" v-for="(item,index) in load.data.lists">
 					<div class="question-ask">
 						<div class="question-ask-l"><i>Q</i></div>
 						<div class="question-ask-c">{{ item.question }}</div>
-						<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>
+						<!--<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>-->
 					</div>
 					<div class="question-answer">
 						<div class="question-answer-l">
@@ -22,52 +22,7 @@
 							{{ item.answer }}
 						</div>
 					</div>
-
-					<div class="question-review" v-if="ifshow===index">
-						<h2>全部评论</h2>
-						<div class="question-review-top">
-							<div class="question-review-top-l">
-								<img src="https://image.dtb315.com/76343.jpg">
-							</div>
-							<div class="question-review-top-r">
-								<div class="question-review-top-tit">
-									<div class="question-review-top-tit-l">聪明的一休</div>
-									<div class="question-review-top-tit-r">
-										<span><i class="iconfont icondianzan"></i> 2222</span>
-										<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-									</div>
-								</div>
-								<div class="question-review-top-time">1小时前</div>
-								<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
-								<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
-							</div>
-						</div>
-						<div class="question-review-top">
-							<div class="question-review-top-l">
-								<img src="https://image.dtb315.com/76343.jpg">
-							</div>
-							<div class="question-review-top-r">
-								<div class="question-review-top-tit">
-									<div class="question-review-top-tit-l">鼠妹的小夏目</div>
-									<div class="question-review-top-tit-r">
-										<span><i class="iconfont icondianzan"></i> 155</span>
-										<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-									</div>
-								</div>
-								<div class="question-review-top-time">2小时前</div>
-								<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="question-btn" @click="ifsClick(index)">展开评论
-						<i class="iconfont"
-						   :class="[{iconxiangxia1:(ifshow!==index)},{iconxiangshang1:(ifshow===index)}]"></i>
-					</div>
-
-				</div>
-
-
+				</router-link>
 			</div>
 
 			<template slot="load-down">
@@ -81,12 +36,12 @@
 		</bv-scroll>
 
 
-		<router-link :to="`${currentFullPath}/detail`" class="question-quiz">
+		<router-link :to="`${currentFullPath}/questions`" class="question-quiz">
 			提问
 		</router-link>
 
 
-		<div class="review-txt" v-if="review_txt">
+		<!--<div class="review-txt" v-if="review_txt">
 			<div class="review-txt-l">
 				<i class="iconfont iconbianji"></i><input ref="review_hf" :autofocus="focus" type="text" placeholder="评论...">
 			</div>
@@ -96,14 +51,14 @@
 				<div><i class="iconfont icondianzan"></i></div>
 				<div><i class="iconfont icon-"></i></div>
 			</div>
-		</div>
+		</div>-->
 
 
-		<div class="reply-mask" v-if="reply_show"></div>
+<!--		<div class="reply-mask" v-if="reply_show"></div>
 		<div class="reply-show" v-if="reply_show">
 			<div class="reply-item" @click="btn_reply_txt()">回复</div>
 			<div class="reply-item" @click="btn_reply_h">取消</div>
-		</div>
+		</div>-->
 
 	</bv-home-view>
 </template>
@@ -122,7 +77,6 @@
 		},
 		data() {
 			return {
-				ifshow: '',
 				reply_show:false,
 				review_txt:false
 			}
@@ -133,13 +87,6 @@
 			}
 		},
 		methods: {
-			ifsClick(index) {
-				if (this.ifshow === index) {
-					this.ifshow = '';
-				} else {
-					this.ifshow = index;
-				}
-			},
 			btn_reply() {
 				this.reply_show = true
 			},
@@ -249,9 +196,10 @@
 		.question-item {
 			background: #fff;
 			margin-bottom: rem(15);
+			padding-bottom: rem(15);
 			border-radius: rem(3);
 			font-size: rem(14);
-
+			display: block;
 			.question-ask {
 				padding: rem(15);
 				display: flex;

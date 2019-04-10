@@ -1,48 +1,59 @@
 <template>
 	<div>
-		<div class="recommend-li" v-for="item in list">
-			<router-link :to="`${currentFullPath}/detail`">
-				<div class="recommend-li-top">
-					<div class="recommend-li-top-img">
-						<img src="https://image.dtb315.com/76343.jpg">
-					</div>
-					<div class="recommend-li-top-tit">
-						<h3>风和日丽</h3>
-						<p>2019-02-19</p>
-					</div>
-				</div>
-			</router-link>
+		<bv-scroll :api="api" :disabled="true">
 
-			<div class="recommend-li-box">
-				<div class="recommend-li-box-p">
-					<router-link :to="`${currentFullPath}/detail`">
-						生活中有很多食物并不是所有人都能吃的，一些
-						人吃了以后就会生病了。大漠粮芯藻这种食物很
-						多人都听过，但是没有吃过的。螺旋藻这种食物
-						营养丰富，同样的也不是所有人都适合吃的。那
-						么到底螺旋藻适合哪些人吃呢?
-					</router-link>
-				</div>
-				<div class="recommend-li-box-imgb">
-					<!--<div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
-					<bv-scroll :api="api">
-						<div v-for="item in imglist">
-							<div v-blue-photoswipe="{itemTagName:'DIV'}">
-								<div v-for="img in item.imgs" class="img-list">
-									<img :src="img.src" width="50" data-size="0x0" :msrc="img.src"/>
+			<div class="recommend-li" v-for="(item,index) in this.load.data.lists" :key="index">
+				<router-link :to="{path:`${currentFullPath}/detail`+'?circle_id='+item.id}">
+					<div class="recommend-li-top">
+						<div class="recommend-li-top-img">
+							<img :src="item.head_img">
+						</div>
+						<div class="recommend-li-top-tit">
+							<h3>{{ item.name }}</h3>
+							<p>{{ item.create_time }}</p>
+						</div>
+					</div>
+				</router-link>
+
+				<div class="recommend-li-box">
+					<div class="recommend-li-box-p">
+						<router-link :to="{path:`${currentFullPath}/detail`+'?circle_id='+item.id}">
+							{{item.sub_content}}
+						</router-link>
+					</div>
+					<div class="recommend-li-box-imgb">
+						<!--<div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
+						<bv-scroll :api="api">
+							<div>
+								<div v-blue-photoswipe="{itemTagName:'DIV'}">
+									<div v-for="(img,index) in item.list_img" class="img-list">
+										<img :src="img" width="50" data-size="0x0" :msrc="img"/>
+									</div>
 								</div>
 							</div>
-						</div>
-					</bv-scroll>
-				</div>
-				<div class="recommend-li-box-view">
-					<span><i class="iconfont icondianzan"></i>2356</span>
-					<span><i class="iconfont iconzhuanfa"></i>1243</span>
+						</bv-scroll>
+					</div>
+					<div class="recommend-li-box-view">
+
+						<span @click="btn_like(item.id,index)" :class="{on:(item.like)}"><i class="iconfont icondianzan"></i>{{ item.like_num }}</span>
+
+						<span><i class="iconfont iconzhuanfa"></i>1243</span>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="recommend-li" v-for="item in list">
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else>
+					暂无数据...
+				</div>
+			</template>
+		</bv-scroll>
+
+
+		<!--<div class="recommend-li" v-for="item in list">
 			<router-link :to="`${currentFullPath}/detail`">
 				<div class="recommend-li-top">
 					<div class="recommend-li-top-img">
@@ -80,7 +91,7 @@
 					<span><i class="iconfont iconzhuanfa"></i>1243</span>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 
 	</div>
@@ -92,20 +103,10 @@
 
 	export default {
 		name: "recommend-list",
+		mixins: [scrollMixin()],
 		data() {
 			return {
-				list: [
-					{id: 1},
-					{id: 2},
-				],
-				imglist: [{
-					imgs: [{src: 'https://image.dtb315.com/327640.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327773.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/326999.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327036.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327703.jpg?val=Thumb'}
-					]
-				}]
+				likes:''
 			}
 		},
 		computed:{
@@ -114,6 +115,46 @@
 			}
 		},
 		methods: {
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/circle/getList', {
+					params: {
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					//console.log(res)
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						return scrollEndHook.call(this);
+					} else {
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+
+			},
+			btn_like(kid,i) {//点赞
+				//console.log(kid)
+				this.$axios.get('/api/circle/like', {
+					params: {
+						circle_id:kid
+					}
+				}).then(res => {
+					//console.log(res.data.data.like)
+					//console.log(res.data.data.like_num)
+					if(res.data.data.like){
+						this.load.data.lists[i].like = res.data.data.like
+						this.load.data.lists[i].like_num = res.data.data.like_num
+					}else {
+						this.load.data.lists[i].like = res.data.data.like
+						this.load.data.lists[i].like_num = res.data.data.like_num
+					}
+				})
+			},
 		}
 	}
 </script>
@@ -131,23 +172,23 @@
 
 		.recommend-li-top {
 			padding: rem(15) 0;
-			display: flex;
-
+			overflow: hidden;
 			.recommend-li-top-img {
 				width: rem(50);
 				height: rem(50);
 				overflow: hidden;
 				border-radius: 100%;
 				margin-right: rem(8);
-
+				float: left;
 				img {
 					width: 100%;
 					vertical-align: top;
+					min-height: 100%;
 				}
 			}
 
 			.recommend-li-top-tit {
-				flex: 1;
+				margin-left: rem(58);
 
 				h3 {
 					font-size: rem(18);
@@ -257,8 +298,14 @@
 				font-size: rem(12);
 				color: #666;
 
-				span {
+				span{
 					margin-right: rem(20);
+				}
+				span.on{
+					color: #CA9F75;
+					i.icondianzan{
+						color: #CA9F75;
+					}
 				}
 			}
 		}

@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<slot :change-picker="changePicker"></slot>
+		<slot :change-picker="changePicker" :init-picker="initPicker"/>
 	</span>
 </template>
 
@@ -9,7 +9,12 @@
 	import utils from 'blue-utils';
 
   function initPicker() {
-    initPickerValues.call(this);
+    const values = [];
+    const slots = this.slots;
+    slots.forEach((slot, index) => {
+      this.changePicker(null, index, true);
+    });
+    this.values = values;
   }
 
   function getSlotsItemData(opts) {
@@ -19,8 +24,8 @@
     });
     this.$axios({
       url: this.ajax.url,
-      method: 'post',
-      data: params
+      method: this.ajax.type || 'get',
+      params
     }).then((res) => {
       let { data } = res.data;
       data = this.got(data);
@@ -28,15 +33,6 @@
         this.slots[index].values = data;
       }
     });
-  }
-
-  function initPickerValues() {
-    const values = [];
-    const slots = this.slots;
-    slots.forEach((slot, index) => {
-      this.changePicker(null, index, true);
-    });
-    this.values = values;
   }
 
   //情况后面的数据
@@ -47,6 +43,11 @@
       item.values = [];
       item.value = "";
     }
+  }
+
+  function isFormElm(elm) {
+    const tagName = elm.tagName;
+    return tagName === 'SELECT' || tagName === 'INPUT' || tagName === 'TEXTAREA';
   }
 
   export default {
@@ -83,7 +84,7 @@
     },
     methods: {
       changePicker($event, index, isInit = false) {
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           const slots = this.slots;
           const slot = slots[index];
           const prevIndex = index - 1;
@@ -91,7 +92,7 @@
           const prevSlot = slots[prevIndex];
           if (index == 0 || prevSlot.value) {
             const _index = isInit ? index : nextIndex;
-            if ($event && !$event.target.value) {
+            if ($event && isFormElm($event.target) && !$event.target.value) {
               clearNextAllSlot.call(this, _index);
               return;
             }
@@ -114,10 +115,11 @@
             }
           }
         });
-      }
+      },
+      initPicker
     },
     mounted() {
-      initPicker.call(this);
+      this.initPicker();
     }
   }
 </script>

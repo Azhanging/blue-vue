@@ -8,6 +8,12 @@
   z-index: 1000000;
 }
 
+//
+.mint-switch-input:checked + .mint-switch-core {
+  border-color: $color-base;
+  background-color: $color-base;
+}
+
 /* 覆盖mint-ui的primary颜色，改为微信UI的绿色 */
 /*
 $color-primary: #1aad19;

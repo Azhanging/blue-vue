@@ -2,7 +2,7 @@
 	<bv-home-view class='wap' :router-level='4' style='background-color: #f4f4f4;'>
 		<w-home-header :header="{
 			title:{
-				value: '第一篇 观念'
+				value: infos.name
 			}
 		}"></w-home-header>
 
@@ -11,13 +11,12 @@
 				<a class="t-333" href="">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
-							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
+							<img class="tuijian-article-img" :src="infos.src_img" v-if="">
 						</div>
 						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-							<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
+							<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ infos.opening_language }}</div>
 							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-								文章内容前面部分文章内容前面部分文
-								章内容前面部分文章内容前面部分文...
+								{{ infos.content }}
 							</div>
 						</div>
 					</div>
@@ -25,63 +24,92 @@
 			</div>
 
 		</div>
+		<div v-for="(item,index) in lists">
 
-		<div class="driving-title">
-			<div><i class="driving-title-r"></i></div>
-			<h3>第一章 “大中医”哲学观</h3>
-			<div><i class="driving-title-l"></i></div>
-		</div>
+			<div class="driving-title">
+				<div><i class="driving-title-r"></i></div>
+				<h3>{{ item.name }}</h3>
+				<div><i class="driving-title-l"></i></div>
+			</div>
 
-		<div class="bc-reset-ul bc-media chapter-box-f">
-			<div class="bc-pd-b-10rp bc-pd-t-10rp chapter-border" v-for="i in 3">
-				<a class="t-333" href="">
-					<div class="bc-media pd-t-15 bc-row bc-c-f">
-						<div class="bc-media-left">
-							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
-						</div>
-						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-							<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
-							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-								文章内容前面部分文章内容前面部分文
-								章内容前面部分文章内容前面部分文...
+			<div class="bc-reset-ul bc-media chapter-box-f">
+
+				<div class="bc-pd-b-10rp bc-pd-t-10rp chapter-border" v-for="contents in item.content">
+					<a class="t-333" href="">
+						<div class="bc-media pd-t-15 bc-row bc-c-f">
+							<div class="bc-media-left">
+								<img class="tuijian-article-img" :src="contents.src_img" v-if="">
+							</div>
+							<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+								<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ contents.name }}</div>
+								<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+									{{ contents.content }}
+								</div>
 							</div>
 						</div>
-					</div>
-				</a>
+					</a>
+				</div>
+
 			</div>
-		</div>
 
-		<div class="driving-title">
-			<div><i class="driving-title-r"></i></div>
-			<h3>第二章 “大健康”实践论</h3>
-			<div><i class="driving-title-l"></i></div>
-		</div>
+			<!--<div class="driving-title">
+				<div><i class="driving-title-r"></i></div>
+				<h3>第二章 “大健康”实践论</h3>
+				<div><i class="driving-title-l"></i></div>
+			</div>
 
-		<div class="bc-reset-ul bc-media chapter-box-f">
-			<div class="bc-pd-b-10rp bc-pd-t-10rp chapter-border" v-for="i in 3">
-				<a class="t-333" href="">
-					<div class="bc-media pd-t-15 bc-row bc-c-f">
-						<div class="bc-media-left">
-							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
-						</div>
-						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-							<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
-							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-								文章内容前面部分文章内容前面部分文
-								章内容前面部分文章内容前面部分文...
+			<div class="bc-reset-ul bc-media chapter-box-f">
+				<div class="bc-pd-b-10rp bc-pd-t-10rp chapter-border" v-for="i in 3">
+					<a class="t-333" href="">
+						<div class="bc-media pd-t-15 bc-row bc-c-f">
+							<div class="bc-media-left">
+								<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
+							</div>
+							<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+								<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
+								<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+									文章内容前面部分文章内容前面部分文
+									章内容前面部分文章内容前面部分文...
+								</div>
 							</div>
 						</div>
-					</div>
-				</a>
-			</div>
+					</a>
+				</div>
+			</div>-->
 		</div>
+
 
 	</bv-home-view>
 </template>
 
 <script>
 	export default {
-		name: "chapter"
+		name: "chapter",
+		data() {
+			return {
+				lists:[],
+				infos:[]
+			}
+		},
+		methods: {
+			festivalList() {
+				this.$axios.get('/api/book/chapterList',{
+					params: {
+						id: this.$route.query.id
+					}
+				}).then((res)=>{
+					console.log(res)
+
+					this.infos = res.data.data.info;
+					this.lists = res.data.data.list;
+				}).catch((err)=>{
+					console.log(err);
+				})
+			}
+		},
+		mounted(){
+			this.festivalList();
+		}
 	}
 </script>
 

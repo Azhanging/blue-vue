@@ -32,7 +32,18 @@
 			</a>
 		</div>
 
-		<bv-picker-windows />
+		<bv-picker-windows
+			:slots="slots"
+			:ajax="ajax"
+			:select="{
+			  className: 'bc-pd-10rp',
+			  activeClassName: 'bc-t-base bc-bd-b-base'
+			}"
+			:scroll="{
+			  className: 'bc-pd-10rp',
+			  activeClassName: 'bc-t-base'
+			}"
+		/>
 
 	</bv-home-view>
 </template>
@@ -47,18 +58,20 @@ export default {
         value: '659005'
       }, {
         values: [],
-        value: '44'
+        value: ''
       }, {
         values: [],
-        value: '4402'
+        value: ''
       }, {
         values: [],
-        value: '440204'
+        value: ''
       }],
       ajax: {
         url: '/member/personal/next_child'
-      }
+      },
+      showPickerWindows: false
     };
-  }
+  },
+  methods: {}
 }
 </script>

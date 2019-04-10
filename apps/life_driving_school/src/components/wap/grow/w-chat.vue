@@ -1,25 +1,13 @@
 <template>
 	<div class='chat_wrap bc-pd-15rp' id='chat'>
-		<!--<div v-for='(item,index) in chatList' :key='index'-->
-		     <!--class='bc-flex bc-flex-ac-s bc-mg-b-15rp'-->
-		     <!--:class='item.type == 0 ? "right":"left"'>-->
-			<!--<img class='headImg' :src='item.img' alt=''>-->
-			<!--<div class='content'>-->
-				<!--<div class='name bc-mg-b-5rp'>名字MEME</div>-->
-				<!--<div class='cont'>-->
-					<!--有灵魂的设计师是这样设计的-干货特辑有灵魂的设计师是-->
-				<!--</div>-->
-			<!--</div>-->
-		<!--</div>-->
-		
-		<div v-for='(item,index) in chatList' :key='index' class=' bc-mg-b-15rp'>
-			<div class='bc-t-c bc-t-999 bc-mg-b-15rp'>{{1548946491687 | timeFilter("M-D h:min")}}</div>
-			<div class='bc-flex bc-flex-ac-s' :class='item.type == 0 ? "right":"left"'>
-				<img class='headImg' :src='item.img' alt=''>
+		<div v-for='(item,index) in chatList' :key='index'  v-if='chatList.length > 0' class=' bc-mg-b-15rp'>
+			<div class='bc-t-c bc-t-999 bc-mg-b-15rp' v-if='item.time'>{{item.time}}</div>
+			<div class='bc-flex bc-flex-ac-s' :class='item.member_id == userInfoId ? "right":"left"'>
+				<img class='headImg' :src='item.head_img' alt=''>
 				<div class='content'>
-					<div class='name bc-mg-b-5rp'>名字MEME</div>
+					<div class='name bc-mg-b-5rp'>{{item.nickname}}</div>
 					<div class='cont'>
-						有灵魂的设计师是这样设计的-干货特辑有灵魂的设计师是
+						{{item.content}}
 					</div>
 				</div>
 			</div>
@@ -36,6 +24,10 @@
 			chatList:{
 				default:[],
 				type:Array
+			},
+			userInfoId:{
+				default:'',
+				type:[Number,String]
 			}
 		},
 		data() {

@@ -1,7 +1,7 @@
 
 const detail = {
-	path: 'short',
-	name: 'short',
+	path: 'detail',
+	name: 'growdetail,',
 	meta:{
 		tabBar: false
 	},

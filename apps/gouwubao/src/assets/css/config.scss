@@ -1,1 +1,5 @@
-$color-base: #0f8cca;
+$color-base: #DCB46E;
+//域名地址
+$base-path: 'https://pc.dtb315.cn';
+//静态资源地址
+$base-static-path: #{$base-path + '/Static/spa'};

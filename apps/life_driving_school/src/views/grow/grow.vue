@@ -1,30 +1,30 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
-		
+
 		<growTab :growIndex='0'></growTab>
-		
-		
+
+
 		<div class='scroll-x bc-pd-15rp bc-bg-white bc-mg-b-10rp'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'">
 				<template slot="scroll-items">
-					<router-link to='/grow/books' v-for="(item,index) in scroll_list" :key="item.id"
+					<router-link :to="{path:'/grow/books'+'?id='+item.id}" v-for="(item,index) in scroll_list" :key="item.id"
 					   class=" bc-mg-r-15rp bc-inline-block bc-t-666">
 						<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 							<div class='scroll_img bc-mg-b-10rp bc-ps-r bc-t-c'>
-								<img :src='item.img' alt='' width='100%' height='100%' class=''>
+								<img :src="item.src_img" alt='' width='100%' height='100%' class=''>
 								<div  class='bc-f-12rp bc-ps-a bc-w-100 bc-pd-tb-3rp bc-t-white scroll_read'>
-									<template v-if='item.reads'>已阅{{item.reads}}</template>
+									<template v-if='item.percent'>已阅{{item.percent}}%</template>
 									<template v-else>开始阅读</template>
 								</div>
 							</div>
-							<span>{{item.name}}</span>
+							<span class="scroll_name">{{item.name}}</span>
 						</div>
-						
+
 					</router-link>
 				</template>
 			</bv-swiper-scroll>
 		</div>
-		
+
 		<!--成长课程-->
 		<div class='bc-bg-white'>
 			<img :src='$config.path.static + "/img/grow/grow.png"' class='bc-pd-t-10rp' alt='' width='100%'>
@@ -32,13 +32,13 @@
 				<div v-for='(item,index) in course'  :class='index == tabIdx?"active":"default"'
 				     class='item_course bc-flex bc-flex-1 bc-flex-d-c bc-flex-ai-c bc-pd-10rp'
 				     @click='selCourse(index)'
-				     
+
 				>
 					<img class='bc-mg-b-5rp' :src='$config.path.static + "/img/grow/"+(index+1)+".png"' alt=''>
 					<span>{{item}}</span>
 				</div>
 			</div>
-			
+
 			<div class='bc-pd-10rp'>
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<!--数据循环-->
@@ -52,19 +52,19 @@
 					</div>
 					</template>
 				</bv-scroll>
-			
+
 			</div>
-			
+
 		</div>
 
 
 	</bv-home-view>
-	
+
 	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
-	
+
 
 </template>
 
@@ -133,7 +133,7 @@
 		watch:{
 			$route(to,from){
 				if(to.path == '/grow'){
-				
+
 				}
 			}
 		},
@@ -174,13 +174,21 @@
 				// });
 
 				this.load.data.lists = [1, 2, 3, 4]
+			},
+			books() {
+				return this.$axios.get('/api/book/getList',{
+				}).then((res) => {
+					console.log(res+'|||');
+					this.scroll_list = res.data.data;
+				});
 			}
-		
+
 		},
-	
+
 		mounted(){
+			this.books();
 		}
-	
+
 	}
 </script>
 
@@ -191,11 +199,18 @@
 			.scroll_img{
 				width: rem(80);
 				height: rem(114);
+				img{vertical-align: top;}
 				.scroll_read{
 					bottom: 0;
 					left: 0;
 					background-color: rgba(0,0,0,.4);
 				}
+			}
+			.scroll_name{
+				width: rem(80);
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
 			}
 		}
 		.course{
@@ -218,7 +233,7 @@
 				color: #A7815C;
 				background: url($base-url+'/img/grow/course.png')  no-repeat;
 				background-size: 100% 100%;
-				
+
 			}
 		}
 		.courseList{

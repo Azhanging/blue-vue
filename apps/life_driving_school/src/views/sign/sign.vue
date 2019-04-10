@@ -16,55 +16,83 @@
 						<span class="bc-t-999">已坚持</span>
 						<div class="sign-label-content-day-wrap bc-inline-block">
 							<span class="sign-label-content-day bc-t-red bc-t-white ">
-								27
+								{{sign.even_sum}}
 							</span>
 						</div>
 						<span class="bc-t-999">天签到</span>
 					</div>
 					<div class="sign-label-time bc-f-16rp" style="color:#CA9F75;">
-						2019\1\19 星期六
+						{{sign.time}}
 					</div>
-					<div class="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-						<img class="head-portrait" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`" alt="">
-					</div>
-					<div class="bc-mg-t-10rp bc-f-12rp bc-t-999" style="">
-						600位用户今日已签到
+					<ul class="bc-reset-ul bc-t-c" style="" >
+						<li class="bc-inline-block " v-for="(item, index) in sign.member" :key="index" v-if="index <= 5">
+							<img class="head-portrait" :src="item.head_img" alt="头像" >
+						</li>
+					</ul>
+					<div class="bc-mg-t-10rp bc-f-12rp bc-t-999" style="" v-if="sign.member">
+						{{sign.member.length}}位用户今日已签到
 					</div>
 					<div class="bc-mg-t-20rp bc-pd-lr-29rp">
 						<div  style="border:1px dashed #e5e5e5;"></div>
 					</div>
 
 					<div class="sign-in-progress bc-mg-t-20rp bc-pd-lr-29rp progress bc-flex">
-						<div class="bc-flex-1">
-							<span></span>
-							<div class="bc-mg-t-8rp bc-f-12rp">1天</div>
+						<div class="bc-flex-1 bc-ps-r">
+							<span class="sign-no" v-if="sign.even_sum<1"></span>
+							<span class="sign-yes" v-else></span>
+							<div class="bc-mg-t-8rp bc-f-12rp" :class="{'bc-t-333': sign.even_sum>1}">1天</div>
+							<div class="white-line" v-if="sign.even_sum<2" >
+								<img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+							</div>
+							<div class="base-line" v-else>
+								<img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+							</div>
 						</div>
-						<div class="bc-flex-1">
-							<span></span>
-							<div class="bc-mg-t-8rp bc-f-12rp">2天</div>
+						<div class="bc-flex-1 bc-ps-r">
+							<span class="sign-no" v-if="sign.even_sum<2"></span>
+							<span class="sign-yes" v-else></span>
+							<div class="bc-mg-t-8rp bc-f-12rp" :class="{'bc-t-333': sign.even_sum>2}">2天</div>
+							<div class="white-line" v-if="sign.even_sum<3" >
+								<img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+							</div>
+							<div class="base-line" v-else>
+								<img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+							</div>
 						</div>
-						<div class="bc-flex-1">
-							<span></span>
-							<div class="bc-mg-t-8rp bc-f-12rp">3天</div>
+						<div class="bc-flex-1 bc-ps-r">
+							<span class="sign-no" v-if="sign.even_sum<3"></span>
+							<span class="sign-yes" v-else></span>
+							<div class="bc-mg-t-8rp bc-f-12rp" :class="{'bc-t-333': sign.even_sum>3}">3天</div>
+							<div class="white-line" v-if="sign.even_sum<4" >
+								<img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+							</div>
+							<div class="base-line" v-else>
+								<img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+							</div>
 						</div>
-						<div class="bc-flex-1">
-							<span></span>
-							<div class="bc-mg-t-8rp bc-f-12rp">4天</div>
+						<div class="bc-flex-1 bc-ps-r">
+							<span class="sign-no" v-if="sign.even_sum<4"></span>
+							<span class="sign-yes" v-else></span>
+							<div class="bc-mg-t-8rp bc-f-12rp" :class="{'bc-t-333': sign.even_sum>4}">4天</div>
+							<div class="white-line" v-if="sign.even_sum<3" >
+								<img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+							</div>
+							<div class="base-line" v-else>
+								<img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+							</div>
 						</div>
-						<div class="bc-flex-1">
-							<span></span>
-							<div class="bc-mg-t-8rp bc-f-12rp">5天</div>
+						<div class="bc-flex-1 bc-ps-r">
+							<span class="sign-no" v-if="sign.even_sum<5"></span>
+							<span class="sign-yes" v-else></span>
+							<div class="bc-mg-t-8rp bc-f-12rp" :class="{'bc-t-333': sign.even_sum>5}">5天</div>
 						</div>
 					</div>
 
-					<div class="produce-label bc-t-white bc-t-c bc-pd-tb-12rp">
-						生成日签
-					</div>
+					<a href="javascript:;">
+						<div class="produce-label bc-t-white bc-t-c bc-pd-tb-12rp">
+							生成日签
+						</div>
+					</a>
 
 				</div>
 			</div>
@@ -76,8 +104,11 @@
 						<div class="bc-t-999 bc-pd-tb-9rp bc-f-11rp">每天完成10个任务可得100积分</div>
 					</div>
 					<div class="bc-flex-1 bc-t-c">
-						<div class="to-complete" style="">
+						<div class="to-complete" v-if="true">
 							去完成
+						</div>
+						<div class="completed"  v-else>
+							已完成
 						</div>
 					</div>
 				</div>
@@ -88,8 +119,11 @@
 						<div class="bc-t-999 bc-pd-tb-9rp bc-f-11rp">每天完成10个任务可得100积分</div>
 					</div>
 					<div class="bc-flex-1 bc-t-c">
-						<div class="to-complete" style="">
+						<div class="to-complete" v-if="true">
 							去完成
+						</div>
+						<div class="completed"  v-else>
+							已完成
 						</div>
 					</div>
 				</div>
@@ -100,12 +134,27 @@
 						<div class="bc-t-999 bc-pd-tb-9rp bc-f-11rp">每天完成10个任务可得100积分</div>
 					</div>
 					<div class="bc-flex-1 bc-t-c">
-						<div class="to-complete" style="">
+						<div class="to-complete" v-if="true">
 							去完成
+						</div>
+						<div class="completed"  v-else>
+							已完成
 						</div>
 					</div>
 				</div>
 
+			</div>
+
+			<!--签到生成页面-->
+			<div class="sign-success bc-hide">
+				<div>
+					<div>
+						<img src="" alt="">
+					</div>
+				</div>
+				<div>
+
+				</div>
 			</div>
 
 		</div>
@@ -120,17 +169,25 @@
     name: "sign",
     data() {
       return {
+				sign: {
 
+				}
       }
     },
     methods: {
 
     },
     mounted() {
-			this.$axios.get('/api/Sign/index.html')
-				.then((res) => {
-					console.log(res);
-				})
+
+      this.$axios.get('/api/Sign/index.html')
+	      .then((res) => {
+	        const {data} = res.data;
+					this.sign = data;
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
     },
     components: {
 
@@ -142,9 +199,8 @@
 	.sign-in {
 		position: relative;
 		.sign-label {
-			height: 430px;
 			box-sizing: border-box;
-			background: url($base-url + '/img/home/sign_in_bg.png') no-repeat;
+			background: url($base-url + '/img/home/sign/sign_in_bg.png') no-repeat;
 			background-position: center;
 			background-size: 100% 100%;
 			padding: rem(63) rem(33) rem(37) rem(33);
@@ -159,7 +215,7 @@
 						box-sizing: border-box;
 						width: 100%;
 						height: 100%;
-						background: url($base-url + '/img/home/sign_in_day_bg.png') no-repeat;
+						background: url($base-url + '/img/home/sign/sign_in_day_bg.png') no-repeat;
 						background-position: top;
 						background-size: 100% 100%;
 						font-size: rem(40);
@@ -173,39 +229,59 @@
 				.head-portrait {
 					width: rem(30);
 					height: rem(30);
-					-webkit-border-radius: 50%;
 					border-radius: 50%;
 					overflow: hidden;
 					border: 2px solid white;
 					&:nth-child(2) {
 						transform: translateX(rem(-10))!important;
-						-webkit-transform: translateX(rem(-10))!important;
 					}
 					&:nth-child(3) {
 						transform: translateX(rem(-20))!important;
-						-webkit-transform: translateX(rem(-20))!important;
 					}
 					&:nth-child(4) {
 						transform: translateX(rem(-30))!important;
-						-webkit-transform: translateX(rem(-30))!important;
 					}
 					&:nth-child(5) {
 						transform: translateX(rem(-40))!important;
-						-webkit-transform: translateX(rem(-40))!important;
 					}
 					&:nth-child(6) {
 						transform: translateX(rem(-50))!important;
-						-webkit-transform: translateX(rem(-50))!important;
 					}
 				}
 				.sign-in-progress {
-					span {
+					.sign-no {
 						display: inline-block;
 						width: rem(15);
 						height: rem(15);
-						background: url($base-url + '/img/home/sign_in_progress_yes.png') no-repeat;
+						background: url($base-url + '/img/home/sign/sign_in_progress_no.png') no-repeat;
 						background-position: center;
 						background-size: 100% 100%;
+					}
+					.sign-yes {
+						display: inline-block;
+						width: rem(15);
+						height: rem(15);
+						background: url($base-url + '/img/home/sign/sign_in_progress_yes.png') no-repeat;
+						background-position: center;
+						background-size: 100% 100%;
+					}
+					.white-line {
+						position: absolute;
+						left: 42%;
+						top: -15%;
+						img {
+							width: rem(50);
+							height: rem(2);
+						}
+					}
+					.base-line{
+						position: absolute;
+						left: 42%;
+						top: -15%;
+						img {
+							width: rem(50);
+							height: rem(2);
+						}
 					}
 				}
 				.produce-label {
@@ -222,9 +298,23 @@
 		.to-complete {
 			padding: rem(9) rem(12);
 			font-size: rem(14);
-			border: 1px solid rgba(202,159,117,1);
 			border-radius: rem(25);
 			color: rgba(202,159,117,1);
+			border: 1px solid rgba(202,159,117,1);
+		}
+		.completed {
+			padding: rem(9) rem(12);
+			font-size: rem(14);
+			color: #999;
+		}
+		.sign-success {
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			z-index: 1000;
+			background: rgba(0,0,0,.5);
 		}
 	}
 </style>

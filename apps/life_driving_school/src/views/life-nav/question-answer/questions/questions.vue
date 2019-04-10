@@ -10,17 +10,19 @@
 		<div class="Submit-questions">
 			<h3>选择问题分类</h3>
 			<div>
-				<select id="btnSelect">
-					<option>健康</option>
+				<select id="btnSelect" ref="btnSelect">
+					<option v-for="item in classify" :value="item.id">
+						{{ item.name }}
+					</option>
 				</select>
 				<label for="btnSelect"><i class="iconfont iconxiangxia1"></i></label>
 			</div>
 			<h3>您要提问的内容（必填）</h3>
 			<div>
-				<textarea placeholder="输入内容"></textarea>
+				<textarea placeholder="输入内容" ref="question"></textarea>
 			</div>
 			<p>您的问题，我们收到后会尽快处理。</p>
-			<input type="button" value="提交" class="Submit-sub">
+			<input type="button" value="提交" @click="Submit_questions" class="Submit-sub">
 		</div>
 
 
@@ -28,9 +30,58 @@
 </template>
 
 <script>
+	import Index from "../question-answer";
+	import store from '@store'
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
-		name: "detail",
-		methods: {}
+		name: "questions",
+		components: {Index},
+		data() {
+			return {
+				classify:[],
+			}
+		},
+		methods: {
+			classifySet() {
+				return this.$axios.get('/api/feedback/cate',{
+				}).then((res)=>{
+					console.log(res)
+					this.classify = res.data.data;
+				}).catch((err)=>{
+					console.log(err);
+				})
+			},
+
+			Submit_questions() {
+				if(this.$refs.question.value==''){
+					$toast({
+						message: '提问内容不能为空',
+						duration: 3000
+					});
+					return;
+				}
+				//console.log(this.$refs.question.value)
+				this.$axios.post('/api/feedback/question',{
+					cate_id:this.$refs.btnSelect.value,//分类id
+					question:this.$refs.question.value,//问题
+					//phone:store.state.userInfo.id,//联系方式
+				}).then((res)=>{
+					console.log(res+'111')
+					if(res.data.code==200){
+						$toast({
+							message: '提交成功',
+							duration: 3000
+						});
+						this.$refs.question.value=''
+						return;
+					}
+				});
+
+			}
+		},
+		mounted(){
+			this.classifySet();
+		}
 	}
 </script>
 

@@ -5,9 +5,10 @@
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global.VueUploadComponent = factory());
-}(this, (function () { 'use strict';
+    typeof define === 'function' && define.amd ? define(factory) :
+      (global.VueUploadComponent = factory());
+}(this, (function () {
+  'use strict';
 
   /**
    * Creates a XHR request
@@ -95,15 +96,35 @@
    *
    * @returns Promise
    */
-  function request (options) {
+  function request(options) {
     var xhr = createRequest(options);
 
     return sendRequest(xhr, options.body);
   }
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
 
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
 
   var ChunkUploadHandler = function () {
     /**
@@ -595,7 +616,22 @@
 
   /* template */
   var __vue_render__ = function __vue_render__() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('input', { attrs: { "type": "file", "name": _vm.$parent.name, "id": _vm.$parent.inputId || _vm.$parent.name, "accept": _vm.$parent.accept, "capture": _vm.$parent.capture, "disabled": _vm.$parent.disabled, "webkitdirectory": _vm.$parent.directory && _vm.$parent.features.directory, "directory": _vm.$parent.directory && _vm.$parent.features.directory, "multiple": _vm.$parent.multiple && _vm.$parent.features.html5 }, on: { "change": _vm.change } });
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('input', {
+      attrs: {
+        "type": "file",
+        "name": _vm.$parent.name,
+        "id": _vm.$parent.inputId || _vm.$parent.name,
+        "accept": _vm.$parent.accept,
+        "capture": _vm.$parent.capture,
+        "disabled": _vm.$parent.disabled,
+        "webkitdirectory": _vm.$parent.directory && _vm.$parent.features.directory,
+        "directory": _vm.$parent.directory && _vm.$parent.features.directory,
+        "multiple": _vm.$parent.multiple && _vm.$parent.features.html5
+      }, on: { "change": _vm.change }
+    });
   };
   var __vue_staticRenderFns__ = [];
 
@@ -607,6 +643,7 @@
   var __vue_module_identifier__ = undefined;
   /* functional template */
   var __vue_is_functional_template__ = false;
+
   /* component normalizer */
   function __vue_normalize__(template, style, script$$1, scope, functional, moduleIdentifier, createInjector, createInjectorSSR) {
     var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
@@ -623,6 +660,7 @@
 
     return component;
   }
+
   /* style inject */
   function __vue_create_injector__() {
     var head = document.head || document.getElementsByTagName('head')[0];
@@ -678,20 +716,47 @@
           var textNode = document.createTextNode(code);
           var nodes = style.element.childNodes;
           if (nodes[index]) style.element.removeChild(nodes[index]);
-          if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index]); else style.element.appendChild(textNode);
         }
       }
     };
   }
+
   /* style inject SSR */
 
-  var InputFile = __vue_normalize__({ render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ }, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, __vue_create_injector__, undefined);
+  var InputFile = __vue_normalize__({
+    render: __vue_render__,
+    staticRenderFns: __vue_staticRenderFns__
+  }, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, __vue_create_injector__, undefined);
 
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
 
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
 
-  function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+  function _toConsumableArray(arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+        arr2[i] = arr[i];
+      }
+      return arr2;
+    } else {
+      return Array.from(arr);
+    }
+  }
 
   var CHUNK_DEFAULT_OPTIONS = {
     headers: {},
@@ -813,10 +878,10 @@
         }
       },
       /*add upload data*/
-      uploadData:{
-        type:[Object,Array],
-        default:function(){
-          return[]
+      uploadData: {
+        type: [Object, Array],
+        default: function () {
+          return []
         }
       }
     },
@@ -1342,7 +1407,7 @@
 
       // 处理后 事件 分发
       emitFile: function emitFile(newFile, oldFile) {
-        this.$emit('input-file', newFile, oldFile,this);
+        this.$emit('input-file', newFile, oldFile, this);
         if (newFile && newFile.fileObject && newFile.active && (!oldFile || !oldFile.active)) {
           this.uploading++;
           // 激活
@@ -1551,7 +1616,8 @@
           try {
             xhr.abort();
             xhr.timeout = 1;
-          } catch (e) {}
+          } catch (e) {
+          }
         }, 100);
 
         return new Promise(function (resolve, reject) {
@@ -1715,7 +1781,8 @@
             if (iframe.contentWindow) {
               doc = iframe.contentWindow.document;
             }
-          } catch (err) {}
+          } catch (err) {
+          }
           if (!doc) {
             try {
               doc = iframe.contentDocument ? iframe.contentDocument : iframe.document;
@@ -1825,7 +1892,8 @@
                 if (response && response.substr(0, 1) === '{' && response.substr(response.length - 1, 1) === '}') {
                   try {
                     response = JSON.parse(response);
-                  } catch (err) {}
+                  } catch (err) {
+                  }
                 }
                 data.response = response;
               }
@@ -1896,7 +1964,8 @@
             document.removeEventListener('drop', this.onDocumentDrop, false);
             this.dropElement.removeEventListener('dragover', this.onDragover, false);
             this.dropElement.removeEventListener('drop', this.onDrop, false);
-          } catch (e) {}
+          } catch (e) {
+          }
         }
 
         if (!el) {
@@ -1963,14 +2032,21 @@
 
   /* template */
   var __vue_render__$1 = function __vue_render__() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('span', { class: _vm.className }, [_vm._t("default"), _vm._v(" "), _c('label', { attrs: { "for": _vm.inputId || _vm.name } }), _vm._v(" "), _c('input-file')], 2);
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c('span', { class: _vm.className }, [_vm._t("default"), _vm._v(" "), _c('label', { attrs: { "for": _vm.inputId || _vm.name } }), _vm._v(" "), _c('input-file')], 2);
   };
   var __vue_staticRenderFns__$1 = [];
 
   /* style */
   var __vue_inject_styles__$1 = function (inject) {
     if (!inject) return;
-    inject("data-v-7cf02a5d_0", { source: "\n.file-uploads{overflow:hidden;position:relative;text-align:center;display:inline-block\n}\n.file-uploads.file-uploads-html4 input[type=file],.file-uploads.file-uploads-html5 label{background:#fff;opacity:0;font-size:20em;z-index:1;top:0;left:0;right:0;bottom:0;position:absolute;width:100%;height:100%\n}\n.file-uploads.file-uploads-html4 label,.file-uploads.file-uploads-html5 input[type=file]{background:rgba(255,255,255,0);overflow:hidden;position:fixed;width:1px;height:1px;z-index:-1;opacity:0\n}", map: undefined, media: undefined });
+    inject("data-v-7cf02a5d_0", {
+      source: "\n.file-uploads{overflow:hidden;position:relative;text-align:center;display:inline-block\n}\n.file-uploads.file-uploads-html4 input[type=file],.file-uploads.file-uploads-html5 label{background:#fff;opacity:0;font-size:20em;z-index:1;top:0;left:0;right:0;bottom:0;position:absolute;width:100%;height:100%\n}\n.file-uploads.file-uploads-html4 label,.file-uploads.file-uploads-html5 input[type=file]{background:rgba(255,255,255,0);overflow:hidden;position:fixed;width:1px;height:1px;z-index:-1;opacity:0\n}",
+      map: undefined,
+      media: undefined
+    });
   };
   /* scoped */
   var __vue_scope_id__$1 = undefined;
@@ -1978,6 +2054,7 @@
   var __vue_module_identifier__$1 = undefined;
   /* functional template */
   var __vue_is_functional_template__$1 = false;
+
   /* component normalizer */
   function __vue_normalize__$1(template, style, script, scope, functional, moduleIdentifier, createInjector, createInjectorSSR) {
     var component = (typeof script === 'function' ? script.options : script) || {};
@@ -2018,6 +2095,7 @@
 
     return component;
   }
+
   /* style inject */
   function __vue_create_injector__$1() {
     var head = document.head || document.getElementsByTagName('head')[0];
@@ -2073,20 +2151,24 @@
           var textNode = document.createTextNode(code);
           var nodes = style.element.childNodes;
           if (nodes[index]) style.element.removeChild(nodes[index]);
-          if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index]); else style.element.appendChild(textNode);
         }
       }
     };
   }
+
   /* style inject SSR */
 
-  var FileUpload = __vue_normalize__$1({ render: __vue_render__$1, staticRenderFns: __vue_staticRenderFns__$1 }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, __vue_create_injector__$1, undefined);
+  var FileUpload = __vue_normalize__$1({
+    render: __vue_render__$1,
+    staticRenderFns: __vue_staticRenderFns__$1
+  }, __vue_inject_styles__$1, __vue_script__$1, __vue_scope_id__$1, __vue_is_functional_template__$1, __vue_module_identifier__$1, __vue_create_injector__$1, undefined);
 
   var FileUpload$1 = /*#__PURE__*/Object.freeze({
     default: FileUpload
   });
 
-  var require$$0 = ( FileUpload$1 && FileUpload ) || FileUpload$1;
+  var require$$0 = (FileUpload$1 && FileUpload) || FileUpload$1;
 
   var src = require$$0;
 

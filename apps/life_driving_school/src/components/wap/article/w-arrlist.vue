@@ -1,6 +1,6 @@
 <template>
 	<div class='arrlist'>
-		<div v-for='item in list' @click='detailClick' class='itemList bc-pd-10rp bc-bd-b-e5e' :key="item.id">
+		<div v-for='item in list' @click='detailClick(item.id)' class='itemList bc-pd-10rp bc-bd-b-e5e' :key="item.id">
 			<W-itemdata :itemList='item' :ifAchieve="ifAchieve"></W-itemdata>
 		</div>
 		
@@ -30,8 +30,8 @@
 			'W-itemdata': WItemdata
 		},
 		methods:{
-			detailClick(){
-				this.$router.push({'path':`${router.currentRoute.fullPath}/detail`})
+			detailClick(id){
+				this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${id}`})
 			}
 		},
 		mounted() {

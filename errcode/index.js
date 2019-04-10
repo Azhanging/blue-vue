@@ -1,5 +1,5 @@
 import errcodes from './errcodes';
-import { unlogin } from '$assets/js/login';
+import { unLogin } from '$assets/js/login';
 import { bindPhone } from '$assets/js/bind';
 import router from '@router';
 

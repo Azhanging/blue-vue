@@ -13,14 +13,14 @@
 
 			<div class="contribute-content">
 				<div class="contribute-tet">
-					<textarea placeholder="感谢您对点通宝平台的支持"></textarea>
+					<textarea placeholder="感谢您对点通宝平台的支持" ref="question"></textarea>
 				</div>
 			</div>
 			<div class="contribute-prompt">您的问题，我们会尽快解决，如急需帮助，请联系我们的在线客
 				服哦~</div>
 
 			<div class="contribute-btn">
-				<button>提交问题</button>
+				<button @click="btn_Learning_problems">提交问题</button>
 			</div>
 
 		</div>
@@ -29,8 +29,36 @@
 </template>
 
 <script>
+	import store from '@store'
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
-		name: "contribute"
+		name: "contribute",
+		methods: {
+			btn_Learning_problems() {
+				if(this.$refs.question.value==''){
+					$toast({
+						message: '问题不能为空',
+						duration: 3000
+					});
+					return;
+				}
+				//console.log(this.$refs.question.value)
+				this.$axios.post('/api/feedback/learn',{
+					question:this.$refs.question.value,//问题
+					//member_id:store.state.userInfo.id,//会员id
+					//phone:store.state.userInfo.id,//联系方式
+				}).then(res=>{
+					if(res.data.code==200){
+						$toast({
+							message: '反馈成功',
+							duration: 3000
+						});
+						this.$refs.question.value=''
+						return;
+					}
+				});
+			}
+		}
 	}
 </script>
 

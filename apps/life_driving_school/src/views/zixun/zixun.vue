@@ -187,6 +187,7 @@
         this.scrollIndex = index;
         this.allSel = this.$utils.deepCopy(this.allSelCopy);
 				this.allSel.column_id = item.id;
+        this.load.params.page = 1;
         this.apiGetData();
       },
       /*		selectZone(msg) {
@@ -196,6 +197,8 @@
       receive_sel(allSel) {
 				// 根据点击时间或者浏览量判断所传参数
 	      let params;
+        this.load.params.page = 1;
+        this.load.data.lists = [];
 	      if (allSel.isRecommend) {
           params = {
             page: this.load.params.page++,

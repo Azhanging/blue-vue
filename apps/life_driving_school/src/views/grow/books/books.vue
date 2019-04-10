@@ -9,22 +9,23 @@
 			</div>
 			<div class="books-top-box">
 				<div class="books-top-box-l">
-					<img src="https://image.dtb315.com/327000.jpg?val=Thumb">
+					<img :src="infos.src_img">
 				</div>
 				<div class="books-top-box-r">
-					<div class="books-top-box-r-title">健康驾照</div>
+					<div class="books-top-box-r-title">{{ infos.name }}</div>
 					<div class="books-top-box-r-desc">
 						<div>
 							篇数<br>
-							<strong>4</strong>
+							<strong v-if="infos.festival">{{ infos.festival }}</strong>
+							<strong v-else>0</strong>
 						</div>
 						<div>
 							文章<br>
-							<strong>100</strong>
+							<strong>{{ infos.num }}</strong>
 						</div>
 						<div>
 							阅读<br>
-							<strong>168</strong>
+							<strong>{{ infos.read }}</strong>
 						</div>
 					</div>
 				</div>
@@ -32,10 +33,10 @@
 		</div>
 
 		<div class="books-lists">
-			<router-link :to="`${currentFullPath}/chapter`" class="books-list-item" v-for="i in 4" :key="i">
+			<router-link :to="{path:'/grow/books/chapter'+'?id='+item.id}" class="books-list-item" v-for="(item,index) in lists">
 				<div class="books-list-item-l">
-					<h3><span>第一篇</span>观念</h3>
-					<p><span>9</span>个章节</p>
+					<h3><span>{{item.name}}</span><!--观念--></h3>
+					<p><span>{{ item.chapter }}</span>个章节</p>
 				</div>
 				<div class="books-list-item-r">
 					<i class="iconfont iconyou"></i>
@@ -56,7 +57,29 @@
 				return this.$router.currentRoute.fullPath;
 			}
 		},
+		data() {
+			return {
+				lists:[],
+				infos:[]
+			}
+		},
 		methods: {
+			festivalList() {
+				return this.$axios.get('/api/book/festivalList',{
+					params: {
+						id: this.$route.query.id
+					}
+				}).then((res)=>{
+					console.log(res.data.data)
+					this.infos = res.data.data.info;
+					this.lists = res.data.data.list;
+				}).catch((err)=>{
+					console.log(err);
+				})
+			}
+		},
+		mounted(){
+			this.festivalList();
 		}
 	}
 </script>

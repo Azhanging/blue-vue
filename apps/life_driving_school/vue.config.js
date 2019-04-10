@@ -42,13 +42,6 @@ module.exports = utils.extend(publicVueConfig, {
       }
     }
   },
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `@import "@css/index.scss";`
-      }
-    }
-  },
   outputDir: `${programPath}`,
   indexPath: `./app/home/view/index/index.html`,
   assetsDir: 'static'

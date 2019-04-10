@@ -59,7 +59,22 @@
     methods:{
       btn_radio(t_idx) {
         this.thisIndex=t_idx;
+      },
+      //考试题
+      topic(){
+        return this.$axios.get('/api/examination/question', {
+          params:{
+            examination_res:'0',
+            ult_id:"32"
+          },
+        }).then((res) => {
+          console.log(res.data+"|||")
+        });
+
       }
+    },
+    mounted() {
+      this.topic();
     }
   }
 </script>

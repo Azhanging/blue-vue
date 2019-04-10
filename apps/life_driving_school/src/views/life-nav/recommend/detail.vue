@@ -9,54 +9,53 @@
 		<div class="recommend-li">
 			<div class="recommend-li-top">
 				<div class="recommend-li-top-img">
-					<img src="https://image.dtb315.com/76343.jpg">
+					<img :src="det_data.head_img">
 				</div>
 				<div class="recommend-li-top-tit">
-					<h3>风和日丽</h3>
-					<p>2019-02-19</p>
+					<h3>{{ det_data.name }}</h3>
+					<p>{{ det_data.create_time }}</p>
 				</div>
 			</div>
 
 			<div class="recommend-li-box">
 				<div class="recommend-li-box-p">
-					生活中有很多食物并不是所有人都能吃的，一些
-					人吃了以后就会生病了。大漠粮芯藻这种食物很
-					多人都听过，但是没有吃过的。螺旋藻这种食物
-					营养丰富，同样的也不是所有人都适合吃的。那
-					么到底螺旋藻适合哪些人吃呢?
+					{{ det_data.content }}
 				</div>
 				<div class="recommend-li-box-imgb">
 					<!-- <div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
 					<bv-scroll :api="api">
-						<div v-for="item in imglist">
+						<div>
 							<div v-blue-photoswipe="{itemTagName:'DIV'}">
-								<div v-for="img in item.imgs" class="img-list">
-									<img :src="img.src" width="50" data-size="0x0" :msrc="img.src"/>
+								<div v-for="img in det_data.list_img" class="img-list">
+									<img :src="img" width="50" data-size="0x0" :msrc="img"/>
 								</div>
 							</div>
 						</div>
 					</bv-scroll>
 				</div>
+				<button @click="btn_comments">提交评论测试按钮</button>
 
 				<div class="question-review">
-					<div class="question-review-top">
+
+					<div class="question-review-top" v-for="(comms,index) in contentData" :key="index">
 						<div class="question-review-top-l">
-							<img src="https://image.dtb315.com/76343.jpg">
+							<img :src="comms.head_img">
 						</div>
 						<div class="question-review-top-r">
 							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">聪明的一休</div>
+								<div class="question-review-top-tit-l">{{ comms.nickname }}</div>
 								<div class="question-review-top-tit-r">
-									<span><i class="iconfont icondianzan"></i> 2222</span>
-									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
+									<span @click="btn_commLike(comms.id,index)" :class="{on:(comms.like)}"><i class="iconfont icondianzan"></i> {{ comms.like_num }}</span>
+									<span @click="btn_reply(comms.id)"><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
-							<div class="question-review-top-time">1小时前</div>
-							<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
-							<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
+							<div class="question-review-top-time">{{ comms.time }}</div>
+							<div class="question-review-top-box">{{ comms.content }}</div>
+							<div class="question-review-top-reply" v-for="comms_m in comms.son"><span>@{{ comms.nickname }} </span>{{ comms_m.content }}</div>
 						</div>
 					</div>
-					<div class="question-review-top">
+
+					<!--<div class="question-review-top">
 						<div class="question-review-top-l">
 							<img src="https://image.dtb315.com/76343.jpg">
 						</div>
@@ -71,7 +70,7 @@
 							<div class="question-review-top-time">2小时前</div>
 							<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 
@@ -79,17 +78,24 @@
 		</div>
 
 
-		<div class="review-txt" v-if="review_txt">
+		<div class="review-txt">
 			<div class="review-txt-l">
-				<i class="iconfont iconbianji"></i><input ref="review_hf" :autofocus="focus" type="text" placeholder="写评论...">
+				<i class="iconfont iconbianji"></i>
+				<form class="review-txt-form" action="javascript:return true">
+					<input ref="review_hf" :autofocus="focus" type="search" v-model="content_txt" placeholder="写评论...">
+				</form>
+
+				<!--@keypress="btn_comments"-->
 			</div>
 			<div class="review-txt-r">
-				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
+				<div><i class="iconfont iconpinglun"></i><span v-if="det_data.comment_num>0">{{ det_data.comment_num }}</span></div>
 				<div><i class="iconfont iconxingxing"></i></div>
 				<div><i class="iconfont icondianzan"></i></div>
 				<div><i class="iconfont icon-"></i></div>
 			</div>
 		</div>
+
+
 
 		<div class="reply-mask" v-if="reply_show"></div>
 		<div class="reply-show" v-if="reply_show">
@@ -102,7 +108,7 @@
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
-
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "index",
 		components: {
@@ -119,24 +125,107 @@
 					]
 				}],
 				reply_show:false,
-				review_txt:false
+				det_data:'',//详情数据
+
+				contentData:'',//评论列表
+
+				content_txt:'',//文本框-评论内容
+
+				pid:null//回复别人评论id
 			}
 		},
 		methods:{
-			btn_reply() {
+			btn_reply(i) {
 				this.reply_show = true
+				this.pid = i;
 			},
 			btn_reply_h() {
 				this.reply_show = false
+				this.pid = null;
 			},
 			btn_reply_txt(){
 				this.reply_show = false;
-				this.review_txt = true;
-				//this.$refs.review_hf.focus();
 				this.$nextTick(()=>{
 					this.$refs.review_hf.focus()
 				})
+			},
+
+			/*详情数据请求*/
+			detail_data() {
+				return this.$axios.get('/api/circle/info',{
+					params: {
+						circle_id: this.$route.query.circle_id
+					}
+				}).then((res)=>{
+					console.log(res.data.data)
+					this.det_data = res.data.data
+					this.contentData = res.data.data.comment.list
+				}).catch((err)=>{
+					console.log(err);
+				})
+			},
+			//提交评论
+			btn_comments() {
+				/*searchGoods (event) {
+					if (event.keyCode == 13) {
+						event.preventDefault(); //禁止默认事件（默认是换行）
+					}
+				}*/
+				if(this.content_txt==''){
+					$toast({
+						message: '评论不能为空',
+						duration: 3000
+					});
+					return;
+				}
+
+				this.$axios.post('/api/circle/comment',{
+					circle_id: this.$route.query.circle_id,//id
+					pid: this.pid,//评论id
+					content:this.content_txt,//评论内容
+				}).then((res)=>{
+					//console.log(res.data)
+					if(res.data.code==200){
+						$toast({
+							message: '评论成功',
+							duration: 3000
+						});
+						this.content_txt='';
+						this.pid = null;//清楚评论别人id
+						this.detail_data();//刷新评论
+					}else {
+						$toast({
+							message: '评论失败',
+							duration: 3000
+						});
+						return;
+					}
+				});
+			},
+			//给评论点赞
+			btn_commLike(cid,i){
+				//console.log(cid)
+				this.$axios.get('/api/circle/commentLike', {
+					params: {
+						comment_id:cid
+					}
+				}).then(res => {
+					//console.log(res)
+					//console.log(res.data.data.like)
+					//console.log(res.data.data.like_num)
+					if(res.data.data.like){
+						this.contentData[i].like = res.data.data.like
+						this.contentData[i].like_num = res.data.data.like_num
+					}else {
+						this.contentData[i].like = res.data.data.like
+						this.contentData[i].like_num = res.data.data.like_num
+					}
+				})
 			}
+
+		},
+		mounted() {
+			this.detail_data();
 		}
 	}
 </script>
@@ -148,30 +237,29 @@
 	}
 
 	.recommend-li {
-		margin-bottom: rem(50);
 		padding: 0 rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		overflow: hidden;
-
+		margin-bottom: rem(50);
 		.recommend-li-top {
 			padding: rem(15) 0;
-			display: flex;
-
+			overflow: hidden;
 			.recommend-li-top-img {
 				width: rem(50);
 				height: rem(50);
 				overflow: hidden;
 				border-radius: 100%;
 				margin-right: rem(8);
-
+				float: left;
 				img {
 					width: 100%;
+					min-height: 100%;
 					vertical-align: top;
 				}
 			}
 
 			.recommend-li-top-tit {
-				flex: 1;
+
 
 				h3 {
 					font-size: rem(18);
@@ -278,8 +366,14 @@
 				font-size: rem(12);
 				color: #666;
 
-				span {
+				span{
 					margin-right: rem(20);
+				}
+				span.on{
+					color: #CA9F75;
+					i.icondianzan{
+						color: #CA9F75;
+					}
 				}
 			}
 
@@ -321,6 +415,12 @@
 							.question-review-top-tit-r {
 								span {
 									margin-left: rem(10);
+								}
+								span.on{
+									color: #CA9F75;
+									i.icondianzan{
+										color: #CA9F75;
+									}
 								}
 							}
 						}
@@ -371,14 +471,16 @@
 			box-sizing: border-box;
 			padding: 0 rem(15);
 			align-items: center;
-
-			input[type='text'] {
+			.review-txt-form{
 				flex: 1;
+			}
+			input[type='search'] {
 				background: none;
 				height: rem(30);
 				outline: none;
 				border: 0;
 				margin-left: rem(10);
+				width: rem(110);
 			}
 		}
 
