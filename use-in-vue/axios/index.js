@@ -81,7 +81,7 @@ function responseInterceptors($Axios) {
 
     //检查当前的路由标识和当前路由中的id标识是否一样
     //不一样不去执行后面异步的操作
-    if (!routerID.isCurrentRoute(axiosConfig.routerID)) {
+    if (!routerID.isCurrentRouteID(axiosConfig.routerID)) {
       return Promise.reject(error);
     }
 

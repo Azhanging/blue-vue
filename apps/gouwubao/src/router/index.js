@@ -5,6 +5,7 @@ import { useInVueRouter } from '$use-in-vue-router';
 import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
+import { useInVueRouterProgram } from '../use-in-vue-router-program';
 
 //路由地址
 import routes from './routes';
@@ -20,7 +21,13 @@ export const routerID = new RouterID();
 //路由实例
 const router = new Router({
   namespace: true,
-  routes: routerID.addIds(routes)
+  routes: routerID.addID(routes)
+});
+
+//项目扩展router
+useInVueRouterProgram({
+  Router,
+  routerID
 });
 
 //router before each

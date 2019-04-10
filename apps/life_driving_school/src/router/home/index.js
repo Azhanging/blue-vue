@@ -8,10 +8,11 @@ const home = {
   component: Home,
   children: [{
     path: 'sign',
-    name: 'home',
+    name: 'sign',
     component: Sign,
     meta: {
-      tabBar: false
+      tabBar: false,
+      pathID: 1
     }
   }, {
     path: 'search',

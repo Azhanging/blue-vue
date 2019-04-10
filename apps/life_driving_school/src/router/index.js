@@ -5,6 +5,7 @@ import { useInVueRouter } from '$use-in-vue-router';
 import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
+import { useInVueRouterProgram } from '../use-in-vue-router-program';
 
 //路由地址
 import routes from './routes';
@@ -19,7 +20,13 @@ export const routerID = new RouterID();
 
 const router = new Router({
   namespace: true,
-  routes: routerID.addIds(routes)
+  routes: routerID.addID(routes)
+});
+
+//项目扩展router
+useInVueRouterProgram({
+  Router,
+  routerID
 });
 
 //router before each
@@ -37,7 +44,7 @@ routerAfterEach({
   router,
   //根据项目需要的after each（可选）
   afterEach(to, from) {
-    console.log(to, from);
+
   },
   unAfterHook() {
     weChatShare();

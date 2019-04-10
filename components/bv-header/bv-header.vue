@@ -49,7 +49,7 @@
     methods: {
       //左边控制的方法
       leftControlHandler() {
-        this.$router.$routerBack(this.leftControl);
+        this.$router.routerBack(this.leftControl);
       }
     }
   }

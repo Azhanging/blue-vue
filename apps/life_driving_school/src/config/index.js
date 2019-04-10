@@ -37,7 +37,7 @@ const config = utils.extend(publicConfig, {
     deps: "智慧引领生活，幸福从心成长——生命驾校幸福工程。",
     imgUrl: `${staticPath}/img/public/share/default-share-img.png`,
     link() {
-      return router.$getHref();
+      return router.getHref();
     }
   }
 });

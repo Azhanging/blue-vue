@@ -26,10 +26,9 @@
 				<a class="bc-block" href="javascript:;">
 					<img class="bc-w-100" :src="`${$config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
 				</a>
-				<a href="javascript:;" @click.stop="sign">
+				<router-link to="/sign">
 					<img class="qiandao bc-ps-a" :src="`${$config.path.static}/img/home/qiandao.png`" alt="签到">
-				</a>
-
+				</router-link>
 			</div>
 
 			<!--三大系统-->
@@ -232,15 +231,6 @@
       },
       closeBindPhone() {
         this.showBindPhoneStatus = false;
-      },
-      sign() {
-        // if (!this.showBindPhoneStatus) {
-        //   // 绑定手机 再进行登录判断
-	      //   if ($config.session.storage){}
-	      //   this.showBindPhoneStatus = true;
-        // } else {
-        // }
-          this.$router.push('/sign');
       }
     },
   }

@@ -68,7 +68,7 @@ export function bindPhone(opts = {}) {
 
   //没有绑定手机跳转到指定的链接，指定的链接必须存在，业务待定，未开放（使用于新项目绑定内跳转）
   if (!phone && bindPhonePath && to && to.path !== bindPhonePath && false) {
-    router.replace(`${bindPhonePath}?redirect_path=${encodeURIComponent(router.$getHref())}`);
+    router.replace(`${bindPhonePath}?redirect_path=${encodeURIComponent(router.getHref())}`);
   }
 
   //老项目跳转绑定手机
@@ -87,5 +87,5 @@ export function redirectBindPhone(){
     message: '跳转绑定手机中...',
     duration: 10000
   });
-  location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.$getHref())}`;
+  location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.getHref())}`;
 }
