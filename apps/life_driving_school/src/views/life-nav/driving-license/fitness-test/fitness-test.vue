@@ -10,6 +10,7 @@
       <div class="fitness-test-tit">
         1.在设计APP界面时候，通常使用的分辨率是
       </div>
+
       <div class="fitness-test-main">
 
         <div class="fitness-test-item" :class="{active:(thisIndex===index)}" v-for="(item,index) in fitness_test" @click="btn_radio(index)">
@@ -42,6 +43,9 @@
     name: "fitness-test",
     data() {
       return {
+
+        fitness_list:'',
+
         fitness_test:[
           {t:'A',contents:'72dpi，常规设计方法'},
           {t:'B',contents:'144dpi，考虑高清分辨率'},
@@ -62,15 +66,12 @@
       },
       //考试题
       topic(){
-        return this.$axios.get('/api/examination/question', {
-          params:{
-            examination_res:'0',
-            ult_id:"32"
-          },
+        return this.$axios.post('/api/examination/question', {
+          record_id:this.$route.query.record_id
         }).then((res) => {
-          console.log(res.data+"|||")
+          console.log(res.data.data.list)
+          this.fitness_list=res.data.data.list
         });
-
       }
     },
     mounted() {

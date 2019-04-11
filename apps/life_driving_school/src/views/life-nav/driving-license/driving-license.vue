@@ -12,49 +12,49 @@
 				<h3>阶段测试</h3>
 				<div><i class="driving-title-l"></i></div>
 			</div>
+			<div class="driving-slide">
+				<div class="driving-learn">
+					<div class="driving-learn-img">
+						<img src="http://pc.lifest.dtb315.cn/static/img/life-nav/book@2x.png">
+					</div>
+					<div class="driving-learn-desc">
+						<h3>您已学习至：</h3>
+						<p>初阶&nbsp;第三课《财富的真相》</p>
+					</div>
+				</div>
+			</div>
+
 			<bv-scroll>
 				<swiper :options="swiperOption" ref="swiper">
 					<swiper-slide v-for="(slide, index) in banners" :key="index">
+						<router-link :to="{path:'/life-nav/driving-license/fitness-test'+'?record_id='+slide.id}">
+							<div class="driving-slide">
 
-						<div class="driving-slide">
-							<div class="driving-learn">
-								<div class="driving-learn-img">
-									<img src="http://pc.lifest.dtb315.com/static/img/life-nav/book@2x.png">
-								</div>
-								<div class="driving-learn-desc">
-									<h3>您已学习至：</h3>
-									<p>初阶&nbsp;第三课《财富的真相》</p>
-								</div>
-							</div>
-
-							<div class="driving-topic">
-								<div class="driving-topic-img">
-									<img src="https://image.dtb315.com/31713.jpg?val=Thumb" :src="`http://pc.lifest.dtb315.com`+slide.src_img">
-								</div>
-								<div class="driving-topic-desc">
-									<div class="driving-topic-desc-tit">
-										<div>{{ slide.name }}课程测试（选择题）</div>
-										<router-link :to="`${currentFullPath}/fitness-test`">
+								<div class="driving-topic">
+									<div class="driving-topic-img">
+										<img :src="slide.examination.src_img">
+									</div>
+									<div class="driving-topic-desc">
+										<div class="driving-topic-desc-tit">
+											<div>{{ slide.examination.name }}课程测试（选择题）</div>
 											<i class="iconfont iconbianji" ></i>
-										</router-link>
-									</div>
-									<div class="driving-topic-desc-xing">
-										<i class="iconfont iconiconfontxingxing" :class="((index+1)*20)<=xing_num?'active':''" v-for="(i,index) in 5"></i>
-									</div>
-									<div class="driving-topic-desc-progress">
-
-										<div class="driving-topic-desc-l">
-											<progress :value="progressValue" max="100" v-if="th_progressValue>0"></progress>
-											<button class="driving-topic-desc-l-btn" v-else="th_progressValue<=0">立即学习</button>
 										</div>
+										<div class="driving-topic-desc-xing">
+											<i class="iconfont iconiconfontxingxing" :class="((index+1)*20)<=xing_num?'active':''" v-for="(i,index) in 5"></i>
+										</div>
+										<div class="driving-topic-desc-progress">
 
-										<div><span>40</span>/100道</div>
+											<div class="driving-topic-desc-l">
+												<progress :value="progressValue" max="100" v-if="th_progressValue>0"></progress>
+												<button class="driving-topic-desc-l-btn" v-else="th_progressValue<=0">立即学习</button>
+											</div>
+
+											<div><span>40</span>/100道</div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-
-
+						</router-link>
 					</swiper-slide>
 					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 				</swiper>
@@ -123,7 +123,7 @@
 		data() {
 			return {
 				temp: 0,
-				banners: [1, 2, 3, 4],
+				banners: [],
 				swiperOption: {
 					pagination: {
 						el: "#pagination"
@@ -160,16 +160,16 @@
 				}
 				this.temp = t;
 			},
-			//课程阶段
+			//课程轮播
 			item_progress(){
 
-				return this.$axios.get('/api/examination/level', {
+				return this.$axios.get('/api/examination/getList', {
 					params:{
 						column_id:"32"
 					},
 				}).then((res) => {
-					//console.log(res.data)
-					this.banners[0] = res.data.data
+					console.log(res.data)
+					this.banners = res.data.data
 				});
 
 			}
@@ -246,10 +246,10 @@
 
 		.driving-slide {
 			overflow: hidden;
-
+			color: #A7A7A7;
 			.driving-learn {
 				display: flex;
-				background: url("http://pc.lifest.dtb315.com/static/img/life-nav/bg@2x.png") no-repeat;
+				background: url("http://pc.lifest.dtb315.cn/static/img/life-nav/bg@2x.png") no-repeat;
 				background-size: 100% 100%;
 				padding: rem(20);
 				border-radius: rem(5);

@@ -1,6 +1,7 @@
 import agent from "./agent";
 import chuangke from "./chuangke";
 import myVip from "./my-vip";
+import join from "./join";
 
 const member = {
   path: '/member',
@@ -9,18 +10,12 @@ const member = {
     tabBar: false
   },
   component: () => import("@/views/member/member.vue"),
-  children: [{
-    path: 'join/agent',
-    component: () => import("@/views/member/join/agent/agent.vue"),
-    meta: {
-      tabBar: false
-    }
-  }]
-	children:[
-		agent,
-		chuangke,
-		myVip
-	]
+  children: [
+    join,
+    agent,
+    chuangke,
+    myVip
+  ]
 };
 
 export default member;

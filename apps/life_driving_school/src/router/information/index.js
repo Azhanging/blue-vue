@@ -3,11 +3,14 @@ const ZixunDetail = () => import(`@views/zixun/detail/zixun-detail`);
 
 
 const info = {
-  path: '/zixun',
+  path: '/zixun/:id',
   name: 'zixun',
   component: Zixun,
+  meta: {
+    pathID: 1
+  },
   children: [{
-    path: 'detail/:id',
+    path: 'detail/:article_id',
     name: 'zixun-detail',
     component: ZixunDetail,
     meta:{

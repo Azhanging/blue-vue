@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view class='wap' :router-level='1'>
+	<bv-home-view class='wap'>
 		member
 	</bv-home-view>
 </template>

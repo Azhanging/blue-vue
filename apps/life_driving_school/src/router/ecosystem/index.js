@@ -2,7 +2,8 @@ const ecosystem = {
     path: '/ecosystem',
     name: 'ecosystem',
     meta:{
-        tabBar: false
+        tabBar: false,
+        pathID:5,
     },
     component: () => import("@views/ecosystem/ecosystem"),
 };

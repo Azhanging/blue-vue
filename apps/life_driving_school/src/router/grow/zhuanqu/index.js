@@ -1,10 +1,11 @@
 // const Zhuanqu = () => import(`@/views/life_school/zhuanqu`);
 
 const special = {
-	path: 'zhuanqu',
+	path: 'zhuanqu/:id',
 	name: 'zhuanqu',
 	meta:{
-		tabBar: false
+		tabBar: false,
+		pathID:18
 	},
 	component: resolve => require(['@/views/grow/zhuanqu/zhuanqu.vue'], resolve),
 	children:[{

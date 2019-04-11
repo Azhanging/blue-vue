@@ -87,7 +87,7 @@
 <style scoped lang="scss">
 	h3,p{margin: 0;padding: 0;}
 .books-top{
-	background: url("http://pc.lifest.dtb315.com/static/img/grow/grow4@2x.png") no-repeat;
+	background: url("http://pc.lifest.dtb315.cn/static/img/grow/grow4@2x.png") no-repeat;
 	background-size: 100% 100%;
 	color: #fff;
 	position: relative;

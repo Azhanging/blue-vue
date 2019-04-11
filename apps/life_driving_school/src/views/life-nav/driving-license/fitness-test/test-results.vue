@@ -27,9 +27,9 @@
           1.在设计APP界面时候，通常使用的分辨率是
         </div>
         <div class="fitness-test-main">
-          <div class="fitness-test-item">
+          <div class="fitness-test-item active">
             <label class="fitness-test-item-l" for="fitness-test-item-l-A">
-              <input type="radio" id="fitness-test-item-l-A">
+              <input type="radio" id="fitness-test-item-l-A" checked>
               A
             </label>
             <div class="fitness-test-item-r">72dpi，常规设计方法</div>
@@ -165,6 +165,12 @@
           input[type="radio"]{
             opacity: 0;
             position: absolute;left: 0;
+          }
+        }
+        &.active{
+          .fitness-test-item-l{
+            background: #CA9F75;
+            color: #fff;
           }
         }
         .fitness-test-item-r{

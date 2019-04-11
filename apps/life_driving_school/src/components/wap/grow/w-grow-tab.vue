@@ -1,6 +1,8 @@
 <template>
 	<w-home-header :header='header'>
-		<w-home-nav  :nav='nav' :active-index='growIndex'></w-home-nav>
+		<w-home-nav  :nav='nav' :active-index='growIndex'>
+		
+		</w-home-nav>
 		
 		<slot name='second_tab'></slot>
 	</w-home-header>
@@ -22,17 +24,17 @@
 				},
 				nav: [
 					{
-						nav_name: '上大夫学院',
-						path: '/grow'
+						name: '上大夫学院',
+						id:15,
 					},{
-						nav_name: '视频直播',
-						path: '/grow/video'
+						name: '视频直播',
+						id:16,
 					},{
-						nav_name: '精选短课',
-						path: '/grow/short'
+						name: '精选短课',
+						id:17,
 					},{
-						nav_name: '专区',
-						path: '/grow/zhuanqu'
+						name: '专区',
+						id:18,
 					}]
 			}
 		},

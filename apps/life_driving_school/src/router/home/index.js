@@ -11,8 +11,7 @@ const home = {
     name: 'sign',
     component: Sign,
     meta: {
-      tabBar: false,
-      pathID: 1
+      tabBar: false
     }
   }, {
     path: 'search',

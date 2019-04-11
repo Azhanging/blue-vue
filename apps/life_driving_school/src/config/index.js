@@ -9,7 +9,7 @@ import env from './env';
 const path = (() => {
   let path = '';
   if (env.dev) {
-    path = 'http://pc.lifest.dtb315.com';
+    path = 'http://pc.lifest.dtb315.cn';
   } else if (env.beta) {
     path = 'http://beta.lifest.dtb315.com';
   } else {

@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background:rgba(244,244,244,1);">
-		<form id="form" action="" method="" @keypress="search($event)">
+		<form id="form" action="" method="" @submit.prevent="search($event)">
 			<div id="search" class="bc-row bc-bg-white v-m" style="z-index:4000;max-width:30rem;" >
 				<div class="search-header bc-flex bc-flex-jc-c bc-flex-ai-c bc-pd-tb-10rp bc-pd-lr-10rp">
 					<div class="bc-flex-10">
@@ -210,14 +210,14 @@ export default {
 	},
 	methods: {
     search(event) {
-      if (event.keyCode === 13) { //如果按的是enter键
-        // this.$axios.post('')
-	      //   .then(res => {
-				//
-	      //   });
-				document.getElementById('form').submit();
-        event.preventDefault(); //禁止默认事件（默认是换行）
-      }
+      this.$axios.get('/api/search/index')
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
     },
     goBack() {
       this.$router.go(-1);

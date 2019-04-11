@@ -2,14 +2,16 @@ const life_nav = {
     path: '/life-nav',
     name: 'life-nav',
     meta:{
-        tabBar: false
+        tabBar: false,
+        pathID:4,
     },
     component: () => import("@views/life-nav/life-nav.vue"),
     children: [{
         path: 'driving-license',
         component: () => import("@views/life-nav/driving-license/driving-license"),
         meta: {
-            tabBar: false
+            tabBar: false,
+            pathID:38,
         },
         children: [{
             path: 'fitness-test',
@@ -29,7 +31,8 @@ const life_nav = {
         path: 'question-answer',
         component: () => import("@views/life-nav/question-answer/question-answer"),
         meta: {
-            tabBar: false
+            tabBar: false,
+            pathID:42,
         },
         children: [{
             path: 'questions',
@@ -48,7 +51,8 @@ const life_nav = {
         path: 'recommend',
         component: () => import("@views/life-nav/recommend/recommend"),
         meta: {
-            tabBar: false
+            tabBar: false,
+            pathID:43,
         },
         children: [{
             path: 'detail',

@@ -9,7 +9,18 @@
 		}" :type=0>
 		</w-home-header>
 
-		<w-home-nav :nav='nav' @router-to='_init' :active-index='activeIndex'></w-home-nav>
+		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
+			<div class='bc-flex bc-flex-ai-c ' >
+				<a href="/" class="bc-flex-1 ">首页</a>
+				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
+					<a class="bc-flex-1" :class="[0 !== index ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+					   v-if="item.name"
+					>
+						{{item.name}}
+					</a>
+				</div>
+			</div>
+		</div>
 
 		<div class="bc-row">
 			<img class="bc-w-100" :src="`${$config.path.static}/img/zixun/banner.png`" alt="">
@@ -77,18 +88,17 @@
           column_id: 6
         },
         nav: [
-          {
-            nav_name: '首页',
-            path: '/'
-          }, {
-            nav_name: '资讯',
+         {
+            name: '资讯',
             path: '/article/zixun',
+		        id: 1,
             params: {
               type: "zixun"
             }
           }, {
-            nav_name: '产业研究',
-            path: '/industry'
+            name: '产业研究',
+            path: '/industry',
+		        id: 2
           }],
         //左右滑动
         scroll_list: [
@@ -103,13 +113,13 @@
             id: 3
           }, {
             name: '婚姻',
-            id: 1
+            id: 4
           }, {
             name: '育子',
-            id: 1
+            id: 5
           }, {
             name: '心灵',
-            id: 1
+            id: 6
           }
         ],
         scrollIndex: 0,
@@ -119,6 +129,15 @@
       }
     },
     methods: {
+      routerTo(item) {
+        const { id } = item;
+        this.$router.push(this.$router.routerID.getPathID({
+          id: id, // 和后台id 对应
+          params: {
+            id: id // 对应router里面的id
+          }
+        }));
+      },
       _init(opts = {}) {
         const { params } = opts;
         this.setNavActive(params);
@@ -266,15 +285,20 @@
 
 <style lang='scss' scoped>
 	.wap {
+		.home-nav {
+			border-bottom: 1px #eee solid;
+			.active {
+				color: $color-base;
+				border-bottom: 2px $color-base solid;
+			}
+		}
 		.scroll-x {
 			.scroll_active {
 				color: $color-base !important;
-
 				.nav-title {
 					border-bottom: 2px solid $color-base;
 				}
 			}
 		}
-
 	}
 </style>

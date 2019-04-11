@@ -30,8 +30,8 @@
 			'W-itemdata': WItemdata
 		},
 		methods:{
-			detailClick(id){
-				this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${id}`})
+			detailClick(article_id){
+				this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${article_id}`})
 			}
 		},
 		mounted() {

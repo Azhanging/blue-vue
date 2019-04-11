@@ -3,13 +3,15 @@ import zhuanqu from './zhuanqu/index';
 import video from './video/index';
 import books from './books';
 import detail from './detail';
+import college from './college'
 
 
 const grow = {
-	path: '/grow',
+	path: '/grow/:id',
 	name: 'grow',
 	meta:{
-		tabBar: false
+		tabBar: false,
+		pathID:12
 	},
 	component: resolve => require(['@/views/grow/grow.vue'], resolve),
 	children:[
@@ -18,6 +20,7 @@ const grow = {
 		short,
 		books,
 		detail,
+		college
 	]
 };
 

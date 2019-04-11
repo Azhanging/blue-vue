@@ -1,20 +1,28 @@
 <!-- home页导航组件 -->
 <template>
 	<div class="bc-flex bc-flex-jc-c bc-t-c home-nav">
-		<div class='bc-flex-1' v-for="(item,index) in nav">
-			<a @click="routerTo(item)"
-			   class="bc-pd-tb-12rp bc-inline-block"
-			   :class="[activeIndex !== index ? unActiveClassName : activeClassName]"
-			   v-if="item.nav_name"
-			>
-				{{item.nav_name}}
-			</a>
-		</div>
+			<!--默认不带path,需要path,用插槽修改-->
+			<div class='bc-flex-1' v-for="(item,index) in nav">
+				<slot name='changePath'>
+					<router-link :to="$router.routerID.getPathID({
+						id:item.id,
+						params:{
+							id:item.id
+						}
+					})">
+						<div :class="[activeIndex !== index ? unActiveClassName : activeClassName,'bc-pd-tb-12rp','bc-inline-block']"
+						     v-if="item.name">
+							{{item.name}}
+						</div>
+					</router-link>
+				</slot>
+			</div>
 	</div>
+
 </template>
 
 <script>
-	
+
 	export default {
     name: "home-nav",
     props: {
@@ -39,13 +47,13 @@
       return {}
     },
     methods: {
-      routerTo(item) {
-        const path = item.path;
-        this.$router.push(path);
-        this.$emit('router-to', {
-          params: item.params || {}
-        });
-      }
+      // routerTo(item) {
+      //   const path = item.path;
+      //   this.$router.push(path);
+      //   this.$emit('router-to', {
+      //     params: item.params || {}
+      //   });
+      // }
     },
     mounted() {
 

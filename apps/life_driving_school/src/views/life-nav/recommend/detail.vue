@@ -51,7 +51,10 @@
 							</div>
 							<div class="question-review-top-time">{{ comms.time }}</div>
 							<div class="question-review-top-box">{{ comms.content }}</div>
-							<div class="question-review-top-reply" v-for="comms_m in comms.son"><span>@{{ comms.nickname }} </span>{{ comms_m.content }}</div>
+							<div class="question-review-top-reply" v-for="comms_m in comms.son">
+
+								<!--<span @click="btn_hf(comms.id)">@{{ comms.nickname }} </span>--><span>{{comms_m.nickname}}</span> {{ comms_m.content }}
+							</div>
 						</div>
 					</div>
 
@@ -149,6 +152,12 @@
 					this.$refs.review_hf.focus()
 				})
 			},
+			/*btn_hf(i){
+				this.pid = i;
+				this.$nextTick(()=>{
+					this.$refs.review_hf.focus()
+				})
+			},*/
 
 			/*详情数据请求*/
 			detail_data() {
@@ -181,8 +190,9 @@
 
 				this.$axios.post('/api/circle/comment',{
 					circle_id: this.$route.query.circle_id,//id
-					pid: this.pid,//评论id
+					comment_id: this.pid,//评论id
 					content:this.content_txt,//评论内容
+					//at_id:1,
 				}).then((res)=>{
 					//console.log(res.data)
 					if(res.data.code==200){

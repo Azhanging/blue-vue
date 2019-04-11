@@ -87,24 +87,24 @@
 
 			<div class="students-icon-item" >
 				<router-link :to="`${currentFullPath}/collection`">
-					<img src="http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png"/>
+					<img src="http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png"/>
 					<div>我的收藏</div>
 				</router-link>
 			</div>
 			<div class="students-icon-item">
 				<router-link :to="`${currentFullPath}/history`">
-					<img src="http://pc.lifest.dtb315.com/static/img/students/liulanlishi@2x.png"/>
+					<img src="http://pc.lifest.dtb315.cn/static/img/students/liulanlishi@2x.png"/>
 					<div>浏览历史</div>
 				</router-link>
 			</div>
 			<div class="students-icon-item">
 				<router-link :to="`${currentFullPath}/contribute`">
-					<img src="http://pc.lifest.dtb315.com/static/img/students/woyaotougao@2x.png"/>
+					<img src="http://pc.lifest.dtb315.cn/static/img/students/woyaotougao@2x.png"/>
 					<div>我要投稿</div>
 				</router-link>
 			</div>
 			<div class="students-icon-item">
-				<img src="http://pc.lifest.dtb315.com/static/img/students/yaoqinghaoyou@2x.png"/>
+				<img src="http://pc.lifest.dtb315.cn/static/img/students/yaoqinghaoyou@2x.png"/>
 				<div>邀请好友</div>
 			</div>
 		</div>
@@ -168,7 +168,7 @@
 	background: #46505A;
 	padding: rem(20) rem(15) 0;
 	.students-top-box{
-		background: url("http://pc.lifest.dtb315.com/static/img/students/xyzxbg@2x.png") no-repeat;
+		background: url("http://pc.lifest.dtb315.cn/static/img/students/xyzxbg@2x.png") no-repeat;
 		background-size: 100% 100%;
 		padding: rem(20) rem(15);
 		display: flex;
@@ -207,7 +207,7 @@
 		.students-top-box-r{
 			text-align: right;
 			.students-top-box-btn{
-				background: url("http://pc.lifest.dtb315.com/static/img/students/students@2x.png") no-repeat;
+				background: url("http://pc.lifest.dtb315.cn/static/img/students/students@2x.png") no-repeat;
 				background-size: 100%;
 				height: rem(30);
 				line-height: rem(30);

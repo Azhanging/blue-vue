@@ -24,12 +24,12 @@
 				<img src="https://image.dtb315.com/326999.jpg?val=Thumb">
 			</div>
 			<button class="member-top-btn-qhqy">
-				<i class="iconfont "></i> 切换区域
+				<i class="iconfont icon-dizhi"></i> 切换区域
 			</button>
 		</div>
 
 		<div class="stat">
-			<div class="stat-title">统计 <i class="iconfont "></i></div>
+			<div class="stat-title">统计 <i class="iconfont icon-wenti"></i></div>
 			<div class="stat-item">
 				<div class="stat-item-top">
 					<div class="stat-item-top-l">
@@ -103,7 +103,7 @@
 					<router-link to="">
 						<i class="iconfont">1</i>
 						<div>{{ item.title}}</div>
-						<i class="iconfont">2</i>
+						<i class="iconfont icon-right"></i>
 					</router-link>
 				</div>
 			</div>
@@ -183,14 +183,14 @@
 					{title:'会议支持'},
 				],
 				toolList:[
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'招募创客'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'每日必做'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'引流工具'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'课程活动'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'物料下载'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'我的社群'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'素材圈'},
-					{src:'http://pc.lifest.dtb315.com/static/img/students/wodeshoucang@2x.png',name:'客服咨询'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'招募创客'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'每日必做'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'引流工具'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'课程活动'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'物料下载'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'我的社群'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'素材圈'},
+					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'客服咨询'},
 				]
 			}
 		}

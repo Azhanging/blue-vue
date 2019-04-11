@@ -6,9 +6,8 @@
             }
         }'></life_nav_tab>
 		<bv-scroll :api="api" :disabled="true">
-
 			<div class="question-lists">
-				<router-link :to="`${currentFullPath}/detail`" class="question-item" v-for="(item,index) in load.data.lists">
+				<router-link :to="{path:'/life-nav/question-answer/detail'+'?feedback_id='+item.id}" class="question-item" v-for="(item,index) in load.data.lists">
 					<div class="question-ask">
 						<div class="question-ask-l"><i>Q</i></div>
 						<div class="question-ask-c">{{ item.question }}</div>
@@ -36,7 +35,7 @@
 		</bv-scroll>
 
 
-		<router-link :to="`${currentFullPath}/questions`" class="question-quiz">
+		<router-link :to="{path:'/life-nav/question-answer/questions'}" class="question-quiz">
 			提问
 		</router-link>
 

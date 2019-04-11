@@ -2,7 +2,7 @@
 	申请代理页面
 -->
 <template>
-	<bv-home-view :router-level='2' style="background-color: #F4F4F4;">
+	<bv-home-view :router-level='3' style="background-color: #F4F4F4;">
 		<bv-header :header="{
       title:{
 				value:'申请代理'
@@ -60,7 +60,7 @@
 				推荐人
 			</div>
 			<div class="bc-flex-2 bc-t-r bc-t-999 bc-t-hide ">
-				<input type="text" class="bc-bd-none bc-t-r" placeholder="请输入推荐人代理账号">
+				<input type="text" class="bc-bd-none bc-t-r" placeholder="请输入推荐人代理账号" v-model="refereePhone">
 			</div>
 		</div>
 
@@ -232,6 +232,8 @@
     mixins: [uploadMixin()],
     data() {
       return {
+        //推荐人
+        refereePhone: '',
         //绑定创客用户状态
         bindChuankeMember: {
           status: true,
@@ -343,7 +345,7 @@
           validateStatus = validateArea.call(this);
           //验证不通过，直接初始化地区
           if (!validateStatus) {
-						this.resetArea();
+            this.resetArea();
           }
         }
         pickerWindows.showStatus = false;
@@ -389,6 +391,7 @@
           url: '/member/area_apply/add_area_apply',
           type: 'post',
           params: {
+            referee_phone: this.refereePhone,
             is_relation_ck: bindChuankeMember.status ? 1 : 0,
             ck_phone: bindChuankeMember.phone,
             opencopy: this.business.imgs.join(','),
@@ -397,7 +400,8 @@
             area_id: areaSlots[areaSlots.length - 1].value
           }
         }).then((res) => {
-
+          const { data } = res.data;
+          
         });
       }
     }
@@ -421,7 +425,7 @@
 		font-size: 0;
 		width: rem(98);
 		height: rem(98);
-		&.upload-img-add{
+		&.upload-img-add {
 			background: url($base-static-path + '/img/member/join/agent/upload.png') no-repeat center #EDEDED;
 			background-size: 20%;
 		}

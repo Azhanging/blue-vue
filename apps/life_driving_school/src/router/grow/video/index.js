@@ -1,9 +1,10 @@
 
 const video = {
-	path: 'video',
+	path: 'video/:id',
 	name: 'video',
 	meta:{
-		tabBar: false
+		tabBar: false,
+		pathID:16
 	},
 	component: resolve => require(['@/views/grow/video/video.vue'], resolve),
 	children:[{

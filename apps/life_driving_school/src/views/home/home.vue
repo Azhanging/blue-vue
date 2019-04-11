@@ -11,14 +11,16 @@
 
 		<div class="bc-g-bg-e5e">
 			<!--tab 首页 资讯 产业研究-->
-			<div class="bc-flex bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
-				<div class='bc-flex-1 bc-pd-tb-5rp' v-for="(item, index) in nav" :key="index">
-					<a @click="routerTo(item)"
-					   :class="[0 !== index ? '' : 'active']"
-					   v-if="item.nav_name"
-					>
-						{{item.nav_name}}
-					</a>
+			<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
+				<div class='bc-flex bc-pd-tb-5rp' >
+					<a href="/" class="bc-flex-1 active">首页</a>
+					<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
+						<a class="bc-flex-1" @click="routerTo(item)"
+						   v-if="item.name"
+						>
+							{{item.name}}
+						</a>
+					</div>
 				</div>
 			</div>
 
@@ -32,7 +34,7 @@
 			</div>
 
 			<!--三大系统-->
-			<div class="three-system">
+			<div class="three-system" v-if="getData && getData.system">
 				<div class="bc-v-m bc-pd-lr-10rp ">
 					<div class="bc-pd-tb-10rp" style="border-bottom:1px solid #F9F3EC">
 						<img class="bc-mg-r-3rp xiaochangshi" :src="`${$config.path.static}/img/home/jiankangchangshi.png`" alt="健康常识">
@@ -42,51 +44,93 @@
 				<div class="bc-t-c bc-mg-t-20rp">
 					<img class="bc-inline-block three-system-title" :src="`${$config.path.static}/img/home/three_system.png`">
 				</div>
+
 				<div class="bc-t-c bc-mg-t-13rp">
-					<router-link to="/grow">
-						<img class="bc-inline-block chengzhang-system" :src="`${$config.path.static}/img/home/chengzhang_system.png`">
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.system[0].id,
+						params:{
+							id: getData.system[0].id,
+						}
+					})">
+						<img class="bc-inline-block chengzhang-system" :src="getData.system[0].src_img" alt="成长系统">
 					</router-link>
 				</div>
 				<div class=" bc-t-c bc-mg-t-3rp">
-					<img class="bc-inline-block bozhong-system" :src="`${$config.path.static}/img/home/bozhong_system.png`">
-					<img class="bc-inline-block shouhuo-system" :src="`${$config.path.static}/img/home/shouhuo_system.png`">
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.system[1].id,
+						query:{
+							id: getData.system[1].id
+						}
+					})">
+						<img class="bc-inline-block bozhong-system" :src="getData.system[1].src_img" alt="播种系统">
+					</router-link>
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.system[2].id,
+						query:{
+							id: getData.system[2].id
+						}
+					})">
+						<img class="bc-inline-block shouhuo-system" :src="getData.system[2].src_img" alt="收获系统">
+					</router-link>
 				</div>
+
 			</div>
 
 			<!--生命导航-->
-			<div class="shengmingdaohang bc-t-c bc-mg-t-10rp bc-c-f">
+			<div class="shengmingdaohang bc-t-c bc-mg-t-10rp bc-c-f" v-if="getData && getData.life">
 				<div class="bc-mg-t-20rp">
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-title" :src="`${$config.path.static}/img/home/shengmingdaohang.png`">
-					</a>
+					<img class="inline-block shengmingdaohang-title" :src="`${$config.path.static}/img/home/shengmingdaohang.png`">
 				</div>
 				<div class="bc-mg-t-17">
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-item" :src="`${$config.path.static}/img/home/shengmingdaohang_01.png`" alt="">
-					</a>
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-item" :src="`${$config.path.static}/img/home/shengmingdaohang_02.png`" alt="">
-					</a>
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-item" :src="`${$config.path.static}/img/home/shengmingdaohang_03.png`" alt="">
-					</a>
-				</div>
-				<div>
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-item" :src="`${$config.path.static}/img/home/shengmingdaohang_04.png`" alt="">
-					</a>
-					<a href="javascript:;">
-						<img class="inline-block shengmingdaohang-item" :src="`${$config.path.static}/img/home/shengmingdaohang_05.png`" alt="">
-					</a>
+
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.life[0].id,
+						query:{
+							id: getData.life[0].id
+						}
+					})">
+						<img class="inline-block shengmingdaohang-item" :src="getData.life[0].src_img" alt="健康驾照">
+					</router-link>
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.life[1].id,
+						query:{
+							id: getData.life[1].id
+						}
+					})">
+						<img class="inline-block shengmingdaohang-item" :src="getData.life[1].src_img" alt="心灵驾照">
+					</router-link>
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.life[2].id,
+						query:{
+							id: getData.life[2].id
+						}
+					})">
+						<img class="inline-block shengmingdaohang-item" :src="getData.life[2].src_img" alt="财富驾照">
+					</router-link>
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.life[3].id,
+						query:{
+							id: getData.life[3].id
+						}
+					})">
+						<img class="inline-block shengmingdaohang-item" :src="getData.life[3].src_img" alt="婚姻驾照">
+					</router-link>
+					<router-link :to="$router.routerID.getPathID({
+						id: getData.life[4].id,
+						query:{
+							id: getData.life[4].id
+						}
+					})">
+						<img class="inline-block shengmingdaohang-item" :src="getData.life[4].src_img" alt="育子驾照">
+					</router-link>
+
 				</div>
 			</div>
 
 			<!--生态圈-->
-			<div class="shengtaiquan bc-mg-t-10rp bc-c-f">
+			<div class="shengtaiquan bc-mg-t-10rp bc-c-f" v-if="getData && getData.ecosphere">
 				<div class="bc-mg-t-20rp bc-t-c">
-					<a href="javascript:;">
 						<img class="inline-block shengtaiquan-title" :src="`${$config.path.static}/img/home/shengtaiquan.png`">
-					</a>
 				</div>
 
 					<div class='scroll-x bc-pd-15rp bc-bg-white bc-t-c'>
@@ -95,35 +139,75 @@
 								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
-											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_xiaofei.png`">
+
+											<router-link :to="$router.routerID.getPathID({
+													id: getData.ecosphere[0].id,
+													query:{
+														id: getData.ecosphere[0].id
+													}
+												})">
+												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[0].src_img" alt="消费">
+											</router-link>
+
+
+
 										</div>
 									</div>
 								</div>
 								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
-											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_touzi.png`">
+											<router-link :to="$router.routerID.getPathID({
+													id: getData.ecosphere[1].id,
+													query:{
+														id: getData.ecosphere[1].id
+													}
+												})">
+												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[1].src_img" alt="投资">
+											</router-link>
+
 										</div>
 									</div>
 								</div>
 								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
-											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+											<router-link :to="$router.routerID.getPathID({
+													id: getData.ecosphere[2].id,
+													query:{
+														id: getData.ecosphere[2].id
+													}
+												})">
+												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[2].src_img" alt="创业">
+											</router-link>
 										</div>
 									</div>
 								</div>
 								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
-											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+											<router-link :to="$router.routerID.getPathID({
+													id: getData.ecosphere[3].id,
+													query:{
+														id: getData.ecosphere[3].id
+													}
+												})">
+												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[3].src_img" alt="企业">
+											</router-link>
 										</div>
 									</div>
 								</div>
 								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
-											<img class="inline-block shengtaiquan-item" :src="`${$config.path.static}/img/home/shengtaiquan_chuangye.png`">
+											<router-link :to="$router.routerID.getPathID({
+													id: getData.ecosphere[4].id,
+													query:{
+														id: getData.ecosphere[4].id
+													}
+												})">
+												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[4].src_img" alt="教育">
+											</router-link>
 										</div>
 									</div>
 								</div>
@@ -131,65 +215,24 @@
 						</bv-swiper-scroll>
 					</div>
 
-
-
 			</div>
 
 			<!--推荐-->
 			<div class="bc-mg-t-10rp tuijian bc-bg-white bc-c-f">
 				<div class="bc-mg-t-17rp bc-t-c">
-					<a href="javascript:;">
-						<img class="inline-block tuijian-title" :src="`${$config.path.static}/img/home/tuijian.png`">
-					</a>
+					<img class="inline-block tuijian-title" :src="`${$config.path.static}/img/home/tuijian.png`">
 				</div>
-
-				<ul class="bc-reset-ul  bc-media">
-					<li class="bc-mg-t-20rp">
-						<a class="t-333" href="">
-							<div class="bc-media pd-t-15 bc-row bc-c-f">
-								<div class="bc-media-left">
-									<img class="tuijian-article-img" :src="`${$config.path.static}/img/home/shengmingdaohang_01.png`" v-if="">
-								</div>
-								<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-									<div class=" bc-f-16rp bc-t-333 bc-f-b">仅仅一年，他完成了100万资本的原始积累</div>
-									<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-										文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="bc-mg-t-20rp">
-						<a class="t-333" href="">
-							<div class="bc-media pd-t-15 bc-row bc-c-f">
-								<div class="bc-media-left">
-									<img class="tuijian-article-img" :src="`${$config.path.static}/img/home/shengmingdaohang_01.png`" v-if="">
-								</div>
-								<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-									<div class=" bc-f-16rp bc-t-333 bc-f-b">仅仅一年，他完成了100万资本的原始积累</div>
-									<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-										文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
-					<li class="bc-mg-t-20rp">
-						<a class="t-333" href="">
-							<div class="bc-media pd-t-15 bc-row bc-c-f">
-								<div class="bc-media-left">
-									<img class="tuijian-article-img" :src="`${$config.path.static}/img/home/shengmingdaohang_01.png`" v-if="">
-								</div>
-								<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-									<div class=" bc-f-16rp bc-t-333 bc-f-b">仅仅一年，他完成了100万资本的原始积累</div>
-									<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-										文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文文章内容前面部分文章内容前面部分文章内容前面部分文章内容前面部分文
-									</div>
-								</div>
-							</div>
-						</a>
-					</li>
-				</ul>
+				<bv-scroll :api="api" :disabled="true">
+					<recommend-arrlist :list='load.data.lists'></recommend-arrlist>
+					<template slot="load-down">
+						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+							数据加载中...
+						</div>
+						<div class="bc-t-c bc-pd-10rp" v-else>
+							暂无数据...
+						</div>
+					</template>
+				</bv-scroll>
 			</div>
 		</div>
 
@@ -203,36 +246,77 @@
 
 <script>
 	import router from '@router';
+  import recommendArrlist from './recommend/recommend-arrlist';
+  import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
 
   export default {
     name: "home",
+    mixins: [scrollMixin()],
     data() {
       return {
         nav: [{
-          nav_name: '首页',
-          path: '/'
+          name: '资讯',
+          path: '/zixun',
+	        id: 1
         }, {
-          nav_name: '资讯',
-          path: '/zixun'
-        }, {
-          nav_name: '产业研究',
-          path: '/industry'
+          name: '产业研究',
+          path: '/industry',
+	        id: 2
         }],
         //绑定手机的状态
         showBindPhoneStatus: (() => {
           return router.currentRoute.fullPath === '/';
-        })()
+        })(),
+	      getData: {}
       }
     },
+	  mounted() {
+      this.$axios.get('/api/index/index')
+	      .then(res => {
+					const {data} = res.data;
+					this.getData = data;
+	      })
+	      .catch(err => {
+					console.log(err);
+	      })
+	  },
     methods: {
       routerTo(item) {
-        const path = item.path;
-        this.$router.push(path);
+        const { path, id } = item;
+        this.$router.push(this.$router.routerID.getPathID({
+          id: id, // 和后台id 对应
+          params: {
+            id: id // 对应router里面的id
+          }
+        }));
       },
       closeBindPhone() {
         this.showBindPhoneStatus = false;
-      }
+      },
+      api() {
+        return this.$axios.get('/api/index/index', {
+          params: {
+            page: this.load.params.page++
+          }
+        }).then((res) => {
+          const { data: resultData } = res.data;
+          if (scrollNoHasListData.call(this, {
+            resultData,
+            listKey: 'list'
+          })) {
+            return scrollEndHook.call(this);
+          } else {
+            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+          }
+        }).catch((error) => {
+          console.log(error);
+          return scrollEndHook.call(this);
+        });
+      },
     },
+	  components: {
+      "recommend-arrlist": recommendArrlist
+	  }
   }
 </script>
 
@@ -338,10 +422,6 @@
 		.tuijian-title {
 			width: rem(155);
 			height: rem(51);
-		}
-		.tuijian-article-img {
-			width: rem(120);
-			height: rem(80);
 		}
 	}
 

@@ -30,8 +30,8 @@
 			<span class='bc-f-18rp'>为您推荐</span>
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<div  slot="scroll-items">
-					<router-link :to="`/grow/video/room?id=${item.id}`" v-for="(item,index) in resvideo.data_recommend"
-					     class=" bc-mg-r-10rp  bc-inline-block bc-t-c bc-pd-t-10rp"
+					<router-link :to="`${$router.currentRoute.fullPath}/room?id=${item.id}`" v-for="(item,index) in resvideo.data_recommend"
+					     class=" bc-mg-r-10rp  bc-inline-block bc-t-c bc-pd-t-10rp scrollvideo"
 					     @click="select(item,index)"
 					>
 						<div class='bc-ps-r'>
@@ -41,7 +41,7 @@
 								<span class='bc-mg-l-3rp bc-f-10rp'>回放</span>
 							</div>
 						</div>
-						<div class='bc-f-14rp t-hide' style='font-weight: 500'>{{item.title}}</div>
+						<div class='bc-f-14rp t-hide bc-t-333 bc-t-hide' style='font-weight: 500'>{{item.title}}</div>
 						<div class='bc-f-12rp bc-t-666 '>{{item.start_time | timeFilter("Y.M.D")}}</div>
 					
 					</router-link>
@@ -158,19 +158,23 @@
 			}
 		}
 		.scroll-x {
-			img{
+			.scrollvideo{
 				width: rem(120);
-				height: rem(80);
+				img{
+					width: rem(120);
+					height: rem(80);
+				}
+				.replay{
+					color:#fff;
+					top:50%;
+					left:50%;
+					background-color: rgba(0,0,0,.4);
+					transform: translate(-50%,-50%);
+					padding: rem(3) rem(8);
+					border-radius: rem(12);
+				}
 			}
-			.replay{
-				color:#fff;
-				top:50%;
-				left:50%;
-				background-color: rgba(0,0,0,.4);
-				transform: translate(-50%,-50%);
-				padding: rem(3) rem(8);
-				border-radius: rem(12);
-			}
+			
 		}
 		
 	}

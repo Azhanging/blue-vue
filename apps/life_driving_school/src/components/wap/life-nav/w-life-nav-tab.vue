@@ -15,17 +15,21 @@
 			return {
 				nav: [
 					{
-						nav_name: '首页',
-						path: '/life-nav'
+						name: '首页',
+						id:4,
+						//path: '/life-nav'
 					},{
-						nav_name: '驾照课程',
-						path: '/life-nav/driving-license'
+						name: '驾照课程',
+						id:38,
+						//path: '/life-nav/driving-license'
 					},{
-						nav_name: '问答专区',
-						path: '/life-nav/question-answer'
+						name: '问答专区',
+						id:42,
+						//path: '/life-nav/question-answer'
 					},{
-						nav_name: '为您推荐',
-						path: '/life-nav/recommend'
+						name: '为您推荐',
+						id:43,
+						//path: '/life-nav/recommend'
 					}]
 			}
 		},

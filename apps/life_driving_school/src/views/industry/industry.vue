@@ -12,11 +12,22 @@
 			</div>
 		</w-home-header>
 
-		<w-home-nav :nav='nav' @router-to='_init' :active-index='activeIndex' style="background: #fff"></w-home-nav>
+		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp" style="background: #fff">
+			<div class='bc-flex bc-flex-ai-c ' >
+				<a href="/" class="bc-flex-1 ">首页</a>
+				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
+					<a class="bc-flex-1" :class="[1 !== index ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+					   v-if="item.name"
+					>
+						{{item.name}}
+					</a>
+				</div>
+			</div>
+		</div>
 
 		<div class="bc-pd-10rp industry">
 
-				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10" @click="routerTo(1)">
+				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10" @click="toDetail(1)">
 					<div class="bc-flex-1 bc-t-c">
 						<img class="industry-icon inline-block" :src="`${$config.path.static}/img/industry/dajiankang.png`" alt="">
 					</div>
@@ -31,7 +42,7 @@
 					</div>
 				</div>
 
-				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10"  @click="routerTo(2)">
+				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10"  @click="toDetail(2)">
 					<div class="bc-flex-1 bc-t-c">
 						<img class="industry-icon inline-block" :src="`${$config.path.static}/img/industry/dtb.png`" alt="">
 					</div>
@@ -46,7 +57,7 @@
 					</div>
 				</div>
 
-				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10"  @click="routerTo(3)">
+				<div class="bc-mg-b-10rp bc-flex bc-flex-ai-c bc-bg-white bc-pd-tb-10"  @click="toDetail(3)">
 					<div class="bc-flex-1 bc-t-c">
 						<img class="industry-icon inline-block" :src="`${$config.path.static}/img/industry/life_school.png`" alt="">
 					</div>
@@ -79,39 +90,54 @@ export default {
       title: '生命导航',
       nav: [
         {
-          nav_name: '首页',
-          path: '/'
-        },{
-          nav_name: '资讯',
+          name: '资讯',
           path: '/zixun',
+	        id: 1,
           params: {
             type: "zixun"
           }
         }, {
-          nav_name: '产业研究',
-          path: '/industry'
+          name: '产业研究',
+          path: '/industry',
+		      id: 2
         }],
       activeIndex: 2,
     }
 	},
   methods: {
-    _init(opts = {}) {
-      const { params } = opts;
+    routerTo(item) {
+      const { id } = item;
+      this.$router.push(this.$router.routerID.getPathID({
+        id: id, // 和后台id 对应
+        params: {
+          id: id // 对应router里面的id
+        }
+      }));
     },
-    routerTo(type) {
-      this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${type}`})
-      console.log('~');
+    toDetail(type) {
+      this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${type}`});
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+	.wap {
+		.home-nav {
+			border-bottom: 1px #eee solid;
+			.active {
+				color: $color-base;
+				border-bottom: 2px $color-base solid;
+			}
+		}
+		.industry {
+			.industry-icon {
+				width: rem(41);
+				height: rem(41);
+			}
+		}
 
-.industry {
-	.industry-icon {
-		width: rem(41);
-		height: rem(41);
 	}
-}
+
+
 </style>

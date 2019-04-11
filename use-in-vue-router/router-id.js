@@ -86,26 +86,27 @@ class RouterID {
 
   //获取
   getPathID(opts = {}) {
-    const { id, params = {}, query = {} } = opts;
-    let path = this.routesID[id];
-    if (!path) return '/';
-    path = path.split('/');
+    const { id, params = {}, query = {}, path = '/' } = opts;
+    let routerPath = this.routesID[id];
+    if (!routerPath) return path;
+    routerPath = routerPath.split('/');
 
     //替换params
     utils.each(params, (val, key) => {
-      const index = path.indexOf(`:${key}`);
-      if (index !== -1) {
-        path[index] = val;
+      let index = routerPath.indexOf(`:${key}`);
+      while(index !== -1){
+        routerPath[index] = val;
+        index = routerPath.indexOf(`:${key}`);
       }
     });
 
-    path = path.join('/');
+    routerPath = routerPath.join('/');
 
     //添加query
     if (!utils.nullPlainObject(query)) {
-      path += `?${utils.stringifyParams(query)}`;
+      routerPath += `?${utils.stringifyParams(query)}`;
     }
-    return path;
+    return routerPath;
   }
 }
 

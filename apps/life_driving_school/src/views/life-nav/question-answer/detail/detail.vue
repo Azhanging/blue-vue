@@ -11,38 +11,40 @@
 			<div class="question-item">
 				<div class="question-ask">
 					<div class="question-ask-l"><i>Q</i></div>
-					<div class="question-ask-c">你能帮我查查电子发票上的税价合计是指什么吗?</div>
-					<div class="question-ask-r" @click="btn_reply"><i class="iconfont icongengduo"></i></div>
+					<div class="question-ask-c">{{ det_data.question }}</div>
+					<div class="question-ask-r" @click="btn_reply(null)"><i class="iconfont icongengduo"></i></div>
 				</div>
 				<div class="question-answer">
 					<div class="question-answer-l">
 						<i>A</i>
 					</div>
 					<div class="question-answer-r">
-						可选中1个或多个下面的关键词，搜索相关资料。也可直接点“搜索资料”搜索整个问题。
+						{{ det_data.answer }}
 					</div>
 				</div>
-
+				<button @click="btn_comments">提交评论测试按钮</button>
 				<div class="question-review">
 					<h2>全部评论</h2>
-					<div class="question-review-top">
+					<div class="question-review-top" v-for="(item,index) in contentData">
 						<div class="question-review-top-l">
-							<img src="https://image.dtb315.com/76343.jpg">
+							<img :src="item.head_img">
 						</div>
 						<div class="question-review-top-r">
 							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">聪明的一休</div>
+								<div class="question-review-top-tit-l">{{ item.nickname }}</div>
 								<div class="question-review-top-tit-r">
-									<span><i class="iconfont icondianzan"></i> 2222</span>
-									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
+									<span @click="btn_commLike(item.id,index)" :class="{on:(item.like)}"><i class="iconfont icondianzan"></i> {{ item.like_num }}</span>
+									<span @click="btn_reply(item.id)"><i class="iconfont icongengduo"></i></span>
 								</div>
 							</div>
-							<div class="question-review-top-time">1小时前</div>
-							<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
-							<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
+							<div class="question-review-top-time">{{ item.time }}</div>
+							<div class="question-review-top-box">{{ item.content }}</div>
+							<div class="question-review-top-reply" v-for="comms in item.son">
+								<!--<span>@猫和老鼠</span>--><span>{{ comms.nickname }}</span> {{ comms.content }}
+							</div>
 						</div>
 					</div>
-					<div class="question-review-top">
+					<!--<div class="question-review-top">
 						<div class="question-review-top-l">
 							<img src="https://image.dtb315.com/76343.jpg">
 						</div>
@@ -57,7 +59,7 @@
 							<div class="question-review-top-time">2小时前</div>
 							<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 
@@ -76,7 +78,7 @@
 				<!--@keypress="btn_comments"-->
 			</div>
 			<div class="review-txt-r">
-				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
+				<div><i class="iconfont iconpinglun"></i><span v-if="det_data.comment_num>0">{{ det_data.comment_num }}</span></div>
 				<div><i class="iconfont iconxingxing"></i></div>
 				<div><i class="iconfont icondianzan"></i></div>
 				<div><i class="iconfont icon-"></i></div>
@@ -93,6 +95,7 @@
 
 <script>
 	import Index from "../question-answer";
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	import store from '@store'
 	export default {
 		name: "detail",
@@ -100,14 +103,20 @@
 		data() {
 			return {
 				reply_show:false,
+				det_data:'',
+				contentData:'',
+				content_txt:'',
+				pid:null//回复别人评论id
 			}
 		},
 		methods: {
-			btn_reply() {
+			btn_reply(i) {
 				this.reply_show = true
+				this.pid = i;
 			},
 			btn_reply_h() {
 				this.reply_show = false
+				this.pid = null;
 			},
 			btn_reply_txt(){
 				this.reply_show = false;
@@ -116,6 +125,80 @@
 					this.$refs.review_hf.focus()
 				})
 			},
+			show_detail(){//详情获取
+				return this.$axios.get('/api/feedback/info',{
+					params: {
+						feedback_id: this.$route.query.feedback_id
+					}
+				}).then((res)=>{
+					console.log(res.data.data)
+					this.det_data = res.data.data
+					this.contentData = res.data.data.comment.list
+				}).catch((err)=>{
+					console.log(err);
+				})
+			},
+
+			btn_comments(){//发布评论
+
+				if(this.content_txt==''){
+					$toast({
+						message: '评论不能为空',
+						duration: 3000
+					});
+					return;
+				}
+
+				this.$axios.post('/api/feedback/comment',{
+					feedback_id: this.$route.query.feedback_id,//id
+					comment_id: this.pid,//评论id
+					content:this.content_txt,//评论内容
+					//at_id:1,
+				}).then((res)=>{
+					console.log(res.data)
+					if(res.data.code==200){
+						$toast({
+							message: '评论成功',
+							duration: 3000
+						});
+						this.content_txt='';
+						this.pid = null;//清楚评论别人id
+						this.show_detail();//刷新评论
+					}else {
+						$toast({
+							message: '评论失败',
+							duration: 3000
+						});
+						return;
+					}
+				});
+
+			},
+
+			//给评论点赞
+			btn_commLike(cid,i){
+				//console.log(cid)
+				this.$axios.get('/api/feedback/commentLike', {
+					params: {
+						comment_id:cid
+					}
+				}).then(res => {
+					//console.log(res)
+					//console.log(res.data.data.like)
+					//console.log(res.data.data.like_num)
+					if(res.data.data.like){
+						this.contentData[i].like = res.data.data.like
+						this.contentData[i].like_num = res.data.data.like_num
+					}else {
+						this.contentData[i].like = res.data.data.like
+						this.contentData[i].like_num = res.data.data.like_num
+					}
+				})
+			}
+
+		},
+		mounted() {
+			this.show_detail();
 		}
 	}
 </script>
@@ -293,6 +376,12 @@
 							.question-review-top-tit-r {
 								span {
 									margin-left: rem(10);
+								}
+								span.on{
+									color: #CA9F75;
+									i.icondianzan{
+										color: #CA9F75;
+									}
 								}
 							}
 						}

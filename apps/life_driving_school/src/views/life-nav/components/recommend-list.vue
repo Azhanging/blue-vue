@@ -3,7 +3,7 @@
 		<bv-scroll :api="api" :disabled="true">
 
 			<div class="recommend-li" v-for="(item,index) in this.load.data.lists" :key="index">
-				<router-link :to="{path:`${currentFullPath}/detail`+'?circle_id='+item.id}">
+				<router-link :to="{path:'/life-nav/recommend/detail'+'?circle_id='+item.id}">
 					<div class="recommend-li-top">
 						<div class="recommend-li-top-img">
 							<img :src="item.head_img">
@@ -17,7 +17,7 @@
 
 				<div class="recommend-li-box">
 					<div class="recommend-li-box-p">
-						<router-link :to="{path:`${currentFullPath}/detail`+'?circle_id='+item.id}">
+						<router-link :to="{path:'/life-nav/recommend/detail'+'?circle_id='+item.id}">
 							{{item.sub_content}}
 						</router-link>
 					</div>
