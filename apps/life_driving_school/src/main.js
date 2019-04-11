@@ -13,20 +13,19 @@ import '@/assets/css/blue-component.scss';
 //预设mint-ui中的css
 import '@/assets/css/mint-ui.scss';
 
-
 //设备相关
 device({
-	Vue
+  Vue
 });
 
 //使用插件到Vue，相对于公共的插件
 useInVue({
-	Vue
+  Vue
 });
 
 //当前项目构建的插件|组件入口
 useInVueProgram({
-	Vue
+  Vue
 });
 
 Vue.config.productionTip = false;
@@ -36,12 +35,12 @@ Vue.config.silent = true;
 Vue.config.warnHandler = false;
 
 new Vue({
-	router,
-	store,
-	created() {
-		//用户相关
-		 user();
-	},
-	render: h => h(App)
+  router,
+  store,
+  created() {
+    //用户相关
+    user();
+  },
+  render: h => h(App)
 }).$mount('#app');
 

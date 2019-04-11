@@ -59,25 +59,61 @@ export function cutImage(val, w, h) {
 1、5分钟内：刚刚 ； 5~10分钟：5分钟前； 10~15分钟：10分钟前
 2、15分钟~60分钟：1小时前  ； 1小时~2小时：2小时前
 3、两小时~当天内：XX时XX分（24小时制）；
-4.超过一天：2018-01-01 xx时xx分
+4、超过一天：2018-01-01 xx时xx分
 * */
 export function sendTime(time) {
-  //当前的时间
+
   const currentTime = new Date().getTime();
+
   //1分钟
-  const min1 = 1000 * 60;
+  const inMin1 = 1000 * 60;
+
+  function inTime(min) {
+    return (currentTime - time < (inMin1 * min));
+  }
+
+  function ood(num) {
+    if (num < 10) {
+      return `0${num}`;
+    }
+    return num;
+  }
+
   //5分钟
-  const inMin5 = (currentTime - time <= (min1 * 5));
+  const inMin5 = inTime(5);
+  //10分钟
+  const inMin10 = inTime(10);
   //15分钟
-  const min15 = min1 * 15;
+  const inMin15 = inTime(15);
   //60分钟
-  const h1 = min1 * 60;
+  const inH1 = inTime(60);
   //2小时
-  const h2 = min1 * 60 * 2;
+  const inH2 = inTime(60 * 2);
   //1天
-  const d1 = currentTime - time;
+  const otherToday = (new Date(time).getDate() !== new Date().getDate());
 
-  if (val) {
-
+  if (inMin5) {
+    return '刚刚';
+  } else if (!inMin5 && inMin10) {
+    return '5分钟前';
+  } else if (!inMin10 && inMin15) {
+    return '10分钟前';
+  } else if (!inMin15 && inH1) {
+    return '1小时前';
+  } else if (!inH1 && inH2) {
+    return '2小时前';
+  } else if (!inH2 && !otherToday) {
+    const date = new Date(time);
+    let hours = date.getHours();
+    let min = date.getMinutes();
+    return `${ood(hours)}时${ood(min)}分`;
+  } else if (otherToday) {
+    const date = new Date(time);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const hours = date.getHours();
+    const min = date.getMinutes();
+    return `${year}-${month + 1}-${day} ${hours}时${min}分`;
   }
 }
