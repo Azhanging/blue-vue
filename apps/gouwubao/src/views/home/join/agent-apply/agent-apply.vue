@@ -153,10 +153,7 @@
 		<template slot="other">
 			<div class="bc-bd-t-e5e bc-row bc-pd-lr-20rp bc-pd-b-15rp bc-ps-f bc-bg-white" style="bottom:0;left:0;" v-show="$store.state.view.pageFixed">
 				<div class="bc-row  bc-pd-tb-11rp bc-v-m">
-					<label class="bc-v-m">
-						<input type="checkbox" v-model="protocol">
-						我同意
-					</label>
+					<input type="checkbox" v-model="protocol" class="bc-inline-block bc-mg-r-5rp">我同意
 					<a href="" class="bc-t-info">《点通宝代理智能合约》</a>
 				</div>
 				<div class="bc-row">

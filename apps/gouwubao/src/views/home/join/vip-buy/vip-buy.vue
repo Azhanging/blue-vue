@@ -2,55 +2,71 @@
 <template>
 	<bv-home-view class='wap' :router-level='3'>
 		<bv-header :header="{title:{value:'支付'}}"/>
-		<div class="renewal-top">
-			<div class="renewal-top-item">
-				<div class="renewal-top-item-l">
-					尊享VIP
+
+		<!-- 购买 -->
+		<div class="bc-row">
+			<div class="bc-row bc-pd-lr-15rp">
+				<div class="bc-flex bc-flex-jc-sb bc-pd-tb-21rp bc-bd-b-e5e">
+					<div class="bc-flex-1">
+						尊享VIP
+					</div>
+					<div class="bc-flex-1 bc-t-base bc-t-r" style="color:#bb8f41;">
+						¥{{price}}
+					</div>
 				</div>
-				<div class="renewal-top-item-r">¥{{price}}</div>
 			</div>
-			<div class="renewal-top-item">
-				<div class="renewal-top-item-l">
-					购买年限
+			<div class="bc-row bc-pd-lr-15rp">
+				<div class="bc-flex bc-flex-jc-sb bc-pd-tb-21rp bc-bd-b-e5e">
+					<div class="bc-flex-1">
+						购买年限
+					</div>
+					<div class="bc-flex-1 bc-t-base bc-t-r" style="color:#bb8f41;">
+						1年
+					</div>
 				</div>
-				<div class="renewal-top-item-r">1年</div>
 			</div>
-			<div class="renewal-top-item">
-				<div class="renewal-top-item-l">
-					账户通宝余额
+			<div class="bc-row bc-pd-lr-15rp">
+				<div class="bc-flex bc-flex-jc-sb bc-pd-tb-21rp bc-bd-b-e5e">
+					<div class="bc-flex-1">
+						账户通宝余额
+					</div>
+					<div class="bc-flex-1 bc-t-base bc-t-r" style="color:#bb8f41;">
+						¥{{money}}
+					</div>
 				</div>
-				<div class="renewal-top-item-r">¥{{money}}</div>
 			</div>
 		</div>
 
-		<div class="renewal-interests">
-			<div class="interests-title">成为VIP享专属权益</div>
-			<div class="interests-box">
-				<div class="interests-item">
+		<!-- 权益 -->
+		<div class="bc-row bc-t-c">
+			<div class="bc-row bc-f-b bc-f-16rp bc-pd-tb-20rp">
+				成为VIP享专属权益
+			</div>
+			<div class="bc-flex">
+				<div class="bc-flex-1">
 					<img :src="`${staticPath}/icon-1.png`" alt="" style="width:2.5rem;">
-					<div>积分好礼</div>
-					<div class="interests-item-kthl">开通即享积分好礼</div>
+					<div class="bc-pd-tb-2rp" style="color:#BB8F41;">积分好礼</div>
+					<div class="bc-f-12rp">开通即享积分好礼</div>
 				</div>
-				<div class="interests-item">
+				<div class="bc-flex-1">
 					<img :src="`${staticPath}/icon-2.png`" alt="" style="width:2.5rem;">
-					<div>服务支持</div>
-					<div class="interests-item-kthl">尊享多种服务支持</div>
+					<div class="bc-pd-tb-2rp" style="color:#BB8F41;">服务支持</div>
+					<div class="bc-f-12rp">尊享多种服务支持</div>
 				</div>
-				<div class="interests-item">
+				<div class="bc-flex-1">
 					<img :src="`${staticPath}/icon-3.png`" alt="" style="width:2.5rem;">
-					<div>VIP特供产品</div>
-					<div class="interests-item-kthl">享VIP专区产品</div>
+					<div class="bc-pd-tb-2rp" style="color:#BB8F41;">VIP特供产品</div>
+					<div class="bc-f-12rp">享VIP专区产品</div>
 				</div>
 			</div>
+
 		</div>
+
 
 		<template slot="other">
 			<div class="bc-row bc-pd-lr-20rp bc-pd-b-15rp bc-ps-f bc-bg-white" style="bottom:0;left:0;" v-show="$store.state.view.pageFixed">
 				<div class="bc-row  bc-pd-tb-11rp bc-v-m">
-					<label class="bc-v-m">
-						<input type="checkbox" v-model="protocol">
-						我同意
-					</label>
+					<input type="checkbox" v-model="protocol" class="bc-inline-block bc-mg-r-5rp">我同意
 					<a href="" class="bc-t-info">《点通宝代理智能合约》</a>
 				</div>
 				<div class="bc-row">
@@ -103,8 +119,6 @@
 </script>
 
 <style scoped lang="scss">
-	@import "@css/member.scss";
-
 	//加入按钮
 	.join-btn {
 		padding-top: rem(5) !important;

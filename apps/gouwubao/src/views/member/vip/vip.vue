@@ -35,38 +35,48 @@
 			</div>
 		</div>
 
-		<!--vip专属权益-->
-		<div class="interests">
-			<div class="interests-title">VIP专属权益</div>
-			<div class="interests-box">
-				<div class="interests-item" v-for="(item,index) in interestsItem">
+		<!--VIP专属权益-->
+		<div class="bc-row bc-bd-t-e5e" >
+			<div class="bc-row bc-f-b bc-f-15rp bc-pd-15rp" style="color:#635F58;">
+				VIP专属权益
+			</div>
+			<div class="bc-flex bc-t-c bc-f-12rp">
+				<div class="bc-flex-1"  v-for="(item,index) in interestsItem">
 					<img :src="`${staticPath}/icon-${index+1}.png`" alt="" style="width:2.6rem;">
-					<div class="bc-pd-t-4rp">{{ item.name }}</div>
-					<div class="interests-item-jf">{{ item.jf }}</div>
+					<div class="bc-pd-t-4rp" style="color: #BB8F41;">{{ item.name }}</div>
+					<div class="">{{ item.jf }}</div>˝
 				</div>
 			</div>
 		</div>
 
-		<!--vip专属产品-->
-		<div class="interests">
-			<div class="interests-title">VIP专属产品</div>
-			<div class="interests-product">
+		<!--VIP专属权益-->
+		<div class="bc-row bc-bd-t-e5e" >
+			<div class="bc-row bc-f-b bc-f-15rp bc-pd-15rp" style="color:#635F58;">
+				VIP专属产品
+			</div>
+			<div class="bc-flex bc-t-c bc-f-12rp bc-pd-lr-15rp bc-pd-b-15rp">
 				<router-link to="/">
 					<img :src="`${staticPath}/vip-shop.png`" class="bc-w-100"/>
 				</router-link>
 			</div>
 		</div>
+
 		<!--vip专属服务-->
-		<div class="interests">
-			<div class="interests-title">VIP专属服务</div>
-			<div class="interests-service">
-				<div class="interests-service-item">
-					1.开通成功立享限量专属好礼，即送1000积分。
-					2.VIP会员在商城消费最高可享等额积分（积分均可用于积分商城抵扣现金使用）。
+		<div class="bc-row" >
+			<div class="bc-row bc-f-b bc-f-15rp bc-pd-lr-15rp bc-pd-b-15rp" style="color:#635F58;">
+				VIP专属服务
+			</div>
+			<div class="bc-row bc-pd-lr-15rp bc-pd-b-15rp">
+				<div class="bc-row bc-pd-10rp" style="background-color: #f5f5f5;">
+					<div class="bc-pd-tb-4rp">
+						1.开通成功立享限量专属好礼，即送1000积分。
+					</div>
+					<div class="bc-pd-tb-4rp">
+						2.VIP会员在商城消费最高可享等额积分（积分均可用于积分商城抵扣现金使用）。
+					</div>
 				</div>
 			</div>
 		</div>
-
 	</bv-home-view>
 </template>
 
@@ -108,5 +118,95 @@
 </script>
 
 <style scoped lang="scss">
-	@import "@css/member.scss";
+
+	.vip-top {
+		background: #47443E;
+		height: rem(180);
+		position: relative;
+		margin-bottom: rem(60);
+		.vip-header {
+			display: flex;
+			align-items: center;
+			color: #fff;
+			padding: 0 rem(15);
+			.vip-header-l {
+			}
+			.vip-header-c {
+				flex: 1;
+				padding: rem(15);
+				text-align: center;
+				font-size: rem(18);
+			}
+			.vip-header-r {
+			}
+		}
+		.vip-card {
+			background: rgb(252, 235, 179);
+			height: rem(166);
+			position: absolute;
+			left: rem(15);
+			right: rem(15);
+			top: rem(60);
+			border-radius: rem(5);
+			.vip-card-top {
+				display: flex;
+				padding: rem(15);
+				background: url(#{$base-static-path + '/img/member/vip/my-vip-bg.png' }) no-repeat;
+				background-position: center right;
+				background-size: 40%;
+				border-bottom: 1px solid #D8C07F;
+				.vip-card-top-l {
+					width: rem(45);
+					height: rem(45);
+					overflow: hidden;
+					border-radius: 100%;
+					margin-right: rem(10);
+					img {
+						width: 100%;
+						height: 100%;
+					}
+				}
+				.vip-card-top-r {
+					flex: 1;
+					.vip-card-top-r-name {
+						color: #635F58;
+						font-size: rem(16);
+						margin-top: rem(5);
+					}
+					.vip-card-top-r-time {
+						color: #8B7D5C;
+						font-size: rem(12);
+					}
+				}
+			}
+			.vip-card-renewal {
+				display: flex;
+				padding: 0 rem(15);
+				padding-top: rem(45);
+				padding-bottom: rem(15);
+				align-items: center;
+				background: url(#{$base-static-path + '/img/member/vip/vip-bg.png' }) no-repeat;
+				background-position: bottom left;
+				background-size: 30%;
+				.vip-card-renewal-NO {
+					flex: 1;
+					font-size: rem(12);
+					color: #635F58;
+				}
+				.vip-card-renewal-btn {
+					a {
+						display: block;
+						height: rem(30);
+						line-height: rem(30);
+						padding: 0 rem(10);
+						background: #E0C586;
+						font-size: rem(16);
+						color: #fff;
+						border-radius: rem(15);
+					}
+				}
+			}
+		}
+
+	}
 </style>
