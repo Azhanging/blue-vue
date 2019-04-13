@@ -39,11 +39,6 @@ function bindRelation(params) {
       console.log(res.data);
     });
   } else {
-    const redirect_url = window._assign.redirect_url;
-    if (redirect_url && redirect_url !== '{$redirect_url}') {
-      location.href = `${config.path.base}${redirect_url}`;
-      return false;
-    }
     return true;
   }
 }
@@ -82,10 +77,19 @@ export function bindPhone(opts = {}) {
 }
 
 //重定向到绑定手机的页面
-export function redirectBindPhone(){
+export function redirectBindPhone() {
   $toast({
     message: '跳转绑定手机中...',
     duration: 10000
   });
-  location.href = `${config.path.base}/common/wechatlogin?url=${encodeURIComponent(router.getHref())}`;
+
+  //检查是否为混合开发
+  let href;
+  if (config.mixedDevelopment) {
+    href = `${config.path.bindPhone}?url=${encodeURIComponent(`${config.path.indexPath}/${router.mode === 'hash' ? '#' : ''}${router.currentRoute.fullPath}`)}`;
+  } else {
+    href = `${config.path.bindPhone}?url=${encodeURIComponent(router.getHref())}`;
+  }
+
+  location.href = href;
 }

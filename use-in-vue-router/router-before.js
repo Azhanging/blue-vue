@@ -4,10 +4,13 @@ import RouterNext from './router-next';
 import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
 import { bind } from '$assets/js/bind';
 import { routerID } from '@router';
+import { serverRedirect } from '$assets/js/redirect';
 
 //main
 export function routerBeforeEach(opts = {}) {
   const { router, beforeEach } = opts;
+
+  //存在重定向的不在走router beforeEach
   router.beforeEach((to, from, next) => {
     //设置子菜单的状态
     setTabBarSubmenuIndex({
@@ -21,6 +24,11 @@ export function routerBeforeEach(opts = {}) {
       to,
       from
     });
+
+    //检查重定向参数
+    routerNext.add([
+      serverRedirect()
+    ]);
 
     //项目内使用的before each
     routerNext.add([

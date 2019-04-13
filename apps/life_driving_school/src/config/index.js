@@ -18,8 +18,31 @@ const path = (() => {
   return path;
 })();
 
+//环境域名路径
+const dtbPath = (() => {
+  let path = '';
+  if (env.dev) {
+    path = 'http://pc.lifest.dtb315.cn';
+  } else if (env.beta) {
+    path = 'http://beta.lifest.dtb315.com';
+  } else {
+    path = 'http://lifest.dtb315.com';
+  }
+  return path;
+})();
+
 //静态资源路径
 const staticPath = `${path}/static`;
+
+//登录path
+const loginPath = (() => {
+  return `${dtbPath}/home/common/index`;
+})();
+
+//绑定手机
+const bindPhonePath = (() => {
+  return `${dtbPath}/common/wechatlogin`;
+})();
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
@@ -30,7 +53,9 @@ const config = utils.extend(publicConfig, {
   env,
   path: {
     base: location.origin,
-    static: staticPath
+    static: staticPath,
+    login: loginPath,
+    bindPhone: bindPhonePath
   },
   share: {
     title: "生命驾校·智慧导航",

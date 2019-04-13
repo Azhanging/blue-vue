@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<bv-scroll :api="api" :disabled="true">
+		<bv-scroll :api="api" :disabled="load.state.disabled">
 
 			<div class="recommend-li" v-for="(item,index) in this.load.data.lists" :key="index">
-				<router-link :to="{path:'/life-nav/recommend/detail'+'?circle_id='+item.id}">
+				<router-link :to="`${$router.currentRoute.fullPath}/detail/${item.id}`">
 					<div class="recommend-li-top">
 						<div class="recommend-li-top-img">
 							<img :src="item.head_img">
@@ -17,13 +17,13 @@
 
 				<div class="recommend-li-box">
 					<div class="recommend-li-box-p">
-						<router-link :to="{path:'/life-nav/recommend/detail'+'?circle_id='+item.id}">
+						<router-link :to="`${$router.currentRoute.fullPath}/detail/${item.id}`">
 							{{item.sub_content}}
 						</router-link>
 					</div>
 					<div class="recommend-li-box-imgb">
 						<!--<div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
-						<bv-scroll :api="api">
+						<bv-scroll :api="api" :disabled="load.state.disabled">
 							<div>
 								<div v-blue-photoswipe="{itemTagName:'DIV'}">
 									<div v-for="(img,index) in item.list_img" class="img-list">
@@ -104,13 +104,16 @@
 	export default {
 		name: "recommend-list",
 		mixins: [scrollMixin()],
+		created() {
+			console.log(this.load.state);
+		},
 		data() {
 			return {
-				likes:''
+				likes: ''
 			}
 		},
-		computed:{
-			currentFullPath(){
+		computed: {
+			currentFullPath() {
 				return this.$router.currentRoute.fullPath;
 			}
 		},
@@ -122,13 +125,14 @@
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					//console.log(res)
-					const { data: resultData } = res.data;
+					//console.log(res.data)
+					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
 					})) {
-						return scrollEndHook.call(this);
+						const {disabled} = scrollEndHook.call(this);
+						this.load.state.disabled = disabled
 					} else {
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
@@ -137,24 +141,26 @@
 				});
 
 			},
-			btn_like(kid,i) {//点赞
+			btn_like(kid, i) {//点赞
 				//console.log(kid)
 				this.$axios.get('/api/circle/like', {
 					params: {
-						circle_id:kid
+						circle_id: kid
 					}
 				}).then(res => {
 					//console.log(res.data.data.like)
 					//console.log(res.data.data.like_num)
-					if(res.data.data.like){
+					if (res.data.data.like) {
 						this.load.data.lists[i].like = res.data.data.like
 						this.load.data.lists[i].like_num = res.data.data.like_num
-					}else {
+					} else {
 						this.load.data.lists[i].like = res.data.data.like
 						this.load.data.lists[i].like_num = res.data.data.like_num
 					}
 				})
 			},
+		},
+		mounted() {
 		}
 	}
 </script>
@@ -173,6 +179,7 @@
 		.recommend-li-top {
 			padding: rem(15) 0;
 			overflow: hidden;
+
 			.recommend-li-top-img {
 				width: rem(50);
 				height: rem(50);
@@ -180,6 +187,7 @@
 				border-radius: 100%;
 				margin-right: rem(8);
 				float: left;
+
 				img {
 					width: 100%;
 					vertical-align: top;
@@ -216,7 +224,8 @@
 				color: #333;
 				line-height: rem(24);
 				margin-bottom: rem(15);
-				a{
+
+				a {
 					color: #333;
 				}
 			}
@@ -298,12 +307,14 @@
 				font-size: rem(12);
 				color: #666;
 
-				span{
+				span {
 					margin-right: rem(20);
 				}
-				span.on{
+
+				span.on {
 					color: #CA9F75;
-					i.icondianzan{
+
+					i.icondianzan {
 						color: #CA9F75;
 					}
 				}

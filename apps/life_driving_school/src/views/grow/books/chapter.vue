@@ -8,19 +8,17 @@
 
 		<div class="bc-reset-ul bc-media chapter-box">
 			<div class="bc-mg-b-10rp">
-				<a class="t-333" href="">
-					<div class="bc-media pd-t-15 bc-row bc-c-f">
-						<div class="bc-media-left">
-							<img class="tuijian-article-img" :src="infos.src_img" v-if="">
-						</div>
-						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-							<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ infos.opening_language }}</div>
-							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-								{{ infos.content }}
-							</div>
+				<div class="bc-media pd-t-15 bc-row bc-c-f">
+					<div class="bc-media-left">
+						<img class="tuijian-article-img" :src="infos.src_img" v-if="">
+					</div>
+					<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+						<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ infos.opening_language }}</div>
+						<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+							{{ infos.content }}
 						</div>
 					</div>
-				</a>
+				</div>
 			</div>
 
 		</div>
@@ -35,7 +33,7 @@
 			<div class="bc-reset-ul bc-media chapter-box-f">
 
 				<div class="bc-pd-b-10rp bc-pd-t-10rp chapter-border" v-for="contents in item.content">
-					<a class="t-333" href="">
+					<router-link class="t-333" :to="`${$router.currentRoute.fullPath}/detail/${contents.id}`">
 						<div class="bc-media pd-t-15 bc-row bc-c-f">
 							<div class="bc-media-left">
 								<img class="tuijian-article-img" :src="contents.src_img" v-if="">
@@ -47,7 +45,7 @@
 								</div>
 							</div>
 						</div>
-					</a>
+					</router-link>
 				</div>
 
 			</div>
@@ -95,11 +93,10 @@
 			festivalList() {
 				this.$axios.get('/api/book/chapterList',{
 					params: {
-						id: this.$route.query.id
+						id: this.$route.params.chapter_id
 					}
 				}).then((res)=>{
 					console.log(res)
-
 					this.infos = res.data.data.info;
 					this.lists = res.data.data.list;
 				}).catch((err)=>{

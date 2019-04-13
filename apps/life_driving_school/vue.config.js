@@ -37,7 +37,9 @@ module.exports = utils.extend(publicVueConfig, {
         target: 'http://pc.lifest.dtb315.cn',
         //代理登录状态cookie
         onProxyReq(proxyReq, req, res) {
-          proxyReq.setHeader('cookie', 'b72b76241459936962c978f326f7463b=%257D%25B9%25BEg%25B0%25A2%2581%25B1; PHPSESSID=p6uf7lrvgo9sbjk5krf7di6ab5; 9de70f6546b2452f6e7b98b46ac36070=22eb0de6dbac4bb6c587f2e7d59e4dc5; prev_page=aHR0cDovL3BjLmR0YjMxNS5jbi8%3D; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1553653584,1553679473,1553827238,1554085209; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554085209; come_from=0; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9ob21lL2hvbWUvZ2V0UmVjb21tZW5kRm9yWW91P3BhZ2U9MSZQPTEmcD0xJlBhZ2U9MSZfPTE1NTQwODUyMTIzMjU%3D');
+          proxyReq.setHeader('cookie',
+"b72b76241459936962c978f326f7463b=%257D%25B9%25BEg%25AF%257C%2581%25AE; yunsuo_session_verify=986e507cffeee6501760a92f529273a2; PHPSESSID=8thadbo0a6cie44h7hg0mh5ak6; 9de70f6546b2452f6e7b98b46ac36070=5ac013881b9086a8b47beb9f10e5303b; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554350086,1554690781,1554967950,1555036752; prev_page=aHR0cHM6Ly9wYy5kdGIzMTUuY24v; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555037953; come_from=0; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9ob21lL2hvbWUvZ2V0UmVjb21tZW5kRm9yWW91P3BhZ2U9MSZQPTEmcD0xJlBhZ2U9MSZfPTE1NTUwMzc5NTY3NjA%3D"
+          );
         }
       }
     }

@@ -12,7 +12,7 @@
 			<div class="bv-header-title" :style="header.title && header.title.style">
 				{{(header.title && header.title.value) || $config.view.title}}
 			</div>
-			<div class="bv-header-control">
+			<div class="bv-header-control bc-t-r">
 				<!-- 有操作的插槽 -->
 				<slot name="right-control"/>
 			</div>
@@ -30,7 +30,7 @@
       //左边控制
       leftControl: {
         default: '',
-        type: String
+        type: [String, Function]
       },
       //头部组件的配置信息
       header: {

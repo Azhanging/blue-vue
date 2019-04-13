@@ -26,8 +26,8 @@
 
 			<bv-scroll>
 				<swiper :options="swiperOption" ref="swiper">
-					<swiper-slide v-for="(slide, index) in banners" :key="index">
-						<router-link :to="{path:'/life-nav/driving-license/fitness-test'+'?record_id='+slide.id}">
+					<swiper-slide v-for="(slide, index) in banners" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
+						<div @click="over_click(slide.over,slide.id,slide.click)">
 							<div class="driving-slide">
 
 								<div class="driving-topic">
@@ -44,17 +44,19 @@
 										</div>
 										<div class="driving-topic-desc-progress">
 
-											<div class="driving-topic-desc-l">
-												<progress :value="progressValue" max="100" v-if="th_progressValue>0"></progress>
-												<button class="driving-topic-desc-l-btn" v-else="th_progressValue<=0">立即学习</button>
+											<div class="driving-topic-desc-l" v-if="slide.step=0">
+												<progress :value="slide.step" :max="slide.examination.num"></progress>
+											</div>
+											<div class="driving-topic-desc-l" v-else>
+												立即学习
 											</div>
 
-											<div><span>40</span>/100道</div>
+											<div><span>{{ slide.step }}</span>/{{slide.examination.num}}道</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</router-link>
+						</div>
 					</swiper-slide>
 					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 				</swiper>
@@ -65,35 +67,25 @@
 		<div class="driving-list">
 			<div class="driving-list-tab">
 				<div
-					v-for="(item,index) in level"
-					v-on:click="tabqh(index)"
+					v-for="(item,index) in nav_level"
+					v-on:click="tabqh(index,item.id)"
 					:class="{active:(temp===index)}"
 				>
-					{{ item }}
+					{{ item.name }}
 				</div>
 			</div>
 
-			<bv-scroll>
-
+			<div v-if="this_id>0">
 				<div v-if="temp===0">
-					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
+					<coursePrimary :this_id="this_id"></coursePrimary>
 				</div>
 				<div v-if="temp===1">
-					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
+					<courseIntermediate :this_id="this_id"></courseIntermediate>
 				</div>
 				<div v-if="temp===2">
-					<w-arrlist :if-achieve="achieveMsg"></w-arrlist>
+					<courseSenior :this_id="this_id"></courseSenior>
 				</div>
-
-				<template slot="load-down">
-					<div class="bc-t-c bc-pd-10rp">
-						数据加载中...
-					</div>
-					<div class="bc-t-c bc-pd-10rp">
-						暂无数据...
-					</div>
-				</template>
-			</bv-scroll>
+			</div>
 
 
 		</div>
@@ -106,6 +98,9 @@
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 	import driving_list from '../components/driving-list';
+	import coursePrimary from './course-list/course-primary';//初
+	import courseIntermediate from './course-list/course-intermediate';//中
+	import courseSenior from './course-list/course-senior';//高
 	import WArrlist from '@components/wap/article/w-arrlist'
 	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
@@ -113,7 +108,10 @@
 		components: {
 			life_nav_tab,
 			driving_list,
-			'w-arrlist': WArrlist
+			'w-arrlist': WArrlist,
+			coursePrimary,
+			courseIntermediate,
+			courseSenior,
 		},
 		computed:{
 			currentFullPath(){
@@ -135,15 +133,17 @@
 				th_progressValue:40,//传的分数
 				progressValue:0,//显示分数
 				achieveMsg:true,
-				level:['初阶','中阶','高阶'],
-				this_level: 1
+				nav_level:['初阶','中阶','高阶'],
+				this_level: 1,
+				this_id:''
 			}
 		},
 		methods: {
 			swiperUpdate() {
 				this.swiper.update();
 			},
-			tabqh(t) {
+			tabqh(t,this_id) {
+				this.this_id = this_id
 				if(this.this_level==0){
 					$toast({
 						message: '您只有初阶权限',
@@ -160,19 +160,68 @@
 				}
 				this.temp = t;
 			},
+
 			//课程轮播
 			item_progress(){
 
 				return this.$axios.get('/api/examination/getList', {
 					params:{
-						column_id:"32"
+						column_id:this.$route.params.nav_id
 					},
 				}).then((res) => {
-					console.log(res.data)
+					//console.log(res.data.data)
 					this.banners = res.data.data
 				});
 
-			}
+			},
+			//判定是否完成考试
+			over_click(over,record_id,ifclick){
+				if(over==1){
+					this.$router.push({
+						path: 'driving-license/fitness-test/test-results',
+						query:{
+							record_id:record_id
+						}
+					})
+				}else {
+					if(ifclick==0){
+						$toast({
+							message: '请完成之前课程',
+							duration: 3000
+						});
+						return false;
+					}else {
+						this.$router.push({
+							path: 'driving-license/fitness-test',
+							query:{
+								record_id:record_id
+							}
+						})
+					}
+				}
+
+			},
+			driving_tab(){
+				return this.$axios.get('/api/Classify/assortment',{
+					params:{
+						column_id:this.$route.params.id
+					}
+				}).then(res=>{
+					//console.log(res)
+					this.this_id = res.data.data.system[0].id
+					this.nav_level = res.data.data.system
+					console.log(this.this_id)
+				})
+			},
+			driving_list(){
+				return this.$axios.get('/api/examination/level', {
+					params:{
+						column_id:this.$route.params.id
+					},
+				}).then((res) => {
+					this.this_level=res.data.data.level;
+				});
+			},
 		},
 		mounted() {
 			this.$nextTick(() => {
@@ -186,8 +235,10 @@
 					this.progressValue=i;
 				},800)
 			}
-
 			this.item_progress();
+			this.driving_tab();
+			this.driving_list();
+
 		},
 	}
 
@@ -345,13 +396,13 @@
 									background: #CA9F75;
 								}
 							}
-							.driving-topic-desc-l-btn{
+						/*	.driving-topic-desc-l-btn{
 								background: #CA9F75;
 								color: #fff;
 								border-radius: 2px;
 								margin-top: rem(4);
 								font-size: rem(12);
-							}
+							}*/
 						}
 
 						span {

@@ -1,5 +1,5 @@
 <template>
-	<div class='bc-flex'>
+	<div class='bc-flex' >
 		<!--生命导航-驾照课程列表显示 top-->
 		<i class="driving-radio iconfont iconxuanzhong" v-if="ifAchieve"></i>
 		<!--生命导航-驾照课程列表显示 end-->
@@ -10,7 +10,7 @@
 		<div class='bc-flex-1 bc-mg-l-10rp'>
 
 				<span class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-b-8 bc-f-15rp'>{{itemList.name}}</span>
-				<div class='t-888 bc-t-ellipsis bc-t-ellipsis-2  bc-f-12rp'>{{itemList.description}}</div>
+				<div class='t-888 bc-t-ellipsis bc-t-ellipsis-2  bc-f-12rp'>{{itemList.sub_content}}</div>
 
 			<div class='bc-flex bc-flex-jc-sb  bc-flex-ai-c bc-pd-t-10rp bc-t-999'>
 				<div class='action bc-flex bc-f-12rp'>
@@ -35,6 +35,10 @@
 			ifAchieve:{
 				type:String,
 				default:false
+			},
+			id:{
+				type:Number,
+				default:-1
 			}
 		},
 		data() {
@@ -47,7 +51,7 @@
 				if(this.$config.device.isApp){
 					this.$share()
 				}else{
-					this.$router.push({'path':`${router.currentRoute.fullPath}/detail`})
+					// this.$router.push({'path':`${router.currentRoute.fullPath}/detail`,params:{article_id:id}})
 				}
 			}
 		},

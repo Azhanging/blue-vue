@@ -8,12 +8,14 @@
 
     <div class="test-results-top">
       <div class="test-results-points">
-        <strong>80</strong>分
+        <strong>{{ results_data.score }}</strong>分
       </div>
 
-      <div class="test-results-tit">恭喜您测试通过，可以学习下阶段课程</div>
+      <div class="test-results-tit" v-if="results_data.pass">恭喜您测试通过，可以学习下阶段课程</div>
+      <div class="test-results-tit" @click="again" v-else><button>分数不满意?点我重新开始</button></div>
       <div class="test-results-p">
-        虽然您已通过测试，但是您本阶段课程掌握不熟，再进行下一阶段学习的过程中不要忘记回顾本阶段课程哦。
+        <!--虽然您已通过测试，但是您本阶段课程掌握不熟，再进行下一阶段学习的过程中不要忘记回顾本阶段课程哦。-->
+        {{ results_data.msg }}
       </div>
       <div class="test-results-btn">
         <button @click="item_show">点击这里查看答案分数</button>
@@ -82,13 +84,36 @@
     name: "test results.vue",
     data() {
       return {
-        if_item:false
+        if_item:false,
+        results_data:''
       }
     },
     methods: {
       item_show() {
         this.if_item = !this.if_item;
+      },
+      show_results() {
+        return this.$axios.post('/api/examination/result', {
+          record_id:this.$route.query.record_id
+        }).then((res) => {
+          console.log(res.data.data)
+          this.results_data = res.data.data
+        });
+      },
+      again(){
+        this.$axios.get('/api/examination/restart',{
+          params:{
+            column_id:this.$route.params.nav_id
+          }
+        }).then(res=>{
+          this.$router.push({
+            path: '/life-nav/36/driving-license',
+          })
+        })
       }
+    },
+    mounted() {
+      this.show_results()
     }
   }
 </script>
@@ -112,11 +137,15 @@
       margin-top: rem(15);
       color: #333;
       font-size: rem(14);
+      button{
+        color: #CA9F75;
+      }
     }
     .test-results-p{
       margin-top: rem(15);
       color: #666;
       font-size: rem(14);
+      text-align: center;
     }
     .test-results-btn{
       text-align: center;

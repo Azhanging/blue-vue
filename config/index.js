@@ -2,6 +2,9 @@ import { getCurrentDevice } from '$assets/js/device';
 
 const config = {
 
+  //是否为混合开发
+  mixedDevelopment: false,
+
   //视图相关
   view: {
     title: "blue-vue-tmpl-title",       //默认的文档标题
@@ -20,8 +23,11 @@ const config = {
 
   //路径相关
   path: {
-    base: '',                     //域名
-    static: ''                    //静态资源域名
+    base: location.origin,                     //域名
+    indexPath: location.origin,                 //服务器的html入口
+    static: location.origin,                    //静态资源域名
+    login: ``,                                  //登陆地址
+    bindPhone: ``                               //绑定手机地址
   },
 
   //登录状态 （方案暂不采用http header处理）
@@ -77,7 +83,7 @@ const config = {
 
   //request相关
   axios: {
-    timeout: 100000
+    timeout: 100000000
   }
 
 };

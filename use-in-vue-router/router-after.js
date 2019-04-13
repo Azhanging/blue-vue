@@ -3,7 +3,6 @@ import utils from 'blue-utils';
 import { tabBar } from "$assets/js/tab-bar";
 import { $closeLoading } from "$use-in-vue/mint-ui/indicator";
 import { $closeToast } from "$use-in-vue/mint-ui/toast";
-import { bind } from '$assets/js/bind';
 import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 

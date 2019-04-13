@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
 		
-		<growTab :growIndex='1'></growTab>
+		<growTab :growIndex='1' :nav='college_list.system'></growTab>
 		
 		<!--<div class='bc-bg-white'>-->
 			<!--<bv-scroll>-->
@@ -80,6 +80,7 @@
 					content:''
 				},
 				resvideo:{},
+				college_list:{},
 				swiperOption: {
 					pagination: {
 						el: "#pagination"
@@ -92,7 +93,7 @@
 				videoList:[
 				1,2
 				],
-				scroll_list:[1,2,3,4,5,6,8,7]
+				scroll_list:[1,2,3,4,5,6,8,7],
 			}
 		},
 		methods:{
@@ -123,9 +124,22 @@
 					console.log(error);
 				});
 			},
+			getNav(){
+				let paramsId = this.$route.params;
+				this.$axios.get('/api/classify/assortment.html',{
+					params:{
+						column_id:paramsId.grow_id
+					}
+				}).then((res) => {
+					this.college_list =  res.data.data;
+					console.log(this.college_list);
+					// this.$router.push()
+				});
+			},
 			init(){
 				this.getData();
-				this.getBanner()
+				this.getBanner();
+				this.getNav()
 			}
 		},
 		mounted(){

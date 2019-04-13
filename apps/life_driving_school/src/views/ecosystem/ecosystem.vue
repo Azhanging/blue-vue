@@ -1,47 +1,42 @@
 <template>
 	<bv-home-view class='wap' :router-level='2'>
-		<bv-scroll>
 
-			<w-home-header :header='{
+		<w-home-header :header='{
             title:{
                 value: "消费"
             }
         }'
 
-			></w-home-header>
-			<div class="banner-img">
-				<img src="http://image.dtb315.com/5217013.jpg">
-			</div>
-
-			<div class="growsystem-tab">
-				<div
-					@click="tabqh(true)"
-					:class="{active:(temp===true)}">
-					<a>资讯</a>
-				</div>
-				<div
-					@click="tabqh(false)"
-					:class="{active:(temp===false)}">
-					<a>课程</a>
-				</div>
-			</div>
-
-			<div v-if="temp">
-				<information></information>
-			</div>
-			<div v-if="!temp">
-				<course></course>
-			</div>
-
-			<template slot="load-down">
-				<div class="bc-t-c bc-pd-10rp">
-					数据加载中...
-				</div>
-				<div class="bc-t-c bc-pd-10rp">
-					暂无数据...
-				</div>
-			</template>
+		></w-home-header>
+		<bv-scroll>
+			<swiper :options="swiperOption" ref="swiper">
+				<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
+					<div class="banner-img">
+						<img :src="slide.src_img">
+					</div>
+				</swiper-slide>
+				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+			</swiper>
 		</bv-scroll>
+
+		<!--{{ headerTit }}-->
+		<div class="growsystem-tab">
+			<div v-for="(item,index) in tabNav"
+				@click="tabqh(index,item.id)"
+				:class="{active:(temp===index)}">
+				<a>{{ item.name }}</a>
+			</div>
+		</div>
+		<div v-if="this_id>0">
+			<div v-if="!temp">
+				<information :this_id="this_id"></information>
+			</div>
+			<div v-if="temp">
+				<course :this_id="this_id"></course>
+			</div>
+		</div>
+
+
 	</bv-home-view>
 </template>
 
@@ -57,25 +52,60 @@
 			information,
 			course,
 		},
+		computed:{
+			headerTit(){
+				let eid = $route.params.ecosystem_id;
+				console.log(eid)
+			}
+		},
 		data() {
 			return {
-				temp: true,
+				swiperOption: {
+					pagination: {
+						el: "#pagination"
+					},
+					loop: true
+				},
+				temp: 0,
 				btn: [
 					{title: '资讯'},
 					{title: '课程'},
 				],
-				box: [
-					{boxs: information},
-					{boxs: course},
-				]
+				tabNav:'',
+				banner:'',
+				this_id:''
 			}
 		},
 		methods: {
-			tabqh(t) {
+			tabqh(t,this_id) {
 				this.temp = t;
+				this.this_id = this_id;
+			},
+			nav_tab() {
+				return this.$axios.get('/api/Classify/assortment',{
+					params:{
+						column_id:this.$route.params.ecosystem_id
+					}
+				}).then(res=>{
+					//console.log(res)
+					this.this_id = res.data.data.system[0].id
+					this.tabNav = res.data.data.system
+				})
+			},
+			banner_show() {
+				return this.$axios.get('/api/Banner/index',{
+					params:{
+						column_id:this.$route.params.ecosystem_id
+					}
+				}).then(res=>{
+					//console.log(res)
+					this.banner = res.data.data.banner
+				})
 			}
 		},
 		mounted() {
+			this.nav_tab();
+			this.banner_show();
 		}
 	}
 </script>

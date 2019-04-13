@@ -159,27 +159,6 @@
 				}).then((res)=>{
 
 				});
-				
-				
-				// this.$axios.post('/api/client/send_message', {
-				//
-				// 	 type:'chatMessage',
-				// 	 live_video_id:this.$route.query.id,
-				// 	 content:this.textareaVal
-				//
-				// }).then((res) => {
-				//
-				// });
-
-				// this.socket.send(JSON.stringify({
-				// 	type: 'say',
-				// 	content: this.inputVal,
-				// 	room_id: config.room_id,
-				// 	uid: state.me.id,
-				// 	to_uid: state.user.id,
-				// 	token: state.token
-				// }));
-				
 				this.clear();
 			},
 			clear() {

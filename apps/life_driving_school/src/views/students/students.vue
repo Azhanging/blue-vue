@@ -9,7 +9,7 @@
 		>
 			<div slot="right-control">
 				<div class="bc-t-r">
-					<router-link :to="`${currentFullPath}/message`">
+					<router-link :to="`${$router.currentRoute.fullPath}/message`">
 						<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base'></i>
 					</router-link>
 				</div>
@@ -19,7 +19,7 @@
 		<div class="students-top">
 			<div class="students-top-box">
 				<div class="students-top-box-l">
-					<router-link :to="`${currentFullPath}/qr-code`">
+					<router-link :to="`${$router.currentRoute.fullPath}/qr-code`">
 						<div class="students-top-box-img"><img src="https://image.dtb315.com/76343.jpg"></div>
 						<div class="students-top-box-ewm iconfont iconico"></div>
 					</router-link>
@@ -37,16 +37,20 @@
 
 		<div class="students-progress">
 			<div class="progress-title">学习进度</div>
-			<div class="progress-li">
-				<div class="progress-li-name">《财富驾照》：初级 第三课 如何获得财富</div>
+			<div class="progress-li" v-for="item in progress_Data">
+				<div class="progress-li-name">
+					《{{ item.name }}》：
+					{{ item.phases_name }}
+					{{item.course_name}}
+				</div>
 				<div class="progress-li-box">
-					<div class="progress-li-box-item back1"></div>
-					<div class="progress-li-box-item back2"></div>
-					<div class="progress-li-box-item back3"></div>
+					<div class="progress-li-box-item" :class="item.plan_num>=1?'back1':''"></div>
+					<div class="progress-li-box-item" :class="item.plan_num>=2?'back2':''"></div>
+					<div class="progress-li-box-item" :class="item.plan_num>=3?'back3':''"></div>
 				</div>
 			</div>
 
-			<div class="progress-li">
+			<!--<div class="progress-li">
 				<div class="progress-li-name">《健康驾照》：初级 第三课 如何驾驭生命</div>
 				<div class="progress-li-box">
 					<div class="progress-li-box-item back1"></div>
@@ -80,25 +84,25 @@
 					<div class="progress-li-box-item back2"></div>
 					<div class="progress-li-box-item back3"></div>
 				</div>
-			</div>
+			</div>-->
 		</div>
 
 		<div class="students-icon">
 
 			<div class="students-icon-item" >
-				<router-link :to="`${currentFullPath}/collection`">
+				<router-link :to="`${$router.currentRoute.fullPath}/collection`">
 					<img src="http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png"/>
 					<div>我的收藏</div>
 				</router-link>
 			</div>
 			<div class="students-icon-item">
-				<router-link :to="`${currentFullPath}/history`">
+				<router-link :to="`${$router.currentRoute.fullPath}/history`">
 					<img src="http://pc.lifest.dtb315.cn/static/img/students/liulanlishi@2x.png"/>
 					<div>浏览历史</div>
 				</router-link>
 			</div>
 			<div class="students-icon-item">
-				<router-link :to="`${currentFullPath}/contribute`">
+				<router-link :to="`${$router.currentRoute.fullPath}/contribute`">
 					<img src="http://pc.lifest.dtb315.cn/static/img/students/woyaotougao@2x.png"/>
 					<div>我要投稿</div>
 				</router-link>
@@ -122,7 +126,7 @@
 				<div class="students-list-title">微信社群</div>
 				<i class="iconfont iconyou"></i>
 			</div>
-			<router-link :to="`${currentFullPath}/feedback`">
+			<router-link :to="`${$router.currentRoute.fullPath}/feedback`">
 				<div class="students-list-box">
 						<div class="students-list-title">问题反馈</div>
 						<i class="iconfont iconyou"></i>
@@ -147,7 +151,8 @@
 				//绑定手机的状态
 				showBindPhoneStatus: (() => {
 					return router.currentRoute.fullPath === '/students';
-				})()
+				})(),
+				progress_Data:''
 			}
 		},
 		computed:{
@@ -159,6 +164,18 @@
 			closeBindPhone() {
 				this.showBindPhoneStatus = false;
 			},
+			progressData(){
+				this.$axios.get('/api/study/getLicensePlan',{
+					params:{
+					}
+				}).then(res => {
+					console.log(res.data.data)
+					this.progress_Data = res.data.data
+				})
+			}
+		},
+		mounted() {
+			this.progressData();
 		}
 	}
 </script>

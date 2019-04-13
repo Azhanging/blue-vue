@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bc-t-666 bc-f-14rp">
+  <div id="app" class="bc-t-333 bc-f-14rp">
 
     <bv-view-transition>
       <router-view/>
@@ -22,5 +22,5 @@
 
 <style lang="scss">
   /*阿里字体图标*/
-  @import url("//at.alicdn.com/t/font_1131863_e78t79bohg.css");
+  @import url("//at.alicdn.com/t/font_1131863_4dmaqsnrk1r.css");
 </style>

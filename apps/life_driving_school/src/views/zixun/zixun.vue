@@ -10,7 +10,7 @@
 		</w-home-header>
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
-			<div class='bc-flex bc-flex-ai-c ' >
+			<div class='bc-flex bc-flex-ai-c '>
 				<a href="/" class="bc-flex-1 ">首页</a>
 				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
 					<a class="bc-flex-1" :class="[0 !== index ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</div>
-
+		<!--轮播-->
 		<div class="bc-row">
 			<img class="bc-w-100" :src="`${$config.path.static}/img/zixun/banner.png`" alt="">
 		</div>
@@ -41,7 +41,7 @@
 
 		<w-sorting :allSel='allSel' @send_sel='receive_sel' style="background:rgba(244,244,244,1);"></w-sorting>
 
-		<bv-scroll :api="api" :disabled="true">
+		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<w-arrlist :list='load.data.lists'></w-arrlist>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -68,7 +68,6 @@
   import WArrlist from '@components/wap/article/w-arrlist'
   import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
 
-
   export default {
     name: "zixun",
     mixins: [scrollMixin()],
@@ -85,20 +84,20 @@
           isRecommend: true, // 默认
           isTime: -1,
           isScan: -1,
-          column_id: 6
+          column_id: 1
         },
         nav: [
-         {
+          {
             name: '资讯',
             path: '/article/zixun',
-		        id: 1,
+            id: 1,
             params: {
               type: "zixun"
             }
           }, {
             name: '产业研究',
             path: '/industry',
-		        id: 2
+            id: 2
           }],
         //左右滑动
         scroll_list: [
@@ -125,7 +124,7 @@
         scrollIndex: 0,
         //列表数据
         list_data: [1, 2, 3],
-        activeIndex: 1,
+        activeIndex: 1
       }
     },
     methods: {
@@ -146,115 +145,73 @@
         this.allSel = this.$utils.deepCopy(this.allSelCopy);
         this.scrollIndex = 0;
         //获取数据
-        this.apiGetData()
-      },
-      api() {
-        // /home/home/getRecommendForYou
-        return this.$axios.get('/api/article', {
-          params: {
-            page: this.load.params.page++
-          }
-        }).then((res) => {
-          const { data: resultData } = res.data;
-          if (scrollNoHasListData.call(this, {
-            resultData,
-            listKey: 'list'
-          })) {
-            return scrollEndHook.call(this);
-          } else {
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
-            this.scroll_list = resultData.class;
-          }
-        }).catch((error) => {
-          console.log(error);
-          return scrollEndHook.call(this);
-        });
-
-        this.load.data.lists = [1, 2, 3]
-      },
-      apiGetData() {
-        var data = {
-          nav: this.activeIndex,
-          scroll: this.scrollIndex,
-          allSel: this.allSel,
+        this.load.params = {
+          page: this.load.params.page,
+          column_id: this.allSel.column_id
         };
-
-        this.$axios.get('/api/article', {
-          params: {
-            page: this.load.params.page++,
-            column_id: this.allSel.column_id
-          }
-        }).then((res) => {
-          const { data: resultData } = res.data;
-          if (scrollNoHasListData.call(this, {
-            resultData,
-            listKey: 'list'
-          })) {
-            return scrollEndHook.call(this);
-          } else {
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
-            this.scroll_list = resultData.class;
-          }
-        }).catch((error) => {
-          console.log(error);
-          return scrollEndHook.call(this);
-        });
-
       },
-
       select(item, index) {
         this.scrollIndex = index;
         this.allSel = this.$utils.deepCopy(this.allSelCopy);
-				this.allSel.column_id = item.id;
+        this.allSel.column_id = item.id;
         this.load.params.page = 1;
-        this.apiGetData();
+        this.api();
       },
+      api() {
+        return this.$axios.get('/api/article', {
+          params: this.load.params
+        }).then((res) => {
+          const { data: resultData } = res.data;
+          if (scrollNoHasListData.call(this, {
+              resultData,
+              listKey: 'list'
+            })) {
+            const state = scrollEndHook.call(this);
+            this.load.state.disabled = state.disabled;
+          } else {
+            ++this.load.params.page;
+            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            resultData.class.unshift({id: 1,name: '推荐'});
+            this.scroll_list = resultData.class;
+          }
+        }).catch((error) => {
+          console.log(error);
+          return scrollEndHook.call(this);
+        });
+      },
+
       /*		selectZone(msg) {
 						this.allSel = this.$utils.deepCopy(this.allSelCopy);
 						let { id } = msg
 					},*/
       receive_sel(allSel) {
-				// 根据点击时间或者浏览量判断所传参数
-	      let params;
-        this.load.params.page = 1;
-        this.load.data.lists = [];
-	      if (allSel.isRecommend) {
-          params = {
-            page: this.load.params.page++,
-            column_id: allSel.column_id,
-          }
-	      } else {
-					if (allSel.isTime !== -1) {
-            params = {
-              page: this.load.params.page++,
+        // 根据点击时间或者浏览量判断所传参数
+        this.load.state.disabled = true;
+        this.$nextTick(()=>{
+          this.load.params.page = 1;
+          this.load.state.disabled = false;
+          this.load.state.hasMore = true;
+          this.load.data.lists = [];
+          if (allSel.isRecommend) {
+            this.load.params = {
+              page: this.load.params.page,
               column_id: allSel.column_id,
-	            isTime: allSel.isTime
             }
-					} else if (allSel.isScan !== -1) {
-            params = {
-              page: this.load.params.page++,
-              column_id: allSel.column_id,
-              isScan: allSel.isScan
-            }
-					}
-	      }
-
-        this.$axios.get('/api/article', {
-          params: params
-        }).then((res) => {
-          const { data: resultData } = res.data;
-          if (scrollNoHasListData.call(this, {
-            resultData,
-            listKey: 'list'
-          })) {
-            return scrollEndHook.call(this);
           } else {
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
-            this.scroll_list = resultData.class;
+            if (allSel.isTime !== -1) {
+              this.load.params = {
+                page: this.load.params.page,
+                column_id: allSel.column_id,
+                isTime: allSel.isTime
+              }
+            } else if (allSel.isScan !== -1) {
+              this.load.params = {
+                page: this.load.params.page,
+                column_id: allSel.column_id,
+                isScan: allSel.isScan
+              }
+            }
           }
-        }).catch((error) => {
-          console.log(error);
-          return scrollEndHook.call(this);
         });
       },
       setNavActive(params) {

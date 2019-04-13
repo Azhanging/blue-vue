@@ -5,11 +5,11 @@ const special = {
 	name: 'zhuanqu',
 	meta:{
 		tabBar: false,
-		pathID:18
+		pathID:[18]
 	},
 	component: resolve => require(['@/views/grow/zhuanqu/zhuanqu.vue'], resolve),
 	children:[{
-		path:'column',
+		path:'column/:column_id',
 		meta:{
 			tabBar: false
 		},

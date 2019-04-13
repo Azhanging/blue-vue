@@ -39,7 +39,6 @@
 				</li>
 			</ul>
 		</div>
-
 	</div>
 
 </template>
@@ -52,37 +51,55 @@ export default {
       type: Object,
       default: {}
     },
-    info: {
+    config: {
       type: Object,
-      default: {
-        name: {
-          type: String,
-          default: '生命驾校'
+      default: {// 请求详情内容url
+        url: {
+          type: Object,
+          default: {
+            contentUrl: '/api/Article/info.html'
+          }
         },
-        create_create_time: {
-          type: String,
-          default: '2019-03-29 16:09:56'
-        },
-        click_num: {
-          type: Number,
-          default: 100
-        },
-        fabulous_num: {
-          type: Number,
-          default: 100
-        },
-	      content: {
-          type: Array,
-		      default: []
-	      }
+        data: {
+          type: Object,
+          default: {
+            contentParams: {// 文章内容 请求参数
+              article_id: 0
+            },
+            commentParams: { // 评论内容 请求参数
+              article_id: 0,
+              data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+            },
+            submitCommentParams: { // 提交评论 请求参数 只需第一个
+              article_id: 0,
+              data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+            }
+          }
+        }
       }
     }
   },
   data() {
     return {
       isAdd: true,
-      isClickThumb: false
+      isClickThumb: false,
+	    info: {}
     }
+  },
+	mounted() {
+    const {contentUrl} = this.config.url;
+    const {contentParams} =  this.config.data;
+
+    // 内容 /api/Article/info.html
+    this.$axios.get(contentUrl, {
+      params: contentParams
+    }).then(res => {
+      const {data} = res.data;
+      this.info = data;
+      this.info.content = data.content ? JSON.parse(data.content) : [];
+    }).catch(error => {
+      console.log(error);
+    });
   }
 }
 </script>

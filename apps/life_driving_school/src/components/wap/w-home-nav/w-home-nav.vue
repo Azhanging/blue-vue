@@ -1,22 +1,22 @@
 <!-- home页导航组件 -->
 <template>
 	<div class="bc-flex bc-flex-jc-c bc-t-c home-nav">
-			<!--默认不带path,需要path,用插槽修改-->
+		<slot name='changePath'>
+		
 			<div class='bc-flex-1' v-for="(item,index) in nav">
-				<slot name='changePath'>
 					<router-link :to="$router.routerID.getPathID({
-						id:item.id,
-						params:{
-							id:item.id
-						}
+						[defaultParams_key]:item.id,
+						params:Object.assign({
+							[defaultParams_key]:item.id
+						},otherParams)
 					})">
 						<div :class="[activeIndex !== index ? unActiveClassName : activeClassName,'bc-pd-tb-12rp','bc-inline-block']"
 						     v-if="item.name">
 							{{item.name}}
 						</div>
 					</router-link>
-				</slot>
 			</div>
+		</slot>
 	</div>
 
 </template>
@@ -41,7 +41,15 @@
       nav: {
         default: [],
         type: Array
-      }
+      },
+	    otherParams:{
+      	default:{},
+		    type:Object
+	    },
+	    defaultParams_key:{
+      	default:'id',
+		    type:String
+	    }
     },
     data() {
       return {}

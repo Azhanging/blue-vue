@@ -19,8 +19,8 @@
 				</div>
 				<div class="contribute-imgbox">
 
-					<div class="contribute-imgbox-item" v-if="uploadImgs.length>0">
-						<span v-for="(img,index) in uploadImgs">
+					<div class="contribute-imgbox-item" v-if="uploadImgs.length>0" v-for="(img,index) in uploadImgs">
+						<span>
 							<img :src="img.url"/>
 							<a @click="removeUpload($refs['upload'],uploadImgs,index)" class="icon-close iconfont iconiconfontclose"></a>
 						</span>
@@ -96,6 +96,7 @@
 			},
 
 			btn_fabu() {
+				//console.log(JSON.stringify(this.uploadImgs))
 				if(this.contribute[0].question==''){
 					$toast({
 						message: '标题不能为空',
@@ -110,9 +111,11 @@
 					});
 					return;
 				}
+
 				this.$axios.post('/api/feedback/submission',{
 					question:this.contribute[0].question,//标题
 					content:this.contribute[0].content,//内容
+					list_img:JSON.stringify(this.uploadImgs),//图片
 					//member_id:store.state.userInfo.id,//会员id
 					//phone:store.state.userInfo.id,//联系方式
 				}).then(res=>{
@@ -123,6 +126,7 @@
 						});
 						this.contribute[0].question=''
 						this.contribute[0].content=''
+						this.uploadImgs=[]
 						return;
 					}
 				});

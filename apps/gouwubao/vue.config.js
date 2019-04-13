@@ -31,11 +31,12 @@ module.exports = utils.extend(publicVueConfig, {
     proxy: {
       '/': {
         ws: false,      //避免把hot代理了
-        target: 'http://g.dtb315.com' || 'https://pc.dtb315.cn',
+        target: 'https://pc.dtb315.cn',
         //代理登录状态cookie
         onProxyReq(proxyReq, req, res) {
-          proxyReq.setHeader('cookie', 'b72b76241459936962c978f326f7463b=%25B1%25B8%25BCe%25B1%259A%25AB%25AF; 9de70f6546b2452f6e7b98b46ac36070=d18833951146a234fce6b86aa6e62b44; Hm_lvt_bdb7f9abf5cdbcb7d50419d7c6bd1be5=1554687182,1554859815; Hm_lpvt_bdb7f9abf5cdbcb7d50419d7c6bd1be5=1554859815; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554259051,1554687183,1554706326,1554859816; PHPSESSID=u5lbd5ntbe1pkpc851qkf54mp4; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554862879; come_from=1; prev_page=aHR0cDovL2cuZHRiMzE1LmNvbS9tZW1iZXIvaW5kZXguaHRtbD9ib3R0b209MSZ0eXBlPW1lbWNhY2hl; visit_page=aHR0cDovL2cuZHRiMzE1LmNvbS9tZW1iZXIvaW5kZXgvYWxyZWFkeV9rbm93Lmh0bWw%2FdmVyc2lvbj0x');
-        }
+          proxyReq.setHeader('cookie', 'b72b76241459936962c978f326f7463b=%257D%25B9%25BEg%25AF%257C%2581%25AE; PHPSESSID=9d9r4n4uphq5flfmd3eb1dcql2; 9de70f6546b2452f6e7b98b46ac36070=d204fd2159760cd1917e43e752ee1abb; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554704946,1554859441,1554946174,1555053944; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555060428; come_from=1; prev_page=aHR0cDovL3BjLmR0YjMxNS5jbi9tZW1iZXIvaW5kZXguaHRtbD9ib3R0b209MSZ0eXBlPW1lbWNhY2hl; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9tZW1iZXIvbWVtYmVyL2NvbW1vbg%3D%3D');
+        },
+        proxyTimeout: 100000
       }
     }
   },

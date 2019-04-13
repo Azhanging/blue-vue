@@ -33,7 +33,7 @@
 		</div>
 
 		<div class="books-lists">
-			<router-link :to="{path:'/grow/books/chapter'+'?id='+item.id}" class="books-list-item" v-for="(item,index) in lists">
+			<router-link :to="`${$router.currentRoute.fullPath}/chapter/${item.id}`" class="books-list-item" v-for="(item,index) in lists">
 				<div class="books-list-item-l">
 					<h3><span>{{item.name}}</span><!--观念--></h3>
 					<p><span>{{ item.chapter }}</span>个章节</p>
@@ -67,10 +67,10 @@
 			festivalList() {
 				return this.$axios.get('/api/book/festivalList',{
 					params: {
-						id: this.$route.query.id
+						id: this.$route.params.id
 					}
 				}).then((res)=>{
-					console.log(res.data.data)
+					//console.log(res.data.data)
 					this.infos = res.data.data.info;
 					this.lists = res.data.data.list;
 				}).catch((err)=>{

@@ -9,17 +9,19 @@ function pathID(router) {
   const { meta } = router;
   const { pathID } = meta;
   //初始就是首页开头的，直接写路径
-  if (/^\//g.test(router.path)) {
-    this.routesID[pathID] = router.path;
-  } else {
-    const isBasePath = (this._routerPath === '/');
-    const routesID = this.routesID;
-    if (!routesID[pathID]) {
-      routesID[pathID] = `${this._routerPath}${ isBasePath ? '' : '/'}${router.path}`;
+  (pathID || []).forEach((id) => {
+    if (/^\//g.test(router.path)) {
+      this.routesID[id] = router.path;
     } else {
-      console.warn(`has same pathID in meta(meta中存在相同的pathID)`);
+      const isBasePath = (this._routerPath === '/');
+      const routesID = this.routesID;
+      if (!routesID[id]) {
+        routesID[id] = `${this._routerPath}${ isBasePath ? '' : '/'}${router.path}`;
+      } else {
+        console.warn(`has same pathID in meta(meta中存在相同的pathID)`);
+      }
     }
-  }
+  });
 }
 
 //添加id（router id 以及 path id）
@@ -94,7 +96,7 @@ class RouterID {
     //替换params
     utils.each(params, (val, key) => {
       let index = routerPath.indexOf(`:${key}`);
-      while(index !== -1){
+      while (index !== -1) {
         routerPath[index] = val;
         index = routerPath.indexOf(`:${key}`);
       }

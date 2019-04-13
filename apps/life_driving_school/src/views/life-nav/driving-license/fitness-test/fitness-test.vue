@@ -7,43 +7,66 @@
         }'></w-home-header>
 
     <div class="fitness-test-box">
-      <div class="fitness-test-tit">
-        1.在设计APP界面时候，通常使用的分辨率是
-      </div>
 
-      <div class="fitness-test-main">
+      <bv-scroll>
+        <swiper :options="swiperOption" ref="swiper">
+          <swiper-slide v-for="(slide, index) in fitness_list" :key="index" class="swiper-no-swiping">
 
-        <div class="fitness-test-item" :class="{active:(thisIndex===index)}" v-for="(item,index) in fitness_test" @click="btn_radio(index)">
-          <label class="fitness-test-item-l">
-            <input type="radio" :checked="thisIndex===index">
-            {{ item.t }}
-          </label>
-          <div class="fitness-test-item-r">{{ item.contents }}</div>
-        </div>
+            <div class="fitness-test-tit">
+              {{ index+1 }}.{{ slide.name }}
+            </div>
 
-      </div>
+            <div class="fitness-test-main">
+
+              <div class="fitness-test-item" :class="tion.checked? 'active':''" v-for="(tion,index) in slide.option" @click="btn_radio(slide.id,tion.id)">
+                <label class="fitness-test-item-l">
+                  <!--<input type="radio" :checked="thisIndex===slide.checked">-->
+                  {{ tion.option }}
+                </label>
+                <div class="fitness-test-item-r">{{ tion.description }}</div>
+              </div>
+
+            </div>
+
+          </swiper-slide>
+        </swiper>
+      </bv-scroll>
 
       <div class="fitness-test-btn">
-        <i class="iconfont iconxiangzuo"></i> 上一题
+        <span @click="swiper_btn_prev" v-if="this_level!=1">
+          <i class="iconfont iconxiangzuo"></i> 上一题
+        </span>
+        <span @click="swiper_btn_next" v-if="this_level!=fitness_list.length">
+          下一题 <i class="iconfont iconyou"></i>
+        </span>
       </div>
     </div>
 
 
     <div class="fitness-test-fix">
-      <div class="fitness-test-fix-l"><span>1</span>/1000000</div>
-      <router-link :to="`${currentFullPath}/test-results`" class="fitness-test-fix-r">提交</router-link>
+      <div class="fitness-test-fix-l"><span>{{ this_level }}</span>/{{ fitness_list.length }}</div>
+      <!--<router-link :to="`${currentFullPath}/test-results`" class="fitness-test-fix-r">提交</router-link>-->
+      <button class="fitness-test-fix-r" @click="btn_sub">提交</button>
     </div>
 
   </bv-home-view>
 </template>
 
 <script>
+  import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
   import router from '@router';
+  import { $toast } from "$use-in-vue/mint-ui/toast";
   export default {
     name: "fitness-test",
     data() {
       return {
-
+        swiperOption: {
+          pagination: {
+            el: "#pagination"
+          },
+          noSwiping : true
+        },
+        this_level: 0,//swiper当前页
         fitness_list:'',
 
         fitness_test:[
@@ -52,7 +75,7 @@
           {t:'C',contents:'300dpi，方便输出打印规范'},
           {t:'D',contents:'以上都是可以，随设备而不同使用'},
         ],
-        thisIndex:true
+        thisSwiper:'', //第多少道题
       }
     },
     computed:{
@@ -61,20 +84,90 @@
       }
     },
     methods:{
-      btn_radio(t_idx) {
-        this.thisIndex=t_idx;
+      swiperUpdate() {
+        this.swiper.update();
+      },
+      btn_radio(slide_id,tion_id) {//选择答案
+        /*console.log(slide_id)
+        console.log(tion_id)*/
+        this.$axios.post('/api/examination/select',{
+          examination_record_id: this.$route.query.record_id,
+          question_id:slide_id,
+          option_id:tion_id,
+        }).then(res=>{
+          this.$axios.post('/api/examination/question', {
+            record_id:this.$route.query.record_id
+          }).then((res) => {
+            this.fitness_list=res.data.data.list
+          });
+          //console.log(res)
+        })
       },
       //考试题
       topic(){
         return this.$axios.post('/api/examination/question', {
           record_id:this.$route.query.record_id
         }).then((res) => {
-          console.log(res.data.data.list)
+          this.thisSwiper = res.data.data.record_info.step-1 //答到了第多少道
+          console.log(res.data.data)
           this.fitness_list=res.data.data.list
+          this.$refs.swiper.swiper.slideTo(this.thisSwiper, 1000, false);
+          this.this_level=this.$refs.swiper.swiper.realIndex+1
         });
+      },
+      swiper_btn_prev(){
+        this.$refs.swiper.swiper.slidePrev();
+        this.this_level=this.$refs.swiper.swiper.realIndex+1
+      },
+      swiper_btn_next(){
+        this.$axios.post('/api/examination/question', {
+          record_id:this.$route.query.record_id
+        }).then(res=> {
+          this.thisSwiper = res.data.data.record_info.step
+         /* console.log(this.this_level+'当前swiper页');
+          console.log(this.thisSwiper);*/
+          if((this.thisSwiper)<this.this_level){
+            $toast({
+              message: '请选择答案',
+              duration: 3000
+            });
+            return;
+          }
+          this.$refs.swiper.swiper.slideNext();
+          let t_level = this.$refs.swiper.swiper.realIndex+1
+          this.this_level=t_level
+        })
+      },
+      btn_sub(){
+        /*console.log(this.thisSwiper)
+        console.log(this.fitness_list.length)*/
+        this.$axios.post('/api/examination/submit', {
+          record_id:this.$route.query.record_id
+        }).then(res=> {
+          if(this.thisSwiper+1>=this.fitness_list.length){
+            this.$router.push({
+              path: 'fitness-test/test-results',
+              query:{
+                record_id:this.$route.query.record_id
+              }
+            })
+          }else {
+            $toast({
+              message: '请答完所有问题再提交',
+              duration: 3000
+            });
+            return;
+          }
+
+        })
       }
     },
     mounted() {
+      this.$nextTick(() => {
+        this.swiper = this.$refs['swiper'];
+        this.swiperUpdate();
+        this.this_level=this.$refs.swiper.swiper.realIndex+1
+      });
       this.topic();
     }
   }

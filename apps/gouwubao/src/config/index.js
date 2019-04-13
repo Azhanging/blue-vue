@@ -18,11 +18,25 @@ const path = (() => {
   return path;
 })();
 
+//登录path
+const loginPath = (() => {
+  return `${path}/home/common/index`;
+})();
+
+//绑定手机
+const bindPhonePath = (() => {
+  return `${path}/common/wechatlogin`;
+})();
+
 //静态资源路径
 const staticPath = `${path}/Static/spa`;
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
+
+  //是否为混合开发
+  mixedDevelopment: true,
+
   view: {
     title: "大健康·点通宝·购物宝",
     tabBar: 'home'
@@ -30,7 +44,10 @@ const config = utils.extend(publicConfig, {
   env,
   path: {
     base: location.origin,
-    static: staticPath
+    indexPath: `${location.origin}/home/index/home`,
+    static: staticPath,
+    login: loginPath,
+    bindPhone: bindPhonePath
   },
   share: {
     title: "blue-vue-tmpl",

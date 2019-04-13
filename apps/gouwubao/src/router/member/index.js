@@ -1,7 +1,6 @@
 import agent from "./agent";
-import chuangke from "./chuangke";
-import myVip from "./my-vip";
-import join from "./join";
+import creator from "./creator";
+import vip from "./vip";
 
 const member = {
   path: '/member',
@@ -11,10 +10,9 @@ const member = {
   },
   component: () => import("@/views/member/member.vue"),
   children: [
-    join,
     agent,
-    chuangke,
-    myVip
+    creator,
+    vip
   ]
 };
 

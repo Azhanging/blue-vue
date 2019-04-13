@@ -30,7 +30,7 @@
     },
     methods:{
       detailClick(article_id){
-        this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${article_id}`})
+        this.$router.push({'path':`/zixun/2/detail/${article_id}`})
       }
     }
   }

@@ -11,6 +11,31 @@ const students = {
 		meta: {
 			tabBar: false
 		},
+		children: [{
+			path: 'comment',
+			component: () => import("@views/students/message/message-list/message-comment"),
+			meta: {
+				tabBar: false
+			},
+		},{
+			path: 'fabulous',
+			component: () => import("@views/students/message/message-list/message-fabulous"),
+			meta: {
+				tabBar: false
+			},
+		},{
+			path: 'station',
+			component: () => import("@views/students/message/message-list/message-station"),
+			meta: {
+				tabBar: false
+			},
+		},{
+			path: 'notice',
+			component: () => import("@views/students/message/message-list/message-notice"),
+			meta: {
+				tabBar: false
+			},
+		}]
 	},{
 		path: 'qr-code',
 		component: () => import("@views/students/qr-code/qr-code"),

@@ -2,7 +2,7 @@
 <template>
 	<div
 		:infinite-scroll-distance="distance"
-		infinite-scroll-disabled="load.state.disable"
+		infinite-scroll-disabled="disabled"
 		infinite-scroll-immediate-check="immediateCheck"
 		v-infinite-scroll="loadEvent"
 	>
@@ -28,8 +28,8 @@
         default: 30
       },
       disabled: {
-        type: [String, Boolean],
-        default: 'load.state.disable'
+        type: Boolean,
+        default: false
       },
       immediateCheck: {
         type: [String, Boolean],
@@ -40,32 +40,12 @@
         default: false
       }
     },
-    data() {
-      return {
-        load: {
-          state: {
-            disable: false,
-            hasMoreData: true
-          }
-        }
-      }
-    },
     methods: {
       loadEvent() {
         const api = this.api;
-        const load = this.load;
-        const state = load.state;
-        if (!api) {
-          state.disable = true;
-          return;
-        }
-        state.disable = true;
+        if (!api) return;
         try {
-          api().then((res = {}) => {
-            this.$nextTick(() => {
-              this.load.state.disable = res.disabled || false;
-            });
-          });
+          api();
         } catch (e) {
           console.log(e);
         }

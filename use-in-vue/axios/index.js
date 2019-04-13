@@ -7,6 +7,7 @@ import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
 import errcodes from '$errcode/errcodes';    //错误码
 import { errCodeHandler } from '$errcode';   //错误码处理
+import { redirect } from '$assets/js/redirect';
 
 //柯里化 axios
 const $Axios = axios.create({
@@ -65,6 +66,8 @@ function responseInterceptors($Axios) {
       //success code
       if (code === errcodes.SUCCESS) {
         return res;
+      } else if (code === 304) {    //作为重定向跳转
+        redirect(res.data);
       } else {
         //error code错误码处理
         errCodeHandler({
@@ -100,7 +103,7 @@ function responseInterceptors($Axios) {
     //跳转指定的错误状态页
     if (status >= 400 && status < 600) {
       const errorPath = errorConfig[status] ? errorConfig[status].path : errorConfig[404].path;
-      router.replace(errorPath);
+      router.push(errorPath);
     }
 
     return Promise.reject(error);

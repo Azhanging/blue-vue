@@ -14,40 +14,52 @@
 		</w-home-header>
 
 		<div class="collection-main">
-			<div class="collection-list" :class="if_translate?'if_translate':''" v-if="list.length>0">
-				<div class="collection-item" v-for="(item,index) in list">
-					<div class="collection-item-radio">
-						<input type="checkbox" :id="'check'+index" :value="item.value" v-model="checkData">
-						<label :for="'check'+index"></label>
-					</div>
-					<div class="collection-item-box">
-						<div class="bc-media pd-t-15 bc-row bc-c-f">
-							<div class="bc-media-left">
-								<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
+			<div class="collection-list" :class="if_translate?'if_translate':''">
+				<bv-scroll :api="api" :disabled="load.state.disabled">
+					<div class="collection-item" v-for="(item,index) in load.data.lists">
+						<div class="collection-item-radio">
+							<input type="checkbox" :id="'check'+index" :value="item.value" v-model="checkData">
+							<label :for="'check'+index"></label>
+						</div>
+						<div class="collection-item-box">
+							<div class="bc-media pd-t-15 bc-row bc-c-f">
+								<div class="bc-media-left">
+									<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
+								</div>
+								<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+									<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
+									<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+										文章内容前面部分文章内容前面部分文
+										章内容前面部分文章内容前面部分文...
+									</div>
+								</div>
 							</div>
-							<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-								<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
-								<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-									文章内容前面部分文章内容前面部分文
-									章内容前面部分文章内容前面部分文...
+							<div class="collection-but">
+								<div class="collection-but-l">成长系统-上大夫学院</div>
+								<div class="collection-but-span">
+									<span><i class="iconfont iconeye-"></i> 584</span>
+									<span>2019-03-26</span>
 								</div>
 							</div>
 						</div>
-						<div class="collection-but">
-							<div class="collection-but-l">成长系统-上大夫学院</div>
-							<div class="collection-but-span">
-								<span><i class="iconfont iconeye-"></i> 584</span>
-								<span>2019-03-26</span>
+
+					</div>
+					<template slot="load-down">
+						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+							数据加载中...
+						</div>
+						<div class="bc-t-c bc-pd-10rp" v-else>
+							<div class="collection-no">
+								<img src="http://pc.lifest.dtb315.cn/static/img/students/students-sc@2x.png">
+								<p>暂未浏览任何内容</p>
 							</div>
 						</div>
-					</div>
+					</template>
+				</bv-scroll>
+			</div>
 
-				</div>
-			</div>
-			<div class="collection-no" v-else>
-				<img src="http://pc.lifest.dtb315.cn/static/img/students/students-sc@2x.png">
-				<p>暂未浏览任何内容</p>
-			</div>
+
+
 
 
 			<div class="collection-fixed" v-if="if_translate">
@@ -64,8 +76,10 @@
 
 <script>
 	//import WArrlist from '@components/wap/article/w-arrlist'
+	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	export default {
 		name: "history",
+		mixins: [scrollMixin()],
 		components:{
 			//WArrlist
 		},
@@ -125,7 +139,32 @@
 					this.checkData = [];
 					this.checked_all = '全选'
 				}
+			},
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/Member_Index/histors', {
+					params: {
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					console.log(res)
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						const {disabled} = scrollEndHook.call(this);
+						this.load.state.disabled = disabled
+					} else {
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+
 			}
+		},
+		mounted() {
 		}
 	}
 </script>

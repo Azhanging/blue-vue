@@ -1,54 +1,5 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
-
-		<bv-scroll>
-
-			<life_nav_tab :growIndex='0' :title='{
-            title:{
-                value: "生命导航"
-            }
-        }'
-			></life_nav_tab>
-
-			<div class="life-nav-banner">
-				<img src="http://image.dtb315.com/5217013.jpg">
-			</div>
-
-			<div class="life-nav-icon">
-				<div class="life-nav-icon-li">
-					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/1@2x.png"></div>
-					<p>驾照简介</p>
-				</div>
-				<div class="life-nav-icon-li">
-					<router-link to="/grow/video">
-						<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/2@2x.png"></div>
-						<p>视频直播</p>
-					</router-link>
-				</div>
-				<div class="life-nav-icon-li">
-					<router-link to="/">
-						<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/3@2x.png"></div>
-						<p>健康测试</p>
-					</router-link>
-				</div>
-			</div>
-
-			<div class="life-nav-information">
-				<h2>精选资讯</h2>
-				<w-arrlist :list='load.data.lists'></w-arrlist>
-
-			</div>
-
-			<template slot="load-down">
-				<div class="bc-t-c bc-pd-10rp">
-					数据加载中...
-				</div>
-				<div class="bc-t-c bc-pd-10rp">
-					暂无数据...
-				</div>
-			</template>
-		</bv-scroll>
-
 	</bv-home-view>
 </template>
 
@@ -65,14 +16,40 @@
 			life_nav_tab,
 			'w-arrlist': WArrlist
 		},
+		data() {
+			return {
+				life_nav:{},
+			}
+		},
 		computed:{
 			currentFullPath(){
 				return this.$router.currentRoute.fullPath;
 			}
 		},
 		methods: {
-
+			getdata() {
+				this.$axios.get('/api/classify/assortment.html', {
+					params: {
+						column_id: this.$route.params.nav_id
+					}
+				}).then((res) => {
+					//console.log(res.data.data.system[0].id)
+					// this.$router.push({path:res.system[0].id,query:{growId:this.$route.params.id}})
+					this.$router.push(
+						this.$router.routerID.getPathID({
+							id: res.data.data.system[0].id,
+							params: {
+								id: res.data.data.system[0].id,
+								nav_id: this.$route.params.nav_id
+							}
+						})
+					)
+				});
+			}
 		},
+		mounted() {
+			this.getdata();
+		}
 
 	}
 </script>

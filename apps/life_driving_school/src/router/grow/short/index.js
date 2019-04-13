@@ -4,7 +4,7 @@ const short_course = {
 	name: 'short',
 	meta:{
 		tabBar: false,
-		pathID:17
+		pathID:[17]
 	},
 	component: resolve => require(['@/views/grow/short/short.vue'], resolve),
 	children:[

@@ -5,9 +5,9 @@
                 value: "生命导航"
             }
         }'></life_nav_tab>
-		<bv-scroll :api="api" :disabled="true">
+		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<div class="question-lists">
-				<router-link :to="{path:'/life-nav/question-answer/detail'+'?feedback_id='+item.id}" class="question-item" v-for="(item,index) in load.data.lists">
+				<router-link :to="`${$router.currentRoute.fullPath}/detail/${item.id}`" class="question-item" v-for="(item,index) in load.data.lists">
 					<div class="question-ask">
 						<div class="question-ask-l"><i>Q</i></div>
 						<div class="question-ask-c">{{ item.question }}</div>
@@ -35,7 +35,7 @@
 		</bv-scroll>
 
 
-		<router-link :to="{path:'/life-nav/question-answer/questions'}" class="question-quiz">
+		<router-link :to="`${$router.currentRoute.fullPath}/questions`" class="question-quiz">
 			提问
 		</router-link>
 
@@ -69,7 +69,7 @@
 
 
 	export default {
-		name: "index",
+		name: "question-answer",
 		mixins: [scrollMixin()],
 		components: {
 			life_nav_tab
@@ -113,7 +113,8 @@
 						resultData,
 						listKey: 'list'
 					})) {
-						return scrollEndHook.call(this);
+						const {disabled} = scrollEndHook.call(this);
+						this.load.state.disabled = disabled
 					} else {
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}

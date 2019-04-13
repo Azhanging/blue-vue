@@ -90,7 +90,7 @@ export function sendTime(time) {
   //2小时
   const inH2 = inTime(60 * 2);
   //1天
-  const otherToday = (new Date(time).getDate() !== new Date().getDate());
+  const otherDay = (new Date(time).getDate() !== new Date().getDate());
 
   if (inMin5) {
     return '刚刚';
@@ -102,12 +102,12 @@ export function sendTime(time) {
     return '1小时前';
   } else if (!inH1 && inH2) {
     return '2小时前';
-  } else if (!inH2 && !otherToday) {
+  } else if (!inH2 && !otherDay) {
     const date = new Date(time);
     let hours = date.getHours();
     let min = date.getMinutes();
     return `${ood(hours)}时${ood(min)}分`;
-  } else if (otherToday) {
+  } else if (otherDay) {
     const date = new Date(time);
     const year = date.getFullYear();
     const month = date.getMonth();

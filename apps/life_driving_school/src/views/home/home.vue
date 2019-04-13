@@ -49,7 +49,7 @@
 					<router-link :to="$router.routerID.getPathID({
 						id: getData.system[0].id,
 						params:{
-							id: getData.system[0].id,
+							grow_id: getData.system[0].id,
 						}
 					})">
 						<img class="bc-inline-block chengzhang-system" :src="getData.system[0].src_img" alt="成长系统">
@@ -58,7 +58,7 @@
 				<div class=" bc-t-c bc-mg-t-3rp">
 					<router-link :to="$router.routerID.getPathID({
 						id: getData.system[1].id,
-						query:{
+						params:{
 							id: getData.system[1].id
 						}
 					})">
@@ -66,7 +66,7 @@
 					</router-link>
 					<router-link :to="$router.routerID.getPathID({
 						id: getData.system[2].id,
-						query:{
+						params:{
 							id: getData.system[2].id
 						}
 					})">
@@ -82,48 +82,14 @@
 					<img class="inline-block shengmingdaohang-title" :src="`${$config.path.static}/img/home/shengmingdaohang.png`">
 				</div>
 				<div class="bc-mg-t-17">
-
-					<router-link :to="$router.routerID.getPathID({
-						id: getData.life[0].id,
-						query:{
-							id: getData.life[0].id
+					<router-link v-for="item in getData.life" :to="$router.routerID.getPathID({
+						id: item.id,
+						params:{
+							nav_id: item.id
 						}
 					})">
-						<img class="inline-block shengmingdaohang-item" :src="getData.life[0].src_img" alt="健康驾照">
+						<img class="inline-block shengmingdaohang-item" :src="item.src_img" :alt="item.name">
 					</router-link>
-					<router-link :to="$router.routerID.getPathID({
-						id: getData.life[1].id,
-						query:{
-							id: getData.life[1].id
-						}
-					})">
-						<img class="inline-block shengmingdaohang-item" :src="getData.life[1].src_img" alt="心灵驾照">
-					</router-link>
-					<router-link :to="$router.routerID.getPathID({
-						id: getData.life[2].id,
-						query:{
-							id: getData.life[2].id
-						}
-					})">
-						<img class="inline-block shengmingdaohang-item" :src="getData.life[2].src_img" alt="财富驾照">
-					</router-link>
-					<router-link :to="$router.routerID.getPathID({
-						id: getData.life[3].id,
-						query:{
-							id: getData.life[3].id
-						}
-					})">
-						<img class="inline-block shengmingdaohang-item" :src="getData.life[3].src_img" alt="婚姻驾照">
-					</router-link>
-					<router-link :to="$router.routerID.getPathID({
-						id: getData.life[4].id,
-						query:{
-							id: getData.life[4].id
-						}
-					})">
-						<img class="inline-block shengmingdaohang-item" :src="getData.life[4].src_img" alt="育子驾照">
-					</router-link>
-
 				</div>
 			</div>
 
@@ -136,77 +102,16 @@
 					<div class='scroll-x bc-pd-15rp bc-bg-white bc-t-c'>
 						<bv-swiper-scroll :active-class-name="'scroll_active'">
 							<template slot="scroll-items">
-								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
-									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
-										<div class='scroll_img bc-ps-r bc-t-c'>
-
-											<router-link :to="$router.routerID.getPathID({
-													id: getData.ecosphere[0].id,
-													query:{
-														id: getData.ecosphere[0].id
-													}
-												})">
-												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[0].src_img" alt="消费">
-											</router-link>
-
-
-
-										</div>
-									</div>
-								</div>
-								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666" v-for="item in getData.ecosphere">
 									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 										<div class='scroll_img bc-ps-r bc-t-c'>
 											<router-link :to="$router.routerID.getPathID({
-													id: getData.ecosphere[1].id,
-													query:{
-														id: getData.ecosphere[1].id
+													id: item.id,
+													params:{
+														ecosystem_id: item.id
 													}
 												})">
-												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[1].src_img" alt="投资">
-											</router-link>
-
-										</div>
-									</div>
-								</div>
-								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
-									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
-										<div class='scroll_img bc-ps-r bc-t-c'>
-											<router-link :to="$router.routerID.getPathID({
-													id: getData.ecosphere[2].id,
-													query:{
-														id: getData.ecosphere[2].id
-													}
-												})">
-												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[2].src_img" alt="创业">
-											</router-link>
-										</div>
-									</div>
-								</div>
-								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
-									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
-										<div class='scroll_img bc-ps-r bc-t-c'>
-											<router-link :to="$router.routerID.getPathID({
-													id: getData.ecosphere[3].id,
-													query:{
-														id: getData.ecosphere[3].id
-													}
-												})">
-												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[3].src_img" alt="企业">
-											</router-link>
-										</div>
-									</div>
-								</div>
-								<div  class=" bc-mg-r-5rp bc-inline-block bc-t-666">
-									<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
-										<div class='scroll_img bc-ps-r bc-t-c'>
-											<router-link :to="$router.routerID.getPathID({
-													id: getData.ecosphere[4].id,
-													query:{
-														id: getData.ecosphere[4].id
-													}
-												})">
-												<img class="inline-block shengtaiquan-item" :src="getData.ecosphere[4].src_img" alt="教育">
+												<img class="inline-block shengtaiquan-item" :src="item.src_img" :alt="item.name">
 											</router-link>
 										</div>
 									</div>
@@ -222,7 +127,7 @@
 				<div class="bc-mg-t-17rp bc-t-c">
 					<img class="inline-block tuijian-title" :src="`${$config.path.static}/img/home/tuijian.png`">
 				</div>
-				<bv-scroll :api="api" :disabled="true">
+				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<recommend-arrlist :list='load.data.lists'></recommend-arrlist>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -282,7 +187,7 @@
 	  },
     methods: {
       routerTo(item) {
-        const { path, id } = item;
+        const { id } = item;
         this.$router.push(this.$router.routerID.getPathID({
           id: id, // 和后台id 对应
           params: {
@@ -296,7 +201,7 @@
       api() {
         return this.$axios.get('/api/index/index', {
           params: {
-            page: this.load.params.page++
+            page: this.load.params.page ++
           }
         }).then((res) => {
           const { data: resultData } = res.data;
@@ -304,7 +209,8 @@
             resultData,
             listKey: 'list'
           })) {
-            return scrollEndHook.call(this);
+            const state = scrollEndHook.call(this);
+            this.load.state.disabled = state.disabled;
           } else {
             this.load.data.lists = this.load.data.lists.concat(resultData.list);
           }
@@ -424,5 +330,5 @@
 			height: rem(51);
 		}
 	}
-
+.bc-inline-block{vertical-align: top;}
 </style>

@@ -24,6 +24,7 @@ import fastclick from 'fastclick';
 
 import config from '@config';
 import { share } from '$assets/js/share';
+import { login } from '$assets/js/login';
 import { useFilter } from './filter'
 
 
@@ -74,6 +75,9 @@ export function useInVue(opts = {}) {
 
   //公共的分享规则 app, browser, wechat
   Vue.prototype.$share = share;
+
+  //跳转登录
+  Vue.prototype.$login = login;
 
   //过滤器
   useFilter(Vue);

@@ -1,22 +1,22 @@
 const Industry = () => import(`@/views/industry/industry`);
 const IndustryDetail = () => import(`@/views/industry/detail/detail`);
 
- const industry = {
+const industry = {
   path: '/industry/:id',
   name: 'industry',
   component: Industry,
   meta: {
-   pathID: 2
+    pathID: [2]
   },
-  children:[
-   {
-    path: '/industry/detail/:type',
-    name: 'industry-detail',
-    component: IndustryDetail,
-    meta: {
-     tabBar: false
+  children: [
+    {
+      path: '/industry/detail/:type',
+      name: 'industry-detail',
+      component: IndustryDetail,
+      meta: {
+        tabBar: false
+      }
     }
-   }
   ]
 };
 

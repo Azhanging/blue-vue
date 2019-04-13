@@ -33,78 +33,15 @@
 						</div>
 					</bv-scroll>
 				</div>
-				<button @click="btn_comments">提交评论测试按钮</button>
 
 				<div class="question-review">
-
-					<div class="question-review-top" v-for="(comms,index) in contentData" :key="index">
-						<div class="question-review-top-l">
-							<img :src="comms.head_img">
-						</div>
-						<div class="question-review-top-r">
-							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">{{ comms.nickname }}</div>
-								<div class="question-review-top-tit-r">
-									<span @click="btn_commLike(comms.id,index)" :class="{on:(comms.like)}"><i class="iconfont icondianzan"></i> {{ comms.like_num }}</span>
-									<span @click="btn_reply(comms.id)"><i class="iconfont icongengduo"></i></span>
-								</div>
-							</div>
-							<div class="question-review-top-time">{{ comms.time }}</div>
-							<div class="question-review-top-box">{{ comms.content }}</div>
-							<div class="question-review-top-reply" v-for="comms_m in comms.son">
-
-								<!--<span @click="btn_hf(comms.id)">@{{ comms.nickname }} </span>--><span>{{comms_m.nickname}}</span> {{ comms_m.content }}
-							</div>
-						</div>
-					</div>
-
-					<!--<div class="question-review-top">
-						<div class="question-review-top-l">
-							<img src="https://image.dtb315.com/76343.jpg">
-						</div>
-						<div class="question-review-top-r">
-							<div class="question-review-top-tit">
-								<div class="question-review-top-tit-l">鼠妹的小夏目</div>
-								<div class="question-review-top-tit-r">
-									<span><i class="iconfont icondianzan"></i> 155</span>
-									<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-								</div>
-							</div>
-							<div class="question-review-top-time">2小时前</div>
-							<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
-						</div>
-					</div>-->
+					<WrecommendReview :config="config"></WrecommendReview>
 				</div>
-
-
-			</div>
-		</div>
-
-
-		<div class="review-txt">
-			<div class="review-txt-l">
-				<i class="iconfont iconbianji"></i>
-				<form class="review-txt-form" action="javascript:return true">
-					<input ref="review_hf" :autofocus="focus" type="search" v-model="content_txt" placeholder="写评论...">
-				</form>
-
-				<!--@keypress="btn_comments"-->
-			</div>
-			<div class="review-txt-r">
-				<div><i class="iconfont iconpinglun"></i><span v-if="det_data.comment_num>0">{{ det_data.comment_num }}</span></div>
-				<div><i class="iconfont iconxingxing"></i></div>
-				<div><i class="iconfont icondianzan"></i></div>
-				<div><i class="iconfont icon-"></i></div>
 			</div>
 		</div>
 
 
 
-		<div class="reply-mask" v-if="reply_show"></div>
-		<div class="reply-show" v-if="reply_show">
-			<div class="reply-item" @click="btn_reply_txt()">回复</div>
-			<div class="reply-item" @click="btn_reply_h">取消</div>
-		</div>
 	</bv-home-view>
 </template>
 
@@ -112,130 +49,51 @@
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 	import { $toast } from "$use-in-vue/mint-ui/toast";
+	import WrecommendReview from '@components/wap/article/w-recommend-review/w-recommend-review';//评论
 	export default {
 		name: "index",
 		components: {
 			life_nav_tab,
+			WrecommendReview
 		},
 		data() {
 			return {
-				imglist: [{
-					imgs: [{src: 'https://image.dtb315.com/327640.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327773.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/326999.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327036.jpg?val=Thumb'},
-						{src: 'https://image.dtb315.com/327703.jpg?val=Thumb'}
-					]
-				}],
-				reply_show:false,
 				det_data:'',//详情数据
-
-				contentData:'',//评论列表
-
-				content_txt:'',//文本框-评论内容
-
-				pid:null//回复别人评论id
+				config: {
+					data: {
+						contentParams: {// 文章内容 请求参数
+							article_id: this.$route.params.circle_id
+						},
+						commentParams: { // 评论内容 请求参数
+							article_id: this.$route.params.circle_id,
+							data_id: 4 // data_id带类型1文章,2书籍3,问答专区评论
+						},
+						submitCommentParams: { // 提交评论 请求参数 只需第一个
+							article_id: this.$route.params.circle_id,
+							data_id: 4 // data_id带类型1文章,2书籍3,问答专区评论
+						}
+					}
+				}
 			}
 		},
 		methods:{
-			btn_reply(i) {
-				this.reply_show = true
-				this.pid = i;
-			},
-			btn_reply_h() {
-				this.reply_show = false
-				this.pid = null;
-			},
-			btn_reply_txt(){
-				this.reply_show = false;
-				this.$nextTick(()=>{
-					this.$refs.review_hf.focus()
-				})
-			},
-			/*btn_hf(i){
-				this.pid = i;
-				this.$nextTick(()=>{
-					this.$refs.review_hf.focus()
-				})
-			},*/
-
 			/*详情数据请求*/
 			detail_data() {
 				return this.$axios.get('/api/circle/info',{
 					params: {
-						circle_id: this.$route.query.circle_id
+						circle_id: this.$route.params.circle_id
 					}
 				}).then((res)=>{
-					console.log(res.data.data)
+					//console.log(res.data.data)
 					this.det_data = res.data.data
-					this.contentData = res.data.data.comment.list
 				}).catch((err)=>{
 					console.log(err);
 				})
 			},
-			//提交评论
-			btn_comments() {
-				/*searchGoods (event) {
-					if (event.keyCode == 13) {
-						event.preventDefault(); //禁止默认事件（默认是换行）
-					}
-				}*/
-				if(this.content_txt==''){
-					$toast({
-						message: '评论不能为空',
-						duration: 3000
-					});
-					return;
-				}
-
-				this.$axios.post('/api/circle/comment',{
-					circle_id: this.$route.query.circle_id,//id
-					comment_id: this.pid,//评论id
-					content:this.content_txt,//评论内容
-					//at_id:1,
-				}).then((res)=>{
-					//console.log(res.data)
-					if(res.data.code==200){
-						$toast({
-							message: '评论成功',
-							duration: 3000
-						});
-						this.content_txt='';
-						this.pid = null;//清楚评论别人id
-						this.detail_data();//刷新评论
-					}else {
-						$toast({
-							message: '评论失败',
-							duration: 3000
-						});
-						return;
-					}
-				});
-			},
-			//给评论点赞
-			btn_commLike(cid,i){
-				//console.log(cid)
-				this.$axios.get('/api/circle/commentLike', {
-					params: {
-						comment_id:cid
-					}
-				}).then(res => {
-					//console.log(res)
-					//console.log(res.data.data.like)
-					//console.log(res.data.data.like_num)
-					if(res.data.data.like){
-						this.contentData[i].like = res.data.data.like
-						this.contentData[i].like_num = res.data.data.like_num
-					}else {
-						this.contentData[i].like = res.data.data.like
-						this.contentData[i].like_num = res.data.data.like_num
-					}
-				})
-			}
-
 		},
 		mounted() {
 			this.detail_data();
+			//console.log(this.$route.params.circle_id)
 		}
 	}
 </script>

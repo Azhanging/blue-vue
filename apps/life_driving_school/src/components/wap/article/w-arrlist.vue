@@ -1,7 +1,7 @@
 <template>
 	<div class='arrlist'>
-		<div v-for='item in list' @click='detailClick(item.id)' class='itemList bc-pd-10rp bc-bd-b-e5e' :key="item.id">
-			<W-itemdata :itemList='item' :ifAchieve="ifAchieve"></W-itemdata>
+		<div v-for='item in list'  class='itemList bc-pd-10rp bc-bd-b-e5e' :key="item.id">
+			<W-itemdata :itemList='item' @click.native='detailClick(item.id)' :ifAchieve="ifAchieve"></W-itemdata>
 		</div>
 		
 	</div>
@@ -10,15 +10,21 @@
 <script>
 	import router from '@router';
 	import WItemdata from './w-itemdata'
+	import store from '@store';
+	
 	export default {
 		props:{
 			list:{
 				type:Array,
-				default:[1,2,3]
+				default:[]
 			},
 			ifAchieve:{
 				type:String,
 				default:''
+			},
+			roleNum:{
+				type:Number,
+				default:0
 			}
 		},
 		data() {
@@ -31,12 +37,29 @@
 		},
 		methods:{
 			detailClick(article_id){
+				//role11 1学员 2教练 3分校
+				let userInfo_role = store.state.userInfo.role11;
+				if(this.roleNum){
+					if(userInfo_role == 1 && this.roleNum == 2){
+						$toast({
+							message: '暂无教练身份',
+							duration: 10000
+						})
+						return;
+					}
+					if((userInfo_role == 2 || userInfo_role == 1) && this.roleNum == 3){
+						$toast({
+							message: '暂无分校身份',
+							duration: 10000
+						})
+						return;
+					}
+				}
+				
 				this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${article_id}`})
 			}
 		},
 		mounted() {
-			this.list = [1,2,3]
-			console.log(this.list)
 		}
 	}
 </script>

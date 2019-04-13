@@ -9,7 +9,7 @@
       <div slot="right-control"></div>
     </w-home-header>
 
-    <canvas id="canvas"></canvas>
+
 
     <div class="bc-pd-15rp sign-in">
       <div class="sign-label ">
@@ -148,14 +148,34 @@
       </div>
 
       <!--签到生成页面-->
-      <div class="sign-success bc-hide">
-        <div>
-          <div>
-            <img src="" alt="">
-          </div>
+      <div class="sign-success " v-show="maskIsShow" @click="closeMask">
+        <div class="label-area bc-ps-r">
+            <canvas id="canvas" ></canvas>
+            <div class="close-icon" @click="closeMask">
+              <img :src="`${$config.path.static}/img/home/sign/close_icon.png`"  alt="">
+            </div>
         </div>
-        <div>
-
+        <div class=" share bc-mg-t-30rp bc-flex bc-t-c bc-t-white">
+          <div class="bc-flex-1">
+            <img :src="`${$config.path.static}/img/home/sign/wx.png`"  alt="">
+            <div>微信</div>
+          </div>
+          <div class="bc-flex-1">
+            <img :src="`${$config.path.static}/img/home/sign/wx_friend.png`"  alt="">
+            <div>朋友圈</div>
+          </div>
+          <div class="bc-flex-1">
+            <img :src="`${$config.path.static}/img/home/sign/qq.png`"  alt="">
+            <div>QQ</div>
+          </div>
+          <div class="bc-flex-1">
+            <img :src="`${$config.path.static}/img/home/sign/qzone.png`"  alt="">
+            <div>QQ空间</div>
+          </div>
+          <div class="bc-flex-1">
+            <img :src="`${$config.path.static}/img/home/sign/download.png`"  alt="">
+            <div>下载</div>
+          </div>
         </div>
       </div>
 
@@ -183,7 +203,8 @@
     data() {
       return {
         sign: {},
-        canvasTmpl: {}
+        canvasTmpl: {},
+        maskIsShow: false
       }
     },
     methods: {
@@ -192,6 +213,10 @@
           canvasTmplOpts,
           signCanvasTmplConfig.call(this))
         );
+        this.maskIsShow = true;
+      },
+      closeMask() {
+        this.maskIsShow = false;
       }
     },
     mounted() {
@@ -307,7 +332,6 @@
           border-radius: rem(20);
         }
       }
-
     }
 
     .to-complete {
@@ -330,6 +354,32 @@
       bottom: 0;
       z-index: 1000;
       background: rgba(0, 0, 0, .5);
+      .label-area {
+        width: rem(300);
+        height: rem(450);
+        margin: rem(91) auto 0 auto;
+        canvas {
+          width: 100%;
+          height: 100%;
+        }
+        .close-icon {
+          position: absolute;
+          width: rem(30);
+          height: rem(30);
+          right: rem(-15);
+          top: rem(-15);
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .share {
+        img {
+          width: rem(45);
+          height: rem(45);
+          display: inline-block;
+        }
+      }
     }
   }
 </style>

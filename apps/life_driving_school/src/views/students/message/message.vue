@@ -10,69 +10,76 @@
 		</w-home-header>
 
 		<div class="message-box">
-			<div class="message-item">
-				<div class="message-item-img">
-					<img src="https://image.dtb315.com/76343.jpg">
-				</div>
-				<div class="message-item-r">
-					<div class="message-item-r-top">
-						<div class="message-item-r-top-l">评论</div>
-						<div class="message-item-r-top-r">1天前</div>
+			<router-link :to="`${$router.currentRoute.fullPath}/comment`">
+				<div class="message-item">
+					<div class="message-item-img">
+						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="message-item-r-hf">
-						<span>菩提花开</span> 回复了您
+					<div class="message-item-r">
+						<div class="message-item-r-top">
+							<div class="message-item-r-top-l">评论</div>
+							<div class="message-item-r-top-r">{{ comment.create_time | timeFilter("Y-M-D")  }}</div>
+						</div>
+						<div class="message-item-r-hf">
+							<span>{{ comment.member_id }}</span> {{ comment.content }}
+						</div>
 					</div>
 				</div>
-			</div>
+			</router-link>
 
-			<div class="message-item">
-				<div class="message-item-img">
-					<img src="https://image.dtb315.com/76343.jpg">
-				</div>
-				<div class="message-item-r">
-					<div class="message-item-r-top">
-						<div class="message-item-r-top-l">点赞</div>
-						<div class="message-item-r-top-r">2019-03-26</div>
+			<router-link :to="`${$router.currentRoute.fullPath}/fabulous`">
+				<div class="message-item">
+					<div class="message-item-img">
+						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="message-item-r-hf">
-						<span>菩提花开</span> 赞了你的评论
+					<div class="message-item-r">
+						<div class="message-item-r-top">
+							<div class="message-item-r-top-l">点赞</div>
+							<div class="message-item-r-top-r">{{ fabulous.create_time | timeFilter("Y-M-D")  }}</div>
+						</div>
+						<div class="message-item-r-hf">
+							<span>{{ fabulous.member_id }}</span> {{ fabulous.content }}
+						</div>
 					</div>
 				</div>
-			</div>
+			</router-link>
 
-			<div class="message-item">
-				<div class="message-item-img">
-					<img src="https://image.dtb315.com/76343.jpg">
-				</div>
-				<div class="message-item-r">
-					<div class="message-item-r-top">
-						<div class="message-item-r-top-l">站内信</div>
-						<div class="message-item-r-top-r">2019-03-26</div>
+			<router-link :to="`${$router.currentRoute.fullPath}/station`">
+				<div class="message-item">
+					<div class="message-item-img">
+						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="message-item-r-hf">
-						尊敬的生命驾校教练你好尊敬的生命驾校教练你
-						好尊敬的生命驾校教练你好尊敬的生命驾校教练
-						你好尊敬的生命驾校教练你好。
+					<div class="message-item-r">
+						<div class="message-item-r-top">
+							<div class="message-item-r-top-l">站内信</div>
+							<div class="message-item-r-top-r">{{ station.create_time | timeFilter("Y-M-D") }}</div>
+						</div>
+						<div class="message-item-r-hf">
+							{{ station.content }}
+						</div>
 					</div>
 				</div>
-			</div>
+			</router-link>
 
-			<div class="message-item">
-				<div class="message-item-img">
-					<img src="https://image.dtb315.com/76343.jpg">
-				</div>
-				<div class="message-item-r">
-					<div class="message-item-r-top">
-						<div class="message-item-r-top-l">更新公告</div>
-						<div class="message-item-r-top-r">2019-03-26</div>
+			<router-link :to="`${$router.currentRoute.fullPath}/notice`">
+				<div class="message-item">
+					<div class="message-item-img">
+						<img src="https://image.dtb315.com/76343.jpg">
 					</div>
-					<div class="message-item-r-hf">
-						尊敬的生命驾校教练你好尊敬的生命驾校教练你
-						好尊敬的生命驾校教练你好尊敬的生命驾校教练
-						你好尊敬的生命驾校教练你好。
+					<div class="message-item-r">
+						<div class="message-item-r-top">
+							<div class="message-item-r-top-l">更新公告</div>
+							<div class="message-item-r-top-r">2019-03-26</div>
+						</div>
+						<div class="message-item-r-hf">
+							尊敬的生命驾校教练你好尊敬的生命驾校教练你
+							好尊敬的生命驾校教练你好尊敬的生命驾校教练
+							你好尊敬的生命驾校教练你好。
+						</div>
 					</div>
 				</div>
-			</div>
+			</router-link>
+
 
 		</div>
 
@@ -81,7 +88,31 @@
 
 <script>
 	export default {
-		name: "message"
+		name: "message",
+		data() {
+			return {
+				comment:'',//评论
+				fabulous:'',//点赞
+				station:'',//站内
+				notice:'',//更新公告
+			}
+		},
+		methods: {
+			messageData() {
+				this.$axios.get('/api/Member_News/index',{
+
+				}).then(res=>{
+					console.log(res.data.data)
+					this.comment=res.data.data.comment
+					this.fabulous=res.data.data.fabulous
+					this.station=res.data.data.station
+					this.notice=res.data.data.notice
+				})
+			}
+		},
+		mounted() {
+			this.messageData()
+		}
 	}
 </script>
 

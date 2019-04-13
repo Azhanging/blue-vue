@@ -4,43 +4,36 @@
 		<growTab :growIndex='3'>
 			<template slot='second_tab'>
 				<div  class='bc-flex bc-flex-jc-sa sec-tab bc-bd-b-e5e'>
-					<p v-for='(item,index) in second_tab' @click='secTab(index)' :class='index == tab_idx?"sec-active":""'>
-						{{item}}
+					<p v-for='(item,index) in second_tab' @click='secTab(index,item.id)' :class='index == tab_idx?"sec-active":""'>
+						{{item.name}}
 					</p>
 				</div>
 			</template>
 		</growTab>
 
 		<!--列表-->
-		<div class='bc-pd-15rp bc-mg-b-10rp bc-bg-white' v-for='type in typelist'>
-			<div class='bc-flex bc-flex-jc-sb bc-mg-b-7rp'>
-				<span class='bc-f-18rp'>国学</span>
-				<router-link :to="`${currentFullPath}/column`" class='bc-f-12rp bc-t-333'>全部&nbsp;12<i class='iconfont iconyou'></i></router-link>
-			</div>
-			<div class='scroll-x'>
-				<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
-					<div  slot="scroll-items">
-						<div v-for="(item,index) in type.scroll_list"
-						   class=" bc-mg-r-10rp  bc-inline-block"
-						   @click="select(item,index)"
-						>
-							<img src='http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg' alt=''>
-							<div class='bc-f-16rp bc-mg-t-7rp'>月色摇曳疏影</div>
-							<div class='bc-f-12rp bc-t-999 bc-mg-t-7rp'>12篇</div>
+		<div v-if="zqDataid>0">
+			<div class='bc-pd-15rp bc-mg-b-10rp bc-bg-white' v-for='type in typelist'>
+				<div class='bc-flex bc-flex-jc-sb bc-mg-b-7rp'>
+					<span class='bc-f-18rp'>{{ type.name }}</span>
+					<router-link :to="`${currentFullPath}/column/${type.id}`" class='bc-f-12rp bc-t-333'>全部&nbsp;<i class='iconfont iconyou'></i></router-link>
+				</div>
+				<div class='scroll-x'>
+					<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
+						<div  slot="scroll-items">
+							<div v-for="(item,index) in type.class"
+							     class=" bc-mg-r-10rp  bc-inline-block"
+							     @click="select(item,index)"
+							>
+								<img :src='item.src_img' alt=''>
+								<div class='bc-f-16rp bc-mg-t-7rp'>{{ item.name }}</div>
+								<div class='bc-f-12rp bc-t-999 bc-mg-t-7rp'>{{ item.count }}篇</div>
+							</div>
 						</div>
-					</div>
-				</bv-swiper-scroll>
+					</bv-swiper-scroll>
+				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
 
 	</bv-home-view>
 
@@ -75,7 +68,8 @@
 					},
 					{scroll_list:[1,2,3,65,5,5,8,85]},
 					{scroll_list:[1,2,3,65,5,5,8,85]}
-				]
+				],
+				zqDataid:''
 			}
 		},
 		computed:{
@@ -84,23 +78,41 @@
 			}
 		},
 		methods:{
-			secTab(index){
+			secTab(index,itemid){
 				this.tab_idx = index
+				this.zqDataid=itemid
+				this.zhuangqu()
 			},
 			select(item, index) {
 
 			},
-
-			getData() {
-				var data = {
-					tab_idx: this.tab_idx,
-				}
-				console.log(data)
+			zhuanqu_nav(){//专区下分类
+				this.$axios.get('/api/classify/assortment', {
+					params: {
+						column_id: this.$route.params.grow_id,
+						id:this.$route.params.id,
+					}
+				}).then((res) => {
+					//console.log(res.data.data.system_class)
+					this.second_tab = res.data.data.system_class
+					this.zqDataid = res.data.data.system_class[0].id
+					this.zhuangqu();
+				});
 			},
+			zhuangqu(){//专区数据
+				this.$axios.get('/api/classify/article_special', {
+					params: {
+						column_id: this.zqDataid
+					}
+				}).then((res) => {
+					//console.log(res.data.data)
+					this.typelist = res.data.data
+				});
+			}
 
 		},
 		mounted(){
-			this.getData()
+			this.zhuanqu_nav()
 		}
 	}
 </script>
