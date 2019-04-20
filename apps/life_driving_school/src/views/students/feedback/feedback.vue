@@ -6,6 +6,13 @@
             }
         }'
 		>
+			<div slot="right-control">
+				<div class="bc-t-r bc-t-base bc-mg-r-10rp">
+					<a target="_blank" class="bc-t-base" href="https://www.dtb315.com/member/message/service.html">
+						联系客服
+					</a>
+				</div>
+			</div>
 		</w-home-header>
 
 		<div class="contribute">
@@ -48,7 +55,12 @@
 					//member_id:store.state.userInfo.id,//会员id
 					//phone:store.state.userInfo.id,//联系方式
 				}).then(res=>{
-					if(res.data.code==200){
+					if(res.data.data.status==1011){
+						$toast({
+							message: '字数不能超过80字符。',
+							duration: 3000
+						});
+					}else {
 						$toast({
 							message: '反馈成功',
 							duration: 3000

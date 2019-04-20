@@ -7,13 +7,13 @@
 		v-infinite-scroll="loadEvent"
 	>
 		<!-- load down slot -->
-		<slot name="load-up" :load="load"></slot>
+		<slot name="load-up"></slot>
 
 		<!--main slot-->
 		<slot></slot>
 
 		<!-- load down slot -->
-		<slot name="load-down" :load="load"></slot>
+		<slot name="load-down"></slot>
 
 	</div>
 </template>
@@ -53,7 +53,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

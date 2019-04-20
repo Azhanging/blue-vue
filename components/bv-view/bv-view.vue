@@ -1,10 +1,10 @@
 <!-- 每个页面的主视图组件 必须使用 -->
 <template>
-	<div class="bv-view" :class="{'no-tab-bar':!view.tabBar}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu">
+	<div class="bv-view" :class="{'no-tab-bar':!view.tabBar}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu" @input="input">
 
 		<!-- scroll 层 -->
 		<div class="bv-view-scroll">
-			<slot></slot>
+			<slot :scroll="scroll"></slot>
 		</div>
 
 		<!-- 公共的view层子路由 -->
@@ -26,7 +26,7 @@
 
 <script>
 
-  import { setViewEvent, setParentViewScroll, findParentView } from './index';
+  import { setViewEvent, setParentViewScroll, findParentView , inputEvent } from './index';
   import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
   import Vuex from 'vuex';
 
@@ -60,6 +60,9 @@
         setTabBarSubmenuIndex({
           tabBarSubMenuStatus: -1
         });
+      },
+      input(){
+        inputEvent.call(this);
       }
     },
     mounted() {

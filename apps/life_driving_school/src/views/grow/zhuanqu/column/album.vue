@@ -2,52 +2,67 @@
 	<bv-home-view class='wap' :router-level='4' style='background-color: #f4f4f4;'>
 		<w-home-header :header="{
 			title:{
-				value:'专辑'
+				value:showInfo.name
 			}
 		}"></w-home-header>
 
 		<div class="album-top">
 			<div class="album-top-img">
-				<img src="https://image.dtb315.com/85367.jpg?val=Thumb">
+				<img :src="showInfo.src_img">
 			</div>
 			<div class="album-top-title">
-				月色摇晃树影
+				{{ showInfo.name }}
 			</div>
 			<div class="driving-title">
 				<div><i class="driving-title-r"></i></div>
-				<h3>12篇文章</h3>
+				<h3>{{ count }}篇文章</h3>
 				<div><i class="driving-title-l"></i></div>
 			</div>
 			<div class="album-top-desc">
-				专辑的介绍专辑的介绍专辑的介绍专辑的介绍专辑
-				的介绍专辑的介绍专辑的介绍专辑的介绍专辑的介绍专
-				辑的介绍专辑的介绍专辑的介绍。
+				{{ showInfo.sub_content }}
 			</div>
 		</div>
 
 
 		<div class="bc-reset-ul bc-media album-list">
-			<!--文章-->
-			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
-				<router-link :to="`${currentFullPath}/album-detail`" class="t-333">
-					<div class="bc-media pd-t-15 bc-row bc-c-f">
-						<div class="bc-media-left">
-							<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
-						</div>
-						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-							<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
-							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-								文章内容前面部分文章内容前面部分文
-								章内容前面部分文章内容前面部分文...
+
+			<bv-scroll :api="api" :disabled="load.state.disabled">
+
+				<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="item in load.data.lists">
+					<router-link :to="`${currentFullPath}/album-detail/${item.id}`" class="t-333">
+						<div class="bc-media pd-t-15 bc-row bc-c-f">
+							<div class="bc-media-left">
+								<img class="tuijian-article-img" :src="item.src_img" v-if="">
+							</div>
+							<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+								<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.name }}</div>
+								<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+									{{ item.sub_content }}
+								</div>
 							</div>
 						</div>
+						<div class="album-item-but">{{ item.come_from }}<span class="bc-mg-l-20rp">{{ item.create_time }}</span></div>
+					</router-link>
+				</div>
+				
+				<template slot="load-down">
+					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+						数据加载中...
 					</div>
-					<div class="album-item-but">原创文章<span class="bc-mg-l-20rp">03-04</span></div>
-				</router-link>
-			</div>
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						暂无数据
+					</div>
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						暂无更多数据...
+					</div>
+				</template>
+			</bv-scroll>
+
+			<!--文章-->
+
 
 			<!--视频-->
-			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
+			<!--<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
 				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
@@ -71,10 +86,10 @@
 					</div>
 					<div class="album-item-but">原创视频<span class="bc-mg-l-20rp">03-04</span></div>
 				</a>
-			</div>
+			</div>-->
 
 			<!--图集-->
-			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
+			<!--<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
 				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
@@ -95,10 +110,10 @@
 					</div>
 					<div class="album-item-but">原创图集<span class="bc-mg-l-20rp">03-04</span></div>
 				</a>
-			</div>
+			</div>-->
 
 			<!--音频-->
-			<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
+			<!--<div class="bc-pd-b-10rp bc-pd-t-10rp album-item" v-for="i in 2">
 				<a class="t-333">
 					<div class="bc-media pd-t-15 bc-row bc-c-f">
 						<div class="bc-media-left">
@@ -119,7 +134,7 @@
 					</div>
 					<div class="album-item-but">原创语音<span class="bc-mg-l-20rp">03-04</span></div>
 				</a>
-			</div>
+			</div>-->
 
 		</div>
 	</bv-home-view>
@@ -127,15 +142,59 @@
 
 <script>
 	import router from '@router';
+	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	export default {
 		name: "album",
+		mixins: [scrollMixin()],
 		computed:{
 			currentFullPath(){
 				return this.$router.currentRoute.fullPath;
 			}
 		},
+		data() {
+			return {
+				showInfo:'',
+				count:''
+			}
+		},
 		methods: {
+			show_data(){
+				this.$axios.get('/api/special/special_list', {
+					params: {
+						column_id: this.$route.params.album_id,
+					}
+				}).then((res) => {
+					//console.log(res)
+					this.showInfo = res.data.data.info
+					this.count = res.data.data.count
+				});
+			},
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/special/special_list', {
+					params: {
+						column_id:this.$route.params.album_id,
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						scrollEndHook.call(this);
+					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
 
+			}
+		},
+		mounted() {
+			this.show_data();
 		}
 	}
 </script>

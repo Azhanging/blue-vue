@@ -1,5 +1,5 @@
 <template>
-	<bv-header :header="header">
+	<bv-header :header="header" :leftControl="leftControl">
 
 		<!--0返回  1点通宝图标 2无 -->
 

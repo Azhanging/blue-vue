@@ -1,30 +1,74 @@
 <template>
 	<div class="expense-l-box">
-		<div class="expense-icon">
-			<div>
-				<span @click="btn_ifshowWin"><i class="iconfont icongeren"></i></span>
-				<p>消费者</p>
+		<div v-if="dataicon.length>0">
+			<!--消费-->
+			<div class="expense-icon" v-if="$route.params.ecosystem_id==dataicon[0].id">
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont icondianping"></i></span>
+					<p>点评天使</p>
+				</div>
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont iconhuiyuan"></i></span>
+					<p>vip会员</p>
+				</div>
 			</div>
-			<div @click="btn_ifshowWin">
-				<span><i class="iconfont icondianping"></i></span>
-				<p>点评天使</p>
+			<!--投资-->
+			<div class="expense-icon" v-if="$route.params.ecosystem_id==dataicon[1].id">
+				<div>
+					<span @click="btn_ifshowWin"><i class="iconfont icongeren"></i></span>
+					<p>校董</p>
+				</div>
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont icondianping"></i></span>
+					<p>项目金主</p>
+				</div>
 			</div>
-			<div @click="btn_ifshowWin">
-				<span><i class="iconfont iconhuiyuan"></i></span>
-				<p>vip会员</p>
+			<!--创业-->
+			<div class="expense-icon" v-if="$route.params.ecosystem_id==dataicon[2].id">
+				<div>
+					<span @click="btn_ifshowWin"><i class="iconfont icongeren"></i></span>
+					<p>创客</p>
+				</div>
+			</div>
+			<!--企业-->
+			<div class="expense-icon" v-if="$route.params.ecosystem_id==dataicon[3].id">
+				<div>
+					<span @click="btn_ifshowWin"><i class="iconfont icongeren"></i></span>
+					<p>厂家</p>
+				</div>
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont icondianping"></i></span>
+					<p>服务商</p>
+				</div>
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont iconhuiyuan"></i></span>
+					<p>渠道商</p>
+				</div>
+				<div @click="btn_ifshowWin">
+					<span><i class="iconfont iconhuiyuan"></i></span>
+					<p>产品天使</p>
+				</div>
+			</div>
+			<!--教育-->
+			<div class="expense-icon" v-if="$route.params.ecosystem_id==dataicon[4].id">
+
 			</div>
 		</div>
+
 		<div class="expense-list">
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 
 				<w-arrlist :list='load.data.lists'></w-arrlist>
-
+				
 				<template slot="load-down">
-					<div class="bc-t-c bc-pd-10rp">
+					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 						数据加载中...
 					</div>
-					<div class="bc-t-c bc-pd-10rp">
-						暂无数据...
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						暂无数据
+					</div>
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						暂无更多数据...
 					</div>
 				</template>
 			</bv-scroll>
@@ -61,7 +105,8 @@
 		},
 		data() {
 			return {
-				winShow:false
+				winShow:false,
+				dataicon:''
 			}
 		},
 		methods: {
@@ -86,17 +131,29 @@
 						resultData,
 						listKey: 'list'
 					})) {
-						const {disabled} = scrollEndHook.call(this);
-						this.load.state.disabled = disabled
+						scrollEndHook.call(this);
 					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
 				});
 			},
-			mounted() {
+
+			show_icon(){
+				this.$axios.get('/api/index/index')
+					.then(res => {
+						this.dataicon=res.data.data.ecosphere
+					})
+					.catch(err => {
+						console.log(err);
+					})
 			}
+
+		},
+		mounted() {
+			this.show_icon()
 		}
 	}
 </script>

@@ -4,7 +4,7 @@
 
 import router from '@router';
 import $Axios from '$axios';
-import ecosystem from "../../router/ecosystem";
+import { $toast } from '$use-in-vue/mint-ui/toast';
 
 //项目分享
 export function shareSuccess() {
@@ -24,10 +24,13 @@ export function shareAddAccumulatePoints() {
       method: 'post',
       url: '/api/share/index',
       isLoading: false,
+      params: {
+        column_id
+      }
     }).then((res) => {
       const { data } = res.data;
-      this.$toast({
-        message: `${data.integral}积分`
+      $toast({
+        message: `+${data.integral}积分`
       });
     });
   }

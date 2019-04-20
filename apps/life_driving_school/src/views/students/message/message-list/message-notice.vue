@@ -8,25 +8,72 @@
 
 		>
 		</w-home-header>
-		<div class="message-list-on">
-			<router-link class="liston-item" to="">
-				<div class="item-name">
-					标题标题标题标题标题标题标题标题
+
+		<bv-scroll :api="api" :disabled="load.state.disabled">
+
+			<div class="message-list-on" v-for="(item,index) in this.load.data.lists">
+				<router-link class="liston-item" to="">
+					<div class="item-name">
+						{{ item.title }}
+					</div>
+					<div class="item-content">
+						{{ item.content }}
+					</div>
+					<div class="item-time">
+						{{ item.create_time | timeFilter("Y-M-D") }}
+					</div>
+				</router-link>
+			</div>
+			
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
 				</div>
-				<div class="item-content">
-					内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
 				</div>
-				<div class="item-time">
-					2019-04-13 15:32
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
 				</div>
-			</router-link>
-		</div>
+			</template>
+		</bv-scroll>
+
 	</bv-home-view>
 </template>
 
 <script>
+	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	export default {
-		name: "message-notice"
+		name: "message-notice",
+		mixins: [scrollMixin()],
+		methods:{
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/Member_News/station_notice', {
+					params: {
+						state:'notice',
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					//console.log(res)
+					const {data: resultData} = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						scrollEndHook.call(this);
+					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+
+			}
+		},
+		mounted() {
+		}
 	}
 </script>
 

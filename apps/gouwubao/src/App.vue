@@ -1,17 +1,17 @@
 <template>
-  <div id="app" class="bc-t-333 bc-f-14rp">
+	<div id="app" class="bc-t-333 bc-f-14rp">
 
-    <bv-view-transition>
-      <router-view/>
-    </bv-view-transition>
+		<bv-view-transition>
+			<router-view/>
+		</bv-view-transition>
 
-    <!-- 底部导航 -->
-    <w-tab-bar></w-tab-bar>
+		<!-- 底部导航 -->
+		<w-tab-bar></w-tab-bar>
 
-    <!-- 图片预览的组件 -->
-    <blue-photo-swipe></blue-photo-swipe>
+		<!-- 图片预览的组件 -->
+		<blue-photo-swipe></blue-photo-swipe>
 
-  </div>
+	</div>
 </template>
 
 <script>
@@ -21,6 +21,6 @@
 </script>
 
 <style lang="scss">
-  /*阿里字体图标*/
-  @import url("//at.alicdn.com/t/font_1131863_4dmaqsnrk1r.css");
+	/*阿里字体图标*/
+	@import url("//at.alicdn.com/t/font_1131863_zq8d5mjzebd.css");
 </style>

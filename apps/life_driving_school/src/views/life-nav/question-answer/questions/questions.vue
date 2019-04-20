@@ -45,7 +45,7 @@
 			classifySet() {
 				return this.$axios.get('/api/feedback/cate',{
 				}).then((res)=>{
-					console.log(res)
+					//console.log(res)
 					this.classify = res.data.data;
 				}).catch((err)=>{
 					console.log(err);
@@ -66,8 +66,12 @@
 					question:this.$refs.question.value,//问题
 					//phone:store.state.userInfo.id,//联系方式
 				}).then((res)=>{
-					console.log(res+'111')
-					if(res.data.code==200){
+					if(res.data.data.status==1011){
+						$toast({
+							message: '字数不能超过80字符。',
+							duration: 3000
+						});
+					}else {
 						$toast({
 							message: '提交成功',
 							duration: 3000
@@ -75,8 +79,9 @@
 						this.$refs.question.value=''
 						return;
 					}
+				}).catch(err=>{
+					console.log(err)
 				});
-
 			}
 		},
 		mounted(){

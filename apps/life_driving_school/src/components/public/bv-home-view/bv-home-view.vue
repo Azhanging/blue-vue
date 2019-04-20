@@ -1,7 +1,11 @@
 <template>
 	<bv-view :router-level="routerLevel">
+		
+		<template slot='default' slot-scope="scope">
+			<slot :scroll="scope.scroll"></slot>
+		</template>
 
-		<slot></slot>
+		
 
 		<template slot="suspend" slot-scope="scope">
 			<bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></bv-suspend>

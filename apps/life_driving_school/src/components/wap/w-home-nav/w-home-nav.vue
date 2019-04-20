@@ -5,7 +5,7 @@
 		
 			<div class='bc-flex-1' v-for="(item,index) in nav">
 					<router-link :to="$router.routerID.getPathID({
-						[defaultParams_key]:item.id,
+						id:item.id,
 						params:Object.assign({
 							[defaultParams_key]:item.id
 						},otherParams)

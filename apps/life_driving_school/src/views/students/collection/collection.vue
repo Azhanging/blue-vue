@@ -6,7 +6,7 @@
             }
         }'
 		>
-			<div slot="right-control">
+			<div slot="right-control" v-if="load.data.lists.length>0">
 				<div class="bc-t-r bc-t-base bc-mg-r-10rp" @click="btn_handle">
 					{{ if_btntxt }}
 				</div>
@@ -14,57 +14,62 @@
 		</w-home-header>
 
 		<div class="collection-main">
-			<div class="collection-list" :class="if_translate?'if_translate':''">
+			<div class="collection-list" :class="if_translate?'if_translate':''" v-if="load.data.lists">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<div class="collection-item" v-for="(item,index) in load.data.lists">
-						<div class="collection-item-radio">
-							<input type="checkbox" :id="'check'+index" :value="item.value" v-model="checkData">
-							<label :for="'check'+index"></label>
-						</div>
-						<div class="collection-item-box">
-							<div class="bc-media pd-t-15 bc-row bc-c-f">
-								<div class="bc-media-left">
-									<img class="tuijian-article-img" src="https://image.dtb315.com?src_img=/Uploads/image/2016-09-13/57d754e3c0a71.jpg&val=Thumb" v-if="">
+							<div class="collection-item-radio">
+								<input type="checkbox" :id="'check'+index" :value="item.collection_id" v-model='checkList'>
+								<label :for="'check'+index"></label>
+							</div>
+						<router-link :to="`/students/collection/detail/${item.collection_id}`">
+							<div class="collection-item-box">
+								<div class="bc-media pd-t-15 bc-row bc-c-f">
+									<div class="bc-media-left">
+										<img class="tuijian-article-img" :src="item.src_img" v-if="">
+									</div>
+									<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+										<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.id }}{{ item.name }}</div>
+										<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+											{{ item.sub_name }}
+										</div>
+									</div>
 								</div>
-								<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-									<div class=" bc-f-16rp bc-t-333 bc-f-b">开篇语 阻击摧残生命的五大“杀手”</div>
-									<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-										文章内容前面部分文章内容前面部分文
-										章内容前面部分文章内容前面部分文...
+								<div class="collection-but">
+									<div class="collection-but-l">{{ item.column_name }}</div>
+									<div class="collection-but-span">
+										<span><i class="iconfont iconeye-"></i> {{ item.click_num }}</span>
+										<span>{{ item.time }}</span>
 									</div>
 								</div>
 							</div>
-							<div class="collection-but">
-								<div class="collection-but-l">成长系统-上大夫学院</div>
-								<div class="collection-but-span">
-									<span><i class="iconfont iconeye-"></i> 584</span>
-									<span>2019-03-26</span>
-								</div>
-							</div>
-						</div>
-
+						</router-link>
 					</div>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else>
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
 							<div class="collection-no">
 								<img src="http://pc.lifest.dtb315.cn/static/img/students/students-sc@2x.png">
 								<p>暂未收藏任何内容</p>
 							</div>
+						</div>
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+							暂无更多数据...
 						</div>
 					</template>
 				</bv-scroll>
 
 			</div>
 
+			
+
 			<div class="collection-fixed" v-if="if_translate">
-				<label class="collection-fixed-all" id="checked-all" @click="checkAll($event)">
-					<input type="checkbox" name="checked-all">
+				<label class="collection-fixed-all" for="checked-all" @click='checkedAll'>
+					<input type="checkbox" id="checked-all" v-model='checked'>
 					{{checked_all}}
 				</label>
-				<button class="collection-fixed-delete">删除（2）</button>
+				<button class="collection-fixed-delete" @click="delect_data()">删除（{{ checkList.length }}）</button>
 			</div>
 		</div>
 
@@ -74,6 +79,7 @@
 <script>
 	//import WArrlist from '@components/wap/article/w-arrlist'
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "collection",
 		mixins: [scrollMixin()],
@@ -85,35 +91,35 @@
 				if_translate:false,
 				if_btntxt: '编辑',
 				checked_all: '全选',
-				list: [{ // 后台请求过来的数据
-					name: '选项1',
-					value: 'apple'
-				},{
-					name: '选项2',
-					value: 'banana'
-				},{
-					name: '选项3',
-					value: 'orange'
-				}],
-				ball:[
-					{},{},
-				],
-				checkData: []
+				checked: false, //全选框
+				checkList: []
 			}
 		},
-		watch: { // 监视双向绑定的数据数组
-			checkData: { // 监视双向绑定的数组变化
-				handler(){
-					if(this.checkData.length == this.list.length){
-						document.querySelector('#checked-all').checked = true;
-					}else {
-						document.querySelector('#checked-all').checked = false;
+		watch: {
+			'checkList': {
+				handler: function(val, oldVal) {
+					if (val.length === this.load.data.lists.length) {
+						this.checked = true;
+					} else {
+						this.checked = false;
 					}
 				},
 				deep: true
 			}
 		},
 		methods: {
+			checkedAll(){
+				if(this.checked){//取消
+					this.checked_all = '全选'
+					this.checkList = []
+				}else {//全选
+					this.checked_all = '取消'
+					this.checkList = []
+					this.load.data.lists.forEach((item,index)=>{
+						this.checkList.push(item.collection_id);
+					})
+				}
+			},
 			btn_handle() {
 				if(this.if_btntxt=='编辑'){
 					this.if_btntxt='取消';
@@ -123,42 +129,53 @@
 					this.if_translate=false;
 				}
 			},
-			checkAll(e){ // 点击全选事件
-				if(e.target.checked){
-					this.list.forEach((el,i)=>{
-						// 数组里没有这一个value才push，防止重复push
-						if(this.checkData.indexOf(el.value) == '-1'){
-							this.checkData.push(el.value);
-						}
-						this.checked_all = '取消'
-					});
-				}else { // 全不选选则清空绑定的数组
-					this.checkData = [];
-					this.checked_all = '全选'
-				}
-			},
 			api() {
 				//const page = this.load.params.page++;
-				return this.$axios.get('/api/Member_Index/histors', {
+				return this.$axios.get('/api/Member_Index/collection', {
 					params: {
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					console.log(res)
+					//console.log(res)
 					const { data: resultData } = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
 					})) {
-						const {disabled} = scrollEndHook.call(this);
-						this.load.state.disabled = disabled
+						scrollEndHook.call(this);
 					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
 				});
 
+			},
+			delect_data(){
+				//console.log(JSON.stringify(this.checkList))
+				this.$axios.post('/api/Member_Index/collection_delete',{
+					id:JSON.stringify(this.checkList)
+				}).then(res => {
+					console.log()
+					if(this.checkList.length == 0){
+						$toast({
+							message: '至少选择一个',
+							duration: 3000
+						},);
+						return
+					}else {
+						if(res.data.code == 200){
+							$toast({
+								message: '删除成功',
+								duration: 3000
+							},);
+							setTimeout(()=>{
+								this.$router.go(0)
+							},3000)
+						}
+					}
+				})
 			}
 
 		}

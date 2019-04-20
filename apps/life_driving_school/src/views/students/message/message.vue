@@ -10,77 +10,147 @@
 		</w-home-header>
 
 		<div class="message-box">
-			<router-link :to="`${$router.currentRoute.fullPath}/comment`">
+			<div v-if="comment!=''">
+				<router-link to="/students/message/comment">
+					<div class="message-item">
+						<div class="message-item-img">
+							<img :src="comment.head_img">
+						</div>
+						<div class="message-item-r">
+							<div class="message-item-r-top">
+								<div class="message-item-r-top-l">评论</div>
+								<div class="message-item-r-top-r">{{ comment.create_time }}</div>
+							</div>
+							<div class="message-item-r-hf" v-html="comment.content">
+								<!--<span>{{ comment.member_id }}</span>--> <!--{{ comment.content }}-->
+							</div>
+						</div>
+					</div>
+				</router-link>
+			</div>
+			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="https://image.dtb315.com/76343.jpg">
+						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
 							<div class="message-item-r-top-l">评论</div>
-							<div class="message-item-r-top-r">{{ comment.create_time | timeFilter("Y-M-D")  }}</div>
+							<div class="message-item-r-top-r"></div>
 						</div>
 						<div class="message-item-r-hf">
-							<span>{{ comment.member_id }}</span> {{ comment.content }}
+							还没有人评论你哦
 						</div>
 					</div>
 				</div>
-			</router-link>
+			</div>
 
-			<router-link :to="`${$router.currentRoute.fullPath}/fabulous`">
+
+			<div v-if="fabulous!=''">
+				<router-link to="/students/message/fabulous">
+					<div class="message-item">
+						<div class="message-item-img">
+							<img :src="fabulous.head_img">
+						</div>
+						<div class="message-item-r">
+							<div class="message-item-r-top">
+								<div class="message-item-r-top-l">点赞</div>
+								<div class="message-item-r-top-r">{{ fabulous.create_time | timeFilter("Y-M-D")  }}</div>
+							</div>
+							<div class="message-item-r-hf" v-html="fabulous.content">
+								<!--<span>{{ fabulous.member_id }}</span> --><!--{{ fabulous.content }}-->
+							</div>
+						</div>
+					</div>
+				</router-link>
+			</div>
+			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="https://image.dtb315.com/76343.jpg">
+						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
 							<div class="message-item-r-top-l">点赞</div>
-							<div class="message-item-r-top-r">{{ fabulous.create_time | timeFilter("Y-M-D")  }}</div>
+							<div class="message-item-r-top-r"></div>
 						</div>
 						<div class="message-item-r-hf">
-							<span>{{ fabulous.member_id }}</span> {{ fabulous.content }}
+							还没人点赞你哦
 						</div>
 					</div>
 				</div>
-			</router-link>
+			</div>
 
-			<router-link :to="`${$router.currentRoute.fullPath}/station`">
+			<div v-if="station!=''">
+				<router-link to="/students/message/station">
+					<div class="message-item">
+						<div class="message-item-img">
+							<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						</div>
+						<div class="message-item-r">
+							<div class="message-item-r-top">
+								<div class="message-item-r-top-l">站内信</div>
+								<div class="message-item-r-top-r">{{ station.create_time | timeFilter("Y-M-D") }}</div>
+							</div>
+							<div class="message-item-r-hf" v-html="station.content">
+								<!--{{ station.content }}-->
+							</div>
+						</div>
+					</div>
+				</router-link>
+			</div>
+			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="https://image.dtb315.com/76343.jpg">
+						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
 							<div class="message-item-r-top-l">站内信</div>
-							<div class="message-item-r-top-r">{{ station.create_time | timeFilter("Y-M-D") }}</div>
+							<div class="message-item-r-top-r"></div>
 						</div>
 						<div class="message-item-r-hf">
-							{{ station.content }}
+							暂无站内信
 						</div>
 					</div>
 				</div>
-			</router-link>
+			</div>
 
-			<router-link :to="`${$router.currentRoute.fullPath}/notice`">
+
+			<div v-if="notice!=''">
+				<router-link to="/students/message/notice">
+					<div class="message-item">
+						<div class="message-item-img">
+							<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						</div>
+						<div class="message-item-r">
+							<div class="message-item-r-top">
+								<div class="message-item-r-top-l">更新公告</div>
+								<div class="message-item-r-top-r">{{ notice.create_time | timeFilter("Y-M-D") }}</div>
+							</div>
+							<div class="message-item-r-hf" v-html="notice.content">
+								<!--{{ notice.content }}-->
+							</div>
+						</div>
+					</div>
+				</router-link>
+			</div>
+			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="https://image.dtb315.com/76343.jpg">
+						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
 							<div class="message-item-r-top-l">更新公告</div>
-							<div class="message-item-r-top-r">2019-03-26</div>
+							<div class="message-item-r-top-r"></div>
 						</div>
 						<div class="message-item-r-hf">
-							尊敬的生命驾校教练你好尊敬的生命驾校教练你
-							好尊敬的生命驾校教练你好尊敬的生命驾校教练
-							你好尊敬的生命驾校教练你好。
+							暂无更新公告
 						</div>
 					</div>
 				</div>
-			</router-link>
-
-
+			</div>
 		</div>
 
 	</bv-home-view>
@@ -102,7 +172,7 @@
 				this.$axios.get('/api/Member_News/index',{
 
 				}).then(res=>{
-					console.log(res.data.data)
+					//console.log(res.data.data)
 					this.comment=res.data.data.comment
 					this.fabulous=res.data.data.fabulous
 					this.station=res.data.data.station

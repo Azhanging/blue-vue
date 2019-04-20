@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "axios": "^0.18.0",
-    "blue-canvas-tmpl": "^1.0.3",
+    "blue-canvas-tmpl": "^1.0.4",
     "blue-photoswipe-component": "^1.0.9",
     "blue-utils": "^1.0.9",
     "blue-validate": "^1.1.11",

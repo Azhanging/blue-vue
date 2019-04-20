@@ -60,6 +60,7 @@ function responseInterceptors($Axios) {
     if (isLoading === undefined || isLoading === true) {
       $closeLoading(axiosConfig.loadingID);
     }
+
     //success httprequest state
     if (status === 200) {
       const { code } = res.data;
@@ -88,13 +89,9 @@ function responseInterceptors($Axios) {
       return Promise.reject(error);
     }
 
-    //处理超时信息，重写信息
+    //处理超时信息，重写信息,只有超时有提示
     if (isTimeout) {
       error.message = '数据请求超时，请刷新';
-    }
-
-    //只有超时有提示
-    if (isTimeout) {
       $toast({
         message: error.message
       });

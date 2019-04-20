@@ -1,9 +1,9 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
-		
+
 		<!--空页面-->
 	</bv-home-view>
-	
+
 	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
@@ -17,30 +17,44 @@
 
 	export default {
 		name: "grow",
+		watch:{
+			$route(to,from){
+				//跳到空白页时返回到首页
+				if(from.path == '/grow/12/college/15' && to.path=='/grow/12'){
+					this.$router.push('/')
+				}
+			}
+		},
+		computed:{
+			currentFullPath(){
+				return this.$router.currentRoute.fullPath;
+			}
+		},
 		methods: {
 			// /api/classify/assortment.html?column_id=12 点进来的
 
 			getdata() {
+				/^\/grow\/((?:[^\/]+?))(?:\/(?=$))?$/i.test(this.$route.fullPath) &&
 				this.$axios.get('/api/classify/assortment.html', {
 					params: {
 						column_id: this.$route.params.grow_id
 					}
 				}).then((res) => {
-					console.log(res.data.data.system[0].id)
 					// this.$router.push({path:res.system[0].id,query:{growId:this.$route.params.id}})
-					this.$router.push(
-						this.$router.routerID.getPathID({
-							id: res.data.data.system[0].id,
-							params: {
+					let t_path = '/grow/'+this.$route.params.grow_id;//只grow跳转首页
+					if(this.currentFullPath == t_path){
+						this.$router.push(
+							this.$router.routerID.getPathID({
 								id: res.data.data.system[0].id,
-								grow_id: this.$route.params.grow_id
-							}
-						})
-					)
+								params: {
+									classId: res.data.data.system[0].id,
+									grow_id: this.$route.params.grow_id
+								}
+							})
+						)
+					}
 				});
 			}
-
-
 		},
 
 		mounted() {
@@ -93,7 +107,7 @@
 				color: #A7815C;
 				background: url($base-url+ '/img/grow/course.png') no-repeat;
 				background-size: 100% 100%;
-				
+
 			}
 		}
 		.courseList {

@@ -5,26 +5,39 @@
             title:{
                 value: "生命导航"
             }
-        }'
-		></life_nav_tab>
+        }' :leftControl="`/`"></life_nav_tab>
 
-		<div class="life-nav-banner">
-			<img src="http://image.dtb315.com/5217013.jpg">
-		</div>
+
+
+		<bv-scroll>
+			<swiper :options="swiperOption" ref="swiper">
+				<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
+					<a :href="slide.url" target="_blank"></a>
+					<div class="life-nav-banner">
+						<a :href="slide.url">
+							<img :src="slide.src_img">
+						</a>
+					</div>
+				</swiper-slide>
+				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+			</swiper>
+		</bv-scroll>
 
 		<div class="life-nav-icon">
 			<div class="life-nav-icon-li">
-				<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/1@2x.png"></div>
-				<p>驾照简介</p>
+				<router-link :to="`${currentFullPath}/introduce-detail`">
+					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/1@2x.png"></div>
+					<p>驾照简介</p>
+				</router-link>
 			</div>
 			<div class="life-nav-icon-li">
-				<router-link to="/">
+				<router-link to="/grow/12/video/16">
 					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/2@2x.png"></div>
 					<p>视频直播</p>
 				</router-link>
 			</div>
 			<div class="life-nav-icon-li">
-				<router-link to="/">
+				<router-link to="" @click.native="zwkf_click">
 					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/3@2x.png"></div>
 					<p>健康测试</p>
 				</router-link>
@@ -36,14 +49,18 @@
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 				<w-arrlist :list='load.data.lists'></w-arrlist>
 				<template slot="load-down">
-					<div class="bc-t-c bc-pd-10rp">
+					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 						数据加载中...
 					</div>
-					<div class="bc-t-c bc-pd-10rp">
-						暂无数据...
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						暂无数据
+					</div>
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						暂无更多数据...
 					</div>
 				</template>
 			</bv-scroll>
+
 		</div>
 
 	</bv-home-view>
@@ -54,7 +71,7 @@
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
 	import WArrlist from '@components/wap/article/w-arrlist'
 	import router from '@router';
-
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "index",
 		mixins: [scrollMixin()],
@@ -64,7 +81,14 @@
 		},
 		data() {
 			return {
+				swiperOption: {
+					pagination: {
+						el: "#pagination"
+					},
+					loop: true
+				},
 				life_nav:{},
+				banner:''
 			}
 		},
 		computed:{
@@ -73,6 +97,16 @@
 			}
 		},
 		methods: {
+			banner_show() {
+				return this.$axios.get('/api/Banner/index',{
+					params:{
+						column_id:this.$route.params.nav_id
+					}
+				}).then(res=>{
+					//console.log(res)
+					this.banner = res.data.data.banner
+				})
+			},
 			api() {
 				//const page = this.load.params.page++;
 				return this.$axios.get('/api/Classify/column_article', {
@@ -87,17 +121,25 @@
 						resultData,
 						listKey: 'list'
 					})) {
-						const {disabled} = scrollEndHook.call(this);
-						this.load.state.disabled = disabled
+						scrollEndHook.call(this);
 					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
 				});
 			},
+			zwkf_click(){
+				$toast({
+					message: '暂未开放',
+					duration: 3000
+				});
+				return;
+			}
 		},
 		mounted() {
+			this.banner_show();
 		}
 
 	}

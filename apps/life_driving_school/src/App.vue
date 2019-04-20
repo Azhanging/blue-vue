@@ -22,7 +22,7 @@
 
 <style lang='scss'>
 	/*阿里字体图标*/
-	@import url("//at.alicdn.com/t/font_1091145_ir4rbmmup2a.css");
+	@import url("//at.alicdn.com/t/font_1091145_qlna7icg41p.css");
 
 
 

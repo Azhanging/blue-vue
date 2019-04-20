@@ -38,7 +38,3 @@
     name: "components"
   }
 </script>
-
-<style scoped lang="scss">
-
-</style>

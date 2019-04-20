@@ -8,7 +8,6 @@
 				<span :class='allSel.isTime===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 			</div>
 		</div>
-	
 		<div class='bc-bg-white sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='scan'>
 				浏览量
@@ -16,7 +15,6 @@
 				<span :class='allSel.isScan===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
 			</div>
 		</div>
-	
 	</div>
 </template>
 
@@ -77,17 +75,12 @@
 			get_sel(){
 				this.$emit('send_sel',this.allSel)
 			}
-
-		},
-		mounted() {
-
 		}
 	}
 </script>
 
 <style lang='scss' scoped>
 	@import '@css/index.scss';
-	
 	.sorting{
 		border-bottom: 1px #eee solid;
 		.iconfont{
@@ -100,7 +93,6 @@
 		}
 		.down{
 			position: absolute;
-
 			right: rem(-20);
 			top: rem(6);
 		}

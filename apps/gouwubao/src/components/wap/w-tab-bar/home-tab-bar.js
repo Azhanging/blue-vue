@@ -1,46 +1,83 @@
 import router from '@router';
+import config from '@config';
+import programUrl from '@config/program-url';
 
 const homeTabBar = {
   list: {
     items: [{
       content: {
-        value: '测试首页',
-        fontSize: 10
-      },
-      icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
-        style: 'width:20px;height:20px;',
-        direction: 'top'
-      },
-      to: '/',
-      className: 'bc-pd-5 bc-bd-r-e5e'
-    }, {
-      content: {
         value: '首页',
         fontSize: 10
       },
       icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
+        src: `${config.path.static}/img/tab-bar/home/home.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/home-active.png`,
         style: 'width:20px;height:20px;',
-        direction: 'bottom'
+        direction: 'top'
       },
-      to: '/',
-      className: 'bc-pd-5 bc-bd-r-e5e',
-      fontSize: 10
+      to() {
+        location.href = `${config.path.base}`;
+      },
+      className: 'bc-pd-5'
     }, {
       content: {
-        value: '组件',
+        value: '创业中心',
         fontSize: 10
       },
       icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',                       //没选中的src图片
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
-        direction: 'left',
-        style: 'width:20px;height:20px;'
+        src: `${config.path.static}/img/tab-bar/home/cy-center.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/cy-center-active.png`,
+        style: 'width:20px;height:20px;',
+        direction: 'top'
       },
-      to: '/components',
+      to: `/join/creator`,
+      className: 'bc-pd-5'
+    }, {
+      content: {
+        value: '购物车',
+        fontSize: 10
+      },
+      icon: {
+        src: `${config.path.static}/img/tab-bar/home/cart.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/cart-active.png`,
+        style: 'width:20px;height:20px;',
+        direction: 'top'
+      },
+      to(){
+        location.href = `${config.path.base}/home/cart`;
+      },
+      className: 'bc-pd-5'
+    }, {
+      content: {
+        value: '生命驾校',
+        fontSize: 10
+      },
+      icon: {
+        src: `${config.path.static}/img/tab-bar/home/life-school.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/life-school-active.png`,
+        style: 'width:20px;height:20px;',
+        direction: 'top'
+      },
+      to(){
+        //跳转到生命驾校
+        console.log(programUrl);
+        location.href = programUrl.lifeSchool;
+      },
+      className: 'bc-pd-5'
+    }, {
+      content: {
+        value: '个人中心',
+        fontSize: 10
+      },
+      icon: {
+        src: `${config.path.static}/img/tab-bar/home/member.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/member-active.png`,
+        style: 'width:20px;height:20px;',
+        direction: 'top'
+      },
+      to(){
+        location.href = `${programUrl['gou-wu-bao']}/member`;
+      },
       className: 'bc-pd-5'
     }]
   },

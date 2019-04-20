@@ -15,6 +15,10 @@ export default class WebSocketChat{
 		this.websocket.onopen = () => {
 			//更新连接状态
 			console.log('连接...');
+			// this.websocket.send(JSON.stringify({
+			// 	live_video_id: config.id,
+			// 	content: config.textareaVal
+			// }));
 		}
 	}
 	onclose() {
@@ -24,8 +28,14 @@ export default class WebSocketChat{
 	}
 	onMessage(cb) {
 		this.websocket.onmessage = (data) => {
-			console.log('接收到....')
+			// console.log('接收到....')
 			cb.call(this, data);
+		}
+	}
+	send(){
+		this.websocket.send = (data) => {
+			console.log('发送')
+			// cb.call(this, data);
 		}
 	}
 }

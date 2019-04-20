@@ -1,3 +1,6 @@
+import config from '@config';
+import { mockMoveScroll } from '$assets/js/device';
+
 const viewScrollClassName = '.bv-view-scroll';
 
 function getScrollElm() {
@@ -31,12 +34,6 @@ export function setViewEvent() {
     this.hideTabBarSubMenu();
 
   }, false);
-
-  //ios move的时候产生卡顿的问题
-  scrollElm.addEventListener('touchmove', () => {
-    document.body.scrollTop = document.body.scrollHeight;
-  });
-
 }
 
 //设置父级view组件的scroll状态
@@ -70,4 +67,12 @@ export function findParentView() {
     return viewScrolls[findIndex - 1];
   }
   return null;
+}
+
+//ios input bug
+export function inputEvent() {
+  const device = config.device;
+  if (device.isWap && (device.isIPhone || device.isIPad)) {
+    mockMoveScroll();
+  }
 }

@@ -9,6 +9,3 @@
 	  name: "member",
 	}
 </script>
-
-<style scoped lang="scss">
-</style>

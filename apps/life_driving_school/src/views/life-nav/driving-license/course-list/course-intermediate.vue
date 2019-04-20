@@ -5,13 +5,16 @@
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 
 					<w-arrlist :list='load.data.lists'></w-arrlist>
-
+					
 					<template slot="load-down">
-						<div class="bc-t-c bc-pd-10rp">
+						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp">
-							暂无数据...
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+							暂无数据
+						</div>
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+							暂无更多数据...
 						</div>
 					</template>
 				</bv-scroll>
@@ -53,9 +56,9 @@
 						resultData,
 						listKey: 'list'
 					})) {
-						const {disabled} = scrollEndHook.call(this);
-						this.load.state.disabled = disabled
+						scrollEndHook.call(this);
 					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
 				}).catch(() => {

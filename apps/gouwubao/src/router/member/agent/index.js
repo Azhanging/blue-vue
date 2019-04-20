@@ -1,40 +1,54 @@
 const agent = {
-	path: 'agent',
-	meta:{
-		tabBar: false
-	},
-	component: () => import("@/views/member/agent/agent.vue"),
-	children: [{
-		path: 'mall-income',
-		component: () => import("@/views/member/components/mall-income"),//商城收益
-		meta: {
-			tabBar: false
-		}
-	},{
-		path: 'for-the',
-		component: () => import("@/views/member/components/for-the"),//商城收益
-		meta: {
-			tabBar: false
-		}
-	},{
-		path: 'history',
-		component: () => import("@/views/member/components/history"),//历史收益
-		meta: {
-			tabBar: false
-		}
-	},{
-		path: 'tutoring',
-		component: () => import("@/views/member/components/tutoring"),//辅导收益
-		meta: {
-			tabBar: false
-		}
-	},{
-		path: 'to-quit',
-		component: () => import("@/views/member/agent/to-quit"),//申请退出
-		meta: {
-			tabBar: false
-		}
-	}]
+  path: 'agent/:area_id/:level',
+  component: () => import("@/views/member/agent/agent"),
+  children: [{
+    //历史
+    path: 'history',
+    component: () => import("@/views/member/agent/history"),//历史收益
+    children: [{
+      //历史明细
+      path: 'history-income',
+      component: () => import("@/views/member/agent/history-income"),
+    }]
+  }, {
+    //商城收益
+    path: 'shop-income',
+    component: () => import("@/views/member/agent/shop-income"),
+    children: [{
+      //商城收益详情
+      path: 'shop-income-detail',
+      component: () => import("@/views/member/agent/shop-income-detail"),
+      meta: {
+        tabBar: false
+      }
+    }]
+  }, {
+    //商城收益
+    path: 'wait-settle',
+    component: () => import("@/views/member/agent/wait-settle"),
+  }, {
+    //申请退出
+    path: 'quit',
+    component: () => import("@/views/member/agent/quit"),
+    meta: {
+      tabBar: false
+    }
+  }, {
+    //代理经费
+    path: 'operating-expenses',
+    component: () => import("@/views/member/agent/operating-expenses"),
+    meta: {
+      tabBar: false
+    },
+    children: [{
+      //代理经费
+      path: 'operating-expenses-detail',
+      component: () => import("@/views/member/agent/operating-expenses-detail"),
+      meta: {
+        tabBar: false
+      }
+    }]
+  }]
 };
 
 export default agent;

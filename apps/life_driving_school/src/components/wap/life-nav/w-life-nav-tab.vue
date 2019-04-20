@@ -1,5 +1,5 @@
 <template>
-	<w-home-header :header='title'>
+	<w-home-header :header='title' :leftControl="leftControl">
 		<w-home-nav  :nav='nav' :otherParams='{nav_id:$route.params.nav_id}' :active-index='growIndex'></w-home-nav>
 	</w-home-header>
 </template>
@@ -8,6 +8,11 @@
 
 	export default {
 		props:{
+			//左边控制
+			leftControl: {
+				default: '',
+				type: String
+			},
 			growIndex:0,
 			title:'',
 			otherParams:{}

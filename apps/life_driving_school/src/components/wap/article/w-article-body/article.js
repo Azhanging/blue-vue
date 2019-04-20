@@ -1,42 +1,48 @@
 //针对评论的mixin方法
-export function commentMixin() {
+export function commentMixin(opts = {}) {
+  const {
+    scrollEndHook,
+    scrollNoHasListData
+  } = opts;
   return {
-    mounted() {
-      // 评论内容 /api/Comment/index.html
-      const { commentParams } = this.config.data;
-      this.$axios.get('/api/Comment/index.html', {
-        params: commentParams
-      }).then(res => {
-        const { data } = res.data;
-        this.comment = data;
-        // 初始化comment  clickstatus为false
-        if (this.comment && this.comment.list) {
-          this.comment.list.forEach(function (item) {
-            item.isclickthumb = false;
-            if (item.reply && item.reply.length > 0) {
-              item.reply.forEach(function (item) {
-                item.isclickthumb = false;
-              })
-            }
-          })
-        }
-        this.comment.commentStatus = 0;
-        this.comment.id = 0;
-        this.comment.article_collection = false;
-        this.comment.article_fabulous = false;
-      }).catch(error => {
-        console.log(error);
-      });
-    },
     methods: {
-      releaseComment(opts) {
-        this.comment.commentStatus = opts.commentStatus;
-        this.comment.id = opts.id;
+      api() {
+        const { commentParams } = this.config.data;
+        let params = Object.assign(commentParams, { page: this.load.params.page });
+        return this.$axios.get('/api/Comment/index.html', {
+          params: params
+        }).then((res) => {
+          const { data: resultData } = res.data;
+          if (scrollNoHasListData.call(this, {
+            resultData,
+            listKey: 'list'
+          })) {
+            // 一开始就走这里
+            if (JSON.stringify(this.comment) === '{}' ) {
+              this.comment = resultData;
+              this.comment.commentStatus = 0;
+              this.comment.id = 0;
+             // console.log('没有评论时候的comment', resultData);
+            }
+            scrollEndHook.call(this);
+          } else {
+            ++this.load.params.page;
+            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            this.comment = resultData;
+            this.comment.commentStatus = 0;
+            this.comment.id = 0;
+            this.comment.list = this.load.data.lists || [];
+            // console.log('有评论时候的comment', this.comment);
+            // console.log('comment-list', this.comment.list);
+            if(resultData.list.length < 10) scrollEndHook.call(this);
+          }
+        }).catch((error) => {
+          console.log(error);
+          return scrollEndHook.call(this);
+        });
       },
-      deleteComment(opts) {
-        const { commentStatus, id } = opts;
-        this.comment.commentStatus = commentStatus;
-        this.comment.id = id;
+      replyFocus() {
+        this.$refs['reply'].$refs['replyInput'].focus()
       }
     },
     computed: {

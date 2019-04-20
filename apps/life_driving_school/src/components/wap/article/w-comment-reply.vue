@@ -1,23 +1,29 @@
 <template>
 	<div>
-		<button @click.stop="submitForm" style="position:fixed;z-index:200000;top:0">点击发布</button>
+		<button @click.stop="submitForm" style="background:white;position:fixed;z-index:200000;bottom:50px;">点击发布</button>
 		<!--<form action="" @submit.prevent="submitForm">-->
 		<div class="comments-reply-input bc-ps-f bc-w-100 bc-v-m" style="" v-if="commentsReplyInputShow">
 			<div class="bc-flex bc-pd-7rp bc-bg-white">
 				<label class="bc-flex-2 bc-bg-e5e bc-pd-lr-15rp">
 					<i class='iconfont icondianping bc-f-20rp '></i>
-					<input class="bc-input bc-bd-none bc-bg-e5e bc-w-80" type="text" placeholder="写评论..." v-model="editComment">
+					<input class="bc-input bc-bd-none bc-bg-e5e bc-w-80" type="text" placeholder="写评论..." v-model="editComment" ref="replyInput">
 				</label>
-				<div class="bc-flex-2 ">
-							<span class="bc-inline-block bc-ps-r">
-								<i class='iconfont iconpinglun bc-f-20rp bc-mg-lr-10rp'></i>
-								<span class="info-num bc-f-10rp bc-pd-lr-3rp" v-if="comment.count>0">{{comment.count}}</span>
-							</span>
-					<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click="toCollect(isCollect)"></i>
-					<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-10rp bc-t-base' v-else @click="toCollect(false)"></i>
-					<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click="clickThumb(isAdd, comment)"></i>
-					<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-else @click="clickThumb(isAdd, comment)"></i>
-					<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' @click="$share"></i>
+				<div class="bc-flex-2 bc-flex">
+					<span class="bc-flex-1 bc-ps-r">
+						<i class='iconfont iconpinglun bc-f-20rp bc-mg-lr-10rp'></i>
+						<span class="info-num bc-f-10rp bc-pd-lr-3rp" v-if="comment.count>0">{{comment.count}}</span>
+					</span>
+					<span class="bc-flex-1" v-if="btn_contribute">
+						<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click.stop="toCollect(isCollect)"></i>
+						<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-10rp bc-t-base' v-else @click="toCollect(false)"></i>
+					</span>
+					<span class="bc-flex-1" v-if="btn_gLink">
+						<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click.stop="clickThumb(comment)"></i>
+						<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-else @click.stop="clickThumb(comment)"></i>
+					</span>
+					<span class="bc-flex-1">
+						<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' @click.stop="$share(comment.shareInfo)" ></i>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -60,42 +66,71 @@ export default {
     comment: {
       type: Object,
       default: {}
-    }
+    },
+	  btn_contribute:{
+		  type: Boolean,
+		  default:true
+	  },
+	  btn_gLink:{
+		  type: Boolean,
+		  default:true
+	  }
   },
   data() {
     return {
       commentsReplyInputShow: true,
       isCollect: true,
-      isAdd: true,
-      editComment: ''
+      editComment: '' // 评论内容
     }
   },
   methods: {
     submitForm() {
       let newComment;
+      let name_url = this.$route.path;// 带路径
+
       const { editComment } = this;
-      const { commentStatus, id } = this.comment;
+      const { commentStatus, id } = this.comment; //commentStatus id 父级id  初始化值都为 0
       const { submitCommentParams } = this.config.data;
+      const m_id = this.userInfo.id; // 自己的id
+
+      if (!editComment) {
+        this.$toast({
+          message: '评论不能为空!',
+          iconClass: 'iconfont iconchenggong bc-t-success'
+        });
+        return false;
+      }
+
       let params = Object.assign(submitCommentParams, { // 提交评论 请求参数
-        id: id,
-        m_id: this.userInfo.id,
+        id: id || 0,
+        m_id: m_id,
         content: editComment,
+	      name_url: name_url
       },);
       this.$axios.post('/api/comment/common', params).then(res => {
-        if (commentStatus === 0) {
+       // this.comment.list = this.comment.list ? this.comment.list : [];
+        // if (this.comment.list && this.comment.list.length === 0) {
+        //   this.comment.list = []; // 初始化
+        // }
+        if (!commentStatus) {// 默认对文章进行回复 默认状态为0
           const { id, article_id, nickname, head_img, m_id, time, content, fabulous } = res.data.data;
           newComment = {
             id: id,
             article_id: article_id,
             nickname: nickname,
+	          nickname_reply: '',
             head_img: head_img,
             m_id: m_id,
             time: time,
             content: content,
             fabulous: fabulous || 0, // 点赞数量
-            isclickthumb: false
+            isclickthumb: false, // 点赞状态
+            member_id: this.userInfo.id,
+	          reply: []
           };
-        } else if (commentStatus === 1) {
+          // 默认回复文章
+          this.comment.list.unshift(newComment);
+        } else if (commentStatus === 1) { // 对评论人进行回复
           const { id, article_id, nickname_reply, head_img, m_id, time, content, fabulous } = res.data.data;
           newComment = {
             id: id,
@@ -106,21 +141,16 @@ export default {
             time: time,
             content: content,
             fabulous: fabulous || 0,
-            isclickthumb: false
+            isclickthumb: false,
+            member_id: this.userInfo.id
           };
-        }
-
-        this.comment.list = this.comment.list ? this.comment.list : [];
-        if (commentStatus === 1) {
           let targetIndex = this.comment.list.findIndex((item) => {
-            return this.id === item.id;
+            return this.comment.id === item.id;
           });
           // 回复他人评论  如果是自己（弹出删除 取消）
           this.comment.list[targetIndex].reply.unshift(newComment);
-        } else if (commentStatus === 0) {
-          // 默认回复文章
-          this.comment.list.unshift(newComment);
         }
+
         // 恢复默认评论文章状态
         this.comment.commentStatus = 0;
         // 清空输入框
@@ -128,71 +158,77 @@ export default {
         // count ++
         this.comment.count++;
 
+        this.$toast({
+          message: '评论成功!',
+          iconClass: 'iconfont iconchenggong bc-t-success'
+        });
+
       }).catch(error => {
         console.log(error);
       });
     },
     toCollect(isCollect) {
       const { commentParams } = this.config.data;
-      // 点赞
+      // 收藏
       if (isCollect) {
         this.comment.article_collection = true;
         this.isCollect = false;
         let params = Object.assign({ article_collection: true }, commentParams);
         this.$axios.get('/api/article/collection', {
-          params: params
+          params
         }).then(res => {
-          const {code} = res.data;
+          const { code } = res.data;
           if (code === 200) {
             this.$toast({
-              message: '收藏成功！'
-            })
+              message: '收藏成功!',
+              iconClass: 'iconfont iconchenggong bc-t-success'
+            });
           }
         })
       } else {
-        // 取消点赞
+        // 取消收藏
         this.comment.article_collection = false;
         this.isCollect = true;
         let params = Object.assign({ article_collection: false }, commentParams);
         this.$axios.get('/api/article/collection', {
-          params: params
+          params
         }).then(res => {
-          const {code} = res.data;
+          const { code } = res.data;
           if (code === 200) {
             this.$toast({
-              message: '取消收藏！'
-            })
+              message: '取消收藏!',
+              iconClass: 'iconfont iconchenggong bc-t-success'
+            });
           }
         })
       }
     },
-    clickThumb(add, comment) {
+    clickThumb(comment) {
       const { commentParams } = this.config.data;
+      let add = !comment.article_fabulous;
       // 由没点赞->点赞
       if (add) {
-        this.isAdd = false;
         this.$axios.get('/api/article/fabulous', {
           params: commentParams
         }).then(res => {
-          const { fabulous_num } = res.data.data;
-          this.$set(comment, 'article_fabulous', true); // fabulous = false
-          this.$set(comment, 'fabulous_num', fabulous_num);
+          this.comment.article_fabulous = true;
+          this.comment.fabulous_num ++;
           this.$toast({
-	          message: '点赞成功!'
-          })
+            message: '点赞成功!',
+            iconClass: 'iconfont iconchenggong bc-t-success'
+          });
         })
       } else {
         // 由点赞->没点赞
-        this.isAdd = true;
         this.$axios.get('/api/article/fabulous', {
           params: commentParams
         }).then(res => {
-          const { fabulous_num } = res.data.data;
-          this.$set(comment, 'article_fabulous', false); // fabulous = false
-          this.$set(comment, 'fabulous_num', fabulous_num);
+          this.comment.article_fabulous = false;
+          this.comment.fabulous_num --;
           this.$toast({
-            message: '取消点赞!'
-          })
+            message: '取消点赞!',
+            iconClass: 'iconfont iconchenggong bc-t-success'
+          });
         })
       }
     }
@@ -211,16 +247,14 @@ export default {
 		bottom: 0;
 		z-index: 200;
 		max-width: rem(450);
-
 		.comment-reply-input-img {
 			width: rem(15);
 			height: rem(15);
 		}
-
 		.info-num {
 			position: absolute;
-			left: rem(25);
-			top: rem(-8);
+			left: rem(23);
+			top: rem(-4);
 			background: #F76872;
 			color: white;
 			border-radius: rem(5);

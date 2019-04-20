@@ -1,6 +1,6 @@
 <template>
 	<div class='bc-pd-lr-15rp'>
-		<div class="bc-f-16rp bc-t-base bc-pd-t-14rp">
+		<div class="bc-f-16rp bc-t-base bc-pd-t-14rp bc-mg-t-50rp" v-if="list && list.length>0">
 			相关内容
 		</div>
 		<div v-for='item in list' @click='detailClick(item.id)' class='itemList' :key="item.id">

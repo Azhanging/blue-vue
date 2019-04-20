@@ -53,7 +53,8 @@ function shareLinkParams(link) {
 
     const params = {
       [shareParams.phone]: phone ? Base64.encode(phone) : '',
-      [shareParams.redirectUrl]: fullPath
+      [shareParams.redirectUrl]: fullPath,
+      [shareParams.wantUrl]: `${config.path.indexPath}${fullPath}`     //业务需要，添加跳转链接
     };
 
     shareLink = `${config.path.base}/?${utils.stringifyParams(params)}`;

@@ -1,6 +1,6 @@
 
 const video = {
-	path: 'video/:id',
+	path: 'video/:classId',
 	name: 'video',
 	meta:{
 		tabBar: false,

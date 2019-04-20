@@ -11,7 +11,6 @@ export function routerAfterEach(opts = {}) {
   const { router, unAfterHook, afterEach } = opts;
   router.afterEach((to, from) => {
     $closeLoading();
-    $closeToast();
     //项目内使用的after each
     utils.hook(null, afterEach, [to, from]);
     //获取微信配置，只针对微信端处理（针对url不一致的，每次路由访问都会走一遍）

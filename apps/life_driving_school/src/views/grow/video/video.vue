@@ -3,21 +3,22 @@
 		
 		<growTab :growIndex='1' :nav='college_list.system'></growTab>
 		
-		<!--<div class='bc-bg-white'>-->
-			<!--<bv-scroll>-->
-				<!--<swiper :options="swiperOption" ref="swiper">-->
-					<!--<swiper-slide v-for="(slide, index) in banners" :key="index">-->
-						<!--<img :src='slide' style="width:100%">-->
-					<!--</swiper-slide>-->
-					<!--<div class="swiper-pagination" id="pagination" slot="pagination"></div>-->
-				<!--</swiper>-->
-			<!--</bv-scroll>-->
+		<div class='bc-bg-white'>
+			<bv-scroll>
+				<swiper :options="swiperOption" ref="swiper">
+					<swiper-slide v-for="(slide, index) in banners" :key="index">
+						<img :src='slide.src_img' style="width:100%">
+					</swiper-slide>
+					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+				</swiper>
+			</bv-scroll>
+		</div>
+		<!--<div v-if='banners.length > 0'>-->
+			<!--<img width='100%' class='bc-block' :src="banners[0].src_img" alt=''>-->
 		<!--</div>-->
-		
-		<img width='100%' class='bc-block' :src="banners.img" alt=''>
 		<div class='bc-f-11rp bc-bg-white notice bc-mg-b-10rp bc-pd-lr-15rp bc-v-m'>
 			<i class='iconfont iconyinliang-di bc-t-base bc-f-18rp '></i>
-			<span >{{banners.content}}</span>
+			<span >{{resvideo.notice_content}}</span>
 		</div>
 		
 		<!--数据循环  正在直播  -->
@@ -42,7 +43,7 @@
 							</div>
 						</div>
 						<div class='bc-f-14rp t-hide bc-t-333 bc-t-hide' style='font-weight: 500'>{{item.title}}</div>
-						<div class='bc-f-12rp bc-t-666 '>{{item.start_time | timeFilter("Y.M.D")}}</div>
+						<div class='bc-f-12rp bc-t-666 '>{{item.start_time*1000 | timeFilter("Y.M.D")}}</div>
 					
 					</router-link>
 				</div>
@@ -75,10 +76,7 @@
 		},
 		data() {
 			return {
-				banners:{
-					img:'http://www.pptbz.com/pptpic/UploadFiles_6909/201203/2012031220134655.jpg',
-					content:''
-				},
+				banners:[],
 				resvideo:{},
 				college_list:{},
 				swiperOption: {
@@ -87,22 +85,19 @@
 					},
 					loop: true,
 					autoplay:true,
-					
 				},
 				swiper: {},
-				videoList:[
-				1,2
-				],
-				scroll_list:[1,2,3,4,5,6,8,7],
+				videoList:[],
+				scroll_list:[],
 			}
 		},
 		methods:{
 			select(item, index) {
 
 			},
-			// swiperUpdate() {
-				// this.swiper.update();
-			// },
+			swiperUpdate() {
+				this.swiper.update();
+			},
 			golist(id){
 				// this.$router.push({path:'/special/column',query:{id:id}})
 			},
@@ -114,12 +109,13 @@
 				});
 			},
 			getBanner(){
-				this.$axios.get('api/notice/index',{
+				this.$axios.get('/api/banner/index',{
 					params: {
-						type: 2
+						column_id:16
 					}
 				}).then((res) => {
-					this.banners = res.data.data;
+					this.banners = res.data.data.banner;
+					console.log(this.banners)
 				}).catch((error) => {
 					console.log(error);
 				});
@@ -132,7 +128,7 @@
 					}
 				}).then((res) => {
 					this.college_list =  res.data.data;
-					console.log(this.college_list);
+					// console.log(this.college_list);
 					// this.$router.push()
 				});
 			},
@@ -144,10 +140,10 @@
 		},
 		mounted(){
 			this.init();
-			// this.$nextTick(() => {
-			// 	this.swiper = this.$refs['swiper'];
-			// 	this.swiperUpdate();
-			// });
+			this.$nextTick(() => {
+				this.swiper = this.$refs['swiper'];
+				this.swiperUpdate();
+			});
 		}
 	}
 </script>

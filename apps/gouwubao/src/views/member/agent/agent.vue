@@ -1,205 +1,210 @@
 <template>
-	<bv-home-view class='wap' :router-level='2'>
-		<bv-header :header="{title:{value:'代理办公司'}}">
+	<bv-home-view :router-level='2' style="background-color: #f4f4f4;">
+
+		<bv-header :header="{title:{value:'代理办公室'}}">
 			<div slot="right-control">
 				<div class="bc-t-r bc-mg-r-10rp member-sqtc">
-					<router-link to="/member/agent/to-quit">
+					<router-link to="quit" append class="bc-t-333">
 						申请退出
 					</router-link>
 				</div>
 			</div>
 		</bv-header>
 
-		<div class="member-top">
-			<div class="member-top-portrait">
-				<img src="https://image.dtb315.com/76343.jpg">
+		<!-- 办公室头部 -->
+		<office-header :member-info="pageData.memberInfo" type="agent" class="bc-mg-b-10rp">
+			<div
+				class="area bc-t-white bc-t-c" slot="area"
+				@click="showAreaToggle = !showAreaToggle"
+				v-if="pageData.area && pageData.area.length > 1">
+				<i class="icon icon-dizhi bc-f-10rp"></i>切换区域
 			</div>
-			<div class="member-top-center">
-				<div class="member-top-name">菩提花开</div>
-				<div class="member-top-account member-top-desc">账号：13456789101</div>
-				<div class="member-top-level member-top-desc">代理级别：省级代理</div>
-				<div class="member-top-area member-top-desc">代理区域：广东省深圳市龙华区</div>
-			</div>
-			<div class="member-top-certificate">
-				<img src="https://image.dtb315.com/326999.jpg?val=Thumb">
-			</div>
-			<button class="member-top-btn-qhqy">
-				<i class="iconfont icon-dizhi"></i> 切换区域
-			</button>
+		</office-header>
+
+		<!-- 统计 -->
+		<statistics  :textType='"content_one"' />
+
+		<!-- 我的会员 -->
+		<statistics-item v-if="pageData.area_member" class="bc-bd-b-e5e" :options="{
+	    title:{
+	      name:'我的区域会员',
+	      url: `${$config.path.base}/member/my_member/area_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
+	    },
+	    num: pageData.area_member.total,
+	    otherNum:[{
+	      name:'今日新增',
+	      num: pageData.area_member.today_add_num
+	    },{
+	      name:'昨日新增',
+	      num: pageData.area_member.yest_add_num
+	    }]
+		}"/>
+
+		<!--商城收益 -->
+		<statistics-item class="bc-bd-b-e5e" v-if="pageData.mall_sale" :options="{
+	    title:{
+	      name:'商城收益',
+	      url:`shop-income`
+	    },
+	    num: pageData.mall_sale.total,
+	    otherNum:[{
+	      name:'今日新增',
+	      num: pageData.mall_sale.today_add_num
+	    },{
+	      name:'昨日新增',
+	      num: pageData.mall_sale.yest_add_num
+	    }],
+	    bottomNum:{
+	      name: '待结算收益：',
+	      num: pageData.mall_sale.waitSettle,
+	      url: `wait-settle`,
+	      urlName: '点击查看'
+	    }
+		}"/>
+
+		<!-- 我的县区代理 -->
+		<statistics-item  v-if="pageData.memberInfo && pageData.memberInfo.level == 1 && pageData.areacount" class="bc-bd-b-e5e" :options="{
+	    title:{
+	      name:'我的县区代理',
+	      url: `${$config.path.base}/member/my_member/agent_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
+	    },
+	    num: pageData.areacount.total,
+	    otherNum:[{
+	      name:'今日新增',
+	      num: pageData.areacount.today_add_num
+	    },{
+	      name:'昨日新增',
+	      num: pageData.areacount.yest_add_num
+	    }]
+		}"/>
+
+		<!-- 运营经费 -->
+		<statistics-item v-if="pageData.peratecount && pageData.memberInfo && pageData.memberInfo.level == 1" :options="{
+	    title:{
+	      name:'运营经费',
+	      url:`operating-expenses`
+	    },
+	    num: pageData.peratecount.total,
+	    otherNum:[{
+	      name:'今日新增',
+	      num: pageData.peratecount.today_area_expenses
+	    },{
+	      name:'昨日新增',
+	      num: pageData.peratecount.yest_area_expenses
+	    }]
+		}"/>
+
+		<div class="bc-t-c bc-bg-white bc-t-base bc-pd-10rp bc-f-12rp" v-if="pageData.memberInfo && pageData.memberInfo.level == 1">
+			<router-link :to="`history`" append class="bc-t-base">
+				查看历史数据>>
+			</router-link>
 		</div>
 
-		<div class="stat">
-			<div class="stat-title">统计 <i class="iconfont icon-wenti"></i></div>
-			<div class="stat-item">
-				<div class="stat-item-top">
-					<div class="stat-item-top-l">
-						我的区域会员
-					</div>
-					<div class="stat-item-top-r">
-						查看全部 <i class="iconfont "></i>
-					</div>
-				</div>
-				<div class="stat-item-center">
-					<div class="stat-item-center-l">
-						100
-					</div>
-					<div class="stat-item-center-r">
-						<div class="stat-item-center-r-block">
-							<div class="stat-item-center-r-block-title">今日新增</div>
-							<div class="stat-item-center-r-block-amount">+50</div>
-						</div>
-						<div class="stat-item-center-r-block">
-							<div class="stat-item-center-r-block-title">昨日变化</div>
-							<div class="stat-item-center-r-block-amount">-50</div>
-						</div>
-					</div>
-				</div>
-			</div>
+		<!-- 运营支持 -->
+		<operation class="bc-mg-t-10rp"/>
 
-			<div class="stat-item">
-				<div class="stat-item-top">
-					<div class="stat-item-top-l">
-						商城收益
-					</div>
-					<div class="stat-item-top-r">
-						<router-link to="/member/agent/mall-income">查看全部 <i class="iconfont "></i></router-link>
-					</div>
-				</div>
-				<div class="stat-item-center">
-					<div class="stat-item-center-l">
-						8000.00
-					</div>
-					<div class="stat-item-center-r">
-						<div class="stat-item-center-r-block">
-							<div class="stat-item-center-r-block-title">今日新增</div>
-							<div class="stat-item-center-r-block-amount">492.00</div>
-						</div>
-						<div class="stat-item-center-r-block">
-							<div class="stat-item-center-r-block-title">昨日新增</div>
-							<div class="stat-item-center-r-block-amount">7000.00</div>
-						</div>
-					</div>
-				</div>
+		<!-- 我的工具 -->
+		<tools type="agent"/>
 
-				<div class="stat-item-ForThe">
-					<div class="stat-item-ForThe-l">待结算收益：<strong>5000.00</strong></div>
-					<div class="stat-item-ForThe-r"><router-link to="/member/agent/for-the">查看更多 &gt;</router-link></div>
-				</div>
-
-			</div>
-
-
-			<div class="stat-history">
-				<router-link to="/member/agent/history">
-					查看历史数据 &gt;&gt;
-				</router-link>
-			</div>
-		</div>
-
-		<div class="support">
-			<div class="support-title">运营支持</div>
-			<div class="support-box">
-				<div class="support-item" v-for="item in supportList">
-					<router-link to="">
-						<i class="iconfont">1</i>
-						<div>{{ item.title}}</div>
-						<i class="iconfont icon-right"></i>
-					</router-link>
-				</div>
-			</div>
-		</div>
-
-		<div class="tool">
-			<div class="tool-title">我的工具</div>
-			<div class="tool-box">
-				<div class="tool-item" v-for="item in toolList">
-					<div class="tool-item-font">
-						<img :src="item.src">
-					</div>
-					<div class="tool-item-name">
-						{{ item.name }}
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="recommend">
-			<div class="recommend-title">每日推荐</div>
-			<div class="recommend-banner">
-				<router-link to="">
-					<img src="http://image.dtb315.com/5217013.jpg"/>
-				</router-link>
-				<router-link to="">
-					<img src="http://image.dtb315.com/5217013.jpg"/>
-				</router-link>
-			</div>
-
-			<div class="recommend-list">
-				<div class="recommend-list-item" v-for="i in 3">
-					<div class="recommend-list-item-l">
-						<router-link to="">
-							<img src="https://image.dtb315.com/1478964.jpg">
-						</router-link>
-					</div>
-					<div class="recommend-list-item-r">
-						<router-link to="">
-							<div class="recommend-list-item-r-name">
-								谷丰一木 软抽面巾纸 谷丰一木
-								软抽面巾纸
-							</div>
-							<div class="recommend-list-item-r-tkf">
-								推广赚4.69元
-							</div>
-						</router-link>
-						<div class="recommend-list-item-r-gd">
-							<div class="recommend-list-item-r-gdprice">¥544</div>
-							<div class="recommend-list-item-r-gdbtn">
-								<button>素材</button>
-								<button class="share-btn">分享</button>
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
+		<!-- 切换区域 -->
+		<mt-actionsheet
+			:actions="area || []"
+			v-model="showAreaToggle">
+		</mt-actionsheet>
 
 	</bv-home-view>
 </template>
 
 <script>
-	export default {
-		name: "agent",
-		data() {
-			return {
-				supportList:[
-					{title:'平台介绍'},
-					{title:'团队管理'},
-					{title:'成功案例'},
-					{title:'常见问答'},
-					{title:'实体对接'},
-					{title:'平台对接'},
-					{title:'课程培训'},
-					{title:'会议支持'},
-				],
-				toolList:[
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'招募创客'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'每日必做'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'引流工具'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'课程活动'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'物料下载'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'我的社群'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'素材圈'},
-					{src:'http://pc.lifest.dtb315.cn/static/img/students/wodeshoucang@2x.png',name:'客服咨询'},
-				]
-			}
-		}
-	}
+	//办公室头部
+  import OfficeHeader from '../components/office-header';
+  //统计
+  import Statistics from '../components/statistics';
+  //统计的item
+  import StatisticsItem from '../components/statistics-item';
+  //营业支持
+  import Operation from '../components/operation';
+  //我的工具
+  import Tools from '../components/tools';
+
+  export default {
+    name: "agent",
+    data() {
+      return {
+        showAreaToggle: false,
+        pageData: {}
+      }
+    },
+    created() {
+      this.getData();
+    },
+    watch: {
+      ['$route']() {
+        this.showAreaToggle = false;
+      }
+    },
+    computed: {
+      staticPath() {
+        return `${this.$config.path.static}/img/member/agent`
+      },
+      //计算区域
+      area() {
+        const allArea = [];
+        const _this = this;
+        const pageData = this.pageData;
+        const params = this.$route.params;
+        (pageData.area || []).forEach((area) => {
+          //给mt-actionsheet组件使用的数据
+          allArea.push({
+            name: area.area_name,
+            method() {
+              if (params.area_id != area.area_id) {
+                _this.$router.replace(`/member/agent/${area.area_id}/${area.level}`);
+              } else {
+                _this.showAreaToggle = false;
+              }
+            }
+          });
+        });
+        return allArea;
+      }
+    },
+    methods: {
+      getData() {
+        const params = this.$route.params;
+        this.$axios.get('/member/AreaApply/areaApplyOffice', {
+          params
+        }).then((res) => {
+          const { data } = res.data;
+          this.pageData = data;
+        });
+      }
+    },
+    beforeRouteUpdate(to, from, next) {
+      this.$nextTick(() => {
+        this.getData();
+      });
+      next();
+    },
+    components: {
+      OfficeHeader,
+      Statistics,
+      StatisticsItem,
+      Operation,
+      Tools
+    }
+  }
 </script>
 
-<style scoped lang="scss">
-	.wap{
-		background: #f4f4f4;
+<style lang="scss" scoped>
+	.area {
+		position: absolute;
+		right: rem(10);
+		display: inline-block;
+		padding: rem(5);
+		font-size: rem(12);
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		background-color: black;
 	}
-	@import "@css/member.scss";
 </style>

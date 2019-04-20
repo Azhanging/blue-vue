@@ -1,6 +1,7 @@
 const Home = () => import(`@/views/home/home`);
 const Sign = () => import ('@/views/sign/sign');
 const Search = () => import ('@/views/search/search');
+const SearchDetail = () => import ('@/views/search/detail/search-detail');
 
 const home = {
   path: '/',
@@ -19,7 +20,15 @@ const home = {
     component: Search,
     meta: {
       tabBar: false
-    }
+    },
+    children: [{
+      path: 'detail/:article_id',
+      name: 'search-detail',
+      component: SearchDetail,
+      meta: {
+        tabBar: false
+      }
+    }]
   }]
 };
 

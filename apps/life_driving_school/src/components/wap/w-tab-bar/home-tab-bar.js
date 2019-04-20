@@ -1,5 +1,7 @@
 import { activeTabBar } from './active-path';
 import utils from 'blue-utils';
+import programUrl from '@config/program-url';
+
 
 const subMenuColor = `#ca9f75`;
 
@@ -61,12 +63,27 @@ const homeTabBar = {
       to: '/'
     }, {
       content: {
-        value: '三大体系',
+        value: '三大系统',
         fontSize: 11
       },
       icon: subMenuIcon,
       className: 'bc-pd-tb-17 bc-bd-r-e5e',
-      to: '/'
+      children: getChildren({
+        items: [{
+          value: '成长系统',
+          to: '/grow/12'
+        }, {
+          value: '播种系统',
+	        to(){
+		        location.href = programUrl['ji-fu-bao'];  //跳到积福宝
+	        }
+        }
+        // , {
+        //   value: '收获系统',
+        //   to: '/'
+        // }
+        ]
+      })
     }, {
       content: {
         value: '五本驾照',
@@ -77,19 +94,19 @@ const homeTabBar = {
       children: getChildren({
         items: [{
           value: '健康驾照',
-          to: '/'
-        }, {
-          value: '财富驾照',
-          to: '/'
-        }, {
-          value: '婚姻驾照',
-          to: '/'
-        }, {
-          value: '育子驾照',
-          to: '/'
+          to: '/life-nav/32'
         }, {
           value: '心灵驾照',
-          to: '/'
+          to: '/life-nav/33'
+        }, {
+          value: '财富驾照',
+          to: '/life-nav/34'
+        }, {
+          value: '婚姻驾照',
+          to: '/life-nav/35'
+        }, {
+          value: '育子驾照',
+          to: '/life-nav/36'
         }]
       })
     }, {
@@ -109,16 +126,20 @@ const homeTabBar = {
       children: getChildren({
         items: [{
           value: '我是学员',
-          to: '/'
-        }, {
-          value: '我是教练',
-          to: '/'
-        }, {
-          value: '我是分校',
-          to: '/'
-        }, {
+          to: '/students'
+        }
+        // , {
+        //   value: '我是教练',
+        //   to: '/'
+        // }, {
+        //   value: '我是分校',
+        //   to: '/'
+        // }
+        , {
           value: '办公室',
-          to: '/'
+          to(){
+	          location.href = `${programUrl['gou-wu-bao']}/member`;
+          }
         }]
       }),
       icon: subMenuIcon,

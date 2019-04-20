@@ -13,6 +13,12 @@ const video = {
 			tabBar: false
 		},
 		children: [{
+			path: 'o-details/:opening',
+			component: () => import("@/views/grow/books/opening-details"),
+			meta: {
+				tabBar: false
+			}
+		},{
 			path: 'detail/:yuedu_id',
 			component: () => import("@/views/grow/books/detail"),
 			meta: {

@@ -14,6 +14,19 @@
   background-color: $color-base;
 }
 
+.mint-datetime-action {
+  color: $color-base;
+}
+
+.mint-msgbox-confirm {
+  color: $color-base;
+}
+
+.mint-actionsheet-listitem, .mint-actionsheet-button{
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 /* 覆盖mint-ui的primary颜色，改为微信UI的绿色 */
 /*
 $color-primary: #1aad19;

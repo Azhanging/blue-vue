@@ -4,7 +4,7 @@
             title:{
                 value: "健康导航"
             }
-        }'></life_nav_tab>
+        }' :leftControl="`/`"></life_nav_tab>
 		<recommend_list></recommend_list>
 
 	</bv-home-view>

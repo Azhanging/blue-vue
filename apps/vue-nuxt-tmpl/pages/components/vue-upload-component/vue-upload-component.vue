@@ -74,7 +74,6 @@
           },
           hooks: {
             success(res) {
-              this.$removeFile(upload);
               upload.uploadData.push(res.url);
             }
           }
@@ -88,13 +87,13 @@
           },
           hooks: {
             success(res) {
-              this.$removeFile(upload);
               upload.uploadData.splice(0, 1, res.url);
             }
           }
         });
       },
       removeUpload(upload, lists, index) {
+        this.$removeFile(upload,index);
         lists.splice(index, 1);
       }
     }

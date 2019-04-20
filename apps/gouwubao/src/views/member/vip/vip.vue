@@ -37,33 +37,33 @@
 
 		<!--VIP专属权益-->
 		<div class="bc-row bc-bd-t-e5e" >
-			<div class="bc-row bc-f-b bc-f-15rp bc-pd-15rp" style="color:#635F58;">
+			<div class="bc-row bc-f-b bc-f-16rp bc-pd-15rp" style="color:#635F58;">
 				VIP专属权益
 			</div>
 			<div class="bc-flex bc-t-c bc-f-12rp">
 				<div class="bc-flex-1"  v-for="(item,index) in interestsItem">
 					<img :src="`${staticPath}/icon-${index+1}.png`" alt="" style="width:2.6rem;">
 					<div class="bc-pd-t-4rp" style="color: #BB8F41;">{{ item.name }}</div>
-					<div class="">{{ item.jf }}</div>˝
+					<div class="bc-pd-b-16rp">{{ item.jf }}</div>
 				</div>
 			</div>
 		</div>
 
 		<!--VIP专属权益-->
 		<div class="bc-row bc-bd-t-e5e" >
-			<div class="bc-row bc-f-b bc-f-15rp bc-pd-15rp" style="color:#635F58;">
+			<div class="bc-row bc-f-b bc-f-16rp bc-pd-15rp" style="color:#635F58;">
 				VIP专属产品
 			</div>
 			<div class="bc-flex bc-t-c bc-f-12rp bc-pd-lr-15rp bc-pd-b-15rp">
-				<router-link to="/">
+				<a @click="$router.routerBack(`${$config.path.base}/home/vipmember/index`)">
 					<img :src="`${staticPath}/vip-shop.png`" class="bc-w-100"/>
-				</router-link>
+				</a>
 			</div>
 		</div>
 
 		<!--vip专属服务-->
 		<div class="bc-row" >
-			<div class="bc-row bc-f-b bc-f-15rp bc-pd-lr-15rp bc-pd-b-15rp" style="color:#635F58;">
+			<div class="bc-row bc-f-b bc-f-16rp bc-pd-lr-15rp bc-pd-b-15rp" style="color:#635F58;">
 				VIP专属服务
 			</div>
 			<div class="bc-row bc-pd-lr-15rp bc-pd-b-15rp">
@@ -199,7 +199,7 @@
 						height: rem(30);
 						line-height: rem(30);
 						padding: 0 rem(10);
-						background: #E0C586;
+						background: #D6B66C;
 						font-size: rem(16);
 						color: #fff;
 						border-radius: rem(15);

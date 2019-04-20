@@ -23,7 +23,7 @@ export function scrollMixin(opts = {
 }
 
 //ssr default data
-export function scrollAsyncData(){
+export function scrollAsyncData() {
   const scrollData = scrollMixin();
   return scrollData.data();
 }
@@ -48,6 +48,6 @@ export function scrollNoHasListData(opts) {
       data = data[key];
     });
   }
-  if (!data || data.length == 0) return true;
+  if (!data || data.length === 0) return true;
   return false;
 }

@@ -35,64 +35,30 @@
 					</div>
 					<div class="recommend-li-box-view">
 
-						<span @click="btn_like(item.id,index)" :class="{on:(item.like)}"><i class="iconfont icondianzan"></i>{{ item.like_num }}</span>
+						<span @click="btn_like(item.id,index)" :class="{on:(item.fabulous==true)}"><i class="iconfont icondianzan"></i>{{ item.fabulous_num }}</span>
 
-						<span><i class="iconfont iconzhuanfa"></i>1243</span>
+						<span @click="$share({
+						title:item.name,
+						descr:item.sub_content,
+						thumImage:item.head_img,
+						shareUrl:$route.path
+						})" v-if="$config.device.isApp"><i class="iconfont iconzhuanfa"></i> {{ item.share }}</span>
 					</div>
 				</div>
 			</div>
-
+			
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else>
-					暂无数据...
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
 				</div>
 			</template>
 		</bv-scroll>
-
-
-		<!--<div class="recommend-li" v-for="item in list">
-			<router-link :to="`${currentFullPath}/detail`">
-				<div class="recommend-li-top">
-					<div class="recommend-li-top-img">
-						<img src="https://image.dtb315.com/76343.jpg">
-					</div>
-					<div class="recommend-li-top-tit">
-						<h3>风和日丽</h3>
-						<p>2019-02-19</p>
-					</div>
-				</div>
-			</router-link>
-
-			<div class="recommend-li-box">
-				<div class="recommend-li-box-p">
-					<router-link :to="`${currentFullPath}/detail`">
-						生活中有很多食物并不是所有人都能吃的，一些
-						人吃了以后就会生病了。大漠粮芯藻这种食物很
-						多人都听过，但是没有吃过的。螺旋藻这种食物
-						营养丰富，同样的也不是所有人都适合吃的。那
-						么到底螺旋藻适合哪些人吃呢?
-					</router-link>
-				</div>
-
-				<div class="recommend-li-box-video">
-					<div class="recommend-li-box-video-t">
-						<img src="http://www.pptbz.com/pptpic/UploadFiles-6909/201203/2012031220134655.jpg">
-					</div>
-					<div class="recommend-li-box-video-back"></div>
-					<div class="recommend-li-box-video-btn">
-						<i class="iconfont iconyugao"></i>
-					</div>
-				</div>
-				<div class="recommend-li-box-view">
-					<span><i class="iconfont icondianzan"></i>2356</span>
-					<span><i class="iconfont iconzhuanfa"></i>1243</span>
-				</div>
-			</div>
-		</div>-->
-
 
 	</div>
 </template>
@@ -105,7 +71,7 @@
 		name: "recommend-list",
 		mixins: [scrollMixin()],
 		created() {
-			console.log(this.load.state);
+			//console.log(this.load.state);
 		},
 		data() {
 			return {
@@ -125,15 +91,14 @@
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					//console.log(res.data)
 					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
 					})) {
-						const {disabled} = scrollEndHook.call(this);
-						this.load.state.disabled = disabled
+						scrollEndHook.call(this);
 					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
 					}
 				}).catch(() => {
@@ -143,19 +108,20 @@
 			},
 			btn_like(kid, i) {//点赞
 				//console.log(kid)
-				this.$axios.get('/api/circle/like', {
+				this.$axios.get('/api/article/fabulous', {
 					params: {
-						circle_id: kid
-					}
+						article_id: kid,
+						data_id: 4
+				}
 				}).then(res => {
-					//console.log(res.data.data.like)
+					//console.log(res)
 					//console.log(res.data.data.like_num)
-					if (res.data.data.like) {
-						this.load.data.lists[i].like = res.data.data.like
-						this.load.data.lists[i].like_num = res.data.data.like_num
+					if (res.data.data.fabulous) {
+						this.load.data.lists[i].fabulous = res.data.data.fabulous
+						this.load.data.lists[i].fabulous_num = res.data.data.fabulous_num
 					} else {
-						this.load.data.lists[i].like = res.data.data.like
-						this.load.data.lists[i].like_num = res.data.data.like_num
+						this.load.data.lists[i].fabulous = res.data.data.fabulous
+						this.load.data.lists[i].fabulous_num = res.data.data.fabulous_num
 					}
 				})
 			},

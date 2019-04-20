@@ -146,6 +146,7 @@
         pickerScope.changePicker($event, index);
         this.checkItemIndex = -1;
         slot.value = item.id;
+        document.body.scrollTop = document.body.scrollHeight;
         this.$emit('select-picker', {
           item,
           slot

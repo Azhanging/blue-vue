@@ -44,6 +44,16 @@ export default class VideoPlayer {
 			console.log('pause');
 
 		});
+		this.player.on('liveStreamStop',(e) => { //直播流中断时触发
+			if(this.props.isLive){
+				this.props.vue_this.videoEnd = true
+				// console.log('直播流中断1')
+			}
+		});
+		this.player.on('m3u8Retry',(e) => { //m3u8直播流中断后重试事件，每次断流只触发一次
+			// console.log('直播流中断2')
+		});
+
 
 		// this.player.on('requestFullScreen', (e)=>{
 		// 	    let video=$(that.player.tag);

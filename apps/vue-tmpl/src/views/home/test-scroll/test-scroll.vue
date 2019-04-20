@@ -13,7 +13,3 @@ export default {
   name: "test-scroll"
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

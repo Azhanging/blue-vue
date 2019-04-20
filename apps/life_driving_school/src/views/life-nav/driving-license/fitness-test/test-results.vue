@@ -4,11 +4,11 @@
             title:{
                 value: "测试结果"
             }
-        }'></w-home-header>
+        }' :leftControl='"/life-nav/"+this.$route.params.nav_id+"/driving-license/"+this.$route.params.id' ></w-home-header>
 
     <div class="test-results-top">
       <div class="test-results-points">
-        <strong>{{ results_data.score }}</strong>分
+        <strong>{{ results_data.result }}</strong>%
       </div>
 
       <div class="test-results-tit" v-if="results_data.pass">恭喜您测试通过，可以学习下阶段课程</div>
@@ -24,42 +24,18 @@
     </div>
 
     <div v-if="if_item">
-      <div class="fitness-test-box" v-for="i in 3">
+      <div class="fitness-test-box" v-for="(item,index) in show_list">
         <div class="fitness-test-tit">
-          1.在设计APP界面时候，通常使用的分辨率是
+          {{ index+1 }}.{{ item.name }}
         </div>
         <div class="fitness-test-main">
-          <div class="fitness-test-item active">
+          <div class="fitness-test-item" v-for="(tion,index) in item.option" :key="index">
             <label class="fitness-test-item-l" for="fitness-test-item-l-A">
-              <input type="radio" id="fitness-test-item-l-A" checked>
-              A
+              <input type="radio" id="fitness-test-item-l-A">
+              {{ tion.option }}
             </label>
-            <div class="fitness-test-item-r">72dpi，常规设计方法</div>
-            <div class="fitness-test-item-f">+5分</div>
-          </div>
-          <div class="fitness-test-item">
-            <label class="fitness-test-item-l" for="fitness-test-item-l-B">
-              <input type="radio" id="fitness-test-item-l-B">
-              B
-            </label>
-            <div class="fitness-test-item-r">144dpi，考虑高清分辨率</div>
-            <div class="fitness-test-item-f">+3分</div>
-          </div>
-          <div class="fitness-test-item">
-            <label class="fitness-test-item-l" for="fitness-test-item-l-C">
-              <input type="radio" id="fitness-test-item-l-C">
-              C
-            </label>
-            <div class="fitness-test-item-r">300dpi，方便输出打印规范</div>
-            <div class="fitness-test-item-f">+4分</div>
-          </div>
-          <div class="fitness-test-item">
-            <label class="fitness-test-item-l" for="fitness-test-item-l-D">
-              <input type="radio" id="fitness-test-item-l-D">
-              D
-            </label>
-            <div class="fitness-test-item-r">以上都是可以，随设备而不同使用</div>
-            <div class="fitness-test-item-f">+2分</div>
+            <div class="fitness-test-item-r">{{ tion.description }}</div>
+            <div class="fitness-test-item-f">{{ tion.score }}分</div>
           </div>
         </div>
         <div class="fitness-test-desc">
@@ -67,7 +43,7 @@
             问题简介:
           </div>
           <div class="fitness-test-desc-r">
-            这里是问题介绍这里是问题介绍这里是问题介绍这里是问题介绍这里是问题介绍这里是问题介绍
+            {{ item.description }}
           </div>
         </div>
 
@@ -81,22 +57,29 @@
 
 <script>
   export default {
-    name: "test results.vue",
+    name: "test-results",
     data() {
       return {
         if_item:false,
-        results_data:''
+        results_data:'',
+        show_list:''
       }
     },
     methods: {
       item_show() {
-        this.if_item = !this.if_item;
+        this.if_item = true;
+        return this.$axios.post('/api/examination/answer', {
+          record_id:this.$route.params.record_id
+        }).then((res) => {
+          //console.log(res)
+          this.show_list=res.data.data.list
+        });
       },
       show_results() {
         return this.$axios.post('/api/examination/result', {
-          record_id:this.$route.query.record_id
+          record_id:this.$route.params.record_id
         }).then((res) => {
-          console.log(res.data.data)
+          //console.log(res)
           this.results_data = res.data.data
         });
       },
@@ -106,8 +89,12 @@
             column_id:this.$route.params.nav_id
           }
         }).then(res=>{
+          //console.log(res.data.data.record_id)
           this.$router.push({
-            path: '/life-nav/36/driving-license',
+            path: '/life-nav/'+this.$route.params.nav_id+'/driving-license/'+this.$route.params.id+'/fitness-test/'+res.data.data.record_id,
+            params:{
+              record_id:res.data.data.record_id
+            }
           })
         })
       }

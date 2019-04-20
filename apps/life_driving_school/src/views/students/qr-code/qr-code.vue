@@ -17,9 +17,15 @@
 		<div class="qr-code-box">
 			<button class="qr-code-box-btn">保存</button>
 			<div class="qr-code-img">
+				<!--<template>
+					&lt;!&ndash;<vue-qr style="width: 100%;height: 100%" :bgSrc='config.imagePath' :text="config.value" :size="200" :margin="0"></vue-qr>
+					<vue-qr style="width: 100%;height: 100%" :logoSrc="config.imagePath" :text="config.value" :margin="0"></vue-qr>&ndash;&gt;
+					<vue-qr style="width: 100%;height: 100%" :bgSrc='config.imagePath' :logoSrc="config.imagePath" :text="config.value" :size="200" :margin="0"></vue-qr>
+
+				</template>-->
 				<img src="https://p.ssl.qhimg.com/d/inn/0444533a/Snip20160525_6.png">
 			</div>
-			<div class="qr-code-title">我是菩提花开</div>
+			<div class="qr-code-title">我是{{ userInfo.nickname }}</div>
 			<div class="qr-code-invitation">邀请您加入点通宝</div>
 			<div class="qr-code-desc">
 				<div class="qr-code-desc-tit">扫一扫加入购物宝，一次扫码，终身受益</div>
@@ -45,11 +51,24 @@
 </template>
 
 <script>
+	//import VueQr from 'vue-qr'
 	export default {
 		name: "qr-code",
+		computed:{
+			userInfo(){
+				return this.$store.state.userInfo;
+			}
+		},
+		components: {
+			//VueQr
+		},
 		data() {
 			return {
-				share_box:false
+				share_box:false,
+				config: {
+					value: '',//显示的值、跳转的地址
+					imagePath: ''//中间logo的地址
+				}
 			}
 		},
 		methods: {
@@ -59,6 +78,11 @@
 			share_hide() {
 				this.share_box=false;
 			}
+		},
+		mounted() {
+			this.config.value = window.location.href+'id='+this.userInfo.id
+			this.config.imagePath = this.userInfo.head_img
+			//console.log(this.userInfo.id)
 		}
 	}
 </script>

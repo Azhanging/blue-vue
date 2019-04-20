@@ -1,15 +1,63 @@
 <template>
-	<div>
-		<w-article-body :title="'资讯详情'" :config="config"></w-article-body>
-	</div>
+	<bv-home-view class='wap' :router-level="2">
+
+		<!--文章内容-->
+		<w-article-detail :header="{
+				title:{
+					value: '详情'
+				}
+			}" :config="config"
+		></w-article-detail>
+
+
+		<!--文章阅读量 点赞量-->
+		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+
+		<!--文章评论-->
+		<bv-scroll :api="api" :disabled="load.state.disabled">
+			<w-comment
+				:config="config"
+				:comment="comment"
+				@replyFocus='replyFocus'
+			></w-comment>
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
+				</div>
+			</template>
+		</bv-scroll>
+
+		<!--回复评论-->
+		<template slot="footer">
+			<w-comment-reply :config="config" :comment="comment" ref="reply"></w-comment-reply>
+		</template>
+
+	</bv-home-view>
 </template>
 
 <script>
-	import WArticleBody from '@components/wap/article/w-article-body/w-article-body';
+	import WArticleDetail from '@components/wap/article/w-article-detail';
+	import WArticleClicknum from '@components/wap/article/w-article-clicknum';
+	import WComment from '@components/wap/article/w-comment';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+	import { commentMixin } from '@components/wap/article/w-article-body/article';
+	import WCommentReply from '@components/wap/article/w-comment-reply';
+
 	export default {
 		name: "detail",
+		mixins: [scrollMixin(), commentMixin({
+			scrollEndHook,
+			scrollNoHasListData
+		})],
 		data() {
 			return {
+				comment: {},
 				config: {
 					url: {
 						contentUrl: '/api/Article/info.html'
@@ -31,7 +79,12 @@
 			}
 		},
 		components: {
-			'w-article-body': WArticleBody
+			'w-article-detail': WArticleDetail,
+			'w-article-clicknum': WArticleClicknum,
+			'w-comment': WComment,
+			'w-comment-reply': WCommentReply
 		}
 	}
 </script>
+
+

@@ -2,13 +2,14 @@
 	<div class='chat_wrap bc-pd-15rp' id='chat'>
 		<div v-for='(item,index) in chatList' :key='index'  v-if='chatList.length > 0' class=' bc-mg-b-15rp'>
 			<div class='bc-t-c bc-t-999 bc-mg-b-15rp' v-if='item.time'>{{item.time}}</div>
-			<div class='bc-flex bc-flex-ac-s' :class='item.member_id == userInfoId ? "right":"left"'>
+			<div v-if='item.system == 1' class='bc-t-c bc-t-999'>{{item.content}}</div>
+			<div v-else class='bc-flex bc-flex-ac-s' :class='item.member_id == userInfoId ? "right":"left"'>
 				<img class='headImg' :src='item.head_img' alt=''>
 				<div class='content'>
 					<div class='name bc-mg-b-5rp'>{{item.nickname}}</div>
-					<div class='cont'>
+					<span class='cont'>
 						{{item.content}}
-					</div>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -37,26 +38,17 @@
 		},
 		computed:{
 			msg(){
-				const store = this.$store.state;
-				this.$nextTick(() => {
-					this.scrollBot()
-				});
-				return(store.msg[this.user.id] && store.msg[this.user.id].msg) || [];
+				// const store = this.$store.state;
+				// return(store.msg[this.user.id] && store.msg[this.user.id].msg) || [];
 			}
 		},
 		methods:{
-			video_tab(num){
-				this.tabNum = num
-			},
-			scrollBot(){
-				const videoH = document.getElementById('videoH');
-				this.$parent.$el.children[0].scrollTo(0,videoH.offsetHeight)
-			}
+			// video_tab(num){
+			// 	this.tabNum = num
+			// }
 		},
 		mounted(){
-			this.$nextTick(() => {
-				this.scrollBot()
-			})
+		
 		}
 	}
 </script>
@@ -75,13 +67,15 @@
 			.content{
 				max-width: 70%;
 				margin-top: -6px;
+				text-align: right;
 				.name{
 					text-align: right;
 				}
 				.cont{
-					padding: rem(5);
+					padding: rem(5) rem(10);
 					background: url($base-url+'/img/grow/rightchat.png')  no-repeat;
 					background-size: 100% 100%;
+					display: inline-block;
 				}
 			}
 		}
@@ -97,10 +91,12 @@
 			.content{
 				max-width: 70%;
 				margin-top: -6px;
+				text-align: left;
 				.cont{
-					padding: rem(5);
+					padding: rem(5) rem(10);
 					background: url($base-url+'/img/grow/leftchat.png')  no-repeat;
 					background-size: 100% 100%;
+					display: inline-block;
 				}
 			}
 		}

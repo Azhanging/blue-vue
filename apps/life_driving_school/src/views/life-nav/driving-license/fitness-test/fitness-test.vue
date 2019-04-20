@@ -83,6 +83,14 @@
         return this.$router.currentRoute.fullPath;
       }
     },
+    watch: {
+      '$route' (to, from) {
+        if(this.$route.params.record_id){//判断传递值的变化
+          //获取数据
+          this.topic();
+        }
+      }
+    },
     methods:{
       swiperUpdate() {
         this.swiper.update();
@@ -91,12 +99,12 @@
         /*console.log(slide_id)
         console.log(tion_id)*/
         this.$axios.post('/api/examination/select',{
-          examination_record_id: this.$route.query.record_id,
+          examination_record_id: this.$route.params.record_id,
           question_id:slide_id,
           option_id:tion_id,
         }).then(res=>{
           this.$axios.post('/api/examination/question', {
-            record_id:this.$route.query.record_id
+            record_id:this.$route.params.record_id
           }).then((res) => {
             this.fitness_list=res.data.data.list
           });
@@ -106,10 +114,10 @@
       //考试题
       topic(){
         return this.$axios.post('/api/examination/question', {
-          record_id:this.$route.query.record_id
+          record_id:this.$route.params.record_id
         }).then((res) => {
+          //console.log(res)
           this.thisSwiper = res.data.data.record_info.step-1 //答到了第多少道
-          console.log(res.data.data)
           this.fitness_list=res.data.data.list
           this.$refs.swiper.swiper.slideTo(this.thisSwiper, 1000, false);
           this.this_level=this.$refs.swiper.swiper.realIndex+1
@@ -121,7 +129,7 @@
       },
       swiper_btn_next(){
         this.$axios.post('/api/examination/question', {
-          record_id:this.$route.query.record_id
+          record_id:this.$route.params.record_id
         }).then(res=> {
           this.thisSwiper = res.data.data.record_info.step
          /* console.log(this.this_level+'当前swiper页');
@@ -142,13 +150,13 @@
         /*console.log(this.thisSwiper)
         console.log(this.fitness_list.length)*/
         this.$axios.post('/api/examination/submit', {
-          record_id:this.$route.query.record_id
+          record_id:this.$route.params.record_id
         }).then(res=> {
           if(this.thisSwiper+1>=this.fitness_list.length){
             this.$router.push({
-              path: 'fitness-test/test-results',
-              query:{
-                record_id:this.$route.query.record_id
+              path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id +'/test-results/'+this.$route.params.record_id,
+              params:{
+                record_id:this.$route.params.record_id
               }
             })
           }else {

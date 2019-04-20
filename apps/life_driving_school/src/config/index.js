@@ -22,11 +22,11 @@ const path = (() => {
 const dtbPath = (() => {
   let path = '';
   if (env.dev) {
-    path = 'http://pc.lifest.dtb315.cn';
+    path = 'https://pc.dtb315.cn';
   } else if (env.beta) {
-    path = 'http://beta.lifest.dtb315.com';
+    path = 'https://beta.dtb315.cn';
   } else {
-    path = 'http://lifest.dtb315.com';
+    path = 'https://www.dtb315.com';
   }
   return path;
 })();
@@ -46,6 +46,9 @@ const bindPhonePath = (() => {
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
+  user:{
+    url:'/api/Apipublic'
+  },
   view: {
     title: "生命驾校",
     tabBar: 'home'
@@ -56,6 +59,14 @@ const config = utils.extend(publicConfig, {
     static: staticPath,
     login: loginPath,
     bindPhone: bindPhonePath
+  },
+  //微信相关
+  weChat: {
+    getConfig: {
+      type: 'get',
+      url: '/api/Index/wechat',
+      data: {}
+    }
   },
   share: {
     title: "生命驾校·智慧导航",

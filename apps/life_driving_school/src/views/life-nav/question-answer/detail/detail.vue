@@ -22,9 +22,37 @@
 					</div>
 				</div>
 				<div class="question-review">
-					<h2>全部评论</h2>
+					<!--<h2>全部评论</h2>-->
 
-					<WrecommendReview :config="config"></WrecommendReview>
+					<!--<WrecommendReview :config="config"></WrecommendReview>-->
+					<!--文章阅读量 点赞量-->
+					<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+
+					<!--文章评论-->
+					<bv-scroll :api="api" :disabled="load.state.disabled">
+						<w-comment
+							:config="config"
+							:comment="comment"
+							@replyFocus='replyFocus'
+						></w-comment>
+						<template slot="load-down">
+							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+								数据加载中...
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+								暂无数据
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+								暂无更多数据...
+							</div>
+						</template>
+					</bv-scroll>
+
+					<!--回复评论-->
+					<!--<template slot="footer">
+
+					</template>-->
+					<w-comment-reply :config="config" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
 
 				</div>
 			</div>
@@ -35,14 +63,26 @@
 
 <script>
 	import Index from "../question-answer";
-	import { $toast } from "$use-in-vue/mint-ui/toast";
-	import WrecommendReview from '@components/wap/article/w-recommend-review/w-recommend-review';//评论
-	import store from '@store'
+	import WArticleClicknum from '@components/wap/article/w-article-clicknum';
+	import WComment from '@components/wap/article/w-comment';
+	import WCommentReply from '@components/wap/article/w-comment-reply';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+	import { commentMixin } from '@components/wap/article/w-article-body/article';
 	export default {
 		name: "detail",
-		components: {Index,WrecommendReview},
+		mixins: [scrollMixin(), commentMixin({
+			scrollEndHook,
+			scrollNoHasListData
+		})],
+		components: {
+			Index,
+			'w-article-clicknum': WArticleClicknum,
+			'w-comment': WComment,
+			'w-comment-reply': WCommentReply
+		},
 		data() {
 			return {
+				comment: {},
 				det_data:'',
 				config: {
 					data: {
@@ -69,6 +109,15 @@
 					}
 				}).then((res)=>{
 					this.det_data = res.data.data
+					const {share_title, share_img,  share_content} = this.det_data;
+					//this.info = data;
+					// 微信分享
+					this.$weChatShare({
+						title: share_title,
+						imgUrl: share_img,
+						desc: share_content
+					});
+					
 				}).catch((err)=>{
 					console.log(err);
 				})
@@ -183,7 +232,7 @@
 			.question-answer {
 				display: flex;
 				padding: 0 rem(15);
-
+				margin-bottom: rem(15);
 				.question-answer-l {
 					width: rem(15);
 					height: rem(15);

@@ -9,15 +9,17 @@
 		<div class="bc-reset-ul bc-media chapter-box">
 			<div class="bc-mg-b-10rp">
 				<div class="bc-media pd-t-15 bc-row bc-c-f">
-					<div class="bc-media-left">
-						<img class="tuijian-article-img" :src="infos.src_img" v-if="">
-					</div>
-					<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-						<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ infos.opening_language }}</div>
-						<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-							{{ infos.content }}
+					<router-link :to="`${$router.currentRoute.fullPath}/o-details/${infos.id}`">
+						<div class="bc-media-left">
+							<img class="tuijian-article-img" :src="infos.src_img" v-if="">
 						</div>
-					</div>
+						<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+							<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ infos.opening_language }}</div>
+							<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2" v-html="infos.sub_content">
+								<!--{{ infos.content }}-->
+							</div>
+						</div>
+					</router-link>
 				</div>
 			</div>
 
@@ -41,7 +43,7 @@
 							<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
 								<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ contents.name }}</div>
 								<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-									{{ contents.content }}
+									{{ contents.sub_content }}
 								</div>
 							</div>
 						</div>
@@ -96,7 +98,7 @@
 						id: this.$route.params.chapter_id
 					}
 				}).then((res)=>{
-					console.log(res)
+					//console.log(res)
 					this.infos = res.data.data.info;
 					this.lists = res.data.data.list;
 				}).catch((err)=>{

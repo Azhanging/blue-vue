@@ -1,7 +1,7 @@
 import books from "../books";
 
 const college = {
-	path: 'college/:id',
+	path: 'college/:classId',
 	name: 'college',
 	meta:{
 		tabBar: false,

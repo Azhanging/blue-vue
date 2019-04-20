@@ -42,13 +42,18 @@
 			<div class='bc-pd-10rp'>
 				<bv-scroll :api="getCourerList" :disabled="load.state.disabled">
 					<!--数据循环-->
-					<w-arrlist :list='load.data.lists' :roleNum='roleNum'></w-arrlist>
+					<template v-if='load.data.lists.length > 0'>
+						<w-arrlist :list='load.data.lists' :roleNum='roleNum'></w-arrlist>
+					</template>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else>
-							暂无数据...
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+							暂无数据
+						</div>
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+							暂无更多数据...
 						</div>
 					</template>
 				</bv-scroll>
@@ -96,7 +101,7 @@
 			$route(to,from){
 				//文章返回重新获取阅读进度
 				if(to.path == '/grow/12/college/15'){
-				
+					this.books();
 				}
 			}
 		},
@@ -114,7 +119,7 @@
 			},
 			selCourse(item,index){
 				this.tabIdx = index
-				this.roleNum = item.role11;
+				this.roleNum = item.role22;
 
 				// if(roleNum == 1 && id != 21){
 				// 		$toast({

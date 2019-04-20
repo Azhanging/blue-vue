@@ -38,7 +38,7 @@ module.exports = utils.extend(publicVueConfig, {
         //代理登录状态cookie
         onProxyReq(proxyReq, req, res) {
           proxyReq.setHeader('cookie',
-"b72b76241459936962c978f326f7463b=%257D%25B9%25BEg%25AF%257C%2581%25AE; yunsuo_session_verify=986e507cffeee6501760a92f529273a2; PHPSESSID=8thadbo0a6cie44h7hg0mh5ak6; 9de70f6546b2452f6e7b98b46ac36070=5ac013881b9086a8b47beb9f10e5303b; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1554350086,1554690781,1554967950,1555036752; prev_page=aHR0cHM6Ly9wYy5kdGIzMTUuY24v; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555037953; come_from=0; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9ob21lL2hvbWUvZ2V0UmVjb21tZW5kRm9yWW91P3BhZ2U9MSZQPTEmcD0xJlBhZ2U9MSZfPTE1NTUwMzc5NTY3NjA%3D"
+"yunsuo_session_verify=46c431323f4e4e05690462b5907e777b; thinkphp_show_page_trace=0|0; PHPSESSID=ugme1n51qfu1dh1r0kad5lr3r4; 9de70f6546b2452f6e7b98b46ac36070=5b1a99d1b46f8f3cb1d82e676c4949b9; b72b76241459936962c978f326f7463b=%257D%25CF%25AA%25AE%25B0%258Cy%25AF; come_from=2; prev_page=aHR0cDovL2xvY2FsaG9zdDo4MDgwLw%3D%3D; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9ob21lL2NvbW1vbi9pbmRleD91cmw9aHR0cCUzQSUyRiUyRmxvY2FsaG9zdCUzQTgwODAlMkYlMjMlMkZncm93JTJGMTIlMkZzaG9ydCUyRjE3; p_h5_u=123A881B-45EA-4D50-A66D-D2E13E15E723"
           );
         }
       }

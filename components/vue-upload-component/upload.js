@@ -1,5 +1,6 @@
 import upload from 'vue-upload-component';
 import utils from 'blue-utils';
+import { $closeLoading } from "../../use-in-vue/mint-ui/indicator";
 
 export function useUpload(Vue) {
   Vue.component('upload', upload);
@@ -45,13 +46,40 @@ export function uploadMixin() {
     methods: {
       $upload(upload, _opts = {}) {
 
-        this.$loading({
-          text: '上传中...'
-        });
+        const utils = this.$utils;
+
+        //初始化数量
+        if (upload.currentNum === undefined) {
+          if (utils.isArray(upload.uploadData)) {
+            upload.currentNum = upload.uploadData.length;
+          } else if (upload.uploadData && utils.isStr(upload.uploadData)) {
+            upload.currentNum = 1;
+          } else {
+            upload.currentNum = 0;
+          }
+        }
 
         const opts = utils.extend(uploadConfig, _opts);
 
         let { newFile, oldFile } = opts.eventArgs;
+
+        //删除
+        if(newFile !== undefined){
+          this.$loading({
+            text: '上传中...'
+          });
+        }
+
+        //添加
+        if (oldFile === undefined) {
+          if (upload.currentNum >= upload.maximum) {
+            upload.remove(newFile);
+            $closeLoading();
+            return;
+          } else {
+            ++upload.currentNum;
+          }
+        }
 
         if (upload.tips == undefined) {
           upload.tips = true;
@@ -75,6 +103,10 @@ export function uploadMixin() {
             upload.tips = true;
           }, 4000);
 
+          upload.remove(newFile);
+
+          --upload.currentNum;
+
           utils.hook(this, opts.hooks.error);
         }
 
@@ -83,11 +115,14 @@ export function uploadMixin() {
           const res = JSON.parse(newFile.response || "{}");
           if (res.info) {
             this.$toast({
-              message: '上传失败'
+              message: '上传失败!'
             });
+            upload.remove(newFile);
+            this.$closeLoading();
+            --upload.currentNum;
           } else {
             this.$toast({
-              message: '上传成功'
+              message: '上传成功!'
             });
             utils.hook(this, opts.hooks.success, [res]);
           }
@@ -98,6 +133,7 @@ export function uploadMixin() {
       },
       $removeFile(upload, index) {
         upload.files.splice(index, 1);
+        --upload.currentNum;
       }
     }
   }

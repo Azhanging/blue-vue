@@ -12,12 +12,19 @@ const life_nav = {
             component: () => import("@views/life-nav/life-index/life-index"),
             meta: {
                 tabBar: false,
-                pathID:[37],
+                pathID:[37,57,64,71,78],
             },
             children: [
                 {
                     path: 'detail/:article_id',
                     component: () => import("@views/life-nav/life-index/detail"),
+                    meta: {
+                        tabBar: false,
+                    },
+                },
+                {
+                    path: 'introduce-detail',
+                    component: () => import("@views/life-nav/life-index/introduce-detail"),
                     meta: {
                         tabBar: false,
                     },
@@ -29,7 +36,7 @@ const life_nav = {
         component: () => import("@views/life-nav/driving-license/driving-license"),
         meta: {
             tabBar: false,
-            pathID:[38],
+            pathID:[38,58,65,72,79],
         },
         children: [{
             path: 'detail/:article_id',
@@ -38,25 +45,26 @@ const life_nav = {
                 tabBar: false,
             },
         },{
-            path: 'fitness-test',
+            path: 'fitness-test/:record_id',
             component: () => import("@views/life-nav/driving-license/fitness-test/fitness-test"),
             meta: {
                 tabBar: false
             },
-            children: [{
-                path: 'test-results',
-                component: () => import("@views/life-nav/driving-license/fitness-test/test-results"),
-                meta: {
-                    tabBar: false
-                }
-            }]
+            children: [],
+
+        },{
+            path: 'test-results/:record_id',
+            component: () => import("@views/life-nav/driving-license/fitness-test/test-results"),
+            meta: {
+                tabBar: false
+            }
         }]
     },{
         path: 'question-answer/:id',
         component: () => import("@views/life-nav/question-answer/question-answer"),
         meta: {
             tabBar: false,
-            pathID:[42],
+            pathID:[42,62,69,76,83],
         },
         children: [{
             path: 'questions',
@@ -76,7 +84,7 @@ const life_nav = {
         component: () => import("@views/life-nav/recommend/recommend"),
         meta: {
             tabBar: false,
-            pathID:[43],
+            pathID:[43,63,70,77,84],
         },
         children: [{
             path: 'detail/:circle_id',

@@ -3,7 +3,7 @@
 		<div class="bc-flex">
 			<img class='left_img' :src='itemList.src_img' alt='列表图'>
 			<div class='bc-flex-1 bc-mg-l-10rp'>
-				<div class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-b-8 bc-f-16rp' >{{itemList.name}}</div>
+				<div class='bc-t-333 bc-t-ellipsis bc-t-ellipsis-2 bc-mg-b-8 bc-f-16rp' v-html="itemList.name"></div>
 				<div class='bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2'>{{itemList.sub_content}}</div>
 			</div>
 		</div>

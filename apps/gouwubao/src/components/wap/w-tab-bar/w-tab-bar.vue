@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"/>
+	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-base'" :active-index="activeIndex"/>
 </template>
 
 <script>
@@ -8,7 +8,6 @@
   import store from '@store';
   import { matchRouter } from '$components/bv-tab-bar';
   import homeTabBar from './home-tab-bar';
-  import componentTabBar from './component-tab-bar';
 
   export default {
     name: "w-tab-bar",
@@ -16,8 +15,7 @@
       return {
         activeIndex: -1,
         allTabBar: {
-          'home': homeTabBar,
-          'components': componentTabBar
+          'home': homeTabBar
         }
       }
     },

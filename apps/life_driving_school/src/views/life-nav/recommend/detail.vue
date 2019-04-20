@@ -18,10 +18,45 @@
 			</div>
 
 			<div class="recommend-li-box">
-				<div class="recommend-li-box-p">
-					{{ det_data.content }}
+				<!--<div class="recommend-li-box-p" v-html="det_data.content">
+					&lt;!&ndash;{{ det_data.content }}&ndash;&gt;
+				</div>-->
+				<div class="article-content" style="background:rgba(244,244,244,1);">
+
+
+					<ul class="bc-reset-ul" v-if="det_data.content && det_data.content.length > 0">
+						<li class="bc-pd-lr-16rp bc-c-f" v-for="(item, index) in det_data.content" :key="index">
+							<div class="bc-mg-t-16rp bc-f-14rp bc-t-666 " v-if="item.type === 'text'" >
+								<div v-html="item.value"></div>
+							</div>
+
+							<div class="bc-mg-t-16rp bc-bg-white" v-else-if="item.type === 'images'" style="box-shadow: 5px 5px 10px rgba(166,166,166,.6)">
+								<img class="bc-w-100" :src="item.value" alt="">
+								<div class="bc-pd-10rp bc-t-hide" v-if="item.desc">{{item.desc}}</div>
+							</div>
+
+							<div class="bc-mg-t-16rp bc-bg-white" v-else-if="item.type === 'video'">
+								<!--开播-->
+								<div class="prism-player video" :id="`J_prismPlayer${item.videoId}`"></div>
+								<!--<iframe height="253" width="100%" :src='item.PlayURL' frameborder=0  allowfullscreen="allowfullscreen"></iframe>-->
+							</div>
+
+							<div class="bc-mg-t-16rp bc-bg-white " v-else-if="item.type === 'audio'">
+
+								<!--音频组件-->
+								<w-article-audio :audio="item"></w-article-audio>
+
+							</div>
+
+						</li>
+					</ul>
+
+
 				</div>
-				<div class="recommend-li-box-imgb">
+
+
+
+				<div class="recommend-li-box-imgb bc-mg-t-16rp">
 					<!-- <div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
 					<bv-scroll :api="api">
 						<div>
@@ -35,7 +70,37 @@
 				</div>
 
 				<div class="question-review">
-					<WrecommendReview :config="config"></WrecommendReview>
+
+					<!--<WrecommendReview :config="config"></WrecommendReview>-->
+
+					<!--文章阅读量 点赞量-->
+					<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+
+					<!--文章评论-->
+					<bv-scroll :api="api" :disabled="load.state.disabled">
+						<w-comment
+							:config="config"
+							:comment="comment"
+							@replyFocus='replyFocus'
+						></w-comment>
+						<template slot="load-down">
+							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+								数据加载中...
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+								暂无数据
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+								暂无更多数据...
+							</div>
+						</template>
+					</bv-scroll>
+
+					<!--回复评论-->
+					<!--<template slot="footer">
+
+					</template>-->
+					<w-comment-reply :config="config" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
 				</div>
 			</div>
 		</div>
@@ -46,18 +111,31 @@
 </template>
 
 <script>
-	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	import life_nav_tab from "@components/wap/life-nav/w-life-nav-tab";
-	import { $toast } from "$use-in-vue/mint-ui/toast";
-	import WrecommendReview from '@components/wap/article/w-recommend-review/w-recommend-review';//评论
+	import WArticleClicknum from '@components/wap/article/w-article-clicknum';
+	import WComment from '@components/wap/article/w-comment';
+	import WCommentReply from '@components/wap/article/w-comment-reply';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+	import { commentMixin } from '@components/wap/article/w-article-body/article';
+	import WArticleAudio from '@components/wap/article/w-article-audio/w-article-audio'
+
+	import VideoPlayer from '@assets/js/videoplayer';
 	export default {
-		name: "index",
-		components: {
+		name: "detail",
+		mixins: [scrollMixin(), commentMixin({
+			scrollEndHook,
+			scrollNoHasListData
+		})],
+		components:{
 			life_nav_tab,
-			WrecommendReview
+			'w-article-clicknum': WArticleClicknum,
+			'w-comment': WComment,
+			'w-comment-reply': WCommentReply,
+			'w-article-audio' : WArticleAudio
 		},
 		data() {
 			return {
+				comment: {},
 				det_data:'',//详情数据
 				config: {
 					data: {
@@ -84,16 +162,137 @@
 						circle_id: this.$route.params.circle_id
 					}
 				}).then((res)=>{
-					//console.log(res.data.data)
+					//console.log(res)
 					this.det_data = res.data.data
+					const {share_title, share_img,  share_content} = this.det_data;
+					//this.info = data;
+					// 微信分享
+					this.$weChatShare({
+						title: share_title,
+						imgUrl: share_img,
+						desc: share_content
+					});
+					
+					// 初始化视频
+					this.det_data.content.forEach((item) => {
+						if (item.type === 'video') {
+							const {videoId, PlayURL, cover, playauth} = item;
+							this.video = {
+								videoId,
+								url: PlayURL,
+								cover,
+								playauth
+							};
+							this.$nextTick(() => {
+								this.videoPlay_init(this.video);
+							});
+						}
+					});
+
 				}).catch((err)=>{
 					console.log(err);
 				})
 			},
+			videoPlay_init(video) {
+				const {videoId, playauth, cover } = video;
+
+				this.player = new VideoPlayer({
+					id: `J_prismPlayer${videoId}`,
+					autoplay: false,
+					isLive: false,
+					width: '100%',
+					playsinline: true,
+					controlBarVisibility: 'hover',
+					//点播
+					vid: videoId,
+					playauth,
+
+					useH5Prism: true,
+					useFlashPrism: false,
+					x5_video_position: 'normal',
+					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
+					x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
+					cover,
+					"skinLayout": [  //取消错误显示样式
+						{
+							"name": "bigPlayButton",
+							"align": "blabs",
+							"x": 30,
+							"y": 80
+						},
+						{
+							"name": "H5Loading",
+							"align": "cc"
+						},
+						{
+							"name": "infoDisplay"
+						},
+						{
+							"name": "tooltip",
+							"align": "blabs",
+							"x": 0,
+							"y": 56
+						},
+						{
+							"name": "thumbnail"
+						},
+						{
+							"name": "controlBar",
+							"align": "blabs",
+							"x": 0,
+							"y": 0,
+							"children": [
+								{
+									"name": "progress",
+									"align": "blabs",
+									"x": 0,
+									"y": 44
+								},
+								{
+									"name": "playButton",
+									"align": "tl",
+									"x": 15,
+									"y": 12
+								},
+								{
+									"name": "timeDisplay",
+									"align": "tl",
+									"x": 10,
+									"y": 7
+								},
+								{
+									"name": "fullScreenButton",
+									"align": "tr",
+									"x": 10,
+									"y": 12
+								},
+								{
+									"name": "subtitle",
+									"align": "tr",
+									"x": 15,
+									"y": 12
+								},
+								{
+									"name": "setting",
+									"align": "tr",
+									"x": 15,
+									"y": 12
+								},
+								{
+									"name": "volume",
+									"align": "tr",
+									"x": 5,
+									"y": 10
+								}
+							]
+						}
+					]
+				});
+
+			}
 		},
 		mounted() {
 			this.detail_data();
-			//console.log(this.$route.params.circle_id)
 		}
 	}
 </script>

@@ -19,6 +19,7 @@ import BvViewTransition from '../components/bv-view-transition/bv-view-transitio
 import BvTransition from '../components/bv-transition/bv-transition';
 import BvPageList from '../components/bv-page-list/bv-page-list';
 import BvBindPhone from '../components/bv-bind-phone/bv-bind-phone';
+import BvLayer from '../components/bv-layer/bv-layer';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
@@ -115,6 +116,9 @@ export function useInVue(opts = {}) {
 
   //滑动模块
   Vue.component('bv-swiper-scroll', BvSwiperScroll);
+
+  //弹窗
+  Vue.component('bv-layer', BvLayer);
 
   //绑定手机
   Vue.component('bv-bind-phone', BvBindPhone);

@@ -1,7 +1,7 @@
 // const Zhuanqu = () => import(`@/views/life_school/zhuanqu`);
 
 const special = {
-	path: 'zhuanqu/:id',
+	path: 'zhuanqu/:classId',
 	name: 'zhuanqu',
 	meta:{
 		tabBar: false,
@@ -15,13 +15,13 @@ const special = {
 		},
 		component: () => import("@/views/grow/zhuanqu/column/column.vue"),
 		children:[{
-			path:'album',
+			path:'album/:album_id',
 			meta:{
 				tabBar: false
 			},
 			component: () => import("@/views/grow/zhuanqu/column/album.vue"),
 			children:[{
-				path:'album-detail',
+				path:'album-detail/:album_detail_id',
 				meta:{
 					tabBar: false
 				},

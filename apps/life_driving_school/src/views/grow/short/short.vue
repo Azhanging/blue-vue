@@ -6,9 +6,13 @@
 		<div class='scroll-x bc-bg-white'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<template slot="scroll-items">
-					<a href="javascript:;" v-for="(item,index) in scroll_list"
+					<a class="bc-pd-tb-15rp bc-mg-lr-10rp bc-inline-block bc-t-666"
+					   :class='scrollIndex == 0 ? "scroll_active" : ""'
+					   @click="select($route.params.classId,0)">推荐</a>
+					<a href="javascript:;" v-for="(item,index) in pageData.class"
 					   class="bc-pd-tb-15rp bc-mg-lr-10rp bc-inline-block bc-t-666"
-					   @click="select(item,index)"
+					   :class='scrollIndex == index+1 ? "scroll_active" : ""'
+					   @click="select(item.id,index+1)"
 					>
 						{{item.name}}
 					</a>
@@ -20,14 +24,17 @@
 		
 		
 		<div class='bc-pd-10rp bc-bg-white'>
-			<bv-scroll :api="api" :disabled="load.state.disabled">
+			<bv-scroll :api="apiGetData" :disabled="load.state.disabled">
 				<w-arrlist :list='load.data.lists'></w-arrlist>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 						数据加载中...
 					</div>
-					<div class="bc-t-c bc-pd-10rp" v-else>
-						暂无数据...
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						暂无数据
+					</div>
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						暂无更多数据...
 					</div>
 				</template>
 			</bv-scroll>
@@ -60,44 +67,8 @@
 		},
 		data() {
 			return {
-				scroll_list: [
-					{
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 1
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'',
-						name: '财富驾照',
-						id: 2
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 3
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 1
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 1
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 1
-					}, {
-						img:'https://pc.dtb315.cn/Static//pc/home/images/index/index/carbon-shop.png?v=rjzw0t',
-						reads:'50%',
-						name: '财富驾照',
-						id: 1
-					}
-				],
+				pageData:{},
+				scroll_list: [],
 				scrollIndex:0,
 				allSel:{
 					isRecommend: true,
@@ -114,45 +85,77 @@
 				this.tabIdx = index
 			},
 			receive_sel(obj) {
-				console.log(obj)
+				this.load.params.page = 1;
+				this.load.data.lists = [];
+				Object.assign(this.load.params,obj)
+				this.apiGetData()
 			},
-			select(item, index) {
+			select(id, index) {
 				this.scrollIndex = index;
 				this.allSel = this.$utils.deepCopy(this.allSelCopy);
-
-				this.apiGetData();
+				this.load.data.lists = [];
+				this.load.params = {
+					page: 1,
+					column_id: id,
+					...this.allSel,
+				};
+				
+				this.apiGetData()
 			},
 			apiGetData() {
-				var data = {
-					scroll: this.scrollIndex,
-					...this.allSel,
-				}
-				console.log(data)
+				return this.$axios.get('/api/article/index', {
+					params: this.load.params
+				}).then((res) => {
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+							resultData,
+							listKey: 'list'
+						})) {
+						const state = scrollEndHook.call(this);
+						this.load.state.disabled = state.disabled;
+					} else {
+						++this.load.params.page;
+						if(resultData.list.length < 10) scrollEndHook.call(this);
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.scroll_list = resultData.class
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
 			},
-			api(){
-				// const page = this.load.params.page++;
-				// return this.$axios.get('/home/home/getRecommendForYou', {
-				// 	params: {
-				// 		p: page,
-				// 		page: page
-				// 	}
-				// }).then((res) => {
-				// 	if (scrollNoHasListData.call(this, {
-				// 			result: res
-				// 		})) {
-				// 		return scrollEndHook.call(this);
-				// 	} else {
-				// 		this.load.data.lists = this.load.data.lists.concat(res.data);
-				// 	}
-				// }).catch(() => {
-				// 	return scrollEndHook.call(this);
-				// });
+			getScrollList(){
+				return this.$axios.get('/api/article/index',{
+					params:{
+						column_id:this.$route.params.classId
+					}
+				}).then((res) => {
+					this.pageData = res.data.data;
 
-				this.load.data.lists = [1,2,3,4]
+					this.load.params = {
+						page: 1,
+						column_id: this.$route.params.classId,
+						...this.allSel,
+					}
+					
+				
+					this.load.state.disabled = false;
+					this.load.state.hasMore = true;
+					
+					
+				});
+			},
+			init(){
+				this.getScrollList()
 			}
 		},
 		mounted(){
 			this.allSelCopy = this.$utils.deepCopy(this.allSel);
+			
+			this.load.params.page = 1;
+			this.load.state.disabled = true;
+			this.load.state.hasMore = false;
+			
+			this.init()
 		}
 	}
 </script>

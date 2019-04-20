@@ -37,6 +37,11 @@ const config = utils.extend(publicConfig, {
   //是否为混合开发
   mixedDevelopment: true,
 
+  //获取用户信息
+  user: {
+    url: '/api/member_info/index'
+  },
+
   view: {
     title: "大健康·点通宝·购物宝",
     tabBar: 'home'
@@ -50,9 +55,9 @@ const config = utils.extend(publicConfig, {
     bindPhone: bindPhonePath
   },
   share: {
-    title: "blue-vue-tmpl",
-    deps: "blue-vue-tmpl is vue public template",
-    imgUrl: "",
+    title: "大健康·点通宝·购物宝",
+    deps: "大健康·点通宝·购物宝",
+    imgUrl: `${path}/Style/weixin/images/wx_list.png`,
     link() {
       return router.getHref();
     }

@@ -1,51 +1,50 @@
 <template>
-	<div>
-		<w-comment
-			:config="config"
-			:comment="comment"
-			@releaseComment="releaseComment"
-			@deleteComment="deleteComment"
-		></w-comment>
+	<div class='wap' :router-level="2">
+		<!--文章阅读量 点赞量-->
+		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
 
+		<!--文章评论-->
+		<bv-scroll :api="api" :disabled="load.state.disabled">
+			<w-comment
+				:config="config"
+				:comment="comment"
+				@replyFocus='replyFocus'
+			></w-comment>
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
+				</div>
+			</template>
+		</bv-scroll>
 
-		<!--回复模块-->
-		<w-comment-reply :config="config" :comment="comment" ></w-comment-reply>
+		<!--回复评论-->
+		<template slot="footer">
+			<w-comment-reply :config="config" :comment="comment" ref="reply"></w-comment-reply>
+		</template>
 	</div>
 </template>
 
 <script>
-	import WComment from '@components/wap/article/w-comment';//评论列表
-	import WCommentReply from '@components/wap/article/w-comment-reply';//评论回复框
-	import {commentMixin} from '@components/wap/article/w-article-body/article';
+	import WArticleClicknum from '@components/wap/article/w-article-clicknum';
+	import WComment from '@components/wap/article/w-comment';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+	import { commentMixin } from '@components/wap/article/w-article-body/article';
+	import WCommentReply from '@components/wap/article/w-comment-reply';
 
 	export default {
 		name: "w-recommend-review",
-		mixins: [commentMixin()],
+		mixins: [scrollMixin(), commentMixin({
+			scrollEndHook,
+			scrollNoHasListData
+		})],
 		props: {
-			title: {
-				type: String,
-				default: '详情'
-			},
 			config: {
-				type: Object,
-				default: {// 请求详情内容url 请求评论url
-					data: {
-						type: Object,
-						default: {
-							contentParams: {// 文章内容 请求参数
-								article_id: 0
-							},
-							commentParams: { // 评论内容 请求参数
-								article_id: 0,
-								data_id: 3 // data_id带类型1文章,2书籍3,问答专区评论
-							},
-							submitCommentParams: { // 提交评论 请求参数 只需第一个
-								article_id: 0,
-								data_id: 3 // data_id带类型1文章,2书籍3,问答专区评论
-							}
-						}
-					}
-				}
 			}
 		},
 		data() {
@@ -58,8 +57,9 @@
 		mounted(){
 		},
 		components:{
-			WComment,
-			WCommentReply
+			'w-article-clicknum': WArticleClicknum,
+			'w-comment': WComment,
+			'w-comment-reply': WCommentReply
 		}
 	}
 </script>

@@ -21,11 +21,13 @@
 						</div>
 						<div>
 							文章<br>
-							<strong>{{ infos.num }}</strong>
+							<strong v-if="infos.num">{{ infos.num }}</strong>
+							<strong v-else>0</strong>
 						</div>
 						<div>
 							阅读<br>
-							<strong>{{ infos.read }}</strong>
+							<strong v-if="infos.read">{{ infos.read }}</strong>
+							<strong v-else>0</strong>
 						</div>
 					</div>
 				</div>
@@ -70,7 +72,7 @@
 						id: this.$route.params.id
 					}
 				}).then((res)=>{
-					//console.log(res.data.data)
+					//console.log(res)
 					this.infos = res.data.data.info;
 					this.lists = res.data.data.list;
 				}).catch((err)=>{

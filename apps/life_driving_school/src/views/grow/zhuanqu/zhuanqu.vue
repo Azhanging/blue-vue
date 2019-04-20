@@ -25,9 +25,11 @@
 							     class=" bc-mg-r-10rp  bc-inline-block"
 							     @click="select(item,index)"
 							>
-								<img :src='item.src_img' alt=''>
-								<div class='bc-f-16rp bc-mg-t-7rp'>{{ item.name }}</div>
-								<div class='bc-f-12rp bc-t-999 bc-mg-t-7rp'>{{ item.count }}篇</div>
+								<router-link :to="`${currentFullPath}/column/${type.id}/album/${item.id}`">
+									<img :src='item.src_img' alt=''>
+									<div class='bc-f-16rp bc-mg-t-7rp bc-t-666'>{{ item.name }}</div>
+									<div class='bc-f-12rp bc-t-999 bc-mg-t-7rp'>{{ item.count }}篇</div>
+								</router-link>
 							</div>
 						</div>
 					</bv-swiper-scroll>
@@ -90,7 +92,7 @@
 				this.$axios.get('/api/classify/assortment', {
 					params: {
 						column_id: this.$route.params.grow_id,
-						id:this.$route.params.id,
+						id:this.$route.params.classId,
 					}
 				}).then((res) => {
 					//console.log(res.data.data.system_class)

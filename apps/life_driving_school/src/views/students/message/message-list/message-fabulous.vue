@@ -8,28 +8,76 @@
 
 		>
 		</w-home-header>
-		<div class="message-list">
-			<router-link class="list-item" to="">
-				<div class="list-item-img">
-					<img src="https://image.dtb315.com/76343.jpg">
-				</div>
-				<div class="list-item-desc">
-					<div class="list-item-desc-top">
-						<div class="list-item-desc-top-l"><span>某某</span> 回复了你</div>
-						<div class="list-item-desc-top-r">互动提醒</div>
+
+		<bv-scroll :api="api" :disabled="load.state.disabled">
+
+			<div class="message-list" v-for="(item,index) in this.load.data.lists">
+				<router-link class="list-item" :to="item.name_url"> <!--:to="`/students/message/detail/${item.article_id}`"-->
+					<div class="list-item-img">
+						<img :src="item.head_img">
 					</div>
-					<div class="list-item-desc-time">
-						2019-04-13 15:17
+					<div class="list-item-desc">
+						<div class="list-item-desc-top">
+							<div class="list-item-desc-top-l" v-html="item.content"><!--<span>某某</span> 回复了你--><!--{{ item.content}}--></div>
+							<div class="list-item-desc-top-r">互动提醒</div>
+						</div>
+						<div class="list-item-desc-time">
+							{{ item.create_time }}
+						</div>
 					</div>
+				</router-link>
+			</div>
+			
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
 				</div>
-			</router-link>
-		</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
+				</div>
+			</template>
+		</bv-scroll>
+
+
 	</bv-home-view>
 </template>
 
 <script>
+	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
 	export default {
-		name: "message-fabulous"
+		name: "message-fabulous",
+		mixins: [scrollMixin()],
+		methods:{
+			api() {
+				//const page = this.load.params.page++;
+				return this.$axios.get('/api/Member_News/comment_fabulous', {
+					params: {
+						state:'fabulous',
+						page: this.load.params.page++
+					}
+				}).then((res) => {
+					//console.log(res.data)
+					const {data: resultData} = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						scrollEndHook.call(this);
+					} else {
+						if(resultData.list.length < 10) scrollEndHook.call(this);
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+
+			}
+		},
+		mounted() {
+		}
 	}
 </script>
 

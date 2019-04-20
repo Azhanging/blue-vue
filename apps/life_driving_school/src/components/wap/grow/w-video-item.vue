@@ -2,13 +2,14 @@
 	<div class='bc-pd-lr-15rp bc-pd-t-15rp bc-mg-b-10rp bc-bg-white list' v-if='videoList.length > 0'>
 		<span class='bc-f-18rp'>{{title[type]}}</span>
 		<!--数据循环-->
-		<router-link :to="`${$router.currentRoute.fullPath}/room?id=${item.id}`" v-for='item in videoList' >
+		
+		<router-link :to="`room?id=${item.id}`" append v-for='item in videoList' >
 			<div class='bc-flex bc-pd-tb-10rp bc-ps-r'>
 				<img  class='bc-mg-r-15rp' :src="item.cover" alt=''>
 				<div class='right bc-flex bc-flex-d-c bc-flex-jc-sb'>
 					<div>
 						<div class='title bc-t-ellipsis bc-t-ellipsis-2 bc-f-16rp bc-t-333'>{{item.title}}</div>
-						<span class='bc-f-12rp bc-t-666'>视频|		{{item.start_time | timeFilter("Y-M-D h:min")}}</span>
+						<span class='bc-f-12rp bc-t-666'>视频|		{{item.start_time*1000 | timeFilter("Y-M-D h:min")}}</span>
 					</div>
 					<div class='bc-f-12rp bc-t-666'>
 						<i class='iconfont iconrenci bc-f-10rp bc-t-666'></i>

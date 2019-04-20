@@ -5,6 +5,11 @@ const config = {
   //是否为混合开发
   mixedDevelopment: false,
 
+  //获取用户用户信息
+  user: {
+    url: ''
+  },
+
   //视图相关
   view: {
     title: "blue-vue-tmpl-title",       //默认的文档标题
@@ -55,7 +60,8 @@ const config = {
     //分享相关的参数的
     params: {
       phone: 'n',                     //绑定参数
-      redirectUrl: 'redirect_url'     //绑定后重定向回来的参数
+      redirectUrl: 'redirect_url',    //绑定后重定向回来的参数
+      wantUrl: 'want_url'             //想要跳转的地址
     }
   },
 

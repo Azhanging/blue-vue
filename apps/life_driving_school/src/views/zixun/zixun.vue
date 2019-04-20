@@ -1,6 +1,6 @@
 <template>
 	<!--资讯-->
-	<bv-home-view class='wap'>
+	<bv-home-view class='wap' :router-level="2">
 
 		<w-home-header :header="{
 			title:{
@@ -11,9 +11,9 @@
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
 			<div class='bc-flex bc-flex-ai-c '>
-				<a href="/" class="bc-flex-1 ">首页</a>
+				<a href="/" class="bc-flex-1 bc-t-666">首页</a>
 				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
-					<a class="bc-flex-1" :class="[0 !== index ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+					<a class="bc-flex-1" :class="[index !== 0 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
 					   v-if="item.name"
 					>
 						{{item.name}}
@@ -21,15 +21,27 @@
 				</div>
 			</div>
 		</div>
-		<!--轮播-->
-		<div class="bc-row">
-			<img class="bc-w-100" :src="`${$config.path.static}/img/zixun/banner.png`" alt="">
+
+		<!--banner轮播-->
+		<div class="bc-bg-white banner" v-if="banners && banners.length > 0">
+			<bv-scroll>
+				<swiper :options="swiperOption" ref="swiper">
+					<swiper-slide v-for="(item, index) in banners" :key="index">
+						<div class="bc-row">
+							<router-link :to="item.url">
+								<img class="bc-w-100 banner-img" :src="item.src_img" alt="">
+							</router-link>
+						</div>
+					</swiper-slide>
+					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+				</swiper>
+			</bv-scroll>
 		</div>
 
-		<div class='scroll-x '>
+		<div class='scroll-x ' v-if="scroll_list && scroll_list.length > 6">
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<template slot="scroll-items">
-					<a href="javascript:;" v-for="(item,index) in scroll_list"
+					<a href="javascript:;" v-for="(item,index) in scroll_list" :key="index"
 					   class=" bc-pd-lr-16rp bc-inline-block bc-t-666"
 					   @click="select(item,index)"
 					>
@@ -37,6 +49,16 @@
 					</a>
 				</template>
 			</bv-swiper-scroll>
+		</div>
+
+		<div class='scroll-x ' v-else>
+			<a href="javascript:;" v-for="(item, index) in scroll_list" :key="index"
+			   class=" bc-pd-lr-16rp bc-inline-block bc-t-666"
+			   @click="select(item, index)"
+			   :class="{'scroll_active': scrollIndex === index}"
+			>
+				<span class="nav-title bc-inline-block bc-pd-tb-10rp">{{item.name}}</span>
+			</a>
 		</div>
 
 		<w-sorting :allSel='allSel' @send_sel='receive_sel' style="background:rgba(244,244,244,1);"></w-sorting>
@@ -47,12 +69,14 @@
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else>
-					暂无数据...
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
 				</div>
 			</template>
 		</bv-scroll>
-
 
 	</bv-home-view>
 
@@ -60,7 +84,6 @@
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
-
 </template>
 
 <script>
@@ -77,6 +100,15 @@
     },
     data() {
       return {
+        banners: [], // banner图
+        swiperOption: {
+          pagination: {
+            el: "#pagination"
+          },
+          loop: true,
+          autoplay: true,
+        },
+        swiper: {},
         urlType: -1, //1资讯 2公开课
         title: "生命驾校",
         allSelCopy: {},
@@ -100,27 +132,7 @@
             id: 2
           }],
         //左右滑动
-        scroll_list: [
-          {
-            name: '推荐',
-            id: 1
-          }, {
-            name: '财富',
-            id: 2
-          }, {
-            name: '健康',
-            id: 3
-          }, {
-            name: '婚姻',
-            id: 4
-          }, {
-            name: '育子',
-            id: 5
-          }, {
-            name: '心灵',
-            id: 6
-          }
-        ],
+        scroll_list: [],
         scrollIndex: 0,
         //列表数据
         list_data: [1, 2, 3],
@@ -137,13 +149,15 @@
           }
         }));
       },
+      swiperUpdate() {
+        this.swiper.update();
+      },
       _init(opts = {}) {
         const { params } = opts;
         this.setNavActive(params);
         this.setHeaderTitle(params);
         //初始化选中项
         this.allSel = this.$utils.deepCopy(this.allSelCopy);
-        this.scrollIndex = 0;
         //获取数据
         this.load.params = {
           page: this.load.params.page,
@@ -155,6 +169,8 @@
         this.allSel = this.$utils.deepCopy(this.allSelCopy);
         this.allSel.column_id = item.id;
         this.load.params.page = 1;
+        this.load.params.column_id = item.id;
+        this.load.data.lists = [];
         this.api();
       },
       api() {
@@ -163,16 +179,16 @@
         }).then((res) => {
           const { data: resultData } = res.data;
           if (scrollNoHasListData.call(this, {
-              resultData,
-              listKey: 'list'
-            })) {
-            const state = scrollEndHook.call(this);
-            this.load.state.disabled = state.disabled;
+            resultData,
+            listKey: 'list'
+          })) {
+            scrollEndHook.call(this);
           } else {
             ++this.load.params.page;
             this.load.data.lists = this.load.data.lists.concat(resultData.list);
-            resultData.class.unshift({id: 1,name: '推荐'});
             this.scroll_list = resultData.class;
+            this.scroll_list.unshift({ id: 1, name: '推荐' });
+            if (resultData.list.length < 10) scrollEndHook.call(this);
           }
         }).catch((error) => {
           console.log(error);
@@ -187,7 +203,7 @@
       receive_sel(allSel) {
         // 根据点击时间或者浏览量判断所传参数
         this.load.state.disabled = true;
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           this.load.params.page = 1;
           this.load.state.disabled = false;
           this.load.state.hasMore = true;
@@ -236,22 +252,50 @@
         params: currentRoute.params
       });
 
+      // banner图
+      this.$axios.get('/api/banner/index.html?column_id=1')
+        .then(res => {
+          const { data } = res.data;
+          this.banners = data.banner;
+          this.$nextTick(() => {
+            this.swiper = this.$refs['swiper'];
+            this.swiperUpdate();
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
     }
   }
 </script>
 
 <style lang='scss' scoped>
+
+	.swiper-pagination > .swiper-pagination-bullet-active {
+		width: rem(12)
+	}
+
 	.wap {
 		.home-nav {
 			border-bottom: 1px #eee solid;
+
 			.active {
 				color: $color-base;
 				border-bottom: 2px $color-base solid;
 			}
 		}
+
+		.banner {
+			.banner-img {
+				height: rem(150);
+			}
+		}
+
 		.scroll-x {
 			.scroll_active {
 				color: $color-base !important;
+
 				.nav-title {
 					border-bottom: 2px solid $color-base;
 				}

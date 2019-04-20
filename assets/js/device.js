@@ -2,6 +2,7 @@ import store from '@store';
 import config from '@config';
 import inBrowser from "$assets/js/in-browser";
 import nativeApp from '$assets/js/native-app';
+import Vue from 'vue';
 
 //main
 export function device(opts) {
@@ -75,7 +76,7 @@ function mobileFocus(Vue) {
 }
 
 //ios device
-function iosFocus(Vue) {
+function iosFocus() {
 
   let lastNav;
   document.body.addEventListener('focusin', () => {
@@ -83,6 +84,7 @@ function iosFocus(Vue) {
     focusHook({
       type: 'focusin'
     });
+    mockMoveScroll();
   });
 
   document.body.addEventListener('focusout', () => {
@@ -90,13 +92,8 @@ function iosFocus(Vue) {
       type: 'focusout',
       lastNav
     });
-
     //ios focus fixed bug
-    Vue.nextTick(() => {
-      setTimeout(() => {
-        document.body.scrollTop = document.body.scrollHeight;
-      }, 50);
-    });
+    mockMoveScroll();
   });
 }
 
@@ -135,4 +132,14 @@ function focusHook(opts) {
     store.commit('setTabBar', false);
     store.commit('setPageFixed', false);
   }
+}
+
+//模拟移动
+export function mockMoveScroll() {
+  Vue.nextTick(() => {
+    [].forEach.call(document.querySelectorAll('.bv-view-scroll'), (viewElm) => {
+      viewElm.scrollTop += 1;
+      viewElm.scrollTop -= 1;
+    });
+  });
 }

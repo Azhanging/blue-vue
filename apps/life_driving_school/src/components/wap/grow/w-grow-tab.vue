@@ -1,7 +1,7 @@
 <template>
 	<w-home-header :header='header'>
 
-		<w-home-nav  :nav='nav' :otherParams='{grow_id:$route.params.grow_id}' :active-index='growIndex'>
+		<w-home-nav  :nav='nav' :defaultParams_key='"classId"' :otherParams='{grow_id:$route.params.grow_id}' :active-index='growIndex'>
 
 		</w-home-nav>
 		<slot name='second_tab'></slot>
@@ -45,7 +45,6 @@
 		},
 		mounted(){
 			this.getNav()
-			console.log(this.otherParams)
 		}
 	}
 </script>

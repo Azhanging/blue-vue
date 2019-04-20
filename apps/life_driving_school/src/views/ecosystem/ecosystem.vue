@@ -3,16 +3,17 @@
 
 		<w-home-header :header='{
             title:{
-                value: "消费"
+                value: title
             }
-        }'
-
+        }' :leftControl="`/`"
 		></w-home-header>
 		<bv-scroll>
 			<swiper :options="swiperOption" ref="swiper">
 				<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
 					<div class="banner-img">
-						<img :src="slide.src_img">
+						<a :href="slide.url">
+							<img :src="slide.src_img">
+						</a>
 					</div>
 				</swiper-slide>
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
@@ -55,7 +56,6 @@
 		computed:{
 			headerTit(){
 				let eid = $route.params.ecosystem_id;
-				console.log(eid)
 			}
 		},
 		data() {
@@ -73,13 +73,23 @@
 				],
 				tabNav:'',
 				banner:'',
-				this_id:''
+				this_id:'',
+				title:''
 			}
 		},
 		methods: {
 			tabqh(t,this_id) {
 				this.temp = t;
 				this.this_id = this_id;
+			},
+			show_title(){
+				this.$axios.get('/api/Classify/ecosphere',{
+					params:{
+						column_id:this.$route.params.ecosystem_id
+					}
+				}).then(res=>{
+					this.title = res.data.data
+				})
 			},
 			nav_tab() {
 				return this.$axios.get('/api/Classify/assortment',{
@@ -98,12 +108,12 @@
 						column_id:this.$route.params.ecosystem_id
 					}
 				}).then(res=>{
-					//console.log(res)
 					this.banner = res.data.data.banner
 				})
 			}
 		},
 		mounted() {
+			this.show_title();
 			this.nav_tab();
 			this.banner_show();
 		}

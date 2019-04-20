@@ -50,9 +50,9 @@ const weChatTask = new WeChatQueueTask();
 
 //if in wechat ,get wechat config in program
 export function useWeChatInVue(Vue) {
+  weChatShareInVue(Vue);
   try {
     if (config.device.isWeChat && wx) {
-      weChatShareInVue(Vue);
       window.alert = (e) => {
         console.log(`blue-vue-tmpl wechat error:${e}`)
       };
@@ -106,9 +106,7 @@ export function setWeChatSdkConfig(opts) {
     //当前的任务处理
     if (id !== weChatTaskQueueId) return;
     weChatReadyStatus = true;
-    weChatTask.task({
-      id
-    });
+    weChatTask.task();
   });
 
 }
@@ -152,6 +150,7 @@ function setWeChatShare(opts = {}) {
       type: opts.type || 'link',
       dataUrl: opts.dataUrl || "",
       success() {
+        utils.hook(this, shareSuccess);
         utils.hook(this, opts.success);
       }
     });

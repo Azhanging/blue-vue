@@ -1,244 +1,87 @@
 <template>
-	<bv-home-view class='wap' :router-level='4' style='background-color: #f4f4f4;'>
-		<w-home-header :header="{
-			title:{
-				value:'详情'
-			}
-		}"></w-home-header>
+	<bv-home-view class='wap' :router-level="2">
 
-		<div style="height: 500px;"></div>
+		<!--文章内容-->
+		<w-article-detail :header="{
+				title:{
+					value: '详情'
+				}
+			}" :config="config"
+		></w-article-detail>
 
-		<div class="album-detail">
-			<div class="question-review">
-				<div class="question-review-top">
-					<div class="question-review-top-l">
-						<img src="https://image.dtb315.com/76343.jpg">
-					</div>
-					<div class="question-review-top-r">
-						<div class="question-review-top-tit">
-							<div class="question-review-top-tit-l">聪明的一休</div>
-							<div class="question-review-top-tit-r">
-								<span><i class="iconfont icondianzan"></i> 2222</span>
-								<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-							</div>
-						</div>
-						<div class="question-review-top-time">1小时前</div>
-						<div class="question-review-top-box">猫和老鼠你好，我是聪明的一休</div>
-						<div class="question-review-top-reply"><span>@猫和老鼠</span>我是猫和老鼠我是猫和老鼠我是猫和老鼠我是猫和老鼠我</div>
-					</div>
+		<!--文章阅读量 点赞量-->
+		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+
+		<!--文章评论-->
+		<bv-scroll :api="api" :disabled="load.state.disabled">
+			<w-comment
+				:config="config"
+				:comment="comment"
+				@replyFocus='replyFocus'
+			></w-comment>
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
 				</div>
-				<div class="question-review-top">
-					<div class="question-review-top-l">
-						<img src="https://image.dtb315.com/76343.jpg">
-					</div>
-					<div class="question-review-top-r">
-						<div class="question-review-top-tit">
-							<div class="question-review-top-tit-l">鼠妹的小夏目</div>
-							<div class="question-review-top-tit-r">
-								<span><i class="iconfont icondianzan"></i> 155</span>
-								<span @click="btn_reply"><i class="iconfont icongengduo"></i></span>
-							</div>
-						</div>
-						<div class="question-review-top-time">2小时前</div>
-						<div class="question-review-top-box">你好，我是鼠妹的夏目</div>
-					</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
 				</div>
-			</div>
-		</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
+				</div>
+			</template>
+		</bv-scroll>
 
-		<div class="review-txt">
-			<div class="review-txt-l">
-				<i class="iconfont iconbianji"></i><input type="text" placeholder="写评论...">
-			</div>
-			<div class="review-txt-r">
-				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
-				<div><i class="iconfont iconxingxing"></i></div>
-				<div><i class="iconfont icondianzan"></i></div>
-				<div><i class="iconfont icon-"></i></div>
-			</div>
-		</div>
-
-		<div class="reply-mask" v-if="reply_show"></div>
-		<div class="reply-show" v-if="reply_show">
-			<div class="reply-item">回复</div>
-			<div class="reply-item" @click="btn_reply_h">取消</div>
-		</div>
+		<!--回复评论-->
+		<template slot="footer">
+			<w-comment-reply :config="config" :comment="comment" ref="reply"></w-comment-reply>
+		</template>
 
 	</bv-home-view>
 </template>
 
 <script>
+	import WArticleDetail from '@components/wap/article/w-article-detail';
+	import WArticleClicknum from '@components/wap/article/w-article-clicknum';
+	import WComment from '@components/wap/article/w-comment';
+	import WCommentReply from '@components/wap/article/w-comment-reply';
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+	import { commentMixin } from '@components/wap/article/w-article-body/article';
+
 	export default {
 		name: "album-detail",
+		mixins: [scrollMixin(), commentMixin({
+			scrollEndHook,
+			scrollNoHasListData
+		})],
 		data() {
 			return {
-				reply_show:false
+				comment: {},
+				config: {
+					url: {
+						contentUrl: '/api/Article/info.html'
+					},
+					data: {
+						contentParams: {// 文章内容 请求参数
+							article_id: this.$route.params.album_detail_id
+						},
+						commentParams: { // 评论内容 请求参数
+							article_id: this.$route.params.album_detail_id,
+							data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+						},
+						submitCommentParams: { // 提交评论 请求参数 只需第一个
+							article_id: this.$route.params.album_detail_id,
+							data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+						}
+					}
+				}
 			}
 		},
-		methods:{
-			btn_reply() {
-				this.reply_show = true
-			},
-			btn_reply_h() {
-				this.reply_show = false
-			}
+		components: {
+			'w-article-detail': WArticleDetail,
+			'w-article-clicknum': WArticleClicknum,
+			'w-comment': WComment,
+			'w-comment-reply': WCommentReply
 		}
 	}
 </script>
-
-<style scoped lang="scss">
-	.album-detail{
-		padding: 0 rem(15);
-		background: #fff;
-		margin-bottom: rem(50);
-		.question-review {
-			overflow: hidden;
-			padding-top: rem(15);
-
-			.question-review-top {
-				display: flex;
-				margin-bottom: rem(10);
-
-				.question-review-top-l {
-					width: rem(38);
-					height: rem(38);
-					border-radius: 100%;
-					overflow: hidden;
-					margin-right: rem(15);
-
-					img {
-						vertical-align: top;
-						width: 100%;
-					}
-				}
-
-				.question-review-top-r {
-					flex: 1;
-
-					.question-review-top-tit {
-						display: flex;
-						line-height: rem(20);
-						font-size: rem(14);
-
-						.question-review-top-tit-l {
-							flex: 1;
-						}
-
-						.question-review-top-tit-r {
-							span {
-								margin-left: rem(10);
-							}
-						}
-					}
-
-					.question-review-top-time {
-						font-size: rem(12);
-					}
-
-					.question-review-top-box {
-						margin: rem(10) 0;
-						font-size: rem(14);
-						color: #333;
-					}
-
-					.question-review-top-reply {
-						background: #F7F7F7;
-						padding: rem(10);
-						color: #666;
-
-						span {
-							color: #507DAF;
-						}
-					}
-				}
-			}
-		}
-	}
-	.review-txt {
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 9;
-		height: rem(50);
-		background: #fff;
-		padding: rem(10) rem(15);
-		display: flex;
-		box-sizing: border-box;
-		border-top: 1px solid #e5e5e5;
-
-		.review-txt-l {
-			width: rem(155);
-			display: flex;
-			height: rem(30);
-			background: #f7f7f7;
-			color: #999;
-			box-sizing: border-box;
-			padding: 0 rem(15);
-			align-items: center;
-
-			input[type='text'] {
-				flex: 1;
-				background: none;
-				height: rem(30);
-				outline: none;
-				border: 0;
-				margin-left: rem(10);
-			}
-		}
-
-		.review-txt-r {
-			flex: 1;
-			text-align: center;
-			line-height: rem(30);
-
-			div {
-				display: inline-block;
-				margin: 0 rem(8);
-				position: relative;
-
-				span {
-					position: absolute;
-					left: rem(10);
-					top: -2px;
-					background: #FE6270;
-					height: rem(12);
-					border-radius: rem(3);
-					line-height: rem(12);
-					vertical-align: middle;
-					color: #fff;
-					padding: 1px 3px;
-					font-size: rem(10);
-				}
-			}
-		}
-	}
-
-	.reply-mask{
-		position: fixed;
-		left: 0;
-		right: 0;
-		top:0;
-		bottom: 0;
-		background: rgba(000,000,000,.5);
-		z-index: 200;
-	}
-	.reply-show{
-		position: fixed;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: #fff;
-		z-index: 201;
-		.reply-item{
-			padding: rem(15);
-			text-align: center;
-			color: #333;
-			font-size: rem(18);
-			border-bottom: 1px solid #e5e5e5;
-			&:last-child{
-				border-bottom: 0;
-			}
-		}
-	}
-</style>

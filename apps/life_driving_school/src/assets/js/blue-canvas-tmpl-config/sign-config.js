@@ -4,8 +4,8 @@ let data = ` 5000 `;
 let position = ` 600 `;
 let date;
 const studyText = `坚持学习了`;
-const signText = `天   今日签到第`;
-let tipsX = 0;
+const signText = ` 天   今日签到第`;
+
 
 function font(size) {
   return `${size}px bold arial, 微软雅黑, sans-serif`;
@@ -17,34 +17,88 @@ function getChineNum() {
 
 function formatTime(time) {
   let month = time.slice(5, 7);
+  let day = time.slice(8, 10);
+  let week = time.slice(11, 14);
   switch (month) {
     case '01':
       month = '一月';
+      return {
+        month,
+        day,
+        week
+      };
     case '02':
       month = '二月';
+      return {
+        month,
+        day,
+        week
+      };
     case '03':
       month = '三月';
+      return {
+        month,
+        day,
+        week
+      };
     case '04':
       month = '四月';
+      return {
+        month,
+        day,
+        week
+      };
     case '05':
       month = '五月';
+      return {
+        month,
+        day,
+        week
+      };
     case '06':
       month = '六月';
+      return {
+        month,
+        day,
+        week
+      };
     case '07':
       month = '七月';
+      return {
+        month,
+        day,
+        week
+      };
     case '08':
       month = '八月';
+      return {
+        month,
+        day,
+        week
+      };
     case '09':
       month = '九月';
+      return {
+        month,
+        day,
+        week
+      };
     case '10':
       month = '十月';
+      return {
+        month,
+        day,
+        week
+      };
     case '11':
       month = '十一月';
+      return {
+        month,
+        day,
+        week
+      };
     case '12':
       month = '十二月';
-      let day = time.slice(8, 10);
-      let week = time.slice(10, 13);
-      console.log(month);
       return {
         month,
         day,
@@ -55,15 +109,19 @@ function formatTime(time) {
 }
 
 export default function canvasTmplConfig(opts = {}) {
+
+  let tipsX = 0;
+
+  const vm =this;
   const {
     nickname, // 昵称
     head_img, // 头像
     even_sum, // 坚持学习天数  对应data
     time, // 日期 2019:04:13星期六   => 四月 13 星期六
-    role11 // 第几名  对应position
+    ranking // 第几名  对应position
   } = opts;
-  data = even_sum || 5000;
-  position = role11 || 1;
+  data = even_sum;
+  position = ranking;
 
  date = formatTime(time);
  const {month, day, week} = date;
@@ -88,7 +146,7 @@ export default function canvasTmplConfig(opts = {}) {
       content: month,
       font: font(24),
       style: 'white',
-      x: 89,
+      x: 92,
       y: 120
     }, {
       type: 'text',
@@ -111,7 +169,8 @@ export default function canvasTmplConfig(opts = {}) {
       canvasCtx.beginPath();
       canvasCtx.fillStyle = "white";
       canvasCtx.fillRect(0, 727, width, 727);
-      canvasCtx.arc(86, 727, 50, 0, 2 * Math.PI);
+      // canvasCtx.arc(86, 727, 50, 0, 2 * Math.PI);
+      canvasCtx.fillRect(40,654,120,120);
       canvasCtx.fill();
       canvasCtx.closePath();
     }, {
@@ -143,7 +202,7 @@ export default function canvasTmplConfig(opts = {}) {
       y: 860
     }, {
       type: 'text',
-      content: data,
+      content: `${data}`,
       font: font(22),
       style: '#CA9F75',
       x: tipsX += 40 + (22 / 2) * this.canvasTmpl.getByteLength(studyText),
@@ -153,21 +212,21 @@ export default function canvasTmplConfig(opts = {}) {
       content: signText,
       font: font(22),
       style: '#999',
-      x: tipsX += ((22 / 2) * this.canvasTmpl.getByteLength(data)),
+      x: tipsX += ((22 / 2) * this.canvasTmpl.getByteLength(`${data}`)),
       y: 860
     }, {
       type: 'text',
-      content: position,
+      content: `${position}`,
       font: font(22),
       style: '#CA9F75',
-      x: tipsX += ((22 / 2) * this.canvasTmpl.getByteLength(signText)),
+      x: tipsX += -12+ ((22 / 2) * this.canvasTmpl.getByteLength(signText)),
       y: 860
     }, {
       type: 'text',
       content: '名',
       font: font(22),
       style: '#999',
-      x: tipsX += ((22 / 2) * this.canvasTmpl.getByteLength(position)),
+      x: tipsX += 5+((22 / 2) * this.canvasTmpl.getByteLength(`${position}`)),
       y: 860
     }, {
       type: 'img',
@@ -176,6 +235,20 @@ export default function canvasTmplConfig(opts = {}) {
       width: 70,
       height: 88,
       src: `${config.path.static}/img/home/sign/qrcode.png`
-    }]
+    },{
+      type: 'img',
+      x: 45,
+      y: 660,
+      width: 115,
+      height: 115,
+      src: head_img
+    }],
+    rendered(){
+      vm.imgSrc = this.canvas.toDataURL();
+      // 调用App方法
+      navtiveApp.addTask(function () {
+        dtb.shareImage(vm.imgSrc);
+      });
+    }
   };
 }

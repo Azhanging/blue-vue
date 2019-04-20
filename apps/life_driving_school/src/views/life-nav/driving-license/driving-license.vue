@@ -4,7 +4,7 @@
             title:{
                 value: "生命导航"
             }
-        }'></life_nav_tab>
+        }' :leftControl="`/`"></life_nav_tab>
 
 		<div class="driving-top">
 			<div class="driving-title">
@@ -17,9 +17,17 @@
 					<div class="driving-learn-img">
 						<img src="http://pc.lifest.dtb315.cn/static/img/life-nav/book@2x.png">
 					</div>
-					<div class="driving-learn-desc">
+
+					<!--<div class="driving-learn-desc">
 						<h3>您已学习至：</h3>
-						<p>初阶&nbsp;第三课《财富的真相》</p>
+						<p>初阶&nbsp;第三课《{{财富的真相}}》</p>
+					</div>-->
+					<div class="driving-learn-desc" v-if="top_progressData.phases_name">
+						<h3>您已学习至：</h3>
+						<p>{{ top_progressData.phases_name }}&nbsp;《{{ top_progressData.course_name }}》</p>
+					</div>
+					<div class="driving-learn-desc" v-else>
+						<h3>{{ top_progressData.course_name }}</h3>
 					</div>
 				</div>
 			</div>
@@ -27,7 +35,7 @@
 			<bv-scroll>
 				<swiper :options="swiperOption" ref="swiper">
 					<swiper-slide v-for="(slide, index) in banners" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
-						<div @click="over_click(slide.over,slide.id,slide.click)">
+						<div @click="over_click(slide.over,slide.id,slide.click,slide.examination.num)">
 							<div class="driving-slide">
 
 								<div class="driving-topic">
@@ -36,20 +44,18 @@
 									</div>
 									<div class="driving-topic-desc">
 										<div class="driving-topic-desc-tit">
-											<div>{{ slide.examination.name }}课程测试（选择题）</div>
+											<div>{{ slide.examination.name }}（选择题）</div>
 											<i class="iconfont iconbianji" ></i>
 										</div>
 										<div class="driving-topic-desc-xing">
-											<i class="iconfont iconiconfontxingxing" :class="((index+1)*20)<=xing_num?'active':''" v-for="(i,index) in 5"></i>
+											<i class="iconfont iconiconfontxingxing" :class="((index+1)*20)<=slide.result?'active':''" v-for="(i,index) in 5"></i>
 										</div>
 										<div class="driving-topic-desc-progress">
 
-											<div class="driving-topic-desc-l" v-if="slide.step=0">
+											<div class="driving-topic-desc-l">
 												<progress :value="slide.step" :max="slide.examination.num"></progress>
 											</div>
-											<div class="driving-topic-desc-l" v-else>
-												立即学习
-											</div>
+
 
 											<div><span>{{ slide.step }}</span>/{{slide.examination.num}}道</div>
 										</div>
@@ -118,9 +124,12 @@
 				return this.$router.currentRoute.fullPath;
 			}
 		},
+		props:{
+
+		},
 		data() {
 			return {
-				temp: 0,
+				temp:0,
 				banners: [],
 				swiperOption: {
 					pagination: {
@@ -134,8 +143,9 @@
 				progressValue:0,//显示分数
 				achieveMsg:true,
 				nav_level:['初阶','中阶','高阶'],
-				this_level: 1,
-				this_id:''
+				this_level: 0,
+				this_id:'',
+				top_progressData:''
 			}
 		},
 		methods: {
@@ -146,21 +156,32 @@
 				this.this_id = this_id
 				if(this.this_level==0){
 					$toast({
-						message: '您只有初阶权限',
+						message: '通过考试才能阅读下一阶课程哦',
 						duration: 3000
 					});
 					return;
 				}
 				if(this.this_level==1 && t==2){
 					$toast({
-						message: '您没有高阶权限',
+						message: '通过考试才能阅读下一阶课程哦',
 						duration: 3000
 					});
 					return;
 				}
 				this.temp = t;
 			},
+			//轮播上学习进度
+			top_progress(){
+				return this.$axios.get('/api/study/index', {
+					params:{
+						column_id:this.$route.params.nav_id
+					},
+				}).then((res) => {
+					//console.log(res)
 
+					this.top_progressData = res.data.data
+				});
+			},
 			//课程轮播
 			item_progress(){
 
@@ -175,11 +196,18 @@
 
 			},
 			//判定是否完成考试
-			over_click(over,record_id,ifclick){
+			over_click(over,record_id,ifclick,num){
+				if(num==0){
+					$toast({
+						message: '考试未开放',
+						duration: 3000
+					});
+					return false;
+				}
 				if(over==1){
 					this.$router.push({
-						path: 'driving-license/fitness-test/test-results',
-						query:{
+						path: this.$router.currentRoute.fullPath+'/test-results/'+record_id,
+						params:{
 							record_id:record_id
 						}
 					})
@@ -192,8 +220,8 @@
 						return false;
 					}else {
 						this.$router.push({
-							path: 'driving-license/fitness-test',
-							query:{
+							path: this.$router.currentRoute.fullPath+'/fitness-test/'+record_id,
+							params:{
 								record_id:record_id
 							}
 						})
@@ -201,7 +229,7 @@
 				}
 
 			},
-			driving_tab(){
+			/*driving_tab(){
 				return this.$axios.get('/api/Classify/assortment',{
 					params:{
 						column_id:this.$route.params.id
@@ -210,16 +238,31 @@
 					//console.log(res)
 					this.this_id = res.data.data.system[0].id
 					this.nav_level = res.data.data.system
-					console.log(this.this_id)
+					//console.log(this.this_id)
 				})
-			},
+			},*/
 			driving_list(){
 				return this.$axios.get('/api/examination/level', {
 					params:{
-						column_id:this.$route.params.id
+						column_id:this.$route.params.nav_id
 					},
 				}).then((res) => {
+					//console.log(res)
 					this.this_level=res.data.data.level;
+
+					this.temp = this.this_level;
+
+					this.$axios.get('/api/Classify/assortment',{
+						params:{
+							column_id:this.$route.params.id
+						}
+					}).then(res=>{
+						//console.log(res)
+						this.this_id = res.data.data.system[this.temp].id
+						this.nav_level = res.data.data.system
+						//console.log(this.this_id)
+					})
+
 				});
 			},
 		},
@@ -235,8 +278,9 @@
 					this.progressValue=i;
 				},800)
 			}
+			this.top_progress();
 			this.item_progress();
-			this.driving_tab();
+			//this.driving_tab();
 			this.driving_list();
 
 		},

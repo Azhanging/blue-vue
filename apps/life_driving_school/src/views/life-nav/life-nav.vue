@@ -16,9 +16,19 @@
 			life_nav_tab,
 			'w-arrlist': WArrlist
 		},
+		watch:{
+			$route(to,from){
+				//console.log(this.life_index_id)
+				//跳到空白页时返回到首页
+				if(from.path == '/life-nav/'+this.$route.params.nav_id+'/life-index/'+this.life_index_id && to.path=='/life-nav/'+this.$route.params.nav_id){
+					this.$router.push('/')
+				}
+			}
+		},
 		data() {
 			return {
 				life_nav:{},
+				life_index_id:''
 			}
 		},
 		computed:{
@@ -28,23 +38,26 @@
 		},
 		methods: {
 			getdata() {
-				this.$axios.get('/api/classify/assortment.html', {
+				this.$axios.get('/api/classify/assortment', {
 					params: {
 						column_id: this.$route.params.nav_id
 					}
 				}).then((res) => {
-					//console.log(res.data.data.system[0].id)
-					// this.$router.push({path:res.system[0].id,query:{growId:this.$route.params.id}})
-					this.$router.push(
-						this.$router.routerID.getPathID({
-							id: res.data.data.system[0].id,
-							params: {
+					this.life_index_id = res.data.data.system[0].id;
+					let t_path = '/life-nav/'+this.$route.params.nav_id;//只life-nav跳转首页
+					if(this.currentFullPath == t_path){
+						this.$router.push(
+							this.$router.routerID.getPathID({
 								id: res.data.data.system[0].id,
-								nav_id: this.$route.params.nav_id
-							}
-						})
-					)
+								params: {
+									id: res.data.data.system[0].id,
+									nav_id: this.$route.params.nav_id
+								}
+							})
+						)
+					}
 				});
+
 			}
 		},
 		mounted() {
