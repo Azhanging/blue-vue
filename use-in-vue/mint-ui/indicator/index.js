@@ -15,7 +15,7 @@ export function setIndicator(Vue) {
 }
 
 //loading的id
-export let loadingID = 0;
+let loadingID = 0;
 
 export function $closeLoading(id) {
   if (!inBrowser()) return;

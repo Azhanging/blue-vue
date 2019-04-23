@@ -22,6 +22,6 @@ export function unLogin() {
   login();
   $toast({
     message: '跳转登录中...',
-    duration: 10000
+    duration: 60000
   });
 }

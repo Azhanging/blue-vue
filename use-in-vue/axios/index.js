@@ -74,6 +74,8 @@ function responseInterceptors($Axios) {
         errCodeHandler({
           code
         });
+        //这里最好的就是reject吧
+        return Promise.reject(res);
       }
     }
   }, (error) => {
