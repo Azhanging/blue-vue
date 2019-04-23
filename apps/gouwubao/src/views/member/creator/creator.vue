@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='bc-bg-f4f' :router-level='2'>
 
-		<bv-header :header="{title:{value:'创客'}}"/>
+		<bv-header :header="{title:{value:'创客办公室'}}"/>
 
 		<!-- 办公室头部 -->
 		<office-header :member-info="pageData.memberInfo" type="creator" class="bc-mg-b-10rp"/>
@@ -13,7 +13,7 @@
 		<statistics-item class="bc-bd-b-e5e" v-show="spreadStatus" :options="{
 	    title:{
 	      name:'我的会员（位）',
-	      url:`${$config.path.base}/member/my_member/details_member`
+	      url:`${config.path.base}/member/my_member/details_member`
 	    },
 	    num: pageData.myMemberNum,
 	    otherNum:[{
@@ -29,7 +29,7 @@
 		<statistics-item class="bc-bd-b-e5e" v-show="!spreadStatus" :options="{
 	    title:{
 	      name:'我的会员（位）',
-	      url:`${$config.path.base}/member/my_member/details_member`
+	      url:`${config.path.base}/member/my_member/details_member`
 	    },
 	    num: pageData.myMemberNum,
 	    otherNum:[{
@@ -45,7 +45,7 @@
 		<statistics-item class="bc-bd-b-e5e" v-show="spreadStatus" :options="{
 	    title:{
 	      name:'我的VIP（位）',
-	      url:`${$config.path.base}/member/my_member/details_member`
+	      url:`${config.path.base}/member/my_member/details_member`
 	    },
 	    num: pageData.myVipNum,
 	    otherNum:[{
@@ -61,7 +61,7 @@
 		<statistics-item class="bc-bd-b-e5e" v-show="spreadStatus" :options="{
 	    title:{
 	      name:'我的创客（位）',
-	      url:`${$config.path.base}/member/my_member/details_member`
+	      url:`${config.path.base}/member/my_member/details_member`
 	    },
 	    num: pageData.myCreatorNum,
 	    otherNum:[{
@@ -212,7 +212,7 @@
     },
     computed: {
       staticPath() {
-        return `${this.$config.path.static}/img/member/creator`
+        return `${this.config.path.static}/img/member/creator`
       }
     },
     methods: {

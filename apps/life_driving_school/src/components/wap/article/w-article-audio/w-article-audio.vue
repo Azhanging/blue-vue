@@ -1,7 +1,7 @@
 <template>
 	<div class="bc-ps-r">
 		<img class="bc-w-100 bc-block audio-bg-img"  :src="audio.CoverURL" alt="音频背景图">
-		<!--<img class="bc-w-100 bc-block audio-bg-img" :src="`${$config.path.static}/img/home/audio_bg_img.png`" alt="音频背景图">-->
+		<!--<img class="bc-w-100 bc-block audio-bg-img" :src="`${config.path.static}/img/home/audio_bg_img.png`" alt="音频背景图">-->
 
 		<audio
 						id="audio"

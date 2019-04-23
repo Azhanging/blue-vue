@@ -75,11 +75,14 @@
     methods: {
       api() {
         const page = this.load.params.page++;
-        return this.$axios.get('/member/AreaApply/mall_revenue_detail', {
+        const params = this.$route.params;
+        return this.$axios.get('/member/AreaApply/addup_operating_expenses_detail', {
           params: {
             p: page,
             start_time: !this.startTime ? this.startTime : `${this.startTime} 00:00:00`,
-            end_time: !this.endTime ? this.endTime : `${this.endTime} 23:59:59`
+            end_time: !this.endTime ? this.endTime : `${this.endTime} 23:59:59`,
+            area_id: params.area_id,
+            level: params.level
           }
         }).then((res) => {
           const { data: resultData } = res.data;

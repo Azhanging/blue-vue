@@ -44,7 +44,7 @@
     },
 		computed:{
       staticPath(){
-        return `${this.$config.path.static}/img/member/vip/trading`
+        return `${this.config.path.static}/img/member/vip/trading`
       }
 		},
     methods: {

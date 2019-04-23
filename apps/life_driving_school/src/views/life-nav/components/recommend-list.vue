@@ -42,7 +42,7 @@
 						descr:item.sub_content,
 						thumImage:item.head_img,
 						shareUrl:$route.path
-						})" v-if="$config.device.isApp"><i class="iconfont iconzhuanfa"></i> {{ item.share }}</span>
+						})" v-if="config.device.isApp"><i class="iconfont iconzhuanfa"></i> {{ item.share }}</span>
 					</div>
 				</div>
 			</div>
@@ -88,6 +88,7 @@
 				//const page = this.load.params.page++;
 				return this.$axios.get('/api/circle/getList', {
 					params: {
+						column_id : this.$route.params.id,
 						page: this.load.params.page++
 					}
 				}).then((res) => {

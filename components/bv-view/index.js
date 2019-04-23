@@ -5,8 +5,7 @@ const viewScrollClassName = '.bv-view-scroll';
 
 function getScrollElm() {
   const viewElm = this.$el;
-  const scrollElm = viewElm.children[0];
-  return scrollElm;
+  return viewElm.children[0];
 }
 
 //set view scroll event
@@ -14,6 +13,7 @@ export function setViewEvent() {
   const scrollElm = getScrollElm.call(this);
   let timer = 0;
 
+  //设置父级view组件的scroll状态
   setParentViewScroll({
     scrollElm,
     type: 'mounted'
@@ -24,8 +24,8 @@ export function setViewEvent() {
 
     const elm = event.target;
 
+    //节流处理scrollTop
     clearTimeout(timer);
-
     timer = setTimeout(() => {
       this.scroll.top = elm.scrollTop;
     }, 150);

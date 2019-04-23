@@ -51,12 +51,30 @@
 		</div>
 		
 		<!--历史直播-->
-		<videoItem :videoList='resvideo.data_history' type='2'></videoItem>
+		
+		
+		<bv-scroll :api="getHistoryVideo" :disabled="load.state.disabled">
+			<!--数据循环-->
+			<template v-if='load.data.lists.length > 0'>
+				<videoItem :videoList='load.data.lists' type='2'></videoItem>
+			</template>
+			<template slot="load-down">
+				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+					数据加载中...
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					暂无数据
+				</div>
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					暂无更多数据...
+				</div>
+			</template>
+		</bv-scroll>
 	
 	
 	</bv-home-view>
 	
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -65,11 +83,14 @@
 </template>
 
 <script>
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+
 	import growTab from "@components/wap/grow/w-grow-tab";
 	import videoItem from "@components/wap/grow/w-video-item";
 
 	export default {
 		name: "video",
+		mixins: [scrollMixin()],
 		components:{
 			growTab,
 			videoItem
@@ -92,14 +113,31 @@
 			}
 		},
 		methods:{
+			getHistoryVideo(){
+				return this.$axios.get('api/live_video/historyLive', {
+					params: this.load.params
+				}).then((res) => {
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+							resultData,
+							listKey: 'list'
+						})) {
+						const state = scrollEndHook.call(this);
+						this.load.state.disabled = state.disabled;
+					} else {
+						++this.load.params.page;
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						console.log(this.load);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+			},
 			select(item, index) {
 
 			},
 			swiperUpdate() {
 				this.swiper.update();
-			},
-			golist(id){
-				// this.$router.push({path:'/special/column',query:{id:id}})
 			},
 			getData() {
 				this.$axios.get('api/live_video/index').then((res) => {
@@ -122,23 +160,25 @@
 			},
 			getNav(){
 				let paramsId = this.$route.params;
-				this.$axios.get('/api/classify/assortment.html',{
+				this.$axios.get('/api/classify/assortment',{
 					params:{
 						column_id:paramsId.grow_id
 					}
 				}).then((res) => {
 					this.college_list =  res.data.data;
-					// console.log(this.college_list);
-					// this.$router.push()
 				});
 			},
 			init(){
 				this.getData();
 				this.getBanner();
-				this.getNav()
+				this.getNav();
 			}
 		},
 		mounted(){
+			this.load.params.page = 1;
+			this.load.state.disabled = false;
+			this.load.state.hasMore = true;
+			
 			this.init();
 			this.$nextTick(() => {
 				this.swiper = this.$refs['swiper'];

@@ -26,19 +26,19 @@
 		<div class="life-nav-icon">
 			<div class="life-nav-icon-li">
 				<router-link :to="`${currentFullPath}/introduce-detail`">
-					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/1@2x.png"></div>
+					<div class="life-nav-icon-liimg"><img :src="`${config.path.static}/img/life-nav/1@2x.png`"></div>
 					<p>驾照简介</p>
 				</router-link>
 			</div>
 			<div class="life-nav-icon-li">
 				<router-link to="/grow/12/video/16">
-					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/2@2x.png"></div>
+					<div class="life-nav-icon-liimg"><img :src="`${config.path.static}/img/life-nav/2@2x.png`"></div>
 					<p>视频直播</p>
 				</router-link>
 			</div>
 			<div class="life-nav-icon-li">
 				<router-link to="" @click.native="zwkf_click">
-					<div class="life-nav-icon-liimg"><img src="http://pc.lifest.dtb315.cn/static/img/life-nav/3@2x.png"></div>
+					<div class="life-nav-icon-liimg"><img :src="`${config.path.static}/img/life-nav/3@2x.png`"></div>
 					<p>健康测试</p>
 				</router-link>
 			</div>

@@ -39,7 +39,7 @@
 
 	</bv-home-view>
 
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->

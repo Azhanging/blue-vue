@@ -65,8 +65,13 @@ export function useInVue(opts = {}) {
   }
 
 
-  //extend program in Vue
-  Vue.prototype.$config = config;
+  //mixin program in Vue
+  Vue.mixin({
+    data() {
+      //项目config
+      return { config: config };
+    }
+  });
 
   //extend utils in Vue
   Vue.prototype.$utils = utils;

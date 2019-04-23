@@ -27,14 +27,14 @@
 
 		<!--成长课程-->
 		<div class='bc-bg-white'>
-			<img :src='$config.path.static + "/img/grow/grow.png"' class='bc-pd-t-10rp' alt='' width='100%'>
+			<img :src='config.path.static + "/img/grow/grow.png"' class='bc-pd-t-10rp' alt='' width='100%'>
 			<div class='bc-flex  bc-pd-tb-10rp bc-pd-lr-15rp course '>
 				<div v-for='(item,index) in course'  :class='index == tabIdx?"active":"default"'
 				     class='item_course bc-flex bc-flex-1 bc-flex-d-c bc-flex-ai-c bc-pd-10rp'
 				     @click='selCourse(item,index)'
 
 				>
-					<img class='bc-mg-b-5rp' :src='$config.path.static + "/img/grow/"+(index+1)+".png"' alt=''>
+					<img class='bc-mg-b-5rp' :src='config.path.static + "/img/grow/"+(index+1)+".png"' alt=''>
 					<span>{{item.name}}</span>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 
 	</bv-home-view>
 
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -107,6 +107,7 @@
 		},
 		methods:{
 			get_course(data){
+				//页面进来拿到数据course后的执行代码
 				this.course = data;
 
 				this.load.params = {

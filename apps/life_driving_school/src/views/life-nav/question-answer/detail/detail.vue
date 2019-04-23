@@ -24,14 +24,14 @@
 				<div class="question-review">
 					<!--<h2>全部评论</h2>-->
 
-					<!--<WrecommendReview :config="config"></WrecommendReview>-->
+					<!--<WrecommendReview :opts="opts"></WrecommendReview>-->
 					<!--文章阅读量 点赞量-->
-					<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+					<w-article-clicknum :opts="opts" :comment="comment"></w-article-clicknum>
 
 					<!--文章评论-->
 					<bv-scroll :api="api" :disabled="load.state.disabled">
 						<w-comment
-							:config="config"
+							:opts="opts"
 							:comment="comment"
 							@replyFocus='replyFocus'
 						></w-comment>
@@ -52,7 +52,7 @@
 					<!--<template slot="footer">
 
 					</template>-->
-					<w-comment-reply :config="config" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
+					<w-comment-reply :opts="opts" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
 
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 			return {
 				comment: {},
 				det_data:'',
-				config: {
+				opts: {
 					data: {
 						contentParams: {// 文章内容 请求参数
 							article_id: this.$route.params.circle_id
@@ -115,7 +115,7 @@
 					this.$weChatShare({
 						title: share_title,
 						imgUrl: share_img,
-						desc: share_content
+						desc: share_content,
 					});
 					
 				}).catch((err)=>{

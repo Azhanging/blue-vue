@@ -43,7 +43,7 @@
       }, */{
           name: '常见问答',
           icon: 'icon-wendabangzhu',
-          url: `${this.$config.path.base}/document.html`
+          url: `${this.config.path.base}/document.html`
         }, /*{
         name: '实体对接',
         icon: 'icon-lianjie1',

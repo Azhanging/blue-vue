@@ -76,11 +76,14 @@
     methods: {
       api() {
         const page = this.load.params.page++;
+        const params = this.$route.params;
         return this.$axios.get('/member/AreaApply/area_history', {
           params: {
             p: page,
             start_time: !this.startTime ? this.startTime : `${this.startTime} 00:00:00`,
-            end_time: !this.endTime ? this.endTime : `${this.endTime} 23:59:59`
+            end_time: !this.endTime ? this.endTime : `${this.endTime} 23:59:59`,
+            area_id: params.area_id,
+            level: params.level
           }
         }).then((res) => {
           const { data: resultData } = res.data;
@@ -90,8 +93,8 @@
             })) {
             scrollEndHook.call(this);
           } else {
+            if(resultData.list.length < 10) scrollEndHook.call(this);
             this.load.data.lists = this.load.data.lists.concat(resultData.list);
-            this.scroll_list = resultData.class;
           }
         }).catch(() => {
           return scrollEndHook.call(this);

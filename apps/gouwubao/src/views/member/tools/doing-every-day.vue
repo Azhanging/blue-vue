@@ -21,12 +21,8 @@ export default {
   name: "doing-every-day",
 	computed:{
     staticPath(){
-      return `${this.$config.path.static}/img/member/tools/doing-every-day`;
+      return `${this.config.path.static}/img/member/tools/doing-every-day`;
     }
 	}
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

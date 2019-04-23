@@ -10,7 +10,7 @@ const industry = {
   },
   children: [
     {
-      path: '/industry/detail/:type',
+      path: 'detail/:article_id',
       name: 'industry-detail',
       component: IndustryDetail,
       meta: {

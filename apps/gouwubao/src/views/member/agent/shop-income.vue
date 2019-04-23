@@ -23,7 +23,7 @@
 	    bottomNum:{
 	      name: '可提现总额：',
 	      num: pageData.available,
-	      url: `${$config.path.base}/servers/money/tixian?currency=1 `,
+	      url: `${config.path.base}/servers/money/tixian?currency=1 `,
 	      urlName: '去提现'
 	    }
 		}"/>
@@ -60,9 +60,9 @@
 
 		<div class="bc-row bc-bg-white bc-mg-t-15rp">
 			<flow-title :options="{
-	      name:'商城收入明细',
+	      name:'商城收益明细',
 	      url:`shop-income-detail`,
-	      urlName:'查看全部'
+	      urlName:'查看更多'
 			}"/>
 			<order-item type="order" :item="item" v-for="(item,index) in pageData.list" :key="index" class="bc-bd-b-e5e"/>
 		</div>

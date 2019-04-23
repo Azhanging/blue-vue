@@ -23,16 +23,16 @@
 	    bottomNum:{
 	      name: '可提现总额：',
 	      num: pageData.operating_expenses.operating_expenses,
-	      url: `${$config.path.base}/servers/money/tixian?currency=2`,
+	      url: `${config.path.base}/servers/money/tixian?currency=2`,
 	      urlName: '去提现'
 	    }
 		}"/>
 
 		<div class="bc-row bc-bg-white bc-mg-t-15rp">
 			<flow-title :options="{
-	      name:'运营收入明细',
+	      name:'运营经费明细',
 	      url:`operating-expenses-detail`,
-	      urlName:'查看全部'
+	      urlName:'查看更多'
 			}"/>
 			<order-item type="operating" :item="item" v-for="(item,index) in pageData.list" :key="index" class="bc-bd-b-e5e"/>
 		</div>

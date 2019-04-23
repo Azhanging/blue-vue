@@ -3,15 +3,12 @@
 	<!-- 统计 -->
 	<div class="bc-row">
 		<div class="bc-flex bc-flex-ai-c bc-f-b bc-f-15rp bc-pd-16rp bc-bg-white bc-bd-b-e5e">
-			统计<i class="icon icon-wenti bc-inline-block bc-pd-l-4rp" @click="showStatus = true;"></i>
+			统计<i class="icon icon-wenti bc-inline-block bc-pd-l-5rp bc-f-14rp" style="color:#AEAEAE;" @click="showStatus = true;"></i>
 		</div>
 
 		<bv-transition transition-name="opacity">
 			<bv-layer :show-status="showStatus" @click="showStatus = !showStatus;">
 				<div class="bv-row bc-bg-white bc-ps-r" style="border-radius: 10px;">
-					<div class="bc-ps-a bc-t-r bc-w-100">
-						<i class="icon icon-guanbi bc-f-25rp bc-ps-a bc-t-white" style="top:-20px;right:-10px;" @click.stop="showStatus = false"></i>
-					</div>
 					<div class="bc-pd-t-28rp bc-f-b bc-t-c bc-f-18rp">
 						统计说明
 					</div>
@@ -47,7 +44,7 @@
 						<button
 							type="button"
 							class="bc-btn bc-btn-base bc-f-18rp bc-mg-b-18rp "
-							style="padding-left:3rem;padding-right:3rem;border-radius: 20px;"
+							style="padding:3px 3rem;border-radius: 20px;"
 							@click.stop="showStatus = false"
 						>
 							确定

@@ -7,7 +7,10 @@
 	    }
 		}">
 			<template slot="right-control">
-				<div class="bc-t-r bc-pd-r-10" @click="$share">
+				<div class="bc-t-r bc-pd-r-10" @click="$share({
+					title: '点通宝创客权益页',
+          descr: '引导健康消费，引领绿色创业，扶持良心企业，实现大健康梦想'
+				})">
 					<i class="icon icon-share"></i>
 				</div>
 			</template>
@@ -70,16 +73,10 @@
 
 				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp" style="border:1px solid #CDA47D;">
 					<div class="bc-row">
-						<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
-					</div>
-				</div>
-
-				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp" style="border:1px solid #CDA47D;">
-					<div class="bc-row">
 						<img :src="`${staticPath}/banner-7.png`" alt="" class="bc-w-100"/>
 					</div>
-					<div class="bc-t-c bc-mg-tb-10rp">
-						<video src="" width="80%"></video>
+					<div class="bc-t-c bc-mg-tb-10rp bc-pd-lr-20rp">
+						<div id="video" class="prism-player video"></div>
 					</div>
 				</div>
 
@@ -116,57 +113,75 @@
 </template>
 
 <script>
-export default {
-  name: "join-creator",
-  data() {
-    return {
-      timer: 0,
-      list: [],
-      currentScrollIndex: 0,
-      isCreator: false
-    };
-  },
-  computed: {
-    staticPath() {
-      return `${this.$config.path.static}/img/home/join/creator`;
-    }
-  },
-  methods: {
-    auto() {
-      this.timer = setTimeout(() => {
-        if (this.currentScrollIndex === (this.list.length - 1)) {
-          this.currentScrollIndex = 0;
-        } else {
-          ++this.currentScrollIndex;
+	import AliVideoPlayer from '@assets/js/ali-video-player';
+
+  export default {
+    name: "join-creator",
+    data() {
+      return {
+        timer: 0,
+        list: [],
+        currentScrollIndex: 0,
+        isCreator: false,
+        video: {
+          vid: false,
+          playauth: ''
         }
-        this.auto();
-      }, 2000);
+      };
     },
-    getData() {
-      this.$axios.get('/home/creator/index').then((res) => {
-        const { data } = res.data;
-        const { list, is_creator } = data;
-        if (list.length > 0) {
+    computed: {
+      staticPath() {
+        return `${this.config.path.static}/img/home/join/creator`;
+      }
+    },
+    methods: {
+      auto() {
+        this.timer = setTimeout(() => {
+          if (this.currentScrollIndex === (this.list.length - 1)) {
+            this.currentScrollIndex = 0;
+          } else {
+            ++this.currentScrollIndex;
+          }
           this.auto();
-        }
-        this.list = list;
-        this.isCreator = is_creator;
+        }, 2000);
+      },
+      getData() {
+        this.$axios.get('/home/creator/index').then((res) => {
+          const { data } = res.data;
+          const { list, is_creator } = data;
+          if (list.length > 0) {
+            this.auto();
+          }
+          this.list = list;
+          this.isCreator = is_creator;
+        });
+
+        this.$axios.get('/api/video/index').then((res) => {
+          const { data } = res.data;
+          new AliVideoPlayer({
+            id: 'video',
+            vid: data.videoId,
+            height: '170px',
+            playauth: data.playauth,
+            cover: 'https://imagedev.dtb315.com/687378.jpg'
+          });
+        });
+
+      }
+    },
+    created() {
+      this.getData();
+    },
+    beforeDestroy() {
+      clearTimeout(this.timer);
+    },
+    mounted() {
+      this.$weChatShare({
+        title: '点通宝创客权益页',
+        desc: '引导健康消费，引领绿色创业，扶持良心企业，实现大健康梦想'
       });
     }
-  },
-  created() {
-    this.getData();
-  },
-  beforeDestroy() {
-    clearTimeout(this.timer);
-  },
-	mounted(){
-    this.$weChatShare({
-      title: '点通宝创客权益页',
-      desc: '引导健康消费，引领绿色创业，扶持良心企业，实现大健康梦想'
-    });
-	}
-}
+  }
 </script>
 
 <style scoped lang="scss">
@@ -176,8 +191,8 @@ export default {
 		text-align: center;
 		padding: 0 rem(15);
 		color: white;
-		font-size: rem(18);
-		line-height: 1.7;
+		font-size: rem(14);
+		line-height: 1.8;
 		bottom: rem(20);
 		left: 50%;
 		transform: translateX(-50%);

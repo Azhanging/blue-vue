@@ -1,5 +1,6 @@
 import router from '@router';
 import config from '@config';
+import store from '@store';
 import programUrl from '@config/program-url';
 
 const homeTabBar = {
@@ -30,7 +31,16 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
-      to: `/join/creator`,
+      to() {
+        const userInfo = store.state.userInfo;
+        //有创客跳创客办公室
+        if (userInfo && userInfo.isCreator == 1) {
+          router.push(`/member/creator`);
+        } else {
+          //没有就去购买
+          router.push(`/join/creator`);
+        }
+      },
       className: 'bc-pd-5'
     }, {
       content: {
@@ -43,7 +53,7 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
-      to(){
+      to() {
         location.href = `${config.path.base}/home/cart`;
       },
       className: 'bc-pd-5'
@@ -58,10 +68,9 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
-      to(){
+      to() {
         //跳转到生命驾校
-        console.log(programUrl);
-        location.href = programUrl.lifeSchool;
+        location.href = programUrl['life-school'];
       },
       className: 'bc-pd-5'
     }, {
@@ -75,7 +84,7 @@ const homeTabBar = {
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
-      to(){
+      to() {
         location.href = `${programUrl['gou-wu-bao']}/member`;
       },
       className: 'bc-pd-5'
@@ -83,9 +92,17 @@ const homeTabBar = {
   },
   active() {
     if (router.matchRoutes([
-        /^\/component.*/,    //组件路由
+        /^\/member\/creator/,    //组件路由
       ])) {
       this.activeIndex = 1;
+    } else if (router.matchRoutes([
+        /^\/member\/vip/,    //组件路由
+      ])) {
+      this.activeIndex = 4;
+    } else if(router.matchRoutes([
+        /^\/member\/agent\//,    //组件路由
+      ])){
+      this.activeIndex = -1;
     } else {
       this.activeIndex = 0;
     }

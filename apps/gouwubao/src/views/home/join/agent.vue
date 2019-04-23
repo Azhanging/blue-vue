@@ -7,7 +7,10 @@
 	    }
 		}">
 			<template slot="right-control">
-				<div class="bc-t-r bc-pd-r-10" @click="$share">
+				<div class="bc-t-r bc-pd-r-10" @click="$share({
+					title: '点通宝代理权益页',
+          descr: '走进人类幸福工程'
+				})">
 					<i class="icon icon-share"></i>
 				</div>
 			</template>
@@ -113,8 +116,8 @@
 					<div class="bc-row">
 						<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
 					</div>
-					<div class="bc-t-c bc-mg-tb-10rp">
-						<video src="" width="80%"></video>
+					<div class="bc-t-c bc-mg-tb-10rp bc-pd-lr-20rp">
+						<div id="video" class="prism-player video"></div>
 					</div>
 				</div>
 
@@ -153,55 +156,74 @@
 </template>
 
 <script>
-export default {
-  name: "join-agent",
-  data() {
-    return {
-      timer: 0,
-      pageData: [],
-      currentScrollIndex: 0
-    }
-  },
-  computed: {
-    staticPath() {
-      return `${this.$config.path.static}/img/home/join/agent`;
-    }
-  },
-  methods: {
-    auto() {
-      const areas = this.pageData.areas;
-      this.timer = setTimeout(() => {
-        if (this.currentScrollIndex === (areas.length - 1)) {
-          this.currentScrollIndex = 0;
-        } else {
-          ++this.currentScrollIndex;
+
+	import AliVideoPlayer from '@assets/js/ali-video-player';
+
+  export default {
+    name: "join-agent",
+    data() {
+      return {
+        timer: 0,
+        pageData: [],
+        currentScrollIndex: 0,
+        video: {
+          vid: false,
+          playauth: ''
         }
-        this.auto();
-      }, 2000);
+      }
     },
-    getData() {
-      this.$axios.get('/member/area_apply/main').then((res) => {
-        const { data } = res.data;
-        this.pageData = data;
-        if (data.areas.length > 0) {
+    computed: {
+      staticPath() {
+        return `${this.config.path.static}/img/home/join/agent`;
+      }
+    },
+    methods: {
+      auto() {
+        const areas = this.pageData.areas;
+        this.timer = setTimeout(() => {
+          if (this.currentScrollIndex === (areas.length - 1)) {
+            this.currentScrollIndex = 0;
+          } else {
+            ++this.currentScrollIndex;
+          }
           this.auto();
-        }
+        }, 2000);
+      },
+      getData() {
+        this.$axios.get('/member/area_apply/main').then((res) => {
+          const { data } = res.data;
+          this.pageData = data;
+          if (data.areas.length > 0) {
+            this.auto();
+          }
+        });
+
+        this.$axios.get('/api/video/index').then((res) => {
+          const { data } = res.data;
+          new AliVideoPlayer({
+            id: 'video',
+            vid: data.videoId,
+            height: '170px',
+            playauth: data.playauth,
+            cover: 'https://imagedev.dtb315.com/687378.jpg'
+          });
+        });
+
+      }
+    },
+    created() {
+      this.getData();
+    },
+    beforeDestroy() {
+      clearTimeout(this.timer);
+    },
+    mounted() {
+      this.$weChatShare({
+        title: '点通宝代理权益页',
+        desc: '走进人类幸福工程'
       });
     }
-  },
-  created() {
-    this.getData();
-  },
-  beforeDestroy() {
-    clearTimeout(this.timer);
-  },
-	mounted(){
-    this.$weChatShare({
-      title: '点通宝代理权益页',
-      desc: '走进人类幸福工程'
-    });
-	}
-}
+  }
 </script>
 
 <style scoped lang="scss">
@@ -211,8 +233,8 @@ export default {
 		text-align: center;
 		padding: 0 rem(15);
 		color: white;
-		font-size: rem(18);
-		line-height: 1.7;
+		font-size: rem(14);
+		line-height: 1.8;
 		bottom: rem(20);
 		left: 50%;
 		transform: translateX(-50%);

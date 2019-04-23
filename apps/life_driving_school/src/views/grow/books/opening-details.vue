@@ -4,7 +4,7 @@
 				title:{
 					value: '开篇语'
 				}
-			}" :config="config"
+			}" :opts="opts"
 		></w-article-detail>
 
 	</bv-home-view>
@@ -18,7 +18,7 @@
 		},
 		data() {
 			return {
-				config: {
+				opts: {
 					url: {
 						contentUrl: '/api/book/festival'
 					},

@@ -13,6 +13,9 @@ import '@/assets/css/blue-component.scss';
 //预设mint-ui中的css
 import '@/assets/css/mint-ui.scss';
 
+//ali播放器的样式修改
+import '@/assets/css/ali-video-player.scss';
+
 //设备相关
 device({
   Vue

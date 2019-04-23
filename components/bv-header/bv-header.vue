@@ -10,7 +10,7 @@
 				</slot>
 			</div>
 			<div class="bv-header-title" :style="header.title && header.title.style">
-				{{(header.title && header.title.value) || $config.view.title}}
+				{{(header.title && header.title.value) || configview.title}}
 			</div>
 			<div class="bv-header-control bc-t-r">
 				<!-- 有操作的插槽 -->

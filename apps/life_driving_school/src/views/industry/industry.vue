@@ -4,7 +4,7 @@
 
 		<w-home-header :header="{
 			title:{
-				value: title
+				value: '生命导航'
 			}
 		}" :type=0>
 			<div slot="right-control">
@@ -12,16 +12,18 @@
 					<router-link to="/search">
 						<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
 					</router-link>
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="$config.device.isApp"></i>
+					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="config.device.isApp"></i>
 				</div>
 			</div>
 		</w-home-header>
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp" style="background: #fff">
 			<div class='bc-flex bc-flex-ai-c '>
-				<a href="/" class="bc-flex-1 ">首页</a>
-				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
-					<a class="bc-flex-1" :class="[index !== 1 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+				<div class="bc-flex-1">
+					<a href="/" class="bc-t-666">首页</a>
+				</div>
+				<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
+					<a :class="[index !== 1 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
 					   v-if="item.name"
 					>
 						{{item.name}}
@@ -60,7 +62,6 @@ export default {
   name: "industry-research",
 	data() {
     return {
-      title: '生命导航',
       nav: [
         {
           name: '资讯',

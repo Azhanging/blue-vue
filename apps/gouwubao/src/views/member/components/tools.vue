@@ -19,7 +19,7 @@
 		</div>
 
 		<bv-transition transition-name="opacity">
-			<bv-layer :show-status="showStatus" @click="!$config.device.isApp && (showStatus = false)" class="bc-t-c">
+			<bv-layer :show-status="showStatus" @click="!config.device.isApp && (showStatus = false)" class="bc-t-c">
 				<div class="bc-row bc-t-r bc-pd-tb-2rp">
 					<i class="icon icon-close bc-t-white bc-f-18rp" @click="showStatus = false"></i>
 				</div>
@@ -27,7 +27,7 @@
 					<img :src="shareImg" class="bc-w-90">
 				</div>
 
-				<div class="bc-row bc-t-white bc-t-c bc-pd-tb-10rp" v-if="!$config.device.isApp">
+				<div class="bc-row bc-t-white bc-t-c bc-pd-tb-10rp" v-if="!config.device.isApp">
 					长按保存图片
 				</div>
 
@@ -66,8 +66,8 @@
     computed: {
       list() {
 
-        const staticPath = `${this.$config.path.static}/img/member/components/tools`;
-        const basePath = `${this.$config.path.base}`;
+        const staticPath = `${this.config.path.static}/img/member/components/tools`;
+        const basePath = `${this.config.path.base}`;
         const type = this.type;
 
         const list = [{
@@ -152,7 +152,7 @@
         return list;
       },
       staticPath() {
-        return `${this.$config.path.static}/img/share`;
+        return `${this.config.path.static}/img/share`;
       }
     },
     methods: {
@@ -173,7 +173,7 @@
         this.canvasTmpl.update(this.$utils.extend(canvasOptions, {
           renderList: [{
             type: 'img',
-            src: `${this.$config.path.static}/img/member/${bg}/${bg}-share.png`,
+            src: `${this.config.path.static}/img/member/${bg}/${bg}-share.png`,
             x: 0,
             y: 0,
             width: 750,
@@ -189,7 +189,7 @@
           rendered() {
             const shareImg = this.canvas.toDataURL('image/jpeg', 1);
             //app分享
-            if (vm.$config.device.isApp) {
+            if (vm.config.device.isApp) {
               dtb.shareImage(shareImg);
             } else {
               //普通显示

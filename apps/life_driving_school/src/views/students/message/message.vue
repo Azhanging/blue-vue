@@ -31,7 +31,7 @@
 			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
@@ -67,7 +67,7 @@
 			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
@@ -85,7 +85,7 @@
 				<router-link to="/students/message/station">
 					<div class="message-item">
 						<div class="message-item-img">
-							<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+							<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 						</div>
 						<div class="message-item-r">
 							<div class="message-item-r-top">
@@ -102,7 +102,7 @@
 			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">
@@ -121,7 +121,7 @@
 				<router-link to="/students/message/notice">
 					<div class="message-item">
 						<div class="message-item-img">
-							<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+							<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 						</div>
 						<div class="message-item-r">
 							<div class="message-item-r-top">
@@ -138,7 +138,7 @@
 			<div v-else>
 				<div class="message-item">
 					<div class="message-item-img">
-						<img src="http://pc.lifest.dtb315.cn/static/img/public/share/default-share-img.png">
+						<img :src="`${config.path.static}/img/public/share/default-share-img.png`">
 					</div>
 					<div class="message-item-r">
 						<div class="message-item-r-top">

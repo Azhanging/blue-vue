@@ -57,8 +57,12 @@
 		</div>
 
 		<template slot="other">
-			<div class="bc-row bc-ps-f bc-t-c" style="bottom:0;left:0;">
-				<button type="button" @click="submit" class="bc-btn bc-btn-base bc-w-90 bc-mg-b-10rp bc-f-16rp bc-bd-radius-5">
+			<div class="bc-row bc-pd-lr-20rp bc-pd-b-15rp bc-ps-f bc-bg-white" style="bottom:0;left:0;">
+				<button
+					type="button"
+					@click="submit"
+					class="bc-btn bc-btn-base bc-bd-radius-8 bc-w-100 join-btn bc-f-18rp"
+				>
 					添加
 				</button>
 			</div>
@@ -77,7 +81,7 @@
       return {
         imgs: [],
         name: '',
-        intro:''
+        intro: ''
       };
     },
     methods: {
@@ -161,4 +165,12 @@
 			font-size: rem(18);
 		}
 	}
+
+	//加入按钮
+	.join-btn {
+		padding-top: rem(14) !important;
+		padding-bottom: rem(14) !important;
+		font-size: rem(18);
+	}
+
 </style>

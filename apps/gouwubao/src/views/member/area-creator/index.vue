@@ -13,7 +13,7 @@
 		<statistics-item class="bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'渠道会员（位）',
-	      url:`${$config.path.base}/member/office_president/details_member.html`
+	      url:`${config.path.base}/member/office_president/details_member.html`
 	    },
 	    num: resData.ChannelMemberCount,
 	    otherNum:[{
@@ -105,7 +105,7 @@
 		},
 		// computed: {
 		// 	staticPath() {
-		// 		return `${this.$config.path.static}/img/member/creator`
+		// 		return `${this.config.path.static}/img/member/creator`
 		// 	}
 		// },
 		methods: {

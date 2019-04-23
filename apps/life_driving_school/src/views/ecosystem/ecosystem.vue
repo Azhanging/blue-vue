@@ -3,7 +3,7 @@
 
 		<w-home-header :header='{
             title:{
-                value: title
+                value: this.title
             }
         }' :leftControl="`/`"
 		></w-home-header>
@@ -47,7 +47,7 @@
 	import course from './components/course';
 
 	export default {
-		name: "expense",
+		name: "ecosystem",
 		mixins: [scrollMixin()],
 		components: {
 			information,

@@ -42,10 +42,10 @@
               <span class="sign-yes" v-else></span>
               <div class="bc-mg-t-28rp bc-f-12rp" :class="{'bc-t-333': sign.even_time.length>=1}">{{sign.even_time[0]}}天</div>
               <div class="white-line" v-if="sign.even_time.length<2">
-                <img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+                <img :src="`${config.path.static}/img/home/sign/white_line.png`" alt="白线">
               </div>
               <div class="base-line" v-else>
-                <img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+                <img :src="`${config.path.static}/img/home/sign/base_line.png`" alt="黄线">
               </div>
             </div>
             <div class="bc-flex-1 bc-ps-r">
@@ -53,10 +53,10 @@
               <span class="sign-yes" v-else></span>
               <div class="bc-mg-t-28rp bc-f-12rp" :class="{'bc-t-333': sign.even_time.length>=2}">{{sign.even_time[0]+1}}天</div>
               <div class="white-line" v-if="sign.even_time.length<3">
-                <img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+                <img :src="`${config.path.static}/img/home/sign/white_line.png`" alt="白线">
               </div>
               <div class="base-line" v-else>
-                <img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+                <img :src="`${config.path.static}/img/home/sign/base_line.png`" alt="黄线">
               </div>
             </div>
             <div class="bc-flex-1 bc-ps-r">
@@ -64,10 +64,10 @@
               <span class="sign-yes" v-else></span>
               <div class="bc-mg-t-28rp bc-f-12rp" :class="{'bc-t-333': sign.even_time.length>=3}">{{sign.even_time[0]+2}}天</div>
               <div class="white-line" v-if="sign.even_time.length<4">
-                <img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+                <img :src="`${config.path.static}/img/home/sign/white_line.png`" alt="白线">
               </div>
               <div class="base-line" v-else>
-                <img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+                <img :src="`${config.path.static}/img/home/sign/base_line.png`" alt="黄线">
               </div>
             </div>
             <div class="bc-flex-1 bc-ps-r">
@@ -75,10 +75,10 @@
               <span class="sign-yes" v-else></span>
               <div class="bc-mg-t-28rp bc-f-12rp" :class="{'bc-t-333': sign.even_time.length>=4}">{{sign.even_time[0]+3}}天</div>
               <div class="white-line" v-if="sign.even_time.length<5">
-                <img :src="`${$config.path.static}/img/home/sign/white_line.png`" alt="白线">
+                <img :src="`${config.path.static}/img/home/sign/white_line.png`" alt="白线">
               </div>
               <div class="base-line" v-else>
-                <img :src="`${$config.path.static}/img/home/sign/base_line.png`" alt="黄线">
+                <img :src="`${config.path.static}/img/home/sign/base_line.png`" alt="黄线">
               </div>
             </div>
             <div class="bc-flex-1 bc-ps-r">
@@ -101,7 +101,7 @@
         <div class="bc-flex bc-flex-jc-c bc-flex-ai-c bc-bd-b-e5e">
           <div class="bc-flex-3">
             <div class="bc-pd-tb-14rp bc-f-16rp" style="font-weight:500">
-              <img class="icon" :src="`${$config.path.static}/img/home/sign/sign_icon.png`" alt="签到">
+              <img class="icon" :src="`${config.path.static}/img/home/sign/sign_icon.png`" alt="签到">
               <span>&nbsp;每日签到</span>
             </div>
           </div>
@@ -115,7 +115,7 @@
         <div class=" integral bc-flex bc-flex-jc-c bc-flex-ai-c  bc-bd-b-e5e bc-v-m">
           <div class="bc-flex-3">
             <div class="bc-pd-tb-14rp bc-f-16rp" style="font-weight:500">
-              <img class="icon" :src="`${$config.path.static}/img/home/sign/study_icon.png`" alt="学习">
+              <img class="icon" :src="`${config.path.static}/img/home/sign/study_icon.png`" alt="学习">
               <span>&nbsp;完成一节驾照课程学习</span>
             </div>
           </div>
@@ -136,7 +136,7 @@
         <div class="integral bc-flex bc-flex-jc-c bc-flex-ai-c bc-bd-b-e5e bc-v-m">
           <div class="bc-flex-3">
             <div class="bc-pd-tb-14rp bc-f-16rp" style="font-weight:500">
-              <img class="icon" :src="`${$config.path.static}/img/home/sign/comment_icon.png`" alt="评论">
+              <img class="icon" :src="`${config.path.static}/img/home/sign/comment_icon.png`" alt="评论">
               <span>&nbsp;发布一次评论</span>
             </div>
           </div>
@@ -157,7 +157,7 @@
         <div class="integral bc-flex bc-flex-jc-c bc-flex-ai-c bc-v-m">
           <div class="bc-flex-3">
             <div class="bc-pd-t-14rp bc-f-16rp" style="font-weight:500">
-              <img class="icon" :src="`${$config.path.static}/img/home/sign/share_icon.png`" alt="评论">
+              <img class="icon" :src="`${config.path.static}/img/home/sign/share_icon.png`" alt="评论">
               <span>&nbsp;转发分享：每日前3次生效</span>
             </div>
             <div class="bc-t-999 bc-pd-tb-5rp bc-f-11rp bc-pd-l-15rp">(资讯、短课、生态圈、驾照资讯等)</div>
@@ -187,34 +187,40 @@
             <canvas id="canvas" v-if="!imgSrc"></canvas>
 	          <img id="shareImg" :src="imgSrc" alt="签到生成图片" v-else>
             <div class="close-icon" @click="closeMask">
-              <img :src="`${$config.path.static}/img/home/sign/close_icon.png`"  alt="">
+              <img :src="`${config.path.static}/img/home/sign/close_icon.png`"  alt="">
             </div>
         </div>
-        <!--<div class=" share bc-mg-t-20rp bc-flex bc-t-c bc-t-white">-->
-          <!--<div class="bc-flex-1">-->
-            <!--<img :src="`${$config.path.static}/img/home/sign/wx.png`"  alt="">-->
+        <!--<div class=" share bc-mg-t-20rp bc-flex bc-t-c bc-t-white" >-->
+        <!--&lt;!&ndash;<div class=" share bc-mg-t-20rp bc-flex bc-t-c bc-t-white" v-if="config.device.isApp">&ndash;&gt;-->
+          <!--<div class="bc-flex-1" @click.stop="shareImage">-->
+            <!--<img :src="`${config.path.static}/img/home/sign/wx.png`"  alt="">-->
             <!--<div>微信</div>-->
           <!--</div>-->
-          <!--<div class="bc-flex-1">-->
-            <!--<img :src="`${$config.path.static}/img/home/sign/wx_friend.png`"  alt="">-->
+          <!--<div class="bc-flex-1" @click.stop="shareImage">-->
+            <!--<img :src="`${config.path.static}/img/home/sign/wx_friend.png`"  alt="">-->
             <!--<div>朋友圈</div>-->
           <!--</div>-->
-          <!--<div class="bc-flex-1">-->
-            <!--<img :src="`${$config.path.static}/img/home/sign/qq.png`"  alt="">-->
+          <!--<div class="bc-flex-1" @click.stop="shareImage">-->
+            <!--<img :src="`${config.path.static}/img/home/sign/qq.png`"  alt="">-->
             <!--<div>QQ</div>-->
           <!--</div>-->
-          <!--<div class="bc-flex-1">-->
-            <!--<img :src="`${$config.path.static}/img/home/sign/qzone.png`"  alt="">-->
+          <!--<div class="bc-flex-1" @click.stop="shareImage">-->
+            <!--<img :src="`${config.path.static}/img/home/sign/qzone.png`"  alt="">-->
             <!--<div>QQ空间</div>-->
           <!--</div>-->
-          <!--<a class="bc-flex-1 bc-t-white">-->
-            <!--<img :src="`${$config.path.static}/img/home/sign/download.png`"  alt="">-->
+          <!--<a class="bc-flex-1 bc-t-white" :href="imgSrc" download="生成日签.png">-->
+            <!--<img :src="`${config.path.static}/img/home/sign/download.png`"  alt="">-->
             <!--<div>下载</div>-->
           <!--</a>-->
         <!--</div>-->
       </div>
 
     </div>
+
+    <template slot="other">
+      <!-- 绑定手机号 -->
+      <bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+    </template>
 
   </bv-home-view>
 
@@ -239,7 +245,8 @@
         sign: {},
         canvasTmpl: {},
         maskIsShow: false,
-        imgSrc: ''
+        imgSrc: '',
+        showBindPhoneStatus: false
       }
     },
     methods: {
@@ -257,14 +264,25 @@
       closeMask() {
         this.maskIsShow = false;
         this.imgSrc = '';
+      },
+      shareImage() {
+        navtiveApp.addTask(function () {
+          dtb.shareImage(this.imgSrc);
+        });
       }
     },
 
     mounted() {
-      this.$axios.get('/api/Sign/index.html')
+      this.$axios.get('/api/Sign/index')
         .then((res) => {
           const { data } = res.data;
           this.sign = data;
+          if (!data.check === true) {
+            this.$toast({
+              message: '签到成功!',
+              iconClass: 'iconfont iconchenggong bc-t-success'
+            });
+          }
         }).catch((error) => {
         console.log(error);
       });

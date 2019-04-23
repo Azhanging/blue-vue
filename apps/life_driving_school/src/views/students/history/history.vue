@@ -50,7 +50,7 @@
 						</div>
 						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
 							<div class="collection-no">
-								<img src="http://pc.lifest.dtb315.cn/static/img/students/students-sc@2x.png">
+								<img :src="`${config.path.static}/img/students/students-sc@2x.png`">
 								<p>暂未浏览任何内容</p>
 							</div>
 						</div>
@@ -217,12 +217,12 @@
 				visibility: hidden;
 			}
 			input+label {
-				background: url(http://pc.lifest.dtb315.cn/static/img/students/iconweixuanzhongyuanquan.png) no-repeat;
+				background: url($base-url+'/img/students/iconweixuanzhongyuanquan.png') no-repeat;
 				background-size: 100%;
 				width: rem(20);
 				height: rem(20);
 			}
-			input:checked+label {background: url(http://pc.lifest.dtb315.cn/static/img/students/iconxuanzhong1.png) no-repeat;background-size: 100%;}
+			input:checked+label {background: url($base-url+'/img/students/iconxuanzhong1.png') no-repeat;background-size: 100%;}
 		}
 		.collection-item-box{
 			flex: 1;

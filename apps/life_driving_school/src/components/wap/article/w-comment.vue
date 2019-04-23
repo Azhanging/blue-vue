@@ -76,6 +76,10 @@
 			</div>
 		</div>
 
+		<template >
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
 	</div>
 </template>
 
@@ -83,13 +87,13 @@
 		export default {
       name: "comment",
       props: {
-        config: {
+        opts: {
           type: Object,
           default: {// 请求详情内容url 请求评论url
             url: {
               type: Object,
               default: {
-                contentUrl: '/api/Article/info.html'
+                contentUrl: '/api/Article/info'
               }
             },
             data: {
@@ -126,13 +130,14 @@
           id: 0, // 自己这一层所在id
           member_id: 0, // 是自己
           layer: 1,
-          parent_id: 0 // 父级id
+          parent_id: 0, // 父级id
+          showBindPhoneStatus: false
         }
       },
       methods: {
 				// 点赞
         clickThumb(item) {
-          const { commentParams } = this.config.data;
+          const { commentParams } = this.opts.data;
           let params = Object.assign(
             commentParams, {
               id: item.id,
@@ -144,12 +149,22 @@
             this.$axios.get('/api/Comment/comment_article', {
               params
             }).then(res => {
-              item.fabulous++;
-              item.isclickthumb = true;
-              this.$toast({
-                message: '点赞成功!',
-                iconClass: 'iconfont iconchenggong bc-t-success'
-              });
+
+              const { code } = res.data;
+              if (code == 10002) {
+                // 去绑定手机号
+                this.showBindPhoneStatus = true;
+              } else if (code == 200) {
+                item.fabulous++;
+                item.isclickthumb = true;
+                this.$toast({
+                  message: '点赞成功!',
+                  iconClass: 'iconfont iconchenggong bc-t-success'
+                });
+              }
+
+
+
             })
           } else {
             // 由点赞->没点赞
@@ -212,7 +227,7 @@
           this.whetherDeleteMask = false;
         },
         confirmDelete() {
-          const { commentParams } = this.config.data;
+          const { commentParams } = this.opts.data;
           this.whetherDeleteMask = false;
           this.$messageBox({
             message: '是否删除该评论？',
@@ -246,7 +261,7 @@
 
               // 删除
               let params = Object.assign(commentParams, { id: this.comment.id } );
-              this.$axios.get('/api/comment/comment_delete.html', {
+              this.$axios.get('/api/comment/comment_delete', {
                 params
               }).then(res => {
                 const { code } = res.data;

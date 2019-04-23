@@ -71,7 +71,7 @@ export function share(opts) {
   const shareConfig = config.share;
 
   //webview分享
-  if (device.isApp) {
+  if (config.device.isApp) {
     try {
       dtb.iPhoneShare(JSON.stringify({
         title: opts.title || shareConfig.title,
@@ -79,8 +79,7 @@ export function share(opts) {
         thumImage: opts.thumImage || shareConfig.imgUrl,
         shareUrl: shareLink({
           link: opts.shareUrl || shareConfig.link
-        }),
-        params: opts.params || shareConfig.params
+        })
       }));
     } catch (e) {
       console.warn(`share error:`, e);

@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<button @click.stop="submitForm" style="background:white;position:fixed;z-index:200000;bottom:50px;">点击发布</button>
-		<!--<form action="" @submit.prevent="submitForm">-->
+		<!--测试按钮<button @click.stop="submitForm" style="background:white;position:fixed;z-index:20000000!important;bottom:50px;">点击发布</button>-->
+		<form action="" @submit.prevent="submitForm">
 		<div class="comments-reply-input bc-ps-f bc-w-100 bc-v-m" style="" v-if="commentsReplyInputShow">
 			<div class="bc-flex bc-pd-7rp bc-bg-white">
 				<label class="bc-flex-2 bc-bg-e5e bc-pd-lr-15rp">
@@ -14,20 +14,26 @@
 						<span class="info-num bc-f-10rp bc-pd-lr-3rp" v-if="comment.count>0">{{comment.count}}</span>
 					</span>
 					<span class="bc-flex-1" v-if="btn_contribute">
-						<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click.stop="toCollect(isCollect)"></i>
+						<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click="toCollect(isCollect)"></i>
 						<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-10rp bc-t-base' v-else @click="toCollect(false)"></i>
 					</span>
 					<span class="bc-flex-1" v-if="btn_gLink">
-						<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click.stop="clickThumb(comment)"></i>
-						<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-else @click.stop="clickThumb(comment)"></i>
+						<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click="clickThumb(comment)"></i>
+						<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-else @click="clickThumb(comment)"></i>
 					</span>
-					<span class="bc-flex-1">
-						<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' @click.stop="$share(comment.shareInfo)" ></i>
+					<span class="bc-flex-1" v-if="!config.device.isApp">
+						<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' @click="$share(comment.shareInfo)" ></i>
 					</span>
 				</div>
 			</div>
 		</div>
-		<!--</form>-->
+		</form>
+
+		<template>
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
+
 	</div>
 
 </template>
@@ -36,13 +42,13 @@
 export default {
   name: "w-comment-reply",
   props: {
-    config: {
+    opts: {
       type: Object,
       default: {// 请求详情内容url 请求评论url
         url: {
           type: Object,
           default: {
-            contentUrl: '/api/Article/info.html'
+            contentUrl: '/api/Article/info'
           }
         },
         data: {
@@ -80,7 +86,8 @@ export default {
     return {
       commentsReplyInputShow: true,
       isCollect: true,
-      editComment: '' // 评论内容
+      editComment: '', // 评论内容
+      showBindPhoneStatus: false
     }
   },
   methods: {
@@ -90,7 +97,7 @@ export default {
 
       const { editComment } = this;
       const { commentStatus, id } = this.comment; //commentStatus id 父级id  初始化值都为 0
-      const { submitCommentParams } = this.config.data;
+      const { submitCommentParams } = this.opts.data;
       const m_id = this.userInfo.id; // 自己的id
 
       if (!editComment) {
@@ -168,7 +175,7 @@ export default {
       });
     },
     toCollect(isCollect) {
-      const { commentParams } = this.config.data;
+      const { commentParams } = this.opts.data;
       // 收藏
       if (isCollect) {
         this.comment.article_collection = true;
@@ -178,7 +185,10 @@ export default {
           params
         }).then(res => {
           const { code } = res.data;
-          if (code === 200) {
+          if (code == 10002) {
+            // 去绑定手机号
+            this.showBindPhoneStatus = true;
+          } else if (code == 200) {
             this.$toast({
               message: '收藏成功!',
               iconClass: 'iconfont iconchenggong bc-t-success'
@@ -204,19 +214,26 @@ export default {
       }
     },
     clickThumb(comment) {
-      const { commentParams } = this.config.data;
+      const { commentParams } = this.opts.data;
       let add = !comment.article_fabulous;
       // 由没点赞->点赞
       if (add) {
         this.$axios.get('/api/article/fabulous', {
           params: commentParams
         }).then(res => {
-          this.comment.article_fabulous = true;
-          this.comment.fabulous_num ++;
-          this.$toast({
-            message: '点赞成功!',
-            iconClass: 'iconfont iconchenggong bc-t-success'
-          });
+          const { code } = res.data;
+          if (code == 10002) {
+            // 去绑定手机号
+            this.showBindPhoneStatus = true;
+          } else if (code == 200) {
+            this.comment.article_fabulous = true;
+            this.comment.fabulous_num ++;
+            this.$toast({
+              message: '点赞成功!',
+              iconClass: 'iconfont iconchenggong bc-t-success'
+            });
+          }
+
         })
       } else {
         // 由点赞->没点赞

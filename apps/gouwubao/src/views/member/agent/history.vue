@@ -5,22 +5,22 @@
 		<div class="bc-row">
 			<div class="bc-row bc-bg-white bc-t-c bc-mg-t-10rp">
 				<div class="bc-flex">
-					<div class="bc-flex-1 bc-mg-tb-26rp">
+					<div class="bc-flex-1 bc-mg-t-14rp bc-mg-b-14rp">
 						<div class="bc-bd-r-e5e">
 							<div class="bc-row bc-t-999">
 								区域会员(位)
 							</div>
-							<div class="bc-row bc-f-b bc-f-16rp bc-pd-10rp">
+							<div class="bc-row bc-f-b bc-f-16rp bc-pd-lr-10rp bc-pd-t-5rp">
 								{{pageData.my_area_member}}
 							</div>
 						</div>
 					</div>
-					<div class="bc-flex-1 bc-mg-tb-26rp">
+					<div class="bc-flex-1 bc-mg-tb-14rp">
 						<div class="bc-bd-r-e5e">
 							<div class="bc-row bc-t-999">
 								累计收益(通宝)
 							</div>
-							<div class="bc-row bc-f-b bc-f-16rp bc-pd-10rp">
+							<div class="bc-row bc-f-b bc-f-16rp bc-pd-lr-10rp bc-pd-t-5rp">
 								{{pageData.my_area_money}}
 							</div>
 						</div>

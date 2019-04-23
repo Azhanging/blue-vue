@@ -5,38 +5,48 @@
         value:'生命导航',
         style:`font-weight: bold !important;font-size:1.33333rem;`
       },
-      style:`background: rgba(255,246,238,1);border-bottom:none !important;`
+      style:`background: url(${config.path.static}/img/home/header_bg_img.png) no-repeat  !important;background-position: center !important;
+			background-size: 100% 100%  !important;border-bottom:none !important;`
 		}" :type="2">
+			<!--header_bg-img.png-->
 		</w-home-header>
+
+
 
 		<div class="bc-g-bg-e5e">
 			<!--tab 首页 资讯 产业研究-->
 			<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
 				<div class='bc-flex bc-pd-tb-5rp'>
-					<a href="/" class="bc-flex-1 active">首页</a>
-					<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
-						<a class="bc-flex-1" @click="routerTo(item)"
+					<div class="bc-flex-1">
+						<a href="/" class=" active">首页</a>
+					</div>
+					<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
+						<a  @click="routerTo(item)"
 						   v-if="item.name"
 						>
 							{{item.name}}
 						</a>
+					</div>
+					<div class="bc-flex-1">
+						<a href="javascript:;" class="" @click="$toast('敬请期待！')">产业研究</a>
 					</div>
 				</div>
 			</div>
 
 			<div class="bc-row bc-ps-r huilianwang">
 				<a class="bc-block" href="javascript:;">
-					<img class="bc-w-100" :src="`${$config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
+					<img class="bc-w-100" :src="`${config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
 				</a>
-				<a href="javascript:;" @click="toSign">
-					<img class="qiandao bc-ps-a" :src="`${$config.path.static}/img/home/qiandao.png`" alt="签到">
+				<a href="javascirpt:;" @click="toSign">
+					<img class="qiandao bc-ps-a" :src="`${config.path.static}/img/home/qiandao.png`" alt="签到">
 				</a>
+
 			</div>
 
 			<!--健康常识-->
 			<div class="bc-v-m">
 				<div class="bc-pd-tb-10rp bc-bg-white bc-pd-lr-10rp" style="border-bottom:1px solid #F9F3EC">
-					<img class="bc-mg-r-3rp xiaochangshi" :src="`${$config.path.static}/img/home/jiankangchangshi.png`" alt="健康常识">
+					<img class="bc-mg-r-3rp xiaochangshi" :src="`${config.path.static}/img/home/jiankangchangshi.png`" alt="健康常识">
 					<span class="bc-f-12rp" v-html="">{{getData.notice_content}}</span>
 				</div>
 			</div>
@@ -45,7 +55,7 @@
 			<div class="three-system " v-if="getData && getData.system">
 
 				<div class="bc-t-c bc-mg-t-20rp">
-					<img class="bc-inline-block three-system-title" :src="`${$config.path.static}/img/home/three_system.png`">
+					<img class="bc-inline-block three-system-title" :src="`${config.path.static}/img/home/three_system.png`">
 				</div>
 
 				<div class="three-system-content bc-t-c">
@@ -83,7 +93,7 @@
 			<!--生命驾照-->
 			<div class="shengmingdaohang bc-t-c bc-mg-t-10rp bc-c-f" v-if="getData && getData.life">
 				<div class="">
-					<img class="block bc-w-100" :src="`${$config.path.static}/img/home/shengmingdaohang.png`">
+					<img class="block bc-w-100" :src="`${config.path.static}/img/home/shengmingdaohang.png`">
 				</div>
 				<div class="shengmingdaohang-content">
 					<div class="bc-mg-t-10rp">
@@ -125,7 +135,7 @@
 
 			<!--推荐-->
 			<div class="bc-mg-t-10rp tuijian bc-bg-white bc-c-f">
-				<img class="block bc-w-100 tuijian-title" :src="`${$config.path.static}/img/home/tuijian.png`">
+				<img class="block bc-w-100 tuijian-title" :src="`${config.path.static}/img/home/tuijian.png`">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<recommend-arrlist :list='load.data.lists'></recommend-arrlist>
 					<template slot="load-down">
@@ -165,11 +175,13 @@
           name: '资讯',
           path: '/zixun',
           id: 1
-        }, {
-          name: '产业研究',
-          path: '/industry',
-          id: 2
-        }],
+        }
+        // , {
+        //   name: '产业研究',
+        //   path: '/industry',
+        //   id: 2
+        // }
+        ],
         //绑定手机的状态
         showBindPhoneStatus: (() => {
           return router.currentRoute.fullPath === '/';
@@ -187,15 +199,6 @@
           console.log(err);
         });
 
-      // 签到状态获取
-      this.$axios.get('/api/sign/check.html')
-        .then(res => {
-          const { data } = res.data;
-          this.getData.check = data.check;
-        })
-        .catch(err => {
-          console.log(err);
-        })
     },
     methods: {
       routerTo(item) {
@@ -207,26 +210,16 @@
           }
         }));
       },
-      toSign() {
-        let { check } = this.getData;
-        // 未签到状态
-        if (!check) {
-          this.$toast({
-            message: '签到成功!',
-            iconClass: 'iconfont iconchenggong bc-t-success'
-          });
-          setTimeout(() => {
-            this.$closeToast();
-            this.$router.push('/sign');
-          }, 1000);
-        } else {
-          // 已签到  直接跳转
-          this.$router.push('/sign');
-        }
-
-      },
       closeBindPhone() {
         this.showBindPhoneStatus = false;
+      },
+      toSign() {
+        const {phone} = this.userInfo;
+        if (!phone) {
+          this.showBindPhoneStatus = true;
+        } else {
+					this.$router.push('/sign');
+        }
       },
       api() {
         return this.$axios.get('/api/index/index', {
@@ -252,6 +245,11 @@
     },
     components: {
       "recommend-arrlist": recommendArrlist
+    },
+    computed: {
+      userInfo() {
+        return this.$store.state.userInfo;
+      }
     }
   }
 </script>
@@ -267,8 +265,9 @@
 	}
 
 	.home-nav {
-		background: rgba(255, 246, 238, 1);
-
+		background: url($base-url + '/img/home/header_bg_img.png') no-repeat;
+		background-position: center;
+		background-size: 100% 100%;
 		a {
 			color: #CA9F75;
 			font-size: rem(16);

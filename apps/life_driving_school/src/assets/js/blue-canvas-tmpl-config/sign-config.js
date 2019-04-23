@@ -115,13 +115,14 @@ export default function canvasTmplConfig(opts = {}) {
   const vm =this;
   const {
     nickname, // 昵称
-    head_img, // 头像
+    share_head_img,// 头像
     even_sum, // 坚持学习天数  对应data
     time, // 日期 2019:04:13星期六   => 四月 13 星期六
     ranking // 第几名  对应position
   } = opts;
   data = even_sum;
   position = ranking;
+  // 测试 let share_head_img = "https://pc.lifest.dtb315.cn/static/img/home/zhihuiwang.png"
 
  date = formatTime(time);
  const {month, day, week} = date;
@@ -173,20 +174,19 @@ export default function canvasTmplConfig(opts = {}) {
       canvasCtx.fillRect(40,654,120,120);
       canvasCtx.fill();
       canvasCtx.closePath();
-    }, {
-      type: 'img',
-      src: 'https://image.zhangxinxu.com/image/study/s/s256/mm1.jpg'
-    }, function () {
-      const canvasCtx = this.canvasCtx;
-      const img = new Image();
-      img.src = 'https://image.zhangxinxu.com/image/study/s/s256/mm1.jpg';
-      canvasCtx.beginPath();
-      const pattern = canvasCtx.createPattern(img, 'no-repeat');
-      canvasCtx.arc(86, 727, 46, 0, 2 * Math.PI);
-      canvasCtx.fillStyle = pattern;
-      canvasCtx.fill();
-      canvasCtx.closePath();
-    }, {
+    }
+    // , function () {
+    //   const canvasCtx = this.canvasCtx;
+    //   const img = new Image();
+    //   // img.src = 'https://image.zhangxinxu.com/image/study/s/s256/mm1.jpg';
+    //   // canvasCtx.beginPath();
+    //   // const pattern = canvasCtx.createPattern(img, 'no-repeat');
+    //   canvasCtx.arc(86, 727, 46, 0, 2 * Math.PI);
+    //   // canvasCtx.fillStyle = pattern;
+    //   canvasCtx.fill();
+    //   canvasCtx.closePath();
+    // }
+    ,{
       type: 'text',
       content: nickname,
       font: font(26),
@@ -235,13 +235,13 @@ export default function canvasTmplConfig(opts = {}) {
       width: 70,
       height: 88,
       src: `${config.path.static}/img/home/sign/qrcode.png`
-    },{
+    }, {
       type: 'img',
       x: 45,
       y: 660,
-      width: 115,
-      height: 115,
-      src: head_img
+      width: 110,
+      height: 110,
+      src: share_head_img
     }],
     rendered(){
       vm.imgSrc = this.canvas.toDataURL();

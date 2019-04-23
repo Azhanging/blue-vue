@@ -21,7 +21,7 @@ export default {
   name: "introduction",
 	computed:{
     staticPath(){
-      return `${this.$config.path.static}/img/member/tools/introduction`;
+      return `${this.config.path.static}/img/member/tools/introduction`;
     }
 	}
 }

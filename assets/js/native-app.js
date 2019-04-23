@@ -23,6 +23,4 @@ NativeApp.prototype.take = //历史命名问题
     }
   };
 
-const nativeApp = new NativeApp();
-
-export default nativeApp;
+export default NativeApp;

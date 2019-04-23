@@ -7,7 +7,7 @@
 			</div>
 			<div class="bc-row  bc-t-base">
 				<div class="bc-pd-lr-20rp">
-					<img :src="`${$config.path.static}/img/public/bind-phone.png`" alt="" class="bv-bind-phone-img">
+					<img :src="`${config.path.static}/img/public/bind-phone.png`" alt="" class="bv-bind-phone-img">
 				</div>
 				<div class="bc-mg-t-20rp bc-f-18rp">
 					填写手机号码

@@ -1,24 +1,11 @@
 <template>
 	<bv-home-view class='wap' :router-level='2'>
 
-		<w-home-header :header="{
-			title:{
-				value: '产业研究'
-			}
-		}" >
-			<div slot="right-control">
-				<div class="bc-t-r">
-					<i class='iconfont icon- bc-f-20rp bc-mg-r-10rp' @click='$share'></i>
-				</div>
-			</div>
-		</w-home-header>
-
-		<w-article-detail :content="content"></w-article-detail>
-
+		<w-article-detail :header="header" :opts="opts"></w-article-detail>
 
 	</bv-home-view>
 
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -31,14 +18,32 @@
     name: "industry-detail",
     data() {
       return {
-        content: '我是详情内容，我是详情内容，我是详情内容，我是详情内容！'
+        header: {
+          title: {
+            value: '产业研究'
+          }
+        },
+        opts: {
+          url: {
+            contentUrl: '/api/Article/info'
+          },
+          data: {
+            contentParams: {// 文章内容 请求参数
+              article_id: this.$route.params.article_id
+            },
+            commentParams: { // 评论内容 请求参数
+              article_id: this.$route.params.article_id,
+              data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+            },
+            submitCommentParams: { // 提交评论 请求参数 只需第一个
+              article_id: this.$route.params.article_id,
+              data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+            }
+          }
+        }
+
+
       }
-    },
-    methods: {
-
-    },
-    mounted() {
-
     },
     components: {
       'w-article-detail': WArticleDetail

@@ -44,13 +44,13 @@ export default class VideoPlayer {
 			console.log('pause');
 
 		});
-		this.player.on('liveStreamStop',(e) => { //直播流中断时触发
-			if(this.props.isLive){
+		this.player.on('liveStreamStop', (e) => { //直播流中断时触发
+			if (this.props.isLive) {
 				this.props.vue_this.videoEnd = true
 				// console.log('直播流中断1')
 			}
 		});
-		this.player.on('m3u8Retry',(e) => { //m3u8直播流中断后重试事件，每次断流只触发一次
+		this.player.on('m3u8Retry', (e) => { //m3u8直播流中断后重试事件，每次断流只触发一次
 			// console.log('直播流中断2')
 		});
 
@@ -100,10 +100,16 @@ export default class VideoPlayer {
 			}
 		});
 
-		$(document).on('WeixinJSBridgeReady', () => {
-			let video = $(that.player.el()).find('video')[0];
+		// $(document).on('WeixinJSBridgeReady', () => {
+		// 	let video = $(that.player.el()).find('video')[0];
+		// 	video.play();
+		// });
+
+		document.body.addEventListener("WeixinJSBridgeReady", function () {
+			let video = document.querySelector(that.player.el()).getElementsByTagName('video')[0];
 			video.play();
-		});
+		}, false)
+
 	}
 
 	_unbindEvent() {

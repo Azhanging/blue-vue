@@ -21,7 +21,7 @@ export default {
   name: "meeting",
   computed:{
     staticPath(){
-      return `${this.$config.path.static}/img/member/tools/meeting`;
+      return `${this.config.path.static}/img/member/tools/meeting`;
     }
   }
 }

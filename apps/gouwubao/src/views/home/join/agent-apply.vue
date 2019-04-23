@@ -162,9 +162,11 @@
 		<!-- 提交申请 -->
 		<template slot="other">
 			<div class="bc-bd-t-e5e bc-row bc-pd-lr-20rp bc-pd-b-15rp bc-ps-f bc-bg-white" style="bottom:0;left:0;" v-show="$store.state.view.pageFixed">
-				<div class="bc-row  bc-pd-tb-11rp bc-v-m">
+				<div class="bc-flex bc-flex-ai-c bc-pd-tb-11rp bc-v-m">
 					<input type="checkbox" v-model="pageData.protocol" class="bc-inline-block bc-mg-r-5rp">我同意
-					<!--<a href="" class="bc-t-info">《点通宝代理智能合约》</a>-->
+					<router-link to="/member/contract/agent" class="bc-t-info">
+						《点通宝代理智能合约》
+					</router-link>
 				</div>
 				<div class="bc-row">
 					<button
@@ -239,7 +241,7 @@
     mixins: [uploadMixin()],
     computed: {
       staticPath() {
-        return `${this.$config.path.static}/img/home/join/agent-apply`;
+        return `${this.config.path.static}/img/home/join/agent-apply`;
       }
     },
     created() {
@@ -271,7 +273,8 @@
             level: {
               ajax: {
                 url: '/member/area_apply',
-                key: 'id'
+                key: 'id',
+                params: {}
               },
               title: '代理级别',
               slots: [{
@@ -512,8 +515,8 @@
 
 	//加入按钮
 	.join-btn {
-		padding-top: rem(5) !important;
-		padding-bottom: rem(5) !important;
+		padding-top: rem(14) !important;
+		padding-bottom: rem(14) !important;
 		font-size: rem(16);
 	}
 </style>

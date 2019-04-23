@@ -7,9 +7,9 @@ export function commentMixin(opts = {}) {
   return {
     methods: {
       api() {
-        const { commentParams } = this.config.data;
+        const { commentParams } = this.opts.data;
         let params = Object.assign(commentParams, { page: this.load.params.page });
-        return this.$axios.get('/api/Comment/index.html', {
+        return this.$axios.get('/api/Comment/index', {
           params: params
         }).then((res) => {
           const { data: resultData } = res.data;

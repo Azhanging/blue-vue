@@ -4,7 +4,7 @@
 			<div class="bc-bg-base selfMsg bc-t-666  row bc-pd-tb-15 bc-pd-lr-10   bc-flex bc-flex-ai-s">
 				<div class='bc-mg-lr-10'>
 					<template v-if="!personalData.memberImg">
-						<img class="bc-radius-50prec bc-bd-white bc-bd-w-3" style='width: 64px;border-radius: 50%' :src="`${$config.path.static}/img/member/area-creator.png`" alt="默认头像">
+						<img class="bc-radius-50prec bc-bd-white bc-bd-w-3" style='width: 64px;border-radius: 50%' :src="`${config.path.static}/img/member/area-creator.png`" alt="默认头像">
 					</template>
 					<img class=" bc-bd-white bc-bd-w-3" style='width: 64px;border-radius: 50%' :src="personalData.memberImg">
 				</div>

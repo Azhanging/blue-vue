@@ -1,12 +1,12 @@
 <template>
 	<div class='wap' :router-level="2">
 		<!--文章阅读量 点赞量-->
-		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+		<w-article-clicknum :opts="opts" :comment="comment"></w-article-clicknum>
 
 		<!--文章评论-->
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<w-comment
-				:config="config"
+				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
 			></w-comment>
@@ -25,7 +25,7 @@
 
 		<!--回复评论-->
 		<template slot="footer">
-			<w-comment-reply :config="config" :comment="comment" ref="reply"></w-comment-reply>
+			<w-comment-reply :opts="opts" :comment="comment" ref="reply"></w-comment-reply>
 		</template>
 	</div>
 </template>
@@ -44,7 +44,7 @@
 			scrollNoHasListData
 		})],
 		props: {
-			config: {
+			opts: {
 			}
 		},
 		data() {
@@ -53,8 +53,6 @@
 				// commentStatus: 0,  //  0为评论文章 1为评论别人(回复) 2为自己(是自己就是删除)
 				// id: 0,
 			}
-		},
-		mounted(){
 		},
 		components:{
 			'w-article-clicknum': WArticleClicknum,

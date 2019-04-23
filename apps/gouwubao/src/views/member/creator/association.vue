@@ -107,7 +107,7 @@
     },
 	  computed:{
       staticPath(){
-        return `${this.$config.path.static}/img/member/components/tools`
+        return `${this.config.path.static}/img/member/components/tools`
       }
 	  }
   }

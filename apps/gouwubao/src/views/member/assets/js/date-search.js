@@ -40,14 +40,12 @@ const dateSearch = {
         this.load.state.disabled = true;
         return;
       }
-      this.load.state.disabled = !this.load.state.disabled;
+      this.load.state.disabled = true;
       this.$nextTick(() => {
         this.load.params.page = 1;
         this.load.data.lists = [];
-        this.load.state = {
-          disabled: false,
-          hasMore: true
-        };
+        this.load.state.disabled = false;
+        this.load.state.hasMore = true;
       });
     }
   }

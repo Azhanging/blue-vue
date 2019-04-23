@@ -9,7 +9,7 @@
 			<template slot="left-control">
 				<slot name="left-control">
 					<div v-if="type === 1" class='bc-v-m'>
-						<img class='logo' :src="$config.path.static+'/img/public/logo.png'" alt=''>
+						<img class='logo' :src="config.path.static+'/img/public/logo.png'" alt=''>
 					</div>
 					<div v-else></div>
 				</slot>
@@ -24,8 +24,8 @@
 					<router-link to="/search">
 						<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
 					</router-link>
-					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' v-if="$config.device.isApp" @click='$share'></i>-->
-					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="$config.device.isApp"></i>
+					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' v-if="configdevice.isApp" @click='$share'></i>-->
+					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="config.device.isApp"></i>
 				</div>
 			</slot>
 		</template>

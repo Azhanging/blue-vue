@@ -15,7 +15,7 @@
 			<div class="driving-slide">
 				<div class="driving-learn">
 					<div class="driving-learn-img">
-						<img src="http://pc.lifest.dtb315.cn/static/img/life-nav/book@2x.png">
+						<img :src="`${config.path.static}/img/life-nav/book@2x.png`">
 					</div>
 
 					<!--<div class="driving-learn-desc">
@@ -344,7 +344,7 @@
 			color: #A7A7A7;
 			.driving-learn {
 				display: flex;
-				background: url("http://pc.lifest.dtb315.cn/static/img/life-nav/bg@2x.png") no-repeat;
+				background: url($base-url+'/img/life-nav/bg@2x.png') no-repeat;
 				background-size: 100% 100%;
 				padding: rem(20);
 				border-radius: rem(5);

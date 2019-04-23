@@ -14,7 +14,7 @@
 					<div class='video_wrap'>
 						<!--未开播-->
 						<div class='bc-ps-r  videoHeight' v-if='!haveVideo'>
-							<img width='100%' class='bc-block bc-ps-a bgImg' :src="`${$config.path.static}/img/grow/video.png`" alt=''>
+							<img width='100%' class='bc-block bc-ps-a bgImg' :src="`${config.path.static}/img/grow/video.png`" alt=''>
 							<div class='bc-ps-a time bc-f-12rp bc-t-white bc-v-m'>
 								<i class='iconfont iconshijian'></i>
 								<span class='bc-mg-l-6rp'>倒计时：{{diffTime | backTimeFilter}}</span>
@@ -84,7 +84,7 @@
 		</template>
 	</bv-home-view>
 	
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -99,6 +99,8 @@
 	import VideoPlayer from '@assets/js/videoplayer';
 	import utils from 'blue-utils';
 	import store from '@store';
+	import programUrl from '@config/program-url';
+
 
 
 	export default {
@@ -293,8 +295,9 @@
 					useFlashPrism: false,
 					x5_video_position: 'normal',
 					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-					x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
+					//x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 					cover: video.cover,
+					
 					// "skinLayout": [  //取消错误显示样式
 					// 	{
 					// 		"name": "bigPlayButton",
@@ -459,8 +462,8 @@
 						}else{
 							this.getVideo(this.resVideo.videoId)
 						};
-						
-						this.socket = new WebSocketChat("ws://120.132.112.2:2348");
+						console.log(`wss://${programUrl.lifeSchool}/websocket`)
+						this.socket = new WebSocketChat(`wss://${programUrl.webSocket}/websocket`);
 						this.receiveMsg();
 						
 						

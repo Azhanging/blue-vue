@@ -55,11 +55,11 @@
 		<template slot="other">
 			<div class="bc-row bc-pd-lr-20rp bc-pd-b-15rp bc-ps-f bc-bg-white" style="bottom:0;left:0;">
 				<div class="bc-row  bc-pd-tb-11rp bc-v-m">
-					<label class="bc-v-m">
-						<input type="checkbox" v-model="protocol">
-						我同意
-					</label>
-					<!--<a href="" class="bc-t-333">《点通宝代理智能合约》</a>-->
+					<input type="checkbox" v-model="protocol">
+					我同意
+					<router-link to="/member/contract/creator" class="bc-t-333">
+						《点通宝代理智能合约》
+					</router-link>
 				</div>
 				<div class="bc-row">
 					<button
@@ -88,7 +88,7 @@
     },
     computed: {
       staticPath() {
-        return `${this.$config.path.static}/img/home/join/creator-buy`;
+        return `${this.config.path.static}/img/home/join/creator-buy`;
       }
     },
     methods: {
@@ -101,7 +101,7 @@
         });
       },
       submit() {
-        this.protocol && (location.href = `${this.$config.path.base}/home/creator/pay?redirect_url=${encodeURIComponent(`/#/member/creator`)}`);
+        this.protocol && (location.href = `${this.config.path.base}/home/creator/pay?redirect_url=${encodeURIComponent(`/#/member/creator`)}`);
       }
     },
     created() {

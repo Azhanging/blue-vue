@@ -14,7 +14,7 @@
 					<div class="bc-flex-1">
 						类型：{{item.from_username ||item.content }}
 					</div>
-					<div class="bc-flex-1 bc-t-r bc-t-base">
+					<div class="bc-flex-1 bc-t-r bc-t-333">
 						+{{item.num}}
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 					<div class="bc-flex-1">
 						申请人：{{item.apply_phone }}
 					</div>
-					<div class="bc-flex-1 bc-t-r bc-t-base">
+					<div class="bc-flex-1 bc-t-r bc-t-333">
 						+{{item.num}}
 					</div>
 				</div>

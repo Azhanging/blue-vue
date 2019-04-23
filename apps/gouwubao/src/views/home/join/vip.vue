@@ -7,7 +7,10 @@
 	    }
 		}">
 			<template slot="right-control">
-				<div class="bc-t-r bc-pd-r-10" @click="$share">
+				<div class="bc-t-r bc-pd-r-10" @click="$share({
+					title: '点通宝VIP权益页',
+          descr: '点通宝重磅推出VIP年卡'
+				})">
 					<i class="icon icon-share"></i>
 				</div>
 			</template>
@@ -62,19 +65,23 @@
 
 				</div>
 
-				<div class="bc-row bc-bg-white bc-bd-radius-5" style="border:1px solid #CDA47D;">
+				<div class="bc-row bc-mg-tb-20rp bc-bg-white bc-bd-radius-5" style="border:1px solid #CDA47D;">
 					<router-link to="/join/creator">
 						<div class="bc-row">
 							<img :src="`${staticPath}/banner-5.png`" alt="" class="bc-w-100"/>
 						</div>
-						<div class="bc-row">
-							<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
-						</div>
-						<div class="bc-t-c bc-mg-tb-10rp">
-							<video src="" width="80%"></video>
-						</div>
 					</router-link>
 				</div>
+
+				<div class="bc-row bc-bg-white bc-bd-radius-5 bc-overflow-hide" style="border:1px solid #CDA47D;">
+					<div class="bc-row">
+						<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
+					</div>
+					<div class="bc-t-c bc-mg-tb-10rp bc-pd-lr-20rp">
+						<div id="video" class="prism-player video"></div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 
@@ -108,6 +115,9 @@
 </template>
 
 <script>
+
+	import AliVideoPlayer from '@assets/js/ali-video-player';
+	
 export default {
   name: "join-vip",
   data() {
@@ -115,12 +125,16 @@ export default {
       timer: 0,
       vipList: [],
       currentScrollIndex: 0,
-      isVip: false
+      isVip: false,
+      video: {
+        vid: false,
+        playauth: ''
+      }
     };
   },
   computed: {
     staticPath() {
-      return `${this.$config.path.static}/img/home/join/vip`;
+      return `${this.config.path.static}/img/home/join/vip`;
     }
   },
   methods: {
@@ -143,6 +157,17 @@ export default {
         }
         this.vipList = list;
         this.isVip = is_vip;
+      });
+
+      this.$axios.get('/api/video/index').then((res) => {
+        const { data } = res.data;
+        new AliVideoPlayer({
+          id: 'video',
+          vid: data.videoId,
+          height: '170px',
+          playauth: data.playauth,
+          cover: 'https://imagedev.dtb315.com/687378.jpg'
+        });
       });
     }
   },
@@ -168,8 +193,8 @@ export default {
 		text-align: center;
 		padding: 0 rem(15);
 		color: white;
-		font-size: rem(18);
-		line-height: 1.7;
+		font-size: rem(14);
+		line-height: 1.8;
 		top: rem(20);
 		left: 50%;
 		transform: translateX(-50%);

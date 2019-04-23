@@ -108,6 +108,7 @@
 				//const page = this.load.params.page++;
 				return this.$axios.get('/api/feedback/getList', {
 					params: {
+						column_id : this.$route.params.id,
 						page: this.load.params.page++
 					}
 				}).then((res) => {

@@ -56,7 +56,7 @@
 			<flow-title :options="{
 	      name:'商城收益明细',
 	      url:'/member/creator/shop-income-detail',
-	      urlName:'查看全部'
+	      urlName:'查看更多'
 			}"/>
 			<order-item type="order" :item="item" v-for="(item,index) in pageData.list" :key="index" class="bc-bd-b-e5e"/>
 		</div>

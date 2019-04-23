@@ -94,7 +94,7 @@
 	height: rem(350);
 	border-radius: rem(3);
 	overflow: hidden;
-	background: url("http://pc.lifest.dtb315.cn/static/img/students/qr-code-box.png") center no-repeat;
+	background: url($base-url+'/img/students/qr-code-box.png') center no-repeat;
 	background-size: 100% 100%;
 	text-align: center;
 	position: relative;

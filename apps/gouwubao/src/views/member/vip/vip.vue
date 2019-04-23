@@ -55,7 +55,7 @@
 				VIP专属产品
 			</div>
 			<div class="bc-flex bc-t-c bc-f-12rp bc-pd-lr-15rp bc-pd-b-15rp">
-				<a @click="$router.routerBack(`${$config.path.base}/home/vipmember/index`)">
+				<a @click="$router.routerBack(`${config.path.base}/home/vipmember/index`)">
 					<img :src="`${staticPath}/vip-shop.png`" class="bc-w-100"/>
 				</a>
 			</div>
@@ -69,10 +69,13 @@
 			<div class="bc-row bc-pd-lr-15rp bc-pd-b-15rp">
 				<div class="bc-row bc-pd-10rp" style="background-color: #f5f5f5;">
 					<div class="bc-pd-tb-4rp">
-						1.开通成功立享限量专属好礼，即送1000积分。
+						1.开通成功立享限量专属好礼：即送1000积分。
 					</div>
 					<div class="bc-pd-tb-4rp">
-						2.VIP会员在商城消费最高可享等额积分（积分均可用于积分商城抵扣现金使用）。
+						2.vip会员在商城消费最高可享等额积分。
+					</div>
+					<div class="bc-pd-tb-4rp">
+						(温馨提示:积分均可用于积分商城抵扣现金使用)
 					</div>
 				</div>
 			</div>
@@ -103,7 +106,7 @@
     },
     computed: {
       staticPath() {
-        return `${this.$config.path.static}/img/member/vip`
+        return `${this.config.path.static}/img/member/vip`
       }
     },
     methods: {

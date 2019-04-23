@@ -6,16 +6,16 @@
 				title:{
 					value: '详情'
 				}
-			}" :config="config"
+			}" :opts="opts"
 		></w-article-detail>
 
 		<!--文章阅读量 点赞量-->
-		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+		<w-article-clicknum :opts="opts" :comment="comment"></w-article-clicknum>
 
 		<!--文章评论-->
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<w-comment
-				:config="config"
+				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
 			></w-comment>
@@ -34,7 +34,7 @@
 
 		<!--回复评论-->
 		<template slot="footer">
-			<w-comment-reply :config="config" :comment="comment" ref="reply"></w-comment-reply>
+			<w-comment-reply :opts="opts" :comment="comment" ref="reply"></w-comment-reply>
 		</template>
 
 	</bv-home-view>
@@ -56,9 +56,9 @@
 		data() {
 			return {
 				comment: {},
-				config: {
+				opts: {
 					url: {
-						contentUrl: '/api/Article/info.html'
+						contentUrl: '/api/Article/info'
 					},
 					data: {
 						contentParams: {// 文章内容 请求参数
@@ -87,10 +87,10 @@
 
 			Update_progress(){
 
-				const { contentUrl } = this.config.url;
-				const { contentParams } = this.config.data;
+				const { contentUrl } = this.opts.url;
+				const { contentParams } = this.opts.data;
 
-				// 内容 /api/Article/info.html
+				// 内容 /api/Article/info
 				this.$axios.get(contentUrl, {//停留时间
 					params: contentParams
 				}).then(res => {

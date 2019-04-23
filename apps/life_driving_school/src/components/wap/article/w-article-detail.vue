@@ -3,7 +3,7 @@
 		<w-home-header :header='header'>
 			<div slot="right-control">
 				<div class="bc-t-r">
-					<i class='iconfont icon- bc-mg-r-10rp bc-t-base'  @click='$share'  v-if="$config.device.isApp"></i>
+					<i class='iconfont icon- bc-mg-r-10rp bc-t-base' @click='$share(comment.shareInfo)' v-if="config.device.isApp"></i>
 				</div>
 			</div>
 		</w-home-header>
@@ -23,13 +23,13 @@
 
 			<ul class="bc-reset-ul" v-if="info.content && info.content.length > 0">
 				<li class="bc-pd-lr-16rp bc-c-f" v-for="(item, index) in info.content" :key="index">
-					<div class="bc-mg-t-16rp bc-f-14rp bc-t-666 " v-if="item.type === 'text'" >
+					<div class="bc-mg-t-16rp bc-f-14rp bc-t-666 " v-if="item.type === 'text'">
 						<div v-html="item.value"></div>
 					</div>
 
 					<div class="bc-mg-t-16rp bc-bg-white" v-else-if="item.type === 'images'" style="box-shadow: 5px 5px 10px rgba(166,166,166,.6)">
 						<div v-blue-photoswipe="{itemTagName:'DIV'}">
-								<img :src="item.value" width="100%" data-size="0x0" :msrc="item.value"/>
+							<img :src="item.value" width="100%" data-size="0x0" :msrc="item.value"/>
 						</div>
 						<!--<img class="bc-w-100" :src="item.value" alt="">-->
 						<div class="bc-pd-10rp bc-t-hide" v-if="item.desc">{{item.desc}}</div>
@@ -60,7 +60,6 @@
 
     import VideoPlayer from '@assets/js/videoplayer';
 
-
     export default {
       name: "w-article-detail",
       props: {
@@ -68,13 +67,13 @@
           type: Object,
           default: {}
         },
-        config: {
+        opts: {
           type: Object,
           default: {// 请求详情内容url
             url: {
               type: Object,
               default: {
-                contentUrl: '/api/Article/info.html'
+                contentUrl: '/api/Article/info'
               }
             },
             data: {
@@ -95,10 +94,10 @@
             }
           }
         },
-	      comment: {
+        comment: {
           type: Object,
-		      default: {}
-	      }
+          default: {}
+        }
       },
       data() {
         return {
@@ -114,45 +113,42 @@
         }
       },
       mounted() {
-        const { contentUrl } = this.config.url;
-        const { contentParams } = this.config.data;
-        // 内容 /api/Article/info.html
+        const { contentUrl } = this.opts.url;
+        const { contentParams } = this.opts.data;
+        // 内容 /api/Article/info
         this.$axios.get(contentUrl, {
           params: contentParams
         }).then(res => {
           const { data } = res.data;
           this.info = data;
 
-          const {share_title, share_img,  share_content} = data;
+          const { share_title, share_img, share_content } = data;
           this.comment.shareInfo = {
             title: share_title,
             thumImage: share_img,
             descr: share_content,
-            shareUrl: window.location.href,
-            params: ''
           };
           // 微信分享
           this.$weChatShare({
             title: share_title,
             imgUrl: share_img,
             desc: share_content,
-            link: window.location.href
           });
 
           // 初始化视频
           this.info.content.forEach((item) => {
-						if (item.type === 'video') {
-						  const {videoId, PlayURL, cover, playauth} = item;
-						  this.video = {
-                  videoId,
-                  url: PlayURL,
-                  cover,
-                  playauth
-						  };
+            if (item.type === 'video') {
+              const { videoId, PlayURL, cover, playauth } = item;
+              this.video = {
+                videoId,
+                url: PlayURL,
+                cover,
+                playauth
+              };
               this.$nextTick(() => {
                 this.videoPlay_init(this.video);
               });
-						}
+            }
           });
 
         }).catch(error => {
@@ -160,31 +156,14 @@
         });
 
       },
-	    methods: {
+      methods: {
         videoPlay_init(video) {
-        const {videoId, playauth, cover } = video;
-        // this.player = new VideoPlayer({
-        //   id: `J_prismPlayer${videoId}`,
-        //   cover,
-        //   vid: videoId,
-        //   playauth,
-        //   autoplay: false,
-        //   isLive: false,
-        //   width: '100%',
-        //   playsinline: true,
-        //   controlBarVisibility: 'hover',
-        //   //点播
-        //   useH5Prism: true,
-        //   useFlashPrism: false,
-        //   x5_video_position: 'normal',
-        //   //prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-        //   x5_type: 'h5' //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
-        // });
-
+          const { videoId, playauth, cover } = video;
           this.player = new VideoPlayer({
             id: `J_prismPlayer${videoId}`,
             autoplay: false,
             isLive: false,
+            cover,
             width: '100%',
             playsinline: true,
             controlBarVisibility: 'hover',
@@ -196,8 +175,7 @@
             useFlashPrism: false,
             x5_video_position: 'normal',
             //prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-            x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
-            cover,
+           // x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
             "skinLayout": [  //取消错误显示样式
               {
                 "name": "bigPlayButton",
@@ -273,23 +251,42 @@
               }
             ]
           });
-
+        }
+      },
+      components: {
+        'w-article-audio': WArticleAudio
       }
-	    },
-	    components: {
-       'w-article-audio' : WArticleAudio
-	    }
     }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 	.article-content {
-
 		.video {
-			width: 100%;
 			max-height: rem(210) !important;
 			background-color: #f4f4f4;
 		}
-
+		word-wrap: break-word;
+		word-break: break-all;
+		padding: 15px 10px;
+		overflow: hidden;
+		* {
+			margin: 0;
+			max-width: 100%;
+			box-sizing: border-box !important;
+		}
+		p {
+			line-height: 1.6;
+		}
+		span[id] {
+			width: auto !important;
+			text-align: center !important;
+		}
+		img {
+			max-width: 100%;
+			height: auto !important;
+		}
+	}
+	.prism-info-display {
+		display: none!important;
 	}
 </style>

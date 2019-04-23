@@ -11,8 +11,8 @@
 			<div class="bc-row bc-bg-white">
 				<flow-title :options="{
 	      name:'分校推广分校',
-	      url:`${$config.path.base}/member/office_president/details_schools.html`,
-	      urlName:'查看全部'
+	      url:`${config.path.base}/member/office_president/details_schools.html`,
+	      urlName:'查看更多'
 			}"/>
 			</div>
 			
@@ -45,8 +45,8 @@
 				<div class="bc-row bc-bg-white">
 					<flow-title :options="{
 	      name:'分校推广商城收益',
-	      url:`${$config.path.base}/member/office_president/details_store.html`,
-	      urlName:'查看全部'
+	      url:`${config.path.base}/member/office_president/details_store.html`,
+	      urlName:'查看更多'
 			}"/>
 				</div>
 			
@@ -100,8 +100,8 @@
 					<div class="bc-row bc-bg-white">
 						<flow-title :options="{
 				      name:'分校推广300元桶装粮芯藻收益',
-				      url:`${$config.path.base}/member/office_president/details_lxz_300.html`,
-				      urlName:'查看全部'
+				      url:`${config.path.base}/member/office_president/details_lxz_300.html`,
+				      urlName:'查看更多'
 						}"/>
 					</div>
 				<div class="bc-pd-10" style='padding-top: 0' >
@@ -141,8 +141,8 @@
 				<div class="bc-row bc-bg-white">
 					<flow-title :options="{
 				      name:'店面补贴费',
-				      url:`${$config.path.base}/details_goods`,
-				      urlName:'查看全部'
+				      url:`${config.path.base}/details_goods`,
+				      urlName:'查看更多'
 						}"/>
 				</div>
 				<div class="bc-pd-10" style='padding-top: 0'>
@@ -166,8 +166,8 @@
 				<div class="bc-row bc-bg-white">
 					<flow-title :options="{
 				      name:'分校福利收益',
-				      url:`${$config.path.base}/member/office_president/details_fuli.html?today_lpjf=&lpjf=&today_fljf=&fljf=&today_seed=&seed=`,
-				      urlName:'查看全部'
+				      url:`${config.path.base}/member/office_president/details_fuli.html?today_lpjf=&lpjf=&today_fljf=&fljf=&today_seed=&seed=`,
+				      urlName:'查看更多'
 						}"/>
 				</div>
 				<div class="bc-pd-10" style='padding-top: 0'>

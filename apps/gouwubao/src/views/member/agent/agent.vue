@@ -28,7 +28,7 @@
 		<statistics-item v-if="pageData.area_member" class="bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'我的区域会员',
-	      url: `${$config.path.base}/member/my_member/area_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
+	      url: `${config.path.base}/member/my_member/area_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
 	    },
 	    num: pageData.area_member.total,
 	    otherNum:[{
@@ -66,7 +66,7 @@
 		<statistics-item  v-if="pageData.memberInfo && pageData.memberInfo.level == 1 && pageData.areacount" class="bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'我的县区代理',
-	      url: `${$config.path.base}/member/my_member/agent_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
+	      url: `${config.path.base}/member/my_member/agent_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
 	    },
 	    num: pageData.areacount.total,
 	    otherNum:[{
@@ -145,7 +145,7 @@
     },
     computed: {
       staticPath() {
-        return `${this.$config.path.static}/img/member/agent`
+        return `${this.config.path.static}/img/member/agent`
       },
       //计算区域
       area() {

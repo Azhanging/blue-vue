@@ -9,11 +9,11 @@ import env from './env';
 const path = (() => {
   let path = '';
   if (env.dev) {
-    path = 'http://pc.lifest.dtb315.cn';
+    path = 'https://pc.lifest.dtb315.cn';
   } else if (env.beta) {
-    path = 'http://beta.lifest.dtb315.com';
+    path = 'https://beta.jiaxiao.dtb315.cn';
   } else {
-    path = 'http://lifest.dtb315.com';
+    path = 'https://jiaxiao.dtb315.com ';
   }
   return path;
 })();

@@ -32,7 +32,7 @@
 		methods:{
 			getNav(){
 				let paramsId = this.$route.params;
-				this.$axios.get('/api/classify/assortment.html',{
+				this.$axios.get('/api/classify/assortment',{
 					params:{
 						column_id:paramsId.grow_id
 					}

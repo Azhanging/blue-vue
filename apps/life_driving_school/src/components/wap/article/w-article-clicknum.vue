@@ -7,6 +7,12 @@
 			<i class='iconfont iconzan bc-f-20rp' v-else @click.stop="clickArticleThumb(comment)"></i>
 			{{comment.fabulous_num}}
 		</div>
+
+		<template >
+			<!-- 绑定手机号 -->
+			<bv-bind-phone :show-bind-phone-status="showBindPhoneStatus" @close-bind-phone="closeBindPhone"/>
+		</template>
+
 	</div>
 </template>
 
@@ -14,7 +20,7 @@
   export default {
 	  name: 'w-article-clicknum',
     props:{
-      config: {
+      opts: {
 				type: Object,
 	      default: {}
       },
@@ -23,21 +29,32 @@
 				default: {}
 			}
     },
+	  data() {
+	    return {
+        showBindPhoneStatus: false
+      }
+	  },
 	  methods: {
       clickArticleThumb(comment) {
-        const { commentParams } = this.config.data;
+        const { commentParams } = this.opts.data;
         let articleAdd = !comment.article_fabulous;
         // 由没点赞->点赞
         if (articleAdd) {
           this.$axios.get('/api/article/fabulous', {
             params: commentParams
           }).then(res => {
-            comment.article_fabulous = true;
-            comment.fabulous_num ++;
-            this.$toast({
-              message: '点赞成功!',
-              iconClass: 'iconfont iconchenggong bc-t-success'
-            });
+            const { code } = res.data;
+            if (code == 10002) {
+              // 去绑定手机号
+              this.showBindPhoneStatus = true;
+            } else if (code == 200) {
+              comment.article_fabulous = true;
+              comment.fabulous_num ++;
+              this.$toast({
+                message: '点赞成功!',
+                iconClass: 'iconfont iconchenggong bc-t-success'
+              });
+            }
           })
         } else {
           // 由点赞->没点赞

@@ -34,12 +34,11 @@ module.exports = utils.extend(publicVueConfig, {
     proxy: {
       '/': {
         ws: false,      //避免把hot代理了
-        target: 'http://pc.lifest.dtb315.cn',
+         target: 'https://beta.jiaxiao.dtb315.cn',
+       // target: 'https://pc.lifest.dtb315.cn',
         //代理登录状态cookie
         onProxyReq(proxyReq, req, res) {
-          proxyReq.setHeader('cookie',
-"yunsuo_session_verify=46c431323f4e4e05690462b5907e777b; thinkphp_show_page_trace=0|0; PHPSESSID=ugme1n51qfu1dh1r0kad5lr3r4; 9de70f6546b2452f6e7b98b46ac36070=5b1a99d1b46f8f3cb1d82e676c4949b9; b72b76241459936962c978f326f7463b=%257D%25CF%25AA%25AE%25B0%258Cy%25AF; come_from=2; prev_page=aHR0cDovL2xvY2FsaG9zdDo4MDgwLw%3D%3D; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9ob21lL2NvbW1vbi9pbmRleD91cmw9aHR0cCUzQSUyRiUyRmxvY2FsaG9zdCUzQTgwODAlMkYlMjMlMkZncm93JTJGMTIlMkZzaG9ydCUyRjE3; p_h5_u=123A881B-45EA-4D50-A66D-D2E13E15E723"
-          );
+          proxyReq.setHeader('cookie',`9de70f6546b2452f6e7b98b46ac36070=89e2f225b8b16b40971f301cb2287d37; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555499206,1555558090,1555558091,1555568044; b72b76241459936962c978f326f7463b=%257D%25CF%25AA%25AE%25B0%258Cy%25AF; PHPSESSID=io00ctb4mlguffs13q9kp1c4m7; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555570673; come_from=1; prev_page=aHR0cHM6Ly9wYy5kdGIzMTUuY24vbWVtYmVy; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9tZW1iZXIvbWVtYmVyL2NvbW1vbg%3D%3D`);
         }
       }
     }

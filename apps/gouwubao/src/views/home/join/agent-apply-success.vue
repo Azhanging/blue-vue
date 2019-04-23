@@ -49,7 +49,7 @@ export default {
   name: "agent-success",
 	computed:{
     staticPath(){
-      return `${this.$config.path.static}/img/home/join/agent-apply/success`;
+      return `${this.config.path.static}/img/home/join/agent-apply/success`;
     }
 	},
   methods: {

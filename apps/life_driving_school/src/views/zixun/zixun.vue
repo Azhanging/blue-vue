@@ -11,14 +11,22 @@
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
 			<div class='bc-flex bc-flex-ai-c '>
-				<a href="/" class="bc-flex-1 bc-t-666">首页</a>
-				<div class="bc-flex-2" v-for="(item, index) in nav" :key="index">
-					<a class="bc-flex-1" :class="[index !== 0 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+				<div class="bc-flex-1">
+					<a href="/" class="bc-t-666">首页</a>
+				</div>
+
+				<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
+					<a :class="[index !== 0 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
 					   v-if="item.name"
 					>
 						{{item.name}}
 					</a>
 				</div>
+
+				<div class="bc-flex-1">
+					<a href="javascript:;" class="bc-t-666" @click="$toast('敬请期待！')">产业研究</a>
+				</div>
+
 			</div>
 		</div>
 
@@ -80,7 +88,7 @@
 
 	</bv-home-view>
 
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -126,11 +134,13 @@
             params: {
               type: "zixun"
             }
-          }, {
-            name: '产业研究',
-            path: '/industry',
-            id: 2
-          }],
+          }
+          // , {
+          //   name: '产业研究',
+          //   path: '/industry',
+          //   id: 2
+          // }
+          ],
         //左右滑动
         scroll_list: [],
         scrollIndex: 0,
@@ -174,7 +184,7 @@
         this.api();
       },
       api() {
-        return this.$axios.get('/api/article', {
+        return this.$axios.get('/api/article/index', {
           params: this.load.params
         }).then((res) => {
           const { data: resultData } = res.data;
@@ -182,6 +192,11 @@
             resultData,
             listKey: 'list'
           })) {
+            if (this.scroll_list && this.scroll_list.length === 0 ) {
+              this.load.data.lists = resultData.list;
+              this.scroll_list = resultData.class;
+              this.scroll_list.unshift({ id: 1, name: '推荐' });
+            }
             scrollEndHook.call(this);
           } else {
             ++this.load.params.page;
@@ -253,7 +268,7 @@
       });
 
       // banner图
-      this.$axios.get('/api/banner/index.html?column_id=1')
+      this.$axios.get('/api/banner/index?column_id=1')
         .then(res => {
           const { data } = res.data;
           this.banners = data.banner;

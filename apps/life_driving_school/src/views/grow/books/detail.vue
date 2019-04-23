@@ -6,16 +6,16 @@
 				title:{
 					value: '详情'
 				}
-			}" :config="config"
+			}" :opts="opts"
 		></w-article-detail>
 
 		<!--文章阅读量 点赞量-->
-		<w-article-clicknum :config="config" :comment="comment"></w-article-clicknum>
+		<w-article-clicknum :opts="opts" :comment="comment"></w-article-clicknum>
 
 		<!--文章评论-->
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<w-comment
-				:config="config"
+				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
 			></w-comment>
@@ -34,7 +34,7 @@
 
 		<!--回复评论-->
 		<template slot="footer">
-			<w-comment-reply :config="config" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
+			<w-comment-reply :opts="opts" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
 		</template>
 
 	</bv-home-view>
@@ -57,7 +57,7 @@
 		data() {
 			return {
 				comment: {},
-				config: {
+				opts: {
 					url: {
 						contentUrl: '/api/book/info'
 					},

@@ -1,6 +1,8 @@
 <template>
 	<div class="bc-row" v-if="memberInfo">
-		<div class=" offset-header">
+		<div class=" offset-header" :class="[
+		  type === 'creator' ? 'creator-bg' : 'agent-bg'
+		]">
 			<slot name="area"/>
 			<div class="bc-flex bc-flex-ai-c bc-pd-lr-15rp  bc-pd-tb-30rp">
 				<!-- 头像 -->
@@ -52,7 +54,7 @@ export default {
   props: ['member-info','type'],
   computed: {
     staticPath(){
-      return `${this.$config.path.static}/img/member/`;
+      return `${this.config.path.static}/img/member/`;
     }
   }
 }
@@ -61,8 +63,14 @@ export default {
 <style scoped lang="scss">
 	.offset-header {
 		position: relative;
-		background: #F1DFB6 url($base-static-path + '/img/member/creator/header-bg.png') right bottom no-repeat;
-		background-size: 73%;
+		&.creator-bg{
+			background: #F1DFB6 url($base-static-path + '/img/member/creator/header-bg.png') right bottom no-repeat;
+			background-size: auto 100%;
+		}
+		&.agent-bg{
+			background: #F1DFB6 url($base-static-path + '/img/member/agent/header-bg.png') right bottom no-repeat;
+			background-size: auto 100%;
+		}
 		.head-img {
 			width: rem(60);
 			height: rem(60);
@@ -70,7 +78,7 @@ export default {
 		}
 		.certificate {
 			width: rem(52);
-			height: rem(68);
+			height: rem(75);
 		}
 	}
 

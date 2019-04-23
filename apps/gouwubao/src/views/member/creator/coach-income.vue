@@ -56,7 +56,7 @@
 			<flow-title :options="{
 	      name:'辅导收益明细',
 	      url:'/member/creator/coach-income-detail',
-	      urlName:'查看全部'
+	      urlName:'查看更多'
 			}"/>
 			<order-item :item="item" type="coach" v-for="(item,index) in pageData.list" :key="index" class="bc-bd-b-e5e"/>
 		</div>

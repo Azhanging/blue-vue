@@ -1,55 +1,55 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background:rgba(244,244,244,1);">
-		<!--<form id="form" action="" method="" @submit.prevent="search(keywords)">-->
+		<!-- 测试按钮 <button @click="search(keywords)" style="position:absolute;left:0;top:0;z-index:5000;">测试按钮：点击搜索</button>-->
 
-		<!--</form>-->
-
-		<button @click="search(keywords)" style="position:absolute;left:0;top:0;z-index:5000;">测试按钮：点击搜索</button>
-
-		<div id="search" class="bc-row bc-bg-white v-m bc-ps-f" style="left:0;top:0;z-index:4000;max-width:30rem;">
-			<div class="search-header bc-flex bc-flex-jc-c bc-flex-ai-c bc-pd-tb-10rp bc-pd-lr-10rp">
-				<div class="bc-flex-10 bc-ps-r">
-					<input class="search-input  bc-bd-none bc-bd-e5e bc-bd-radius-5"
-					       style="" type="text" placeholder="搜索" name="keywords"
-					       v-model="keywords"
-					>
-					<img class="clearInput-icon" :src="`${$config.path.static}/img/home/search/clearInput.png`" alt="" v-if="clearInputShow" @click="clearInput">
-				</div>
-				<div class="bc-flex-1" style="color:#CA9F75" @click="goBack">
-					取消
+		<form id="form" action="" method="" @submit.prevent="search(keywords)">
+			<div id="search" class="bc-row bc-bg-white v-m bc-ps-f" style="left:0;top:0;z-index:4000;max-width:30rem;">
+				<div class="search-header bc-flex bc-flex-jc-c bc-flex-ai-c bc-pd-tb-10rp bc-pd-lr-10rp">
+					<div class="bc-flex-10 bc-ps-r">
+						<input class="search-input  bc-bd-none bc-bd-e5e bc-bd-radius-5"
+						       style="" type="text" placeholder="搜索" name="keywords"
+						       v-model="keywords"
+						>
+						<img class="clearInput-icon" :src="`${config.path.static}/img/home/search/clearInput.png`" alt="" v-if="clearInputShow" @click="clearInput">
+					</div>
+					<div class="bc-flex-1" style="color:#CA9F75" @click="goBack">
+						取消
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="search-content">
-			<div class="bc-ps-f" style="left:0;right:0;top:0;bottom:0;z-index:20000;background:rgba(244,244,244,1);" v-if="infoShow.status === -1">
-				<img class="bc-w-100 bc-mg-t-50rp" style="" :src="`${$config.path.static}/img/home/search/404.png`" alt="">
-			</div>
-			<div class="bc-mg-t-50rp" v-else-if="infoShow.status === 1">
-				<img class="bc-w-100" :src="`${$config.path.static}/img/home/search/default.png`" alt="">
-			</div>
-			<div class="bc-mg-t-50rp" v-else-if="infoShow.status === 0">
-				<img class="bc-w-100" :src="`${$config.path.static}/img/home/search/unresult.png`" alt="">
-			</div>
+			<div class="search-content">
+				<div class="bc-ps-f" style="left:0;right:0;top:0;bottom:0;z-index:20000;background:rgba(244,244,244,1);" v-if="infoShow.status === -1">
+					<img class="bc-w-100 bc-mg-t-50rp" style="" :src="`${config.path.static}/img/home/search/404.png`" alt="">
+				</div>
+				<div class="bc-mg-t-50rp" v-else-if="infoShow.status === 1">
+					<img class="bc-w-100" :src="`${config.path.static}/img/home/search/default.png`" alt="">
+				</div>
+				<div class="bc-mg-t-50rp" v-else-if="infoShow.status === 0">
+					<img class="bc-w-100" :src="`${config.path.static}/img/home/search/unresult.png`" alt="">
+				</div>
 
-			<div class="" v-else>
-				<bv-scroll :api="api" :disabled="load.state.disabled">
-					<search-arrlist :list='load.data.lists'></search-arrlist>
-					<template slot="load-down">
-						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
-							数据加载中...
-						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
-							暂无数据
-						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
-							暂无更多数据...
-						</div>
-					</template>
-				</bv-scroll>
-			</div>
+				<div class="" v-else>
+					<bv-scroll :api="api" :disabled="load.state.disabled">
+						<search-arrlist :list='load.data.lists'></search-arrlist>
+						<template slot="load-down">
+							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
+								数据加载中...
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+								暂无数据
+							</div>
+							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+								暂无更多数据...
+							</div>
+						</template>
+					</bv-scroll>
+				</div>
 
-		</div>
+			</div>
+		</form>
+
+
 
 	</bv-home-view>
 </template>

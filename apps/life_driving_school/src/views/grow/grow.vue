@@ -4,7 +4,7 @@
 		<!--空页面-->
 	</bv-home-view>
 
-	<!--<bv-home-view v-else='$config.device.isPc' class='pc'>-->
+	<!--<bv-home-view v-else='config.device.isPc' class='pc'>-->
 	<!---->
 	<!---->
 	<!--</bv-home-view>-->
@@ -31,11 +31,11 @@
 			}
 		},
 		methods: {
-			// /api/classify/assortment.html?column_id=12 点进来的
+			// /api/classify/assortment?column_id=12 点进来的
 
 			getdata() {
 				/^\/grow\/((?:[^\/]+?))(?:\/(?=$))?$/i.test(this.$route.fullPath) &&
-				this.$axios.get('/api/classify/assortment.html', {
+				this.$axios.get('/api/classify/assortment', {
 					params: {
 						column_id: this.$route.params.grow_id
 					}
