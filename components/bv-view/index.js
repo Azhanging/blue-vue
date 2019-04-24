@@ -1,5 +1,5 @@
 import config from '@config';
-import { mockMoveScroll } from '$assets/js/device';
+import { mockScroll } from '$assets/js/device';
 
 const viewScrollClassName = '.bv-view-scroll';
 
@@ -21,9 +21,7 @@ export function setViewEvent() {
 
   //view scroll event
   scrollElm.addEventListener('scroll', (event) => {
-
     const elm = event.target;
-
     //节流处理scrollTop
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -73,6 +71,6 @@ export function findParentView() {
 export function inputEvent() {
   const device = config.device;
   if (device.isWap && (device.isIPhone || device.isIPad)) {
-    mockMoveScroll();
+    mockScroll();
   }
 }

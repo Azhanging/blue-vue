@@ -17,12 +17,14 @@
 		</bv-header>
 
 		<div class="bc-row bc-pd-b-15rp">
+
 			<div class="bc-row bc-v-t bc-ps-r">
 				<div class="bc-row">
 					<img :src="`${staticPath}/banner-1.png`" class="bc-w-100">
 				</div>
 			</div>
-			<div class="bc-row bc-v-t bc-v-t bc-ps-r  bc-t-c">
+
+			<div class="bc-row bc-v-t bc-v-t bc-ps-r bc-t-c">
 
 				<div class="bc-row">
 					<img :src="`${staticPath}/banner-2.png`" class="bc-w-100">
@@ -71,7 +73,7 @@
 					</div>
 				</div>
 
-				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp" style="border:1px solid #CDA47D;">
+				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp bc-overflow-hide" style="border:1px solid #CDA47D;">
 					<div class="bc-row">
 						<img :src="`${staticPath}/banner-7.png`" alt="" class="bc-w-100"/>
 					</div>

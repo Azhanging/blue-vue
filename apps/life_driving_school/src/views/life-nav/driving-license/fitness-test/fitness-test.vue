@@ -1,8 +1,9 @@
 <template>
   <bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
     <w-home-header :header='{
+    
             title:{
-                value: "健康测试"
+                value: this.fitness_info
             }
         }'></w-home-header>
 
@@ -68,7 +69,7 @@
         },
         this_level: 0,//swiper当前页
         fitness_list:'',
-
+        fitness_info:'',
         fitness_test:[
           {t:'A',contents:'72dpi，常规设计方法'},
           {t:'B',contents:'144dpi，考虑高清分辨率'},
@@ -119,6 +120,7 @@
           //console.log(res)
           this.thisSwiper = res.data.data.record_info.step-1 //答到了第多少道
           this.fitness_list=res.data.data.list
+          this.fitness_info=res.data.data.info.name
           this.$refs.swiper.swiper.slideTo(this.thisSwiper, 1000, false);
           this.this_level=this.$refs.swiper.swiper.realIndex+1
         });

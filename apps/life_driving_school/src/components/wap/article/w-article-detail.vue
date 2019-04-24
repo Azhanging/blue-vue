@@ -265,7 +265,7 @@
 			max-height: rem(210) !important;
 			background-color: #f4f4f4;
 		}
-		word-wrap: break-word;
+	/*	word-wrap: break-word;
 		word-break: break-all;
 		padding: 15px 10px;
 		overflow: hidden;
@@ -284,7 +284,7 @@
 		img {
 			max-width: 100%;
 			height: auto !important;
-		}
+		}*/
 	}
 	.prism-info-display {
 		display: none!important;

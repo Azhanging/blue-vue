@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<!--测试按钮<button @click.stop="submitForm" style="background:white;position:fixed;z-index:20000000!important;bottom:50px;">点击发布</button>-->
+		<!--测试按钮-->
+		<!--<button @click.stop="submitForm" style="background:white;position:fixed;left:0;z-index:20000000!important;bottom:50px;">点击发布</button>-->
 		<form action="" @submit.prevent="submitForm">
 		<div class="comments-reply-input bc-ps-f bc-w-100 bc-v-m" style="" v-if="commentsReplyInputShow">
 			<div class="bc-flex bc-pd-7rp bc-bg-white">
@@ -160,6 +161,8 @@ export default {
 
         // 恢复默认评论文章状态
         this.comment.commentStatus = 0;
+        // 恢复外层id
+	      this.comment.id = 0;
         // 清空输入框
         this.editComment = '';
         // count ++

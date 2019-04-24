@@ -63,7 +63,7 @@
 				</div>
 				<div class="bc-row">
 					<button
-						class="bc-btn bc-bd-radius-8 bc-w-100 join-btn"
+						class="bc-btn bc-bd-radius-4 bc-w-100 join-btn"
 						:class="[ protocol && 'bc-btn-base', !protocol && 'bc-btn-grey']"
 						@click="submit"
 					>
@@ -113,9 +113,9 @@
 <style scoped lang="scss">
 	//加入按钮
 	.join-btn {
-		padding-top: rem(14) !important;
-		padding-bottom: rem(14) !important;
-		font-size: rem(18);
+		padding-top: rem(10) !important;
+		padding-bottom: rem(10) !important;
+		font-size: rem(16);
 	}
 
 </style>

@@ -1,12 +1,12 @@
 .prism-big-play-btn {
-  position: absolute;
+  position: absolute!important;
   width: rem(40) !important;
   height: rem(40) !important;
-  top: 0;
+  top: 0!important;;
   left: 0 !important;
-  right: 0;
+  right: 0!important;;
   bottom: 0 !important;
-  margin: auto auto;
+  margin: auto auto!important;
   z-index: 100 !important;
   .outter {
     border: none !important;

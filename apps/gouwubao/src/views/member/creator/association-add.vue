@@ -61,7 +61,7 @@
 				<button
 					type="button"
 					@click="submit"
-					class="bc-btn bc-btn-base bc-bd-radius-8 bc-w-100 join-btn bc-f-18rp"
+					class="bc-btn bc-btn-base bc-bd-radius-4 bc-w-100 join-btn bc-f-18rp"
 				>
 					添加
 				</button>
@@ -168,9 +168,9 @@
 
 	//加入按钮
 	.join-btn {
-		padding-top: rem(14) !important;
-		padding-bottom: rem(14) !important;
-		font-size: rem(18);
+		padding-top: rem(10) !important;
+		padding-bottom: rem(10) !important;
+		font-size: rem(16);
 	}
 
 </style>

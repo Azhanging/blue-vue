@@ -1,6 +1,6 @@
 <!-- 图层 -->
 <template>
-	<div class="bv-layer-container" :class="{'no-tab-bar':!view.tabBar}" v-if="showStatus" @click.stop="click">
+	<div class="bv-layer-container" :class="{'no-tab-bar':!view.tabBar}" v-show="showStatus" @click.stop="click">
 		<div class="bv-layer">
 			<slot/>
 		</div>
@@ -53,7 +53,6 @@
 			left: 50%;
 			transform: translate(-50%, -50%);
 			border-radius: 10px;
-			width: rem(250);
 		}
 	}
 </style>

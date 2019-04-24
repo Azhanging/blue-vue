@@ -244,11 +244,12 @@ export default function canvasTmplConfig(opts = {}) {
       src: share_head_img
     }],
     rendered(){
-      vm.imgSrc = this.canvas.toDataURL();
-      // 调用App方法
-      navtiveApp.addTask(function () {
-        dtb.shareImage(vm.imgSrc);
-      });
+      const src = this.canvas.toDataURL();
+      if(config.device.isApp){
+        dtb.shareImage(src);
+      } else {
+        vm.imgSrc = src;
+      }
     }
   };
 }

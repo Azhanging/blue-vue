@@ -462,7 +462,6 @@
 						}else{
 							this.getVideo(this.resVideo.videoId)
 						};
-						console.log(`wss://${programUrl.lifeSchool}/websocket`)
 						this.socket = new WebSocketChat(`wss://${programUrl.webSocket}/websocket`);
 						this.receiveMsg();
 						

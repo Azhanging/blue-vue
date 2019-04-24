@@ -21,7 +21,7 @@
 						<div class="bc-f-12rp bc-t-999">
 							{{item.name}}
 						</div>
-						<div class="bc-mg-t-12rp bc-f-16rp">
+						<div class="bc-mg-t-2rp bc-f-16rp">
 							{{item.num || 0}}
 						</div>
 					</div>
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="bc-row bc-pd-lr-16rp" v-if="options.bottomNum">
-			<div class="bc-flex bc-flex-ai-c bc-pd-5rp bc-mg-t-10rp" style="background-color: rgb(244,244,244);">
+			<div class="bc-flex bc-flex-ai-c bc-pd-5rp bc-mg-t-10rp" style="background-color: #F9F7EE;">
 				<div class="bc-flex-2 bc-f-12rp bc-pd-lr-4rp">
 					{{options.bottomNum.name}}<span class="bc-f-b">{{options.bottomNum.num || 0}}</span>
 				</div>

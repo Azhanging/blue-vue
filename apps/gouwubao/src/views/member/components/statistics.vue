@@ -8,7 +8,7 @@
 
 		<bv-transition transition-name="opacity">
 			<bv-layer :show-status="showStatus" @click="showStatus = !showStatus;">
-				<div class="bv-row bc-bg-white bc-ps-r" style="border-radius: 10px;">
+				<div class="bv-row bc-bg-white bc-ps-r" style="border-radius: 10px;width: 18rem;">
 					<div class="bc-pd-t-28rp bc-f-b bc-t-c bc-f-18rp">
 						统计说明
 					</div>

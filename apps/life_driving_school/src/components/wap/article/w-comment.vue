@@ -182,20 +182,38 @@
         },
 				// 回复 或 删除
         reply(isReply, commentStatus, item, res) {
-          let isMine = item.member_id == this.userInfo.id || (res && res.member_id == this.userInfo.id);
-          if (isMine && res) { // 自己在第二层
+
+          let isMineLayerOne = item.member_id == this.userInfo.id ;
+
+          let isMineLayerTwo = res && res.member_id == this.userInfo.id ;
+
+          if (isMineLayerTwo) { // 自己在第二层
             this.comment.id = res.id;
             this.comment.commentStatus = 2;
             this.member_id = res.member_id;
             this.parent_id = item.id;
             this.layer = 2;
             this.whetherDeleteMask = true;
-          } else if (isMine) { // 自己在第一层
-            this.comment.id = item.id;
-            this.comment.commentStatus = 2;
-            this.member_id = item.member_id;
-            this.layer = 1;
-            this.whetherDeleteMask = true;
+          } else if (isMineLayerOne) { // 自己在第一层
+            // 自己在第一层(没有回复)
+            if (!res) {
+              this.comment.id = item.id;
+              this.comment.commentStatus = 2;
+              this.member_id = item.member_id;
+              this.layer = 1;
+              this.whetherDeleteMask = true;
+            } else { // 有回复
+              if (isReply) {
+                this.whetherReplyMask = true;
+                this.isReply = false;
+                // 如果回复的人在第一,二层
+                this.comment.id = item.id;
+                this.comment.commentStatus = commentStatus;
+              } else {
+                this.whetherReplyMask = false;
+                this.isReply = true;
+              }
+            }
           } else {
             if (isReply) {
               this.whetherReplyMask = true;

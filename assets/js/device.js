@@ -3,6 +3,7 @@ import config from '@config';
 import inBrowser from "$assets/js/in-browser";
 import NativeApp from '$assets/js/native-app';
 import Vue from 'vue';
+import { $toast } from "../../use-in-vue/mint-ui/toast";
 
 //main
 export function device(opts) {
@@ -17,6 +18,8 @@ export function device(opts) {
     setViewport();
     //移动端相关的focus处理
     mobileFocus(Vue);
+    //修复ios上的一些bug
+    fixIOSBug();
   }
 }
 
@@ -30,7 +33,6 @@ function setNativeApp() {
 
 //获取当前设备信息
 export function getCurrentDevice() {
-
   //默认
   let device = {
     isWeChat: false,  //是否在微信端
@@ -83,13 +85,14 @@ function mobileFocus(Vue) {
 function iosFocus() {
 
   let lastNav;
+
   document.body.addEventListener('focusin', (event) => {
     lastNav = store.state.view.tabBar;
     focusHook({
       type: 'focusin',
       event
     });
-    mockMoveScroll();
+    mockScroll();
   });
 
   document.body.addEventListener('focusout', (event) => {
@@ -99,8 +102,9 @@ function iosFocus() {
       event
     });
     //ios focus fixed bug
-    mockMoveScroll();
+    mockScroll();
   });
+
 }
 
 //android device
@@ -157,8 +161,8 @@ function focusHook(opts) {
   }
 }
 
-//模拟移动
-export function mockMoveScroll() {
+//模拟移动，scroll中操作表单会出现偏移的情况，做一次抖动让表单正常
+export function mockScroll() {
   Vue.nextTick(() => {
     const scrollElm = document.querySelectorAll('.bv-view-scroll');
     [].forEach.call(scrollElm, (viewElm) => {
@@ -166,4 +170,15 @@ export function mockMoveScroll() {
       viewElm.scrollTop -= 1;
     });
   });
+}
+
+//修复一些ios上的bug
+function fixIOSBug() {
+  if (config.device.isIPhone || config.device.isIPad) {
+    //ios在move的时候，body层会出现1秒的无法滑稽（动）（系统在偷偷复位回弹）
+    //在end处理body层scrollTop回到0
+    document.body.addEventListener('touchend', (event) => {
+      event.currentTarget.scrollTop = 0;
+    });
+  }
 }

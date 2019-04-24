@@ -80,7 +80,6 @@
 							<img :src="`${staticPath}/join-agent-1.png`" class="bc-w-70">
 						</a>
 					</template>
-
 				</div>
 
 				<bv-swiper-scroll class="bc-row bc-ps-a creator-tips" :current-index="currentScrollIndex" direction="y">
@@ -94,7 +93,7 @@
 			</div>
 
 			<div class="bc-row bc-v-t bc-pd-lr-15rp">
-				<div class="bc-row bc-mg-t-20rp bc-bd-radius-6" style="border:1px solid #CDA47D;">
+				<div class="bc-row bc-mg-t-20rp bc-bd-radius-6 bc-overflow-hide" style="border:1px solid #CDA47D;">
 					<img :src="`${staticPath}/banner-3.png`" class="bc-w-100">
 				</div>
 
@@ -112,7 +111,7 @@
 					</div>
 				</div>
 
-				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp" style="border:1px solid #CDA47D;">
+				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp bc-overflow-hide" style="border:1px solid #CDA47D;">
 					<div class="bc-row">
 						<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
 					</div>
@@ -120,7 +119,6 @@
 						<div id="video" class="prism-player video"></div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 

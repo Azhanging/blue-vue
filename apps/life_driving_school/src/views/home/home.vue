@@ -12,7 +12,6 @@
 		</w-home-header>
 
 
-
 		<div class="bc-g-bg-e5e">
 			<!--tab 首页 资讯 产业研究-->
 			<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
@@ -21,7 +20,7 @@
 						<a href="/" class=" active">首页</a>
 					</div>
 					<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
-						<a  @click="routerTo(item)"
+						<a @click="routerTo(item)"
 						   v-if="item.name"
 						>
 							{{item.name}}
@@ -40,7 +39,6 @@
 				<a href="javascirpt:;" @click="toSign">
 					<img class="qiandao bc-ps-a" :src="`${config.path.static}/img/home/qiandao.png`" alt="签到">
 				</a>
-
 			</div>
 
 			<!--健康常识-->
@@ -165,6 +163,7 @@
 	import router from '@router';
   import recommendArrlist from './recommend/recommend-arrlist';
   import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+  import { login } from '$assets/js/login';
 
   export default {
     name: "home",
@@ -176,11 +175,11 @@
           path: '/zixun',
           id: 1
         }
-        // , {
-        //   name: '产业研究',
-        //   path: '/industry',
-        //   id: 2
-        // }
+          // , {
+          //   name: '产业研究',
+          //   path: '/industry',
+          //   id: 2
+          // }
         ],
         //绑定手机的状态
         showBindPhoneStatus: (() => {
@@ -214,11 +213,15 @@
         this.showBindPhoneStatus = false;
       },
       toSign() {
-        const {phone} = this.userInfo;
-        if (!phone) {
-          this.showBindPhoneStatus = true;
+        if (!this.$store.getters.isLogin) {
+          login();
         } else {
-					this.$router.push('/sign');
+          const { phone } = this.userInfo;
+          if (!phone) {
+            this.showBindPhoneStatus = true;
+          } else {
+            this.$router.push('/sign');
+          }
         }
       },
       api() {
@@ -268,6 +271,7 @@
 		background: url($base-url + '/img/home/header_bg_img.png') no-repeat;
 		background-position: center;
 		background-size: 100% 100%;
+
 		a {
 			color: #CA9F75;
 			font-size: rem(16);
