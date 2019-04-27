@@ -1,6 +1,5 @@
 <template>
-	<bv-home-view class='wap' :router-level="2">
-
+	<bv-home-view class='wap' :router-level="3">
 		<!--文章内容-->
 		<w-article-detail :header="{
 				title:{
@@ -18,6 +17,8 @@
 				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
+				@hideReply="hideReply"
+				@showReply="showReply"
 			></w-comment>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">

@@ -18,6 +18,8 @@
 				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
+				@hideReply="hideReply"
+				@showReply="showReply"
 			></w-comment>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -74,7 +76,8 @@
 						}
 					}
 				},
-				info: {}
+				info: {},
+				article_id:this.$route.params.article_id
 			}
 		},
 		components: {
@@ -103,35 +106,11 @@
 					//更新课程
 					setTimeout(()=>{
 						this.$axios.post('/api/study/updateStudy', {
-							article_id: this.$route.params.article_id
+							article_id: this.article_id
 						}).then((res) => {
 							//console.log(res)
 						});
 					},stime*1000)
-
-					/*this.$axios.get('/api/examination/level', {//初中高
-						params:{
-							column_id:this.$route.params.nav_id
-						},
-					}).then((res) => {
-
-						//console.log(res)
-						let this_level= parseInt(res.data.data.level)+1;
-						//console.log('初中高'+this_level)
-						let stime = this.info.integral_time;
-						//更新课程
-						setTimeout(()=>{
-							this.$axios.post('/api/study/updateStudy', {
-								column_id: this.info.column_id,
-								article_id: this.$route.params.article_id,
-								phases:this.$route.query.phases
-							}).then((res) => {
-								//console.log(res)
-							});
-						},stime*1000)
-
-					});*/
-
 
 				}).catch(error => {
 					console.log(error);

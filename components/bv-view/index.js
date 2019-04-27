@@ -1,5 +1,5 @@
 import config from '@config';
-import { mockScroll } from '$assets/js/device';
+import { mockViewScroll } from '$assets/js/device';
 
 const viewScrollClassName = '.bv-view-scroll';
 
@@ -71,6 +71,6 @@ export function findParentView() {
 export function inputEvent() {
   const device = config.device;
   if (device.isWap && (device.isIPhone || device.isIPad)) {
-    mockScroll();
+    mockViewScroll();
   }
 }

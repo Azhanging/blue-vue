@@ -1,8 +1,8 @@
 <template>
 	<bv-home-view class='wap' :router-level='2'>
-		<life_nav_tab :growIndex='3' :title='{
+		<life_nav_tab :title='{
             title:{
-                value: "健康导航"
+                value: "生活导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
 		<recommend_list></recommend_list>

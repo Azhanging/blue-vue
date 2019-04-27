@@ -13,7 +13,7 @@ const path = (() => {
   } else if (env.beta) {
     path = 'https://beta.jiaxiao.dtb315.cn';
   } else {
-    path = 'https://jiaxiao.dtb315.com ';
+    path = 'https://jiaxiao.dtb315.com';
   }
   return path;
 })();
@@ -46,11 +46,11 @@ const bindPhonePath = (() => {
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
-  user:{
-    url:'/api/Apipublic'
+  user: {
+    url: '/api/Apipublic'
   },
   view: {
-    title: "生命驾校",
+    title: "生活导航",
     tabBar: 'home'
   },
   env,
@@ -69,12 +69,10 @@ const config = utils.extend(publicConfig, {
     }
   },
   share: {
-    title: "生命驾校·智慧导航",
-    deps: "智慧引领生活，幸福从心成长——生命驾校幸福工程。",
-    imgUrl: `${staticPath}/img/public/share/default-share-img.png`,
-    link() {
-      return router.getHref();
-    }
+    origin: `${dtbPath}/Home/Common/autoreg`,
+    title: "生活导航·智慧导航",
+    deps: "智慧引领生活，幸福从心成长——生活导航幸福工程。",
+    imgUrl: `${staticPath}/img/public/share/default-share-img.png`
   }
 });
 

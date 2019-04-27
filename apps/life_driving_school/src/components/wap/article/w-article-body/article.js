@@ -43,6 +43,12 @@ export function commentMixin(opts = {}) {
       },
       replyFocus() {
         this.$refs['reply'].$refs['replyInput'].focus()
+      },
+      hideReply() {
+        this.$refs['reply'].commentsReplyInputShow = false;
+      },
+      showReply() {
+        this.$refs['reply'].commentsReplyInputShow = true;
       }
     },
     computed: {

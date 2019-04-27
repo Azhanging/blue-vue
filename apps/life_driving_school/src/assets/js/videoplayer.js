@@ -42,7 +42,6 @@ export default class VideoPlayer {
 		});
 		this.player.on('pause', (e) => {
 			console.log('pause');
-
 		});
 		this.player.on('liveStreamStop', (e) => { //直播流中断时触发
 			if (this.props.isLive) {
@@ -90,8 +89,10 @@ export default class VideoPlayer {
 		// });
 		//微信左上角退出按钮触发是，关闭页面
 		this.player.tag.addEventListener("x5videoexitfullscreen", () => {
-			if (WeixinJSBridge)
-				WeixinJSBridge.call('closeWindow');
+			if (WeixinJSBridge){
+				// WeixinJSBridge.call('closeWindow');
+			}
+
 			else {
 				try {
 					window.location.refresh();

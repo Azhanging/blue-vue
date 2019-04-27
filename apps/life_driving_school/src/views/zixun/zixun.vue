@@ -12,7 +12,7 @@
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">
 			<div class='bc-flex bc-flex-ai-c '>
 				<div class="bc-flex-1">
-					<a href="/" class="bc-t-666">首页</a>
+					<a href="/" class="bc-t-666 bt-f-14rp">首页</a>
 				</div>
 
 				<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="bc-flex-1">
-					<a href="javascript:;" class="bc-t-666" @click="$toast('敬请期待！')">产业研究</a>
+					<a href="javascript:;" class="bc-t-666 bt-f-14rp" @click="$toast('敬请期待！')">产业研究</a>
 				</div>
 
 			</div>
@@ -46,11 +46,11 @@
 			</bv-scroll>
 		</div>
 
-		<div class='scroll-x ' v-if="scroll_list && scroll_list.length > 6">
+		<div class='scroll-x bc-f-14rp' v-if="scroll_list && scroll_list.length > 6">
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<template slot="scroll-items">
 					<a href="javascript:;" v-for="(item,index) in scroll_list" :key="index"
-					   class=" bc-pd-lr-16rp bc-inline-block bc-t-666"
+					   class="bc-pd-lr-16rp bc-inline-block bc-t-666"
 					   @click="select(item,index)"
 					>
 						<span class="nav-title bc-inline-block bc-pd-tb-10rp">{{item.name}}</span>
@@ -59,7 +59,7 @@
 			</bv-swiper-scroll>
 		</div>
 
-		<div class='scroll-x ' v-else>
+		<div class='scroll-x bc-f-14rp' v-else>
 			<a href="javascript:;" v-for="(item, index) in scroll_list" :key="index"
 			   class=" bc-pd-lr-16rp bc-inline-block bc-t-666"
 			   @click="select(item, index)"
@@ -118,7 +118,7 @@
         },
         swiper: {},
         urlType: -1, //1资讯 2公开课
-        title: "生命驾校",
+        title: "生活导航",
         allSelCopy: {},
         allSel: {
           isRecommend: true, // 默认
@@ -251,7 +251,7 @@
       },
       setHeaderTitle(params) {
         // this.urlType = params.type || "zixun";
-        // this.title = this.urlType === "zixun" ? "生命驾校" : "公开课";
+        // this.title = this.urlType === "zixun" ? "生活导航" : "公开课";
       }
     },
     beforeRouteUpdate(to, from, next) {
@@ -294,9 +294,9 @@
 	.wap {
 		.home-nav {
 			border-bottom: 1px #eee solid;
-
 			.active {
 				color: $color-base;
+				font-size: 1.06667rem;
 				border-bottom: 2px $color-base solid;
 			}
 		}
@@ -306,11 +306,10 @@
 				height: rem(150);
 			}
 		}
-
 		.scroll-x {
 			.scroll_active {
 				color: $color-base !important;
-
+				font-size: rem(16);
 				.nav-title {
 					border-bottom: 2px solid $color-base;
 				}

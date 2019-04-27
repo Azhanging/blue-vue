@@ -29,7 +29,7 @@
 
 					<div class="bc-mg-t-16rp bc-bg-white" v-else-if="item.type === 'images'" style="box-shadow: 5px 5px 10px rgba(166,166,166,.6)">
 						<div v-blue-photoswipe="{itemTagName:'DIV'}">
-							<img :src="item.value" width="100%" data-size="0x0" :msrc="item.value"/>
+							<img :src="item.value" width="100%" height="222" data-size="0x0" :msrc="item.value"/>
 						</div>
 						<!--<img class="bc-w-100" :src="item.value" alt="">-->
 						<div class="bc-pd-10rp bc-t-hide" v-if="item.desc">{{item.desc}}</div>
@@ -176,6 +176,7 @@
             x5_video_position: 'normal',
             //prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
            // x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
+            useHlsPluginForSafari:true, //Safari浏览器可以启用Hls插件播放，Safari 11除外
             "skinLayout": [  //取消错误显示样式
               {
                 "name": "bigPlayButton",
@@ -274,17 +275,21 @@
 			max-width: 100%;
 			box-sizing: border-box !important;
 		}
-		p {
-			line-height: 1.6;
-		}
 		span[id] {
 			width: auto !important;
 			text-align: center !important;
+		}*/
+		* {
+			max-width: 100%;
+			box-sizing: border-box !important;
+		}
+		p {
+			line-height: 1.6;
 		}
 		img {
-			max-width: 100%;
-			height: auto !important;
-		}*/
+			max-width: 100%!important;
+		}
+
 	}
 	.prism-info-display {
 		display: none!important;

@@ -59,7 +59,7 @@ const homeTabBar = {
       className: 'bc-pd-5'
     }, {
       content: {
-        value: '生命驾校',
+        value: '生活导航',
         fontSize: 10
       },
       icon: {

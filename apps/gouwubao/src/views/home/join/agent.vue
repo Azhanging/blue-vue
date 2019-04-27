@@ -116,14 +116,14 @@
 						<img :src="`${staticPath}/banner-6.png`" alt="" class="bc-w-100"/>
 					</div>
 					<div class="bc-t-c bc-mg-tb-10rp bc-pd-lr-20rp">
-						<div id="video" class="prism-player video"></div>
+						<div id="agentVideo" class="prism-player video"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<template slot="other">
-			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;">
+			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;">
 
 				<!-- 没有登录 -->
 				<template v-if="$store.getters.isLogin">
@@ -199,7 +199,7 @@
         this.$axios.get('/api/video/index').then((res) => {
           const { data } = res.data;
           new AliVideoPlayer({
-            id: 'video',
+            id: 'agentVideo',
             vid: data.videoId,
             height: '170px',
             playauth: data.playauth,
@@ -237,7 +237,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 80%;
-		height: rem(30);
+		height: rem(27);
 		background-size: 100% 100%;
 	}
 </style>

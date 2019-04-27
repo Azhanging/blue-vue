@@ -1,5 +1,6 @@
 <template>
 	<div class=''>
+
 		<!--阅读量-->
 		<div class="bc-pd-16rp bc-t-999" style="background:rgba(244,244,244,1);">
 			<i class='iconfont iconeye- bc-f-15rp '></i> {{comment.click_num}}

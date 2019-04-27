@@ -4,7 +4,7 @@
     <!-- 回到顶部 -->
     <div class="back-to-top" v-show="backToTopShow">
       <a href="javascript:;" @click="backToTop">
-        <img src="//www.dtb315.com/Static/wap/home/images/scrollTop.png?v=13mqr11?v=0" width="30" height="30">
+        <slot name="back-to-top"></slot>
       </a>
     </div>
   </div>

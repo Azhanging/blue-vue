@@ -117,13 +117,19 @@
 					content: this.contribute[0].content,//内容
 					list_img: JSON.stringify(this.uploadImgs),//图片
 				}).then(res => {
-					if (res.data.data.status == 1011) {
+					if (res.data.data.status == 1019) {
 						$toast({
-							message: '字数不能超过80字符。',
+							message: '标题不能超过100字符。',
 							duration: 3000
 						});
 						return;
-					} else {
+					}else if(res.data.data.status == 1020){
+						$toast({
+							message: '内容字数不能超过500字符。',
+							duration: 3000
+						});
+						return;
+					}else {
 						$toast({
 							message: '投稿成功',
 							duration: 3000

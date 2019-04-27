@@ -10,8 +10,7 @@
 					<!--<div slot='right-control' class='bc-t-r'>-->
 					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp'  @click='$share'></i>-->
 					<!--</div>-->
-					
-					<div class='video_wrap'>
+					<div :class='["video_wrap"]'>
 						<!--未开播-->
 						<div class='bc-ps-r  videoHeight' v-if='!haveVideo'>
 							<img width='100%' class='bc-block bc-ps-a bgImg' :src="`${config.path.static}/img/grow/video.png`" alt=''>
@@ -22,10 +21,10 @@
 						</div>
 						
 						<!--开播-->
-						<div class='bc-ps-r'>
+						<div  v-show='hiddenVideo'  :class='["bc-ps-r"]'>
 							<div class="prism-player video"  v-if='haveVideo' id="J_prismPlayer">
 							</div>
-							<span v-if='videoEnd' class='bc-ps-a videoEnd'>直播已结束</span>
+							<span v-if='videoEnd' class='bc-f-12rp bc-ps-a bc-t-white videoEnd'>直播已结束</span>
 						</div>
 					
 
@@ -78,7 +77,7 @@
 		<template slot='other'>
 			<!--底部发送-->
 			<div v-if='haveVideo && tabNum != 2' class='send_wrap bc-ps-f bc-pd-lr-15rp bc-pd-tb-10rp  bc-flex bc-flex-ai-c bc-bg-white'>
-				<textarea id='chatContent' class='bc-mg-lr-15rp bc-flex-1' v-model="textareaVal" :rows='textareaRow' @focus="textareaRow = 2" @blur="textareaRow = 1" placeholder='来说点什么'></textarea>
+				<textarea id='chatContent' class='bc-mg-lr-15rp bc-flex-1' v-model="textareaVal" :rows='textareaRow'  @focus="textareaFocus" @blur="textareaBlur" placeholder='来说点什么'></textarea>
 				<div class='sendBtn bc-t-white bc-t-c' @click='send'>发送</div>
 			</div>
 		</template>
@@ -117,7 +116,7 @@
 				},
 				userInfoId: -1,
 				resVideo: {},
-				player: {},
+				player: null,
 				haveVideo: true,
 				tabNum: 1,
 				videoEnd:false,
@@ -134,7 +133,7 @@
 				socket: {}, //储存websocket对象
 				textareaVal: "",//发的信息
 				diffTime: 0,
-
+				hiddenVideo:true,
 			}
 		},
 		computed: {
@@ -143,6 +142,22 @@
 			// }
 		},
 		methods: {
+			textareaFocus(){
+				this.textareaRow = 2;
+				if(this.player) {
+					let player = this.player.player;
+					this.player.player.pause();
+				}
+				this.hiddenVideo = false;  //隐藏
+			},
+			textareaBlur(){
+				this.textareaRow = 1;
+				if(this.player){
+					let player = this.player.player;
+						this.player.player.play()
+				};
+				this.hiddenVideo = true;  //显示
+			},
 			video_tab(num) {
 				this.tabNum = num
 			},
@@ -277,7 +292,7 @@
 			},
 			videoPlay_init(video) {
 				let that = this;
-				let player = new VideoPlayer({
+				this.player = new VideoPlayer({
 					id: 'J_prismPlayer',
 					autoplay: video.isLive,
 					isLive: video.isLive,
@@ -297,6 +312,7 @@
 					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
 					//x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 					cover: video.cover,
+					useHlsPluginForSafari:true, //Safari浏览器可以启用Hls插件播放，Safari 11除外
 					
 					// "skinLayout": [  //取消错误显示样式
 					// 	{
@@ -438,7 +454,10 @@
 						}
 					],
 					vue_this:that
+				},function(player) {
+					player.play();
 				});
+
 			},
 			//获取视频详情
 			getVideoDetail() {
@@ -493,6 +512,10 @@
 
 <style lang='scss' scoped>
 	.wap {
+		.hidden_video{
+			visibility: hidden;
+			height: 0;
+		}
 		.videoEnd{
 			top: 0px;
 			bottom: 0px;
@@ -504,6 +527,8 @@
 			height: 25px;
 			text-align: center;
 			line-height: 25px;
+			background: rgba(0,0,0,.7);
+			border-radius: rem(12);
 		}
 		.videoHeight{
 			width: 100%;

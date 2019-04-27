@@ -2,7 +2,7 @@
 	<bv-home-view class='wap' :router-level='4' style='background-color: #f4f4f4;'>
 		<w-home-header :header="{
 			title:{
-				value:showInfo.name
+				value: showInfo.name
 			}
 		}"></w-home-header>
 

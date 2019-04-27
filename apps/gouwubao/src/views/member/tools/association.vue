@@ -1,10 +1,22 @@
 <!-- 社群 -->
 <template>
-	<bv-home-view :router-level="3" style="background-color: #f4f4f4;">
+	<bv-home-view :router-level="3"  :style="load.data.lists.length === 0 ? `background-color: white;` : `background-color: #f4f4f4;`">
 
 		<bv-header :header="{title:{value:'我的社群'}}"/>
 
 		<div class="bc-row bc-f-16rp">
+
+			<div class="bc-row bc-t-c bc-pd-tb-30rp" v-if="load.data.lists.length === 0">
+				<div class="bc-row">
+					<img :src="`${staticPath}/wechat.png`" class="bc-w-40">
+				</div>
+				<div class="bc-row bc-f-b bc-f-18rp bc-t-333 bc-pd-t-15rp">
+					温馨提示
+				</div>
+				<div class="bc-row bc-t-999 bc-pd-t-8rp">
+					您绑定的创客还未创建社群
+				</div>
+			</div>
 
 			<ul class="bc-reset-ul">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
@@ -63,6 +75,11 @@
         }).catch(() => {
           return scrollEndHook.call(this);
         });
+      }
+    },
+    computed:{
+      staticPath(){
+        return `${this.config.path.static}/img/member/components/tools`
       }
     }
   }

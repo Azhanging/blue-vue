@@ -15,7 +15,7 @@ const routes = [
   industry,   //产业链
   grow,       //成长系统
   ecosystem,  //生态圈
-  lifeNav,    //生命导航
+  lifeNav,    //生活导航
   students,    //学员后台
   errorPage   //错误页
 ];

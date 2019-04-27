@@ -25,13 +25,13 @@ export function routerBeforeEach(opts = {}) {
       from
     });
 
-    //检查重定向参数
     routerNext.add([
+      //检查重定向参数
       serverRedirect()
     ]);
 
-    //项目内使用的before each
     routerNext.add([
+      //项目内使用的before each
       utils.hook(null, beforeEach, [to, from]),
       //公共的after hook
       routerBeforeHook({
@@ -57,7 +57,7 @@ export function routerBeforeEach(opts = {}) {
 export function routerBeforeHook(opts) {
   const routerNext = new RouterNext(opts);
   routerNext.add([
-    //绑定相关
+    //绑定相关（暂时不适用这套业务）
     bind(opts)
   ]);
   return routerNext.nextStatus();

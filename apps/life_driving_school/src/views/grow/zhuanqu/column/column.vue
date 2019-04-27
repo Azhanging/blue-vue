@@ -3,7 +3,7 @@
 
 		<w-home-header :header="{
 			title:{
-				value:this.title
+				value: title
 			}
 		}"></w-home-header>
 

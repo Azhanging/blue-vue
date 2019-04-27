@@ -171,7 +171,7 @@
 								duration: 3000
 							},);
 							setTimeout(()=>{
-								this.$router.go(0)
+								location.reload();
 							},3000)
 						}
 					}

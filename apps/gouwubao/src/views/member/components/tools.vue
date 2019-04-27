@@ -20,11 +20,11 @@
 
 		<bv-transition transition-name="opacity">
 			<bv-layer :show-status="showStatus" @click="!config.device.isApp && (showStatus = false)" class="bc-t-c">
-				<div class="bc-row bc-t-r bc-pd-tb-2rp" style="width: 21rem;">
+				<div class="bc-row bc-t-r bc-pd-tb-2rp" style="width: 16rem;">
 					<i class="icon icon-close bc-t-white bc-f-18rp" @click="showStatus = false"></i>
 				</div>
 				<div class="bc-row">
-					<img :src="shareImg" class="bc-w-90">
+					<img :src="shareImg" class="bc-w-90" @click.stop>
 				</div>
 
 				<div class="bc-row bc-t-white bc-t-c bc-pd-tb-10rp" v-if="!config.device.isApp">

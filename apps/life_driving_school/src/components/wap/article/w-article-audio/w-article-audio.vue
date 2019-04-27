@@ -128,7 +128,7 @@ export default {
 
 <style scoped lang="scss">
 	.audio-bg-img {
-		height: rem(210);
+		height: rem(210)!important;
 	}
 	.audioImg {
 		background: url($base-url + '/img/home/audio_play.png') no-repeat;

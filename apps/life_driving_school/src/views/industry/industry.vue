@@ -4,7 +4,7 @@
 
 		<w-home-header :header="{
 			title:{
-				value: '生命导航'
+				value: '生活导航'
 			}
 		}" :type=0>
 			<div slot="right-control">
@@ -19,11 +19,11 @@
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp" style="background: #fff">
 			<div class='bc-flex bc-flex-ai-c '>
-				<div class="bc-flex-1">
-					<a href="/" class="bc-t-666">首页</a>
+				<div class="bc-flex-1 ">
+					<a href="/" class="bc-t-666 bc-f-14rp">首页</a>
 				</div>
 				<div class="bc-flex-1" v-for="(item, index) in nav" :key="index">
-					<a :class="[index !== 1 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block']" @click="routerTo(item) "
+					<a :class="[index !== 1 ? 'bc-t-666' : 'active','bc-pd-tb-9rp','bc-inline-block', 'bc-f-16rp']" @click="routerTo(item) "
 					   v-if="item.name"
 					>
 						{{item.name}}

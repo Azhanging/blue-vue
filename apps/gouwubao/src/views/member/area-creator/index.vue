@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='bc-bg-f4f' :router-level='2' v-if='resData'>
 		
-		<bv-header :header="{title:{value:'创客渠道办公室'}}"/>
+		<bv-header :header="{title:{value:resData.level + '办公室'}}"/>
 		
 		<!--办公室个人信息,样式1-->
 		<officePersonal :personalData='resData' :type='1'></officePersonal>

@@ -30,7 +30,7 @@
 					<img :src="`${staticPath}/banner-2.png`" class="bc-w-100">
 				</div>
 
-				<div class="bc-row bc-ps-a" style="bottom:4rem;">
+				<div class="bc-row bc-ps-a" style="bottom:4rem;" v-if="!(config.device.isApp && config.device.isIPhone)">
 					<template v-if="$store.getters.isLogin">
 						<router-link to="/member/creator" v-if="isCreator">
 							<!-- 是创客 -->
@@ -62,10 +62,6 @@
 			</div>
 
 			<div class="bc-row bc-v-t bc-pd-lr-15rp">
-				<div class="bc-row bc-mg-t-20rp bc-bd-radius-6" style="border:1px solid #CDA47D;">
-					<img :src="`${staticPath}/banner-3.png`" class="bc-w-100">
-					<img :src="`${staticPath}/banner-4.png`" class="bc-w-100">
-				</div>
 
 				<div class="bc-row bc-bg-white bc-bd-radius-6 bc-mg-t-20rp" style="border:1px solid #CDA47D;">
 					<div class="bc-row">
@@ -78,15 +74,15 @@
 						<img :src="`${staticPath}/banner-7.png`" alt="" class="bc-w-100"/>
 					</div>
 					<div class="bc-t-c bc-mg-tb-10rp bc-pd-lr-20rp">
-						<div id="video" class="prism-player video"></div>
+						<div id="creatorVideo" class="prism-player video"></div>
 					</div>
 				</div>
 
 			</div>
 		</div>
 
-		<template slot="other">
-			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;">
+		<template slot="other" v-if="!(config.device.isApp && config.device.isIPhone)">
+			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;">
 
 				<!-- 没有登录 -->
 				<template v-if="$store.getters.isLogin">
@@ -161,7 +157,7 @@
         this.$axios.get('/api/video/index').then((res) => {
           const { data } = res.data;
           new AliVideoPlayer({
-            id: 'video',
+            id: 'creatorVideo',
             vid: data.videoId,
             height: '170px',
             playauth: data.playauth,
@@ -199,7 +195,7 @@
 		left: 50%;
 		transform: translateX(-50%);
 		width: 80%;
-		height: rem(30);
+		height: rem(27);
 		background-size: 100% 100%;
 	}
 </style>

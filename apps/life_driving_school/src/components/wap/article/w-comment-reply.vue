@@ -9,21 +9,21 @@
 					<i class='iconfont icondianping bc-f-20rp '></i>
 					<input class="bc-input bc-bd-none bc-bg-e5e bc-w-80" type="text" placeholder="写评论..." v-model="editComment" ref="replyInput">
 				</label>
-				<div class="bc-flex-2 bc-flex">
-					<span class="bc-flex-1 bc-ps-r">
-						<i class='iconfont iconpinglun bc-f-20rp bc-mg-lr-10rp'></i>
+				<div class="bc-flex-2 bc-flex bc-flex-ai-c bc-flex-jc-c">
+					<span class="bc-flex-1 bc-ps-r" @click="custormAnchor" v-if="false">
+						<i class='iconfont iconpinglun bc-f-16rp bc-mg-lr-10rp'></i>
 						<span class="info-num bc-f-10rp bc-pd-lr-3rp" v-if="comment.count>0">{{comment.count}}</span>
 					</span>
 					<span class="bc-flex-1" v-if="btn_contribute">
-						<i class='iconfont iconxingxing bc-f-20rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click="toCollect(isCollect)"></i>
-						<i class='iconfont iconiconfontxingxing bc-f-20rp bc-mg-lr-10rp bc-t-base' v-else @click="toCollect(false)"></i>
+						<i class='iconfont iconxingxing bc-f-16rp bc-mg-lr-10rp' v-if="!comment.article_collection" @click="toCollect(isCollect)"></i>
+						<i class='iconfont iconiconfontxingxing bc-f-16rp bc-mg-lr-10rp bc-t-base' v-else @click="toCollect(false)"></i>
 					</span>
 					<span class="bc-flex-1" v-if="btn_gLink">
-						<i class='iconfont iconzan1 bc-f-20rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click="clickThumb(comment)"></i>
-						<i class='iconfont iconzan bc-f-20rp bc-mg-lr-10rp' v-else @click="clickThumb(comment)"></i>
+						<i class='iconfont iconzan1 bc-f-15rp bc-mg-lr-10rp bc-t-base' v-if="comment.article_fabulous" @click="clickThumb(comment)"></i>
+						<i class='iconfont iconzan bc-f-15rp bc-mg-lr-10rp' v-else @click="clickThumb(comment)"></i>
 					</span>
 					<span class="bc-flex-1" v-if="!config.device.isApp">
-						<i class='iconfont icon- bc-f-20rp bc-mg-lr-10rp' @click="$share(comment.shareInfo)" ></i>
+						<i class='iconfont icon- bc-f-15rp bc-mg-lr-10rp' @click="$share(comment.shareInfo)" ></i>
 					</span>
 				</div>
 			</div>
@@ -92,6 +92,15 @@ export default {
     }
   },
   methods: {
+    custormAnchor() {
+      // 找到锚点
+      let viewElms = document.querySelectorAll('.bv-view-scroll');
+      const currentViewElm = viewElms[viewElms.length - 1];
+      currentViewElm.scrollTop = currentViewElm.querySelectorAll('.comment')[0].offsetTop;
+    },
+
+
+
     submitForm() {
       let newComment;
       let name_url = this.$route.path;// 带路径
@@ -273,8 +282,8 @@ export default {
 		}
 		.info-num {
 			position: absolute;
-			left: rem(23);
-			top: rem(-4);
+			left: rem(19);
+			top: rem(-6);
 			background: #F76872;
 			color: white;
 			border-radius: rem(5);

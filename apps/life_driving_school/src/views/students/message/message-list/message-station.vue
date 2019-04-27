@@ -16,8 +16,7 @@
 					<div class="item-name">
 						{{ item.title }}
 					</div>
-					<div class="item-content">
-						{{ item.content }}
+					<div class="item-content" v-html="item.content">
 					</div>
 					<div class="item-time">
 						{{ item.create_time | timeFilter("Y-M-D") }}

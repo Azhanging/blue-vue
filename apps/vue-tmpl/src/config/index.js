@@ -19,10 +19,7 @@ const config = utils.extend(publicConfig, {
   share: {
     title: "blue-vue-tmpl",
     deps: "blue-vue-tmpl is vue public template",
-    imgUrl: "",
-    link() {
-      return router.getHref();
-    }
+    imgUrl: ""
   }
 });
 

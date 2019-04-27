@@ -14,17 +14,16 @@
 					</div>
 					
 					<!--内容-->
-					<template v-if='textType == "content_one"'>
+					<template v-if='textType == "creator"'>
 						<div class="bc-t-999 bc-f-14rp">
 							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
-								我的会员: 显示您创客下级会员数量
+								我的会员: 显示您创会员数量
 							</div>
 							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
 								招募收益: 您招募创客和VIP获得的收益
 							</div>
 							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
-								商城收益: 您分享产品获得的收益，商城
-								收益不包含待结算收益
+								商城收益: 您分享产品获得的收益，商城收益不包含待结算收益
 							</div>
 						</div>
 					</template>
@@ -35,11 +34,23 @@
 								渠道会员：显示您渠道下级会员数量
 							</div>
 							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
-								商城收益：您分享产品获得的收益，商城
-								收益不包含待结算收益
+								商城收益：您分享产品获得的收益，商城收益不包含待结算收益
 							</div>
 						</div>
 					</template>
+
+					<template v-if='textType == "agent"'>
+						<div class="bc-t-999 bc-f-14rp">
+							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
+								区域会员：显示注册地在您代理区域的会员数量
+							</div>
+							<div class="bc-pd-t-20rp bc-pd-lr-14rp">
+								商城收益：您分享产品获得的收益，商城收益不包含待结算收益
+							</div>
+						</div>
+					</template>
+
+
 					<div class="bc-row bc-t-c bc-mg-t-29rp ">
 						<button
 							type="button"

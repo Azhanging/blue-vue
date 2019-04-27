@@ -66,9 +66,9 @@
 					question:this.$refs.question.value,//问题
 					//phone:store.state.userInfo.id,//联系方式
 				}).then((res)=>{
-					if(res.data.data.status==1011){
+					if(res.data.data.status==1019){
 						$toast({
-							message: '字数不能超过80字符。',
+							message: '字数不能超过500字符。',
 							duration: 3000
 						});
 					}else {

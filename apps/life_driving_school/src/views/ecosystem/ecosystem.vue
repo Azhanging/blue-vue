@@ -3,22 +3,24 @@
 
 		<w-home-header :header='{
             title:{
-                value: this.title
+                value: title
             }
         }' :leftControl="`/`"
 		></w-home-header>
-		<bv-scroll>
-			<swiper :options="swiperOption" ref="swiper">
-				<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
-					<div class="banner-img">
-						<a :href="slide.url">
-							<img :src="slide.src_img">
-						</a>
-					</div>
-				</swiper-slide>
-				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
-			</swiper>
-		</bv-scroll>
+		<div v-if="banner && banner.length > 0">
+			<bv-scroll>
+				<swiper :options="swiperOption" ref="swiper">
+					<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
+						<div class="banner-img">
+							<a :href="slide.url">
+								<img :src="slide.src_img">
+							</a>
+						</div>
+					</swiper-slide>
+					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+				</swiper>
+			</bv-scroll>
+		</div>
 
 		<!--{{ headerTit }}-->
 		<div class="growsystem-tab">
@@ -64,8 +66,13 @@
 					pagination: {
 						el: "#pagination"
 					},
-					loop: true
+					loop: true,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+					},
 				},
+				swiper:{},
 				temp: 0,
 				btn: [
 					{title: '资讯'},
@@ -102,6 +109,9 @@
 					this.tabNav = res.data.data.system
 				})
 			},
+			swiperUpdate() {
+				this.swiper.update();
+			},
 			banner_show() {
 				return this.$axios.get('/api/Banner/index',{
 					params:{
@@ -109,6 +119,10 @@
 					}
 				}).then(res=>{
 					this.banner = res.data.data.banner
+					this.$nextTick(() => {
+						this.swiper = this.$refs['swiper'];
+						this.swiperUpdate();
+					});
 				})
 			}
 		},
@@ -126,6 +140,7 @@
 
 		img {
 			width: 100%;
+			max-height: rem(150);
 			vertical-align: top;
 		}
 	}

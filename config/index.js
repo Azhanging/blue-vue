@@ -51,12 +51,10 @@ const config = {
 
   //公共的分享相关
   share: {
-    title: "blue-vue-tmpl",
-    deps: "blue-vue-tmpl is vue public template",
-    imgUrl: "",
-    link: "" || function (link) {
-      return link;
-    },
+    origin: '',                         //分享的域名
+    title: "blue-vue-tmpl",             //分享的标题
+    deps: "blue-vue-tmpl is vue public template",     //分享的简介
+    imgUrl: "",                         //分享图片
     //分享相关的参数的
     params: {
       phone: 'n',                     //绑定参数

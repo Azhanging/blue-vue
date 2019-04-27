@@ -22,7 +22,7 @@
 		</office-header>
 
 		<!-- 统计 -->
-		<statistics  :textType='"content_one"' />
+		<statistics  :textType='"agent"' />
 
 		<!-- 我的会员 -->
 		<statistics-item v-if="pageData.area_member" class="bc-bd-b-e5e" :options="{

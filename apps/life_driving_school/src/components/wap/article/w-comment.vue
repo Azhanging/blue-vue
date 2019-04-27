@@ -3,7 +3,7 @@
 		<ul class="bc-reset-ul" v-if="comment.list && comment.list.length>0">
 			<li v-for="(item, index) in comment.list" :key="index">
 				<div class="bc-flex bc-flex-jc-s bc-flex-ai-s bc-t-c bc-pd-tb-15rp" v-if="item">
-					<div class="bc-flex-2">
+					<div class="bc-flex-2 bc-t-c">
 						<img class="avatar" :src="item.head_img" alt="头像">
 					</div>
 					<div class="bc-flex-7 bc-f-14rp bc-t-l">
@@ -62,14 +62,14 @@
 			</li>
 		</ul>
 
-		<div class="reply bc-ps-f bc-w-100 bc-t-c " style="left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.2);z-index:20000;" v-if="whetherReplyMask" @click="cancelWhetherRepayMask">
+		<div class="reply bc-ps-f bc-w-100 bc-t-c" style="left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.2);z-index:20000!important;" v-if="whetherReplyMask" @click="cancelWhetherReplyMask">
 			<div class="bc-ps-a bc-bg-white bc-w-100" style="left:0;bottom:0;">
 				<div class="bc-bd-b-e5e bc-pd-tb-10rp" @click.stop="confirmReply">回复</div>
 				<div class="bc-pd-tb-10rp" @click.stop="cancelReply">取消</div>
 			</div>
 		</div>
 
-		<div class="reply bc-ps-f bc-w-100 bc-t-c " style="left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.2);z-index:20000;" v-if="whetherDeleteMask" @click="cancelWhetherDeleteMask">
+		<div class="reply bc-ps-f bc-w-100 bc-t-c " style="left:0;right:0;top:0;bottom:0;background:rgba(0,0,0,.2);z-index:20000!important;" v-if="whetherDeleteMask" @click="cancelWhetherDeleteMask">
 			<div class="bc-ps-a bc-bg-white bc-w-100" style="left:0;bottom:0;">
 				<div class="bc-bd-b-e5e bc-pd-tb-10rp" @click.stop="confirmDelete">删除</div>
 				<div class="bc-pd-tb-10rp" @click.stop="cancelDelete">取消</div>
@@ -194,6 +194,7 @@
             this.parent_id = item.id;
             this.layer = 2;
             this.whetherDeleteMask = true;
+            this.$emit('hideReply');
           } else if (isMineLayerOne) { // 自己在第一层
             // 自己在第一层(没有回复)
             if (!res) {
@@ -202,27 +203,32 @@
               this.member_id = item.member_id;
               this.layer = 1;
               this.whetherDeleteMask = true;
+              this.$emit('hideReply');
             } else { // 有回复
               if (isReply) {
                 this.whetherReplyMask = true;
+                this.$emit('hideReply');
                 this.isReply = false;
                 // 如果回复的人在第一,二层
                 this.comment.id = item.id;
                 this.comment.commentStatus = commentStatus;
               } else {
                 this.whetherReplyMask = false;
+                this.$emit('showReply');
                 this.isReply = true;
               }
             }
           } else {
             if (isReply) {
               this.whetherReplyMask = true;
+              this.$emit('hideReply');
               this.isReply = false;
               // 如果回复的人在第一,二层
               this.comment.id = item.id;
               this.comment.commentStatus = commentStatus;
             } else {
               this.whetherReplyMask = false;
+              this.$emit('showReply');
               this.isReply = true;
             }
           }
@@ -231,22 +237,27 @@
           this.whetherReplyMask = false;
           this.isReply = true;
 	        this.comment.commentStatus = 1;
-	        this.$emit('replyFocus')
+	        this.$emit('replyFocus');
+          this.$emit('showReply');
         },
         cancelReply() {
           this.whetherReplyMask = false;
+          this.$emit('showReply');
           this.isReply = true;
         },
-        cancelWhetherRepayMask() {
+        cancelWhetherReplyMask() {
           this.whetherReplyMask = false;
+          this.$emit('showReply');
           this.isReply = true;
         },
         cancelWhetherDeleteMask() {
           this.whetherDeleteMask = false;
+          this.$emit('showReply');
         },
         confirmDelete() {
           const { commentParams } = this.opts.data;
           this.whetherDeleteMask = false;
+          this.$emit('hideReply');
           this.$messageBox({
             message: '是否删除该评论？',
             title: '提示',
@@ -289,24 +300,28 @@
                     message: '删除成功!',
                     iconClass: 'iconfont iconchenggong bc-t-success'
                   });
+                  this.$emit('showReply');
                 } else if (code === 1010) {
                   this.$toast({
                     message: '删除失败!',
                     iconClass: 'iconfont iconfail bc-t-warning'
                   });
                 }
+
               }).catch(err => {
                 console.log(err);
               });
             }
           }).catch(err => {
             if (err === 'cancel') {     //取消的回调
-              console.log('cancel');
+              this.$emit('showReply');
             }
+
           });
         },
         cancelDelete() {
           this.whetherDeleteMask = false;
+          this.$emit('showReply');
         }
       },
       computed: {
@@ -320,6 +335,7 @@
 <style scoped lang="scss">
 	.comment {
 		.avatar {
+			display: inline-block;
 			width: rem(38);
 			height: rem(38);
 			border-radius: 50%;

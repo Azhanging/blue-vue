@@ -1,7 +1,7 @@
 <template>
-	<w-home-header :header='header'>
+	<w-home-header :header='header' :leftControl="leftControl">
 
-		<w-home-nav  :nav='nav' :defaultParams_key='"classId"' :otherParams='{grow_id:$route.params.grow_id}' :active-index='growIndex'>
+		<w-home-nav  :nav='nav' :defaultParams_key='"classId"' :otherParams='{grow_id:$route.params.grow_id}' :active-index='$route.params.classId'>
 
 		</w-home-nav>
 		<slot name='second_tab'></slot>
@@ -13,7 +13,11 @@
 
 	export default {
 		props:{
-			growIndex:0,
+			//左边控制
+			leftControl: {
+				default: '',
+				type: String
+			},
 			otherParams:{},
 
 		},

@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style='background-color: #f4f4f4;'>
 
-		<growTab :growIndex='3'>
+		<growTab>
 			<template slot='second_tab'>
 				<div  class='bc-flex bc-flex-jc-sa sec-tab bc-bd-b-e5e'>
 					<p v-for='(item,index) in second_tab' @click='secTab(index,item.id)' :class='index == tab_idx?"sec-active":""'>

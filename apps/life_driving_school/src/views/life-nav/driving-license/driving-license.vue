@@ -1,8 +1,8 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
-		<life_nav_tab :growIndex='1' :title='{
+		<life_nav_tab :title='{
             title:{
-                value: "生命导航"
+                value: "生活导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
 
@@ -146,6 +146,13 @@
 				this_level: 0,
 				this_id:'',
 				top_progressData:''
+			}
+		},
+		watch:{
+			$route(to, from) {
+				if(from.path != '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id){
+					this.item_progress();
+				}
 			}
 		},
 		methods: {

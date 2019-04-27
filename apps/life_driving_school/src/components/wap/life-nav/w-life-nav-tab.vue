@@ -1,6 +1,6 @@
 <template>
 	<w-home-header :header='title' :leftControl="leftControl">
-		<w-home-nav  :nav='nav' :otherParams='{nav_id:$route.params.nav_id}' :active-index='growIndex'></w-home-nav>
+		<w-home-nav  :nav='nav' :otherParams='{nav_id:$route.params.nav_id}' :active-index='$route.params.id'></w-home-nav>
 	</w-home-header>
 </template>
 
@@ -13,7 +13,6 @@
 				default: '',
 				type: String
 			},
-			growIndex:0,
 			title:'',
 			otherParams:{}
 		},

@@ -18,6 +18,8 @@
 				:opts="opts"
 				:comment="comment"
 				@replyFocus='replyFocus'
+				@hideReply="hideReply"
+				@showReply="showReply"
 			></w-comment>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">

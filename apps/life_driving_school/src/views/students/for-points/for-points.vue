@@ -10,11 +10,11 @@
 		</w-home-header>
 
 		<div class="integral-item">
-			<div class="integral-title">生命驾校</div>
+			<div class="integral-title">生活导航</div>
 			<div class="integral-box">
 				<div class="integral-list">1.每日签到获得积分。</div>
 				<div class="integral-list">2.邀请好友并且成功绑定手机号，获得<span>30</span>积分。</div>
-				<div class="integral-list">3.资讯、精选短课、生态圈、生命导航资讯，内容转发，每次获得<span>3</span>积分。(每日前三次有效)</div>
+				<div class="integral-list">3.资讯、精选短课、生态圈、生活导航资讯，内容转发，每次获得<span>3</span>积分。(每日前三次有效)</div>
 				<div class="integral-list">4.每天第一次完成未学习的驾照课程,获得<span>10</span>积分。</div>
 				<div class="integral-list">5.每阅读完一本驾校书籍，获得<span>30</span>积分。</div>
 				<div class="integral-list">6.每通过一阶段的驾照课程测试，获得<span>20</span>积分。</div>
@@ -38,7 +38,7 @@
 				产品。
 			</div>
 			<div class="integral-but-tag">
-				<a href="https://jifu.dtb315.com/carbon/liangxinzao">立即前往 <i class="iconfont icon-jiantou"></i></a>
+				<a @click="to_integral()">立即前往 <i class="iconfont iconyou"></i></a>
 			</div>
 		</div>
 
@@ -46,8 +46,14 @@
 </template>
 
 <script>
+	import programUrl from '@config/program-url'
 	export default {
-		name: "for-points"
+		name: "for-points",
+		methods:{
+			to_integral(){
+				location.href = programUrl['gou-wu-bao']+'/home/Commentmall/index'
+			}
+		}
 	}
 </script>
 

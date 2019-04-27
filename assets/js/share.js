@@ -6,62 +6,36 @@ import { Base64 } from 'js-base64';
 import { $toast } from '$use-in-vue/mint-ui/toast/index'
 
 //分享的url可能是动态需要的配置，可以为String或者Function
-export function shareLink(opts = {}) {
-  //获取的link 配置 -> 默认分享 -> 当前页面
-  const link = opts.link || config.share.link || router.getHref();
-  if (utils.isStr(link)) {
-    return shareLinkParams(link);
-  } else if (utils.isFunction(link)) {
-    return shareLinkParams(utils.hook(null, link));
-  }
+export function shareLink() {
+  //分享的域名配置
+  const shareOrigin = config.share.origin || config.path.base;
+  return `${shareOrigin}/?${shareLinkParams()}`;
 }
 
 //扩展分享链接参数
-function shareLinkParams(link) {
-  //分享的链接
-  let shareLink = '';
+function shareLinkParams() {
+
   const share = config.share;
   const shareParams = share.params;
-
   //用户手机号
   const phone = store.state.userInfo.phone;
 
-  if (false) {
+  const fullPath = (() => {
+    const mode = router.mode;
+    if (mode === 'history') {
+      return router.currentRoute.fullPath;
+    } else if (mode === 'hash') {
+      return `/#${router.currentRoute.fullPath}`;
+    }
+  })();
 
-    const origin = link.split('?')[0];
+  const params = {
+    [shareParams.phone]: phone ? Base64.encode(phone) : '',
+    [shareParams.redirectUrl]: fullPath,
+    [shareParams.wantUrl]: `${config.path.indexPath}${fullPath}`     //业务需要，添加跳转链接
+  };
 
-    //路径中的query
-    const linkQuery = utils.parseParams(utils.getLinkParams(link));
-
-    //默认扩展手机号参数
-    const resultLink = utils.extend(linkQuery, {
-      [shareParams.phone]: phone ? Base64.encode(phone) : ''
-    });
-
-    shareLink = `${origin}?${utils.stringifyParams(resultLink)}`;
-
-  } else {
-
-    const fullPath = (() => {
-      const mode = router.mode;
-      if (mode === 'history') {
-        return router.currentRoute.fullPath;
-      } else if (mode === 'hash') {
-        return `/#${router.currentRoute.fullPath}`;
-      }
-    })();
-
-    const params = {
-      [shareParams.phone]: phone ? Base64.encode(phone) : '',
-      [shareParams.redirectUrl]: fullPath,
-      [shareParams.wantUrl]: `${config.path.indexPath}${fullPath}`     //业务需要，添加跳转链接
-    };
-
-    shareLink = `${config.path.base}/?${utils.stringifyParams(params)}`;
-
-  }
-
-  return shareLink;
+  return utils.stringifyParams(params);
 
 }
 
@@ -78,7 +52,7 @@ export function share(opts) {
         descr: opts.descr || shareConfig.deps,
         thumImage: opts.thumImage || shareConfig.imgUrl,
         shareUrl: shareLink({
-          link: opts.shareUrl || shareConfig.link
+          link: opts.shareUrl
         })
       }));
     } catch (e) {

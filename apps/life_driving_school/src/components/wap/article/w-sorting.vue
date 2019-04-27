@@ -1,18 +1,20 @@
 <template>
 	<div class='bc-flex bc-pd-10rp sorting bc-flex-ai-c'>
-		<span @click='default_sel' class='bc-mg-r-30rp bc-pd-5rp bc-bg-white' :class='allSel.isRecommend?"bc-t-base":""'>默认</span>
+		<p @click='default_sel' class='bc-mg-r-30rp bc-pd-lr-8rp bc-pd-tb-5rp bc-bg-white' :class='allSel.isRecommend?"bc-t-base":""'>
+			默认
+		</p>
 		<div class='bc-bg-white bc-mg-r-30rp sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='pl_time'>
-				时间
-				<span :class='allSel.isTime===1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
-				<span :class='allSel.isTime===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
+				<p>时间</p>
+				<span  :class="['up','iconfont','iconxiangshang2',allSel.isTime===1?'bc-t-base':'']"></span>
+				<span  :class="['down','iconfont','iconxiangxia2',allSel.isTime===2?'bc-t-base':'']"></span>
 			</div>
 		</div>
 		<div class='bc-bg-white sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='scan'>
-				浏览量
-				<span :class='allSel.isScan===1?"bc-t-base up iconfont iconxiangshang":"iconfont up iconxiangshang"'></span>
-				<span :class='allSel.isScan===2?"bc-t-base down iconfont iconxiangxia":"iconfont down iconxiangxia"'></span>
+				<p>浏览量</p>
+				<span :class="['up','iconfont','iconxiangshang2',allSel.isTime===1?'bc-t-base':'']" ></span>
+				<span :class="['down','iconfont','iconxiangxia2',allSel.isTime===2?'bc-t-base':'']"></span>
 			</div>
 		</div>
 	</div>
@@ -83,21 +85,25 @@
 	@import '@css/index.scss';
 	.sorting{
 		border-bottom: 1px #eee solid;
+		p{
+			margin-top: 0;
+			margin-bottom: 0;
+		}
 		.iconfont{
-			font-size: rem(12);
+			font-size: rem(14);
 		}
 		.up{
 			position: absolute;
-			right: rem(-20);
-			top: rem(-1);
+			right: rem(-22);
+			top: rem(-3);
 		}
 		.down{
 			position: absolute;
-			right: rem(-20);
-			top: rem(6);
+			right: rem(-22);
+			top: rem(4);
 		}
 		.sort_bg{
-			padding: rem(5) rem(20) rem(5) rem(5);
+			padding: rem(5) rem(20) rem(5) rem(8);
 		}
 	}
 </style>

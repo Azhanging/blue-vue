@@ -48,8 +48,8 @@ function getChildren(opts = {}) {
 const subMenuIcon = {
   direction: 'left',
   style: 'font-size:7px;',
-  font: `iconfont iconsanhengxian`,
-  activeFont: `iconfont iconsanhengxian`
+  // font: `iconfont iconsanhengxian1`,
+  // activeFont: `iconfont iconsanhengxian1`
 };
 
 const homeTabBar = {
@@ -57,14 +57,14 @@ const homeTabBar = {
     items: [{
       content: {
         value: '首页',
-        fontSize: 13
+        fontSize: 15
       },
       className: 'bc-pd-tb-17 bc-bd-r-e5e',
       to: '/'
     }, {
       content: {
         value: '三大系统',
-        fontSize: 11
+        fontSize: 13
       },
       icon: subMenuIcon,
       className: 'bc-pd-tb-17 bc-bd-r-e5e',
@@ -78,41 +78,45 @@ const homeTabBar = {
 		        location.href = programUrl['ji-fu-bao'];  //跳到积福宝
 	        }
         }
-        // , {
-        //   value: '收获系统',
-        //   to: '/'
-        // }
+        , {
+          value: '收获系统',
+          to() {
+            this.$toast({
+              message: '敬请期待！'
+            })
+          }
+        }
         ]
       })
     }, {
       content: {
-        value: '五本驾照',
-        fontSize: 11
+        value: '五个导航',
+        fontSize: 13
       },
       icon: subMenuIcon,
       className: 'bc-pd-tb-17 bc-bd-r-e5e',
       children: getChildren({
         items: [{
-          value: '健康驾照',
+          value: '健康导航',
           to: '/life-nav/32'
         }, {
-          value: '心灵驾照',
+          value: '心灵导航',
           to: '/life-nav/33'
         }, {
-          value: '财富驾照',
+          value: '财富导航',
           to: '/life-nav/34'
         }, {
-          value: '婚姻驾照',
+          value: '婚姻导航',
           to: '/life-nav/35'
         }, {
-          value: '育子驾照',
+          value: '育子导航',
           to: '/life-nav/36'
         }]
       })
     }, {
       content: {
         value: '购物宝',
-        fontSize: 11
+        fontSize: 13
       },
       className: 'bc-pd-tb-17 bc-bd-r-e5e',
       to() {
@@ -121,7 +125,7 @@ const homeTabBar = {
     }, {
       content: {
         value: '我的',
-        fontSize: 11
+        fontSize: 13
       },
       children: getChildren({
         items: [{

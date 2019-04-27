@@ -17,7 +17,7 @@
 						<div class="bc-pd-tb-5rp">会员生效时间: {{item.start_time}}</div>
 						<div class="bc-pd-tb-5rp">会员到期时间: {{item.end_time}}</div>
 						<div class="bc-pd-tb-5rp">购买时间: {{item.create_time}}</div>
-						<div class="bc-pd-tb-5rp">订单编号: {{item.out_trade_no}}</div>
+						<div class="bc-pd-tb-5rp" v-if="item.out_trade_no">订单编号: {{item.out_trade_no}}</div>
 					</div>
 					<div class="bc-flex-1" v-if="item.pay_type == 0">
 						<img :src="`${staticPath}/free-icon.png`" class="bc-w-100"/>

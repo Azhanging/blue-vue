@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view class='wap' :router-level='3'>
-		<life_nav_tab :growIndex='3' :title='{
+		<life_nav_tab :title='{
             title:{
                 value: "健康导航"
             }
@@ -82,6 +82,8 @@
 							:opts="opts"
 							:comment="comment"
 							@replyFocus='replyFocus'
+							@hideReply="hideReply"
+							@showReply="showReply"
 						></w-comment>
 						<template slot="load-down">
 							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">

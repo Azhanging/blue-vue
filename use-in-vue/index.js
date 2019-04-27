@@ -33,7 +33,6 @@ import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
 
 // 注：
 // 修改过两个对应的插件
-// npm install 后，使用前从components/vue-picture-preview/index复制到node_modules指定的包中
 // npm install 后，使用前从components/vue-upload-component/vue-upload-component.js复制到node_modules指定的包中
 // 具体查看包的package主入口使用
 

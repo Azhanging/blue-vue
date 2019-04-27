@@ -3,9 +3,9 @@
     <w-home-header :header='{
     
             title:{
-                value: this.fitness_info
+                value: fitness_info
             }
-        }'></w-home-header>
+        }' :leftControl='"/life-nav/"+this.$route.params.nav_id+"/driving-license/"+this.$route.params.id' ></w-home-header>
 
     <div class="fitness-test-box">
 
@@ -117,6 +117,11 @@
         return this.$axios.post('/api/examination/question', {
           record_id:this.$route.params.record_id
         }).then((res) => {
+          if(res.data.data.list==''){
+            this.$router.push({
+              path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id,
+            })
+          }
           //console.log(res)
           this.thisSwiper = res.data.data.record_info.step-1 //答到了第多少道
           this.fitness_list=res.data.data.list
@@ -154,21 +159,34 @@
         this.$axios.post('/api/examination/submit', {
           record_id:this.$route.params.record_id
         }).then(res=> {
-          if(this.thisSwiper+1>=this.fitness_list.length){
-            this.$router.push({
-              path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id +'/test-results/'+this.$route.params.record_id,
-              params:{
-                record_id:this.$route.params.record_id
-              }
-            })
-          }else {
+          let status= res.data.data.status;
+          if(status == 1017){
             $toast({
               message: '请答完所有问题再提交',
               duration: 3000
             });
-            return;
+            return
           }
-
+          if(status == 1010){
+            $toast({
+              message: '参数错误',
+              duration: 3000
+            });
+            setTimeout(()=>{
+              this.$router.push({
+                path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id,
+                params:{
+                  record_id:this.$route.params.record_id
+                }
+              })
+            },3000)
+          }
+          this.$router.push({
+            path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id +'/test-results/'+this.$route.params.record_id,
+            params:{
+              record_id:this.$route.params.record_id
+            }
+          })
         })
       }
     },

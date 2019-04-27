@@ -19,9 +19,9 @@ const programUrl = (() => {
   } else {
     return {
       'gou-wu-bao': 'https://www.dtb315.com',
-      'life-school': 'https://jiaxiao.dtb315.com ',
-      'fu-wu-tong': 'http://fuwu.dtb315.com',
-	    'ji-fu-bao':'http://jifu.dtb315.com',
+      'life-school': 'https://jiaxiao.dtb315.com',
+      'fu-wu-tong': 'https://fuwu.dtb315.com',
+	    'ji-fu-bao':'https://jifu.dtb315.com',
     }
   }
 })();

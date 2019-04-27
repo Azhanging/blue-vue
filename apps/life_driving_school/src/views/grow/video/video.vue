@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
 		
-		<growTab :growIndex='1' :nav='college_list.system'></growTab>
+		<growTab :nav='college_list.system'></growTab>
 		
 		<div class='bc-bg-white'>
 			<bv-scroll>

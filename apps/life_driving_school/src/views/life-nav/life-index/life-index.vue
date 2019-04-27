@@ -1,27 +1,28 @@
 <template>
 	<bv-home-view class='wap' :router-level='2' style="background: #f4f4f4">
 
-		<life_nav_tab :growIndex='0' :title='{
+		<life_nav_tab :title='{
             title:{
-                value: "生命导航"
+                value: "生活导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
-
-
-
-		<bv-scroll>
-			<swiper :options="swiperOption" ref="swiper">
-				<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
-					<a :href="slide.url" target="_blank"></a>
-					<div class="life-nav-banner">
-						<a :href="slide.url">
-							<img :src="slide.src_img">
-						</a>
-					</div>
-				</swiper-slide>
-				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
-			</swiper>
-		</bv-scroll>
+		
+		<div v-if="banner && banner.length > 0">
+			<bv-scroll>
+				<swiper :options="swiperOption" ref="swiper">
+					<swiper-slide v-for="(slide, index) in banner" :key="index"><!--:to="{path:'driving-license/fitness-test'+'?record_id='+slide.id}"-->
+						<a :href="slide.url" target="_blank"></a>
+						<div class="life-nav-banner">
+							<a :href="slide.url">
+								<img :src="slide.src_img">
+							</a>
+						</div>
+					</swiper-slide>
+					<div class="swiper-pagination" id="pagination" slot="pagination"></div>
+				</swiper>
+			</bv-scroll>
+		</div>
+		
 
 		<div class="life-nav-icon">
 			<div class="life-nav-icon-li">
@@ -85,8 +86,13 @@
 					pagination: {
 						el: "#pagination"
 					},
-					loop: true
+					loop: true,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+					},
 				},
+				swiper:{},
 				life_nav:{},
 				banner:''
 			}
@@ -97,6 +103,9 @@
 			}
 		},
 		methods: {
+			swiperUpdate() {
+				this.swiper.update();
+			},
 			banner_show() {
 				return this.$axios.get('/api/Banner/index',{
 					params:{
@@ -104,7 +113,11 @@
 					}
 				}).then(res=>{
 					//console.log(res)
-					this.banner = res.data.data.banner
+					this.banner = res.data.data.banner;
+					this.$nextTick(() => {
+						this.swiper = this.$refs['swiper'];
+						this.swiperUpdate();
+					});
 				})
 			},
 			api() {
@@ -157,6 +170,7 @@
 		img {
 			width: 100%;
 			vertical-align: top;
+			max-height: rem(150);
 		}
 	}
 

@@ -4,13 +4,12 @@
             title:{
                 value: "学员中心"
             }
-        }'
-
+        }' :leftControl="`/`"
 		>
 			<div slot="right-control">
 				<div class="bc-t-r">
 					<router-link to="/students/message">
-						<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base bc-ps-r dot-box'><span v-if="this.show_mes"></span></i>
+						<i class='iconfont iconxiaoxi bc-mg-r-10rp bc-t-base bc-ps-r dot-box'><span v-if="show_mes"></span></i>
 					</router-link>
 				</div>
 			</div>
@@ -19,7 +18,7 @@
 		<div class="students-top">
 			<div class="students-top-box">
 				<div class="students-top-box-l">
-					<a href="https://pc.dtb315.cn/common/weixinshaoma.html">
+					<a @click="to_sm()">
 						<div class="students-top-box-img"><img :src="userInfo.head_img"></div>
 						<div class="students-top-box-ewm iconfont iconico"></div>
 					</a>
@@ -82,7 +81,7 @@
 					<div>我要投稿</div>
 				</router-link>
 			</div>
-			<div class="students-icon-item">
+			<div class="students-icon-item" @click="btn_show()">
 				<img :src="`${config.path.static}/img/students/yaoqinghaoyou@2x.png`"/>
 				<div>邀请好友</div>
 			</div>
@@ -95,11 +94,11 @@
 					<i class="iconfont iconyou"></i>
 				</div>
 			</router-link>
-			<div class="students-list-box">
+			<div class="students-list-box" @click="btn_show()">
 				<div class="students-list-title">线下课程</div>
 				<i class="iconfont iconyou"></i>
 			</div>
-			<div class="students-list-box">
+			<div class="students-list-box" @click="btn_show()">
 				<div class="students-list-title">微信社群</div>
 				<i class="iconfont iconyou"></i>
 			</div>
@@ -121,6 +120,8 @@
 
 <script>
 	import router from '@router';
+	import programUrl from '@config/program-url'
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "students",
 		data() {
@@ -131,6 +132,13 @@
 				})(),
 				progress_Data:'',
 				show_mes: ''
+			}
+		},
+		watch:{
+			$route(to,from){
+				if(from.path != '/students'){
+					this.show_message();
+				}
 			}
 		},
 		computed:{
@@ -160,6 +168,15 @@
 					this.show_mes = res.data.data
 					//console.log(res.data.data)
 				})
+			},
+			to_sm(){
+				location.href = programUrl['gou-wu-bao']+'/common/weixinshaoma.html'
+			},
+			btn_show(){
+				$toast({
+					message: '敬请期待',
+					duration: 3000
+				},);
 			}
 		},
 		mounted() {

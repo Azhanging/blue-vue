@@ -24,19 +24,30 @@
 					<div class="sign-label-time bc-f-16rp" style="color:#CA9F75;">
 						{{sign.time}}
 					</div>
-					<ul class="bc-reset-ul bc-t-c" style="">
+					<ul class="bc-reset-ul bc-t-c head-portrait-list" style="">
 						<li class="bc-inline-block head-portrait-wrap" v-for="(item, index) in sign.member" :key="index" v-if="index <= 5">
 							<img class="head-portrait" :src="item.head_img" alt="头像">
 						</li>
 					</ul>
 					<div class="bc-mg-t-10rp bc-f-12rp bc-t-999" style="" v-if="sign.member">
-						{{sign.member.length}}位用户今日已签到
+						{{sign.sum}}位用户今日已签到
 					</div>
-					<div class="bc-mg-t-20rp bc-pd-lr-29rp">
+					<div class="bc-mg-t-10rp bc-pd-lr-29rp">
 						<div style="border:1px dashed #e5e5e5;"></div>
 					</div>
 
-					<div class="sign-in-progress bc-mg-t-20rp bc-pd-lr-29rp progress bc-flex bc-t-999" v-if="sign.even_time">
+					<div class="bc-row bc-pd-lr-29rp bc-t-999 bc-t-l bc-mg-t-10rp">
+						连续签到：
+					</div>
+
+					<!-- 连续签到送积分 -->
+					<div class="bc-flex bc-pd-lr-29rp bc-f-12rp bc-mg-t-10rp">
+						<div class="bc-flex-1" v-if="sign && sign.even_time" v-for="i in 5">
+							{{sign.integral[sign.even_time[0]+i-1]}}积分
+						</div>
+					</div>
+
+					<div class="sign-in-progress bc-mg-t-10rp bc-pd-lr-29rp progress bc-flex bc-t-999" v-if="sign.even_time">
 						<div class="bc-flex-1 bc-ps-r">
 							<span class="sign-no" v-if="sign.even_time.length<1"></span>
 							<span class="sign-yes" v-else></span>
@@ -183,10 +194,10 @@
 
 			<!--签到生成页面-->
 			<bv-layer :show-status="maskIsShow">
-				<div class="sign-success bc-c-f" @click="closeMask">
+				<div class="sign-success bc-c-f">
 					<div class="label-area bc-ps-r">
 						<canvas id="canvas" v-if="!imgSrc"></canvas>
-						<img id="shareImg" :src="imgSrc" alt="签到生成图片" v-else>
+						<img id="shareImg" :src="imgSrc" alt="签到生成图片" @click.stop="" v-else>
 						<div class="close-icon" @click="closeMask">
 							<img :src="`${config.path.static}/img/home/sign/close_icon.png`" alt="">
 						</div>
@@ -278,7 +289,7 @@
 			padding: rem(63) rem(33) rem(37) rem(33);
 
 			.sign-label-content {
-				height: rem(330);
+				height: rem(360);
 
 				.sign-label-content-day-wrap {
 					transform: translateY(rem(-30));
@@ -302,33 +313,36 @@
 					transform: translateY(rem(-15));
 				}
 
-				.head-portrait-wrap {
-					&:nth-child(2) {
-						transform: translateX(rem(-10)) !important;
-					}
+				.head-portrait-list {
+					transform: translateX(rem(20)) !important;
+					.head-portrait-wrap {
+						&:nth-child(2) {
+							transform: translateX(rem(-10)) !important;
+						}
 
-					&:nth-child(3) {
-						transform: translateX(rem(-20)) !important;
-					}
+						&:nth-child(3) {
+							transform: translateX(rem(-20)) !important;
+						}
 
-					&:nth-child(4) {
-						transform: translateX(rem(-30)) !important;
-					}
+						&:nth-child(4) {
+							transform: translateX(rem(-30)) !important;
+						}
 
-					&:nth-child(5) {
-						transform: translateX(rem(-40)) !important;
-					}
+						&:nth-child(5) {
+							transform: translateX(rem(-40)) !important;
+						}
 
-					&:nth-child(6) {
-						transform: translateX(rem(-50)) !important;
-					}
+						&:nth-child(6) {
+							transform: translateX(rem(-50)) !important;
+						}
 
-					.head-portrait {
-						width: rem(30);
-						height: rem(30);
-						border-radius: 50%;
-						overflow: hidden;
-						border: 2px solid white;
+						.head-portrait {
+							width: rem(30);
+							height: rem(30);
+							border-radius: 50%;
+							overflow: hidden;
+							border: 2px solid white;
+						}
 					}
 				}
 

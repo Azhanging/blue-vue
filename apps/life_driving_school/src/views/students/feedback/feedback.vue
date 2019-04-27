@@ -8,7 +8,7 @@
 		>
 			<div slot="right-control">
 				<div class="bc-t-r bc-t-base bc-mg-r-10rp">
-					<a target="_blank" class="bc-t-base" href="https://www.dtb315.com/member/message/service.html">
+					<a target="_blank" class="bc-t-base" @click="to_contact">
 						联系客服
 					</a>
 				</div>
@@ -38,6 +38,7 @@
 <script>
 	import store from '@store'
 	import { $toast } from "$use-in-vue/mint-ui/toast";
+	import programUrl from '@config/program-url'
 	export default {
 		name: "contribute",
 		methods: {
@@ -55,9 +56,9 @@
 					//member_id:store.state.userInfo.id,//会员id
 					//phone:store.state.userInfo.id,//联系方式
 				}).then(res=>{
-					if(res.data.data.status==1011){
+					if(res.data.data.status==1019){
 						$toast({
-							message: '字数不能超过80字符。',
+							message: '内容字数不能超过200字符。',
 							duration: 3000
 						});
 					}else {
@@ -69,6 +70,9 @@
 						return;
 					}
 				});
+			},
+			to_contact(){
+				location.href = programUrl['gou-wu-bao']+'/member/message/service.html'
 			}
 		}
 	}

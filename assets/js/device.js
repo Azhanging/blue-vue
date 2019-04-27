@@ -3,7 +3,6 @@ import config from '@config';
 import inBrowser from "$assets/js/in-browser";
 import NativeApp from '$assets/js/native-app';
 import Vue from 'vue';
-import { $toast } from "../../use-in-vue/mint-ui/toast";
 
 //main
 export function device(opts) {
@@ -71,6 +70,9 @@ export function setViewport() {
   html.setAttribute('data-mobile-device', 'true');
 }
 
+//表单的focus状态
+let focusStatus = false;
+
 //处理移动端软键盘问题
 function mobileFocus(Vue) {
   const device = config.device;
@@ -92,7 +94,10 @@ function iosFocus() {
       type: 'focusin',
       event
     });
-    mockScroll();
+    //设置focus状态
+    setFocusStatus(true);
+    //ios focus fixed bug
+    mockViewScroll();
   });
 
   document.body.addEventListener('focusout', (event) => {
@@ -101,8 +106,12 @@ function iosFocus() {
       lastNav,
       event
     });
+    //设置focus状态
+    setFocusStatus(false);
     //ios focus fixed bug
-    mockScroll();
+    mockViewScroll();
+    //body scroll move
+    mockBodyScroll();
   });
 
 }
@@ -111,18 +120,24 @@ function iosFocus() {
 function androidResize() {
   let lastNav;
   const originalHeight = getClientHeight();
-  window.onresize = function () {
+  window.onresize = function (event) {
     const resizeHeight = getClientHeight();
     if (resizeHeight - 0 < originalHeight - 0) {
       lastNav = store.state.view.tabBar;
       focusHook({
-        type: 'focusin'
+        type: 'focusin',
+        event
       });
+      //设置focus状态
+      setFocusStatus(true);
     } else {
       focusHook({
         type: 'focusout',
-        lastNav
+        lastNav,
+        event
       });
+      //设置focus状态
+      setFocusStatus(false);
     }
   }
 }
@@ -162,7 +177,7 @@ function focusHook(opts) {
 }
 
 //模拟移动，scroll中操作表单会出现偏移的情况，做一次抖动让表单正常
-export function mockScroll() {
+export function mockViewScroll() {
   Vue.nextTick(() => {
     const scrollElm = document.querySelectorAll('.bv-view-scroll');
     [].forEach.call(scrollElm, (viewElm) => {
@@ -172,13 +187,26 @@ export function mockScroll() {
   });
 }
 
+//模拟body scroll
+function mockBodyScroll() {
+  document.body.scrollTop = 0;
+}
+
 //修复一些ios上的bug
 function fixIOSBug() {
-  if (config.device.isIPhone || config.device.isIPad) {
-    //ios在move的时候，body层会出现1秒的无法滑稽（动）（系统在偷偷复位回弹）
-    //在end处理body层scrollTop回到0
-    document.body.addEventListener('touchend', (event) => {
-      event.currentTarget.scrollTop = 0;
-    });
-  }
+  if (!(config.device.isIPhone || config.device.isIPad)) return;
+  //ios在move的时候，body层会出现1秒的无法滑稽（动）（系统在偷偷复位回弹）
+  //在end处理body层scrollTop回到0
+  let endTimer;
+  document.body.addEventListener('touchend', () => {
+    clearTimeout(endTimer);
+    endTimer = setTimeout(() => {
+      !focusStatus && mockBodyScroll();
+    }, 200);
+  });
+}
+
+//设置focus状态
+export function setFocusStatus(status) {
+  focusStatus = status;
 }

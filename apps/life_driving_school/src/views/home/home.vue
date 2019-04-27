@@ -2,7 +2,7 @@
 	<bv-home-view style="background:#F4F4F4;">
 		<w-home-header :header="{
       title:{
-        value:'生命导航',
+        value:'生活导航',
         style:`font-weight: bold !important;font-size:1.33333rem;`
       },
       style:`background: url(${config.path.static}/img/home/header_bg_img.png) no-repeat  !important;background-position: center !important;
@@ -36,16 +36,22 @@
 				<a class="bc-block" href="javascript:;">
 					<img class="bc-w-100" :src="`${config.path.static}/img/home/zhihuiwang.png`" alt="慧联网">
 				</a>
-				<a href="javascirpt:;" @click="toSign">
+				<a href="javascript:;" @click="toSign">
 					<img class="qiandao bc-ps-a" :src="`${config.path.static}/img/home/qiandao.png`" alt="签到">
 				</a>
 			</div>
 
 			<!--健康常识-->
-			<div class="bc-v-m">
+			<div class="bc-v-m jiankangchangshi">
 				<div class="bc-pd-tb-10rp bc-bg-white bc-pd-lr-10rp" style="border-bottom:1px solid #F9F3EC">
 					<img class="bc-mg-r-3rp xiaochangshi" :src="`${config.path.static}/img/home/jiankangchangshi.png`" alt="健康常识">
-					<span class="bc-f-12rp" v-html="">{{getData.notice_content}}</span>
+						<bv-swiper-scroll >
+							<template slot="scroll-items">
+							  <span class="bc-f-12rp changshi-content"  ref="changshiContent">
+								  {{getData.notice_content}}
+							  </span>
+							</template>
+						</bv-swiper-scroll>
 				</div>
 			</div>
 
@@ -68,22 +74,12 @@
 						</router-link>
 					</div>
 					<div class=" bc-t-c bc-mg-t-3rp">
-						<router-link :to="$router.routerID.getPathID({
-						id: getData.system[1].id,
-						params:{
-							id: getData.system[1].id
-						}
-					})">
+						<a href="javascript:;" @click="toJifubao">
 							<img class="bc-inline-block bozhong-system" :src="getData.system[1].src_img" alt="播种系统">
-						</router-link>
-						<router-link :to="$router.routerID.getPathID({
-						id: getData.system[2].id,
-						params:{
-							id: getData.system[2].id
-						}
-					})">
+						</a>
+						<a href="javascript:;" @click="$toast({message: '敬请期待！'})" >
 							<img class="bc-inline-block shouhuo-system" :src="getData.system[2].src_img" alt="收获系统">
-						</router-link>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -112,6 +108,15 @@
 				<div class='scroll-x bc-pd-15rp bc-t-c'>
 					<bv-swiper-scroll :active-class-name="'scroll_active'">
 						<template slot="scroll-items">
+							<div class=" bc-mg-r-5rp bc-inline-block bc-t-666">
+								<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
+									<div class='scroll_img bc-ps-r bc-t-c'>
+										<a href="https://fuwu.dtb315.com/vegetarian">
+											<img class="inline-block shengtaiquan-item" :src="`${config.path.static}/img/ecosystem/sushiditu.png`" alt="素食地图">
+										</a>
+									</div>
+								</div>
+							</div>
 							<div class=" bc-mg-r-5rp bc-inline-block bc-t-666" v-for="item in getData.ecosphere">
 								<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
 									<div class='scroll_img bc-ps-r bc-t-c'>
@@ -164,6 +169,8 @@
   import recommendArrlist from './recommend/recommend-arrlist';
   import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
   import { login } from '$assets/js/login';
+  import programUrl from '@config/program-url';
+
 
   export default {
     name: "home",
@@ -193,11 +200,26 @@
         .then(res => {
           const { data } = res.data;
           this.getData = data;
+	        // 健康常识滚动
+	        this.$nextTick(()=> {
+            let contentOffsetWidth = this.$refs['changshiContent'].offsetWidth;
+            let contentLeft = 0;
+            if (contentOffsetWidth > 270) {
+              this.timer = setInterval(() => {
+                contentLeft -= 0.2;
+                if (Math.abs(contentLeft) >= (contentOffsetWidth - 210)) {
+                  contentLeft = 0;
+                }
+                this.$refs['changshiContent'].style.left = contentLeft + 'px';
+              }, 1)
+            }
+
+	        });
+
         })
         .catch(err => {
           console.log(err);
         });
-
     },
     methods: {
       routerTo(item) {
@@ -245,6 +267,9 @@
           return scrollEndHook.call(this);
         });
       },
+      toJifubao() {
+				location.href = programUrl['ji-fu-bao'];
+      }
     },
     components: {
       "recommend-arrlist": recommendArrlist
@@ -253,7 +278,10 @@
       userInfo() {
         return this.$store.state.userInfo;
       }
-    }
+    },
+	  destroyed() {
+      clearInterval(this.timer);
+	  }
   }
 </script>
 
@@ -376,5 +404,19 @@
 
 	.bc-inline-block {
 		vertical-align: top;
+	}
+
+	.jiankangchangshi {
+		.bv-swiper-scroll-container {
+			display: inline-block!important;
+			width: 78%;
+			height: rem(25);
+			.changshi-content {
+				position: absolute;
+				left: 0;
+				top: rem(5);
+				z-index: 50;
+			}
+		}
 	}
 </style>

@@ -1,16 +1,16 @@
 <template>
 	<bv-home-view class='wap' :router-level='3' style='background-color: #f4f4f4;'>
 		
-		<growTab :growIndex='2'></growTab>
+		<growTab></growTab>
 		
 		<div class='scroll-x bc-bg-white'>
 			<bv-swiper-scroll :active-class-name="'scroll_active'" :current-index="scrollIndex">
 				<template slot="scroll-items">
-					<a class="bc-pd-tb-15rp bc-mg-lr-10rp bc-inline-block bc-t-666"
+					<a class="bc-pd-tb-9rp bc-mg-lr-10rp bc-inline-block bc-t-666"
 					   :class='scrollIndex == 0 ? "scroll_active" : ""'
 					   @click="select($route.params.classId,0)">推荐</a>
 					<a href="javascript:;" v-for="(item,index) in pageData.class"
-					   class="bc-pd-tb-15rp bc-mg-lr-10rp bc-inline-block bc-t-666"
+					   class="bc-pd-tb-9rp bc-mg-lr-10rp bc-inline-block bc-t-666"
 					   :class='scrollIndex == index+1 ? "scroll_active" : ""'
 					   @click="select(item.id,index+1)"
 					>
@@ -170,6 +170,7 @@
 			.scroll_active {
 				color: $color-base !important;
 				border-bottom: 2px $color-base solid;
+				font-size: rem(16);
 			}
 		}
 		.course{

@@ -39,7 +39,7 @@ new Vue({
   store,
   created() {
     //用户相关
-    user();
+    //user();
   },
   render: h => h(App)
 }).$mount('#app');

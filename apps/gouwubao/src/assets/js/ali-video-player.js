@@ -1,11 +1,13 @@
 import utils from 'blue-utils';
+import config from '@config';
 
 //默认的配置
 const defaultOptions = {
-  id: ``,
-  autoplay: false,
+  id: ``,               //dom elm
+  autoplay: false,        //自动播放
   isLive: false,
   width: '100%',
+  height: '200px',
   playsinline: true,
   controlBarVisibility: 'hover',
   rePlay: false,
@@ -15,12 +17,15 @@ const defaultOptions = {
   vid: false,
   playauth: '',
 
-  useH5Prism: true,
-  useFlashPrism: false,
-  x5_video_position: 'normal',
-  //prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
+  useH5Prism: true,           //使用h5播放
+  useFlashPrism: false,       //使用flash播放
+
   x5_type: '', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
+  x5_video_position: 'center',
+  x5_fullscreen: true,      //声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true
+  x5_orientation: 'portraint',    //声明 TBS 播放器支持的方向
   cover: '',
+  useHlsPluginForSafari: true, //Safari浏览器可以启用Hls插件播放，Safari 11除外
   "skinLayout": [  //取消错误显示样式
     {
       "name": "bigPlayButton",
@@ -97,34 +102,61 @@ const defaultOptions = {
   ]
 };
 
+//检查播放器设备
+function playerDevice() {
+  const player = this.player;
+  let firstFullScreen = true;
+  //安卓的处理
+  if (config.device.isAndroid) {
+    //全屏的时候取消全屏
+    player.on('x5requestFullScreen', () => {
+      if (firstFullScreen) {
+        this.player.fullscreenService.cancelFullScreen();
+        firstFullScreen = false;
+      } else {
+        let video = this.player.el().querySelectorAll('video')[0];
+        video && video.classList.add('center');
+      }
+    });
+  }
+}
+
 export default class AliVideoPlayer {
+
   constructor(options) {
     this.player = {};
     this.options = utils.extend(defaultOptions, options);
-    this._setup();
-    this._bindEvent();
+    this._init();
   }
 
   loadByUrl(url) {
-    if (this.player)
-      this.player.loadByUrl(url);
+    this.player && this.player.loadByUrl(url);
   }
 
+  //销毁
   dispose() {
     if (this.player) {
       this.player.dispose();
-      Zepto('#' + this.options.id).empty();
+      try {
+        document.querySelector('#' + this.options.id).remove();
+      } catch (e) {
+        console.warn(e);
+      }
     }
   }
 
-  _setup() {
-    this.player = new Aliplayer(this.options, function (player) {
-      player._switchLevel = 0;
-    });
+  //初始化
+  _init() {
+    this.player = new Aliplayer(this.options);
+    this._bindEvent();
   }
 
+  //绑定事件
   _bindEvent() {
-    let that = this;
+
+    //设备处理对应的事件
+    playerDevice.call(this);
+
     this.player.on('ready', (e) => {
       console.log('ready');
     });
@@ -136,22 +168,26 @@ export default class AliVideoPlayer {
     this.player.on('ended', (e) => {
       console.log('ended');
     });
+
     this.player.on('pause', (e) => {
       console.log('pause');
     });
 
-    this.player.on('liveStreamStop', (e) => { //直播流中断时触发
+    //直播流中断时触发
+    this.player.on('liveStreamStop', (e) => {
       if (this.options.isLive) {
         this.options.vue_this.videoEnd = true
         // console.log('直播流中断1')
       }
     });
-    this.player.on('m3u8Retry', (e) => { //m3u8直播流中断后重试事件，每次断流只触发一次
+
+    //m3u8直播流中断后重试事件，每次断流只触发一次
+    this.player.on('m3u8Retry', (e) => {
       // console.log('直播流中断2')
     });
 
     //微信左上角退出按钮触发是，关闭页面
-    this.player.tag.addEventListener("x5videoexitfullscreen", () => {
+    /*this.player.tag.addEventListener("x5videoexitfullscreen", () => {
       if (WeixinJSBridge)
         WeixinJSBridge.call('closeWindow');
       else {
@@ -160,36 +196,33 @@ export default class AliVideoPlayer {
         } catch (e) {
         }
       }
-    });
-
-    $(document).on('WeixinJSBridgeReady', () => {
-      let video = $(that.player.el()).find('video')[0];
-      video.play();
-    });
+    });*/
   }
 
+  //解绑事件
   _unbindEvent() {
+
     let that = this;
+
     this.player.off('ready', function (e) {
       // 解决ios不自动播放的问题
-      if ($.os.ios)
+      if (config.device.isIPhone || config.device.isIPad) {
         that._autoPlay();
+      }
       console.log('ready');
-
     });
 
     this.player.off('play', function (e) {
       console.log('play');
-
     });
 
     this.player.off('ended', function (e) {
       console.log('ended');
-
     });
+
     this.player.off('pause', function (e) {
       console.log('pause');
-
     });
+
   }
 }

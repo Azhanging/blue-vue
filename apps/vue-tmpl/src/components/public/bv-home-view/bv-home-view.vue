@@ -4,7 +4,11 @@
 		<slot></slot>
 
 		<template slot="suspend" slot-scope="scope">
-			<bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]"></bv-suspend>
+			<bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]">
+				<template slot="back-to-top">
+					<img :src="`${config.path.static}/img/home/scrollTop.png`" width="30" height="30">
+				</template>
+			</bv-suspend>
 		</template>
 
 		<template slot="other">

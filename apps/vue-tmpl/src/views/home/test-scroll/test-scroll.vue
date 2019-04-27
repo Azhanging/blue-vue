@@ -5,6 +5,9 @@
 				test-scroll-children
 			</router-link>
 		</div>
+		<div v-for="i in 10" class="bc-pd-tb-20rp bc-t-c">
+			<input type="text" class="bc-input" placeholder="test content">
+		</div>
 	</bv-home-view>
 </template>
 

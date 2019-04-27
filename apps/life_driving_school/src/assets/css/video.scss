@@ -12,3 +12,23 @@
     display:none!important;
   }
 }
+
+// 背景图
+.prism-cover {
+  z-index: 5!important;
+}
+
+video {
+  z-index: 15!important;
+}
+
+.prism-controlbar {
+  display: block!important;
+  z-index: 20!important;
+}
+
+// 播放按钮
+.prism-player .prism-animation {
+  z-index: 20!important;
+}
+

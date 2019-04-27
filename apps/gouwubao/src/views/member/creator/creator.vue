@@ -7,7 +7,7 @@
 		<office-header :member-info="pageData.memberInfo" type="creator" class="bc-mg-b-10rp"/>
 
 		<!-- 统计 -->
-		<statistics  :textType='"content_one"' />
+		<statistics  :textType='"creator"' />
 
 		<!-- 我的会员 -->
 		<statistics-item class="bc-bd-b-e5e" v-show="spreadStatus" :options="{

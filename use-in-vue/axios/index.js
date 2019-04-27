@@ -38,7 +38,7 @@ function requestInterceptors($Axios) {
     setFormData(axiosConfig);
     //ssr axios proxy
     setProxy(axiosConfig);
-    //是否loadding显示
+    //是否loading显示
     if (isLoading === undefined || isLoading === true) {
       //设置当前的loading的id
       axiosConfig.loadingID = $loading({
@@ -67,7 +67,7 @@ function responseInterceptors($Axios) {
       //success code
       if (code === errcodes.SUCCESS) {
         return res;
-      } else if (code === 304) {    //作为重定向跳转
+      } else if (code === errcodes.REDIRECT) {    //作为重定向跳转
         redirect(res.data);
       } else {
         //error code错误码处理
