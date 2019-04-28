@@ -152,6 +152,7 @@
 			$route(to, from) {
 				if(from.path != '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id){
 					this.item_progress();
+					this.top_progress();
 				}
 			}
 		},

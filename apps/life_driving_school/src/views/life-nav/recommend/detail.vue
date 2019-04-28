@@ -367,19 +367,21 @@
 					height: 0;
 					visibility: hidden;
 				}
-
+				
 				.img-list {
 					float: left;
 					width: 32.5%;
-					margin-right: 3px;
-					margin-bottom: 3px;
-					height: rem(100);
+					margin-right: rem(3);
+					margin-bottom: rem(3);
+					padding-bottom: 32.5%;
+					height: 0;
 					overflow: hidden;
-
+					position: relative;
 					img {
 						width: 100%;
 						vertical-align: top;
-						min-height: rem(100);
+						position: absolute;
+						height: 100%;
 					}
 
 					&:nth-child(3n) {

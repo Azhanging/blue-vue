@@ -81,7 +81,7 @@
 			</div>
 		</div>
 
-		<template slot="other" v-if="!(config.device.isApp && config.device.isIPhone)">
+		<template slot="other">
 			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;">
 
 				<!-- 没有登录 -->

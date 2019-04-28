@@ -36,32 +36,9 @@
 				</div>
 			</template>
 		</bv-scroll>
-
-
 		<router-link :to="`${$router.currentRoute.fullPath}/questions`" class="question-quiz">
 			提问
 		</router-link>
-
-
-		<!--<div class="review-txt" v-if="review_txt">
-			<div class="review-txt-l">
-				<i class="iconfont iconbianji"></i><input ref="review_hf" :autofocus="focus" type="text" placeholder="评论...">
-			</div>
-			<div class="review-txt-r">
-				<div><i class="iconfont iconpinglun"></i><span>3654</span></div>
-				<div><i class="iconfont iconxingxing"></i></div>
-				<div><i class="iconfont icondianzan"></i></div>
-				<div><i class="iconfont icon-"></i></div>
-			</div>
-		</div>-->
-
-
-<!--		<div class="reply-mask" v-if="reply_show"></div>
-		<div class="reply-show" v-if="reply_show">
-			<div class="reply-item" @click="btn_reply_txt()">回复</div>
-			<div class="reply-item" @click="btn_reply_h">取消</div>
-		</div>-->
-
 	</bv-home-view>
 </template>
 

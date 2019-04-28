@@ -212,13 +212,15 @@
 					width: 32.5%;
 					margin-right: rem(3);
 					margin-bottom: rem(3);
-					height: rem(100);
+					padding-bottom: 32.5%;
+					height: 0;
 					overflow: hidden;
-
+					position: relative;
 					img {
 						width: 100%;
 						vertical-align: top;
-						min-height: rem(100);
+						position: absolute;
+						height: 100%;
 					}
 
 					&:nth-child(3n) {
