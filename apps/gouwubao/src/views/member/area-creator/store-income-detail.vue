@@ -69,7 +69,7 @@
 
 	export default {
 		name: "store_income_detail",
-		mixins: [scrollMixin(), dateSearch],
+		mixins: [scrollMixin(), dateSearch()],
 		components: {
 			OrderItem
 		},

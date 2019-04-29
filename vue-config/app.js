@@ -94,7 +94,8 @@ module.exports = (api, options) => {
           }
         }, resolveClientEnv(options, true /* raw */))
       },
-      hash: true
+      //文件后面带hash，没有必要设置，设置了会出现加载两次一样的js
+      hash: false
     }
 
     if (isProd) {

@@ -69,7 +69,7 @@
 
   export default {
     name: "history-income",
-    mixins: [scrollMixin(), dateSearch],
+    mixins: [scrollMixin(), dateSearch()],
     components: {
       OrderItem
     },

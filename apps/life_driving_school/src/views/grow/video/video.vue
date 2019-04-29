@@ -122,12 +122,10 @@
 							resultData,
 							listKey: 'list'
 						})) {
-						const state = scrollEndHook.call(this);
-						this.load.state.disabled = state.disabled;
+						scrollEndHook.call(this);
 					} else {
 						++this.load.params.page;
 						this.load.data.lists = this.load.data.lists.concat(resultData.list);
-						console.log(this.load);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);

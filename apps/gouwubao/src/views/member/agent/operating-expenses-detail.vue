@@ -68,7 +68,7 @@
 
   export default {
     name: "coach-income-detail",
-    mixins: [scrollMixin(), dateSearch],
+    mixins: [scrollMixin(), dateSearch()],
     components: {
       OrderItem
     },

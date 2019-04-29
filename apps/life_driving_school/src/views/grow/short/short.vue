@@ -111,8 +111,7 @@
 							resultData,
 							listKey: 'list'
 						})) {
-						const state = scrollEndHook.call(this);
-						this.load.state.disabled = state.disabled;
+						scrollEndHook.call(this);
 					} else {
 						++this.load.params.page;
 						if(resultData.list.length < 10) scrollEndHook.call(this);
