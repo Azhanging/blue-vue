@@ -82,7 +82,7 @@
 		</div>
 
 		<template slot="other">
-			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;">
+			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;" v-if="!(config.device.isApp && config.device.isIPhone)">
 
 				<!-- 没有登录 -->
 				<template v-if="$store.getters.isLogin">

@@ -34,7 +34,7 @@ Vue.config.productionTip = false;
 /*Vue.config.silent = true;
 Vue.config.warnHandler = false;*/
 
-new Vue({
+const app = new Vue({
   router,
   store,
   created() {
@@ -47,17 +47,6 @@ new Vue({
 
 //test vue in ssr
 export function createApp() {
-
-  const router = createRouter();
-
-  const store = createStore();
-
-  const app = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  });
-
   return {
     app,
     router

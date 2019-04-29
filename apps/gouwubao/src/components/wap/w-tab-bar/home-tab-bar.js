@@ -11,13 +11,14 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        src: `${config.path.static}/img/tab-bar/home/home.png`,
-        activeSrc: `${config.path.static}/img/tab-bar/home/home-active.png`,
+        src: `${config.path.static}/img/tab-bar/home/life-school.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/life-school-active.png`,
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
       to() {
-        location.href = `${config.path.base}`;
+        //跳转到生命驾校
+        location.href = programUrl['life-school'];
       },
       className: 'bc-pd-5'
     }, {
@@ -59,18 +60,17 @@ const homeTabBar = {
       className: 'bc-pd-5'
     }, {
       content: {
-        value: '生活导航',
+        value: '购物宝',
         fontSize: 10
       },
       icon: {
-        src: `${config.path.static}/img/tab-bar/home/life-school.png`,
-        activeSrc: `${config.path.static}/img/tab-bar/home/life-school-active.png`,
+        src: `${config.path.static}/img/tab-bar/home/home.png`,
+        activeSrc: `${config.path.static}/img/tab-bar/home/home-active.png`,
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
       to() {
-        //跳转到生命驾校
-        location.href = programUrl['life-school'];
+        location.href = `${config.path.base}`;
       },
       className: 'bc-pd-5'
     }, {
@@ -97,11 +97,12 @@ const homeTabBar = {
       this.activeIndex = 1;
     } else if (router.matchRoutes([
         /^\/member\/vip/,    //组件路由
+        /^\/member\/tools/,    //组件路由
       ])) {
       this.activeIndex = 4;
-    } else if(router.matchRoutes([
+    } else if (router.matchRoutes([
         /^\/member\/agent\//,    //组件路由
-      ])){
+      ])) {
       this.activeIndex = -1;
     } else {
       this.activeIndex = 0;

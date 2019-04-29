@@ -55,10 +55,6 @@ routerAfterEach({
 
 //test router in ssr
 export function createRouter() {
-  const router = new Router({
-    namespace: true,
-    routes: [home, bindPhone, components]
-  });
   return router;
 }
 

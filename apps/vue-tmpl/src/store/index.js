@@ -15,13 +15,6 @@ const store = new Vuex.Store({
 
 //test store in ssr
 export function createStore(){
-  const store = new Vuex.Store({
-    namespaced: true,
-    state,
-    mutations,
-    getters
-  });
-
   return store;
 }
 

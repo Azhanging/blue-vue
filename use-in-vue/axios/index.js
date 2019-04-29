@@ -17,17 +17,20 @@ const $Axios = axios.create({
   }
 });
 
-requestInterceptors($Axios);
+//拦截request
+requestInterceptors();
 
-responseInterceptors($Axios);
+//拦截response
+responseInterceptors();
 
+//扩展到Vue中
 export function useAxiosInVue(Vue, opts = {}) {
   //axios in vue prototype
   Vue.prototype.$axios = $Axios;
 }
 
 //request interceptors
-function requestInterceptors($Axios) {
+function requestInterceptors() {
   $Axios.interceptors.request.use((axiosConfig) => {
     //把路由当前路由的id设置给axios config中
     axiosConfig.routerID = routerID.getCurrentRouterID();
@@ -52,7 +55,7 @@ function requestInterceptors($Axios) {
 }
 
 //response interceptors
-function responseInterceptors($Axios) {
+function responseInterceptors() {
   $Axios.interceptors.response.use((res) => {
     const status = res.status;
     const axiosConfig = res.config;

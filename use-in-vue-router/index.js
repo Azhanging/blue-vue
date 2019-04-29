@@ -38,7 +38,7 @@ export function useInVueRouter(Router) {
   Router.prototype.matchRoutes = function (routesRegExp = []) {
     const path = this.currentRoute.fullPath;
     for (let i = 0; i < routesRegExp.length; i++) {
-      const routerRegExp = routesRegExp[0];
+      const routerRegExp = routesRegExp[i];
       routerRegExp.lastIndex = 0;
       if (routerRegExp.test(path)) {
         return true;
