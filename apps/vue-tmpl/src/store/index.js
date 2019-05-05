@@ -13,9 +13,4 @@ const store = new Vuex.Store({
   getters
 });
 
-//test store in ssr
-export function createStore(){
-  return store;
-}
-
 export default store;

@@ -53,9 +53,4 @@ routerAfterEach({
   }
 });
 
-//test router in ssr
-export function createRouter() {
-  return router;
-}
-
 export default router;

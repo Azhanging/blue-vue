@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router, { createRouter } from './router/index';
-import store, { createStore } from './store/index';
+import router from './router';
+import store from './store';
 import { useInVue } from '../../../use-in-vue';
 import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
@@ -34,7 +34,7 @@ Vue.config.productionTip = false;
 /*Vue.config.silent = true;
 Vue.config.warnHandler = false;*/
 
-const app = new Vue({
+new Vue({
   router,
   store,
   created() {
@@ -43,13 +43,4 @@ const app = new Vue({
   },
   render: h => h(App)
 }).$mount('#app');
-
-
-//test vue in ssr
-export function createApp() {
-  return {
-    app,
-    router
-  };
-}
 
