@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-12"],{a95a:function(t,n,e){"use strict";e.r(n);var i=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("bv-home-view",[e("div",{staticClass:"bc-t-c"},[t._v("\n\t\t测试登录跳转\n\t")])])},s=[],a={name:"test-login",created:function(){this.$axios.get("/api/test/index").then(function(t){return t})}},c=a,o=e("2877"),u=Object(o["a"])(c,i,s,!1,null,null,null);u.options.__file="test-login.vue";n["default"]=u.exports}}]);
+//# sourceMappingURL=chunk-12.js.map

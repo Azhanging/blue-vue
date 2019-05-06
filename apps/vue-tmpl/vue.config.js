@@ -6,7 +6,7 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-const programPath = `./vue-tmpl-build`;
+const programPath = `./server`;
 
 //合并两个配置
 module.exports = utils.extend(publicVueConfig, {
@@ -40,6 +40,6 @@ module.exports = utils.extend(publicVueConfig, {
     }
   },
   outputDir: `${programPath}`,
-  indexPath: `./views/index.html`,
+  indexPath: `./views/index.tmpl`,
   assetsDir: 'static'
 });
