@@ -1,4 +1,6 @@
 const path = require('path');
+const time = new Date().getTime();
+const hash = require('hash-sum');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -32,5 +34,8 @@ module.exports = {
       }
     }
   },
-  filenameHashing: false
+  pwa: {
+    assetsVersion: hash(time)
+  },
+  filenameHashing: true
 };

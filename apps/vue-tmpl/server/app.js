@@ -5,6 +5,7 @@ const json = require('koa-json');
 const onerror = require('koa-onerror');
 const bodyparser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const path = require('path');
 
 const routes = require('./routes');
 
@@ -18,7 +19,8 @@ app.use(bodyparser({
 
 app.use(json());
 app.use(logger());
-app.use(require('koa-static')(__dirname));
+
+app.use(require('koa-static')(path.join(__dirname, './static')));
 
 app.use(blueTmplViews({
   path: '/views'

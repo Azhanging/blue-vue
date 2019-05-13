@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5cd8d64503065bc37c2b4c1944395e5a.js"
+  "/static/08d2322c/precache-manifest.a964fc4257b2ffc154786c2992103217.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-tmpl"});

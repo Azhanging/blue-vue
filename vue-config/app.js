@@ -12,8 +12,6 @@ function ensureRelative (outputDir, _path) {
   }
 }
 
-let i = 0;
-
 module.exports = (api, options) => {
   api.chainWebpack(webpackConfig => {
     // only apply when there's no alternative target
@@ -135,8 +133,8 @@ module.exports = (api, options) => {
             const hash = require('hash-sum')
             const joinedHash = hash(
               Array.from(chunk.modulesIterable, m => m.id).join('_')
-            )
-            return `chunk-` + joinedHash
+            );
+            return `chunk-${joinedHash}`
           }])
     }
 

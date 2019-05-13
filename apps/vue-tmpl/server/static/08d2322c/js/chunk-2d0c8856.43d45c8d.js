@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c8856"],{"54de":function(e,t,n){"use strict";n.r(t);var l=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("bv-home-view",{attrs:{"router-level":3}},e._l(1,function(t){return n("div",[e._v("\n\t\t"+e._s(t)+"\n\t")])}))},r=[],c={name:"text-scroll-chilren"},o=c,s=n("2877"),u=Object(s["a"])(o,l,r,!1,null,null,null);u.options.__file="test-scroll-children.vue";t["default"]=u.exports}}]);
+//# sourceMappingURL=chunk-2d0c8856.43d45c8d.js.map
