@@ -15,7 +15,9 @@
 	      name:'我的会员（位）',
 	      url:`${config.path.base}/member/my_member/details_member`
 	    },
-	    num: pageData.myMemberNum,
+	    num: {
+	      value:pageData.myMemberNum
+	    },
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayMemberNum
@@ -31,7 +33,7 @@
 	      name:'我的会员（位）',
 	      url:`${config.path.base}/member/my_member/details_member`
 	    },
-	    num: pageData.myMemberNum,
+	    num: {value:pageData.myMemberNum},
 	    otherNum:[{
 	      name:'今日新增VIP',
 	      num: pageData.todayVipNum
@@ -47,7 +49,7 @@
 	      name:'我的VIP（位）',
 	      url:`${config.path.base}/member/my_member/details_member`
 	    },
-	    num: pageData.myVipNum,
+	    num: {value:pageData.myVipNum},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayVipNum
@@ -63,7 +65,7 @@
 	      name:'我的创客（位）',
 	      url:`${config.path.base}/member/my_member/details_member`
 	    },
-	    num: pageData.myCreatorNum,
+	    num: {value:pageData.myCreatorNum},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayCreatorNum
@@ -79,7 +81,7 @@
 	      name:'辅导收益',
 	      url:`/member/creator/coach-income`
 	    },
-	    num: pageData.coachEarnings,
+	    num: {value:pageData.coachEarnings},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayCoachEarnings
@@ -95,7 +97,7 @@
 	      name:'商城收益',
 	      url:`/member/creator/shop-income`
 	    },
-	    num: pageData.storeEarnings,
+	    num: {value:pageData.storeEarnings},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayStoreEarnings

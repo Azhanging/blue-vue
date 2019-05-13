@@ -136,7 +136,7 @@ module.exports = (api, options) => {
             const joinedHash = hash(
               Array.from(chunk.modulesIterable, m => m.id).join('_')
             )
-            return `chunk-` + (i++)/*joinedHash*/
+            return `chunk-` + joinedHash
           }])
     }
 

@@ -30,7 +30,7 @@
 	      name:'我的区域会员',
 	      url: `${config.path.base}/member/my_member/area_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
 	    },
-	    num: pageData.area_member.total,
+	    num: {value:pageData.area_member.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.area_member.today_add_num
@@ -46,7 +46,7 @@
 	      name:'商城收益',
 	      url:`shop-income`
 	    },
-	    num: pageData.mall_sale.total,
+	    num: {value:pageData.mall_sale.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.mall_sale.today_add_num
@@ -68,7 +68,7 @@
 	      name:'我的县区代理',
 	      url: `${config.path.base}/member/my_member/agent_member?area_id=${$route.params.area_id}&level=${$route.params.level}`
 	    },
-	    num: pageData.areacount.total,
+	    num: {value:pageData.areacount.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.areacount.today_add_num
@@ -84,7 +84,7 @@
 	      name:'运营经费',
 	      url:`operating-expenses`
 	    },
-	    num: pageData.peratecount.total,
+	    num: {value:pageData.peratecount.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.peratecount.today_area_expenses

@@ -102,25 +102,6 @@ const defaultOptions = {
   ]
 };
 
-//检查播放器设备
-function playerDevice() {
-  const player = this.player;
-  let firstFullScreen = true;
-  //安卓的处理
-  if (config.device.isAndroid) {
-    //全屏的时候取消全屏
-    player.on('x5requestFullScreen', () => {
-      if (firstFullScreen) {
-        this.player.fullscreenService.cancelFullScreen();
-        firstFullScreen = false;
-      } else {
-        let video = this.player.el().querySelectorAll('video')[0];
-        video && video.classList.add('center');
-      }
-    });
-  }
-}
-
 export default class AliVideoPlayer {
 
   constructor(options) {
@@ -153,9 +134,6 @@ export default class AliVideoPlayer {
 
   //绑定事件
   _bindEvent() {
-
-    //设备处理对应的事件
-    playerDevice.call(this);
 
     this.player.on('ready', (e) => {
       console.log('ready');

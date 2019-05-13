@@ -5,10 +5,10 @@ const programUrl = (() => {
   if (env.dev) {
     return {
       'gou-wu-bao': 'https://pc.dtb315.cn',
-      'lifeSchool': 'https://pc.lifest.dtb315.cn',
+      'life-school': 'https://pc.lifest.dtb315.cn',
       'fu-wu-tong': 'http://pc.fuwu.dtb315.com',
       'ji-fu-bao': 'http://pc.jifu.dtb315.com',
-      'webSocket': 'pc.lifest.dtb315.cn',
+      'webSocket': 'pc.lifest.dtb315.cn'
     }
   } else if (env.beta) {
     return {
@@ -17,6 +17,14 @@ const programUrl = (() => {
       'fu-wu-tong': 'http://beta.fuwu.dtb315.cn',
       'ji-fu-bao': 'http://beta.jifu.dtb315.cn',
       'webSocket': 'beta.jiaxiao.dtb315.cn',
+    }
+  } else if (env.test) {
+    return {
+      'gou-wu-bao': 'https://pc.dtb315.cn',
+      'life-school': 'https://w1.jiaxiao.dtb315.cn',
+      'fu-wu-tong': 'http://pc.fuwu.dtb315.cn',
+      'ji-fu-bao': 'http://pc.jifu.dtb315.cn',
+      'webSocket': 'w1.jiaxiao.dtb315.cn',
     }
   } else {
     return {

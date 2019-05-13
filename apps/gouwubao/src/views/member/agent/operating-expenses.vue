@@ -12,7 +12,7 @@
 	    title:{
 	      name:'累计运营经费'
 	    },
-	    num: pageData.operating_expenses.total,
+	    num: {value:pageData.operating_expenses.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.operating_expenses.today_area_expenses

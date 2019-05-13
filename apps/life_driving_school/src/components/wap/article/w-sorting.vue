@@ -13,8 +13,8 @@
 		<div class='bc-bg-white sort_bg'>
 			<div class='bc-ps-r  ' @click.stop='scan'>
 				<p>浏览量</p>
-				<span :class="['up','iconfont','iconxiangshang2',allSel.isTime===1?'bc-t-base':'']" ></span>
-				<span :class="['down','iconfont','iconxiangxia2',allSel.isTime===2?'bc-t-base':'']"></span>
+				<span :class="['up','iconfont','iconxiangshang2',allSel.isScan===1?'bc-t-base':'']" ></span>
+				<span :class="['down','iconfont','iconxiangxia2',allSel.isScan===2?'bc-t-base':'']"></span>
 			</div>
 		</div>
 	</div>

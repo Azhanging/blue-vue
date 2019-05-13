@@ -25,7 +25,7 @@
 
 
 					<ul class="bc-reset-ul" v-if="det_data.content && det_data.content.length > 0">
-						<li class="bc-pd-lr-16rp bc-c-f" v-for="(item, index) in det_data.content" :key="index">
+						<li class="bc-pd-lr-16rp bc-c-f bc-pd-b-16rp" v-for="(item, index) in det_data.content" :key="index">
 							<div class="bc-mg-t-16rp bc-f-14rp bc-t-666 " v-if="item.type === 'text'" >
 								<div v-html="item.value"></div>
 							</div>
@@ -58,7 +58,7 @@
 
 				<div class="recommend-li-box-imgb bc-mg-t-16rp">
 					<!-- <div v-for="item in imglist"><img src="https://image.dtb315.com/327000.jpg?val=Thumb"></div>-->
-					<bv-scroll :api="api">
+					<!--<bv-scroll :api="api">-->
 						<div>
 							<div v-blue-photoswipe="{itemTagName:'DIV'}">
 								<div v-for="img in det_data.list_img" class="img-list">
@@ -66,7 +66,7 @@
 								</div>
 							</div>
 						</div>
-					</bv-scroll>
+					<!--</bv-scroll>-->
 				</div>
 
 				<div class="question-review">
@@ -168,6 +168,11 @@
 					this.det_data = res.data.data
 					const {share_title, share_img,  share_content} = this.det_data;
 					//this.info = data;
+					this.comment.shareInfo = {
+						title: share_title,
+						thumImage: share_img,
+						descr: share_content,
+					};
 					// 微信分享
 					this.$weChatShare({
 						title: share_title,
@@ -200,95 +205,10 @@
 
 				this.player = new VideoPlayer({
 					id: `J_prismPlayer${videoId}`,
-					autoplay: false,
-					isLive: false,
-					width: '100%',
-					playsinline: true,
-					controlBarVisibility: 'hover',
 					//点播
 					vid: videoId,
 					playauth,
-
-					useH5Prism: true,
-					useFlashPrism: false,
-					x5_video_position: 'normal',
-					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-					x5_type: '', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 					cover,
-					"skinLayout": [  //取消错误显示样式
-						{
-							"name": "bigPlayButton",
-							"align": "blabs",
-							"x": 30,
-							"y": 80
-						},
-						{
-							"name": "H5Loading",
-							"align": "cc"
-						},
-						{
-							"name": "infoDisplay"
-						},
-						{
-							"name": "tooltip",
-							"align": "blabs",
-							"x": 0,
-							"y": 56
-						},
-						{
-							"name": "thumbnail"
-						},
-						{
-							"name": "controlBar",
-							"align": "blabs",
-							"x": 0,
-							"y": 0,
-							"children": [
-								{
-									"name": "progress",
-									"align": "blabs",
-									"x": 0,
-									"y": 44
-								},
-								{
-									"name": "playButton",
-									"align": "tl",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "timeDisplay",
-									"align": "tl",
-									"x": 10,
-									"y": 7
-								},
-								{
-									"name": "fullScreenButton",
-									"align": "tr",
-									"x": 10,
-									"y": 12
-								},
-								{
-									"name": "subtitle",
-									"align": "tr",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "setting",
-									"align": "tr",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "volume",
-									"align": "tr",
-									"x": 5,
-									"y": 10
-								}
-							]
-						}
-					]
 				});
 
 			}

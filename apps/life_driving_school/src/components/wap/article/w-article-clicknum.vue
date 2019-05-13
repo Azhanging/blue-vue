@@ -2,7 +2,7 @@
 	<div class=''>
 
 		<!--阅读量-->
-		<div class="bc-pd-16rp bc-t-999" style="background:rgba(244,244,244,1);">
+		<div class="bc-pd-10rp bc-t-999" style="background:rgba(244,244,244,1);">
 			<i class='iconfont iconeye- bc-f-15rp '></i> {{comment.click_num}}
 			<i class='iconfont iconzan1 bc-t-base bc-f-20rp' v-if="comment.article_fabulous" @click.stop="clickArticleThumb(comment)"></i>
 			<i class='iconfont iconzan bc-f-20rp' v-else @click.stop="clickArticleThumb(comment)"></i>

@@ -1,6 +1,9 @@
 const areaCreator = {
 	path: 'area-creator',
 	component: () => import('@/views/member/area-creator/index.vue'),
+	meta:{
+		tabBar:'office'
+	},
 	children:[{
 		path:'await-pay',
 		component: () => import('@/views/member/area-creator/await-pay.vue'),

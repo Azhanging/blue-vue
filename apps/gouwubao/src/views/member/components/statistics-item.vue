@@ -1,29 +1,48 @@
 <!-- 统计选项 -->
 <template>
-	<div class="bc-row bc-bg-white bc-pd-b-10rp" v-if="options">
-		<div class="bc-flex bc-flex-ai-c bc-f-15rp bc-pd-16rp">
-			<div class="bc-flex-1  bc-f-b">
-				{{options.title.name}}
+	<div class="bc-row bc-bg-white" v-if="options">
+		<div class="bc-flex bc-flex-ai-c bc-f-15rp bc-pd-16rp" v-if="options.title && options.title.name">
+			<div class="bc-flex-1 bc-f-b">
+				<slot name="title-name" :name="options.title.name">
+					{{options.title.name}} <i v-if="options.title.icon" class="icon icon-tishi1 bc-t-999"></i>
+				</slot>
 			</div>
 			<div class="bc-flex-1 bc-t-999 bc-f-12rp bc-t-r" v-if="options.title.url">
 				<a class="bc-t-999" href="javascript:;" @click="$router.routerBack(options.title.url)">
-					查看全部>
+					{{options.title.urlName || '查看全部>'}}
 				</a>
 			</div>
 		</div>
-		<div class="bc-flex bc-flex-ai-c bc-pd-lr-16rp">
-			<div class="bc-flex-1 bc-f-30rp">
-				{{options.num || 0}}
+		<div class="bc-flex bc-flex-ai-c bc-pd-lr-16rp bc-pd-b-10rp" :class="[options.title.name && 'bc-pd-t-10rp']">
+			<div class="bc-flex-1">
+				<!-- num对应的插槽 -->
+				<slot name="num">
+					<div class="bc-f-12rp bc-t-999" v-if="options.num.name">
+						{{options.num.name}}
+					</div>
+					<div class="bc-f-30rp">
+						{{options.num.value || 0}}
+					</div>
+					<div v-if="options.num.prompt" class="bc-flex">
+						<div class="bc-t-999 bc-mg-r-4rp"><i class="icon icon-icon"></i></div>
+						<div class="bc-flex-1">
+							备注:<span class="bc-t-999">3A属标签，不列入产品总数统计内</span>
+						</div>
+					</div>
+				</slot>
 			</div>
 			<div class="bc-flex-1">
-				<div class="bc-flex bc-flex-ai-c bc-t-c">
-					<div class="bc-flex-1" :class="[options.otherNum.length - 1 !== index && 'bc-bd-r-e5e']" v-for="(item,index) in options.otherNum">
+				<div class="bc-flex bc-flex-ai-c bc-t-c bc-flex-w-w">
+					<div class="bc-flex-1 bc-mg-b-8rp bc-bd-r-e5e min-w45" v-for="(item,index) in options.otherNum"><!--:class="[options.otherNum.length - 1 !== index && 'bc-bd-r-e5e']"-->
 						<div class="bc-f-12rp bc-t-999">
 							{{item.name}}
 						</div>
 						<div class="bc-mg-t-2rp bc-f-16rp">
 							{{item.num || 0}}
 						</div>
+					</div>
+					<div v-if="options.cartogram" class="bc-flex-1 bc-t-c">
+						<img class="cartogram-img" :src="`${staticPath}/cartogram-img.png`">
 					</div>
 				</div>
 			</div>
@@ -46,6 +65,20 @@
 <script>
 export default {
   name: "statistics-item",
-  props: ['options']
+  props: ['options'],
+	computed:{
+		staticPath() {
+			return `${this.config.path.static}/img/public`;
+		}
+	}
 }
 </script>
+<style scoped lang="scss">
+	.min-w45{
+		min-width: 45%;
+		&:nth-child(2n){
+			border-right: 0;
+		}
+	}
+	.cartogram-img{width: rem(100)}
+</style>

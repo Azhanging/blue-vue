@@ -12,7 +12,7 @@
 	    title:{
 	      name:'累计收益（通宝）'
 	    },
-	    num: pageData.grandTotal,
+	    num: {value:pageData.grandTotal},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayGrandTotal
@@ -27,7 +27,7 @@
 	    title:{
 	      name:'累计订单量'
 	    },
-	    num: pageData.orderTotal,
+	    num: {value:pageData.orderTotal},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayOrderTotal
@@ -42,7 +42,7 @@
 	    title:{
 	      name:'累计销售额'
 	    },
-	    num: pageData.saleroomTotal,
+	    num: {value:pageData.saleroomTotal},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todaySaleroomTotal

@@ -12,6 +12,8 @@ const path = (() => {
     path = 'https://pc.lifest.dtb315.cn';
   } else if (env.beta) {
     path = 'https://beta.jiaxiao.dtb315.cn';
+  } else if (env.test) {
+    path = 'https://w1.jiaxiao.dtb315.cn';
   } else {
     path = 'https://jiaxiao.dtb315.com';
   }
@@ -25,6 +27,8 @@ const dtbPath = (() => {
     path = 'https://pc.dtb315.cn';
   } else if (env.beta) {
     path = 'https://beta.dtb315.cn';
+  } else if (env.test) {
+    path = 'https://w1.jiaxiao.dtb315.cn';
   } else {
     path = 'https://www.dtb315.com';
   }

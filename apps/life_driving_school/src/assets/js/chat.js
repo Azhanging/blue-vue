@@ -9,21 +9,26 @@ export default class WebSocketChat{
 	init(){
 		this.onclose();
 		this.onMessage();
-		this.onopen()
+		this.onopen();
 	}
 	onopen(){
 		this.websocket.onopen = () => {
 			//更新连接状态
-			console.log('连接...');
+			// console.log('连接...');
 			// this.websocket.send(JSON.stringify({
 			// 	live_video_id: config.id,
 			// 	content: config.textareaVal
 			// }));
 		}
 	}
+	close(){
+		this.websocket.close()
+	}
 	onclose() {
+		// this.websocket.close()
+
 		this.websocket.onclose = () => {
-			console.log('连接已关闭...');
+			// console.log('连接已关闭...');
 		}
 	}
 	onMessage(cb) {
@@ -34,7 +39,7 @@ export default class WebSocketChat{
 	}
 	send(){
 		this.websocket.send = (data) => {
-			console.log('发送')
+			// console.log('发送')
 			// cb.call(this, data);
 		}
 	}

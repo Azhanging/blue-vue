@@ -22,5 +22,5 @@
 
 <style lang="scss">
 	/*阿里字体图标*/
-	@import url("//at.alicdn.com/t/font_1131863_zq8d5mjzebd.css");
+	@import url("//at.alicdn.com/t/font_1131863_aoliks5mzoo.css");
 </style>

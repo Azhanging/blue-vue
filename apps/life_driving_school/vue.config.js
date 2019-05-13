@@ -1,7 +1,9 @@
 const publicVueConfig = require('../../vue-config');
 const utils = require('blue-utils');
-
+const hash = require('hash-sum')
 const path = require('path');
+
+const time = new Date().getTime();
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -20,10 +22,10 @@ module.exports = utils.extend(publicVueConfig, {
         '@router': resolve('src/router'),
         '@store': resolve('src/store'),
         '@config': resolve('src/config'),
-	      '@assets': resolve('src/assets'),
-	      '@css': resolve('src/assets/css'),
-        '@components':resolve('src/components'),
-	      '@views':resolve('src/views')
+        '@assets': resolve('src/assets'),
+        '@css': resolve('src/assets/css'),
+        '@components': resolve('src/components'),
+        '@views': resolve('src/views')
 
       }
     }
@@ -45,12 +47,12 @@ module.exports = utils.extend(publicVueConfig, {
 
 
         onProxyReq(proxyReq, req, res) {
-          proxyReq.setHeader('cookie',`thinkphp_show_page_trace=0|0; yunsuo_session_verify=0be96c28fadc1c24671296c59148a4ab; 9de70f6546b2452f6e7b98b46ac36070=cc1a54967bf14b0937afbb1b0b308ce2; thinkphp_show_page_trace=0|0; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555983706,1556087799,1556185282,1556242547; PHPSESSID=4clc4s81c5oujgbh1d4dbua724; b72b76241459936962c978f326f7463b=%257D%25CF%25AA%25AE%25B0%258Cy%25AF; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1556264922; come_from=1; prev_page=aHR0cHM6Ly9wYy5kdGIzMTUuY24vbWVtYmVyL2luZGV4Lmh0bWw%2FYm90dG9tPTEmdHlwZT1tZW1jYWNoZQ%3D%3D; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9tZW1iZXIvbWVtYmVyL2NvbW1vbg%3D%3D`);
+          proxyReq.setHeader('cookie', `thinkphp_show_page_trace=0|0; yunsuo_session_verify=0be96c28fadc1c24671296c59148a4ab; 9de70f6546b2452f6e7b98b46ac36070=cc1a54967bf14b0937afbb1b0b308ce2; thinkphp_show_page_trace=0|0; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1555983706,1556087799,1556185282,1556242547; PHPSESSID=4clc4s81c5oujgbh1d4dbua724; b72b76241459936962c978f326f7463b=%257D%25CF%25AA%25AE%25B0%258Cy%25AF; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1556264922; come_from=1; prev_page=aHR0cHM6Ly9wYy5kdGIzMTUuY24vbWVtYmVyL2luZGV4Lmh0bWw%2FYm90dG9tPTEmdHlwZT1tZW1jYWNoZQ%3D%3D; visit_page=aHR0cDovL3BjLmR0YjMxNS5jbi9tZW1iZXIvbWVtYmVyL2NvbW1vbg%3D%3D`);
         }
       }
     }
   },
   outputDir: `${programPath}`,
   indexPath: `./app/home/view/index/index.html`,
-  assetsDir: 'static'
+  assetsDir: `static/${hash(time)}`
 });

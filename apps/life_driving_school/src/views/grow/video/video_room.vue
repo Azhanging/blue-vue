@@ -34,7 +34,7 @@
 								<i class='iconfont iconshuaxin'></i>&nbsp;<span class='bc-f-12rp'>刷新</span>
 							</div>
 							<span class='lookNum bc-pd-lr-6rp'>
-								<i class='iconfont icongeren'></i>&nbsp;<span class='bc-f-12rp'>{{resVideo.member_num}}</span>
+								<i class='iconfont icongeren'></i>&nbsp;<span class='bc-f-12rp'>{{chatData.uid_count}}</span>
 							</span>
 						</div>
 					
@@ -57,7 +57,7 @@
 						</div>
 						<!--直播聊天-->
 						<div v-if='haveVideo'>
-							<chat :chatList='chatList' :userInfoId='userInfoId'></chat>
+							<chat :chatList='chatData.chatList' :userInfoId='userInfoId'></chat>
 						</div>
 					</div>
 					
@@ -128,7 +128,10 @@
 					playauth: '',
 					cover: '',
 				},
-				chatList: [],//聊天数据
+				chatData:{
+					chatList: [],//聊天数据
+					uid_count:0 //观看人数
+				},
 				textareaRow: 1,
 				socket: {}, //储存websocket对象
 				textareaVal: "",//发的信息
@@ -217,6 +220,9 @@
 					const data = JSON.parse(evt.data),
 						type = data.data.type,
 						id = this.$route.query.id;
+					
+					// console.log(data);
+					
 					switch (type) {
 						// 服务端ping客户端
 						case 'ping':
@@ -233,7 +239,11 @@
 							break;
 						// 监测聊天数据
 						case 'chatMessage':
-							that.chatList.push(data.data);
+							that.chatData.chatList.push(data.data);
+
+							if(data.data.system == 1){
+                that.chatData.uid_count = data.data.uid_count;
+              }
 							this.$nextTick(()=>{
 								setTimeout(()=>{
 									this.getHeight();
@@ -265,7 +275,7 @@
 			},
 			//获取直播地址
 			getDirectVideo(url) {
-				console.log('直播')
+				// console.log('直播')
 				this.$axios.get('/api/live_video/get_live_play_url', {
 					params: {
 						play_url: url
@@ -275,7 +285,7 @@
 					this.video.isLive = true;
 					this.videoPlay_init(this.video);
 				}).catch((error) => {
-					console.log(error);
+					// console.log(error);
 				});
 			},
 			getVideo(id) {
@@ -287,176 +297,39 @@
 					this.video = utils.extend(this.video, res.data.data);
 					this.videoPlay_init(this.video);
 				}).catch((error) => {
-					console.log(error);
+					// console.log(error);
 				});
 			},
 			videoPlay_init(video) {
+				// 微信分享
+				this.$weChatShare({
+					title: '大健康点通宝机制升级解读——暨分公司内训学习会',
+					desc: '身心灵全面升级，上中下全面贯彻！',
+				});
+				
 				let that = this;
 				this.player = new VideoPlayer({
 					id: 'J_prismPlayer',
 					autoplay: video.isLive,
 					isLive: video.isLive,
-					width: '100%',
-					playsinline: true, //内置播放
-					controlBarVisibility: 'hover',
-					rePlay:false,
 					//直播
 					source: video.url,
 					//点播
 					vid: video.videoId,
 					playauth: video.playauth,
-
-					useH5Prism: true,
-					useFlashPrism: false,
-					x5_video_position: 'normal',
-					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-					//x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 					cover: video.cover,
-					useHlsPluginForSafari:true, //Safari浏览器可以启用Hls插件播放，Safari 11除外
-					
-					// "skinLayout": [  //取消错误显示样式
-					// 	{
-					// 		"name": "bigPlayButton",
-					// 		"align": "blabs",
-					// 		"x": 30,
-					// 		"y": 80
-					// 	},
-					// 	{
-					// 		"name": "H5Loading",
-					// 		"align": "cc"
-					// 	},
-					// 	{
-					// 		"name": "infoDisplay"
-					// 	},
-					// 	{
-					// 		"name": "tooltip",
-					// 		"align": "blabs",
-					// 		"x": 0,
-					// 		"y": 56
-					// 	},
-					// 	{
-					// 		"name": "thumbnail"
-					// 	},
-					// 	{
-					// 		"name": "controlBar",
-					// 		"align": "blabs",
-					// 		"x": 0,
-					// 		"y": 0,
-					// 		"children": [
-					// 			{
-					// 				"name": "progress",
-					// 				"align": "blabs",
-					// 				"x": 0,
-					// 				"y": 44
-					// 			},
-					// 			{
-					// 				"name": "playButton",
-					// 				"align": "tl",
-					// 				"x": 15,
-					// 				"y": 12
-					// 			},
-					// 			{
-					// 				"name": "timeDisplay",
-					// 				"align": "tl",
-					// 				"x": 10,
-					// 				"y": 7
-					// 			},
-					// 			{
-					// 				"name": "fullScreenButton",
-					// 				"align": "tr",
-					// 				"x": 10,
-					// 				"y": 12
-					// 			},
-					// 			{
-					// 				"name": "subtitle",
-					// 				"align": "tr",
-					// 				"x": 15,
-					// 				"y": 12
-					// 			},
-					// 			{
-					// 				"name": "setting",
-					// 				"align": "tr",
-					// 				"x": 15,
-					// 				"y": 12
-					// 			},
-					// 			{
-					// 				"name": "volume",
-					// 				"align": "tr",
-					// 				"x": 5,
-					// 				"y": 10
-					// 			}
-					// 		]
-					// 	}
-					// ],
-					"skinLayout": [
-						{
-							"name": "bigPlayButton",
-							"align": "blabs",
-							"x": 30,
-							"y": 80
-						},
-						{
-							"name": "H5Loading",
-							"align": "cc"
-						},
-						{
-							"name": "tooltip",
-							"align": "blabs",
-							"x": 0,
-							"y": 56
-						},
-						{
-							"name": "thumbnail"
-						},
-						{
-							"name": "controlBar",
-							"align": "blabs",
-							"x": 0,
-							"y": 0,
-							"children": [
-								{
-									"name": "progress",
-									"align": "blabs",
-									"x": 0,
-									"y": 44
-								},
-								{
-									"name": "playButton",
-									"align": "tl",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "timeDisplay",
-									"align": "tl",
-									"x": 10,
-									"y": 7
-								},
-								{
-									"name": "fullScreenButton",
-									"align": "tr",
-									"x": 10,
-									"y": 12
-								},
-								{
-									"name": "setting",
-									"align": "tr",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "volume",
-									"align": "tr",
-									"x": 5,
-									"y": 10
-								}
-							]
+          extraInfo:{ //直播流中断不重试
+						"liveRetry":1
+					},
+          liveOverTime:false,
+					hooks:{
+						liveStreamStop(){
+							this.videoEnd = true;
 						}
-					],
-					vue_this:that
-				},function(player) {
-					player.play();
+					}
 				});
+				
+				
 
 			},
 			//获取视频详情
@@ -476,7 +349,7 @@
 					} else if (this.resVideo.status == 2 || this.resVideo.status == 3) {  //正在直播 历史直播
 						this.haveVideo = true;
 						if(this.resVideo.status == 2){
-							console.log(this.resVideo)
+							// console.log(this.resVideo)
 							this.getDirectVideo(this.resVideo.play_url);
 						}else{
 							this.getVideo(this.resVideo.videoId)
@@ -488,7 +361,7 @@
 					}
 
 				}).catch((error) => {
-					console.log(error);
+					// console.log(error);
 				});
 			},
 			getHeight(){
@@ -498,14 +371,21 @@
 				this.getVideoDetail()
 			}
 		},
-		destroy() {
-			this.socket.onclose()
+		beforeRouteLeave (to, from, next) {
+			// console.log('断开1')
+			this.socket.websocket.close();
+			next()
 		},
+		// destroy() {
+		// 	console.log('断开2')
+		// 	this.socket.onclose()
+		// },
 		mounted() {
 			this.init();
 			this.userInfoId = store.state.userInfo.id;
-			console.log(this.$el.children[0])
 
+			
+			// console.log(this.$el.children[0])
 		}
 	}
 </script>
@@ -529,6 +409,7 @@
 			line-height: 25px;
 			background: rgba(0,0,0,.7);
 			border-radius: rem(12);
+			z-index: 1000;
 		}
 		.videoHeight{
 			width: 100%;

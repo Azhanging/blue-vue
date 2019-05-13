@@ -30,7 +30,7 @@
 					<img :src="`${staticPath}/banner-2.png`" class="bc-w-100">
 				</div>
 
-				<div class="bc-row bc-ps-a" style="bottom:4rem;" v-if="!(config.device.isApp && config.device.isIPhone)">
+				<div class="bc-row bc-ps-a" style="bottom:4rem;" >
 					<template v-if="$store.getters.isLogin">
 						<router-link to="/member/creator" v-if="isCreator">
 							<!-- 是创客 -->
@@ -82,7 +82,7 @@
 		</div>
 
 		<template slot="other">
-			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;" v-if="!(config.device.isApp && config.device.isIPhone)">
+			<div class="bc-row bc-ps-f bc-v-t" style="bottom:0;left:0;z-index:10000;" >
 
 				<!-- 没有登录 -->
 				<template v-if="$store.getters.isLogin">

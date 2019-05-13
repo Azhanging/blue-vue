@@ -1,5 +1,13 @@
 import agent from "./agent";
 import creator from "./creator";
+import ProductAngel from "./product-angel";
+import ServiceProviders from "./service-providers";
+import BranchSchool from "./branch-school";
+import SchoolBoard from "./school-board";
+import CommercialCollege from "./commercial-college";
+import producers from "./producers";
+import owner from "./owner";
+import consumers from "./consumers";
 import vip from "./vip";
 import tools from "./tools";
 import contract from './contract';
@@ -20,6 +28,14 @@ const member = {
   children: [
     agent,        //代理
     creator,      //创客
+    ProductAngel,      //产品天使---完成
+    ServiceProviders,      //服务商---完成
+    BranchSchool,      //公益分校---完成-数据问题
+    SchoolBoard,      //荣誉校董---完成-数据问题
+    CommercialCollege,      //上大夫商学院---完成-数据问题
+    producers,      //生产商---完成
+    owner,      //项目金主---完成
+    consumers,      //消费商
     vip,          //vip
     tools,        //工具
     areaCreator,  //区域创客(老项目)

@@ -1,6 +1,9 @@
 const agent = {
   path: 'agent/:area_id/:level',
   component: () => import("@/views/member/agent/agent"),
+  meta:{
+    tabBar:'office'
+  },
   children: [{
     //历史
     path: 'history',

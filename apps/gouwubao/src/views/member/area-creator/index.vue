@@ -15,7 +15,7 @@
 	      name:'渠道会员（位）',
 	      url:`${config.path.base}/member/office_president/details_member.html`
 	    },
-	    num: resData.ChannelMemberCount,
+	    num: {value:resData.ChannelMemberCount},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: resData.ChannelMemberCountToday
@@ -32,7 +32,7 @@
 	      name:'商城收益',
 	      url:`/member/area-creator/store-income`
 	    },
-	    num: resData.ShopTb,
+	    num: {value:resData.ShopTb},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: resData.ShopTbToday

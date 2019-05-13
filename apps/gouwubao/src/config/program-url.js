@@ -8,6 +8,7 @@ const programUrl = (() => {
       'life-school': 'https://pc.lifest.dtb315.cn',
       'fu-wu-tong': 'http://pc.fuwu.dtb315.com',
       'ji-fu-bao':'http://pc.jifu.dtb315.com',
+      'cai-fu-bao':'http://pc.caifu.dtb315.com',
     }
   } else if (env.beta) {
     return {
@@ -15,6 +16,7 @@ const programUrl = (() => {
       'life-school': 'https://beta.jiaxiao.dtb315.cn',
       'fu-wu-tong': 'http://beta.fuwu.dtb315.cn',
 	    'ji-fu-bao':'http://beta.jifu.dtb315.cn',
+	    'cai-fu-bao':'http://beta.caifu.dtb315.com',
     }
   } else {
     return {
@@ -22,6 +24,7 @@ const programUrl = (() => {
       'life-school': 'https://jiaxiao.dtb315.com',
       'fu-wu-tong': 'https://fuwu.dtb315.com',
 	    'ji-fu-bao':'https://jifu.dtb315.com',
+	    'cai-fu-bao':'https://caifu.dtb315.com',
     }
   }
 })();

@@ -88,7 +88,8 @@ export default {
       commentsReplyInputShow: true,
       isCollect: true,
       editComment: '', // 评论内容
-      showBindPhoneStatus: false
+      showBindPhoneStatus: false,
+	    submit_timer:null,
     }
   },
   methods: {
@@ -98,10 +99,16 @@ export default {
       const currentViewElm = viewElms[viewElms.length - 1];
       currentViewElm.scrollTop = currentViewElm.querySelectorAll('.comment')[0].offsetTop;
     },
-
-
-
-    submitForm() {
+	  submitForm(){
+		  
+    	  clearTimeout(this.submit_timer)
+        var timer = this.submit_timer = setTimeout(function () {
+	        (function (timer) {
+		        this.formSend(timer)
+	        }).call(this,timer)
+        }.bind(this),500)
+	  },
+    formSend(timer) {
       let newComment;
       let name_url = this.$route.path;// 带路径
 
@@ -124,6 +131,12 @@ export default {
         content: editComment,
 	      name_url: name_url
       },);
+      
+      
+      if(this.submit_timer != timer) return;
+      
+      
+      
       this.$axios.post('/api/comment/common', params).then(res => {
        // this.comment.list = this.comment.list ? this.comment.list : [];
         // if (this.comment.list && this.comment.list.length === 0) {

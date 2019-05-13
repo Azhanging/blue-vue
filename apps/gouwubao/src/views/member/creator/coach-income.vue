@@ -12,7 +12,7 @@
 	    title:{
 	      name:'累计收益（通宝）'
 	    },
-	    num: pageData.grandTotal,
+	    num: {value:pageData.grandTotal},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayGrandTotal
@@ -27,7 +27,7 @@
 	    title:{
 	      name:'辅导VIP收益'
 	    },
-	    num: pageData.grandVip,
+	    num: {value:pageData.grandVip},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayGrandVip
@@ -42,7 +42,7 @@
 	    title:{
 	      name:'辅导创客收益'
 	    },
-	    num: pageData.grandCreator,
+	    num: {value:pageData.grandCreator},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.todayGrandCreator

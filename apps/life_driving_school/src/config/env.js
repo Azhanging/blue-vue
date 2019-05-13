@@ -7,6 +7,10 @@ const dev = (() => {
   return /localhost|192\.168|127\.0\.0\.1|pc\./ig.test(host);
 })();
 
+const test =(() => {
+  return /w1\./ig.test(host);
+})();
+
 //beta环境
 const beta = (() => {
   return (!dev) && (/beta\./ig.test(host));
@@ -17,8 +21,11 @@ const prod = (() => {
   return (!dev && !beta);
 })();
 
+
+
 export default {
   dev,
+  test,
   beta,
   prod
 };

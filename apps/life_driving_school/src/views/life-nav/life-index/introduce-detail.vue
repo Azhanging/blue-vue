@@ -103,95 +103,11 @@
 				
 				this.player = new VideoPlayer({
 					id: `J_prismPlayer${videoId}`,
-					autoplay: false,
-					isLive: false,
-					width: '100%',
-					playsinline: true,
-					controlBarVisibility: 'hover',
 					//点播
 					vid: videoId,
 					playauth,
 					
-					useH5Prism: true,
-					useFlashPrism: false,
-					x5_video_position: 'normal',
-					//prismplayer 2.0.1版本支持的属性，主要用户实现在android 微信上的同层播放
-					x5_type: 'h5', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
 					cover,
-					"skinLayout": [  //取消错误显示样式
-						{
-							"name": "bigPlayButton",
-							"align": "blabs",
-							"x": 30,
-							"y": 80
-						},
-						{
-							"name": "H5Loading",
-							"align": "cc"
-						},
-						{
-							"name": "infoDisplay"
-						},
-						{
-							"name": "tooltip",
-							"align": "blabs",
-							"x": 0,
-							"y": 56
-						},
-						{
-							"name": "thumbnail"
-						},
-						{
-							"name": "controlBar",
-							"align": "blabs",
-							"x": 0,
-							"y": 0,
-							"children": [
-								{
-									"name": "progress",
-									"align": "blabs",
-									"x": 0,
-									"y": 44
-								},
-								{
-									"name": "playButton",
-									"align": "tl",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "timeDisplay",
-									"align": "tl",
-									"x": 10,
-									"y": 7
-								},
-								{
-									"name": "fullScreenButton",
-									"align": "tr",
-									"x": 10,
-									"y": 12
-								},
-								{
-									"name": "subtitle",
-									"align": "tr",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "setting",
-									"align": "tr",
-									"x": 15,
-									"y": 12
-								},
-								{
-									"name": "volume",
-									"align": "tr",
-									"x": 5,
-									"y": 10
-								}
-							]
-						}
-					]
 				});
 				
 			}

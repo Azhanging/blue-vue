@@ -1,11 +1,113 @@
+import utils from 'blue-utils';
+const defaultProps = {
+	id: ``,               //dom elm
+	autoplay: false,        //自动播放
+	isLive: false,
+	width: '100%',
+	// height: '200px',
+	cover:"",
+	playsinline: true,  //内置播放
+	controlBarVisibility: 'hover',
+	rePlay: false,
+	//直播
+	source: false,
+	//点播
+	vid: false,
+	playauth: '',
+
+	useH5Prism: true,           //使用h5播放
+	useFlashPrism: false,       //使用flash播放
+
+	x5_type: '', //通过 video 属性 “x5-video-player-type” 声明启用同层H5播放器，支持的值：h5 https://x5.tencent.com/tbs/guide/video.html
+	x5_video_position: 'normal',
+	//x5_fullscreen: true,      //声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true
+	//x5_orientation: 'portraint',    //声明 TBS 播放器支持的方向
+	useHlsPluginForSafari: true, //Safari浏览器可以启用Hls插件播放，Safari 11除外
+	"skinLayout": [
+		{
+			"name": "bigPlayButton",
+			"align": "blabs",
+			"x": 30,
+			"y": 80
+		},
+		{
+			"name": "H5Loading",
+			"align": "cc"
+		},
+		{
+			"name": "tooltip",
+			"align": "blabs",
+			"x": 0,
+			"y": 56
+		},
+		{
+			"name": "thumbnail"
+		},
+		{
+			"name": "controlBar",
+			"align": "blabs",
+			"x": 0,
+			"y": 0,
+			"children": [
+				{
+					"name": "progress",
+					"align": "blabs",
+					"x": 0,
+					"y": 44
+				},
+				{
+					"name": "playButton",
+					"align": "tl",
+					"x": 15,
+					"y": 12
+				},
+				{
+					"name": "timeDisplay",
+					"align": "tl",
+					"x": 10,
+					"y": 7
+				},
+				{
+					"name": "fullScreenButton",
+					"align": "tr",
+					"x": 10,
+					"y": 12
+				},
+				{
+					"name": "setting",
+					"align": "tr",
+					"x": 15,
+					"y": 12
+				},
+				{
+					"name": "volume",
+					"align": "tr",
+					"x": 5,
+					"y": 10
+				}
+			]
+		}
+	],
+	hooks:{}
+};
+
+
+
 export default class VideoPlayer {
 	constructor(props) {
 		this.player;
-		this.props = props;
-		this._setup();
-		this._bindEvent();
-		this._firstFullscreen = true;
+		try{
+			this.props = utils.extend(defaultProps, props);
+			// this.props = props;
+			console.log(this.props)
+			this._setup();
+			this._firstFullscreen = true;
+		}
+		catch(error){
+			console.log(error)
+		}
 	}
+
 
 	loadByUrl(url) {
 		if (this.player)
@@ -20,9 +122,8 @@ export default class VideoPlayer {
 	}
 
 	_setup() {
-		this.player = new Aliplayer(this.props, function (player) {
-			player._switchLevel = 0;
-		});
+    this.player = new Aliplayer(this.props);
+    this._bindEvent();
 	}
 
 	_bindEvent() {
@@ -45,12 +146,16 @@ export default class VideoPlayer {
 		});
 		this.player.on('liveStreamStop', (e) => { //直播流中断时触发
 			if (this.props.isLive) {
-				this.props.vue_this.videoEnd = true
-				// console.log('直播流中断1')
+				utils.hooks(this,this.props.hooks.liveStreamStop);
+				this.props.source = false;
+        // var el = document.getElementsByTagName('video');
+        // el[0].parentNode.removeChild(el[0]);
+
+				console.log('直播流中断1')
 			}
 		});
 		this.player.on('m3u8Retry', (e) => { //m3u8直播流中断后重试事件，每次断流只触发一次
-			// console.log('直播流中断2')
+			console.log('直播流中断2')
 		});
 
 
@@ -87,6 +192,8 @@ export default class VideoPlayer {
 		//        video.removeClass('x5-top-left');
 		//     });
 		// });
+
+
 		//微信左上角退出按钮触发是，关闭页面
 		this.player.tag.addEventListener("x5videoexitfullscreen", () => {
 			if (WeixinJSBridge){

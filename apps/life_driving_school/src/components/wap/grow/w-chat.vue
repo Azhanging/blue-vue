@@ -76,6 +76,7 @@
 					background: url($base-url+'/img/grow/rightchat.png')  no-repeat;
 					background-size: 100% 100%;
 					display: inline-block;
+					text-align: left;
 				}
 			}
 		}
@@ -97,6 +98,7 @@
 					background: url($base-url+'/img/grow/leftchat.png')  no-repeat;
 					background-size: 100% 100%;
 					display: inline-block;
+					text-align: left;
 				}
 			}
 		}

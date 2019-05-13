@@ -31,7 +31,7 @@
 						<div class="bc-mg-tb-5">特别奖学金发放日期
 							<div class="percent-bar bc-mg-tb-5">
 								<div class="percent-bar-bg bc-bg-white"></div>
-								<div class="percent-bar-val" :style='{width:personalData.newTimes}'  style="background: #ffd900;"></div>
+								<div class="percent-bar-val" :style='{width:personalData.newTimes+"px"}'  style="background: #ffd900;"></div>
 							</div>
 						</div>
 						<div class="bc-flex bc-flex-jc-sb bc-mg-tb-5 bc-f-12rp"><span>{{personalData.start_time}}至{{personalData.end_time}}</span>

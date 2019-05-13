@@ -12,7 +12,7 @@
 	    title:{
 	      name:'累计收益（通宝）'
 	    },
-	    num: pageData.revenue.total,
+	    num: {value:pageData.revenue.total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.revenue.today_add_num
@@ -33,7 +33,7 @@
 	    title:{
 	      name:'累计订单量'
 	    },
-	    num: pageData.order_sales.order_total,
+	    num: {value:pageData.order_sales.order_total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.order_sales.today_order_add_num
@@ -48,7 +48,7 @@
 	    title:{
 	      name:'累计销售额'
 	    },
-	    num: pageData.order_sales.sales_total,
+	    num: {value:pageData.order_sales.sales_total},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: pageData.order_sales.today_sales_add_num

@@ -23,6 +23,7 @@ const config = {
   //环境相关
   env: {
     dev: true,                     //开发环境
+    test:false,
     beta: false,                    //beta环境
     prod: false                     //生产环境
   },

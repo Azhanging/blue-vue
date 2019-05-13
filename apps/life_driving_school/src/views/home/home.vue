@@ -56,14 +56,13 @@
 			</div>
 
 			<!--三大系统-->
-			<div class="three-system " v-if="getData && getData.system">
 
-				<div class="bc-t-c bc-mg-t-20rp">
+				<div class="bc-t-c bc-mg-t-20rp" v-if="getData && getData.system">
 					<img class="bc-inline-block three-system-title" :src="`${config.path.static}/img/home/three_system.png`">
 				</div>
 
-				<div class="three-system-content bc-t-c">
-					<div>
+				<div class="three-system-content  " v-if="getData && getData.system">
+					<div class="bc-t-c">
 						<router-link :to="$router.routerID.getPathID({
 						id: getData.system[0].id,
 						params:{
@@ -73,40 +72,56 @@
 							<img class="bc-inline-block chengzhang-system" :src="getData.system[0].src_img" alt="成长系统">
 						</router-link>
 					</div>
-					<div class=" bc-t-c bc-mg-t-3rp">
-						<a href="javascript:;" @click="toJifubao">
+					<div class="bc-flex bc-t-c bc-mg-t-3rp">
+						<a href="javascript:;" class="bc-flex-1" @click="toJifubao">
 							<img class="bc-inline-block bozhong-system" :src="getData.system[1].src_img" alt="播种系统">
 						</a>
-						<a href="javascript:;" @click="$toast({message: '敬请期待！'})" >
+						<a href="javascript:;" class="bc-flex-1" @click="$toast({message: '敬请期待！'})" >
 							<img class="bc-inline-block shouhuo-system" :src="getData.system[2].src_img" alt="收获系统">
 						</a>
 					</div>
 				</div>
-			</div>
 
-			<!--生命驾照-->
-			<div class="shengmingdaohang bc-t-c bc-mg-t-10rp bc-c-f" v-if="getData && getData.life">
-				<div class="">
+			<!--生活导航-->
+
+				<div class="bc-mg-t-20rp">
 					<img class="block bc-w-100" :src="`${config.path.static}/img/home/shengmingdaohang.png`">
 				</div>
-				<div class="shengmingdaohang-content">
+				<div class="shengmingdaohang-content bc-c-f bc-mg-b-15rp" v-if="getData && getData.life">
 					<div class="bc-mg-t-10rp">
-						<router-link v-for="item in getData.life" :to="$router.routerID.getPathID({
+						<div class="bc-flex bc-t-flex  bc-flex-jc-sa">
+							<router-link v-for="(item, index) in getData.life" :key="index" :to="$router.routerID.getPathID({
 							id: item.id,
 							params:{
 								nav_id: item.id
 							}
-						})">
-							<img class="inline-block shengmingdaohang-item" :src="item.src_img" :alt="item.name">
-						</router-link>
+						})" v-if="index <= 2" >
+								<img class="inline-block shengmingdaohang-item" :src="item.src_img" :alt="item.name" >
+							</router-link>
+						</div>
+						<div class="bc-flex bc-t-flex  bc-flex-ai-c bc-flex-jc-c">
+							<div class='content_second' style='box-sizing: border-box'>
+								<router-link v-for="(item, index) in getData.life" :key="index" :to="$router.routerID.getPathID({
+							id: item.id,
+							params:{
+								nav_id: item.id
+							}
+						})" v-if="index > 2">
+									<img class="inline-block shengmingdaohang-item" :src="item.src_img" :alt="item.name" >
+								</router-link>
+							</div>
+						</div>
+
+
 					</div>
 				</div>
-			</div>
+
 
 			<!--生态圈-->
 			<div class="shengtaiquan bc-c-f" v-if="getData && getData.ecosphere">
-				<div class='scroll-x bc-pd-15rp bc-t-c'>
-					<bv-swiper-scroll :active-class-name="'scroll_active'">
+				<div class='topImg'><img  :src="`${config.path.static}/img/home/shengtaiquan_title.png`"  alt=''></div>
+				<div class='scroll-x  bc-t-c'>
+					<bv-swiper-scroll :active-class-name="'scroll_active'" class='swiper-scroll'>
 						<template slot="scroll-items">
 							<div class=" bc-mg-r-5rp bc-inline-block bc-t-666">
 								<div class='bc-flex bc-flex-d-c bc-flex-ai-c'>
@@ -287,6 +302,7 @@
 
 <style scoped lang="scss">
 	.huilianwang {
+		font-size: 0;
 		.qiandao {
 			left: rem(5);
 			bottom: rem(5);
@@ -324,15 +340,11 @@
 		height: rem(22);
 	}
 
-	.three-system {
-		min-height: rem(255);
-		position: relative;
-
 		.three-system-content {
-			position: absolute;
-			top: 19%;
-			left: 3%;
-			width: rem(355);
+			box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+			position: relative;
+			margin: rem(-10) auto 0 auto;
+			width: 95%;
 			height: rem(200);
 			background: url($base-url + '/img/home/three_system_bg.png') no-repeat;
 			background-position: center;
@@ -357,42 +369,58 @@
 			width: rem(170);
 			height: rem(77);
 		}
-	}
-
-	.shengmingdaohang {
-		min-height: rem(240);
-		position: relative;
-
 		.shengmingdaohang-content {
-			position: absolute;
-			width: rem(355);
+			box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+			position: relative;
+			margin: rem(-15) auto rem(20) auto;
+			width: 95%;
 			height: rem(175);
-			top: 20%;
-			left: 3%;
 			background: url($base-url + '/img/home/shengmingdaohang_bg.png') no-repeat;
 			background-position: center;
 			background-size: 100% 100%;
+			.content_second{
+				display: flex;
+				justify-content: space-around;
+				width: 100%;
+				padding:0 rem(80)
+			}
 		}
 
 		.shengmingdaohang-item {
 			width: rem(118);
 			height: rem(78);
 		}
-	}
+
 
 	.shengtaiquan {
-		height: rem(180);
-		background: url($base-url + '/img/home/shengtaiquan_bg.png') no-repeat;
+		/*height: rem(180);*/
+		
 		background-position: center;
 		background-size: 100% 100%;
+		.topImg{
+			font-size: 0;
+			img{
+				width: 100%;
+			}
+		}
+		
 
 		.scroll-x {
-			margin-top: rem(35);
-
-			.scroll_img {
-				width: rem(108);
-				height: rem(108);
+			height: rem(110);
+			margin-bottom: rem(10);
+			background: url($base-url + '/img/home/shengtaiquan_bgs.png') no-repeat;
+			background-size: 100% 100%;
+			box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+			.swiper-scroll{
+				position: relative;
+				top: rem(-15);
+				padding: 0 rem(15);
+				.scroll_img {
+					width: rem(108);
+					height: rem(108);
+				}
 			}
+			
 		}
 
 		.shengtaiquan-item {
@@ -407,6 +435,7 @@
 	}
 
 	.jiankangchangshi {
+		box-shadow:0px 3px 10px 0px rgba(0, 0, 0, 0.1);
 		.bv-swiper-scroll-container {
 			display: inline-block!important;
 			width: 78%;

@@ -32,7 +32,7 @@ function shareLinkParams() {
   const params = {
     [shareParams.phone]: phone ? Base64.encode(phone) : '',
     [shareParams.redirectUrl]: fullPath,
-    [shareParams.wantUrl]: `${config.path.indexPath}${fullPath}`     //业务需要，添加跳转链接
+    [shareParams.wantUrl]: `${config.path.indexPath}`     //业务需要，添加跳转链接
   };
 
   return utils.stringifyParams(params);

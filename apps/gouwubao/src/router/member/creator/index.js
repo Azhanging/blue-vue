@@ -2,6 +2,9 @@ const creator = {
   //创客
   path: 'creator',
   component: () => import("@/views/member/creator/creator"),
+  meta: {
+    tabBar: 'office'
+  },
   children: [{
     //辅导收益
     path: 'coach-income',

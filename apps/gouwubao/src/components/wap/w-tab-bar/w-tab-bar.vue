@@ -8,6 +8,7 @@
   import store from '@store';
   import { matchRouter } from '$components/bv-tab-bar';
   import homeTabBar from './home-tab-bar';
+  import officeTabBar from './office-tab-bar';
 
   export default {
     name: "w-tab-bar",
@@ -15,7 +16,8 @@
       return {
         activeIndex: -1,
         allTabBar: {
-          'home': homeTabBar
+          'home': homeTabBar,
+	        'office': officeTabBar,
         }
       }
     },

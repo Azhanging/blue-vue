@@ -113,6 +113,11 @@
 					this.det_data = res.data.data
 					const {share_title, share_img,  share_content} = this.det_data;
 					//this.info = data;
+					this.comment.shareInfo = {
+						title: share_title,
+						thumImage: share_img,
+						descr: share_content,
+					};
 					// 微信分享
 					this.$weChatShare({
 						title: share_title,
