@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">项目金主说明<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">项目金主说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -75,6 +75,7 @@
 	//统计的item
 	import StatisticsItem from '../components/statistics-item';
 	import programUrl from '@config/program-url';
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "owner",
 		data() {
@@ -86,6 +87,7 @@
 			this.getData();
 		},
 		computed: {
+		
 		},
 		methods: {
 			getData() {
@@ -99,6 +101,12 @@
 			},
 			to_xmlistpath(id){
 				location.href = `${programUrl['cai-fu-bao']}/project/details.html?id=${id}`;
+			},
+			btn_toast(){
+				$toast({
+					message: '敬请期待',
+					duration: 3000
+				});
 			}
 		},
 		components: {

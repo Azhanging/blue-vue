@@ -3,20 +3,20 @@
 
 		<bv-header :header="{title:{value:'消费商办公室'}}"/>
 
-		<div class="angel-header bc-flex">
+		<div class="angel-header bc-flex" v-if="consumersData">
 			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
-				<img src="https://image.dtb315.com/328890.jpg?val=Thumb" alt="" class="head-img">
+				<img :src="consumersData.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3">
 				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
-					用户昵称
+					{{ consumersData.nickname }}
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
-					注册日期：2015-08-31
+					注册日期：{{ consumersData.register }}
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">消费商说明<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">消费商说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -24,62 +24,65 @@
 		<div class="angel-statistical">
 			资产管理
 		</div>
-		<statistics-item :options="{
+		<!--/*`/member/consumers/invitation-vip`*/-->
+		<statistics-item v-if="consumersData" :options="{
 	    title:{
 	      name:'直邀会员',
-	      url:`/member/consumers/invitation-vip`
+	      url: `${config.path.base}/member/my_member/details_member`
 	    },
-	    num: {name:'通宝',value:1},
+	    num: {value:consumersData.count},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: 2
+	      num: consumersData.xf.today
 	    },{
 	      name:'当月新增',
-	      num: 3
+	      num: consumersData.xf.month
 	    }]
 		}"/>
 		
 		<div class="angel-statistical">
 			资本统计
 		</div>
-		<statistics-item :options="{
+		<template v-if="consumersData">
+			<statistics-item :options="{
 	    title:{
 	      name:'福利收益',
 	      url:`/member/consumers/earnings`
 	    },
-	    num: {name:'积分',value:1},
+	    num: {name:'积分',value:consumersData.lpjf},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: 2
+	      num: consumersData.today_lpjf
 	    },{
 	      name:'当月新增',
-	      num: 3
+	      num: consumersData.month_lpjf
 	    }]
 		}"/>
-		<statistics-item :options="{
+			<statistics-item :options="{
 	    title:{
 	    },
-	    num: {name:'种子',value:1},
+	    num: {name:'种子',value:consumersData.fljf},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: 2
+	      num: consumersData.today_fljf
 	    },{
 	      name:'当月新增',
-	      num: 3
+	      num: consumersData.month_fljf
 	    }]
 		}"/>
-		<statistics-item :options="{
+			<statistics-item :options="{
 	    title:{
 	    },
-	    num: {name:'公益基金',value:1},
+	    num: {name:'公益基金',value:consumersData.seed},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: 2
+	      num: consumersData.today_seed
 	    },{
 	      name:'当月新增',
-	      num: 3
+	      num: consumersData.month_seed
 	    }]
 		}"/>
+		</template>
 		<div class="view-more">
 			<router-link to="/member/consumers/history">查看历史数据&gt;&gt;</router-link>
 		</div>
@@ -87,22 +90,22 @@
 		<div class="angel-statistical">
 			购物宝商城产品
 		</div>
-		<statistics-item class="bc-pd-t-10rp" :options="{
+		<statistics-item v-if="consumersData" class="bc-pd-t-10rp" :options="{
 	    title:{
 	    },
-	    num: {name:'产品总数',value:1,prompt:true},
+	    num: {name:'产品总数',value:consumersData.count,prompt:true},
 	    otherNum:[{
 	      name:'3A类',
-	      num: 2
+	      num: `${consumersData.product['3a']}`
 	    },{
 	      name:'A类',
-	      num: 3
+	      num: consumersData.product.a
 	    },{
 	      name:'B类',
-	      num: 2
+	      num: consumersData.product.b
 	    },{
 	      name:'C类',
-	      num: 3
+	      num: consumersData.product.c
 	    }]
 		}"/>
 		
@@ -112,11 +115,13 @@
 <script>
 	//统计的item
 	import StatisticsItem from '../components/statistics-item';
+	
+	import { $toast } from "$use-in-vue/mint-ui/toast";
   export default {
     name: "consumers",
     data() {
       return {
-	      memberInfo:''
+	      consumersData:''
       }
     },
     created() {
@@ -127,8 +132,14 @@
     methods: {
 	    getData() {
 		    this.$axios.get('/member/office_prosumer/index').then((res) => {
-			    /*const { data } = res.data;
-			    this.memberInfo = data.memberInfo;*/
+			    const { data } = res.data;
+			    this.consumersData = data;
+		    });
+	    },
+	    btn_toast(){
+		    $toast({
+			    message: '敬请期待',
+			    duration: 3000
 		    });
 	    }
     },

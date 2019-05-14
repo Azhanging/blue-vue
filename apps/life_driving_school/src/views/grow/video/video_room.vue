@@ -22,7 +22,7 @@
 						
 						<!--开播-->
 						<div  v-show='hiddenVideo'  :class='["bc-ps-r"]'>
-							<div class="prism-player video"  v-if='haveVideo' id="J_prismPlayer">
+							<div :class='[!config.device.isPc ? "video_max_height":"","prism-player","video"]' v-if='haveVideo' id="J_prismPlayer">
 							</div>
 							<span v-if='videoEnd' class='bc-f-12rp bc-ps-a bc-t-white videoEnd'>直播已结束</span>
 						</div>
@@ -453,9 +453,11 @@
 				}
 			}
 		}
+		.video_max_height{
+			max-height: rem(210) !important;
+		}
 		.video {
 			width: 100%;
-			max-height: rem(210) !important;
 			background-color: #f4f4f4;
 			.bgImg {
 				width: rem(116);

@@ -9,6 +9,17 @@
 				<div>活动开始时间</div>
 				<div>申请状态</div>
 			</div>
+			<!--<div class="table-td">
+				<div>
+					活动主题活动主题活动主题活动主题活动主题活动主题活动主题
+				</div>
+				<div>2019年05月24号 16:43</div>
+				<div>2019年05月24号 16:43</div>
+				<div>
+					<a class="zt-color" href="">
+						已提交 <i class="icon icon-right"></i></a>
+				</div>
+			</div>-->
 			<div class="table-td" v-for="(item,index) in schoolData">
 				<div>
 					{{ item.theme }}
@@ -57,6 +68,7 @@
 		background: #fff;
 		margin-top: rem(10);
 		overflow: hidden;
+		font-size: rem(12);
 		.table-th, .table-td{
 			display: flex;
 			align-items: center;
@@ -76,6 +88,7 @@
 		.table-td{
 			padding: rem(10) 0;
 			color: #999;
+			div{padding: rem(5)}
 		}
 		.zt-color{
 			color: #DCB46E;

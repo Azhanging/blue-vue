@@ -25,7 +25,7 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">生产商说明<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">生产商说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -57,10 +57,10 @@
 	    title:{
 	      name:'销售量',
 	    },
-	    num: {value:producerData.sales.num},
+	    num: {value:producerData.sales_all.num},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: producerData.sales_all.num
+	      num: producerData.sales.num
 	    },{
 	      name:'当月新增',
 	      num: producerData.sales_month.num
@@ -70,10 +70,10 @@
 	    title:{
 	      name:'销售额',
 	    },
-	    num: {value:producerData.sales.money_count},
+	    num: {value:producerData.sales_all.money_count},
 	    otherNum:[{
 	      name:'今日新增',
-	      num: `${producerData.sales_all.money_count}`
+	      num: `${producerData.sales.money_count}`
 	    },{
 	      name:'当月新增',
 	      num: `${producerData.sales_month.money_count}`
@@ -86,7 +86,7 @@
 		<statistics-item v-if="producerData" class="bc-pd-10rp" :options="{
 	    title:{
 	    },
-	    num: {name:'总数',value:'1560'},
+	    num: {name:'总数',value:producerData.goodCount},
 	    otherNum:[{
 	      name:'销售中',
 	      num: producerData.xsz
@@ -129,7 +129,7 @@
 	      num: producerData.dangri_zhuiping
 	    },{
 	      name:'当月新增',
-	      num: producerData.month_shouping
+	      num: producerData.month_zhuiping
 	    }]
 		}"/>
 			<statistics-item class="bc-bd-b-e5e" :options="{
@@ -142,7 +142,7 @@
 	      num: producerData.dangri_youtu
 	    },{
 	      name:'当月新增',
-	      num: producerData.month_shouping
+	      num: producerData.month_youtu
 	    }]
 		}"/>
 			<statistics-item class="bc-bd-b-e5e" :options="{
@@ -155,7 +155,7 @@
 	      num: producerData.dangri_fumian
 	    },{
 	      name:'当月新增',
-	      num: producerData.month_shouping
+	      num: producerData.month_fumian
 	    }]
 		}"/>
 			<statistics-item class="bc-bd-b-e5e" :options="{
@@ -168,7 +168,7 @@
 	      num: producerData.dangri_huifu
 	    },{
 	      name:'当月新增',
-	      num: producerData.month_shouping
+	      num: producerData.month_huifu
 	    }]
 		}"/>
 			<statistics-item class="bc-bd-b-e5e" :options="{
@@ -181,7 +181,7 @@
 	      num: producerData.dangri_daihuifu
 	    },{
 	      name:'当月新增',
-	      num: producerData.month_shouping
+	      num: producerData.month_daihuifu
 	    }]
 		}"/>
 		</template>
@@ -193,6 +193,7 @@
 	import StatisticsItem from '../components/statistics-item';
 	import StatisticsItem2 from '../components/statistics-item2';
 	import ProgramUrl from '@config/program-url'
+	import { $toast } from "$use-in-vue/mint-ui/toast";
   export default {
     name: "producers",
     data() {
@@ -217,6 +218,12 @@
 	    },
 	    to_comment(){
 		    location.href = `${ProgramUrl['gou-wu-bao']}/member/office_producer/comment_manage.html`
+	    },
+	    btn_toast(){
+		    $toast({
+			    message: '敬请期待',
+			    duration: 3000
+		    });
 	    }
     },
     components: {

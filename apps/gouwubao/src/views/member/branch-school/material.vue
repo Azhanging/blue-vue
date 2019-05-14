@@ -3,11 +3,11 @@
 		
 		<bv-header :header="{title:{value:'公益分校办公室'}}"/>
 		
-		<div class="angel-header bc-flex">
+		<div class="angel-header bc-flex" v-if="materialData">
 			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
 				<img :src="materialData.memberImg" alt="" class="head-img">
 			</div>
-			<div class="bc-flex-3" v-if="materialData">
+			<div class="bc-flex-3">
 				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
 					公益分校
 				</div>
@@ -16,9 +16,9 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">
+				<a @click="btn_toast">
 					公益分校说明
-					<i class="icon icon-right"></i></router-link>
+					<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -28,7 +28,7 @@
 			</div>
 			<div class="bc-pd-l-15rp bc-pd-r-15rp">
 				<div class="bc-f-12rp bc-mg-b-5rp bc-t-999">
-					下载链接：{{ copyHref }}
+					下载链接：<span id="inviteCode">{{ copyHref }}</span>
 				</div>
 				<div class="bc-f-12rp bc-t-999">密码：17v4</div>
 			</div>
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "material",
 		components: {},
@@ -86,8 +87,25 @@
 				});
 			},
 			onCopy() {
-				document.execCommand(this.copyHref);
+				var Url2 = document.getElementById("inviteCode").innerText;
+				var oInput = document.createElement("input");
+				oInput.value = Url2;
+				document.body.appendChild(oInput);
+				oInput.select(); // 选择对象
+				document.execCommand("Copy"); // 执行浏览器复制命令
+				oInput.className = "oInput";
+				oInput.style.display = "none";
+				$toast({
+					message: '复制成功',
+					duration: 3000
+				});
 			},
+			btn_toast(){
+				$toast({
+					message: '敬请期待',
+					duration: 3000
+				});
+			}
 		},
 		mounted() {
 			this.getmaterialData();

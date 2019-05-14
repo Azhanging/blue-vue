@@ -25,7 +25,7 @@
 	    title:{
 	      name:'商学院收益统计',
 	    },
-	    num: {value:collegeData.memberInfo.count},
+	    num: {value: `${collegeData.memberInfo.count || 0}`},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: collegeData.memberInfo.tdcount
@@ -51,7 +51,7 @@
 		
 		<statistics-item class="bc-pd-t-10rp bc-bd-b-e5e" v-if="collegeData" v-for="(item,index) in collegeData.nowareaData" :options="{
 	    title:{},
-	    num: {name:`${item.name}累计收益`,value:item.count},
+	    num: {name:`${item.name}累计收益`,value: `${item.count || 0}` },
 	    otherNum:[{
 	      name:'今日新增',
 	      num: item.tdcount

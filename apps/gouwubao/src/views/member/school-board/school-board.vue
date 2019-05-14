@@ -5,7 +5,7 @@
 
 		<div class="angel-header bc-flex">
 			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp" v-if="boardData">
-				<img :src="boardData.benjin" alt="" class="head-img">
+				<img :src="boardData.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3 bc-pd-b-15rp bc-pd-r-15rp" v-if="boardData">
 				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-12rp bc-f-b">
@@ -27,17 +27,18 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-13rp">
-				<router-link to="">校董说明<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">校董说明<i class="icon icon-right"></i></a>
 			</div>
 			<div class="angel-sm bc-mg-t-48rp">
-				<router-link to="">我的智能合约<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">我的智能合约<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
 		<statistics-item class="bc-mg-t-10rp bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'校董奖学金总额',
-	      url:`/member/school-board/scholarship`
+	      url:`/member/school-board/scholarship`,
+	      urlName:'查看明细>'
 	    },
 	    num: {value: boardData.incomeCount}
 		}"/>
@@ -102,7 +103,7 @@
 			<div class="bc-row bc-pd-l-10rp bc-pd-r-10rp" v-if="boardData">
 				<div class="bc-flex bc-pd-5rp bc-f-12rp" v-for="(item,index) in boardData.project">
 					<div class="bc-flex-1 xm-ovhide">
-						<a @click="to_xmlistpath(item.id)" class="xm-color">{{ item.keywords }}</a>
+						<a @click="to_xmlistpath(item.id)" class="xm-color">{{ item.project_name }}</a>
 					</div>
 					<div class="bc-t-666">上线时间：{{ item.start_time }}</div>
 				</div>
@@ -135,6 +136,7 @@
 	//统计的item
 	import StatisticsItem from '../components/statistics-item';
 	import programUrl from '@config/program-url';
+	import { $toast } from "$use-in-vue/mint-ui/toast";
   export default {
     name: "product-angel",
     data() {
@@ -146,6 +148,7 @@
     	this.getData();
     },
     computed: {
+    
     },
     methods: {
 	    getData() {
@@ -159,6 +162,12 @@
 	    },
 	    to_xmlistpath(id){
 		    location.href = `${programUrl['cai-fu-bao']}/project/details.html?id=${id}`;
+	    },
+	    btn_toast(){
+		    $toast({
+			    message: '敬请期待',
+			    duration: 3000
+		    });
 	    }
     },
     components: {

@@ -11,7 +11,7 @@
 			}"/>
 			</div>
 			<div class="bc-pd-10" style='padding-top: 0'>
-				<table class="bc-table bc-table-pd-5 bc-t-c bc-bd-e5e f-0_8 bc-w-100" border='1'>
+				<table class="bc-table bc-table-pd-5 bc-t-c bc-bd-e5e f-0_8 bc-w-100" border='1' v-if="historyData">
 					<tr>
 						<th class="table-head"><span>时间</span><span>会员</span></th>
 						<th>交易笔数</th>
@@ -19,8 +19,8 @@
 					</tr>
 					<tr>
 						<th>直推收益</th>
-						<td>0</td>
-						<td>272.00</td>
+						<td>{{ historyData.prosumer_currency_today || 0 }}</td>
+						<td>{{ historyData.prosumer_currency }}</td>
 					</tr>
 				</table>
 			</div>
@@ -35,7 +35,7 @@
 			}"/>
 			</div>
 			<div class="bc-pd-10" style='padding-top: 0'>
-				<table class="bc-table bc-table-pd-5 bc-t-c bc-bd-e5e f-0_8 bc-w-100" border='1'>
+				<table class="bc-table bc-table-pd-5 bc-t-c bc-bd-e5e f-0_8 bc-w-100" border='1' v-if="historyData">
 					<tr>
 						<th class="table-head"><span>时间</span><span>会员</span></th>
 						<th>当日收益(元)</th>
@@ -43,23 +43,23 @@
 					</tr>
 					<tr>
 						<th>黄金商城</th>
-						<td>0</td>
-						<td>272.00</td>
+						<td>{{ historyData.sc_sy.huangjin_total_day.money }}</td>
+						<td>{{ historyData.sc_sy.huangjin_total.money }}</td>
 					</tr>
 					<tr>
 						<th>白金商城</th>
-						<td>0</td>
-						<td>272.00</td>
+						<td>{{ historyData.sc_sy.baijin_total_day.money }}</td>
+						<td>{{ historyData.sc_sy.baijin_total.money }}</td>
 					</tr>
 					<tr>
 						<th>创客商城</th>
-						<td>0</td>
-						<td>272.00</td>
+						<td>{{ historyData.sc_sy.cke_total_day.money }}</td>
+						<td>{{ historyData.sc_sy.cke_total.money }}</td>
 					</tr>
 					<tr>
 						<th>合计</th>
-						<td>0</td>
-						<td>272.00</td>
+						<td>{{ historyData.sc_sy.today_count.money }}</td>
+						<td>{{ historyData.sc_sy.all_count.money }}</td>
 					</tr>
 				</table>
 			</div>
@@ -76,10 +76,20 @@
 		},
 		computed: {},
 		data() {
-			return {}
+			return {
+				historyData:''
+			}
 		},
-		methods: {},
+		methods: {
+			getHistory() {
+				this.$axios.get('/member/OfficeProsumer/history_record').then((res) => {
+					const { data } = res.data;
+					this.historyData = data;
+				});
+			}
+		},
 		mounted() {
+			this.getHistory();
 		}
 	}
 </script>

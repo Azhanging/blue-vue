@@ -27,10 +27,16 @@ const consumers = {
         {
           path: 'tb-earnings',
           component: () => import("@/views/member/consumers/tb-earnings"),
+          meta: {
+            tabBar: false
+          },
         },
         {
           path: 'sc-earnings',
           component: () => import("@/views/member/consumers/sc-earnings"),
+          meta: {
+            tabBar: false
+          },
         }
       ]
     }

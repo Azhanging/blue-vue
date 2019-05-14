@@ -16,9 +16,9 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">
+				<a @click="btn_toast">
 					公益分校说明
-					<i class="icon icon-right"></i></router-link>
+					<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -28,16 +28,16 @@
 	    },
 	    otherNum:[{
 	      name:'开展活动',
-	      num: `${schoolData.activity_count}次`
+	      num: `${schoolData.activity_count || 0 }次`
 	    },{
 	      name:'参与人数',
-	      num: `${schoolData.apply_count}人`
+	      num: `${schoolData.apply_count || 0 }人`
 	    },{
 	      name:'报名率',
-	      num: `${schoolData.activity_apply_procent}%`
+	      num: `${schoolData.activity_apply_procent || 0 }%`
 	    },{
 	      name:'签到率',
-	      num: `${schoolData.activity_vote_procent}%`
+	      num: `${schoolData.activity_vote_procent || 0 }%`
 	    }]
 		}"/>
 		
@@ -80,8 +80,11 @@
 
 <script>
 	import StatisticsItem2 from '../components/statistics-item2';
+	
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "branch-school",
+		props: ['member-info','type'],
 		data() {
 			return {
 				schoolData:''
@@ -97,6 +100,12 @@
 				this.$axios.get('/member/office_commonweal/index').then((res) => {
 					const { data } = res.data;
 					this.schoolData = data;
+				});
+			},
+			btn_toast(){
+				$toast({
+					message: '敬请期待',
+					duration: 3000
 				});
 			}
 		},

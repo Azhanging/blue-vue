@@ -5,30 +5,27 @@
 		
 		<div class="bc-flex bc-bg-white">
 			<div class="bc-flex-1 sc-set">
-				<select>
-					<option>全部商城</option>
-					<option>黄金商城</option>
-					<option>白金商城</option>
-					<option>创客商城</option>
+				<select @change="scCanshuT()" v-model="type">
+					<option value="0">全部商城</option>
+					<option :value="item.type" v-for="(item,index) in scScreen">{{ item.name }}</option>
 				</select>
 			</div>
 			<div class="bc-flex-1 sc-set">
-				<select>
-					<option>全部级别</option>
-					<option>一级</option>
-					<option>二级</option>
+				<select @change="scCanshuL()" v-model="level">
+					<option value="0">全部级别</option>
+					<option :value="item.level" v-for="(item,index) in scScreenLevel">{{ item.name }}</option>
 				</select>
 			</div>
 		</div>
 		
-		<div class="bc-flex bc-bg-white bc-mg-t-10rp bc-t-c bc-pd-10rp">
+		<div class="bc-flex bc-bg-white bc-mg-t-10rp bc-t-c bc-pd-10rp" v-if="scData">
 			<div class="bc-flex-1 bc-bd-r-e5e">
 				<div class="bc-t-999 bc-f-12rp">交易笔数</div>
-				<div class="bc-t-333 bc-f-16">0笔</div>
+				<div class="bc-t-333 bc-f-16">{{ scData.count }}笔</div>
 			</div>
 			<div class="bc-flex-1">
 				<div class="bc-t-999 bc-f-12rp">合计收入</div>
-				<div class="bc-t-333 bc-f-16">540元</div>
+				<div class="bc-t-333 bc-f-16">{{ scData.money }}元</div>
 			</div>
 		</div>
 		
@@ -36,7 +33,18 @@
 			<flow-title :options="{
 	      name:'收益明细'
 			}"/>
-			<order-item :item="i" type="tb-earnings" v-for="(i,index) in 4" :key="index" class="bc-bd-b-e5e"/>
+			<bv-scroll :api="api" :disabled="load.state.disabled">
+				<order-item :item="item" type="sc-earnings" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>
+				<template slot="load-down">
+					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
+						数据加载中...
+					</div>
+					<div class="bc-t-c bc-pd-10" v-else>
+						暂无数据...
+					</div>
+				</template>
+			</bv-scroll>
+			
 		</div>
 		
 	</bv-home-view>
@@ -47,18 +55,83 @@
 	import OrderItem from '../components/order-item';
 	//流水title
 	import FlowTitle from '../components/flow-title';
+	
+	import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
 	export default {
 		name: "sc-earnings",
 		components: {
 			OrderItem,
 			FlowTitle
 		},
+		mixins: [scrollMixin()],
 		computed: {},
 		data() {
-			return {}
+			return {
+				scData:'',
+				scScreen:[
+					{type:1,name:'黄金商城'},
+					{type:2,name:'白金商城'},
+					{type:3,name:'创客商城'},
+				],
+				scScreenLevel:[
+					{level:1,name:'一级'},
+					{level:2,name:'二级'},
+				],
+				type:0,
+				level:0,
+			}
 		},
-		methods: {},
+		methods: {
+			scCanshuT(){//商城
+				this.load.state.disabled = true;
+				this.$nextTick(()=>{
+					this.load.data.lists=[]
+					this.load.params.page=1
+					this.load.state.disabled= false;
+					this.load.state.hasMore= true;
+				});
+			},
+			scCanshuL(){//级别
+				this.load.state.disabled = true;
+				this.$nextTick(()=>{
+					this.load.data.lists=[]
+					this.load.params.page=1
+					this.load.state.disabled= false;
+					this.load.state.hasMore= true;
+				});
+			},
+			getSc(){
+				this.$axios.get('/member/OfficeProsumer/details_store').then((res) => {
+					const { data } = res.data;
+					this.scData = data;
+				});
+			},
+			api() {
+				const page = this.load.params.page++;
+				return this.$axios.get('/member/OfficeProsumer/details_store', {
+					params: {
+						p: page,
+						type: this.type,
+						level: this.level
+					}
+				}).then((res) => {
+					const { data: resultData } = res.data;
+					if (scrollNoHasListData.call(this, {
+						resultData,
+						listKey: 'list'
+					})) {
+						scrollEndHook.call(this);
+					} else {
+						if (resultData.list.length < 10) scrollEndHook.call(this);
+						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+					}
+				}).catch(() => {
+					return scrollEndHook.call(this);
+				});
+			}
+		},
 		mounted() {
+			this.getSc();
 		}
 	}
 </script>

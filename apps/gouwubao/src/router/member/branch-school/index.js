@@ -9,19 +9,22 @@ const BranchSchool = {
     {
       path: 'release-course',
       component: () => import("@/views/member/branch-school/release-course"),
+      meta: {
+        tabBar: 'office'
+      },
     },
     {
       path: 'material',
       component: () => import("@/views/member/branch-school/material"),
       meta: {
-        tabBar: false
+        tabBar: 'office'
       },
     },
     {
       path: 'apply-for',
       component: () => import("@/views/member/branch-school/apply-for"),
       meta: {
-        tabBar: false
+        tabBar: 'office'
       },
     }
   ]

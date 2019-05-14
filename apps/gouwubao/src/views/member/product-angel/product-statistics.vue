@@ -38,7 +38,7 @@
 								{{ item.fprice }}
 							</template>
 							<template v-else>
-								0~{{ item.fprice }}
+								{{ item.fprice }}
 							</template>
 						</div>
 					</div>

@@ -24,7 +24,7 @@
 			}"/>
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 				<div class="bc-row bc-bg-white">
-					<order-item :item="item" type="tb-earnings" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>
+					<order-item :item="item" type="cpts-symx" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>
 				</div>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">

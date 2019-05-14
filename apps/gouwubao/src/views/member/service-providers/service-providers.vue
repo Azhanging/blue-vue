@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp">
-				<router-link to="">服务商说明<i class="icon icon-right"></i></router-link>
+				<a @click="btn_toast">服务商说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -97,6 +97,8 @@
 	//统计的item
 	import StatisticsItem from '../components/statistics-item';
 	import StatisticsItem2 from '../components/statistics-item2';
+	
+	import { $toast } from "$use-in-vue/mint-ui/toast";
   export default {
     name: "product-angel",
     data() {
@@ -114,6 +116,12 @@
 		    this.$axios.get('/member/office_server/index').then((res) => {
 			    const { data } = res.data;
 			    this.serviceData = data;
+		    });
+	    },
+	    btn_toast(){
+		    $toast({
+			    message: '敬请期待',
+			    duration: 3000
 		    });
 	    }
     },

@@ -16,9 +16,9 @@
 				</div>
 			</div>
 			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
-				<router-link to="">
+				<a @click="btn_toast">
 					公益分校说明
-					<i class="icon icon-right"></i></router-link>
+					<i class="icon icon-right"></i></a>
 			</div>
 		</div>
 		
@@ -28,10 +28,10 @@
 			</div>
 			<div class="bc-pd-l-15rp bc-pd-r-15rp">
 				<div class="bc-f-12rp bc-mg-b-5rp bc-t-999">请使用电脑登陆“综合办公室”发布活动</div>
-				<div class="bc-f-12rp bc-t-999">链接：https://www.dtb315.com/storelogin/index</div>
+				<div class="bc-f-12rp bc-t-999">链接：<span id="inviteCode">{{ copyHref }}</span></div>
 			</div>
 			<div class="bc-pd-t-10rp bc-t-c">
-				<button class="btn-copy">复制链接</button>
+				<button class="btn-copy" @click="onCopy()">复制链接</button>
 			</div>
 		</div>
 	
@@ -40,13 +40,15 @@
 </template>
 
 <script>
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "release-course",
 		components: {},
 		computed: {},
 		data() {
 			return {
-				couresData:''
+				couresData:'',
+				copyHref:'https://pan.baidu.com/s/1CHPcs76U-pZaLUB4mlXkAg'
 			}
 		},
 		methods: {
@@ -54,6 +56,26 @@
 				this.$axios.get('/member/office_commonweal/release_activity').then((res) => {
 					const { data } = res.data;
 					this.couresData = data;
+				});
+			},
+			onCopy() {
+				var Url2 = document.getElementById("inviteCode").innerText;
+				var oInput = document.createElement("input");
+				oInput.value = Url2;
+				document.body.appendChild(oInput);
+				oInput.select(); // 选择对象
+				document.execCommand("Copy"); // 执行浏览器复制命令
+				oInput.className = "oInput";
+				oInput.style.display = "none";
+				$toast({
+					message: '复制成功',
+					duration: 3000
+				});
+			},
+			btn_toast(){
+				$toast({
+					message: '敬请期待',
+					duration: 3000
 				});
 			}
 		},
