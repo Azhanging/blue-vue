@@ -17,6 +17,7 @@
 			<div class="bc-flex-1">
 				<!-- num对应的插槽 -->
 				<slot name="num">
+					<div v-if="options.num.zsName" class="bc-f-15rp bc-f-b bc-mg-b-15rp">{{options.num.zsName}}</div>
 					<div class="bc-f-12rp bc-t-999" v-if="options.num.name">
 						{{options.num.name}}
 					</div>

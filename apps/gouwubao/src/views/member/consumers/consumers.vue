@@ -3,12 +3,12 @@
 
 		<bv-header :header="{title:{value:'消费商办公室'}}"/>
 
-		<div class="angel-header bc-flex" v-if="consumersData">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
+		<div class="angel-header bc-flex bc-flex-ai-c" v-if="consumersData">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp">
 				<img :src="consumersData.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3">
-				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
+				<div class="bc-f-18rp bc-f-b">
 					{{ consumersData.nickname }}
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
@@ -28,9 +28,10 @@
 		<statistics-item v-if="consumersData" :options="{
 	    title:{
 	      name:'直邀会员',
-	      url: `${config.path.base}/member/my_member/details_member`
+	      url: `${config.path.base}/member/my_member/details_member?type=1`,
+	      urlName:'查询明细>'
 	    },
-	    num: {value:consumersData.count},
+	    num: {value:consumersData.xf.all},
 	    otherNum:[{
 	      name:'今日新增',
 	      num: consumersData.xf.today
@@ -47,7 +48,8 @@
 			<statistics-item :options="{
 	    title:{
 	      name:'福利收益',
-	      url:`/member/consumers/earnings`
+	      url:`/member/consumers/earnings`,
+	      urlName:'查询明细>'
 	    },
 	    num: {name:'积分',value:consumersData.lpjf},
 	    otherNum:[{
@@ -154,13 +156,14 @@
 		background: #f4f4f4;
 	}
 	.angel-header {
-		background: #F1DFB6 url($base-static-path + '/img/member/creator/header-bg.png') right bottom no-repeat;
+		background: #F1DFB6 url($base-static-path + '/img/member/public/bgstop-bg.jpg') right bottom no-repeat;
 		background-size: auto 100%;
 		position: relative;
 		.head-img {
 			width: rem(60);
 			height: rem(60);
 			border-radius: 50%;
+			vertical-align: top;
 		}
 		.angel-sm{
 			background: #000;
@@ -180,7 +183,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);
@@ -191,8 +194,9 @@
 		padding: rem(10);
 		text-align: center;
 		background: #fff;
+		font-size: rem(12);
 		a{
-			color: #A86F2F;
+			color: #DCB46E;
 		}
 	}
 </style>

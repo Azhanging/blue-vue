@@ -3,12 +3,12 @@
 		
 		<bv-header :header="{title:{value:'项目金主办公室'}}"/>
 		
-		<div class="angel-header bc-flex bc-pd-b-10rp" v-if="lenderData">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
+		<div class="angel-header bc-flex bc-pd-b-15rp bc-pd-t-15rp bc-flex-ai-c" v-if="lenderData">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp">
 				<img :src="lenderData.list.memberInfo.head_img" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3">
-				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
+				<div class="bc-f-18rp bc-f-b">
 					项目金主
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
@@ -18,7 +18,7 @@
 					消费时间：{{ lenderData.list.memberInfo.create_time }}
 				</div>
 			</div>
-			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
+			<div class="angel-sm">
 				<a @click="btn_toast">项目金主说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
@@ -120,7 +120,7 @@
 		background: #f4f4f4;
 	}
 	.angel-header {
-		background: #F1DFB6 url($base-static-path + '/img/member/creator/header-bg.png') right bottom no-repeat;
+		background: #F1DFB6 url($base-static-path + '/img/member/public/bgstop-bg.jpg') right bottom no-repeat;
 		background-size: auto 100%;
 		position: relative;
 		.head-img {
@@ -148,7 +148,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

@@ -1,5 +1,5 @@
 <template>
-	<div class="bc-row bc-pd-15rp bc-bg-white" v-if="item">
+	<div class="bc-pd-tb-15rp bc-mg-lr-15rp bc-bg-white" v-if="item">
 
 		<!-- 订单类型的item -->
 		<div class="bc-flex" v-if="type === 'order' ">
@@ -190,7 +190,7 @@
 						流水号：{{item.sn }}
 					</div>
 					<div class="bc-t-r bc-t-333">
-						{{item.content}}
+						{{item.content || '分享收益' }}
 					</div>
 				</div>
 				<div class="bc-flex bc-pd-tb-2rp bc-t-999">
@@ -198,7 +198,7 @@
 						来源：{{item.from_username }}
 					</div>
 					<div class="bc-flex-1 bc-t-r bc-t-333">
-						{{item.num}}
+						+{{ item.num }}
 					</div>
 				</div>
 				<div class="bc-row bc-pd-tb-2rp bc-t-999">
@@ -215,19 +215,14 @@
 						流水号：{{item.sn }}
 					</div>
 					<div class="bc-t-r bc-t-333">
-						{{item.content}}
+						+{{item.num}}
 					</div>
 				</div>
 				<div class="bc-row bc-pd-tb-2rp bc-t-999">
 					类型：{{item.create_time}}
 				</div>
 				<div class="bc-flex bc-pd-tb-2rp bc-t-999">
-					<div class="bc-flex-1">
-						来源：{{item.from_username }}
-					</div>
-					<div class="bc-flex-1 bc-t-r bc-t-333">
-						{{item.num}}
-					</div>
+					来源：{{item.from_username }}
 				</div>
 				<div class="bc-row bc-pd-tb-2rp bc-t-999">
 					日期：{{item.create_time}}

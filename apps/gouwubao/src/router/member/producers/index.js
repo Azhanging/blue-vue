@@ -9,6 +9,9 @@ const producers = {
     {
       path: 'returns-detailed',
       component: () => import("@/views/member/producers/returns-detailed"),
+      meta: {
+        tabBar: false
+      },
     }
   ]
 };

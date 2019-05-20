@@ -3,7 +3,7 @@
 		<bv-header :header="{title:{value:'通宝收益'}}"/>
 		<div class="earnings-box bc-t-333 bc-pd-15rp bc-mg-tb-10rp" v-if="TbData">
 			<div class="bc-f-16rp">累计收益（通宝)</div>
-			<div class="bc-f-30rp">{{ TbData.month_shouyi }}</div>
+			<div class="bc-f-30rp">{{ TbData.total_shouyi || '0.00' }}</div>
 		</div>
 		
 		<div class="bc-row bc-bg-white bc-mg-t-15rp">

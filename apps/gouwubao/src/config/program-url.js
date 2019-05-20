@@ -16,7 +16,7 @@ const programUrl = (() => {
       'life-school': 'https://beta.jiaxiao.dtb315.cn',
       'fu-wu-tong': 'http://beta.fuwu.dtb315.cn',
 	    'ji-fu-bao':'http://beta.jifu.dtb315.cn',
-	    'cai-fu-bao':'http://beta.caifu.dtb315.com',
+	    'cai-fu-bao':'http://beta.caifu.dtb315.cn',
     }
   } else {
     return {

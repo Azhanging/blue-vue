@@ -3,12 +3,12 @@
 
 		<bv-header :header="{title:{value:'产品天使办公室'}}"/>
 
-		<div class="angel-header bc-flex">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
+		<div class="angel-header bc-flex bc-flex-ai-c">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp">
 				<img v-if="angelData" :src="angelData.memberInfo.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3">
-				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
+				<div class="bc-f-18rp bc-f-b">
 					产品天使
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co" v-if="angelData">
@@ -27,7 +27,8 @@
 		<statistics-item v-if="angelData" :options="{
 	    title:{
 	      name:'产品收益统计',
-	      url:`/member/product-angel/product-income`
+	      url:`/member/product-angel/product-income`,
+	      urlName:'查询明细>'
 	    },
 	    num: {name:'通宝',value: angelData.tbincome_count },
 	    otherNum:[{
@@ -45,16 +46,11 @@
 		<statistics-item v-if="angelData" :options="{
 	    title:{
 	      name:'产品推荐统计',
-	      url:`/member/product-angel/product-statistics`
+	      url:`/member/product-angel/product-statistics`,
+	      urlName:'查询明细>'
 	    },
 	    num: {name:'推广产品总数',value: angelData.goods.goods_count},
-	    otherNum:[{
-	      name:'A类产品',
-	      num: angelData.goods.goods_list.A
-	    },{
-	      name:'B类产品',
-	      num: angelData.goods.goods_list.D
-	    }]
+	    otherNum:angelData.goods.goods_list
 		}"/>
 
 	</bv-home-view>
@@ -109,6 +105,7 @@
 			width: rem(60);
 			height: rem(60);
 			border-radius: 50%;
+			vertical-align: top;
 		}
 		.angel-sm{
 			background: #000;
@@ -128,7 +125,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

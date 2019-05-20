@@ -63,7 +63,7 @@ const officeTabBar = {
       },
       to() {
         //location.href = `${config.path.base}`;
-        location.href = `${programUrl['fu-wu-tong']}/enroll`;
+        location.href = `${programUrl['gou-wu-bao']}/enroll/index/course_activity`;
       },
       className: 'bc-pd-5'
     }, {
@@ -86,6 +86,7 @@ const officeTabBar = {
   active() {
     if (router.matchRoutes([
       /^\/member\/creator/,    //组件路由
+      /^\/member\/area-creator/,    //组件路由
       /^\/member\/product-angel/,    //组件路由
       /^\/member\/service-providers/,    //组件路由
       /^\/member\/branch-school/,    //组件路由

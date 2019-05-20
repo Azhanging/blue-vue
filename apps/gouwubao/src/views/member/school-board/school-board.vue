@@ -3,8 +3,8 @@
 
 		<bv-header :header="{title:{value:'荣誉校董办公室'}}"/>
 
-		<div class="angel-header bc-flex">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp" v-if="boardData">
+		<div class="angel-header bc-flex bc-flex-ai-c">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp" v-if="boardData">
 				<img :src="boardData.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3 bc-pd-b-15rp bc-pd-r-15rp" v-if="boardData">
@@ -21,16 +21,18 @@
 					<progress max="100" :value="boardData.newTimes"></progress>
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
-					{{ boardData.startTime || '0000-00-00' }}至{{ boardData.startTime || '0000-00-00' }}
+					{{ boardData.startTime || '0000-00-00' }}至{{ boardData.endTime || '0000-00-00' }}
 					<span class="bc-fl-r" v-if="boardData.termTime==0">已到期</span>
 					<span class="bc-fl-r" v-else>还差{{ boardData.termTime }}天到期</span>
 				</div>
 			</div>
-			<div class="angel-sm bc-mg-t-13rp">
-				<a @click="btn_toast">校董说明<i class="icon icon-right"></i></a>
-			</div>
-			<div class="angel-sm bc-mg-t-48rp">
-				<a @click="btn_toast">我的智能合约<i class="icon icon-right"></i></a>
+			<div>
+				<div class="angel-sm bc-mg-t-13rp">
+					<a @click="btn_toast">校董说明<i class="icon icon-right"></i></a>
+				</div>
+				<div class="angel-sm bc-mg-t-48rp">
+					<a @click="btn_toast">我的智能合约<i class="icon icon-right"></i></a>
+				</div>
 			</div>
 		</div>
 		
@@ -40,32 +42,32 @@
 	      url:`/member/school-board/scholarship`,
 	      urlName:'查看明细>'
 	    },
-	    num: {value: boardData.incomeCount}
+	    num: {value: `${ boardData.incomeCount || 0}`}
 		}"/>
 		<statistics-item v-if="boardData" class="bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'平台会员'
 	    },
-	    num: {value: boardData.platform_datas.memberCount },
+	    num: {value: `${boardData.platform_datas.memberCount || 0}` },
 	    otherNum:[{
 	      name:'环比增加',
-	      num: boardData.platform_datas.areaApplyCount_QOQ
+	      num: `${boardData.platform_datas.memberCount_QOQ || 0}%`
 	    },{
 	      name:'同比增加',
-	      num: boardData.platform_datas.areaApplyCount_YOY
+	      num: `${ boardData.platform_datas.memberCount_YOY || 0}%`
 	    }]
 		}"/>
 		<statistics-item v-if="boardData" class="bc-bd-b-e5e" :options="{
 	    title:{
 	      name:'平台分公司'
 	    },
-	    num: {value:boardData.platform_datas.areaApplyCount},
+	    num: {value:`${boardData.platform_datas.areaApplyCount || 0}`},
 	    otherNum:[{
 	      name:'环比增加',
-	      num: boardData.platform_datas.areaApplyCount_QOQ
+	      num: `${ boardData.platform_datas.areaApplyCount_QOQ || 0}%`
 	    },{
 	      name:'同比增加',
-	      num: boardData.platform_datas.areaApplyCount_YOY
+	      num: `${ boardData.platform_datas.areaApplyCount_YOY || 0}%`
 	    }]
 		}"/>
 		<statistics-item v-if="boardData" class="bc-bd-b-e5e" :options="{
@@ -75,10 +77,10 @@
 	    num: {value:boardData.platform_datas.goodCount},
 	    otherNum:[{
 	      name:'环比增加',
-	      num: boardData.platform_datas.goodCount_QOQ
+	      num: `${ boardData.platform_datas.goodCount_QOQ || 0}%`
 	    },{
 	      name:'同比增加',
-	      num: boardData.platform_datas.goodCount_YOY
+	      num: `${ boardData.platform_datas.goodCount_YOY || 0}%`
 	    }]
 		}"/>
 		<statistics-item v-if="boardData" class="bc-bd-b-e5e" :options="{
@@ -88,10 +90,10 @@
 	    num: {value:boardData.platform_datas.storeCount},
 	    otherNum:[{
 	      name:'环比增加',
-	      num: boardData.platform_datas.storeCount_QOQ
+	      num: `${ boardData.platform_datas.storeCount_QOQ || 0}%`
 	    },{
 	      name:'同比增加',
-	      num: boardData.platform_datas.storeCount_YOY
+	      num: `${ boardData.platform_datas.storeCount_YOY || 0}%`
 	    }]
 		}"/>
 		
@@ -117,14 +119,15 @@
 			</div>
 			<div class="bc-row bc-pd-l-10rp bc-pd-r-10rp" v-if="boardData">
 				<div v-for="(item,index) in boardData.zixun_list">
-					<a :href="item.url">
-						<div class="bc-flex bc-pd-5rp bc-f-12rp bc-t-666">
-							<div class="bc-flex-2 xm-ovhide">
-								{{ item.name }}
-							</div>
-							<div class="bc-flex-1 bc-t-r">{{ item.create_time }}</div>
+					<div class="bc-flex bc-pd-5rp bc-f-12rp bc-t-666" @click="to_zxpath(item.id)">
+						<div class="bc-flex-2 xm-ovhide">
+							{{ item.name }}
 						</div>
-					</a>
+						<div class="bc-flex-1 bc-t-r">{{ item.create_time }}</div>
+					</div>
+					<!--<a :href="item.url">
+					
+					</a>-->
 				</div>
 			</div>
 		</div>
@@ -155,6 +158,16 @@
 		    this.$axios.get('/member/office_honor/index').then((res) => {
 			    const { data } = res.data;
 			    this.boardData = data;
+		    });
+	    },
+	    to_zxpath(id){
+		    this.$axios.get('/member/office_honor/info',{
+		    	params:{
+		    		id:id
+			    }
+		    }).then((res) => {
+		    }).catch((c) => {
+		    	console.log(c)
 		    });
 	    },
 	    to_xmpath(){
@@ -196,6 +209,7 @@
 			overflow: hidden;
 			position: absolute;
 			right: 0;
+			top:0;
 			a{
 				height: rem(28);
 				line-height: rem(28);
@@ -209,7 +223,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

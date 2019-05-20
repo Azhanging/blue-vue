@@ -13,7 +13,7 @@
 			<flow-title :options="{
 	      name:'收益明细'
 			}"/>
-			<div class="angel-table" v-if="mxData">
+			<div class="angel-table bc-mg-lr-30rp" v-if="mxData">
 				<div class="table-th">
 					<div>时间</div>
 					<div>收益明细</div>

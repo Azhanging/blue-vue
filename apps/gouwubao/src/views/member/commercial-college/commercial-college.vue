@@ -4,8 +4,8 @@
 		<bv-header :header="{title:{value:'上大夫商学院办公室'}}"/>
 		
 		<div class="angel-header bc-flex bc-pd-b-15rp">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
-				<img src="https://image.dtb315.com/328890.jpg?val=Thumb" alt="" class="head-img">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp" v-if="collegeData">
+				<img :src="collegeData.memberInfo.info.logo_img" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3" v-if="collegeData">
 				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
@@ -51,13 +51,13 @@
 		
 		<statistics-item class="bc-pd-t-10rp bc-bd-b-e5e" v-if="collegeData" v-for="(item,index) in collegeData.nowareaData" :options="{
 	    title:{},
-	    num: {name:`${item.name}累计收益`,value: `${item.count || 0}` },
+	    num: {name:`${item.name}累计收益`,value: `${item.count || '0.00' }` },
 	    otherNum:[{
 	      name:'今日新增',
-	      num: item.tdcount
+	      num: `${item.tdcount || '0.00' }`
 	    },{
 	      name:'当月新增',
-	      num: item.monthcount
+	      num: `${item.monthcount || '0.00' }`
 	    }]
 		}"/>
 		
@@ -124,7 +124,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

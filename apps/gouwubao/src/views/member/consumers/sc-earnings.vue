@@ -21,11 +21,11 @@
 		<div class="bc-flex bc-bg-white bc-mg-t-10rp bc-t-c bc-pd-10rp" v-if="scData">
 			<div class="bc-flex-1 bc-bd-r-e5e">
 				<div class="bc-t-999 bc-f-12rp">交易笔数</div>
-				<div class="bc-t-333 bc-f-16">{{ scData.count }}笔</div>
+				<div class="bc-t-333 bc-f-16">{{ scData.count || 0 }}笔</div>
 			</div>
 			<div class="bc-flex-1">
 				<div class="bc-t-999 bc-f-12rp">合计收入</div>
-				<div class="bc-t-333 bc-f-16">{{ scData.money }}元</div>
+				<div class="bc-t-333 bc-f-16">{{ scData.money || '0.00' }}元</div>
 			</div>
 		</div>
 		

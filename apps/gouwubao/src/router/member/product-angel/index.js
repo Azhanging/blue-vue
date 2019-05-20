@@ -9,6 +9,9 @@ const ProductAngel = {
     {
       path: 'product-income',
       component: () => import("@/views/member/product-angel/product-income"),
+      meta: {
+        tabBar: false
+      },
     },
     {
       path: 'product-statistics',

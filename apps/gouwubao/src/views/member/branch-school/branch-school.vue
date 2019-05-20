@@ -1,23 +1,26 @@
 <template>
 	<bv-home-view class='bc-bg-f4f' :router-level='2'>
 		
-		<bv-header :header="{title:{value:'公益分校办公室'}}"/>
+		<bv-header :header="{title:{value:`${roletitle}办公室`}}"/>
 		
-		<div class="angel-header bc-flex" v-if="schoolData">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
+		<div class="angel-header bc-flex bc-flex-ai-c" v-if="schoolData">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp">
 				<img :src="schoolData.memberImg" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3">
-				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
+				<div class="bc-f-18rp bc-f-b" v-if="role17 > 0 && allows4 != -1">
 					公益分校
+				</div>
+				<div class="bc-f-18rp bc-f-b" v-else-if="allows4 != -1">
+					公益组织
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
 					入驻时间：{{ schoolData.create_time }}
 				</div>
 			</div>
-			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
+			<div class="angel-sm bc-mg-tb-44rp">
 				<a @click="btn_toast">
-					公益分校说明
+					<template v-if="role17 > 0 && allows4 != -1">公益分校</template><template  v-else-if="allows4 != -1">公益组织</template>说明
 					<i class="icon icon-right"></i></a>
 			</div>
 		</div>
@@ -41,7 +44,7 @@
 	    }]
 		}"/>
 		
-		<div class="bc-bg-white">
+		<div class="bc-bg-white" v-if="role17 > 0 && allows4 != -1">
 			<a href="https://sdf531.kuaizhan.com/92/25/p5274804900168a">
 				<div class="bc-pd-10rp bc-flex bc-bd-b-e5e">
 					<div class="bc-flex-1 bc-pd-l-10rp item-color bc-f-b">生命驾校系统课程</div>
@@ -94,6 +97,19 @@
 			this.getData();
 		},
 		computed: {
+			role17(){
+				return this.$store.state.userInfo.role17;
+			},
+			allows4(){
+				return this.$store.state.userInfo.allows.indexOf('4');
+			},
+			roletitle(){
+				if(this.role17 > 0 && this.allows4 != -1){
+					return '公益分校'
+				}else {
+					return '公益组织'
+				}
+			}
 		},
 		methods: {
 			getData() {
@@ -127,6 +143,7 @@
 			width: rem(60);
 			height: rem(60);
 			border-radius: 50%;
+			vertical-align: top;
 		}
 		.angel-sm{
 			background: #000;
@@ -146,7 +163,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

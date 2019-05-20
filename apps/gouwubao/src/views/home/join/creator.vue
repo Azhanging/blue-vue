@@ -155,7 +155,7 @@
         });
 
         this.$axios.get('/api/video/index').then((res) => {
-          const { data } = res.data;
+          const { data } = res.data.data;
           new AliVideoPlayer({
             id: 'creatorVideo',
             vid: data.videoId,

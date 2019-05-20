@@ -303,8 +303,9 @@
 			videoPlay_init(video) {
 				// 微信分享
 				this.$weChatShare({
-					title: '大健康点通宝机制升级解读——暨分公司内训学习会',
-					desc: '身心灵全面升级，上中下全面贯彻！',
+					title: this.resVideo.share_title,
+					desc: this.resVideo.share_content,
+					imgUrl: this.resVideo.share_img,
 				});
 				
 				let that = this;

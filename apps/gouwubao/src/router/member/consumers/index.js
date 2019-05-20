@@ -7,10 +7,6 @@ const consumers = {
   },
   children: [
     {
-      path: 'invitation-vip',
-      component: () => import("@/views/member/consumers/invitation-vip"),
-    },
-    {
       path: 'earnings',
       component: () => import("@/views/member/consumers/earnings"),
       meta: {

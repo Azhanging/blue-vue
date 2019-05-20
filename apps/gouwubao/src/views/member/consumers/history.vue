@@ -20,7 +20,7 @@
 					<tr>
 						<th>直推收益</th>
 						<td>{{ historyData.prosumer_currency_today || 0 }}</td>
-						<td>{{ historyData.prosumer_currency }}</td>
+						<td>{{ historyData.prosumer_currency || '0.00' }}</td>
 					</tr>
 				</table>
 			</div>
@@ -43,23 +43,23 @@
 					</tr>
 					<tr>
 						<th>黄金商城</th>
-						<td>{{ historyData.sc_sy.huangjin_total_day.money }}</td>
-						<td>{{ historyData.sc_sy.huangjin_total.money }}</td>
+						<td>{{ historyData.sc_sy.huangjin_total_day.money || '0.00' }}</td>
+						<td>{{ historyData.sc_sy.huangjin_total.money || '0.00' }}</td>
 					</tr>
 					<tr>
 						<th>白金商城</th>
-						<td>{{ historyData.sc_sy.baijin_total_day.money }}</td>
-						<td>{{ historyData.sc_sy.baijin_total.money }}</td>
+						<td>{{ historyData.sc_sy.baijin_total_day.money || '0.00' }}</td>
+						<td>{{ historyData.sc_sy.baijin_total.money || '0.00' }}</td>
 					</tr>
 					<tr>
 						<th>创客商城</th>
-						<td>{{ historyData.sc_sy.cke_total_day.money }}</td>
-						<td>{{ historyData.sc_sy.cke_total.money }}</td>
+						<td>{{ historyData.sc_sy.cke_total_day.money || '0.00' }}</td>
+						<td>{{ historyData.sc_sy.cke_total.money || '0.00' }}</td>
 					</tr>
 					<tr>
 						<th>合计</th>
-						<td>{{ historyData.sc_sy.today_count.money }}</td>
-						<td>{{ historyData.sc_sy.all_count.money }}</td>
+						<td>{{ historyData.sc_sy.today_count.money || '0.00' }}</td>
+						<td>{{ historyData.sc_sy.all_count.money || '0.00' }}</td>
 					</tr>
 				</table>
 			</div>

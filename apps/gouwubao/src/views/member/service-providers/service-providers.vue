@@ -3,22 +3,22 @@
 
 		<bv-header :header="{title:{value:'服务商办公室'}}"/>
 
-		<div class="angel-header bc-flex">
-			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp" v-if="serviceData">
+		<div class="angel-header bc-flex bc-flex-ai-c">
+			<div class="bc-pd-r-15rp bc-mg-l-15rp" v-if="serviceData">
 				<img :src="serviceData.head_img" alt="" class="head-img">
 			</div>
 			<div class="bc-flex-3 bc-pd-b-15rp bc-pd-r-15rp" v-if="serviceData">
-				<div class="bc-f-18rp bc-mg-t-4rp bc-mg-t-30rp bc-f-b">
+				<div class="bc-f-18rp bc-mg-t-15rp bc-f-b">
 					服务商
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
-					账户余额：{{ serviceData.no_pay }}元
+					账户余额：{{ serviceData.money || '0.00' }}元
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
 					入驻时间：{{ serviceData.create_time }}
 				</div>
 			</div>
-			<div class="angel-sm bc-mg-t-44rp">
+			<div class="angel-sm">
 				<a @click="btn_toast">服务商说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
@@ -144,6 +144,7 @@
 			width: rem(60);
 			height: rem(60);
 			border-radius: 50%;
+			vertical-align: top;
 		}
 		.angel-sm{
 			background: #000;
@@ -165,7 +166,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

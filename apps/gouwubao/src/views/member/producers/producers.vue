@@ -3,7 +3,7 @@
 
 		<bv-header :header="{title:{value:'生产商办公室'}}"/>
 
-		<div class="angel-header bc-flex" v-if="producerData">
+		<div class="angel-header bc-flex bc-flex-ai-c" v-if="producerData">
 			<div class="bc-pd-r-15rp bc-mg-l-15rp bc-mg-t-26rp">
 				<img :src="producerData.head_img" alt="" class="head-img">
 			</div>
@@ -21,10 +21,10 @@
 					德宝余额：{{ producerData.debao || 0 }}
 				</div>
 				<div class="bc-f-12rp bc-mg-t-4rp angel-co">
-					入驻时间：{{ producerData.create_time || '0000.0000.0000' }}
+					入驻时间：{{ producerData.create_time || '0000.00.00' }}
 				</div>
 			</div>
-			<div class="angel-sm bc-mg-t-44rp bc-mg-b-44rp">
+			<div class="angel-sm bc-mg-t-10rp">
 				<a @click="btn_toast">生产商说明<i class="icon icon-right"></i></a>
 			</div>
 		</div>
@@ -83,10 +83,10 @@
 		<div class="angel-statistical">
 			产品管理
 		</div>
-		<statistics-item v-if="producerData" class="bc-pd-10rp" :options="{
+		<statistics-item v-if="producerData" class="bc-pd-t-15rp" :options="{
 	    title:{
 	    },
-	    num: {name:'总数',value:producerData.goodCount},
+	    num: {zsName:'总数',value:producerData.goodCount},
 	    otherNum:[{
 	      name:'销售中',
 	      num: producerData.xsz
@@ -267,7 +267,7 @@
 	}
 	.angel-statistical{
 		background: #fff;
-		padding: rem(15) rem(20);
+		padding: rem(15) rem(15);
 		border-bottom: 1px solid #e5e5e5;
 		margin-top: rem(10);
 		font-size: rem(16);

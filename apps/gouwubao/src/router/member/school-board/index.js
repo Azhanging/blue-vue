@@ -9,22 +9,16 @@ const SchoolBoard = {
     {
       path: 'scholarship',
       component: () => import("@/views/member/school-board/scholarship"),
+      meta: {
+        tabBar: false
+      }
     },
     {
       path: 'recent-news',
       component: () => import("@/views/member/school-board/recent-news"),
       meta: {
         tabBar: false
-      },
-      children: [
-        {
-          path: 'detail/:detail_id',
-          component: () => import("@/views/member/school-board/detail"),
-          meta: {
-            tabBar: false
-          },
-        }
-      ]
+      }
     },
   ]
 };

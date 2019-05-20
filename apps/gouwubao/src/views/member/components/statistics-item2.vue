@@ -4,7 +4,7 @@
 			<div class="bc-f-b">{{options.title.name}}</div>
 		</div>
 		<div class="bc-flex bc-flex-ai-c bc-t-c">
-			<div class="bc-flex-1" v-for="(item,index) in options.otherNum">
+			<div class="bc-flex-1 bc-bd-r-e5e itembox" v-for="(item,index) in options.otherNum">
 				<div class="bc-f-12rp bc-t-999">
 					{{ item.name }}
 				</div>
@@ -23,6 +23,6 @@
 	}
 </script>
 
-<style scoped lang="">
-
+<style scoped lang="scss">
+.itembox:last-child{border-right: 0;}
 </style>

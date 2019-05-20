@@ -30,9 +30,9 @@ const member = {
     creator,      //创客
     ProductAngel,      //产品天使---完成
     ServiceProviders,      //服务商---完成
-    BranchSchool,      //公益分校---完成-数据问题
-    SchoolBoard,      //荣誉校董---完成-数据问题
-    CommercialCollege,      //上大夫商学院---完成-数据问题
+    BranchSchool,      //公益分校---完成
+    SchoolBoard,      //荣誉校董---完成
+    CommercialCollege,      //上大夫商学院
     producers,      //生产商---完成
     owner,      //项目金主---完成
     consumers,      //消费商
