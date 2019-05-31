@@ -42,6 +42,20 @@ const creator = {
     meta: {
       tabBar: false
     }
+  }, {
+    //申请证书
+    path: 'apply-for',
+    component: () => import("@/views/member/creator/apply-for"),
+    meta: {
+      tabBar: false
+    }
+  }, {
+    //已申请证书
+    path: 'on-apply-for',
+    component: () => import("@/views/member/creator/on-apply-for"),
+    meta: {
+      tabBar: false
+    }
   }]
 };
 

@@ -18,6 +18,9 @@
 					<div class="offset-color bc-f-12rp bc-mg-t-4rp">
 						账号：{{memberInfo.username}}
 					</div>
+					<div class="offset-color bc-f-12rp bc-mg-t-4rp" v-if="memberInfo.ck_level">
+						创客等级：{{ memberInfo.ck_level }}
+					</div>
 					<div class="offset-color bc-f-12rp bc-mg-t-4rp" v-if="memberInfo.area_level">
 						代理级别：{{memberInfo.area_level}}
 					</div>
@@ -28,10 +31,25 @@
 
 				<!-- 证书 -->
 				<div>
-					<img :src="`${staticPath}/creator/creator-certificate.png`"
-					     class="certificate"
-					     v-if="type === 'creator'"
-					>
+					<template v-if="is_buy_ck == 1">
+						<template v-if="is_apply!=1">
+							<router-link to="/member/creator/apply-for" v-if="type === 'creator'">
+								<img :src="`${staticPath}/creator/creator-certificate.png`"
+								     class="certificate"
+								>
+							</router-link>
+						</template>
+						<template v-else>
+						<router-link to="/member/creator/on-apply-for" v-if="type === 'creator'">
+							<img :src="`${staticPath}/creator/creator-certificate.png`"
+									 class="certificate"
+							>
+						</router-link>
+						</template>
+					</template>
+					
+					
+					
 					<template v-if="type === 'agent'">
 						<img :src="`${staticPath}/agent/shen-certificate.png`"
 						     class="certificate"
@@ -51,7 +69,7 @@
 <script>
 export default {
   name: "office-header",
-  props: ['member-info','type'],
+  props: ['member-info','type','is_buy_ck','is_apply'],
   computed: {
     staticPath(){
       return `${this.config.path.static}/img/member/`;

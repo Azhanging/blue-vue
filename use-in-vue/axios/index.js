@@ -66,17 +66,25 @@ function responseInterceptors() {
 
     //success httprequest state
     if (status === 200) {
-      const { code } = res.data;
+      const { code, message } = res.data;
       //success code
       if (code === errcodes.SUCCESS) {
         return res;
       } else if (code === errcodes.REDIRECT) {    //作为重定向跳转
-        redirect(res.data);
+        let redirectTime = 0;
+        //存在重定向信息
+        if (message) {
+          $toast({
+            message
+          });
+          redirectTime = 1000;
+        }
+        setTimeout(() => {
+          redirect(res.data);
+        }, redirectTime);
       } else {
         //error code错误码处理
-        errCodeHandler({
-          code
-        });
+        errCodeHandler(res.data);
         //这里最好的就是reject吧
         return Promise.reject(res);
       }

@@ -5,6 +5,15 @@ const owner = {
   meta: {
     tabBar: 'office'
   },
+  children:[
+    {
+      path: 'recent-news',
+      component: () => import("@/views/member/owner/recent-news"),
+      meta: {
+        tabBar: false
+      }
+    },
+  ]
 };
 
 export default owner;

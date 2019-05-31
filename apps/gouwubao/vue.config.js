@@ -40,7 +40,7 @@ module.exports = utils.extend(publicVueConfig, {
         //代理登录状态cookie
         onProxyReq(proxyReq, req, res) {
           proxyReq.setHeader('cookie',
-'9de70f6546b2452f6e7b98b46ac36070=50e7d54285dc6f3a182788c002477bd5; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1557453980,1557535775,1557708871,1557711516; PHPSESSID=3g003qpg35b62fsc2t5rv22fc4; b72b76241459936962c978f326f7463b=%25B1%25CE%25A8%25AC%25B2%2584%25A7%25AF; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1557711723; come_from=1; prev_page=aHR0cDovL2cuZHRiMzE1LmNvbS9tZW1iZXIvaW5kZXguaHRtbD9ib3R0b209MSZ0eXBlPW1lbWNhY2hl; visit_page=aHR0cDovL2cuZHRiMzE1LmNvbS9tZW1iZXIvaW5kZXgvYWxyZWFkeV9rbm93Lmh0bWw%2FdmVyc2lvbj0x'
+'Hm_lvt_bdb7f9abf5cdbcb7d50419d7c6bd1be5=1557989268,1558575031,1558682267,1559033169; 9de70f6546b2452f6e7b98b46ac36070=b6188cb8895b893a275701e7f510aa63; Hm_lvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1558575031,1558682268,1559033169,1559113666; come_from=1; PHPSESSID=ehbn8qtb5gobqf4dfskd9863i0; b72b76241459936962c978f326f7463b=%25B1%25CE%25A8%25AC%25B2%2584%25BFl; Hm_lpvt_26e7ebdd6d0690ee128988fb6ebcdd4a=1559117821; prev_page=aHR0cDovL2cuZHRiMzE1LmNvbS8%3D; visit_page=aHR0cDovL2cuZHRiMzE1LmNvbS9wYWNrYWdlL2hvbWU%2FaXNfYWpheD0x'
           );
         },
         timeout: 100000000,

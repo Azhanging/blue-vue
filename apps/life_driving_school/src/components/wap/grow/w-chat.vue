@@ -3,7 +3,7 @@
 		<div v-for='(item,index) in chatList' :key='index'  v-if='chatList.length > 0' class=' bc-mg-b-15rp'>
 			<div class='bc-t-c bc-t-999 bc-mg-b-15rp' v-if='item.time'>{{item.time}}</div>
 			<div v-if='item.system == 1' class='bc-t-c bc-t-999'>{{item.content}}</div>
-			<div v-else class='bc-flex bc-flex-ac-s' :class='item.member_id == userInfoId ? "right":"left"'>
+			<div v-else class='bc-flex bc-flex-ac-s' :class='item.member_id == $store.state.userInfo.id ? "right":"left"'>
 				<img class='headImg' :src='item.head_img' alt=''>
 				<div class='content'>
 					<div class='name bc-mg-b-5rp'>{{item.nickname}}</div>
@@ -48,7 +48,6 @@
 			// }
 		},
 		mounted(){
-		
 		}
 	}
 </script>

@@ -288,7 +288,7 @@ export default {
 		left: 0;
 		bottom: 0;
 		z-index: 200;
-		max-width: rem(450);
+		/*max-width: rem(450);*/
 		.comment-reply-input-img {
 			width: rem(15);
 			height: rem(15);

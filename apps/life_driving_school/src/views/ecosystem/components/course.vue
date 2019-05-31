@@ -82,7 +82,7 @@
 				<div id="expense-win-close" @click="btn_hideWin">
 					<i class="iconfont iconguanbi"></i>
 				</div>
-				{{ winShowDataOdd }}
+				<div style="text-indent: 25px;">{{ winShowDataOdd }}</div>
 			</div>
 			<div class="expense-win-more" v-if="winMore">
 				<a :href="winMoreUrl">了解更多</a>
@@ -128,9 +128,9 @@
 					
 					{id:1,name:'Vip会员',content:'会员缴纳193元/年会费后成为Vip会员，立享限量专属好礼：即赠送1000积分，“积分”均可用于积分商城抵扣现金使用。开放VIP商城购物特权，独享甄选专区好品，立即拥抱稀缺、新奇、优质、实惠、限量特供好产品，还有机会参与商城特别抽奖活动。',ifMore: true,MoreUrl:`${programUrl['gou-wu-bao']}/home/index/home/#/join/vip`},
 					
-					{id:2,name:'校董',content:'点通宝平台的LP有限合伙人，一份存款，就是一份选择；一份储蓄，就是一份智慧；一份投资，就是一份慈善，我们要让储金，造就您一份伟大而又实际的事业！有共建平台、共享收益',ifMore: false,MoreUrl:''},
+					{id:2,name:'校董',content:'点通宝平台的LP有限合伙人，一份存款，就是一份选择；一份储蓄，就是一份智慧；一份投资，就是一份慈善；我们要让储金，造就您一份伟大而又实际的事业！共建平台、共享收益。',ifMore: false,MoreUrl:''},
 					
-					{id:3,name:'项目金主',content:'良好的生态环境是人类生存与健康的基础。大地期盼着绿色，河流期盼着绿色，水鸟期盼着绿色，花草期盼着绿色；让“绿色环保”打败“白色污染”，实现万物梦想！让我们为健康人类和谐社会关爱生命呵护地球的使命贡献一份力量',ifMore: false,MoreUrl:''},
+					{id:3,name:'项目金主',content:'良好的生态环境是人类生存与健康的基础。大地期盼着绿色、河流期盼着绿色、水鸟期盼着绿色、花草期盼着绿色；让“绿色环保”打败“白色污染”，实现万物梦想！让我们为健康人类、和谐社会、关爱生命、呵护地球的使命贡献一份力量。',ifMore: false,MoreUrl:''},
 					
 					{id:4,name:'创客',content:'大众创业,万众创新，点通宝创客不是微商，不是电商，是集全社会力量开的一个大超市；是一个公共组织：大健康，大集体，大分工，大合作，大市场、大平台，大收益。为您的创业选择一个具划时代意义的平台。',ifMore: true,MoreUrl:`${programUrl['gou-wu-bao']}/home/index/home/#/join/creator`},
 					

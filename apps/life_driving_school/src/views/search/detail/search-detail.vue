@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view class='wap' :router-level="2">
+	<bv-home-view class='wap' :router-level="3">
 
 		<!--文章内容-->
 		<w-article-detail :header="{

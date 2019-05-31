@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-12"],{a95a:function(t,n,e){"use strict";e.r(n);var i=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("bv-home-view",[e("div",{staticClass:"bc-t-c"},[t._v("\n\t\t测试登录跳转\n\t")])])},a=[],c={name:"test-login",created:function(){this.$axios.get("/api/test/index").then(function(t){return t})}},s=c,u=e("305e"),o=Object(u["a"])(s,i,a,!1,null,null,null);n["default"]=o.exports}}]);
+//# sourceMappingURL=chunk-12.3552ff83.js.map

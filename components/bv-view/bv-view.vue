@@ -57,7 +57,7 @@
     methods: {
       hideTabBarSubMenu() {
         //设置子菜单的状态
-        setTabBarSubmenuIndex({
+	      setTabBarSubmenuIndex({
           tabBarSubMenuStatus: -1
         });
       },

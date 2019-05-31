@@ -1,6 +1,8 @@
 <!-- 头部组件 -->
 <template>
 	<div class="bv-header">
+		<!--广告位-->
+		<slot name='advertisement'></slot>
 		<div class="bv-header-container" :style="`background-color:white;border-bottom:1px solid #e5e5e5;${header.style}`">
 			<div class="bv-header-control">
 				<slot name="left-control">
@@ -10,7 +12,7 @@
 				</slot>
 			</div>
 			<div class="bv-header-title" :style="header.title && header.title.style">
-				<slot name="set">{{(header.title && header.title.value) || config.view.title}}</slot>
+				<slot name="title">{{(header.title && header.title.value) || config.view.title}}</slot>
 			</div>
 			<div class="bv-header-control bc-t-r">
 				<!-- 有操作的插槽 -->

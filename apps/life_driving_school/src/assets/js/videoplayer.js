@@ -146,10 +146,9 @@ export default class VideoPlayer {
 		});
 		this.player.on('liveStreamStop', (e) => { //直播流中断时触发
 			if (this.props.isLive) {
-				utils.hooks(this,this.props.hooks.liveStreamStop);
+				utils.hook(this,this.props.hooks.liveStreamStop);
 				this.props.source = false;
-        // var el = document.getElementsByTagName('video');
-        // el[0].parentNode.removeChild(el[0]);
+
 
 				console.log('直播流中断1')
 			}

@@ -176,6 +176,12 @@
 
 <style lang="scss">
 	.article-content {
+		padding: rem(15);
+		blockquote {
+			margin: 0;
+			padding-left: rem(10);
+			border-left: 3px solid #dbdbdb;
+		}
 		.video {
 			max-height: rem(210) !important;
 			background-color: #f4f4f4;
@@ -194,11 +200,13 @@
 			text-align: center !important;
 		}*/
 		* {
+			margin: 0;
+			padding: 0;
 			max-width: 100%;
 			box-sizing: border-box !important;
 		}
 		p {
-			line-height: 1.6;
+			margin: 0;
 		}
 		img {
 			max-width: 100%!important;

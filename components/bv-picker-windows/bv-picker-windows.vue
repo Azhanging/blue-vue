@@ -57,10 +57,10 @@
 								<template slot="scroll-items">
 									<div
 										class="bc-block bc-t-hide bc-pd-tb-10rp"
+										v-for="(item,slotIndex) in slot.values"
 										:class="[
-									  findSlot(slot).index === index && scroll.activeClassName
-									]"
-										v-for="item in slot.values"
+										  findSlot(slot).index === slotIndex && scroll.activeClassName
+										]"
 										:key="item.id"
 										@click.stop="selectItem($event,item,slot,pickerScope,index)"
 									>

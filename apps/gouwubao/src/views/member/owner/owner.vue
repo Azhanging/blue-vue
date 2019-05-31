@@ -52,7 +52,7 @@
 		<div class="bc-row bc-bg-white bc-mg-b-10rp bc-pd-b-10rp bc-bd-b-e5e">
 			<div class="bc-flex bc-flex-ai-c bc-f-15rp bc-pd-16rp">
 				<div class="bc-f-b bc-flex-1">平台最新动态</div>
-				<div><router-link to="/member/school-board/recent-news" class="bc-t-999 bc-f-12rp">查看全部&gt;</router-link></div>
+				<div><router-link to="/member/owner/recent-news" class="bc-t-999 bc-f-12rp">查看全部&gt;</router-link></div>
 			</div>
 			<div class="bc-row bc-pd-l-10rp bc-pd-r-10rp" v-if="lenderData">
 				<div  v-for="(item,index) in lenderData.zixun_list">

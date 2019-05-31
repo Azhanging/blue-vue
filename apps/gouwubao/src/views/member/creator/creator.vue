@@ -4,7 +4,7 @@
 		<bv-header :header="{title:{value:'创客办公室'}}"/>
 
 		<!-- 办公室头部 -->
-		<office-header :member-info="pageData.memberInfo" type="creator" class="bc-mg-b-10rp"/>
+		<office-header :member-info="pageData.memberInfo" :is_buy_ck="pageData.is_buy_ck" :is_apply="pageData.is_apply || 0" type="creator" class="bc-mg-b-10rp"/>
 
 		<!-- 统计 -->
 		<statistics  :textType='"creator"' />
@@ -230,6 +230,13 @@
         });
       }
     },
+	  watch:{
+		  $route(to,from){
+		  	if(from.path == '/member/creator/apply-for'){
+		  		this.getData();
+			  }
+		  }
+	  },
     components: {
       OfficeHeader,
       Statistics,

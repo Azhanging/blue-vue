@@ -240,6 +240,9 @@
 						// 监测聊天数据
 						case 'chatMessage':
 							that.chatData.chatList.push(data.data);
+							
+							
+							// alert(data.data.member_id);
 
 							if(data.data.system == 1){
                 that.chatData.uid_count = data.data.uid_count;
@@ -248,6 +251,8 @@
 								setTimeout(()=>{
 									this.getHeight();
 								},0);
+
+								console.log(that.chatData.chatList)
 							});
 							break;
 					};
@@ -383,10 +388,6 @@
 		// },
 		mounted() {
 			this.init();
-			this.userInfoId = store.state.userInfo.id;
-
-			
-			// console.log(this.$el.children[0])
 		}
 	}
 </script>

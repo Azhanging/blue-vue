@@ -1,7 +1,7 @@
 <template>
 	<bv-home-view class='bc-bg-f4f' :router-level='2'>
 		<bv-header>
-			<div slot="set" @click="btn_set()">{{ setText }}<i class="icon icon-xiala"></i></div>
+			<div slot="title" @click="btn_set()">{{ setText }}<i class="icon icon-xiala"></i></div>
 		</bv-header>
 		<div class="set-back" v-if="setIfShow"></div>
 		<div class="set-win" v-if="setIfShow">

@@ -20,7 +20,7 @@ const SchoolBoard = {
         tabBar: false
       }
     },
-  ]
+  ],
 };
 
 export default SchoolBoard;

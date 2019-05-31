@@ -3,7 +3,7 @@
 		<!-- 测试按钮 <button @click="search(keywords)" style="position:absolute;left:0;top:0;z-index:5000;">测试按钮：点击搜索</button>-->
 
 		<form id="form" action="" method="" @submit.prevent="search(keywords)">
-			<div id="search" class="bc-row bc-bg-white v-m bc-ps-f" style="left:0;top:0;z-index:4000;max-width:30rem;">
+			<div id="search" class="bc-row bc-bg-white v-m bc-ps-f" style="left:0;top:0;z-index:200;max-width:30rem;">
 				<div class="search-header bc-flex bc-flex-jc-c bc-flex-ai-c bc-pd-tb-10rp bc-pd-lr-10rp">
 					<div class="bc-flex-10 bc-ps-r">
 						<input class="search-input  bc-bd-none bc-bd-e5e bc-bd-radius-5"

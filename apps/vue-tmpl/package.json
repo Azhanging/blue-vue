@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --no-clean"
+    "build": "node ./version-manage && vue-cli-service build --no-clean"
   },
   "dependencies": {
     "register-service-worker": "^1.6.2",

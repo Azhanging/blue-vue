@@ -1,10 +1,23 @@
 <template>
 	<bv-header :header="header" :leftControl="leftControl">
-
-		<!--0返回  1点通宝图标 2无 -->
+		<!--广告位-->
+		<div slot='advertisement'>
+			<div class='bc-pd-tb-10rp bc-pd-lr-5rp bd-adver bc-mg-tb-10rp bc-mg-lr-5rp bc-bd-radius-6 bc-flex bc-flex-jc-sb bc-flex-ai-c'
+			     v-if='advertise && $store.state.userInfo.subscribe != 1 && config.device.isWeChat'>
+				<div>
+					<i class='iconfont iconguanbi1 t-adver' @click='advertise = false'></i>
+					<span>
+	            关注点通宝公众号，实现智慧财富人生
+	        </span>
+				</div>
+				<a :href='$store.state.userInfo.followUrl' class='bc-btn bg-adver bc-f-12rp bc-t-white bc-bd-radius-4'>关注</a>
+			</div>
+		</div>
+		
 
 		<slot></slot>
-
+		
+		<!--0返回  1点通宝图标 2无 -->
 		<template v-if="type !== 0">
 			<template slot="left-control">
 				<slot name="left-control">
@@ -24,7 +37,6 @@
 					<router-link to="/search">
 						<i class='iconfont iconicon-test bc-t-base bc-f-20rp bc-mg-r-10rp'></i>
 					</router-link>
-					<!--<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' v-if="configdevice.isApp" @click='$share'></i>-->
 					<i class='iconfont iconfenxiang bc-t-base bc-f-20rp bc-mg-r-10rp' @click='$share'  v-if="config.device.isApp"></i>
 				</div>
 			</slot>
@@ -34,6 +46,8 @@
 </template>
 
 <script>
+	import store from '@store';
+
 	export default {
     name: "w-home-header",
     props: {
@@ -53,6 +67,11 @@
         type: Object
       }
     },
+		data(){
+    	return{
+		    advertise:true
+	    }
+		},
     methods: {
       //左边控制的方法
       leftControlHandler() {
@@ -70,4 +89,17 @@
 		width: rem(40);
 		margin-left: rem(10);
 	}
+	
+	.t-adver{
+		color: #d73e36;
+	}
+	.bg-adver{
+		background-color: #d73e36;
+	}
+	.bd-adver{
+		border:1px #d73e36 solid
+	}
+	
+	
+	
 </style>

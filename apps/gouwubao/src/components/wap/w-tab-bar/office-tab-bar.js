@@ -2,6 +2,7 @@ import router from '@router';
 import config from '@config';
 import store from '@store';
 import programUrl from '@config/program-url';
+import { $toast } from "$use-in-vue/mint-ui/toast";
 
 const officeTabBar = {
   list: {
@@ -32,7 +33,18 @@ const officeTabBar = {
         direction: 'top'
       },
       to() {
-        location.href = `${programUrl['gou-wu-bao']}/servers/money/index`;
+        this.$axios.get('/member/Lianmeng/check_user_role').then((res) => {
+          //console.log(res)
+          /*if(data.status == 0){
+            $toast({
+              message: data.info,
+              duration: 3000
+            });
+            return false;
+          }else{
+            location.href = `${programUrl['gou-wu-bao']}/servers/money/index`;
+          }*/
+        });
       },
       className: 'bc-pd-5'
     }, {
