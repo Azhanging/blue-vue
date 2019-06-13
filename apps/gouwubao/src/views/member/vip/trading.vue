@@ -50,7 +50,7 @@
     methods: {
       getData() {
         this.$axios.get('/member/vip/trading_record').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
 					this.pageData.list = data;
         });
       }

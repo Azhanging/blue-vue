@@ -150,7 +150,7 @@
               params
             }).then(res => {
 
-              const { code } = res.data;
+              const { code } = res;
               if (code == 10002) {
                 // 去绑定手机号
                 this.showBindPhoneStatus = true;
@@ -293,7 +293,7 @@
               this.$axios.get('/api/comment/comment_delete', {
                 params
               }).then(res => {
-                const { code } = res.data;
+                const { code } = res;
                 if (code === 200) {
                   this.comment.count--;
                   this.$toast({

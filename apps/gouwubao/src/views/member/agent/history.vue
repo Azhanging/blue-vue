@@ -63,7 +63,7 @@
             sign: true
           })
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

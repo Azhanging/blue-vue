@@ -17,20 +17,27 @@ export function useInVueRouter(Router) {
 
   //路由后退规则,如果有具体的路由，走具体的路由规则或者fn回调，否则走根路径
   Router.prototype.routerBack = function (path) {
-    if (path && utils.isStr(path)) {
-      if (/^http/.test(path)) {
-        location.href = path;
-      } else {
-        const { route } = this.resolve(path, this.currentRoute, true);
-        this.push(route.fullPath);
-      }
-    } else if (utils.isFunction(path)) {
-      path.call(this);
+    if (path && (utils.isStr(path) || utils.isFunction(path))) {
+      this.routerTo(path);
     } else if (history.length > 1) {
       this.back();
     } else {
       this.push('/');
     }
+  };
+
+  //跳转到指定的地址
+  Router.prototype.routerTo = function(path) {
+	  if (utils.isStr(path)) {
+		  if (/^http/.test(path)) {
+			  location.href = path;
+		  } else {
+			  const {route} = this.resolve(path, this.currentRoute, true);
+			  this.push(route.fullPath);
+		  }
+	  } else if (utils.isFunction(path)) {
+		  path.call(this);
+	  }
   };
 
 

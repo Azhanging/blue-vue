@@ -8,7 +8,7 @@
 				页面找不到了哦~
 			</div>
 			<div class="bc-pd-tb-15rp">
-				<a href="javascript:;" @click="$router.routerBack(config.path.base)" class=" bc-t-base">
+				<a href="javascript:;" @click="$router.routerTo(config.path.base)" class=" bc-t-base">
 					回到首页 >>
 				</a>
 			</div>

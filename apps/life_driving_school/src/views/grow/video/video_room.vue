@@ -286,7 +286,7 @@
 						play_url: url
 					}
 				}).then((res) => {
-					this.video.url = res.data.data.url;
+					this.video.url = res.data.url;
 					this.video.isLive = true;
 					this.videoPlay_init(this.video);
 				}).catch((error) => {
@@ -299,7 +299,7 @@
 						videoId: id
 					}
 				}).then((res) => {
-					this.video = utils.extend(this.video, res.data.data);
+					this.video = utils.extend(this.video, res.data);
 					this.videoPlay_init(this.video);
 				}).catch((error) => {
 					// console.log(error);
@@ -345,7 +345,7 @@
 						live_video_id: this.$route.query.id
 					}
 				}).then((res) => {
-					this.resVideo = res.data.data.video_info;
+					this.resVideo = res.data.video_info;
 					this.video.cover = this.resVideo.cover;
 					//直播预告
 					

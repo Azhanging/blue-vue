@@ -1,5 +1,5 @@
 //状态码
-const errcodes = {
+const code = {
   SUCCESS: 200,         //success
   REDIRECT: 304,        //redirect
   UN_LOGIN: 10001,      //没有登录
@@ -7,4 +7,4 @@ const errcodes = {
   MESSAGE: 10003          //提醒操作
 };
 
-export default errcodes;
+export default code;

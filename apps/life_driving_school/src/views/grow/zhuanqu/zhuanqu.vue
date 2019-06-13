@@ -95,9 +95,9 @@
 						id:this.$route.params.classId,
 					}
 				}).then((res) => {
-					//console.log(res.data.data.system_class)
-					this.second_tab = res.data.data.system_class
-					this.zqDataid = res.data.data.system_class[0].id
+					//console.log(res.data.system_class)
+					this.second_tab = res.data.system_class
+					this.zqDataid = res.data.system_class[0].id
 					this.zhuangqu();
 				});
 			},
@@ -107,8 +107,8 @@
 						column_id: this.zqDataid
 					}
 				}).then((res) => {
-					//console.log(res.data.data)
-					this.typelist = res.data.data
+					//console.log(res.data)
+					this.typelist = res.data;
 				});
 			}
 

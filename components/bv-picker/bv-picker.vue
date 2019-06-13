@@ -27,7 +27,7 @@
       method: this.ajax.type || 'get',
       params
     }).then((res) => {
-      let { data } = res.data;
+      let { data } = res;
       data = this.got(data);
       if (this.slots[index]) {
         this.slots[index].values = data;

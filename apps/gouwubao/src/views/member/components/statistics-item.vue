@@ -8,7 +8,7 @@
 				</slot>
 			</div>
 			<div class="bc-flex-1 bc-t-999 bc-f-12rp bc-t-r" v-if="options.title.url">
-				<a class="bc-t-999" href="javascript:;" @click="$router.routerBack(options.title.url)">
+				<a class="bc-t-999" href="javascript:;" @click="$router.routerTo(options.title.url)">
 					{{options.title.urlName || '查看全部>'}}
 				</a>
 			</div>
@@ -54,7 +54,7 @@
 					{{options.bottomNum.name}}<span class="bc-f-b">{{options.bottomNum.num || 0}}</span>
 				</div>
 				<div class="bc-flex-1 bc-t-r">
-					<a @click="$router.routerBack(options.bottomNum.url)" class="bc-f-11rp bc-btn bc-btn-base">
+					<a @click="$router.routerTo(options.bottomNum.url)" class="bc-f-11rp bc-btn bc-btn-base">
 						{{options.bottomNum.urlName}} >
 					</a>
 				</div>

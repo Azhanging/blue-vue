@@ -1,12 +1,12 @@
 <!-- 社群 -->
 <template>
-	<bv-home-view :router-level="3"  :style="load.data.lists.length === 0 ? `background-color: white;` : `background-color: #f4f4f4;`">
+	<bv-home-view :router-level="3"  :style="load.data.list.length === 0 ? `background-color: white;` : `background-color: #f4f4f4;`">
 
 		<bv-header :header="{title:{value:'我的社群'}}"/>
 
 		<div class="bc-row bc-f-16rp">
 
-			<div class="bc-row bc-t-c bc-pd-tb-30rp" v-if="load.data.lists.length === 0">
+			<div class="bc-row bc-t-c bc-pd-tb-30rp" v-if="load.data.list.length === 0">
 				<div class="bc-row">
 					<img :src="`${staticPath}/wechat.png`" class="bc-w-40">
 				</div>
@@ -20,7 +20,7 @@
 
 			<ul class="bc-reset-ul">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
-					<li class="association-item" v-for="(item,index) in load.data.lists" :key="index">
+					<li class="association-item" v-for="(item,index) in load.data.list" :key="index">
 						<div class="bc-row bc-pd-15rp bc-bg-white association-item-content">
 							<div class="bc-flex bc-pd-tb-6rp">
 								<div class="bc-f-b">社 群 名 称：</div>
@@ -62,7 +62,7 @@
             p: page
           }
         }).then((res) => {
-          const { data: resultData } = res.data;
+          const { data: resultData } = res;
           if (scrollNoHasListData.call(this, {
               resultData,
               listKey: 'list'
@@ -70,7 +70,7 @@
             scrollEndHook.call(this);
           } else {
             if (resultData.list.length < 10) scrollEndHook.call(this);
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            this.load.data.list = this.load.data.list.concat(resultData.list);
           }
         }).catch(() => {
           return scrollEndHook.call(this);

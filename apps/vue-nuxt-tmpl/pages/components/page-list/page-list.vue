@@ -9,7 +9,7 @@
 			<!-- 分页列表 -->
 			<div>
 				<ul class="reset-ul">
-					<li v-for="item in pageList.data.lists">
+					<li v-for="item in pageList.data.list">
 						<img :src="item.home_img" v-preview="item.home_img" width="20"/>
 						<span>{{item.name}}</span>
 					</li>
@@ -72,7 +72,7 @@
   export default {
     name: "page-list",
     mixins: [pageListMixin({
-      dataKey: 'pageList'
+      loadKey: 'pageList'
     })],
     data() {
       return {}
@@ -87,7 +87,7 @@
         }).then((res) => {
           const { data } = res;
           pageData.state.allPage = Number(data.page_count);
-          pageData.data.lists = data.list;
+          pageData.data.list = data.list;
         });
       },
       pageJump(state) {

@@ -175,7 +175,7 @@
         this.$axios.get('/member/AreaApply/areaApplyOffice', {
           params
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

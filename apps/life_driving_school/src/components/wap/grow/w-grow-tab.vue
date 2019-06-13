@@ -41,8 +41,8 @@
 						column_id:paramsId.grow_id
 					}
 				}).then((res) => {
-					this.nav =  res.data.data.system;
-					this.$emit('collegeList',res.data.data.course)
+					this.nav =  res.data.system;
+					this.$emit('collegeList',res.data.course)
 					// this.$router.push()
 				});
 			}

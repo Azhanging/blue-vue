@@ -55,7 +55,7 @@
 		methods: {
 			getData() {
 				this.$axios.get('/member/office_president/getFlowing').then((res) => {
-					this.pageData = res.data.data
+					this.pageData = res.data;
 				});
 			}
 		},

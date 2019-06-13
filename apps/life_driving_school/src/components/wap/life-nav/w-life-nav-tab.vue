@@ -29,7 +29,7 @@
 					}
 				}).then(res=>{
 					//console.log(res)
-					this.nav = res.data.data.system;
+					this.nav = res.data.system;
 				})
 			}
 		},

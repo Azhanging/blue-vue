@@ -24,7 +24,7 @@ export function shareAddAccumulatePoints() {
         url: router.currentRoute.fullPath
       }
     }).then((res) => {
-      const { data } = res.data;
+      const { data } = res;
       if (data.integral > 0) {
         $toast({
           message: `+${data.integral}积分`

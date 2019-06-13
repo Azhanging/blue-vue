@@ -150,7 +150,7 @@ export default {
     },
     getData() {
       this.$axios.get('/home/vip/index').then((res) => {
-        const { data } = res.data;
+        const { data } = res;
         const { list, is_vip } = data;
         if(list.length > 0){
           this.auto();
@@ -160,7 +160,7 @@ export default {
       });
 
       this.$axios.get('/api/video/index').then((res) => {
-        const { data } = res.data.data;
+        const { data } = res;
         new AliVideoPlayer({
           id: 'vipVideo',
           vid: data.videoId,

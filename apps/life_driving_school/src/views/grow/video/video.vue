@@ -55,17 +55,17 @@
 		
 		<bv-scroll :api="getHistoryVideo" :disabled="load.state.disabled">
 			<!--数据循环-->
-			<template v-if='load.data.lists.length > 0'>
-				<videoItem :videoList='load.data.lists' type='2'></videoItem>
+			<template v-if='load.data.list.length > 0'>
+				<videoItem :videoList='load.data.list' type='2'></videoItem>
 			</template>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 					暂无数据
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 					暂无更多数据...
 				</div>
 			</template>
@@ -117,7 +117,7 @@
 				return this.$axios.get('api/live_video/historyLive', {
 					params: this.load.params
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 							resultData,
 							listKey: 'list'
@@ -125,7 +125,7 @@
 						scrollEndHook.call(this);
 					} else {
 						++this.load.params.page;
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -139,7 +139,7 @@
 			},
 			getData() {
 				this.$axios.get('api/live_video/index').then((res) => {
-					this.resvideo = res.data.data
+					this.resvideo = res.data;
 				}).catch((error) => {
 					console.log(error);
 				});
@@ -150,7 +150,7 @@
 						column_id:16
 					}
 				}).then((res) => {
-					this.banners = res.data.data.banner;
+					this.banners = res.data.banner;
 					console.log(this.banners)
 				}).catch((error) => {
 					console.log(error);
@@ -163,7 +163,7 @@
 						column_id:paramsId.grow_id
 					}
 				}).then((res) => {
-					this.college_list =  res.data.data;
+					this.college_list =  res.data;
 				});
 			},
 			init(){

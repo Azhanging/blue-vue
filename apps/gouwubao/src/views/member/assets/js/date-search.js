@@ -44,7 +44,7 @@ function dateSearch(){
         this.load.state.disabled = true;
         this.$nextTick(() => {
           this.load.params.page = 1;
-          this.load.data.lists = [];
+          this.load.data.list = [];
           this.load.state.disabled = false;
           this.load.state.hasMore = true;
         });

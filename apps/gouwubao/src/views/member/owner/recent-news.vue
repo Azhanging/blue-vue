@@ -4,7 +4,7 @@
 		
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<div class="bc-row bc-bg-white">
-				<ArrList :dataArr="load.data.lists"></ArrList>
+				<ArrList :dataArr="load.data.list"></ArrList>
 			</div>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
@@ -40,7 +40,7 @@
 						p: page
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'zixun_list'
@@ -48,7 +48,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if (resultData.zixun_list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.zixun_list);
+						this.load.data.list = this.load.data.list.concat(resultData.zixun_list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);

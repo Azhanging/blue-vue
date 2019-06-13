@@ -125,7 +125,7 @@
               intro: this.intro
             }
           }).then((res) => {
-            const { data } = res.data;
+            const { data } = res;
             if (data.status == 0) {
               this.$toast({
                 message: data.message

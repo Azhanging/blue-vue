@@ -155,15 +155,15 @@
 			<div class="bc-mg-t-10rp tuijian bc-bg-white bc-c-f">
 				<img class="block bc-w-100 tuijian-title" :src="`${config.path.static}/img/home/tuijian.png`">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
-					<recommend-arrlist :list='load.data.lists'></recommend-arrlist>
+					<recommend-arrlist :list='load.data.list'></recommend-arrlist>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 							暂无数据
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 							暂无更多数据...
 						</div>
 					</template>
@@ -213,7 +213,7 @@
     mounted() {
       this.$axios.get('/api/index/index')
         .then(res => {
-          const { data } = res.data;
+          const { data } = res;
           this.getData = data;
 	        // 健康常识滚动
 	        this.$nextTick(()=> {
@@ -267,7 +267,7 @@
             page: this.load.params.page++
           }
         }).then((res) => {
-          const { data: resultData } = res.data;
+          const { data: resultData } = res;
           if (scrollNoHasListData.call(this, {
             resultData,
             listKey: 'list'
@@ -275,7 +275,7 @@
             scrollEndHook.call(this);
           } else {
             if (resultData.list.length < 10) scrollEndHook.call(this);
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            this.load.data.list = this.load.data.list.concat(resultData.list);
           }
         }).catch((error) => {
           console.log(error);

@@ -223,7 +223,7 @@
       },
       getData() {
         this.$axios.get('/member/creator/index').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
           //弹窗使用状态
           this.showLayerStatus = (data.become_creator == 1);

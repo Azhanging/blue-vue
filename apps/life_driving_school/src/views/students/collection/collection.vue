@@ -6,7 +6,7 @@
             }
         }'
 		>
-			<div slot="right-control" v-if="load.data.lists.length>0">
+			<div slot="right-control" v-if="load.data.list.length>0">
 				<div class="bc-t-r bc-t-base bc-mg-r-10rp" @click="btn_handle">
 					{{ if_btntxt }}
 				</div>
@@ -14,9 +14,9 @@
 		</w-home-header>
 
 		<div class="collection-main">
-			<div class="collection-list" :class="if_translate?'if_translate':''" v-if="load.data.lists">
+			<div class="collection-list" :class="if_translate?'if_translate':''" v-if="load.data.list">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
-					<div class="collection-item" v-for="(item,index) in load.data.lists">
+					<div class="collection-item" v-for="(item,index) in load.data.list">
 							<div class="collection-item-radio">
 								<input type="checkbox" :id="'check'+index" :value="item.collection_id" v-model='checkList'>
 								<label :for="'check'+index"></label>
@@ -48,13 +48,13 @@
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 							<div class="collection-no">
 								<img :src="`${config.path.static}/img/students/students-sc@2x.png`">
 								<p>暂未收藏任何内容</p>
 							</div>
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 							暂无更多数据...
 						</div>
 					</template>
@@ -98,7 +98,7 @@
 		watch: {
 			'checkList': {
 				handler: function(val, oldVal) {
-					if (val.length === this.load.data.lists.length) {
+					if (val.length === this.load.data.list.length) {
 						this.checked = true;
 					} else {
 						this.checked = false;
@@ -115,7 +115,7 @@
 				}else {//全选
 					this.checked_all = '取消'
 					this.checkList = []
-					this.load.data.lists.forEach((item,index)=>{
+					this.load.data.list.forEach((item,index)=>{
 						this.checkList.push(item.collection_id);
 					})
 				}
@@ -137,7 +137,7 @@
 					}
 				}).then((res) => {
 					//console.log(res)
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -145,7 +145,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if(resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -165,7 +165,7 @@
 						},);
 						return
 					}else {
-						if(res.data.code == 200){
+						if(res.code == 200){
 							$toast({
 								message: '删除成功',
 								duration: 3000

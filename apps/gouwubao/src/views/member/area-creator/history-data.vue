@@ -220,7 +220,7 @@
 		methods: {
 			getData() {
 				this.$axios.get('/member/office_president/history').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.pageData = data;
 				
 				});

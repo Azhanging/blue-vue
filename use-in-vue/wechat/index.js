@@ -75,7 +75,7 @@ export function getWeChatConfig() {
     data: getConfig.data || '',
     isLoading: false
   }).then((res) => {
-    const { data } = res.data;
+    const { data } = res;
     store.commit('setWeChat', data);
   }).then(() => {
     setWeChatSdkConfig({

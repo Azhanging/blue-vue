@@ -91,7 +91,7 @@
                 })()
               }
             }).then((res) => {
-              const { data } = res.data;
+              const { data } = res;
               this.update({
                 qrcode: data.url,
                 bg: type
@@ -134,7 +134,7 @@
                   redirect_url: `/#/join/vip`
                 }
               }).then((res) => {
-                const { data } = res.data;
+                const { data } = res;
                 this.update({
                   qrcode: data.url,
                   bg: 'vip'
@@ -159,7 +159,7 @@
       next(item) {
         const utils = this.$utils;
         if (utils.isStr(item.url)) {
-          item.url && this.$router.routerBack(item.url)
+          item.url && this.$router.routerTo(item.url)
         } else if (utils.isFunction(item.url)) {
           utils.hook(this, item.url);
         }

@@ -99,8 +99,8 @@
 					}
 				}).then((res)=>{
 					//console.log(res)
-					this.infos = res.data.data.info;
-					this.lists = res.data.data.list;
+					this.infos = res.data.info;
+					this.lists = res.data.list;
 				}).catch((err)=>{
 					console.log(err);
 				})

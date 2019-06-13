@@ -56,7 +56,7 @@
 					//member_id:store.state.userInfo.id,//会员id
 					//phone:store.state.userInfo.id,//联系方式
 				}).then(res=>{
-					if(res.data.data.status==1019){
+					if(res.data.status==1019){
 						$toast({
 							message: '内容字数不能超过200字符。',
 							duration: 3000

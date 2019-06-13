@@ -254,7 +254,7 @@
     mounted() {
       this.$axios.get('/api/Sign/index')
         .then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.sign = data;
           if (!data.check === true) {
             this.$toast({

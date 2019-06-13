@@ -23,7 +23,7 @@ module.exports = {
         '$use-in-vue-router': resolve(`./use-in-vue-router`),
         '$axios': resolve(`./use-in-vue/axios`),
         '$api': resolve(`./api`),
-        '$errcode': resolve(`./errcode`)
+        '$code': resolve(`./code`)
       }
     }
   },

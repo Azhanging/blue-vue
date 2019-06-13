@@ -49,7 +49,7 @@
 		methods:{
 			getapplyData() {
 				this.$axios.get('/member/office_commonweal/apply_list').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.schoolData = data;
 				});
 			}

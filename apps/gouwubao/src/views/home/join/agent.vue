@@ -189,7 +189,7 @@
       },
       getData() {
         this.$axios.get('/member/area_apply/main').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
           if (data.areas.length > 0) {
             this.auto();
@@ -197,7 +197,7 @@
         });
 
         this.$axios.get('/api/video/index').then((res) => {
-          const { data } = res.data.data;
+          const { data } = res;
           new AliVideoPlayer({
             id: 'agentVideo',
             vid: data.videoId,

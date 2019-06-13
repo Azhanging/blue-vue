@@ -42,17 +42,17 @@
 			<div class='bc-pd-10rp'>
 				<bv-scroll :api="getCourerList" :disabled="load.state.disabled">
 					<!--数据循环-->
-					<template v-if='load.data.lists.length > 0'>
-						<w-arrlist :list='load.data.lists' :roleNum='roleNum'></w-arrlist>
+					<template v-if='load.data.list.length > 0'>
+						<w-arrlist :list='load.data.list' :roleNum='roleNum'></w-arrlist>
 					</template>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 							数据加载中...
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 							暂无数据
 						</div>
-						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+						<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 							暂无更多数据...
 						</div>
 					</template>
@@ -134,14 +134,14 @@
 					page: 1,
 					column_id: item.id
 				};
-				this.load.data.lists = [];
+				this.load.data.list = [];
 				this.getCourerList();
 			},
 			getCourerList() {
 				return this.$axios.get('api/classify/column_article', {
 					params: this.load.params
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 							resultData,
 							listKey: 'list'
@@ -149,7 +149,7 @@
 						scrollEndHook.call(this);
 					} else {
 						++this.load.params.page;
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -159,7 +159,7 @@
 			books() {
 				return this.$axios.get('/api/book/getList',{
 				}).then((res) => {
-					this.scroll_list = res.data.data;
+					this.scroll_list = res.data;
 				});
 			},
 		},

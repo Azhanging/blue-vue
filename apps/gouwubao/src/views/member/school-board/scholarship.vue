@@ -49,7 +49,7 @@
 		methods:{
 			getmxData(){
 				this.$axios.get('/member/office_honor/details').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.mxData = data;
 				});
 			}

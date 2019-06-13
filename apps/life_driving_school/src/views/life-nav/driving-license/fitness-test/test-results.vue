@@ -72,7 +72,7 @@
           record_id:this.$route.params.record_id
         }).then((res) => {
           //console.log(res)
-          this.show_list=res.data.data.list
+          this.show_list=res.data.list
         });
       },
       show_results() {
@@ -80,7 +80,7 @@
           record_id:this.$route.params.record_id
         }).then((res) => {
           //console.log(res)
-          this.results_data = res.data.data
+          this.results_data = res.data
         });
       },
       again(){
@@ -89,11 +89,11 @@
             column_id:this.$route.params.nav_id
           }
         }).then(res=>{
-          //console.log(res.data.data.record_id)
+          //console.log(res.data.record_id)
           this.$router.push({
-            path: '/life-nav/'+this.$route.params.nav_id+'/driving-license/'+this.$route.params.id+'/fitness-test/'+res.data.data.record_id,
+            path: '/life-nav/'+this.$route.params.nav_id+'/driving-license/'+this.$route.params.id+'/fitness-test/'+res.data.record_id,
             params:{
-              record_id:res.data.data.record_id
+              record_id:res.data.record_id
             }
           })
         })

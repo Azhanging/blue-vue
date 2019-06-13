@@ -119,7 +119,7 @@
         this.$axios.get(contentUrl, {
           params: contentParams
         }).then(res => {
-          const { data } = res.data;
+          const { data } = res;
           this.info = data;
 
           const { share_title, share_img, share_content } = data;

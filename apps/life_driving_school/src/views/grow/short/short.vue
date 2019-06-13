@@ -25,15 +25,15 @@
 		
 		<div class='bc-pd-10rp bc-bg-white'>
 			<bv-scroll :api="apiGetData" :disabled="load.state.disabled">
-				<w-arrlist :list='load.data.lists'></w-arrlist>
+				<w-arrlist :list='load.data.list'></w-arrlist>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 						数据加载中...
 					</div>
-					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 						暂无数据
 					</div>
-					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 						暂无更多数据...
 					</div>
 				</template>
@@ -86,14 +86,14 @@
 			},
 			receive_sel(obj) {
 				this.load.params.page = 1;
-				this.load.data.lists = [];
+				this.load.data.list = [];
 				Object.assign(this.load.params,obj)
 				this.apiGetData()
 			},
 			select(id, index) {
 				this.scrollIndex = index;
 				this.allSel = this.$utils.deepCopy(this.allSelCopy);
-				this.load.data.lists = [];
+				this.load.data.list = [];
 				this.load.params = {
 					page: 1,
 					column_id: id,
@@ -106,7 +106,7 @@
 				return this.$axios.get('/api/article/index', {
 					params: this.load.params
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 							resultData,
 							listKey: 'list'
@@ -115,7 +115,7 @@
 					} else {
 						++this.load.params.page;
 						if(resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 						this.scroll_list = resultData.class
 					}
 				}).catch(() => {
@@ -128,7 +128,7 @@
 						column_id:this.$route.params.classId
 					}
 				}).then((res) => {
-					this.pageData = res.data.data;
+					this.pageData = res.data;
 
 					this.load.params = {
 						page: 1,

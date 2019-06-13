@@ -45,12 +45,6 @@
 	export default {
     name: "bv-page-list",
     props: {
-      pageListData: {
-        default() {
-          return {};
-        },
-        type: Object
-      },
       current: {
         default: 1,
         type: Number
@@ -104,8 +98,6 @@
 </script>
 
 <style scoped lang="scss">
-
-	@import '@/assets/css/config.scss';
 
 	html[data-mobile-device="true"] {
 		.bv-page-btn {

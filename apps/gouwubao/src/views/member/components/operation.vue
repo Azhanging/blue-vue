@@ -5,7 +5,7 @@
 		</div>
 		<div class="bc-row bc-pd-lr-10rp bc-t-c">
 			<div class="bc-col-xs-6 bc-pd-10rp" v-for="item in list">
-				<a href="javascript:;"  @click="$router.routerBack(item.url)"
+				<a href="javascript:;"  @click="$router.routerTo(item.url)"
 				   class="bc-inline-block bc-t-333 bc-bg-f4f bc-pd-10rp bc-w-100 bc-flex bc-flex-ai-c bc-flex-jc-c">
 					<i class="icon bc-t-base bc-f-19rp" :class="[item.icon]"></i>
 					<span class="bc-inline-block bc-pd-l-4rp">{{item.name}}</span>

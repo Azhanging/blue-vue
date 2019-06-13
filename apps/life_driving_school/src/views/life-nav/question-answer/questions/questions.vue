@@ -46,7 +46,7 @@
 				return this.$axios.get('/api/feedback/cate',{
 				}).then((res)=>{
 					//console.log(res)
-					this.classify = res.data.data;
+					this.classify = res.data;
 				}).catch((err)=>{
 					console.log(err);
 				})
@@ -66,7 +66,7 @@
 					question:this.$refs.question.value,//问题
 					//phone:store.state.userInfo.id,//联系方式
 				}).then((res)=>{
-					if(res.data.data.status==1019){
+					if(res.data.status==1019){
 						$toast({
 							message: '字数不能超过500字符。',
 							duration: 3000

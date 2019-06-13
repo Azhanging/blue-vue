@@ -90,7 +90,7 @@
     methods: {
       getData() {
         this.$axios.get('/member/office_president/store_income').then((res) => {
-          this.pageData = res.data.data;
+          this.pageData = res.data;
         });
       }
     },

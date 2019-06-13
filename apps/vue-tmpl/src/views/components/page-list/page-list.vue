@@ -13,13 +13,13 @@
 				<div class="bc-row">
 					<div class="bc-row">
 						<ul class="bc-reset-ul">
-							<li v-for="item in pageList.data.lists">
+							<li v-for="item in pageList.data.list">
 								<img :src="item.home_img" v-preview="item.home_img" width="20"/>
 								<span>{{item.name}}</span>
 							</li>
 						</ul>
 					</div>
-					<div class="bc-row bc-t-c" v-if="pageList.data.lists.length == 0">
+					<div class="bc-row bc-t-c" v-if="pageList.data.list.length == 0">
 						暂无数据...
 					</div>
 				</div>
@@ -37,7 +37,7 @@
       return {
         pageList: {
           data: {
-            lists: []
+            list: []
           },
           state: {
             inputPageNum: '',
@@ -58,7 +58,7 @@
         }).then((res) => {
           const { data } = res;
           pageData.state.allPage = Number(data.page_count);
-          pageData.data.lists = data.list;
+          pageData.data.list = data.list;
         });
       },
       pageJump(state) {

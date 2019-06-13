@@ -111,7 +111,7 @@
 		methods: {
 			getData() {
 				this.$axios.get('/member/office_president/phone_index').then((res) => {
-					this.resData = res.data.data
+					this.resData = res.data;
 				});
 			}
 		},

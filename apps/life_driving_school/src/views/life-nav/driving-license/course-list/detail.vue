@@ -25,10 +25,10 @@
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 					暂无数据
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 					暂无更多数据...
 				</div>
 			</template>
@@ -97,7 +97,7 @@
 				this.$axios.get(contentUrl, {//停留时间
 					params: contentParams
 				}).then(res => {
-					const { data } = res.data;
+					const { data } = res;
 					this.info = data;
 					//console.log(this.info)
 					//console.log(this.info.integral_time)

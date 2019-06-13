@@ -1,6 +1,6 @@
 <template>
 	<!--产业研究-->
-	<bv-home-view class='wap' style="background:rgba(244,244,244,1);;">
+	<bv-home-view class='wap' style="background:rgba(244,244,244,1);">
 
 		<w-home-header :header="{
 			title:{
@@ -82,7 +82,7 @@ export default {
 	mounted() {
     this.$axios.get('/api/Lndust_Ryaesearch/index')
 	    .then(res => {
-				const {code, data} = res.data;
+				const {code, data} = res;
 				if (code === 200) {
 				  this.getData = data;
 				}

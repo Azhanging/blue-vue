@@ -172,11 +172,11 @@
 				this.$axios.get('/api/Member_News/index',{
 
 				}).then(res=>{
-					//console.log(res.data.data)
-					this.comment=res.data.data.comment
-					this.fabulous=res.data.data.fabulous
-					this.station=res.data.data.station
-					this.notice=res.data.data.notice
+					//console.log(res.data)
+					this.comment=res.data.comment
+					this.fabulous=res.data.fabulous
+					this.station=res.data.station
+					this.notice=res.data.notice
 				})
 			}
 		},

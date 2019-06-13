@@ -31,7 +31,7 @@
 		methods: {
 			getDetData() {
 				this.$axios.get('/member/office_producer/details_sell').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.detData = data;
 				});
 			},

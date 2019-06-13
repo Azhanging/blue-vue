@@ -88,7 +88,7 @@
     methods: {
       getData() {
         this.$axios.get('/member/creator/coach_earnings').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

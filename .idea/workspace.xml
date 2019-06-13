@@ -3,50 +3,153 @@
   <component name="ChangeListManager">
     <list default="true" id="9248c9f2-200e-462f-9618-c5ccd7e9c9c7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/app.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/app.js" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/manifest.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/precache-manifest.5cd8d64503065bc37c2b4c1944395e5a.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/robots.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/service-worker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/css/app.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/css/chunk-1.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/css/chunk-vendors.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/img/default-skin.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/app.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-1.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-1.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-10.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-10.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-11.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-11.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-12.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-12.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-13.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-13.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-14.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-14.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-2.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-3.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-3.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-4.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-4.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-5.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-5.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-6.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-6.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-7.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-7.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-8.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-8.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-9.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-9.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-vendors.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/js/chunk-vendors.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/assets/css/ali-video-player.scss" afterPath="$PROJECT_DIR$/apps/gouwubao/src/assets/css/ali-video-player.scss" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/agent-apply.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/agent-apply.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/agent.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/agent.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/creator-buy.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/creator-buy.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/creator.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/creator.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/vip-buy.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/vip-buy.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/vip.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/vip.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/agent.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/agent.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/history-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/history-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/history.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/history.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/operating-expenses-detail.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/operating-expenses-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/operating-expenses.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/operating-expenses.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/quit.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/quit.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/shop-income-detail.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/shop-income-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/shop-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/shop-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/wait-settle.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/wait-settle.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/await-pay.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/await-pay.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/history-data.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/history-data.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/index.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/index.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/store-income-detail.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/store-income-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/store-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/area-creator/store-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/assets/js/date-search.js" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/assets/js/date-search.js" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/apply-for.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/apply-for.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/branch-school.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/branch-school.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/material.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/material.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/release-course.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/branch-school/release-course.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/commercial-college/commercial-college.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/commercial-college/commercial-college.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/commercial-college/returns-detailed.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/commercial-college/returns-detailed.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/flow-title.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/flow-title.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/operation.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/operation.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/statistics-item.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/statistics-item.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/tools.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/tools.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/consumers.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/consumers.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/earnings.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/earnings.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/history.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/history.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/sc-earnings.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/sc-earnings.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/tb-earnings.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/tb-earnings.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/association-add.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/association-add.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/association.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/association.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income-detail.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/creator.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/creator.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/shop-income-detail.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/shop-income-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/shop-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/shop-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/wait-settle.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/wait-settle.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/owner.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/owner.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/recent-news.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/recent-news.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/producers.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/producers.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/returns-detailed.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/returns-detailed.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-angel.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-angel.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-income.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-income.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-statistics.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/product-angel/product-statistics.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/recent-news.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/recent-news.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/scholarship.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/scholarship.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/school-board.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/school-board/school-board.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/service-providers/service-providers.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/service-providers/service-providers.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/tools/association.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/tools/association.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/trading.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/trading.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/vip.vue" afterPath="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/vip.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/assets/js/share.js" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/assets/js/share.js" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-body/article.js" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-body/article.js" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-clicknum.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-clicknum.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment-reply.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment-reply.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-recommend-review/w-recommend-review.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-recommend-review/w-recommend-review.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/life-nav/w-life-nav-tab.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/life-nav/w-life-nav-tab.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-header/w-home-header.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-header/w-home-header.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/course.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/course.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/information.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/information.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/ecosystem.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/ecosystem.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/books.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/books.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/chapter.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/chapter.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/short.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/short.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video_room.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video_room.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/column.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/column.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/zhuanqu.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/zhuanqu.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/industry/industry.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/industry/industry.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/components/recommend-list.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/components/recommend-list.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-intermediate.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-intermediate.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-primary.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-primary.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-senior.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-senior.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/driving-license.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/driving-license.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/fitness-test.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/fitness-test.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/test-results.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/test-results.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/introduce-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/introduce-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/life-index.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/life-index.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/detail/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/detail/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/question-answer.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/question-answer.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/questions/questions.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/questions/questions.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/recommend/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/recommend/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/detail/search-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/detail/search-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/search.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/search.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/collection.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/collection.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/contribute/contribute.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/contribute/contribute.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/feedback/feedback.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/feedback/feedback.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/history.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/history.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-comment.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-comment.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-fabulous.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-fabulous.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-notice.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-notice.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-station.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message-list/message-station.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/message/message.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/students.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/students.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/zixun.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/zixun.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/pages/components/mint-ui/scroll/scroll.vue" afterPath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/pages/components/mint-ui/scroll/scroll.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/pages/components/page-list/page-list.vue" afterPath="$PROJECT_DIR$/apps/vue-nuxt-tmpl/pages/components/page-list/page-list.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js.map" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js.map" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js.map" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js.map" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js.map" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js.map" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js.map" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js.map" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-vendors.ba83ad89.js.map" afterPath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-vendors.ba83ad89.js.map" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/page-list/page-list.vue" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/page-list/page-list.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/scroll/scroll.vue" afterPath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/scroll/scroll.vue" />
       <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/vue.config.js" afterPath="$PROJECT_DIR$/apps/vue-tmpl/vue.config.js" />
-      <change beforePath="$PROJECT_DIR$/vue-config/app.js" afterPath="$PROJECT_DIR$/vue-config/app.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/native-app.js" afterPath="$PROJECT_DIR$/assets/js/native-app.js" />
+      <change beforePath="$PROJECT_DIR$/components/bv-error-page/error-page-404.vue" afterPath="$PROJECT_DIR$/components/bv-error-page/error-page-404.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-page-list/bv-page-list.vue" afterPath="$PROJECT_DIR$/components/bv-page-list/bv-page-list.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-picker/bv-picker.vue" afterPath="$PROJECT_DIR$/components/bv-picker/bv-picker.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-scroll/index.js" afterPath="$PROJECT_DIR$/components/bv-scroll/index.js" />
+      <change beforePath="$PROJECT_DIR$/errcode/errcodes.js" afterPath="$PROJECT_DIR$/code/code.js" />
+      <change beforePath="$PROJECT_DIR$/errcode/index.js" afterPath="$PROJECT_DIR$/code/index.js" />
+      <change beforePath="$PROJECT_DIR$/gulp-build/gulpfile.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/use-in-vue-router/index.js" afterPath="$PROJECT_DIR$/use-in-vue-router/index.js" />
+      <change beforePath="$PROJECT_DIR$/use-in-vue/axios/index.js" afterPath="$PROJECT_DIR$/use-in-vue/axios/index.js" />
+      <change beforePath="$PROJECT_DIR$/use-in-vue/wechat/index.js" afterPath="$PROJECT_DIR$/use-in-vue/wechat/index.js" />
       <change beforePath="$PROJECT_DIR$/vue-config/index.js" afterPath="$PROJECT_DIR$/vue-config/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -61,105 +164,107 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.tmpl" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl">
+      <file leaf-file-name="bind.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/bind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="155" lean-forward="false" selection-start-line="3" selection-start-column="155" selection-end-line="3" selection-end-column="155" />
+            <state relative-caret-position="336">
+              <caret line="90" column="72" lean-forward="false" selection-start-line="90" selection-start-column="72" selection-end-line="90" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/routes/index.js">
+        <entry file="file://$PROJECT_DIR$/use-in-vue-router/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+            <state relative-caret-position="262">
+              <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/routes/home/index.js">
+      <file leaf-file-name="bv-header.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/bv-header/bv-header.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="217">
+              <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/manifest.json">
+      <file leaf-file-name="device.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/device.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vue.config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+            <state relative-caret-position="-2887">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#801#1580#0" expanded="false" />
+                <element signature="e#0#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service-worker.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/service-worker.js">
+      <file leaf-file-name="in-browser.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/in-browser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-config/index.js">
+      <file leaf-file-name="native-app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/native-app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+            <state relative-caret-position="342">
+              <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="redirect.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/redirect.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#276#895#0" expanded="false" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-config/app.js">
+      <file leaf-file-name="share.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/share.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="135" column="14" lean-forward="false" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
+            <state relative-caret-position="409">
+              <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="document.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/document.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,21 +286,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>css</find>
-      <find>loaderOptions</find>
-      <find>cssLoaderOptions</find>
-      <find>createCSSRule</find>
-      <find>setCurrentRouterID</find>
-      <find>isCurrentRoute</find>
-      <find>addIds</find>
-      <find>_routerPath</find>
-      <find>$routerBack</find>
-      <find>$getHref</find>
-      <find>getHref</find>
-      <find>fillStyle</find>
-      <find>renewal-top</find>
-      <find>interests-item-kthl</find>
-      <find>renewal-interests</find>
       <find>renewal-fixed</find>
       <find>trading-box</find>
       <find>interests</find>
@@ -211,6 +301,21 @@
       <find>webpackConfig</find>
       <find>dateSearch</find>
       <find>programPath</find>
+      <find>.data.lists</find>
+      <find>dataKey</find>
+      <find>scroll_list</find>
+      <find>list_img</find>
+      <find>res.data</find>
+      <find>{ data: resultData }</find>
+      <find>{data: resultData} =</find>
+      <find>res.data.data</find>
+      <find>{ data } = res.data</find>
+      <find>;;</find>
+      <find>$errcode</find>
+      <find>errcode</find>
+      <find>errCodeHandler</find>
+      <find>routerBack</find>
+      <find>mixedDevelopment</find>
     </findStrings>
     <replaceStrings>
       <replace>m-transition</replace>
@@ -234,6 +339,14 @@
       <replace />
       <replace>routerBack</replace>
       <replace>getHref</replace>
+      <replace>.data.list</replace>
+      <replace>loadKey</replace>
+      <replace>res.data</replace>
+      <replace>{ data } = res;</replace>
+      <replace>;</replace>
+      <replace>$code</replace>
+      <replace>codeHandler</replace>
+      <replace>routerTo</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\achang\blue-vue-program\apps\vue-nuxt-tmpl</dir>
@@ -250,65 +363,65 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/assets/js/bind.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vue-config/index.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/apps/vue-tmpl/vue.config.js" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/assets/js/in-browser.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/assets/js/bind.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-tab-bar/home-tab-bar.js" />
-        <option value="$PROJECT_DIR$/components/bv-tab-bar/index.js" />
-        <option value="$PROJECT_DIR$/components/bv-transition/bv-transition.vue" />
-        <option value="$PROJECT_DIR$/components/bv-tab-bar/bv-tab-bar.vue" />
-        <option value="$PROJECT_DIR$/components/bv-view-transition/bv-view-transition.vue" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/node_modules/@vue/cli-service/lib/config/css.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/index.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/use-in-vue-router-program/index.js" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/router/index.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/router-id.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/router/index.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-header/w-home-header.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/router/home/index.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" />
-        <option value="$PROJECT_DIR$/use-in-vue/filter/1.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/filter/index.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/main.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/generate-img.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign-gran.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/assets/js/blue-canvas-tmpl-config/sign-canvas-tmpl-config.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/assets/js/blue-canvas-tmpl-config/sign-config.js" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/agent-apply/agent-apply.vue" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/assets/css/config.scss" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/shop-income.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/agent/wait-settle.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/components/tools.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/consumers.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/earnings.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/history.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/sc-earnings.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/consumers/tb-earnings.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/association-add.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income-detail.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/coach-income.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/creator.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/shop-income-detail.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/creator/wait-settle.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/owner.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/recent-news.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/producers.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/returns-detailed.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/tools/association.vue" />
+        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/trading.vue" />
         <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/vip.vue" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/vip-buy/vip-buy.vue" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/home/join/creator-buy/creator-buy.vue" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/assets/css/member.scss" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/assets/js/user.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/mint-ui/indicator/index.js" />
-        <option value="$PROJECT_DIR$/assets/js/login.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/axios/index.js" />
-        <option value="$PROJECT_DIR$/assets/js/redirect.js" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment-reply.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-body/article.js" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/life-nav/w-life-nav-tab.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/books.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/chapter.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" />
-        <option value="$PROJECT_DIR$/apps/gouwubao/src/views/member/assets/js/date-search.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/store/index.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/src/main.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/vue-tmpl-build/views/index.html" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/server/routes/index.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/server/manifest.json" />
-        <option value="$PROJECT_DIR$/assets/js/share.js" />
-        <option value="$PROJECT_DIR$/vue-config/app.js" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/short.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video_room.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/zhuanqu.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/industry/industry.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/components/recommend-list.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/driving-license.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-intermediate.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-primary.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/life-index.vue" />
+        <option value="$PROJECT_DIR$/components/bv-scroll/index.js" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/fitness-test.vue" />
+        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue" />
         <option value="$PROJECT_DIR$/vue-config/index.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/vue.config.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/server/routes/home/index.js" />
-        <option value="$PROJECT_DIR$/apps/vue-tmpl/server/app.js" />
+        <option value="$PROJECT_DIR$/code/index.js" />
+        <option value="$PROJECT_DIR$/use-in-vue/axios/index.js" />
+        <option value="$PROJECT_DIR$/assets/js/native-app.js" />
+        <option value="$PROJECT_DIR$/use-in-vue-router/index.js" />
+        <option value="$PROJECT_DIR$/components/bv-header/bv-header.vue" />
       </list>
     </option>
   </component>
@@ -378,6 +491,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -389,39 +503,12 @@
             <path>
               <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
               <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="routes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-config" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -434,6 +521,7 @@
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/achanging/Documents/Achang/web/blue-vue-program/assets/js/bind.js" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -526,10 +614,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="npm.build" />
-        <item index="1" class="java.lang.String" itemvalue="npm.dev" />
-        <item index="2" class="java.lang.String" itemvalue="npm.build (1)" />
-        <item index="3" class="java.lang.String" itemvalue="npm.serve" />
+        <item index="0" class="java.lang.String" itemvalue="npm.serve" />
+        <item index="1" class="java.lang.String" itemvalue="npm.build" />
+        <item index="2" class="java.lang.String" itemvalue="npm.dev" />
+        <item index="3" class="java.lang.String" itemvalue="npm.build (1)" />
         <item index="4" class="java.lang.String" itemvalue="npm.serve (3)" />
       </list>
     </recent_temporary>
@@ -653,7 +741,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="862687000" />
+    <option name="totallyTimeSpent" value="877012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -665,30 +753,43 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="23" width="1366" height="705" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273743" sideWeight="0.41151386" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26022306" sideWeight="0.49744463" order="0" side_tool="true" content_ui="tabs" x="884" y="453" width="152" height="133" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26022306" sideWeight="0.501292" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37649062" sideWeight="0.5231823" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1337953" sideWeight="0.45945945" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26022306" sideWeight="0.5025554" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3939732" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273743" sideWeight="0.41151386" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29497206" sideWeight="0.58848614" order="5" side_tool="false" content_ui="tabs" x="884" y="453" width="152" height="133" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2857143" sideWeight="0.55150557" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37765363" sideWeight="0.5231823" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1337953" sideWeight="0.45945945" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2857143" sideWeight="0.44849446" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3939732" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,250 +805,275 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/owner.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="388" column="20" lean-forward="false" selection-start-line="388" selection-start-column="20" selection-end-line="388" selection-end-column="20" />
+        <state relative-caret-position="84">
+          <caret line="94" column="30" lean-forward="false" selection-start-line="94" selection-start-column="30" selection-end-line="94" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/filter/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/owner/recent-news.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html" />
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/node_modules/_@vue_cli-service@3.2.3@@vue/cli-service/lib/config/css.js" />
-    <entry file="file://$PROJECT_DIR$/assets/js/user.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/producers.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="77">
+          <caret line="211" column="27" lean-forward="false" selection-start-line="211" selection-start-column="27" selection-end-line="211" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/user/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/producers/returns-detailed.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="34" lean-forward="true" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
+        <state relative-caret-position="84">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/config/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/tools/association.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="32" />
+        <state relative-caret-position="84">
+          <caret line="64" column="42" lean-forward="false" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/mint-ui/toast/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/trading.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="27" />
+        <state relative-caret-position="84">
+          <caret line="52" column="30" lean-forward="false" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/mint-ui/indicator/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/vip/vip.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        <state relative-caret-position="84">
+          <caret line="114" column="30" lean-forward="false" selection-start-line="114" selection-start-column="30" selection-end-line="114" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-comment-reply.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+        <state relative-caret-position="77">
+          <caret line="163" column="97" lean-forward="false" selection-start-line="163" selection-start-column="97" selection-end-line="163" selection-end-column="97" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/redirect.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-body/article.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="84">
+          <caret line="14" column="42" lean-forward="false" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-next.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="26" />
+        <state relative-caret-position="83">
+          <caret line="43" column="30" lean-forward="false" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-before.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/life-nav/w-life-nav-tab.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="42" column="23" lean-forward="false" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+        <state relative-caret-position="77">
+          <caret line="31" column="29" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-87">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/ecosystem.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="120" column="24" lean-forward="false" selection-start-line="120" selection-start-column="24" selection-end-line="120" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bv-scroll/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/books.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="103">
+          <caret line="75" column="31" lean-forward="false" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+          <caret line="76" column="31" lean-forward="false" selection-start-line="76" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/chapter.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="127" column="80" lean-forward="false" selection-start-line="127" selection-start-column="80" selection-end-line="127" selection-end-column="80" />
+        <state relative-caret-position="77">
+          <caret line="101" column="31" lean-forward="false" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
+          <caret line="102" column="31" lean-forward="false" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/gouwubao/src/views/member/assets/js/date-search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="21" lean-forward="true" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/use-in-vue-router-program/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="3" column="16" lean-forward="false" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/store/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="8" column="43" lean-forward="false" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="811">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue-tmpl-build/service-worker.js" />
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue-tmpl-build/manifest.json" />
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue-tmpl-build/views/index.html" />
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue-tmpl-build/index.html" />
-    <entry file="file://$PROJECT_DIR$/apps/gouwubao/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1044">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        <state relative-caret-position="77">
+          <caret line="161" column="37" lean-forward="false" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/axios/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/short.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2871">
-          <caret line="106" column="35" lean-forward="false" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="35" />
+        <state relative-caret-position="77">
+          <caret line="130" column="34" lean-forward="false" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/share.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="31" column="18" lean-forward="false" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errcode/errcodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state relative-caret-position="77">
+          <caret line="165" column="31" lean-forward="false" selection-start-line="165" selection-start-column="31" selection-end-line="165" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/vue.config.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/video/video_room.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="34" />
+        <state relative-caret-position="77">
+          <caret line="347" column="34" lean-forward="false" selection-start-line="347" selection-start-column="34" selection-end-line="347" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/package.json">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/zhuanqu.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="77">
+          <caret line="110" column="35" lean-forward="false" selection-start-line="110" selection-start-column="35" selection-end-line="110" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/precache-manifest.25b73e2c0608299f585922951d962ba8.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="77">
+          <caret line="179" column="42" lean-forward="false" selection-start-line="179" selection-start-column="42" selection-end-line="179" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/precache-manifest.5cd8d64503065bc37c2b4c1944395e5a.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="60" column="4" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+        <state relative-caret-position="77">
+          <caret line="184" column="39" lean-forward="false" selection-start-line="184" selection-start-column="39" selection-end-line="184" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/precache-manifest.3ed9c976f5421d0338683147f2a540df.js">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/industry/industry.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="84" column="32" lean-forward="false" selection-start-line="84" selection-start-column="32" selection-end-line="84" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/components/recommend-list.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="120" column="54" lean-forward="false" selection-start-line="120" selection-start-column="54" selection-end-line="120" selection-end-column="54" />
+          <caret line="121" column="58" lean-forward="false" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="58" />
+          <caret line="123" column="54" lean-forward="false" selection-start-line="123" selection-start-column="54" selection-end-line="123" selection-end-column="54" />
+          <caret line="124" column="58" lean-forward="false" selection-start-line="124" selection-start-column="58" selection-end-line="124" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/driving-license.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="189" column="42" lean-forward="false" selection-start-line="189" selection-start-column="42" selection-end-line="189" selection-end-column="42" />
+          <caret line="200" column="32" lean-forward="false" selection-start-line="200" selection-start-column="32" selection-end-line="200" selection-end-column="32" />
+          <caret line="201" column="33" lean-forward="false" selection-start-line="201" selection-start-column="33" selection-end-line="201" selection-end-column="33" />
+          <caret line="246" column="33" lean-forward="false" selection-start-line="246" selection-start-column="33" selection-end-line="246" selection-end-column="33" />
+          <caret line="247" column="35" lean-forward="false" selection-start-line="247" selection-start-column="35" selection-end-line="247" selection-end-column="35" />
+          <caret line="258" column="34" lean-forward="false" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
+          <caret line="268" column="35" lean-forward="false" selection-start-line="268" selection-start-column="35" selection-end-line="268" selection-end-column="35" />
+          <caret line="269" column="37" lean-forward="false" selection-start-line="269" selection-start-column="37" selection-end-line="269" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-intermediate.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="53" column="40" lean-forward="false" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/course-primary.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/life-index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="153" column="15" lean-forward="false" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/src/views/components/scroll/scroll.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bv-scroll/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="48" column="13" lean-forward="false" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="99" column="30" lean-forward="false" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/fitness-test/fitness-test.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="109" column="38" lean-forward="false" selection-start-line="109" selection-start-column="30" selection-end-line="109" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulp-build/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -955,25 +1081,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/sign/sign.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="2927">
+          <caret line="313" column="9" lean-forward="true" selection-start-line="313" selection-start-column="9" selection-end-line="313" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/code.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-config/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+        <state relative-caret-position="454">
+          <caret line="25" column="14" lean-forward="false" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
-            <element signature="e#276#895#0" expanded="false" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/robots.txt">
+    <entry file="file://$PROJECT_DIR$/use-in-vue/axios/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-140">
+          <caret line="95" column="21" lean-forward="false" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/tab-bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -981,7 +1153,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/static/c57b4a60/js/app.60c96076.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/in-browser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -989,68 +1161,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/manifest.json">
+    <entry file="file://$PROJECT_DIR$/assets/js/document.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-config/app.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/device.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="135" column="14" lean-forward="false" selection-start-line="135" selection-start-column="14" selection-end-line="135" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        <state relative-caret-position="-2887">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#801#1580#0" expanded="false" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/service-worker.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/bind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="17" column="2" lean-forward="false" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+        <state relative-caret-position="336">
+          <caret line="90" column="72" lean-forward="false" selection-start-line="90" selection-start-column="72" selection-end-line="90" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl">
+    <entry file="file://$PROJECT_DIR$/use-in-vue-router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="155" lean-forward="false" selection-start-line="3" selection-start-column="155" selection-end-line="3" selection-end-column="155" />
+        <state relative-caret-position="262">
+          <caret line="29" column="43" lean-forward="false" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/routes/index.js">
+    <entry file="file://$PROJECT_DIR$/components/bv-header/bv-header.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        <state relative-caret-position="217">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/routes/home/index.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/native-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="342">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/vue-tmpl/server/app.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/redirect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="409">
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
           <folding />
         </state>
       </provider>

@@ -20,8 +20,8 @@
 			
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 				<div class="bc-row bc-bg-white">
-					<order-item :item="item" type="college" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>
-					<!--<order-item type="coach" :item="item" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>-->
+					<order-item :item="item" type="college" v-for="(item,index) in load.data.list" :key="index" class="bc-bd-b-e5e"/>
+					<!--<order-item type="coach" :item="item" v-for="(item,index) in load.data.list" :key="index" class="bc-bd-b-e5e"/>-->
 				</div>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
@@ -72,7 +72,7 @@
 				this.load.state.disabled = true;
 				
 				this.$nextTick(()=>{
-					this.load.data.lists=[]
+					this.load.data.list=[]
 					this.load.params.page=1
 					this.load.state.disabled= false;
 					this.load.state.hasMore= true;
@@ -87,7 +87,7 @@
 						area: this.area
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -95,7 +95,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if (resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -104,7 +104,7 @@
 			
 			get_det_Data(){
 				this.$axios.get('/member/office_business_school/college_income').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.setitem = data.area_list;
 					let arr = {id: "0", name: "全部区域"};
 					this.setitem.unshift(arr);

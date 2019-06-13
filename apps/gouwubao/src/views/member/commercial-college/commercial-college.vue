@@ -82,7 +82,7 @@
 		methods: {
 			getData() {
 				this.$axios.get('/member/office_business_school/index').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.collegeData = data;
 				});
 			}

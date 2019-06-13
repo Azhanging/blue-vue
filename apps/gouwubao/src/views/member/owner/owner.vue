@@ -92,7 +92,7 @@
 		methods: {
 			getData() {
 				this.$axios.get('/member/office_lender/index').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.lenderData = data;
 				});
 			},

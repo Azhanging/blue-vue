@@ -158,15 +158,15 @@
 					params:{
 					}
 				}).then(res => {
-					//console.log(res.data.data)
-					this.progress_Data = res.data.data
+					//console.log(res.data)
+					this.progress_Data = res.data;
 				})
 			},
 			show_message(){
 				this.$axios.get('/api/Member_Index/index',{
 				}).then(res=>{
-					this.show_mes = res.data.data
-					//console.log(res.data.data)
+					this.show_mes = res.data;
+					//console.log(res.data)
 				})
 			},
 			to_sm(){

@@ -43,14 +43,14 @@
 						column_id: this.$route.params.nav_id
 					}
 				}).then((res) => {
-					this.life_index_id = res.data.data.system[0].id;
+					this.life_index_id = res.data.system[0].id;
 					let t_path = '/life-nav/'+this.$route.params.nav_id;//只life-nav跳转首页
 					if(this.currentFullPath == t_path){
 						this.$router.push(
 							this.$router.routerID.getPathID({
-								id: res.data.data.system[0].id,
+								id: res.data.system[0].id,
 								params: {
-									id: res.data.data.system[0].id,
+									id: res.data.system[0].id,
 									nav_id: this.$route.params.nav_id
 								}
 							})

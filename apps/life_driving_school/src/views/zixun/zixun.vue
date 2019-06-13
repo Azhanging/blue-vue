@@ -72,15 +72,15 @@
 		<w-sorting :allSel='allSel' @send_sel='receive_sel' style="background:rgba(244,244,244,1);"></w-sorting>
 
 		<bv-scroll :api="api" :disabled="load.state.disabled">
-			<w-arrlist :list='load.data.lists'></w-arrlist>
+			<w-arrlist :list='load.data.list'></w-arrlist>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 					暂无数据
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 					暂无更多数据...
 				</div>
 			</template>
@@ -180,27 +180,27 @@
         this.allSel.column_id = item.id;
         this.load.params.page = 1;
         this.load.params.column_id = item.id;
-        this.load.data.lists = [];
+        this.load.data.list = [];
         this.api();
       },
       api() {
         return this.$axios.get('/api/article/index', {
           params: this.load.params
         }).then((res) => {
-          const { data: resultData } = res.data;
+          const { data: resultData } = res;
           if (scrollNoHasListData.call(this, {
             resultData,
             listKey: 'list'
           })) {
             if (this.scroll_list && this.scroll_list.length === 0 ) {
-              this.load.data.lists = resultData.list;
+              this.load.data.list = resultData.list;
               this.scroll_list = resultData.class;
               this.scroll_list.unshift({ id: 1, name: '推荐' });
             }
             scrollEndHook.call(this);
           } else {
             ++this.load.params.page;
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            this.load.data.list = this.load.data.list.concat(resultData.list);
             this.scroll_list = resultData.class;
             this.scroll_list.unshift({ id: 1, name: '推荐' });
             if (resultData.list.length < 10) scrollEndHook.call(this);
@@ -222,7 +222,7 @@
           this.load.params.page = 1;
           this.load.state.disabled = false;
           this.load.state.hasMore = true;
-          this.load.data.lists = [];
+          this.load.data.list = [];
           if (allSel.isRecommend) {
             this.load.params = {
               page: this.load.params.page,
@@ -270,7 +270,7 @@
       // banner图
       this.$axios.get('/api/banner/index?column_id=1')
         .then(res => {
-          const { data } = res.data;
+          const { data } = res;
           this.banners = data.banner;
           this.$nextTick(() => {
             this.swiper = this.$refs['swiper'];

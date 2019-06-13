@@ -328,7 +328,7 @@
             id: id || ''
           }
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           const { ck_on_off, apply_msg } = data;
           //申请
           if (utils.isArray(apply_msg) && apply_msg.length === 0) {
@@ -472,7 +472,7 @@
             apply_msg: JSON.stringify(pageData)
           }
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           const { status, message } = data;
           this.$toast({
             message: message

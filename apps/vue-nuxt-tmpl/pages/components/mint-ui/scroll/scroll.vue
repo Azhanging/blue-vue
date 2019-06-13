@@ -6,7 +6,7 @@
       :disabled="load.state.disabled"
     >
       <ul class="reset-ul">
-        <li v-for="item in load.data.lists">
+        <li v-for="item in load.data.list">
           <img :src="item.home_img" v-preview="item.home_img" width="20"/>
           <span>{{item.name}}</span>
         </li>
@@ -35,7 +35,7 @@
         p: scrollData.load.params.page++
       }
     }).then((res) => {
-      scrollData.load.data.lists = res.data.list;
+      scrollData.load.data.list = res.data.list;
     }).then(()=>{
       return scrollData;
     }).catch((e)=>{
@@ -66,7 +66,7 @@
             })) {
             return scrollEndHook.call(this);
           } else {
-            this.load.data.lists = this.load.data.lists.concat(res.data.list);
+            this.load.data.list = this.load.data.list.concat(res.data.list);
           }
         });
       }

@@ -55,7 +55,7 @@
 				VIP专属产品
 			</div>
 			<div class="bc-flex bc-t-c bc-f-12rp bc-pd-lr-15rp bc-pd-b-15rp">
-				<a @click="$router.routerBack(`${config.path.base}/home/vipmember/index`)">
+				<a @click="$router.routerTo(`${config.path.base}/home/vipmember/index`)">
 					<img :src="`${staticPath}/vip-shop.png`" class="bc-w-100"/>
 				</a>
 			</div>
@@ -112,7 +112,7 @@
     methods: {
       getData() {
         this.$axios.get('/member/vip/index').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

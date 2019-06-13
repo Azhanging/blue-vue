@@ -107,7 +107,7 @@
           this.$axios.post('/api/examination/question', {
             record_id:this.$route.params.record_id
           }).then((res) => {
-            this.fitness_list=res.data.data.list
+            this.fitness_list=res.data.list
           });
           //console.log(res)
         })
@@ -117,15 +117,15 @@
         return this.$axios.post('/api/examination/question', {
           record_id:this.$route.params.record_id
         }).then((res) => {
-          if(res.data.data.list==''){
+          if(res.data.list==''){
             this.$router.push({
               path: '/life-nav/'+ this.$route.params.nav_id +'/driving-license/'+ this.$route.params.id,
             })
           }
           //console.log(res)
-          this.thisSwiper = res.data.data.record_info.step-1 //答到了第多少道
-          this.fitness_list=res.data.data.list
-          this.fitness_info=res.data.data.info.name
+          this.thisSwiper = res.data.record_info.step-1 //答到了第多少道
+          this.fitness_list=res.data.list
+          this.fitness_info=res.data.info.name
           this.$refs.swiper.swiper.slideTo(this.thisSwiper, 1000, false);
           this.this_level=this.$refs.swiper.swiper.realIndex+1
         });
@@ -138,7 +138,7 @@
         this.$axios.post('/api/examination/question', {
           record_id:this.$route.params.record_id
         }).then(res=> {
-          this.thisSwiper = res.data.data.record_info.step
+          this.thisSwiper = res.data.record_info.step
          /* console.log(this.this_level+'当前swiper页');
           console.log(this.thisSwiper);*/
           if((this.thisSwiper)<this.this_level){
@@ -159,7 +159,7 @@
         this.$axios.post('/api/examination/submit', {
           record_id:this.$route.params.record_id
         }).then(res=> {
-          let status= res.data.data.status;
+          let status= res.data.status;
           if(status == 1017){
             $toast({
               message: '请答完所有问题再提交',

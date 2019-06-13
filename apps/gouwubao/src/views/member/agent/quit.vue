@@ -64,7 +64,7 @@
             area_id: params.area_id
           }
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       },
@@ -78,7 +78,7 @@
             out_reason: this.content
 	        }
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.$toast({
             message: data.message
           });

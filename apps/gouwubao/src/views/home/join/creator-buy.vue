@@ -94,7 +94,7 @@
     methods: {
       getData() {
         this.$axios.get('/home/creator/order').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           const { price, money } = data;
           this.price = price;
           this.money = money;

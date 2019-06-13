@@ -12,7 +12,7 @@ export function commentMixin(opts = {}) {
         return this.$axios.get('/api/Comment/index', {
           params: params
         }).then((res) => {
-          const { data: resultData } = res.data;
+          const { data: resultData } = res;
           if (scrollNoHasListData.call(this, {
             resultData,
             listKey: 'list'
@@ -27,11 +27,11 @@ export function commentMixin(opts = {}) {
             scrollEndHook.call(this);
           } else {
             ++this.load.params.page;
-            this.load.data.lists = this.load.data.lists.concat(resultData.list);
+            this.load.data.list = this.load.data.list.concat(resultData.list);
             this.comment = resultData;
             this.comment.commentStatus = 0;
             this.comment.id = 0;
-            this.comment.list = this.load.data.lists || [];
+            this.comment.list = this.load.data.list || [];
             // console.log('有评论时候的comment', this.comment);
             // console.log('comment-list', this.comment.list);
             if(resultData.list.length < 10) scrollEndHook.call(this);

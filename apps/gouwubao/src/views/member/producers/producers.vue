@@ -209,7 +209,7 @@
     methods: {
 	    getData() {
 		    this.$axios.get('/member/office_producer/index').then((res) => {
-			    const { data } = res.data;
+			    const { data } = res;
 			    this.producerData = data;
 		    });
 	    },

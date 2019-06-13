@@ -76,7 +76,7 @@
     methods: {
 	    getData() {
 		    this.$axios.get('/member/office_product_angel/index').then((res) => {
-			    const { data } = res.data;
+			    const { data } = res;
 			    this.angelData = data
 		    });
 	    },

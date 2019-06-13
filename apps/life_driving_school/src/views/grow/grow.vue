@@ -45,9 +45,9 @@
 					if(this.currentFullPath == t_path){
 						this.$router.push(
 							this.$router.routerID.getPathID({
-								id: res.data.data.system[0].id,
+								id: res.data.system[0].id,
 								params: {
-									classId: res.data.data.system[0].id,
+									classId: res.data.system[0].id,
 									grow_id: this.$route.params.grow_id
 								}
 							})

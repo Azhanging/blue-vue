@@ -145,7 +145,7 @@
       },
       getData() {
         this.$axios.get('/home/creator/index').then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           const { list, is_creator } = data;
           if (list.length > 0) {
             this.auto();
@@ -155,7 +155,7 @@
         });
 
         this.$axios.get('/api/video/index').then((res) => {
-          const { data } = res.data.data;
+          const { data } = res;
           new AliVideoPlayer({
             id: 'creatorVideo',
             vid: data.videoId,

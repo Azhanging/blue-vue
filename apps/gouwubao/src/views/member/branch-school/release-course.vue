@@ -54,7 +54,7 @@
 		methods: {
 			getcouresData() {
 				this.$axios.get('/member/office_commonweal/release_activity').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.couresData = data;
 				});
 			},

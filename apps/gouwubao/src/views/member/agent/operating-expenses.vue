@@ -66,7 +66,7 @@
         this.$axios.get('/member/AreaApply/addup_operating_expenses', {
           params: this.$route.params
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

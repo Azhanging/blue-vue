@@ -27,7 +27,7 @@
 			
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 				<div class="bc-row bc-bg-white">
-					<div class="table-td" v-for="(item,index) in load.data.lists">
+					<div class="table-td" v-for="(item,index) in load.data.list">
 						<div>
 							<img :src="item.list_img">
 						</div>
@@ -90,7 +90,7 @@
 				this.load.state.disabled = true;
 				
 				this.$nextTick(()=>{
-					this.load.data.lists=[]
+					this.load.data.list=[]
 					this.load.params.page=1
 					this.load.state.disabled= false;
 					this.load.state.hasMore= true;
@@ -106,7 +106,7 @@
 						type: this.areaType
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -114,7 +114,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if (resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -123,7 +123,7 @@
 			
 			getData() {
 				this.$axios.get('/member/office_product_angel/details_products').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.angelData = data
 					this.setitem = data.goods_list
 					this.setitem.unshift({id: 0, name: "全部产品"})

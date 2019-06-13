@@ -76,7 +76,7 @@
 					}
 				}).then(res=>{
 					console.log(res)
-					this.desc = res.data.data
+					this.desc = res.data
 					
 		
 					

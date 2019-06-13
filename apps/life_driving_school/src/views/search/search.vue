@@ -31,15 +31,15 @@
 
 				<div class="" v-else>
 					<bv-scroll :api="api" :disabled="load.state.disabled">
-						<search-arrlist :list='load.data.lists'></search-arrlist>
+						<search-arrlist :list='load.data.list'></search-arrlist>
 						<template slot="load-down">
 							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 								数据加载中...
 							</div>
-							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 								暂无数据
 							</div>
-							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 								暂无更多数据...
 							</div>
 						</template>
@@ -74,7 +74,7 @@
           if (keywords) {
             this.infoShow.status = 2;
             this.load.params.page = 1;
-            this.load.data.lists = [];
+            this.load.data.list = [];
             this.api();
             // this.$axios.get('/api/search/index',{
             //   params: {
@@ -114,17 +114,17 @@
               page: this.load.params.page++
             }
           }).then((res) => {
-            const { data: resultData } = res.data;
+            const { data: resultData } = res;
             if (scrollNoHasListData.call(this, {
               resultData,
               listKey: 'list'
             })) {
-              if (this.load.data.lists && this.load.data.lists.length === 0) {
+              if (this.load.data.list && this.load.data.list.length === 0) {
                 this.infoShow.status = 0;
               }
               scrollEndHook.call(this);
             } else {
-              this.load.data.lists = this.load.data.lists.concat(resultData.list);
+              this.load.data.list = this.load.data.list.concat(resultData.list);
             }
           }).catch((error) => {
             console.log(error);

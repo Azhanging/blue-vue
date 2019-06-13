@@ -41,10 +41,10 @@
 							<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 								数据加载中...
 							</div>
-							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+							<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 								暂无数据
 							</div>
-							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+							<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 								暂无更多数据...
 							</div>
 						</template>
@@ -110,7 +110,7 @@
 						feedback_id: this.$route.params.circle_id
 					}
 				}).then((res)=>{
-					this.det_data = res.data.data
+					this.det_data = res.data
 					const {share_title, share_img,  share_content} = this.det_data;
 					//this.info = data;
 					this.comment.shareInfo = {

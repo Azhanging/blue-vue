@@ -5,8 +5,8 @@ import utils from 'blue-utils';
 import { $loading, $closeLoading } from '../mint-ui/indicator/index';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
-import errcodes from '$errcode/errcodes';    //错误码
-import { errCodeHandler } from '$errcode';   //错误码处理
+import code from '$code/code';    //错误码
+import { codeHandler } from '$code';   //错误码处理
 import { redirect } from '$assets/js/redirect';
 
 //柯里化 axios
@@ -66,11 +66,11 @@ function responseInterceptors() {
 
     //success httprequest state
     if (status === 200) {
-      const { code, message } = res.data;
+      const { code:requestCode, message } = res.data;
       //success code
-      if (code === errcodes.SUCCESS) {
-        return res;
-      } else if (code === errcodes.REDIRECT) {    //作为重定向跳转
+      if (requestCode === code.SUCCESS) {
+        return res.data;
+      } else if (requestCode === code.REDIRECT) {    //作为重定向跳转
         let redirectTime = 0;
         //存在重定向信息
         if (message) {
@@ -83,10 +83,10 @@ function responseInterceptors() {
           redirect(res.data);
         }, redirectTime);
       } else {
-        //error code错误码处理
-        errCodeHandler(res.data);
+        //code处理
+        codeHandler(res.data);
         //这里最好的就是reject吧
-        return Promise.reject(res);
+        return Promise.reject(res.data);
       }
     }
   }, (error) => {

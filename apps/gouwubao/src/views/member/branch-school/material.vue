@@ -82,7 +82,7 @@
 		methods: {
 			getmaterialData() {
 				this.$axios.get('/member/office_commonweal/materiel_download').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.materialData = data;
 				});
 			},

@@ -187,7 +187,7 @@
 				}).then((res) => {
 					//console.log(res)
 
-					this.top_progressData = res.data.data
+					this.top_progressData = res.data
 				});
 			},
 			//课程轮播
@@ -198,8 +198,8 @@
 						column_id:this.$route.params.nav_id
 					},
 				}).then((res) => {
-					//console.log(res.data.data)
-					this.banners = res.data.data
+					//console.log(res.data)
+					this.banners = res.data
 				});
 
 			},
@@ -244,8 +244,8 @@
 					}
 				}).then(res=>{
 					//console.log(res)
-					this.this_id = res.data.data.system[0].id
-					this.nav_level = res.data.data.system
+					this.this_id = res.data.system[0].id
+					this.nav_level = res.data.system
 					//console.log(this.this_id)
 				})
 			},*/
@@ -256,7 +256,7 @@
 					},
 				}).then((res) => {
 					//console.log(res)
-					this.this_level=res.data.data.level;
+					this.this_level=res.data.level;
 
 					this.temp = this.this_level;
 
@@ -266,8 +266,8 @@
 						}
 					}).then(res=>{
 						//console.log(res)
-						this.this_id = res.data.data.system[this.temp].id
-						this.nav_level = res.data.data.system
+						this.this_id = res.data.system[this.temp].id
+						this.nav_level = res.data.system
 						//console.log(this.this_id)
 					})
 

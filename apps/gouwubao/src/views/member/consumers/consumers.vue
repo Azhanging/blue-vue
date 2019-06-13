@@ -134,7 +134,7 @@
     methods: {
 	    getData() {
 		    this.$axios.get('/member/office_prosumer/index').then((res) => {
-			    const { data } = res.data;
+			    const { data } = res;
 			    this.consumersData = data;
 		    });
 	    },

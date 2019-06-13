@@ -83,7 +83,7 @@
 		methods: {
 			getHistory() {
 				this.$axios.get('/member/OfficeProsumer/history_record').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.historyData = data;
 				});
 			}

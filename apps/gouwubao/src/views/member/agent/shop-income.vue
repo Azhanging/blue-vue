@@ -96,7 +96,7 @@
         this.$axios.get('/member/AreaApply/mall_revenue_count', {
           params: this.$route.params
         }).then((res) => {
-          const { data } = res.data;
+          const { data } = res;
           this.pageData = data;
         });
       }

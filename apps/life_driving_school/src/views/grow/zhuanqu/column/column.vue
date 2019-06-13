@@ -10,7 +10,7 @@
 		<div class="bc-reset-ul bc-media column-list">
 			<bv-scroll :api="api" :disabled="load.state.disabled">
 
-				<div class="bc-pd-b-10rp bc-pd-t-10rp column-item" v-for="item in load.data.lists">
+				<div class="bc-pd-b-10rp bc-pd-t-10rp column-item" v-for="item in load.data.list">
 					<router-link :to="`${currentFullPath}/album/${item.id}`" class="t-333">
 						<div class="bc-media pd-t-15 bc-row bc-c-f">
 							<div class="bc-media-left">
@@ -34,10 +34,10 @@
 					<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 						数据加载中...
 					</div>
-					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+					<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 						暂无数据
 					</div>
-					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+					<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 						暂无更多数据...
 					</div>
 				</template>
@@ -77,7 +77,7 @@
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -85,7 +85,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if(resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
@@ -98,7 +98,7 @@
 						column_id:this.$route.params.column_id
 					}
 				}).then(res=>{
-					this.title = res.data.data
+					this.title = res.data
 				})
 			},
 

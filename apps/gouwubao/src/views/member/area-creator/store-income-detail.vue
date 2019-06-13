@@ -23,7 +23,7 @@
 		
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<div class="bc-row bc-bg-white bc-mg-t-15rp">
-				<order-item :item="item" type="order" :key="index" v-for="(item,index) in load.data.lists" class="bc-bd-b-e5e"/>
+				<order-item :item="item" type="order" :key="index" v-for="(item,index) in load.data.list" class="bc-bd-b-e5e"/>
 			</div>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
@@ -83,7 +83,7 @@
 						end_time: !this.endTime ? this.endTime : `${this.endTime} 23:59:59`
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 							resultData,
 							listKey: 'list'
@@ -91,7 +91,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if (resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);

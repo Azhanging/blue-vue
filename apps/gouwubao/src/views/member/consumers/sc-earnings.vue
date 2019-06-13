@@ -34,7 +34,7 @@
 	      name:'收益明细'
 			}"/>
 			<bv-scroll :api="api" :disabled="load.state.disabled">
-				<order-item :item="item" type="sc-earnings" v-for="(item,index) in load.data.lists" :key="index" class="bc-bd-b-e5e"/>
+				<order-item :item="item" type="sc-earnings" v-for="(item,index) in load.data.list" :key="index" class="bc-bd-b-e5e"/>
 				<template slot="load-down">
 					<div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
 						数据加载中...
@@ -85,7 +85,7 @@
 			scCanshuT(){//商城
 				this.load.state.disabled = true;
 				this.$nextTick(()=>{
-					this.load.data.lists=[]
+					this.load.data.list=[]
 					this.load.params.page=1
 					this.load.state.disabled= false;
 					this.load.state.hasMore= true;
@@ -94,7 +94,7 @@
 			scCanshuL(){//级别
 				this.load.state.disabled = true;
 				this.$nextTick(()=>{
-					this.load.data.lists=[]
+					this.load.data.list=[]
 					this.load.params.page=1
 					this.load.state.disabled= false;
 					this.load.state.hasMore= true;
@@ -102,7 +102,7 @@
 			},
 			getSc(){
 				this.$axios.get('/member/OfficeProsumer/details_store').then((res) => {
-					const { data } = res.data;
+					const { data } = res;
 					this.scData = data;
 				});
 			},
@@ -115,7 +115,7 @@
 						level: this.level
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -123,7 +123,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if (resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);

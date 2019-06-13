@@ -95,7 +95,7 @@
 						column_id:this.$route.params.ecosystem_id
 					}
 				}).then(res=>{
-					this.title = res.data.data
+					this.title = res.data
 				})
 			},
 			nav_tab() {
@@ -105,8 +105,8 @@
 					}
 				}).then(res=>{
 					//console.log(res)
-					this.this_id = res.data.data.system[0].id
-					this.tabNav = res.data.data.system
+					this.this_id = res.data.system[0].id
+					this.tabNav = res.data.system
 				})
 			},
 			swiperUpdate() {
@@ -118,7 +118,7 @@
 						column_id:this.$route.params.ecosystem_id
 					}
 				}).then(res=>{
-					this.banner = res.data.data.banner
+					this.banner = res.data.banner
 					this.$nextTick(() => {
 						this.swiper = this.$refs['swiper'];
 						this.swiperUpdate();

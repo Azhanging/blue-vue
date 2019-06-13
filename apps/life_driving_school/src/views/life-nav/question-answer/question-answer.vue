@@ -7,7 +7,7 @@
         }' :leftControl="`/`"></life_nav_tab>
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<div class="question-lists">
-				<router-link :to="`${$router.currentRoute.fullPath}/detail/${item.id}`" class="question-item" v-for="(item,index) in load.data.lists">
+				<router-link :to="`${$router.currentRoute.fullPath}/detail/${item.id}`" class="question-item" v-for="(item,index) in load.data.list">
 					<div class="question-ask">
 						<div class="question-ask-l"><i>Q</i></div>
 						<div class="question-ask-c">{{ item.question }}</div>
@@ -28,10 +28,10 @@
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
 					数据加载中...
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.lists.length === 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="load.data.list.length === 0">
 					暂无数据
 				</div>
-				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.lists.length > 0">
+				<div class="bc-t-c bc-pd-10rp" v-else-if="!load.state.hasMore && load.data.list.length > 0">
 					暂无更多数据...
 				</div>
 			</template>
@@ -89,7 +89,7 @@
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					const { data: resultData } = res.data;
+					const { data: resultData } = res;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -97,7 +97,7 @@
 						scrollEndHook.call(this);
 					} else {
 						if(resultData.list.length < 10) scrollEndHook.call(this);
-						this.load.data.lists = this.load.data.lists.concat(resultData.list);
+						this.load.data.list = this.load.data.list.concat(resultData.list);
 					}
 				}).catch(() => {
 					return scrollEndHook.call(this);
