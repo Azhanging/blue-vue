@@ -8,7 +8,9 @@
 			</div>
 		</div>
 		<div class='bc-flex bc-flex-jc-sb  bc-flex-ai-c bc-pd-tb-10rp bc-t-999'>
-			<div class="bc-flex-3 bc-f-12rp bc-t-base ">{{itemList.column_name_two}}-{{itemList.column_name_one}}</div>
+			<div class="bc-flex-3 bc-f-12rp bc-t-base ">
+				{{itemList.column_name}}
+			</div>
 			<div class='bc-flex-1 action bc-flex bc-f-12rp'>
 				<i class='iconfont iconeye- bc-f-12rp'></i>
 				<span>&nbsp;{{itemList.click_num}}</span>

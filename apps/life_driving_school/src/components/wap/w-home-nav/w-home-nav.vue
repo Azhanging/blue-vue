@@ -2,8 +2,16 @@
 <template>
 	<div class="bc-flex bc-flex-jc-sa bc-t-c home-nav bc-flex-ai-c">
 		<slot name='changePath'>
-		
-			<div class='bc-flex-1 item' v-for="(item,index) in nav">
+			<template v-if="type === 'ecosystem'">
+				<div class='bc-flex-1 item' v-for="(item,index) in nav">
+					<router-link :class="[activeIndex != item.id ? unActiveClassName : activeClassName,'itemNav','bc-pd-tb-8','bc-inline-block']"
+					              v-if="item.name" :to="`/tow-nav/${$route.params.tow_nav_id}/tow-nav-detail/${$route.params.tow_nav_detail_id}/${item.pathr}`">
+						{{item.name}}
+					</router-link>
+				</div>
+			</template>
+			<template v-else>
+				<div class='bc-flex-1 item' v-for="(item,index) in nav">
 					<router-link  :class="[activeIndex != item.id ? unActiveClassName : activeClassName,'itemNav','bc-pd-tb-8','bc-inline-block']"
 					              v-if="item.name" :to="$router.routerID.getPathID({
 						id:item.id,
@@ -14,7 +22,8 @@
 					})">
 						{{item.name}}
 					</router-link>
-			</div>
+				</div>
+			</template>
 		</slot>
 	</div>
 
@@ -48,6 +57,10 @@
 	    defaultParams_key:{
       	default:'id',
 		    type:String
+	    },
+	    type:{
+      	default:'',
+		    type: String
 	    }
     },
     data() {

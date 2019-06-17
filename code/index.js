@@ -21,7 +21,7 @@ export function codeHandler(opts = {}) {
 			});
 			break;
 
-		//只做提醒操作
+		//只做消息提醒
 		case code.MESSAGE:
 			$toast({
 				message: message

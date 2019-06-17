@@ -51,6 +51,7 @@ export function useInVue(opts = {}) {
 
     //图片预览组件PhotoSwipe
     Vue.use(photoSwipe);
+
     Vue.component('blue-photo-swipe', photoSwipeComponent);
 
     //验证规则
@@ -68,7 +69,9 @@ export function useInVue(opts = {}) {
   Vue.mixin({
     data() {
       //项目config
-      return { config: config };
+      return {
+        config
+      };
     }
   });
 

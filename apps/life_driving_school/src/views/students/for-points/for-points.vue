@@ -10,16 +10,15 @@
 		</w-home-header>
 
 		<div class="integral-item">
-			<div class="integral-title">生活导航</div>
+			<div class="integral-title">智慧导航</div>
 			<div class="integral-box">
 				<div class="integral-list">1.每日签到获得积分。</div>
-				<div class="integral-list">2.邀请好友并且成功绑定手机号，获得<span>30</span>积分。</div>
-				<div class="integral-list">3.资讯、精选短课、生态圈、生活导航资讯，内容转发，每次获得<span>3</span>积分。(每日前三次有效)</div>
-				<div class="integral-list">4.每天第一次完成未学习的驾照课程,获得<span>10</span>积分。</div>
-				<div class="integral-list">5.每阅读完一本驾校书籍，获得<span>30</span>积分。</div>
-				<div class="integral-list">6.每通过一阶段的驾照课程测试，获得<span>20</span>积分。</div>
-				<div class="integral-list">7.每日第一次发表内容评论，获得<span>5</span>积分。</div>
-				<div class="integral-list">8.发布投稿后，平台审核通过，获得<span>10</span>积分。</div>
+				<div class="integral-list">2.资讯、精选短课、生态圈、智慧导航资讯，内容转发，每次获得<span>3</span>积分。(每日前三次有效)</div>
+				<div class="integral-list">3.每天第一次完成未学习的驾照课程,获得<span>10</span>积分。</div>
+				<div class="integral-list">4.每阅读完一本驾校书籍，获得<span>30</span>积分。</div>
+				<div class="integral-list">5.每通过一阶段的驾照课程测试，获得<span>20</span>积分。</div>
+				<div class="integral-list">6.每日第一次发表内容评论，获得<span>5</span>积分。</div>
+				<div class="integral-list">7.发布投稿后，平台审核通过，获得<span>10</span>积分。</div>
 			</div>
 		</div>
 		<div class="integral-item">

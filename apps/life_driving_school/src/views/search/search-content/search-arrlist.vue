@@ -3,7 +3,7 @@
 		<div class="bc-f-16rp bc-t-base bc-pd-t-14rp bc-mg-t-50rp" v-if="list && list.length>0">
 			相关内容
 		</div>
-		<div v-for='item in list' @click='detailClick(item.id)' class='itemList' :key="item.id">
+		<div v-for='item in list' @click='detailClick(item.id,item.column_ecosphere)' class='itemList' :key="item.id">
 			<search-itemdata :itemList='item' :ifAchieve="ifAchieve"></search-itemdata>
 		</div>
 	</div>
@@ -32,8 +32,8 @@
       'search-itemdata': searchItemdata
     },
     methods:{
-      detailClick(article_id){
-        this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${article_id}`})
+      detailClick(article_id,column_ecosphere){
+        this.$router.push({'path':`${router.currentRoute.fullPath}/detail/${article_id}?column_ecosphere=${column_ecosphere}`})
       }
     }
   }

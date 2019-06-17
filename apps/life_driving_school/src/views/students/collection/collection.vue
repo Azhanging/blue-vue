@@ -17,32 +17,84 @@
 			<div class="collection-list" :class="if_translate?'if_translate':''" v-if="load.data.list">
 				<bv-scroll :api="api" :disabled="load.state.disabled">
 					<div class="collection-item" v-for="(item,index) in load.data.list">
-							<div class="collection-item-radio">
-								<input type="checkbox" :id="'check'+index" :value="item.collection_id" v-model='checkList'>
-								<label :for="'check'+index"></label>
-							</div>
-						<router-link :to="`/students/collection/detail/${item.collection_id}`">
-							<div class="collection-item-box">
-								<div class="bc-media pd-t-15 bc-row bc-c-f">
-									<div class="bc-media-left">
-										<img class="tuijian-article-img" :src="item.src_img" v-if="">
+						<div class="collection-item-radio">
+							<input type="checkbox" :id="'check'+index" :value="item.collection_id" v-model='checkList'>
+							<label :for="'check'+index"></label>
+						</div>
+						<template v-if="item.offline == true">
+							<a @click="goshow()">
+								<div class="collection-item-box">
+									<div class="bc-media pd-t-15 bc-row bc-c-f">
+										<div class="bc-media-left">
+											<img class="tuijian-article-img" :src="item.src_img" v-if="">
+										</div>
+										<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+											<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.id }}{{ item.name }}</div>
+											<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+												{{ item.sub_name }}
+											</div>
+										</div>
 									</div>
-									<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
-										<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.id }}{{ item.name }}</div>
-										<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
-											{{ item.sub_name }}
+									<div class="collection-but">
+										<div class="collection-but-l">{{ item.column_name }}</div>
+										<div class="collection-but-span">
+											<span><i class="iconfont iconeye-"></i> {{ item.click_num }}</span>
+											<span>{{ item.time }}</span>
 										</div>
 									</div>
 								</div>
-								<div class="collection-but">
-									<div class="collection-but-l">{{ item.column_name }}</div>
-									<div class="collection-but-span">
-										<span><i class="iconfont iconeye-"></i> {{ item.click_num }}</span>
-										<span>{{ item.time }}</span>
+							</a>
+						</template>
+						<template v-else>
+							<template v-if="item.column_ecosphere === 0">
+								<router-link :to="`/students/collection/detail/${item.collection_id}`">
+									<div class="collection-item-box">
+										<div class="bc-media pd-t-15 bc-row bc-c-f">
+											<div class="bc-media-left">
+												<img class="tuijian-article-img" :src="item.src_img" v-if="">
+											</div>
+											<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+												<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.id }}{{ item.name }}</div>
+												<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+													{{ item.sub_name }}
+												</div>
+											</div>
+										</div>
+										<div class="collection-but">
+											<div class="collection-but-l">{{ item.column_name }}</div>
+											<div class="collection-but-span">
+												<span><i class="iconfont iconeye-"></i> {{ item.click_num }}</span>
+												<span>{{ item.time }}</span>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
-						</router-link>
+								</router-link>
+							</template>
+							<template v-else>
+								<router-link :to="`/students/collection/detail/${item.collection_id}?column_ecosphere=${item.column_ecosphere}`">
+									<div class="collection-item-box">
+										<div class="bc-media pd-t-15 bc-row bc-c-f">
+											<div class="bc-media-left">
+												<img class="tuijian-article-img" :src="item.src_img" v-if="">
+											</div>
+											<div class=" bc-media-body bc-pd-r-10  bc-flex bc-flex-d-c bc-flex-jc-sb" style="min-height:80px;">
+												<div class=" bc-f-16rp bc-t-333 bc-f-b">{{ item.id }}{{ item.name }}</div>
+												<div class=" bc-f-12rp bc-t-666 bc-t-ellipsis bc-t-ellipsis-2">
+													{{ item.sub_name }}
+												</div>
+											</div>
+										</div>
+										<div class="collection-but">
+											<div class="collection-but-l">{{ item.column_name }}</div>
+											<div class="collection-but-span">
+												<span><i class="iconfont iconeye-"></i> {{ item.click_num }}</span>
+												<span>{{ item.time }}</span>
+											</div>
+										</div>
+									</div>
+								</router-link>
+							</template>
+						</template>
 					</div>
 					<template slot="load-down">
 						<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -165,7 +217,7 @@
 						},);
 						return
 					}else {
-						if(res.code == 200){
+						if(res.data.code == 200){
 							$toast({
 								message: '删除成功',
 								duration: 3000
@@ -176,8 +228,13 @@
 						}
 					}
 				})
+			},
+			goshow(){
+				$toast({
+					message: '资讯或课程已下线。',
+					duration: 3000
+				});
 			}
-
 		}
 	}
 </script>

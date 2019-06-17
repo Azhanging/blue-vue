@@ -2,7 +2,7 @@
 	<bv-home-view style="background:#F4F4F4;">
 		<w-home-header :header="{
       title:{
-        value:'生活导航',
+        value:'智慧导航',
         style:`font-weight: bold !important;font-size:1.33333rem;`
       },
       style:`background: url(${config.path.static}/img/home/header_bg_img.png) no-repeat  !important;background-position: center !important;
@@ -82,7 +82,7 @@
 					</div>
 				</div>
 
-			<!--生活导航-->
+			<!--智慧导航-->
 
 				<div class="bc-mg-t-20rp">
 					<img class="block bc-w-100" :src="`${config.path.static}/img/home/shengmingdaohang.png`">
@@ -118,7 +118,7 @@
 
 
 			<!--生态圈-->
-			<div class="shengtaiquan bc-c-f" v-if="getData && getData.ecosphere">
+			<!--<div class="shengtaiquan bc-c-f" v-if="getData && getData.ecosphere">
 				<div class='topImg'><img  :src="`${config.path.static}/img/home/shengtaiquan_title.png`"  alt=''></div>
 				<div class='scroll-x  bc-t-c'>
 					<bv-swiper-scroll :active-class-name="'scroll_active'" class='swiper-scroll'>
@@ -149,8 +149,38 @@
 						</template>
 					</bv-swiper-scroll>
 				</div>
+			</div>-->
+			
+			<!--生态圈--新-->
+			<div class="shengtaiquan bc-c-f" v-if="getData && getData.ecosphere">
+				<div class='topImg'><img  :src="`${config.path.static}/img/home/shengtaiquan_title.png`"  alt=''></div>
+				<div class="stq-box">
+					<div class="bc-bg-white bc-mg-b-10rp" v-for="item in getData.ecosphere">
+						<div class="bc-pd-15rp bc-bd-b-e5e bc-t-c bc-t-333 bc-f-16rp bc-f-b">{{ item.name }}</div>
+						<div class="bc-bd-b-e5e" v-for="oneLevel in item.one_level">
+							<div class="bc-pd-10rp bc-flex">
+								<div class="bc-flex-1 bc-t-333 bc-f-16rp bc-f-b">{{ oneLevel.name }}</div>
+								<div><router-link :to="`/tow-nav/${oneLevel.id}`" class="bc-t-999 bc-f-12rp">更多<i class="iconfont iconyou"></i></router-link></div>
+							</div>
+							<div class="bc-pd-t-10rp bc-overflow-hide" v-if="oneLevel.two_level">
+								<div class="bc-w-50 bc-fl-l" v-for="twoLevel in oneLevel.two_level">
+									<router-link to="/ecosystem/44/tow-nav-detail/101" :to="`/tow-nav/${oneLevel.id}/tow-nav-detail/${twoLevel.id}`">
+										<div class="bc-mg-lr-10rp bc-overflow-hide bc-mg-b-10rp">
+											<div class="stq-list-img"><img :src="twoLevel.src_img"></div>
+											<div class="stq-list-r">
+												<div class="bc-f-14rp bc-t-333 bc-mg-t-5rp bc-f-b bc-overflow-hide list-name">{{ twoLevel.name }}</div>
+												<div class="bc-f-12rp bc-t-999 bc-mg-t-3rp bc-t-ellipsis bc-t-ellipsis-2 list-sub">{{ twoLevel.sub_content }}</div>
+											</div>
+										</div>
+									</router-link>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-
+			
+			
 			<!--推荐-->
 			<div class="bc-mg-t-10rp tuijian bc-bg-white bc-c-f">
 				<img class="block bc-w-100 tuijian-title" :src="`${config.path.static}/img/home/tuijian.png`">
@@ -422,7 +452,25 @@
 			}
 			
 		}
-
+		.stq-box{
+			position: relative;
+			top: rem(-10);
+			padding: 0 rem(10);
+			margin-bottom: rem(-20);
+			.stq-list-img{
+				width: rem(65);
+				height: rem(65);
+				overflow: hidden;
+				float: left;
+				img{width: 100%;}
+			}
+			.stq-list-r{
+				margin-left: rem(70);
+			}
+			.list-name{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+			.list-sub{word-wrap:break-word}
+		}
+		
 		.shengtaiquan-item {
 			width: rem(108);
 			height: rem(108);

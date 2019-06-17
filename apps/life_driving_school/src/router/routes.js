@@ -5,6 +5,7 @@ import lifeNav from "./life-nav";
 import industry from "./industry";
 import grow from "./grow";
 import ecosystem from "./ecosystem";
+import newecosystem from "./newecosystem";
 import students from "./students";
 
 
@@ -15,6 +16,7 @@ const routes = [
   industry,   //产业链
   grow,       //成长系统
   ecosystem,  //生态圈
+  newecosystem,  //生态圈-新
   lifeNav,    //生活导航
   students,    //学员后台
   errorPage   //错误页

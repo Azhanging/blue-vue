@@ -1,8 +1,8 @@
 <template>
 	<div class='bc-flex'>
-		<!--生活导航-驾照课程列表显示 top-->
+		<!--智慧导航-驾照课程列表显示 top-->
 		<i class="driving-radio iconfont iconxuanzhong" v-if="itemList.license"></i>
-		<!--生活导航-驾照课程列表显示 end-->
+		<!--智慧导航-驾照课程列表显示 end-->
 
 		<img class='left_img' :src='itemList.src_img' alt=''>
 		<div class='bc-flex-1 bc-mg-l-10rp bc-flex bc-flex-jc-sb bc-flex-d-c'>

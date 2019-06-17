@@ -3,7 +3,7 @@
 
 		<life_nav_tab :title='{
             title:{
-                value: "生活导航"
+                value: "智慧导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
 		
@@ -129,7 +129,7 @@
 					}
 				}).then((res) => {
 					//console.log(res.data)
-					const {data: resultData} = res;
+					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'

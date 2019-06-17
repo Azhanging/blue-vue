@@ -3,9 +3,7 @@ import config from '@config';
 
 //设置手机号
 export function apiBindPhone(params) {
-  return $Axios
-    .post(config.bind.phone.url, params)
-    .then((result) => result);
+  return $Axios.post(config.bind.phone.url, params);
 }
 
 //绑定角色

@@ -99,7 +99,7 @@ export default class VideoPlayer {
 		try{
 			this.props = utils.extend(defaultProps, props);
 			// this.props = props;
-			console.log(this.props)
+			//console.log(this.props)
 			this._setup();
 			this._firstFullscreen = true;
 		}
@@ -148,7 +148,6 @@ export default class VideoPlayer {
 			if (this.props.isLive) {
 				utils.hook(this,this.props.hooks.liveStreamStop);
 				this.props.source = false;
-
 
 				console.log('直播流中断1')
 			}

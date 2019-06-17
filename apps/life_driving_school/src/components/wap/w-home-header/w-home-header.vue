@@ -2,16 +2,19 @@
 	<bv-header :header="header" :leftControl="leftControl">
 		<!--广告位-->
 		<div slot='advertisement'>
-			<div class='bc-pd-tb-10rp bc-pd-lr-5rp bd-adver bc-mg-tb-10rp bc-mg-lr-5rp bc-bd-radius-6 bc-flex bc-flex-jc-sb bc-flex-ai-c'
-			     v-if='advertise && $store.state.userInfo.subscribe != 1 && config.device.isWeChat'>
-				<div>
-					<i class='iconfont iconguanbi1 t-adver' @click='advertise = false'></i>
-					<span>
+			<template v-if="$store.state.userInfo.subscribe">
+				<div class='bc-pd-tb-10rp bc-pd-lr-5rp bd-adver bc-mg-tb-10rp bc-mg-lr-5rp bc-bd-radius-6 bc-flex bc-flex-jc-sb bc-flex-ai-c'
+				     v-if='$store.state.userInfo.subscribe != 1 && config.device.isWeChat && advertise'
+				>
+					<div>
+						<i class='iconfont iconguanbi1 t-adver' @click='advertise = false'></i>
+						<span>
 	            关注点通宝公众号，实现智慧财富人生
 	        </span>
+					</div>
+					<a :href='$store.state.userInfo.followUrl' class='bc-btn bg-adver bc-f-12rp bc-t-white bc-bd-radius-4'>关注</a>
 				</div>
-				<a :href='$store.state.userInfo.followUrl' class='bc-btn bg-adver bc-f-12rp bc-t-white bc-bd-radius-4'>关注</a>
-			</div>
+			</template>
 		</div>
 		
 
@@ -75,7 +78,7 @@
     methods: {
       //左边控制的方法
       leftControlHandler() {
-        this.$router.routerTo(this.leftControl);
+        this.$router.routerBack(this.leftControl);
       }
     }
   }

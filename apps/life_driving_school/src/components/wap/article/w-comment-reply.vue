@@ -143,7 +143,7 @@ export default {
         //   this.comment.list = []; // 初始化
         // }
         if (!commentStatus) {// 默认对文章进行回复 默认状态为0
-          const { id, article_id, nickname, head_img, m_id, time, content, fabulous } = res;
+          const { id, article_id, nickname, head_img, m_id, time, content, fabulous } = res.data;
           newComment = {
             id: id,
             article_id: article_id,
@@ -161,7 +161,7 @@ export default {
           // 默认回复文章
           this.comment.list.unshift(newComment);
         } else if (commentStatus === 1) { // 对评论人进行回复
-          const { id, article_id, nickname_reply, head_img, m_id, time, content, fabulous } = res;
+          const { id, article_id, nickname_reply, head_img, m_id, time, content, fabulous } = res.data;
           newComment = {
             id: id,
             article_id: article_id,
@@ -209,7 +209,7 @@ export default {
         this.$axios.get('/api/article/collection', {
           params
         }).then(res => {
-          const { code } = res;
+          const { code } = res.data;
           if (code == 10002) {
             // 去绑定手机号
             this.showBindPhoneStatus = true;
@@ -228,7 +228,7 @@ export default {
         this.$axios.get('/api/article/collection', {
           params
         }).then(res => {
-          const { code } = res;
+          const { code } = res.data;
           if (code === 200) {
             this.$toast({
               message: '取消收藏!',
@@ -246,7 +246,7 @@ export default {
         this.$axios.get('/api/article/fabulous', {
           params: commentParams
         }).then(res => {
-          const { code } = res;
+          const { code } = res.data;
           if (code == 10002) {
             // 去绑定手机号
             this.showBindPhoneStatus = true;

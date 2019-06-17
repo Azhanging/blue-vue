@@ -23,7 +23,7 @@ const config = {
   //环境相关
   env: {
     dev: true,                     //开发环境
-    test:false,
+    test: false,
     beta: false,                    //beta环境
     prod: false                     //生产环境
   },
@@ -75,7 +75,6 @@ const config = {
 
     //绑定手机
     phone: {
-      path: '/bind-phone',      //绑定手机的path
       url: '/member/personal/deitor_phone'
     }
   },

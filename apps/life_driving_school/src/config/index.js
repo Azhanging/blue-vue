@@ -54,7 +54,7 @@ const config = utils.extend(publicConfig, {
     url: '/api/Apipublic'
   },
   view: {
-    title: "生活导航",
+    title: "智慧导航",
     tabBar: 'home'
   },
   env,
@@ -75,7 +75,7 @@ const config = utils.extend(publicConfig, {
   share: {
     origin: `${dtbPath}/Home/Common/autoreg`,
     title: "生活导航·智慧导航",
-    deps: "智慧引领生活，幸福从心成长——生活导航幸福工程。",
+    deps: "智慧引领生活，幸福从心成长——智慧导航幸福工程。",
     imgUrl: `${staticPath}/img/public/share/default-share-img.png`
   }
 });

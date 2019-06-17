@@ -56,6 +56,11 @@
 			scrollEndHook,
 			scrollNoHasListData
 		})],
+		computed:{
+			column_ecosphere(){
+				return $route.query.column_ecosphere || 0;
+			}
+		},
 		data() {
 			return {
 				comment: {},
@@ -65,15 +70,18 @@
 					},
 					data: {
 						contentParams: {// 文章内容 请求参数
-							article_id: this.$route.params.article_id
+							article_id: this.$route.params.article_id,
+							column_ecosphere:this.$route.query.column_ecosphere || 0
 						},
 						commentParams: { // 评论内容 请求参数
 							article_id: this.$route.params.article_id,
-							data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+							data_id: 1, // data_id带类型1文章,2书籍3,问答专区评论
+							column_ecosphere: this.$route.query.column_ecosphere || 0
 						},
 						submitCommentParams: { // 提交评论 请求参数 只需第一个
 							article_id: this.$route.params.article_id,
-							data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+							data_id: 1, // data_id带类型1文章,2书籍3,问答专区评论
+							column_ecosphere: this.$route.query.column_ecosphere || 0
 						}
 					}
 				}

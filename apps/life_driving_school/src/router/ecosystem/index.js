@@ -13,7 +13,7 @@ const ecosystem = {
             meta: {
                 tabBar: false,
             },
-        }
+        },
     ]
 };
 

@@ -4,7 +4,7 @@ const code = {
   REDIRECT: 304,        //redirect
   UN_LOGIN: 10001,      //没有登录
   BIND_PHONE: 10002,     //没有绑定手机,
-  MESSAGE: 10003          //提醒操作
+  MESSAGE: 10003          //消息提醒
 };
 
 export default code;

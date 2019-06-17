@@ -170,7 +170,7 @@
 					}
 				}).then((res) => {
 					//console.log(res)
-					const {data: resultData} = res;
+					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'

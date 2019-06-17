@@ -50,7 +50,8 @@
 						page: this.load.params.page++
 					}
 				}).then((res) => {
-					const {data: resultData} = res;
+					//console.log(res.data)
+					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'

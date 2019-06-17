@@ -11,20 +11,38 @@
 
 		<bv-scroll :api="api" :disabled="load.state.disabled">
 			<div class="message-list" v-for="(item,index) in this.load.data.list">
-				<router-link class="list-item" :to="item.name_url">
-					<div class="list-item-img">
-						<img :src="item.head_img">
-					</div>
-					<div class="list-item-desc">
-						<div class="list-item-desc-top">
-							<div class="list-item-desc-top-l" v-html="item.content"><!--<span>{{ item.m_id }}</span> 回复了你--></div>
-							<div class="list-item-desc-top-r">互动提醒</div>
+				<template v-if="item.offline == true">
+					<a class="list-item" @click="goshow()">
+						<div class="list-item-img">
+							<img :src="item.head_img">
 						</div>
-						<div class="list-item-desc-time">
-							{{ item.create_time  }}
+						<div class="list-item-desc">
+							<div class="list-item-desc-top">
+								<div class="list-item-desc-top-l" v-html="item.content"><!--<span>{{ item.m_id }}</span> 回复了你--></div>
+								<div class="list-item-desc-top-r">互动提醒</div>
+							</div>
+							<div class="list-item-desc-time">
+								{{ item.create_time  }}
+							</div>
 						</div>
-					</div>
-				</router-link>
+					</a>
+				</template>
+				<template v-else>
+					<router-link class="list-item" :to="item.name_url || ''">
+						<div class="list-item-img">
+							<img :src="item.head_img">
+						</div>
+						<div class="list-item-desc">
+							<div class="list-item-desc-top">
+								<div class="list-item-desc-top-l" v-html="item.content"><!--<span>{{ item.m_id }}</span> 回复了你--></div>
+								<div class="list-item-desc-top-r">互动提醒</div>
+							</div>
+							<div class="list-item-desc-time">
+								{{ item.create_time  }}
+							</div>
+						</div>
+					</router-link>
+				</template>
 			</div>
 			<template slot="load-down">
 				<div class="bc-t-c bc-pd-10rp" v-if="load.state.hasMore">
@@ -44,6 +62,7 @@
 
 <script>
 	import {scrollMixin, scrollEndHook, scrollNoHasListData} from '$scroll';
+	import { $toast } from "$use-in-vue/mint-ui/toast";
 	export default {
 		name: "message-comment",
 		mixins: [scrollMixin()],
@@ -57,7 +76,7 @@
 					}
 				}).then((res) => {
 					//console.log(res)
-					const {data: resultData} = res;
+					const {data: resultData} = res.data;
 					if (scrollNoHasListData.call(this, {
 						resultData,
 						listKey: 'list'
@@ -71,6 +90,12 @@
 					return scrollEndHook.call(this);
 				});
 
+			},
+			goshow(){
+				$toast({
+					message: '资讯或课程已下线。',
+					duration: 3000
+				});
 			}
 		},
 		mounted() {

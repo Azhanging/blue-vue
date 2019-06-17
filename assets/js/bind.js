@@ -36,7 +36,7 @@ export function bind(opts) {
 function bindRelation(params) {
   if (false) {
     apiBindRelation(params).then((res) => {
-      console.log(res.data);
+
     });
   } else {
     return true;
@@ -59,21 +59,17 @@ export function bindPhone(opts = {}) {
   const { to } = opts;
   const userInfo = store.state.userInfo;
   const phone = userInfo.phone;
-  const bindPhonePath = config.bind.phone.path;
+  const bindPhonePath = config.path.bindPhone;
 
   //没有绑定手机跳转到指定的链接，指定的链接必须存在，业务待定，未开放（使用于新项目绑定内跳转）
   if (!phone && bindPhonePath && to && to.path !== bindPhonePath && false) {
     router.replace(`${bindPhonePath}?redirect_path=${encodeURIComponent(router.getHref())}`);
-  }
-
-  //老项目跳转绑定手机
-  //老项目跳转绑定手机
-  if (!phone) {
+  } else if (!phone) {
+    //老项目跳转绑定手机
     redirectBindPhone();
   }
-
+  //针对router-next使用的return状态
   return false;
-
 }
 
 //重定向到绑定手机的页面
@@ -82,14 +78,7 @@ export function redirectBindPhone() {
     message: '跳转绑定手机中...',
     duration: 10000
   });
-
-  //检查是否为混合开发
-  let href;
-  if (config.mixedDevelopment) {
-    href = `${config.path.bindPhone}?url=${encodeURIComponent(`${config.path.indexPath}/${router.mode === 'hash' ? '#' : ''}${router.currentRoute.fullPath}`)}`;
-  } else {
-    href = `${config.path.bindPhone}?url=${encodeURIComponent(router.getHref())}`;
-  }
-
-  location.href = href;
+  setTimeout(() => {
+    location.href = router.mixedDevelopmentPath('bindPhone');
+  }, 500);
 }

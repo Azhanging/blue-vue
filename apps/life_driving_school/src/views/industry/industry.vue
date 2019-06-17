@@ -1,10 +1,10 @@
 <template>
 	<!--产业研究-->
-	<bv-home-view class='wap' style="background:rgba(244,244,244,1);">
+	<bv-home-view class='wap' style="background:rgba(244,244,244,1);;">
 
 		<w-home-header :header="{
 			title:{
-				value: '生活导航'
+				value: '智慧导航'
 			}
 		}" :type=0>
 			<div slot="right-control">
@@ -82,7 +82,7 @@ export default {
 	mounted() {
     this.$axios.get('/api/Lndust_Ryaesearch/index')
 	    .then(res => {
-				const {code, data} = res;
+				const {code, data} = res.data;
 				if (code === 200) {
 				  this.getData = data;
 				}

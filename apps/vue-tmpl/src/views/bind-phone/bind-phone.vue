@@ -34,7 +34,6 @@
           phone: this.phone
         }).then((result) => {
           this.$store.commit('setPhone', this.phone);
-          console.log(this.$store);
           router.replace(redirect_path);
         });
       }

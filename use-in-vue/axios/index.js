@@ -85,7 +85,7 @@ function responseInterceptors() {
       } else {
         //code处理
         codeHandler(res.data);
-        //这里最好的就是reject吧
+        //避免原来then上的业务，走reject
         return Promise.reject(res.data);
       }
     }
@@ -104,7 +104,7 @@ function responseInterceptors() {
 
     //处理超时信息，重写信息,只有超时有提示
     if (isTimeout) {
-      error.message = '数据请求超时，请刷新';
+      error.message = '请求超时，请刷新页面';
       $toast({
         message: error.message
       });

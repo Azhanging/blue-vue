@@ -61,19 +61,23 @@
             comment: {},
             opts: {
               url: {
-                contentUrl: '/api/Article/info'
+                contentUrl: '/api/Article/info',
+	              column_ecosphere: this.$route.query.column_ecosphere
               },
               data: {
                 contentParams: {// 文章内容 请求参数
-                  article_id: this.$route.params.article_id
+                  article_id: this.$route.params.article_id,
+	                column_ecosphere: this.$route.query.column_ecosphere
                 },
                 commentParams: { // 评论内容 请求参数
                   article_id: this.$route.params.article_id,
-                  data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+                  data_id: 1, // data_id带类型1文章,2书籍3,问答专区评论
+	                column_ecosphere: this.$route.query.column_ecosphere
                 },
                 submitCommentParams: { // 提交评论 请求参数 只需第一个
                   article_id: this.$route.params.article_id,
-                  data_id: 1 // data_id带类型1文章,2书籍3,问答专区评论
+                  data_id: 1, // data_id带类型1文章,2书籍3,问答专区评论
+	                column_ecosphere: this.$route.query.column_ecosphere
                 }
               }
             }

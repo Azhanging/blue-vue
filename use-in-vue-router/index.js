@@ -1,4 +1,5 @@
 import utils from 'blue-utils';
+import config from '@config';
 
 //扩展vue-router
 export function useInVueRouter(Router) {
@@ -27,19 +28,18 @@ export function useInVueRouter(Router) {
   };
 
   //跳转到指定的地址
-  Router.prototype.routerTo = function(path) {
-	  if (utils.isStr(path)) {
-		  if (/^http/.test(path)) {
-			  location.href = path;
-		  } else {
-			  const {route} = this.resolve(path, this.currentRoute, true);
-			  this.push(route.fullPath);
-		  }
-	  } else if (utils.isFunction(path)) {
-		  path.call(this);
-	  }
+  Router.prototype.routerTo = function (path) {
+    if (utils.isStr(path)) {
+      if (/^http/.test(path)) {
+        location.href = path;
+      } else {
+        const { route } = this.resolve(path, this.currentRoute, true);
+        this.push(route.fullPath);
+      }
+    } else if (utils.isFunction(path)) {
+      path.call(this);
+    }
   };
-
 
   //匹配路由的路径组，返回布尔值
   Router.prototype.matchRoutes = function (routesRegExp = []) {
@@ -53,4 +53,22 @@ export function useInVueRouter(Router) {
     }
     return false;
   };
+
+  //混合开发设置地址跳转
+  Router.prototype.mixedDevelopmentPath = function (name) {
+    const path = config.path[name];
+    //不存在默认返回到首页
+    if (!path) return '/';
+    const mode = this.mode;
+    const currentRoute = this.currentRoute;
+    //回跳的参数
+    const URL_PARAM = `url`;
+    //混合模式下，使用的是indexPath的路径
+    if (config.mixedDevelopment) {
+      return `${path}?${URL_PARAM}=${encodeURIComponent(`${config.path.indexPath}/${mode === 'hash' ? '#' : ''}${currentRoute.fullPath}`)}`;
+    } else {
+      return `${path}?${URL_PARAM}=${encodeURIComponent(this.getHref())}`
+    }
+  };
+
 }

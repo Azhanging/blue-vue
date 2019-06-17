@@ -1,6 +1,5 @@
 <template>
 	<div class=''>
-
 		<!--阅读量-->
 		<div class="bc-pd-10rp bc-t-999" style="background:rgba(244,244,244,1);">
 			<i class='iconfont iconeye- bc-f-15rp '></i> {{comment.click_num}}
@@ -28,7 +27,11 @@
 			comment: {
 			  type: Object,
 				default: {}
-			}
+			},
+	    ecsytype:{
+		    type: String,
+		    default:''
+	    }
     },
 	  data() {
 	    return {
@@ -44,7 +47,7 @@
           this.$axios.get('/api/article/fabulous', {
             params: commentParams
           }).then(res => {
-            const { code } = res;
+            const { code } = res.data;
             if (code == 10002) {
               // 去绑定手机号
               this.showBindPhoneStatus = true;

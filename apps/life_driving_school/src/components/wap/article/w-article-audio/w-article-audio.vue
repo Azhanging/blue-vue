@@ -87,7 +87,7 @@ export default {
       this.currentTime = res.target.currentTime;
       // 当音频当前时间改变后，进度条也要改变
       this.sliderTime = parseInt(this.currentTime / this.maxTime * 100)
-	    console.log("sliderTime", this.sliderTime);
+	    //console.log("sliderTime", this.sliderTime);
     },
 
 		// 当加载语音流元数据完成后，会触发该事件的回调函数

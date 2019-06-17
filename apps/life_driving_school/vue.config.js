@@ -4,6 +4,8 @@ const hash = require('hash-sum')
 const path = require('path');
 
 const time = new Date().getTime();
+//版本号hash
+const versionHash = hash(time);
 
 function resolve(dir) {
   return path.join(__dirname, dir);
@@ -54,5 +56,5 @@ module.exports = utils.extend(publicVueConfig, {
   },
   outputDir: `${programPath}`,
   indexPath: `./app/home/view/index/index.html`,
-  assetsDir: `static/${hash(time)}`
+  assetsDir: `static/${versionHash}`
 });

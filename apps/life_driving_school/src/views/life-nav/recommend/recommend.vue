@@ -2,7 +2,7 @@
 	<bv-home-view class='wap' :router-level='2'>
 		<life_nav_tab :title='{
             title:{
-                value: "生活导航"
+                value: "智慧导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
 		<recommend_list></recommend_list>

@@ -139,7 +139,7 @@
 			},
 			getData() {
 				this.$axios.get('api/live_video/index').then((res) => {
-					this.resvideo = res.data;
+					this.resvideo = res.data
 				}).catch((error) => {
 					console.log(error);
 				});

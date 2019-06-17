@@ -2,7 +2,7 @@
 	<bv-home-view class='wap' :router-level='2' style="background: #ededed;">
 		<life_nav_tab :title='{
             title:{
-                value: "生活导航"
+                value: "智慧导航"
             }
         }' :leftControl="`/`"></life_nav_tab>
 		<bv-scroll :api="api" :disabled="load.state.disabled">

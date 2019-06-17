@@ -9,7 +9,7 @@ export default function user() {
 //设置获取用户信息
 function setUserInfo() {
   apiGetUserInfo().then((result) => {
-    const { data } = result.data;
+    const { data } = result;
     if(utils.isArray(data)){
       store.commit('setUserInfo', {});
     } else {

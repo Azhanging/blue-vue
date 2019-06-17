@@ -108,7 +108,7 @@
 					}
 				}).then((res) => {
 					//console.log(res.data)
-					this.typelist = res.data;
+					this.typelist = res.data
 				});
 			}
 

@@ -118,7 +118,7 @@
         },
         swiper: {},
         urlType: -1, //1资讯 2公开课
-        title: "生活导航",
+        title: "智慧导航",
         allSelCopy: {},
         allSel: {
           isRecommend: true, // 默认
@@ -193,6 +193,7 @@
             listKey: 'list'
           })) {
             if (this.scroll_list && this.scroll_list.length === 0 ) {
+              console.log(this.load.data);
               this.load.data.list = resultData.list;
               this.scroll_list = resultData.class;
               this.scroll_list.unshift({ id: 1, name: '推荐' });
