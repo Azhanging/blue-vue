@@ -2,11 +2,13 @@
 <template>
   <div class="suspend">
     <!-- 回到顶部 -->
-    <div class="back-to-top" v-show="backToTopShow">
-      <a href="javascript:;" @click="backToTop">
-        <slot name="back-to-top"></slot>
-      </a>
-    </div>
+    <bv-transition transition-name="top">
+      <div class="back-to-top" v-show="backToTopShow">
+        <a href="javascript:;" @click="backToTop">
+          <slot name="back-to-top"></slot>
+        </a>
+      </div>
+    </bv-transition>
   </div>
 </template>
 

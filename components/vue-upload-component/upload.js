@@ -107,6 +107,8 @@ export function uploadMixin() {
 
           --upload.currentNum;
 
+          this.$closeLoading();
+
           utils.hook(this, opts.hooks.error);
         }
 

@@ -1,32 +1,36 @@
 <!-- 每个页面的主视图组件 必须使用 -->
 <template>
-	<div class="bv-view" :class="{'no-tab-bar':!view.tabBar}" :style="`z-index:${100 * routerLevel};`" @click="hideTabBarSubMenu" @input="input">
+  <div class="bv-view"
+       :class="{'no-tab-bar':!view.tabBar}"
+       :style="`z-index:${100 * routerLevel};`"
+       @click="hideTabBarSubmenu"
+       @input="input"
+  >
 
-		<!-- scroll 层 -->
-		<div class="bv-view-scroll">
-			<slot :scroll="scroll"></slot>
-		</div>
+    <!-- scroll 层 -->
+    <div class="bv-view-scroll">
+      <slot :scroll="scroll"></slot>
+    </div>
 
-		<!-- 公共的view层子路由 -->
-		<bv-view-transition>
-			<router-view/>
-		</bv-view-transition>
+    <!-- 公共的view层子路由 -->
+    <bv-view-transition>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </bv-view-transition>
 
-		<!-- 浮层 -->
-		<slot name="suspend" :scroll="scroll"></slot>
+    <!-- 浮层 -->
+    <slot name="suspend" :scroll="scroll"></slot>
 
-		<!-- 其他的 -->
-		<slot name="other"></slot>
+    <!-- 其他的 -->
+    <slot name="other"></slot>
 
-		<!-- 底部 -->
-		<slot name="footer"></slot>
-
-	</div>
+  </div>
 </template>
 
 <script>
 
-  import { setViewEvent, setParentViewScroll, findParentView , inputEvent } from './index';
+  import { setViewEvent, inputEvent } from './index';
   import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
   import Vuex from 'vuex';
 
@@ -34,14 +38,13 @@
 
   export default {
     name: "bv-view",
-    props: {
+    //高阶注入
+    inject: {
       routerLevel: {
-        default: 1,
-        type: Number
+        default: 1
       },
       hasTabBar: {
-        default: true,
-        type: [Boolean, String]
+        default: true
       }
     },
     computed: {
@@ -55,50 +58,45 @@
       }
     },
     methods: {
-      hideTabBarSubMenu() {
+      hideTabBarSubmenu() {
         //设置子菜单的状态
-	      setTabBarSubmenuIndex({
+        setTabBarSubmenuIndex({
           tabBarSubMenuStatus: -1
         });
       },
-      input(){
+      input() {
         inputEvent.call(this);
       }
     },
     mounted() {
       setViewEvent.call(this);
-    },
-    destroyed() {
-      setParentViewScroll({
-        scrollElm: findParentView.call(this),
-        type: 'destroyed'
-      });
     }
   }
 </script>
 
 <style scoped lang="scss">
 
-	.bv-view {
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 47px;
-		bottom: calc(constant(safe-area-inset-bottom) + 47px);
-		bottom: calc(env(safe-area-inset-bottom) + 47px);
-		left: 0;
-		z-index: 100;
-		background-color: rgba(255, 255, 255, 1);
-		&.no-tab-bar {
-			bottom: 0;
-		}
+  .bv-view {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 47px;
+    bottom: calc(constant(safe-area-inset-bottom) + 47px);
+    bottom: calc(env(safe-area-inset-bottom) + 47px);
+    left: 0;
+    z-index: 100;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 1);
+    &.no-tab-bar {
+      bottom: 0;
+    }
 
-		.bv-view-scroll {
-			width: 100%;
-			height: 100%;
-			overflow-y: scroll;
-			-webkit-overflow-scrolling: touch;
-		}
-	}
+    .bv-view-scroll {
+      width: 100%;
+      height: 100%;
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 
 </style>

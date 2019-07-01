@@ -14,7 +14,8 @@ const info = {
     name: 'zixun-detail',
     component: ZixunDetail,
     meta:{
-      tabBar: false
+      tabBar: false,
+      keepAlive:false
     }
   }]
 };

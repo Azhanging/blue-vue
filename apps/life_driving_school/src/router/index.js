@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import { weChatShare } from '$wechat';
-import { useInVueRouter } from '$use-in-vue-router';
+import { useInVueRouter, scrollBehavior } from '$use-in-vue-router';
 import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
@@ -20,7 +20,8 @@ export const routerID = new RouterID();
 
 const router = new Router({
   namespace: true,
-  routes: routerID.addID(routes)
+  routes: routerID.addID(routes),
+  scrollBehavior
 });
 
 //项目扩展router

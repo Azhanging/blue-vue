@@ -3,6 +3,7 @@ import $Axios from '$axios';
 import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
+import BlueQueuePipe from 'blue-queue-pipe';
 
 //项目的分享成功执行
 import { shareSuccess } from '@assets/js/share';
@@ -14,39 +15,25 @@ export function weChatShareInVue(Vue) {
   Vue.prototype.$weChatShare = weChatShare;
 }
 
-//微信ready状态
-let weChatReadyStatus = false;
-
-//微信的任务队列id
-let weChatTaskQueueId = 0;
-
-//share queue
-class WeChatQueueTask {
-  constructor() {
-    this.queue = [];
-    this.reset();
-  }
-
-  add(fn) {
-    this.queue.push(fn);
-  }
-
-  task() {
-    for (let i = 0; i < this.queue.length; i++) {
-      this.queue[i]();
-    }
-    this.reset();
-  }
-
-  reset() {
-    this.queue = [() => {
-      weChatShare();
-    }];
-  }
-}
-
 //微信任务队列
-const weChatTask = new WeChatQueueTask();
+const weChatQueue = new BlueQueuePipe({
+  data: {
+    id: 0,
+    status: false
+  },
+  methods: {
+    reset() {
+      this.queue = [() => {
+        weChatShare();
+      }];
+    }
+  },
+  ran() {
+    if (this.isEmpty()) {
+      this.useMethod('reset');
+    }
+  }
+});
 
 //if in wechat ,get wechat config in program
 export function useWeChatInVue(Vue) {
@@ -66,7 +53,7 @@ export function useWeChatInVue(Vue) {
 export function getWeChatConfig() {
   if (!config.device.isWeChat || !wx) return;
   //重新改变ready的状态
-  weChatReadyStatus = false;
+  weChatQueue.data.status = false;
   const weChat = config.weChat;
   const getConfig = weChat.getConfig;
   $Axios({
@@ -79,7 +66,7 @@ export function getWeChatConfig() {
     store.commit('setWeChat', data);
   }).then(() => {
     setWeChatSdkConfig({
-      id: ++weChatTaskQueueId
+      id: ++weChatQueue.data.id
     });
   });
 }
@@ -91,7 +78,7 @@ export function setWeChatSdkConfig(opts) {
   const { id } = opts;
 
   wx.config({
-    debug: config.env.prod ? false : true,
+    debug: config.env.prod,
     appId: state.weChat.appId,
     timestamp: state.weChat.timestamp,
     nonceStr: state.weChat.nonceStr,
@@ -104,17 +91,17 @@ export function setWeChatSdkConfig(opts) {
 
   wx.ready(() => {
     //当前的任务处理
-    if (id !== weChatTaskQueueId) return;
-    weChatReadyStatus = true;
-    weChatTask.task();
+    if (id !== weChatQueue.data.id) return;
+    weChatQueue.data.status = true;
+    weChatQueue.run();
   });
 
 }
 
 //微信分享，会在ready后执行
 export function weChatShare(opts = {}) {
-  if (weChatReadyStatus === false) {
-    weChatTask.add(() => {
+  if (weChatQueue.data.status === false) {
+    weChatQueue.enqueue(() => {
       setWeChatShare(opts);
     });
   } else {

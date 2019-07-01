@@ -2,7 +2,9 @@
 	<div id="app" class="bc-t-666 bc-f-14rp">
 
 		<bv-view-transition>
-			<router-view/>
+			<keep-alive>
+				<router-view/>
+			</keep-alive>
 		</bv-view-transition>
 
 		<!-- 底部导航 -->

@@ -12,6 +12,7 @@ export function routerBeforeEach(opts = {}) {
 
   //存在重定向的不在走router beforeEach
   router.beforeEach((to, from, next) => {
+
     //设置子菜单的状态
     setTabBarSubmenuIndex({
       tabBarSubMenuStatus: -1
@@ -62,3 +63,4 @@ export function routerBeforeHook(opts) {
   ]);
   return routerNext.nextStatus();
 }
+

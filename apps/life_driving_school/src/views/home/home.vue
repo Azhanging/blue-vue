@@ -247,7 +247,7 @@
           this.getData = data;
 	        // 健康常识滚动
 	        this.$nextTick(()=> {
-            let contentOffsetWidth = this.$refs['changshiContent'].offsetWidth;
+            /*let contentOffsetWidth = this.$refs['changshiContent'].offsetWidth;
             let contentLeft = 0;
             if (contentOffsetWidth > 270) {
               this.timer = setInterval(() => {
@@ -257,8 +257,7 @@
                 }
                 this.$refs['changshiContent'].style.left = contentLeft + 'px';
               }, 1)
-            }
-
+            }*/
 	        });
 
         })

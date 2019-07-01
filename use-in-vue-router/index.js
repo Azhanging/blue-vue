@@ -1,8 +1,20 @@
+import Vue from 'vue';
 import utils from 'blue-utils';
 import config from '@config';
+import { setCurrentViewScroll } from '$components/bv-view';
 
 //扩展vue-router
 export function useInVueRouter(Router) {
+
+  //针对keepAlive，处理掉组件实例化缓存问题
+  Vue.mixin({
+    beforeRouteLeave(to, from, next) {
+      if (from.meta.keepAlive === false) {
+        this.$destroy();
+      }
+      next();
+    }
+  });
 
   //获取当前地址href，直接获取location.href会出现路由未更新前的地址
   Router.prototype.getHref = function () {
@@ -14,7 +26,6 @@ export function useInVueRouter(Router) {
       return `${origin}${fullPath}`;
     }
   };
-
 
   //路由后退规则,如果有具体的路由，走具体的路由规则或者fn回调，否则走根路径
   Router.prototype.routerBack = function (path) {
@@ -72,3 +83,16 @@ export function useInVueRouter(Router) {
   };
 
 }
+
+//keep-alive保存position
+export function scrollBehavior(to, from, savedPosition) {
+  if (savedPosition) {
+    //设置view层scroll
+    setCurrentViewScroll(savedPosition);
+  }
+  return {
+    x: 0,
+    y: 0
+  };
+}
+

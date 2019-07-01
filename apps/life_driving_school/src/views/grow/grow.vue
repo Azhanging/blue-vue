@@ -21,7 +21,7 @@
 			$route(to,from){
 				//跳到空白页时返回到首页
 				if(from.path == '/grow/12/college/15' && to.path=='/grow/12'){
-					this.$router.push('/')
+					this.$router.routerBack();
 				}
 			}
 		},
@@ -59,6 +59,9 @@
 
 		mounted() {
 			this.getdata();
+		},
+		activated(){
+      this.getdata();
 		}
 
 	}

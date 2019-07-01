@@ -35,7 +35,7 @@
 		</bv-scroll>
 
 		<!--回复评论-->
-		<template slot="footer">
+		<template slot="other">
 			<w-comment-reply :opts="opts" :comment="comment" :btn_contribute="false" ref="reply"></w-comment-reply>
 		</template>
 

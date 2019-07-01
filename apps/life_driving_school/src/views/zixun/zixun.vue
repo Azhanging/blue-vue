@@ -6,7 +6,7 @@
 			title:{
 				value: title
 			}
-		}" :type=0>
+		}" :type="0">
 		</w-home-header>
 
 		<div class="bc-flex-jc-c bc-t-c home-nav bc-pd-lr-12rp">

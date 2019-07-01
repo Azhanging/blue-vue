@@ -7,8 +7,8 @@
     "build": "node ./version-manage && vue-cli-service build --no-clean"
   },
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

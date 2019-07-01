@@ -31,6 +31,7 @@ const config = {
   //路径相关
   path: {
     base: location.origin,                     //域名
+    home: '/',                                  //首页地址
     indexPath: location.origin,                 //服务器的html入口
     static: location.origin,                    //静态资源域名
     login: ``,                                  //登陆地址

@@ -12,7 +12,7 @@ if (inBrowser()) {
 }
 
 //开发环境
-const dev = (() => /localhost|192\.168|127\.0\.0\.1|pc\./ig.test(host))();
+const dev = (() => !(process.env.NODE_ENV === 'production'));
 
 //beta环境
 const beta = (() => (!dev) && (/beta\./ig.test(host)))();

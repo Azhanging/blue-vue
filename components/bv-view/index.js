@@ -1,23 +1,37 @@
 import config from '@config';
 import { mockViewScroll } from '$assets/js/device';
+import router from '@router';
 
 const viewScrollClassName = '.bv-view-scroll';
 
-function getScrollElm() {
-  const viewElm = this.$el;
-  return viewElm.children[0];
+//获取的view element
+export function getScrollElm() {
+  return this.$el.children[0];
 }
+
+//获取当前的view层elm
+export function getLastViewElm() {
+  const viewScrolls = document.querySelectorAll(viewScrollClassName);
+  if (viewScrolls && viewScrolls.length > 0) {
+    return viewScrolls[viewScrolls.length - 1];
+  }
+  return null;
+}
+
+//设置当前elm的scroll
+export function setCurrentViewScroll(position = {
+  x: 0,
+  y: 0
+}) {
+  const lastView = getLastViewElm();
+  lastView && (lastView.scrollTop = position.x);
+}
+
 
 //set view scroll event
 export function setViewEvent() {
   const scrollElm = getScrollElm.call(this);
   let timer = 0;
-
-  //设置父级view组件的scroll状态
-  setParentViewScroll({
-    scrollElm,
-    type: 'mounted'
-  });
 
   //view scroll event
   scrollElm.addEventListener('scroll', (event) => {
@@ -25,46 +39,19 @@ export function setViewEvent() {
     //节流处理scrollTop
     clearTimeout(timer);
     timer = setTimeout(() => {
-      this.scroll.top = elm.scrollTop;
+      const scrollTop = elm.scrollTop;
+      //组件内的scroll记录
+      this.scroll.top = scrollTop;
+      //针对的keep-alive中vue针对scroll抓取pageXOffset
+      if (router.currentRoute.meta.keepAlive !== false) {
+        window.pageXOffset = scrollTop;
+      }
     }, 150);
-
     //滑动的时候也隐藏子菜单的状态
-    this.hideTabBarSubMenu();
-
+    this.hideTabBarSubmenu();
+    //阻止scroll冒泡
+    event.stopPropagation();
   }, false);
-}
-
-//设置父级view组件的scroll状态
-export function setParentViewScroll(opts = {}) {
-
-  const { scrollElm, type } = opts;
-
-  const viewScrolls = document.querySelectorAll(viewScrollClassName);
-
-  const findIndex = [].indexOf.call(viewScrolls, scrollElm);
-
-  if (type === 'mounted') {
-    if (viewScrolls.length >= 2) {
-      [].forEach.call(viewScrolls, (viewElm, index) => {
-        if (index < findIndex) {
-          viewElm.style.overflowY = 'hidden';
-        }
-      });
-    }
-  } else if (type === 'destroyed' && scrollElm) {
-    scrollElm.style.overflowY = 'scroll';
-  }
-}
-
-//查找父级的view元素
-export function findParentView() {
-  const elm = getScrollElm.call(this);
-  const viewScrolls = document.querySelectorAll(viewScrollClassName);
-  if (viewScrolls.length >= 2 && elm) {
-    const findIndex = [].indexOf.call(viewScrolls, elm);
-    return viewScrolls[findIndex - 1];
-  }
-  return null;
 }
 
 //ios input bug
