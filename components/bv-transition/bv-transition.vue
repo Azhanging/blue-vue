@@ -28,7 +28,6 @@
     transition: all .4s;
   }
 
-
   .opacity-enter,
   .opacity-leave-active,
   .left-enter,
@@ -41,12 +40,20 @@
     pointer-events: none;
   }
 
+  .opacity-enter {
+    opacity: .1;
+  }
+
+  .opacity-leave-active {
+    opacity: 0;
+  }
+
   .top-enter {
     transform: translateY(100px);
   }
 
   .top-leave-active {
-    transform: translateY(100px);
+    transform: translateY(-100px);
   }
 
   .left-enter {

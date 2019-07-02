@@ -1,10 +1,12 @@
 <!-- 图层 -->
 <template>
-	<div class="bv-layer-container" :class="{'no-tab-bar':!view.tabBar}" v-show="showStatus" @click.stop="click">
-		<div class="bv-layer">
-			<slot/>
+	<bv-transition transition-name="opacity">
+		<div class="bv-layer-container" :class="{'no-tab-bar':!view.tabBar}" v-show="showStatus" @click.stop="click">
+			<div class="bv-layer">
+				<slot/>
+			</div>
 		</div>
-	</div>
+	</bv-transition>
 </template>
 
 <script>

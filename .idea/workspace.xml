@@ -2,174 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9248c9f2-200e-462f-9618-c5ccd7e9c9c7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/config/node.js" />
       <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/apps/gouwubao/src/config/env.js" afterPath="$PROJECT_DIR$/apps/gouwubao/src/config/env.js" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/package.json" afterPath="$PROJECT_DIR$/apps/life_driving_school/package.json" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/App.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/App.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/public/bv-home-view/bv-home-view.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/public/bv-home-view/bv-home-view.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-article-detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-recommend-review/w-recommend-review.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/components/wap/article/w-recommend-review/w-recommend-review.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/router/grow/college/index.js" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/router/grow/college/index.js" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/router/index.js" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/router/index.js" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/router/information/index.js" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/router/information/index.js" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/ecosystem/components/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/books/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album-detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/driving-license/course-list/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/detail/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/detail/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/recommend/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/recommend/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/detail/search-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/search/detail/search-detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/zixun.vue" afterPath="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/zixun.vue" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/.browserslistrc" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/.gitignore" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/README.md" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/babel.config.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/package-lock.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/postcss.config.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/android-chrome-192x192.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/android-chrome-512x512.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon-120x120.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon-152x152.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon-180x180.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon-60x60.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon-76x76.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/apple-touch-icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/favicon-16x16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/favicon-32x32.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/msapplication-icon-144x144.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/mstile-150x150.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/img/icons/safari-pinned-tab.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/index.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/manifest.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/public/robots.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/app.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/bin/www" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/favicon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/android-chrome-192x192.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/android-chrome-512x512.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon-120x120.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon-152x152.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon-180x180.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon-60x60.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon-76x76.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/apple-touch-icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/favicon-16x16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/favicon-32x32.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/msapplication-icon-144x144.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/mstile-150x150.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/img/icons/safari-pinned-tab.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/manifest.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/package.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/robots.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/routes/home/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/routes/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/service-worker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/css/app.323b1373.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/css/chunk-1.c4cfa7b3.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/css/chunk-vendors.bce45eb4.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/img/default-skin.b257fa9c.svg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/app.62646047.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-1.77bde5d5.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-10.5dbd8498.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-10.5dbd8498.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-11.4934d4bb.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-11.4934d4bb.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-12.3552ff83.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-12.3552ff83.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-13.778716a6.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-13.778716a6.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-14.ce7168cb.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-14.ce7168cb.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-2.2a739759.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-2.2a739759.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-3.001c4b84.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-3.001c4b84.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-4.9332706e.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-5.98417fca.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-5.98417fca.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-6.fb63de95.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-7.86956e90.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-7.86956e90.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-8.4cd6d879.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-8.4cd6d879.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-9.87303a42.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-9.87303a42.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-vendors.ba83ad89.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/js/chunk-vendors.ba83ad89.js.map" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/static/01ed5ef0/precache-manifest.8c0ff1c7585efdfc1c04633d885ee9d5.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/server/views/index.tmpl" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/App.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/assets/css/blue-component.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/assets/css/config.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/assets/css/index.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/assets/css/mint-ui.scss" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/assets/js/share.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/components/public/bv-home-view/bv-home-view.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/components/wap/w-tab-bar/component-tab-bar.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/components/wap/w-tab-bar/home-tab-bar.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/components/wap/w-tab-bar/w-tab-bar.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/config/env.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/config/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/main.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/registerServiceWorker.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/bind-phone/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/components/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/error-page/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/home/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/router/routes.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/store/getters.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/store/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/store/mutations.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/store/state.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/use-in-vue-program/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/use-in-vue-router-program/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/bind-phone/bind-phone.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/components.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/page-list/page-list.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/picker/picker.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/scroll/scroll.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/swiper-scroll/swiper-scroll.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/validate/validate.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/vue-awesome-swiper/vue-awesome-swiper.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/vue-upload-component/vue-upload-component.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/home/index.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/home/test-login/test-login.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/home/test-scroll/test-scroll-children/test-scroll-children.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/src/views/home/test-scroll/test-scroll.vue" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/version-manage.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/apps/vue-tmpl/vue.config.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/components/bv-header/bv-header.vue" afterPath="$PROJECT_DIR$/components/bv-header/bv-header.vue" />
-      <change beforePath="$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue" afterPath="$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue" />
-      <change beforePath="$PROJECT_DIR$/components/bv-tab-bar/bv-tab-bar.vue" afterPath="$PROJECT_DIR$/components/bv-tab-bar/bv-tab-bar.vue" />
-      <change beforePath="$PROJECT_DIR$/components/bv-view/bv-view.vue" afterPath="$PROJECT_DIR$/components/bv-view/bv-view.vue" />
-      <change beforePath="$PROJECT_DIR$/components/bv-view/index.js" afterPath="$PROJECT_DIR$/components/bv-view/index.js" />
-      <change beforePath="$PROJECT_DIR$/components/vue-upload-component/upload.js" afterPath="$PROJECT_DIR$/components/vue-upload-component/upload.js" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/use-in-vue-router/index.js" afterPath="$PROJECT_DIR$/use-in-vue-router/index.js" />
-      <change beforePath="$PROJECT_DIR$/use-in-vue-router/router-after.js" afterPath="$PROJECT_DIR$/use-in-vue-router/router-after.js" />
-      <change beforePath="$PROJECT_DIR$/use-in-vue-router/router-before.js" afterPath="$PROJECT_DIR$/use-in-vue-router/router-before.js" />
-      <change beforePath="$PROJECT_DIR$/use-in-vue/wechat/index.js" afterPath="$PROJECT_DIR$/use-in-vue/wechat/index.js" />
-      <change beforePath="$PROJECT_DIR$/vue-config/index.js" afterPath="$PROJECT_DIR$/vue-config/index.js" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-layer/bv-layer.vue" afterPath="$PROJECT_DIR$/components/bv-layer/bv-layer.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-transition/bv-transition.vue" afterPath="$PROJECT_DIR$/components/bv-transition/bv-transition.vue" />
+      <change beforePath="$PROJECT_DIR$/components/bv-view-transition/bv-view-transition.vue" afterPath="$PROJECT_DIR$/components/bv-view-transition/bv-view-transition.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -183,103 +22,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="667">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/css/config.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="2" column="60" lean-forward="false" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bv-suspend.vue" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="6" column="50" lean-forward="true" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1008">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bv-view.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/bv-view/bv-view.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="877">
-              <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bv-home-view.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/public/bv-home-view/bv-home-view.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bv-transition.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/bv-transition/bv-transition.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vue-config/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="319">
               <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -387,12 +154,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/short/detail.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/grow/zhuanqu/column/album-detail.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-index/detail.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/question-answer/detail/detail.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/recommend/detail.vue" />
-        <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/search/detail/search-detail.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/students/collection/detail.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/students/history/detail.vue" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/package.json" />
@@ -404,7 +165,6 @@
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/public/manifest.json" />
         <option value="$PROJECT_DIR$/components/vue-upload-component/upload.js" />
         <option value="$PROJECT_DIR$/apps/vue-tmpl/src/views/components/validate/validate.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/home/home.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/components/public/bv-home-view/bv-home-view.vue" />
         <option value="$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue" />
@@ -426,7 +186,6 @@
         <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/assets/js/node.js" />
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/config/index.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.js" />
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/.env.js" />
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/.env" />
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/public/index.html" />
@@ -438,14 +197,19 @@
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/css/config.scss" />
         <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/public/bv-home-view/bv-home-view.vue" />
         <option value="$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue" />
+        <option value="$PROJECT_DIR$/components/bv-layer/bv-layer.vue" />
+        <option value="$PROJECT_DIR$/components/bv-transition/bv-transition.vue" />
+        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue" />
+        <option value="$PROJECT_DIR$/components/bv-view-transition/bv-view-transition.vue" />
+        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue" />
+        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.pages/index.js" />
+        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/apps/vue-nuxt-tmpl/package.json" />
-    <package-json value="$PROJECT_DIR$/apps/gouwubao/package.json" />
-    <package-json value="$PROJECT_DIR$/apps/life_driving_school/package.json" />
     <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
   </component>
   <component name="JsFlowSettings">
@@ -506,6 +270,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -531,69 +297,16 @@
               <item name="blue-vue-tmpl" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="blue-vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="blue-vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="blue-vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="bv-home-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="blue-vue-tmpl" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="bv-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="vue-config" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/apps/blue-vue-tmpl/node_modules/@vue" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blue-validate" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.CoffeeScript" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -822,11 +535,14 @@
       <workItem from="1561686472288" duration="10553000" />
       <workItem from="1561887849261" duration="16632000" />
       <workItem from="1561957531199" duration="18650000" />
+      <workItem from="1561994714095" duration="1677000" />
+      <workItem from="1562032410948" duration="6311000" />
+      <workItem from="1562071987446" duration="2509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1028865000" />
+    <option name="totallyTimeSpent" value="1039362000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,24 +559,24 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273743" sideWeight="0.41151386" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38547486" sideWeight="0.58848614" order="5" side_tool="false" content_ui="tabs" x="884" y="453" width="152" height="133" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19829424" sideWeight="0.555" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17877094" sideWeight="0.58848614" order="5" side_tool="false" content_ui="tabs" x="884" y="453" width="152" height="133" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16311301" sideWeight="0.57414967" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5231823" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19829424" sideWeight="0.54189944" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29637527" sideWeight="0.445" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32142857" sideWeight="0.42585033" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33072627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33072627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -872,124 +588,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="98" />
+      <option name="time" value="99" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/public/bv-home-view/bv-home-view.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/router/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/router/grow/college/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/detail/zixun-detail.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/zixun/zixun.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="45" lean-forward="false" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-nav/w-home-nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/use-in-vue-program/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-header/w-home-header.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="24" column="7" lean-forward="false" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="22" column="70" lean-forward="true" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
-          <folding>
-            <element signature="e#1092#1251#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="73" lean-forward="false" selection-start-line="3" selection-start-column="61" selection-end-line="3" selection-end-column="73" />
-          <folding>
-            <element signature="n#style#0;n#bv-home-view#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#2464#2538#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#bv-home-view#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/router/life-nav/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/use-in-vue-program/index.js" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/grow/w-grow-tab.vue" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/components/wap/w-home-header/w-home-header.vue" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/grow.vue" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/grow/college/college.vue" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/views/life-nav/life-nav.vue" />
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/router/life-nav/index.js" />
     <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/js/share.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
@@ -1019,21 +629,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bv-layer/bv-layer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/use-in-vue-router/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1363">
           <caret line="95" column="4" lean-forward="true" selection-start-line="95" selection-start-column="4" selection-end-line="95" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1041,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
           <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,9 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#22#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1059,9 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
           <caret line="7" column="3" lean-forward="false" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,9 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#60#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,9 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="187" column="1" lean-forward="false" selection-start-line="187" selection-start-column="1" selection-end-line="187" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#27#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1089,25 +675,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="105" column="0" lean-forward="true" selection-start-line="104" selection-start-column="2" selection-end-line="105" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/config/env.js" />
     <entry file="file://$PROJECT_DIR$/components/bv-view/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="50" column="18" lean-forward="true" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="1" column="26" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1123,7 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,9 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1997">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1141,9 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-83">
           <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1906">
           <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1163,30 +729,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#resolve#0" expanded="false" />
-            <element signature="e#379#1928#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="8" lean-forward="false" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/.env" />
     <entry file="file://$PROJECT_DIR$/postcss.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,9 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="6" column="55" lean-forward="false" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-          <folding>
-            <element signature="e#390#425#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,7 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1220,32 +762,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1008">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/main.js" />
     <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1258,26 +782,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/life_driving_school/src/App.vue" />
     <entry file="file://$PROJECT_DIR$/components/bv-view/bv-view.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
+        <state relative-caret-position="957">
           <caret line="33" column="11" lean-forward="false" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/public/bv-home-view/bv-home-view.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bv-bind-phone/bv-bind-phone.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1450">
+          <caret line="52" column="8" lean-forward="true" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
+          <folding>
+            <element signature="e#873#900#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2436">
+          <caret line="114" column="38" lean-forward="false" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
           <folding />
         </state>
       </provider>
@@ -1285,23 +835,80 @@
     <entry file="file://$PROJECT_DIR$/components/bv-transition/bv-transition.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="203">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/validate/validate.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="114" column="41" lean-forward="false" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="464">
+          <caret line="91" column="60" lean-forward="false" selection-start-line="91" selection-start-column="60" selection-end-line="91" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#bv-home-view#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#bv-home-view#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bv-suspend/bv-suspend.vue">
+    <entry file="file://$PROJECT_DIR$/components/bv-view-transition/bv-view-transition.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
-          <caret line="6" column="50" lean-forward="true" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bv-layer/bv-layer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.pages/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="53" column="4" lean-forward="true" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding>
+            <element signature="e#449#808#0" expanded="false" />
+            <element signature="e#479#798#0" expanded="false" />
+            <element signature="e#823#1634#0" expanded="false" />
+            <element signature="e#883#1624#0" expanded="false" />
+            <element signature="e#1657#1828#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
