@@ -7,6 +7,12 @@ import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 import { setFocusStatus } from '$assets/js/device';
 
+//pageOffset节流
+const pageOffsetDebounce = utils.debounce(function () {
+  window.pageXOffset = 0;
+  window.pageYOffset = 0;
+}, 10);
+
 //main
 export function routerAfterEach(opts = {}) {
   const { router, unAfterHook, afterEach } = opts;
@@ -14,7 +20,7 @@ export function routerAfterEach(opts = {}) {
     //关闭loading
     $closeLoading();
     //初始化page位置
-    resetPageOffset();
+    pageOffsetDebounce();
     //设置focus状态
     setFocusStatus(false);
     //项目内使用的after each
@@ -46,16 +52,4 @@ export function routerAfterHook(opts) {
   } else {
     utils.hook(null, unAfterHook);
   }
-}
-
-//初始化的nextTick操作
-let resetOffsetTime = 0;
-
-//重置定位，针对keep-alive的优化
-function resetPageOffset() {
-  clearTimeout(resetOffsetTime);
-  resetOffsetTime = setTimeout(() => {
-    window.pageXOffset = 0;
-    window.pageYOffset = 0;
-  }, 10);
 }
