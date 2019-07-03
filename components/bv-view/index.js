@@ -1,6 +1,7 @@
 import config from '@config';
 import { mockViewScroll } from '$assets/js/device';
 import router from '@router';
+import utils from 'blue-utils';
 
 const viewScrollClassName = '.bv-view-scroll';
 
@@ -31,22 +32,23 @@ export function setCurrentViewScroll(position = {
 //set view scroll event
 export function setViewEvent() {
   const scrollElm = getScrollElm.call(this);
-  let timer = 0;
+
+  //scroll 节流实现
+  const scrollDebounce = utils.debounce(function (event) {
+    const elm = event.target;
+    const scrollTop = elm.scrollTop;
+    //组件内的scroll记录
+    this.scroll.top = scrollTop;
+    //针对的keep-alive中vue针对scroll抓取pageXOffset
+    if (router.currentRoute.meta.keepAlive !== false) {
+      window.pageXOffset = scrollTop;
+    }
+  }, 150);
 
   //view scroll event
   scrollElm.addEventListener('scroll', (event) => {
-    const elm = event.target;
     //节流处理scrollTop
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      const scrollTop = elm.scrollTop;
-      //组件内的scroll记录
-      this.scroll.top = scrollTop;
-      //针对的keep-alive中vue针对scroll抓取pageXOffset
-      if (router.currentRoute.meta.keepAlive !== false) {
-        window.pageXOffset = scrollTop;
-      }
-    }, 150);
+    scrollDebounce(this, [event]);
     //滑动的时候也隐藏子菜单的状态
     this.hideTabBarSubmenu();
     //阻止scroll冒泡
