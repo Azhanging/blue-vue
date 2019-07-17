@@ -1,6 +1,10 @@
-import { useVueAwesomeSwiper } from './swiper/index';
-import { useAxiosInVue } from './axios/index';
-import { useMintUi } from './mint-ui/index';
+/*进度条*/
+import NProgress from 'nprogress';
+import "nprogress/nprogress.css";
+
+import { useVueAwesomeSwiper } from './swiper';
+import { useAxiosInVue } from './axios';
+import { useMintUi } from './mint-ui';
 import { useUpload } from '../components/vue-upload-component/upload';
 import { Base64 } from 'js-base64';   //base64
 import inBrowser from "$assets/js/in-browser";
@@ -44,6 +48,10 @@ export function useInVue(opts = {}) {
 
   if (inBrowser()) {
 
+    NProgress.configure({
+      showSpinner: false
+    });
+
     useWeChatInVue(Vue);
 
     //use fastclick
@@ -83,9 +91,6 @@ export function useInVue(opts = {}) {
 
   //公共的分享规则 app, browser, wechat
   Vue.prototype.$share = share;
-
-  //跳转登录
-  Vue.prototype.$login = login;
 
   //过滤器
   useFilter(Vue);

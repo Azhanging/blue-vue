@@ -2,7 +2,7 @@ import axios from 'axios';
 import router, { routerID } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
-import { $loading, $closeLoading } from '../mint-ui/indicator/index';
+import { $loading, $closeLoading } from '../mint-ui/indicator';
 import { $toast } from "../mint-ui/toast"
 import inBrowser from "$assets/js/in-browser";
 import code from '$code/code';    //错误码
@@ -35,6 +35,8 @@ function requestInterceptors() {
     //把路由当前路由的id设置给axios config中
     axiosConfig.routerID = routerID.getCurrentRouterID();
     const isLoading = axiosConfig.isLoading;
+    //mode为token，设置header头
+    (config.login.mode === 'token') && (setHeaderToken(axiosConfig));
     //ssr server set base path
     setInServer(axiosConfig);
     //set form data type
@@ -63,10 +65,9 @@ function responseInterceptors() {
     if (isLoading === undefined || isLoading === true) {
       $closeLoading(axiosConfig.loadingID);
     }
-
     //success httprequest state
     if (status === 200) {
-      const { code:requestCode, message } = res.data;
+      const { code: requestCode, message } = res.data;
       //success code
       if (requestCode === code.SUCCESS) {
         return res.data;
@@ -111,7 +112,7 @@ function responseInterceptors() {
     }
 
     //跳转指定的错误状态页
-    if (status >= 400 && status < 600) {
+    if (status >= 400 && status < 600 && !config.debug) {
       const errorPath = errorConfig[status] ? errorConfig[status].path : errorConfig[404].path;
       router.push(errorPath);
     }
@@ -137,6 +138,17 @@ function setProxy(axiosConfig) {
   if (process.client) {
     axiosConfig.url = `/api${axiosConfig.url}`;
   }
+}
+
+//设置header中的token
+function setHeaderToken(axiosConfig) {
+  const { headers } = axiosConfig;
+  utils.each(config.login.storage, (key) => {
+    const getItem = localStorage.getItem(key);
+    if(getItem){
+      headers[key] = getItem;
+    }
+  });
 }
 
 export default $Axios;

@@ -6,14 +6,14 @@ import { useInVue } from '../../../use-in-vue';
 import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
 import user from '$assets/js/user';
-
 //公共css，项目配置项assets/scss/config
 import '@/assets/css/blue-component.scss';
-
 //预设mint-ui中的css
 import '@/assets/css/mint-ui.scss';
-
-import './registerServiceWorker'
+//nprogress覆盖scss
+import '@/assets/css/nprogress.scss';
+//server work PWA
+import './registerServiceWorker';
 
 //设备相关
 device({

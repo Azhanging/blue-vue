@@ -18,6 +18,9 @@ const config = utils.extend(publicConfig, {
     title: "blue-vue-tmpl",
     deps: "blue-vue-tmpl is vue public template",
     imgUrl: ""
+  },
+  login: {
+    mode: `token`
   }
 });
 

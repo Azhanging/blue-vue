@@ -6,6 +6,7 @@ import { $closeToast } from "$use-in-vue/mint-ui/toast";
 import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 import { setFocusStatus } from '$assets/js/device';
+import NProgress from 'nprogress';
 
 //pageOffset节流
 const pageOffsetDebounce = utils.debounce(function () {
@@ -40,12 +41,12 @@ export function routerAfterEach(opts = {}) {
 export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
   const { title, afterHook, tabBar: tabBarName } = to.meta;
-
+  //进度条
+  NProgress.done();
   //文档标题
   docTitle(title);
   //导航状态
   tabBar(tabBarName);
-
   //目标路由的hook处理
   if (afterHook) {
     utils.hook(null, afterHook);

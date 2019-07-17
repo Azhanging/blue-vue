@@ -5,6 +5,7 @@ import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
 import { bind } from '$assets/js/bind';
 import { routerID } from '@router';
 import { serverRedirect } from '$assets/js/redirect';
+import NProgress from 'nprogress';
 
 //main
 export function routerBeforeEach(opts = {}) {
@@ -57,6 +58,7 @@ export function routerBeforeEach(opts = {}) {
 //router after hook
 export function routerBeforeHook(opts) {
   const routerNext = new RouterNext(opts);
+  NProgress.start();
   routerNext.add([
     //绑定相关（暂时不适用这套业务）
     bind(opts)

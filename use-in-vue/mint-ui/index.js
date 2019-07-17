@@ -1,8 +1,8 @@
 import 'mint-ui/lib/style.css';
 import MintUI from 'mint-ui';
 import BvScroll from '../../components/bv-scroll/bv-scroll';
-import { setToast } from './toast/index';
-import { setIndicator } from './indicator/index';
+import { setToast } from './toast';
+import { setIndicator } from './indicator';
 import { MessageBox, Lazyload } from 'mint-ui';
 
 export function useMintUi(Vue) {

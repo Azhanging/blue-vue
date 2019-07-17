@@ -41,7 +41,7 @@ export function useWeChatInVue(Vue) {
   try {
     if (config.device.isWeChat && wx) {
       window.alert = (e) => {
-        console.log(`blue-vue-tmpl wechat error:${e}`)
+        console.log(`blue-vue-tmpl wechat error:`, e);
       };
     }
   } catch (e) {

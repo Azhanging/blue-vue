@@ -2,8 +2,7 @@ import { getCurrentDevice } from '$assets/js/device';
 
 const config = {
 
-  //是否为混合开发
-  //（使用区分绑定手机和跳转登录的是跳到base还是indexPath）
+  //是否为混合开发（使用区分绑定手机和跳转登录的是跳到base还是indexPath）
   mixedDevelopment: false,
 
   //获取用户用户信息
@@ -38,9 +37,21 @@ const config = {
     bindPhone: ``                               //绑定手机地址
   },
 
-  //登录状态 （方案暂不采用http header处理）
-  session: {
-    storage: {}
+  //登录状态
+  login: {
+    //cookie通过登录后设cookie来识别登录态，token通过localStorage中对应的token key来识别登录态
+    mode: `cookie`,
+    in: {
+      url: ``,          //token的login api请求
+    },
+    //登录退出相关
+    out: {
+      url: ``,    //请求url
+      redirectUrl: ``   //退出后到的路由地址，不存在跳回到首页
+    },
+    storage: {
+      ['token']: `token`
+    }
   },
 
   //微信相关
@@ -89,8 +100,14 @@ const config = {
 
   //request相关
   axios: {
-    timeout: 100000000
-  }
+    timeout: 3000
+  },
+
+  /*
+  * debug模式
+  * 1.关闭axios跳转到错误页面
+  * */
+  debug: false
 
 };
 

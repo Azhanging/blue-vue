@@ -1,10 +1,20 @@
 import Vue from 'vue';
 import utils from 'blue-utils';
 import config from '@config';
+import { routerToLogin } from '$assets/js/login';
 import { setCurrentViewScroll } from '$components/bv-view';
 
+const routerConfig = {
+  params: {
+    backUrl: `back_url`
+  }
+};
+
 //扩展vue-router
-export function useInVueRouter(Router) {
+export function useInVueRouter(Router, opts = {}) {
+
+  //设置router中的配置信息
+  Router.config = utils.extend(routerConfig, opts);
 
   //针对keepAlive，处理掉组件实例化缓存问题
   Vue.mixin({
@@ -68,19 +78,22 @@ export function useInVueRouter(Router) {
   //混合开发设置地址跳转
   Router.prototype.mixedDevelopmentPath = function (name) {
     const path = config.path[name];
-    //不存在默认返回到首页
     if (!path) return '/';
+    //不存在默认返回到首页
+    const Router = this.constructor;
     const mode = this.mode;
+    const backUrlParam = Router.config.params.backUrl;
     const currentRoute = this.currentRoute;
-    //回跳的参数
-    const URL_PARAM = `url`;
     //混合模式下，使用的是indexPath的路径
     if (config.mixedDevelopment) {
-      return `${path}?${URL_PARAM}=${encodeURIComponent(`${config.path.indexPath}/${mode === 'hash' ? '#' : ''}${currentRoute.fullPath}`)}`;
+      return `${path}?${backUrlParam}=${encodeURIComponent(`${config.path.indexPath}/${mode === 'hash' ? '#' : ''}${currentRoute.fullPath}`)}`;
     } else {
-      return `${path}?${URL_PARAM}=${encodeURIComponent(this.getHref())}`
+      return `${path}?${backUrlParam}=${encodeURIComponent(this.getHref())}`
     }
   };
+
+  //跳转到登录
+  Router.prototype.routerToLogin = routerToLogin;
 
 }
 
