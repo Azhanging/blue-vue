@@ -113,7 +113,14 @@
             validate: [{ type: '*' }]
           },
           text: {
-            validate: [{ type: () => textValidate(input) }, { type: 'm' }, {
+            validate: [{
+              type: (value) => {
+                return {
+                  info: '输入有误有问题',
+                  status: value.length === 11
+                };
+              }
+            }, { type: 'm' }, {
               type: /.+/,
               info: '不能为空不能为空不能为空不能为空不能为空不能为空'
             }],
@@ -140,12 +147,6 @@
         this.$nextTick(() => {
           this.$validate(form);
         });
-      },
-      textValidate(data) {
-        return {
-          info: '输入有误有问题',
-          status: data.length === 11
-        };
       },
       submit(event) {
         const parent = this.$el;

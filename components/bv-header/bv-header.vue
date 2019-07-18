@@ -3,16 +3,16 @@
   <div class="bv-header">
     <!--广告位-->
     <slot name='advertisement'></slot>
-    <div class="bv-header-container" :style="`background-color:white;border-bottom:1px solid #e5e5e5;${header.style}`">
+    <div class="bv-header-container" :style="`${header.style}`">
       <!-- 左边控制 -->
       <div class="bv-header-control">
         <slot name="left-control">
           <div class="bc-flex bc-flex-ai-c">
             <a class="bv-header-btn bv-header-btn-icon" @click="leftControlHandler">
-              <i class="bv-icon bv-icon-left bc-f-18"></i>
+              <i class="bv-icon bv-icon-left bc-f-16"></i>
             </a>
             <a class="bv-header-btn bv-header-btn-icon" @click="routerToHome">
-              <i class="bv-icon bv-icon-home bc-f-18"></i>
+              <i class="bv-icon bv-icon-home bc-f-16"></i>
             </a>
           </div>
         </slot>
@@ -57,7 +57,12 @@
     methods: {
       //左边控制的方法
       leftControlHandler() {
-        this.$router.routerBack(this.leftControl);
+        const router = this.$router;
+        if(this.leftControl){
+          router.routerTo(this.leftControl);
+        } else {
+          router.routerBack();
+        }
       },
       routerToHome() {
         this.$router.push(this.config.path.home);
@@ -76,6 +81,8 @@
     .bv-header-container {
       display: flex;
       align-items: center;
+      background-color: white;
+      border-bottom: 1px solid #e5e5e5;
       .bv-header-control {
         flex: 1;
         .bv-header-btn {
@@ -89,7 +96,7 @@
       .bv-header-title {
         max-width: 190px;
         padding: 10px;
-        font-size: rem(18);
+        font-size: rem(16);
         font-weight: bold;
         text-overflow: ellipsis;
         overflow: hidden;

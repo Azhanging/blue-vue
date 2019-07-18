@@ -89,17 +89,22 @@ const components = {
       component: SwiperScroll
     }]
   }, {
-    path: 'scroll',
+    path: 'scroll/:id',
     component: Scroll,
     meta: {
       title: 'scroll',
       tabBar: 'components',
-      keepAlive: false,
       afterHook() {
         weChatShare({
           title: 'scroll'
         });
       }
+    }
+  }, {
+    path: `load-more/:id`,
+    component: () => import(`../../views/components/load-more/load-more.vue`),
+    meta: {
+      title: '上拉刷新，下拉加载'
     }
   }]
 };

@@ -1,9 +1,12 @@
 <template>
   <bv-home-view :router-level="2">
     <bv-header :header="{title:{value:'下拉加载'}}"/>
-    <bv-scroll :api="api" :disabled="load.state.disabled">
+    <div slot="top" class="mint-loadmore-top">
+      下拉刷新
+    </div>
+    <bv-scroll :api="api" :disabled="loadMore.state.disabled">
       <ul class="bc-reset-ul">
-        <li v-for="item in load.data.list" class="bc-pd-10">
+        <li v-for="item in loadMore.data.list" class="bc-pd-10">
           <a href="" class="bc-t-666">
             <div class="bc-media">
               <div class="bc-media-left" v-blue-photoswipe="{itemTagName:'DIV'}">
@@ -28,7 +31,7 @@
         </li>
       </ul>
       <template slot="load-down">
-        <div class="bc-t-c bc-pd-10" v-if="load.state.hasMore">
+        <div class="bc-t-c bc-pd-10" v-if="!(loadMore.state.disabled)">
           数据加载中...
         </div>
         <div class="bc-t-c bc-pd-10" v-else>
@@ -41,35 +44,36 @@
 
 <script>
 
-  import { scrollMixin, scrollEndHook, scrollNoHasListData } from '$scroll';
+  import * as loadMore from '$load-more';
 
   export default {
     name: "scroll",
-    mixins: [scrollMixin()],
+    mixins: [loadMore.mixin()],
     data() {
       return {}
     },
     methods: {
       api() {
-        const page = this.load.params.page++;
+        const page = this.loadMore.params.page++;
         return this.$axios.get('/api/index/index', {
           params: {
-            page: page
+            page: page,
+            id: this.$router.getParam(`id`)
           }
         }).then((res) => {
           const { data: resultData } = res;
-          if (scrollNoHasListData.call(this, {
+          if (loadMore.noHasListData.call(this, {
               resultData,
               listLen: 10
             })) {
-            return scrollEndHook.call(this, {
+            return loadMore.endHook.call(this, {
               resultData
             });
           } else {
-            this.load.data.list = this.load.data.list.concat(resultData.list);
+            this.loadMore.data.list = this.loadMore.data.list.concat(resultData.list);
           }
         }).catch(() => {
-          return scrollEndHook.call(this);
+          return loadMore.endHook.call(this);
         });
       }
     },
@@ -77,6 +81,16 @@
       this.$nextTick(() => {
         document.title = '123';
       });
+    },
+    activated() {
+      const meta = this.$router.getMeta();
+      // 这里是为了比对两个页面的标识问题
+      // 从而更新数据，不然就会走上keep-alive的问题
+      if (meta.refresh) {
+        loadMore.reset().then(()=>{
+          this.topMethod();
+        });
+      }
     }
   }
 </script>

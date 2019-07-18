@@ -27,6 +27,7 @@ module.exports = {
         '$config': resolve(`./config`),
         '$components': resolve(`./components`),
         '$scroll': resolve(`./components/bv-scroll/index`),
+        '$load-more': resolve(`./assets/js/load-more`),
         '$page-list': resolve(`./components/m-page-list/index`),
         '$assets': resolve(`./assets`),
         '$upload': resolve(`./components/vue-upload-component/upload`),

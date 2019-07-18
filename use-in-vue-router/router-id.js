@@ -28,6 +28,7 @@ function pathID(router) {
 function addID(routes) {
   utils.each(routes, (router) => {
     if (!router.meta) router.meta = {};
+
     //避免Router.prototype.addRoutes动态路由后id混乱
     if (!router.meta.routerID) {
       router.meta.routerID = ++this.routerID;
@@ -36,6 +37,9 @@ function addID(routes) {
     if (/^\//g.test(router.path)) {
       this._routerPath = router.path;
     }
+
+    //刷新页面状态
+    router.meta.refresh = false;
 
     //存在链路的id
     if (router.meta.pathID) {

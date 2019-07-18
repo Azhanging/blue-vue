@@ -20,12 +20,13 @@
         </router-link>
       </div>
 
-      <div v-for="i in 30" class="bc-t-c">
+      <div v-for="i in 10" class="bc-t-c">
         <div class="bc-pd-10rp">
-          <router-link to="/components/scroll" class="bc-t-base">
+          <router-link to="/components/scroll/1" class="bc-t-base">
             测试keep-alive scroll
           </router-link>
         </div>
+
         <div class="bc-pd-10rp">
           <router-link to="/components" class="bc-t-base">
             测试keep-alive components
@@ -44,7 +45,7 @@
         showStatus: false
       }
     },
-    created() {
+    activated() {
       this.$axios.post(`/mock/data1`, {
         data: 1
       });
