@@ -1,5 +1,4 @@
 import upload from 'vue-upload-component';
-import utils from 'blue-utils';
 import { $closeLoading } from "../../use-in-vue/mint-ui/indicator";
 
 export function useUpload(Vue) {

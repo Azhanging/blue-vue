@@ -27,8 +27,7 @@ const router = new Router({
 
 //项目扩展router
 useInVueRouterProgram({
-  Router,
-  routerID
+  Router
 });
 
 //router before each

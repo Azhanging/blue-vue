@@ -5,7 +5,7 @@ import "nprogress/nprogress.css";
 import { useVueAwesomeSwiper } from './swiper';
 import { useAxiosInVue } from './axios';
 import { useMintUi } from './mint-ui';
-import { useUpload } from '../components/vue-upload-component/upload';
+import { useUpload } from '$components/vue-upload-component/upload';
 import { Base64 } from 'js-base64';   //base64
 import inBrowser from "$assets/js/in-browser";
 import { useWeChatInVue } from '$wechat';

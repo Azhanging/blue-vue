@@ -1,14 +1,9 @@
 const list = [{
-  path: 'scroll/:id',
-  component: import(`../../views/components/scroll/scroll`),
+  path: '/scroll/:id',
+  component: () => import(`../../views/components/scroll/scroll.vue`),
   meta: {
     title: '/scroll',
-    tabBar: 'components',
-    afterHook() {
-      weChatShare({
-        title: 'scroll'
-      });
-    }
+    tabBar: 'components'
   }
 }, {
   path: `/load-more/:id`,
