@@ -1,4 +1,4 @@
-import $Axios from '$axios';
+import $axios from '$axios';
 import config from '@config';
 import utils from 'blue-utils';
 import router from '@router';
@@ -8,7 +8,7 @@ const login = config.login;
 
 //登录的api
 export function apiLoginIn(opts = {}) {
-  return $Axios(utils.extned({
+  return $axios(utils.extned({
     url: login.in.url
   }, opts)).then((res) => {
     const { data } = res;
@@ -20,7 +20,7 @@ export function apiLoginIn(opts = {}) {
 
 //退出APi
 export function apiLoginOut(opts = {}) {
-  return $Axios(utils.extned({
+  return $axios(utils.extned({
     url: login.out.url
   }, opts)).then((data) => {
     const redirectUrl = login.out.redirectUrl || '/';

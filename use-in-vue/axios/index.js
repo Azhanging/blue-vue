@@ -10,7 +10,7 @@ import { codeHandler } from '$code';   //错误码处理
 import { redirect } from '$assets/js/redirect';
 
 //柯里化 axios
-const $Axios = axios.create({
+const $axios = axios.create({
   timeout: config.axios.timeout,
   headers: {
     'X-Requested-With': 'XMLHttpRequest'
@@ -26,12 +26,12 @@ responseInterceptors();
 //扩展到Vue中
 export function useAxiosInVue(Vue, opts = {}) {
   //axios in vue prototype
-  Vue.prototype.$axios = $Axios;
+  Vue.prototype.$axios = $axios;
 }
 
 //request interceptors
 function requestInterceptors() {
-  $Axios.interceptors.request.use((axiosConfig) => {
+  $axios.interceptors.request.use((axiosConfig) => {
     //把路由当前路由的id设置给axios config中
     axiosConfig.routerID = routerID.getCurrentRouterID();
     const isLoading = axiosConfig.isLoading;
@@ -58,7 +58,7 @@ function requestInterceptors() {
 
 //response interceptors
 function responseInterceptors() {
-  $Axios.interceptors.response.use((res) => {
+  $axios.interceptors.response.use((res) => {
     const status = res.status;
     const axiosConfig = res.config;
     const isLoading = axiosConfig.isLoading;
@@ -151,4 +151,4 @@ function setHeaderToken(axiosConfig) {
   });
 }
 
-export default $Axios;
+export default $axios;

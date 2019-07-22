@@ -1,5 +1,5 @@
 import store from '@store';
-import $Axios from '$axios';
+import $axios from '$axios';
 import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
@@ -56,7 +56,7 @@ export function getWeChatConfig() {
   weChatQueue.data.status = false;
   const weChat = config.weChat;
   const getConfig = weChat.getConfig;
-  $Axios({
+  $axios({
     method: getConfig.type || 'get',
     url: getConfig.url || '',
     data: getConfig.data || '',

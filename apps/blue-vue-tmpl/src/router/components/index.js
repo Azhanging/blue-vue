@@ -32,7 +32,8 @@ const components = {
         });
       },
       title: '验证标题',
-      tabBar: false
+      tabBar: false,
+      keepAlive: false
     }
   }, {
     path: 'page-list',
