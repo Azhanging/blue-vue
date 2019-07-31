@@ -1,4 +1,4 @@
-const mockServer = require('../../mock/server');
+const mockServer = require('blue-mock-server');
 const path = require('path');
 const port = process.env.port || process.env.npm_config_port || 996;
 
@@ -14,8 +14,8 @@ const devServer = {
     //mock-server
     mockServer({
       app,
-      apiPath: resolve('./mock/api'),     //api路径，用于更新path使用
-      mockDir: resolve('./mock')          //mock路径，用于更新path使用
+      mockDir: resolve('./mock'),          //mock路径，用于更新path使用,
+      apiFilePath: resolve('./mock/api')     //api路径，用于更新path使用
     });
   },
   proxy: {
