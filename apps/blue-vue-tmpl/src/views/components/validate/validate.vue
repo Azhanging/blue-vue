@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view :router-level="2">
+  <bv-home-view :router-level="2" :keep-alive="false">
     <bv-header :header="{title:{value:'验证相关'}}"/>
 
     <form action="" class="bc-v-m">

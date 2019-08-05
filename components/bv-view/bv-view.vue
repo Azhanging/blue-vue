@@ -14,9 +14,7 @@
 
     <!-- 公共的view层子路由 -->
     <bv-view-transition>
-      <keep-alive>
-        <router-view/>
-      </keep-alive>
+      <router-view/>
     </bv-view-transition>
 
     <!-- 浮层 -->

@@ -34,6 +34,7 @@ export function reset(opts = {
       const { loadKey } = opts;
       const loadMore = this[loadKey];
       const loadMoreData = loadMore.data;
+      loadMore.params.page = 1;
       loadMoreData.list = [];
       loadMore.state = {
         allLoaded: false,

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import router, { routerID } from '@router';
+import router, { routerMeta } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
 import { $loading, $closeLoading } from '../mint-ui/indicator';
@@ -33,7 +33,7 @@ export function useAxiosInVue(Vue, opts = {}) {
 function requestInterceptors() {
   $axios.interceptors.request.use((axiosConfig) => {
     //把路由当前路由的id设置给axios config中
-    axiosConfig.routerID = routerID.getCurrentRouterID();
+    axiosConfig.routeID = routerMeta.getCurrentRouterID();
     const isLoading = axiosConfig.isLoading;
     //mode为token，设置header头
     (config.login.mode === 'token') && (setHeaderToken(axiosConfig));
@@ -99,7 +99,7 @@ function responseInterceptors() {
 
     //检查当前的路由标识和当前路由中的id标识是否一样
     //不一样不去执行后面异步的操作
-    if (!routerID.isCurrentRouteID(axiosConfig.routerID)) {
+    if (!routerMeta.isCurrentRouteID(axiosConfig.routeID)) {
       return Promise.reject(error);
     }
 

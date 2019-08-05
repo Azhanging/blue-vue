@@ -3,7 +3,7 @@ import utils from 'blue-utils';
 import RouterNext from './router-next';
 import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
 import { bind } from '$assets/js/bind';
-import { routerID } from '@router';
+import { routerMeta } from '@router';
 import { serverRedirect } from '$assets/js/redirect';
 import NProgress from 'nprogress';
 
@@ -19,7 +19,7 @@ export function routerBeforeEach(opts = {}) {
       tabBarSubMenuStatus: -1
     });
     //设置路由标识
-    routerID.setCurrentRouterID(to.meta.id);
+    routerMeta.setCurrentRouterID(to.meta.id);
 
     //实例化router next
     const routerNext = new RouterNext({

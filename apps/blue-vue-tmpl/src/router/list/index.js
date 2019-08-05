@@ -9,7 +9,12 @@ const list = [{
   path: `/load-more/:id`,
   component: () => import(`../../views/components/load-more/load-more.vue`),
   meta: {
-    title: '上拉刷新，下拉加载'
+    title: '上拉刷新，下拉加载',
+    refresh: {
+      unforcedList: [
+        '/'
+      ]
+    }
   }
 }];
 

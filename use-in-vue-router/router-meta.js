@@ -24,40 +24,49 @@ function pathID(router) {
   });
 }
 
-//添加id（router id 以及 path id）
-function addID(routes) {
+//添加meta信息（router id 以及 path id）
+function setMeta(routes) {
   utils.each(routes, (router) => {
     if (!router.meta) router.meta = {};
-
+    const meta = router.meta;
     //避免Router.prototype.addRoutes动态路由后id混乱
-    if (!router.meta.routerID) {
-      router.meta.routerID = ++this.routerID;
+    if (!meta.routeID) {
+      meta.routeID = ++this.routeID;
     }
 
     if (/^\//g.test(router.path)) {
       this._routerPath = router.path;
     }
 
-    //刷新页面状态
-    router.meta.refresh = false;
+    //刷新页面相关
+    meta.refresh = utils.extend({
+      //刷新状态
+      status: false,
+      //强制刷新的列表
+      unforcedList: []
+    }, meta.refresh || {});
+
+    //添加参数
+    meta.query = null;
+    meta.params = null;
 
     //存在链路的id
-    if (router.meta.pathID) {
+    if (meta.pathID) {
       pathID.call(this, router);
     }
 
     const routerChildren = router.children;
     if (utils.isArray(routerChildren)) {
-      this.addID(routerChildren);
+      setMeta.call(this, routerChildren);
     }
   });
 }
 
-class RouterID {
+class RouterMeta {
   constructor(opts) {
     this.options = opts;
     //计算路由id累计
-    this.routerID = 0;
+    this.routeID = 0;
     //当前的路由id
     this.currentRouterID = 0;
     //链路id
@@ -66,8 +75,9 @@ class RouterID {
     this._routerPath = '';
   }
 
-  addID(routes = []) {
-    addID.call(this, routes);
+  //初始化router meta
+  setMeta(routes = []) {
+    setMeta.call(this, routes);
     //初始化临时累计地址
     setTimeout(() => {
       this._routerPath = '';
@@ -116,4 +126,4 @@ class RouterID {
   }
 }
 
-export default RouterID;
+export default RouterMeta;
