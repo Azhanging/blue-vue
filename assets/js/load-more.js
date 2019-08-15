@@ -12,7 +12,7 @@ export function mixin(opts = {
             list: []
           },
           state: {
-            allLoaded: false,
+            /*allLoaded: false,*/
             disabled: false
           },
           params: {
@@ -37,7 +37,6 @@ export function reset(opts = {
       loadMore.params.page = 1;
       loadMoreData.list = [];
       loadMore.state = {
-        allLoaded: false,
         disabled: false
       };
       resolve();
@@ -59,7 +58,6 @@ export function endHook(opts = {}) {
 
   //load more 处理
   loadMore.state = {
-    allLoaded: true,
     disabled: true
   };
 

@@ -5,7 +5,7 @@
     <mt-loadmore
             :topMethod="topMethod"
             :bottomMethod="bottomMethod"
-            :bottom-all-loaded="loadMore.state.allLoaded"
+            :bottom-all-loaded="loadMore.state.disabled"
             ref="loadmore"
     >
       <ul class="bc-reset-ul">
