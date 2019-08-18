@@ -1,7 +1,7 @@
 //router before each 相关的业务
 import utils from 'blue-utils';
 import RouterNext from './router-next';
-import { setTabBarSubmenuIndex } from '$components/bv-tab-bar';
+import { setTabBarSubmenuIndex } from '$components/BvTabBar';
 import { bind } from '$assets/js/bind';
 import { routerMeta } from '@router';
 import { serverRedirect } from '$assets/js/redirect';

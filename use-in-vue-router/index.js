@@ -2,7 +2,7 @@ import Vue from 'vue';
 import utils from 'blue-utils';
 import config from '@config';
 import { routerToLogin } from '$assets/js/login';
-import { setCurrentViewScroll } from '$components/bv-view';
+import { setCurrentViewScroll } from '$components/BvView';
 import router from '@router';
 
 //vue-router的config

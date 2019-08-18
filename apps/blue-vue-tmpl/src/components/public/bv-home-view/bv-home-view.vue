@@ -1,20 +1,20 @@
 <template>
-  <bv-view :has-nav="view.tabBar" :router-level="routerLevel">
+  <BvView :has-nav="view.tabBar" :router-level="routerLevel">
 
     <slot/>
     <template slot="suspend" slot-scope="scope">
-      <bv-suspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]">
+      <BvSuspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]">
         <template slot="back-to-top">
           <i class="bv-icon bv-icon-go-top bc-f-30 bc-t-666"></i>
         </template>
-      </bv-suspend>
+      </BvSuspend>
     </template>
 
     <template slot="other">
       <slot name="other"></slot>
     </template>
 
-  </bv-view>
+  </BvView>
 </template>
 
 <script>

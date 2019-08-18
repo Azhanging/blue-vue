@@ -24,7 +24,7 @@ mockServer({
 公共的组件
 
 注：cnpm i 后，因为npm包中存在bug
-把./components/vue-upload-component/vue-upload-component.js,
+把./npm-package/vue-upload-component/vue-upload-component.js,
 ./components/mint-ui/mint-ui.js复制到node_modules相对的npm包中
 
 ### ./config

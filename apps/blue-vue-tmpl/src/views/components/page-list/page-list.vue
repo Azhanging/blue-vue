@@ -1,8 +1,8 @@
 <template>
 	<bv-home-view>
-		<bv-header :header="{title:{value:'分页组件'}}"/>
+		<BvHeader :header="{title:{value:'分页组件'}}"/>
 		<div class="bc-pd-15">
-			<bv-page-list
+			<BvPageList
 				:all-page="pageList.state.allPage"
 				:current="pageList.state.current"
 				:page-list-data="pageList"
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 
-			</bv-page-list>
+			</BvPageList>
 		</div>
 	</bv-home-view>
 </template>

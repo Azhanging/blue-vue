@@ -5,25 +5,25 @@ import "nprogress/nprogress.css";
 import { useVueAwesomeSwiper } from './swiper';
 import { useAxiosInVue } from './axios';
 import { useMintUi } from './mint-ui';
-import { useUpload } from '$components/vue-upload-component/upload';
+import { useUpload } from '$components/VueUploadComponent/upload';
 import { Base64 } from 'js-base64';   //base64
 import inBrowser from "$assets/js/in-browser";
 import { useWeChatInVue } from '$wechat';
 import utils from 'blue-utils';
 
-import BvSwiperScroll from '../components/bv-swiper-scroll/bv-swiper-scroll';
-import BvPicker from '../components/bv-picker/bv-picker';
-import BvPickerWindows from '../components/bv-picker-windows/bv-picker-windows';
+import BvSwiperScroll from '../components/BvSwiperScroll/BvSwiperScroll';
+import BvPicker from '../components/BvPicker/BvPicker';
+import BvPickerWindows from '../components/BvPickerWindows/BvPickerWindows';
 
-import BvHeader from '../components/bv-header/bv-header';
-import BvView from '../components/bv-view/bv-view';
-import BvTabBar from '../components/bv-tab-bar/bv-tab-bar';
-import BvSuspend from '../components/bv-suspend/bv-suspend';
-import BvViewTransition from '../components/bv-view-transition/bv-view-transition';
-import BvTransition from '../components/bv-transition/bv-transition';
-import BvPageList from '../components/bv-page-list/bv-page-list';
-import BvBindPhone from '../components/bv-bind-phone/bv-bind-phone';
-import BvLayer from '../components/bv-layer/bv-layer';
+import BvHeader from '../components/BvHeader/BvHeader';
+import BvView from '../components/BvView/BvView';
+import BvTabBar from '../components/BvTabBar/BvTabBar';
+import BvSuspend from '../components/BvSuspend/BvSuspend';
+import BvViewTransition from '../components/BvViewTransition/BvViewTransition';
+import BvTransition from '../components/BvTransition/BvTransition';
+import BvPageList from '../components/BvPageList/BvPageList';
+import BvBindPhone from '../components/BvBindPhone/BvBindPhone';
+import BvLayer from '../components/BvLayer/BvLayer';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
 
@@ -37,7 +37,7 @@ import { photoSwipe, photoSwipeComponent } from 'blue-photoswipe-component';
 
 // 注：
 // 修改过两个对应的插件
-// npm install 后，使用前从components/vue-upload-component/vue-upload-component.js复制到node_modules指定的包中
+// npm install 后，使用前从npm-package/vue-upload-component/vue-upload-component.js复制到node_modules指定的包中
 // 具体查看包的package主入口使用
 
 
@@ -60,7 +60,7 @@ export function useInVue(opts = {}) {
     //图片预览组件PhotoSwipe
     Vue.use(photoSwipe);
 
-    Vue.component('blue-photo-swipe', photoSwipeComponent);
+    Vue.component('BluePhotoSwipe', photoSwipeComponent);
 
     //验证规则
     Vue.use(BlueValidate);
@@ -102,36 +102,36 @@ export function useInVue(opts = {}) {
   useAxiosInVue(Vue);
 
   //公共头部
-  Vue.component('bv-header', BvHeader);
+  Vue.component('BvHeader', BvHeader);
 
   //主视图
-  Vue.component('bv-view', BvView);
+  Vue.component('BvView', BvView);
 
   //底部导航
-  Vue.component('bv-tab-bar', BvTabBar);
+  Vue.component('BvTabBar', BvTabBar);
 
   //浮层
-  Vue.component('bv-suspend', BvSuspend);
+  Vue.component('BvSuspend', BvSuspend);
 
   //路由视图过渡动画组件
-  Vue.component('bv-view-transition', BvViewTransition);
+  Vue.component('BvViewTransition', BvViewTransition);
 
   //过渡动画组件
-  Vue.component('bv-transition', BvTransition);
+  Vue.component('BvTransition', BvTransition);
 
   //多view-级联动
-  Vue.component('bv-picker', BvPicker);
-  Vue.component('bv-picker-windows', BvPickerWindows);
+  Vue.component('BvPicker', BvPicker);
+  Vue.component('BvPickerWindows', BvPickerWindows);
 
   //分页列表
-  Vue.component('bv-page-list', BvPageList);
+  Vue.component('BvPageList', BvPageList);
 
   //滑动模块
-  Vue.component('bv-swiper-scroll', BvSwiperScroll);
+  Vue.component('BvSwiperScroll', BvSwiperScroll);
 
   //弹窗
-  Vue.component('bv-layer', BvLayer);
+  Vue.component('BvLayer', BvLayer);
 
   //绑定手机
-  Vue.component('bv-bind-phone', BvBindPhone);
+  Vue.component('BvBindPhone', BvBindPhone);
 }

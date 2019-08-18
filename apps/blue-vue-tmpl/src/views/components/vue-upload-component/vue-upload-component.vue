@@ -1,6 +1,6 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :header="{title:{value:'上传图片'}}"/>
+		<BvHeader :header="{title:{value:'上传图片'}}"/>
 		<div class="bc-pd-10">
 			<div class="bc-row">
 				<div class="bc-pd-b-5">单个</div>
@@ -11,7 +11,7 @@
 					</span>
 				</div>
 				<div>
-					<upload
+					<Upload
 						accept="image/png,image/gif,image/jpeg,image/webp"
 						ref="oneUpload"
 						input-id="input"
@@ -23,7 +23,7 @@
 						<button class="bc-btn bc-btn-primary bc-bd-radius-4">
 							单张图片
 						</button>
-					</upload>
+					</Upload>
 				</div>
 			</div>
 
@@ -38,7 +38,7 @@
 					</span>
 					</div>
 
-					<upload
+					<Upload
 						:multiple="true"
 						accept="image/png,image/gif,image/jpeg,image/webp"
 						ref="upload"
@@ -50,7 +50,7 @@
 						:upload-data="uploadImgs"
 					>
 						<button class="bc-btn bc-btn-primary">上传图片</button>
-					</upload>
+					</Upload>
 				</div>
 			</div>
 		</div>

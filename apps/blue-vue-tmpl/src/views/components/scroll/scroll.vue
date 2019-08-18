@@ -1,10 +1,10 @@
 <template>
   <bv-home-view :router-level="2">
-    <bv-header :header="{title:{value:'下拉加载'}}"/>
+    <BvHeader :header="{title:{value:'下拉加载'}}"/>
     <div slot="top" class="mint-loadmore-top">
       下拉刷新
     </div>
-    <bv-scroll :api="api" :disabled="loadMore.state.disabled">
+    <BvScroll :api="api" :disabled="loadMore.state.disabled">
       <ul class="bc-reset-ul">
         <li v-for="item in loadMore.data.list" class="bc-pd-10">
           <a href="" class="bc-t-666">
@@ -38,7 +38,7 @@
           暂无数据...
         </div>
       </template>
-    </bv-scroll>
+    </BvScroll>
   </bv-home-view>
 </template>
 

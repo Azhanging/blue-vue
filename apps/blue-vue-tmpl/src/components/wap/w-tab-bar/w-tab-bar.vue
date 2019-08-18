@@ -1,12 +1,12 @@
 <!-- 主页的导航 -->
 <template>
-	<bv-tab-bar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"/>
+	<BvTabBar v-if="list" :list="list" :active-class-name="'bc-t-danger'" :active-index="activeIndex"/>
 </template>
 
 <script>
 
   import store from '@store';
-  import { matchRouter } from '$components/bv-tab-bar';
+  import { matchRouter } from '$components/BvTabBar';
   import homeTabBar from './home-tab-bar';
   import componentTabBar from './component-tab-bar';
 

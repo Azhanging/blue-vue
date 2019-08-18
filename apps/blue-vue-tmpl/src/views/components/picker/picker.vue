@@ -1,12 +1,12 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :header="{title:{value:'多级联动'}}"/>
+		<BvHeader :header="{title:{value:'多级联动'}}"/>
 
 		<div class="bc-pd-10rp">
 			select联动：
 		</div>
 		<div class="bc-row bc-overflow-hide">
-			<bv-picker :slots="slots" :ajax="ajax">
+			<BvPicker :slots="slots" :ajax="ajax">
 				<template slot-scope="scope">
 					<!-- 联动的数据 -->
 					<span class="bc-select-wrap bc-select-down-icon bc-mg-10" v-for="(slot,index) in slots" v-show="slot.values.length > 0">
@@ -23,7 +23,7 @@
 						</select>
 					</span>
 				</template>
-			</bv-picker>
+			</BvPicker>
 		</div>
 
 		<div class="bc-pd-10rp">
@@ -32,7 +32,7 @@
 			</a>
 		</div>
 
-		<bv-picker-windows
+		<BvPickerWindows
 			:slots="slots"
 			:ajax="ajax"
 			:select="{

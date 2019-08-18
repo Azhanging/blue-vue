@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-13"],{"54de":function(e,n,t){"use strict";t.r(n);var l=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("bv-home-view",{attrs:{"router-level":3}},e._l(1,function(n){return t("div",[e._v("\n\t\t"+e._s(n)+"\n\t")])}),0)},r=[],u={name:"text-scroll-chilren"},c=u,o=t("305e"),s=Object(o["a"])(c,l,r,!1,null,null,null);n["default"]=s.exports}}]);
-//# sourceMappingURL=chunk-13.778716a6.js.map

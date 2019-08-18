@@ -1,14 +1,14 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :header="{title:{value:'轮播组件'}}"/>
-		<bv-scroll>
+		<BvHeader :header="{title:{value:'轮播组件'}}"/>
+		<BvScroll>
 			<swiper :options="swiperOption" ref="swiper">
 				<swiper-slide v-for="(slide, index) in banners" :key="index">
 					<div style="height:100px;">{{ slide }}</div>
 				</swiper-slide>
 				<div class="swiper-pagination" id="pagination" slot="pagination"></div>
 			</swiper>
-		</bv-scroll>
+		</BvScroll>
 	</bv-home-view>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
 	<bv-home-view :router-level="2">
-		<bv-header :header="{title:{value:'滑动组件'}}"/>
+		<BvHeader :header="{title:{value:'滑动组件'}}"/>
 		<!-- x-滑动 -->
-		<bv-swiper-scroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
+		<BvSwiperScroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
 			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-inline-block bc-t-base"
@@ -11,10 +11,10 @@
 					选项{{i}}
 				</a>
 			</template>
-		</bv-swiper-scroll>
+		</BvSwiperScroll>
 
 		<!-- y-滑动 -->
-		<bv-swiper-scroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bc-t-success'" :current-index="scrollIndex" direction="y">
+		<BvSwiperScroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bc-t-success'" :current-index="scrollIndex" direction="y">
 			<template slot="scroll-items">
 				<a href="javascript:;" v-for="i in 15"
 				   class="bc-pd-10 bc-block bc-t-base"
@@ -23,7 +23,7 @@
 					选项{{i}}
 				</a>
 			</template>
-		</bv-swiper-scroll>
+		</BvSwiperScroll>
 
 	</bv-home-view>
 </template>
