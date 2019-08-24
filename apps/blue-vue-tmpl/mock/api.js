@@ -1,6 +1,6 @@
 const mockApi = [{
   url: `/mock/data`,
-  type: 'post',
+  method: 'post',
   response(req, res) {
     res.send({
       code: 200,
@@ -9,7 +9,7 @@ const mockApi = [{
   }
 }, {
   url: `/mock/data1`,
-  type: 'post',
+  method: 'post',
   response(req, res) {
     res.send({
       code: 200,

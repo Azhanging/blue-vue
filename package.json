@@ -18,7 +18,7 @@
     "vue-upload-component": "^2.8.16"
   },
   "devDependencies": {
-    "blue-mock-server": "^1.0.0",
+    "blue-mock-server": "^1.0.1",
     "body-parser": "^1.19.0",
     "chokidar": "^3.0.2",
     "hash-sum": "^1.0.2"
