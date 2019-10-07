@@ -27,17 +27,17 @@
 
               <!-- 方向为left的时候出现 -->
               <BvTabBarIcon :icon="item.icon" :active-index="activeIndex" :current-index="index"
-                               v-if="item.icon && item.icon.direction && (item.icon.direction === 'left')"/>
+                            v-if="item.icon && item.icon.direction && (item.icon.direction === 'left')"/>
 
               <span
-                :style="`padding-${item.icon && item.icon.direction &&
+                      :style="`padding-${item.icon && item.icon.direction &&
 		              (item.icon.direction === 'top' &&
 		              item.icon.direction !== 'left' &&
 		              item.icon.direction !== 'right') ? 'top' : (item.icon && item.icon.direction)}: 4px;` +
 		             `font-size:${item.content.fontSize}px;` +
 		             item.content.style"
-		                :class="[item.content.className]"
-		              >
+                      :class="[item.content.className]"
+              >
 		            {{item.content.value}}
 		          </span>
 
@@ -70,18 +70,18 @@
                          :class="submenu.className"
                          :style="submenu.style"
                     >
-                      <a href="javascript:;"
-                         :class="[
-                     item.children.unActiveClassName,
-                     submenu.link && submenu.link.className
-                   ]"
-                         :style="submenu.link && submenu.link.style"
-                         @click.stop="routerTo($event,submenu,index)"
+                      <div href="javascript:;"
+                           :class="[
+                             item.children.unActiveClassName,
+                             submenu.link && submenu.link.className
+                           ]"
+                           :style="submenu.link && submenu.link.style"
+                           @click.stop="routerTo($event,submenu,index)"
                       >
-                  <span :style="`font-size:${submenu.content.fontSize}px;` + submenu.content.style">
-                    {{submenu.content.value}}
-                  </span>
-                      </a>
+                        <span :style="`font-size:${submenu.content.fontSize}px;` + submenu.content.style">
+                          {{submenu.content.value}}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -89,7 +89,8 @@
                 <!-- 子菜单箭头容器 -->
                 <div class="tab-bar-submenu-arrow-wrap" v-if="item.children && item.children.arrow">
                   <!-- 子菜单箭头 -->
-                  <i class="tab-bar-submenu-arrow" :style="`border-top: 7px solid ${item.children.arrow.background};`"></i>
+                  <i class="tab-bar-submenu-arrow"
+                     :style="`border-top: 7px solid ${item.children.arrow.background};`"></i>
                 </div>
 
               </div>

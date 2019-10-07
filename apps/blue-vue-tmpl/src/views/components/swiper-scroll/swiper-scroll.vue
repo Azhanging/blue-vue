@@ -1,6 +1,8 @@
 <template>
 	<bv-home-view :router-level="2">
-		<BvHeader :header="{title:{value:'滑动组件'}}"/>
+		<BvHeader :center-control="{
+      title:`滑动组件`
+    }"/>
 		<!-- x-滑动 -->
 		<BvSwiperScroll :active-class-name="'bc-t-success'" :current-index="scrollIndex">
 			<template slot="scroll-items">

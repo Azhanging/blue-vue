@@ -1,6 +1,8 @@
 <template>
 	<bv-home-view>
-		<BvHeader :title="'绑定手机'"></BvHeader>
+		<BvHeader :center-control="{
+      title:`绑定手机`
+    }"></BvHeader>
 		<div class="bc-row bc-t-c">
 			<div class="bc-row bc-mg-t-10rp">
 				绑定手机：<input type="text" class="bc-input" v-model="phone">

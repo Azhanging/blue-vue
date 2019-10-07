@@ -1,6 +1,8 @@
 <template>
   <bv-home-view :router-level="2" :keep-alive="false">
-    <BvHeader :header="{title:{value:'验证相关'}}"/>
+    <BvHeader :center-control="{
+      title:`验证相关`
+    }"/>
 
     <form action="" class="bc-v-m">
 

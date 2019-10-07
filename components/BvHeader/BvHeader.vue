@@ -3,22 +3,22 @@
   <div class="bv-header">
     <!--广告位-->
     <slot name='advertisement'></slot>
-    <div class="bv-header-container" :style="`${header.style}`">
+    <div class="bv-header-container" :style="`${headerStyle}`">
       <!-- 左边控制 -->
       <div class="bv-header-control">
         <slot name="left-control">
           <div class="bc-flex bc-flex-ai-c">
-            <a class="bv-header-btn bv-header-btn-icon" @click="leftControlHandler">
-              <i class="bv-icon bv-icon-left bc-f-16"></i>
+            <a class="bv-header-btn bv-header-btn-icon" @click="back">
+              <i class="bp-icon bp-icon-left bc-f-16"></i>
             </a>
-            <a class="bv-header-btn bv-header-btn-icon" @click="routerToHome">
-              <i class="bv-icon bv-icon-home bc-f-16"></i>
+            <a class="bv-header-btn bv-header-btn-icon" @click="goHome">
+              <i class="bp-icon bp-icon-home bc-f-16"></i>
             </a>
           </div>
         </slot>
       </div>
-      <div class="bv-header-title" :style="header.title && header.title.style">
-        <slot name="title">{{(header.title && header.title.value) || config.view.title}}</slot>
+      <div class="bv-header-title" :style="centerControl.style">
+        <slot name="title">{{(centerControl.title) || config.view.title}}</slot>
       </div>
       <div class="bv-header-control bc-t-r">
         <!-- 有操作的插槽 -->
@@ -35,36 +35,40 @@
   export default {
     name: "bv-header",
     props: {
+      headerStyle: {
+        default: ``,
+        type: String
+      },
       //左边控制
       leftControl: {
-        default: '',
-        type: [String, Function]
-      },
-      //头部组件的配置信息
-      header: {
         default() {
           return {
-            /*title: {
-              style: '',
-              value: ''
-            },
-            style: ''*/
+            backPath: ``
           }
         },
         type: Object
+      },
+      centerControl: {
+        default() {
+          return {
+            title: ``,
+            style: ``
+          }
+        }
       }
     },
     methods: {
       //左边控制的方法
-      leftControlHandler() {
+      back() {
         const router = this.$router;
-        if(this.leftControl){
-          router.routerTo(this.leftControl);
+        const backPath = this.leftControl.backPath;
+        if (this.leftControl.backPath) {
+          router.routerTo(backPath);
         } else {
           router.routerBack();
         }
       },
-      routerToHome() {
+      goHome() {
         this.$router.push(this.config.path.home);
       }
     }

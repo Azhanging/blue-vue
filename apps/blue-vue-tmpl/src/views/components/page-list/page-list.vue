@@ -1,6 +1,8 @@
 <template>
 	<bv-home-view>
-		<BvHeader :header="{title:{value:'分页组件'}}"/>
+		<BvHeader :center-control="{
+      title:`分页组件`
+    }"/>
 		<div class="bc-pd-15">
 			<BvPageList
 				:all-page="pageList.state.allPage"

@@ -1,6 +1,9 @@
 <template>
   <bv-home-view :router-level="2">
-    <BvHeader :header="{title:{value:'下拉加载'}}"/>
+    <BvHeader :center-control="{
+      title:'下拉加载'
+    }"/>
+
     <div slot="top" class="mint-loadmore-top">
       下拉刷新
     </div>
@@ -87,7 +90,7 @@
       // 这里是为了比对两个页面的标识问题
       // 从而更新数据，不然就会走上keep-alive的问题
       if (meta.refresh.status) {
-        loadMore.reset.call(this).then(()=>{
+        loadMore.reset.call(this).then(() => {
           this.api();
         });
       }

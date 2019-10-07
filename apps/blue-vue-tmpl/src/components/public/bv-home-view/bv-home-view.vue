@@ -2,10 +2,11 @@
   <BvView :has-nav="view.tabBar" :router-level="routerLevel">
 
     <slot/>
+
     <template slot="suspend" slot-scope="scope">
       <BvSuspend :scrollDistance="scope.scroll.top" :backElement="$parent.$el && $parent.$el.children[0]">
         <template slot="back-to-top">
-          <i class="bv-icon bv-icon-go-top bc-f-30 bc-t-666"></i>
+          <i class="bp-icon bp-icon-go-top bc-f-30 bc-t-666"></i>
         </template>
       </BvSuspend>
     </template>

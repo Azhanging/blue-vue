@@ -23,5 +23,5 @@
 </script>
 
 <style lang="scss">
-  @import url($bv-icon-url);
+  @import url($bp-icon-url);
 </style>

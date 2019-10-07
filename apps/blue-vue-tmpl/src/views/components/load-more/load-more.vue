@@ -1,6 +1,8 @@
 <template>
   <bv-home-view :router-level="2">
-    <BvHeader :header="{title:{value:'上拉刷新，下拉加载'}}"/>
+    <BvHeader :center-control="{
+      title:`上拉刷新，下拉加载`
+    }"/>
     <!-- 具体的api查看mint-ui中的load-more组件 -->
     <mt-loadmore
             :topMethod="topMethod"
