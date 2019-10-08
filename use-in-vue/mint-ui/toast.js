@@ -5,20 +5,20 @@ let lastToast;
 
 //set toast in Vue
 export function setToast(Vue) {
-  Vue.prototype.$toast = $toast;
-  Vue.prototype.$closeToast = $closeToast;
+  Vue.prototype.$toast = toast;
+  Vue.prototype.$closeToast = closeToast;
 }
 
 //打开toast
-export function $toast(opts) {
-  if(inBrowser()){
-    $closeToast();
+export function toast(opts) {
+  if (inBrowser()) {
+    closeToast();
     lastToast = Toast(opts);
   }
 }
 
 //关闭toast
-export function $closeToast(){
+export function closeToast() {
   if (lastToast) {
     lastToast.close();
   }

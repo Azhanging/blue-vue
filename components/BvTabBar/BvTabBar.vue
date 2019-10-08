@@ -150,18 +150,14 @@
           const currentIndex = ((index === tabBarSubMenuIndex) ? -1 : index);
 
           //设置子菜单的状态
-          setTabBarSubmenuIndex({
-            tabBarSubmenuIndex: currentIndex
-          });
+          setTabBarSubmenuIndex(currentIndex);
 
           (currentIndex !== -1) && computSubMenuPosition.call(this, {
             menuElm: $event.currentTarget
           });
         } else {
           //设置子菜单的状态
-          setTabBarSubmenuIndex({
-            tabBarSubmenuIndex: -1
-          });
+          setTabBarSubmenuIndex(-1);
           //非子菜单
           if (this.$utils.isStr(to)) {
             this.$router.push(to);

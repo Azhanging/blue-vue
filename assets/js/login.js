@@ -1,6 +1,6 @@
 import router from '@router';
 import config from '@config';
-import { $toast } from "$use-in-vue/mint-ui/toast";
+import { toast } from "$use-in-vue/mint-ui/toast";
 
 //处理老登录业务
 export function routerToLogin() {
@@ -19,21 +19,10 @@ export function routerToLogin() {
 export function unLogin() {
   //跳转到登录
   routerToLogin();
-  $toast({
+  toast({
     message: '跳转登录中...',
     duration: 60000
   });
-}
-
-//登录成功或的跳转
-export function loginSuccessRouterTo(path) {
-  const currentRoute = router.currentRoute;
-  let queryUrl = currentRoute.query['url'];
-  if (queryUrl) {
-    queryUrl = decodeURIComponent(queryUrl);
-  }
-  //参数path -> url query -> indexPath
-  location.href = path || queryUrl || config.path.indexPath;
 }
 
 //登录超时

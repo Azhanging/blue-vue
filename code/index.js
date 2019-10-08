@@ -1,7 +1,7 @@
 import code from './code';
 import { unLogin, loginExpire } from '$assets/js/login';
 import { bindPhone } from '$assets/js/bind';
-import { $toast } from '$use-in-vue/mint-ui/toast';
+import { toast } from '$use-in-vue/mint-ui/toast';
 import router from '@router';
 
 //错误码处理
@@ -23,7 +23,7 @@ export function codeHandler(opts = {}) {
 
     //只做消息提醒
     case code.MESSAGE:
-      $toast({
+      toast({
         message: message
       });
       break;

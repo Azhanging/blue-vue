@@ -1,5 +1,5 @@
 import upload from 'vue-upload-component';
-import { $closeLoading } from "../../use-in-vue/mint-ui/indicator";
+import { hideLoading } from "../../use-in-vue/mint-ui/indicator";
 
 export function useUpload(Vue) {
   Vue.component('Upload', upload);
@@ -64,7 +64,7 @@ export function uploadMixin() {
 
         //删除
         if(newFile !== undefined){
-          this.$loading({
+          this.$showLoading({
             text: '上传中...'
           });
         }
@@ -73,7 +73,7 @@ export function uploadMixin() {
         if (oldFile === undefined) {
           if (upload.currentNum >= upload.maximum) {
             upload.remove(newFile);
-            $closeLoading();
+            hideLoading(true);
             return;
           } else {
             ++upload.currentNum;
@@ -106,20 +106,20 @@ export function uploadMixin() {
 
           --upload.currentNum;
 
-          this.$closeLoading();
+          this.$hideLoading(true);
 
           utils.hook(this, opts.hooks.error);
         }
 
         if (newFile && newFile.success) {
-          this.$closeLoading();
+          this.$hideLoading(true);
           const res = JSON.parse(newFile.response || "{}");
           if (res.info) {
             this.$toast({
               message: '上传失败!'
             });
             upload.remove(newFile);
-            this.$closeLoading();
+            this.$hideLoading(true);
             --upload.currentNum;
           } else {
             this.$toast({

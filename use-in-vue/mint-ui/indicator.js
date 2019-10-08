@@ -1,5 +1,6 @@
 import { Indicator } from 'mint-ui';
 import inBrowser from "$assets/js/in-browser";
+import BlueQueuePipe from 'blue-queue-pipe';
 
 export function setIndicator(Vue) {
 
@@ -7,34 +8,39 @@ export function setIndicator(Vue) {
   Vue.prototype.$indicator = Indicator;
 
   //open loadding
-  Vue.prototype.$loading = $loading;
+  Vue.prototype.$showLoading = showLoading;
 
   //close loadding
-  Vue.prototype.$closeLoading = $closeLoading;
+  Vue.prototype.$hideLoading = hideLoading;
 
 }
 
-//loading的id
-let loadingID = 0;
+//loading队列
+const loadingQueue = new BlueQueuePipe();
 
-export function $closeLoading(id) {
+export function hideLoading(hideAllLoading = false) {
   if (!inBrowser()) return;
-  if (!id || (id === loadingID)) {
+  if (hideAllLoading === true) {
+    loadingQueue.clear();
     Indicator.close();
+  } else {
+    loadingQueue.dequeue();
+    loadingQueue.isEmpty() && Indicator.close();;
   }
 }
 
-export function $loading(opts = {}) {
+export function showLoading(opts = {}) {
   if (inBrowser()) {
-    let config = {
-      text: opts.text || '加载中...',
-      spinnerType: opts.spinnerType || 'snake'
-    };
-    if (!opts.text) {
-      delete config.text;
+    if (loadingQueue.isEmpty()) {
+      let config = {
+        text: opts.text || '加载中...',
+        spinnerType: opts.spinnerType || 'snake'
+      };
+      if (!opts.text) {
+        delete config.text;
+      }
+      Indicator.open(config);
     }
-    Indicator.open(config);
-    return ++loadingID;
+    loadingQueue.enqueue(1);
   }
-  return 0;
 }

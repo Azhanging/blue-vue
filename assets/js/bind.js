@@ -3,7 +3,7 @@ import store from '@store';
 import router from '@router';
 import { apiBindRelation } from '$api';
 import RouterNext from '$use-in-vue-router/router-next';
-import { $toast } from "../../use-in-vue/mint-ui/toast";
+import { toast } from "../../use-in-vue/mint-ui/toast";
 
 //bind (绑定的业务部分在路由next前处理完)
 export function bind(opts) {
@@ -74,7 +74,7 @@ export function bindPhone(opts = {}) {
 
 //重定向到绑定手机的页面
 export function redirectBindPhone() {
-  $toast({
+  toast({
     message: '跳转绑定手机中...',
     duration: 10000
   });

@@ -1,8 +1,7 @@
 //router after each 相关的业务
 import utils from 'blue-utils';
 import { tabBar } from "$assets/js/tab-bar";
-import { $closeLoading } from "$use-in-vue/mint-ui/indicator";
-import { $closeToast } from "$use-in-vue/mint-ui/toast";
+import { hideLoading } from "$use-in-vue/mint-ui/indicator";
 import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 import { setFocusStatus } from '$assets/js/device';
@@ -19,7 +18,7 @@ export function routerAfterEach(opts = {}) {
   const { router, unAfterHook, afterEach } = opts;
   router.afterEach((to, from) => {
     //关闭loading
-    $closeLoading();
+    hideLoading(true);
     //初始化page位置
     pageOffsetDebounce();
     //设置focus状态

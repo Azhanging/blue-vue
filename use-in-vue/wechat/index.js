@@ -4,7 +4,6 @@ import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
 import BlueQueuePipe from 'blue-queue-pipe';
-
 //项目的分享成功执行
 import { shareSuccess } from '@assets/js/share';
 
@@ -41,7 +40,7 @@ export function useWeChatInVue(Vue) {
   try {
     if (config.device.isWeChat && wx) {
       window.alert = (e) => {
-        console.log(`blue-vue-tmpl wechat error:`, e);
+        console.log(`wechat error:`, e);
       };
     }
   } catch (e) {
@@ -60,7 +59,7 @@ export function getWeChatConfig() {
     method: getConfig.type || 'get',
     url: getConfig.url || '',
     data: getConfig.data || '',
-    isLoading: false
+    isShowLoading: false
   }).then((res) => {
     const { data } = res;
     store.commit('setWeChat', data);

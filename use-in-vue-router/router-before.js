@@ -15,11 +15,10 @@ export function routerBeforeEach(opts = {}) {
   router.beforeEach((to, from, next) => {
 
     //设置子菜单的状态
-    setTabBarSubmenuIndex({
-      tabBarSubMenuStatus: -1
-    });
+    setTabBarSubmenuIndex(-1);
+
     //设置路由标识
-    routerMeta.setCurrentRouterID(to.meta.id);
+    routerMeta.setCurrentRouteID(to.meta.routeID);
 
     //实例化router next
     const routerNext = new RouterNext({

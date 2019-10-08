@@ -2,8 +2,8 @@ import axios from 'axios';
 import router, { routerMeta } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
-import { $loading, $closeLoading } from '../mint-ui/indicator';
-import { $toast } from "../mint-ui/toast"
+import { showLoading, hideLoading } from '../mint-ui/indicator';
+import { toast } from "../mint-ui/toast";
 import inBrowser from "$assets/js/in-browser";
 import code from '$code/code';    //错误码
 import { codeHandler } from '$code';   //错误码处理
@@ -33,8 +33,8 @@ export function useAxiosInVue(Vue, opts = {}) {
 function requestInterceptors() {
   $axios.interceptors.request.use((axiosConfig) => {
     //把路由当前路由的id设置给axios config中
-    axiosConfig.routeID = routerMeta.getCurrentRouterID();
-    const isLoading = axiosConfig.isLoading;
+    axiosConfig.routeID = routerMeta.getCurrentRouteID();
+    const isShowLoading = axiosConfig.isShowLoading;
     //mode为token，设置header头
     (config.login.mode === 'token') && (setHeaderToken(axiosConfig));
     //ssr server set base path
@@ -44,9 +44,9 @@ function requestInterceptors() {
     //ssr axios proxy
     setProxy(axiosConfig);
     //是否loading显示
-    if (isLoading === undefined || isLoading === true) {
+    if (isShowLoading === undefined || isShowLoading === true) {
       //设置当前的loading的id
-      axiosConfig.loadingID = $loading({
+      showLoading({
         text: false
       });
     }
@@ -61,9 +61,9 @@ function responseInterceptors() {
   $axios.interceptors.response.use((res) => {
     const status = res.status;
     const axiosConfig = res.config;
-    const isLoading = axiosConfig.isLoading;
-    if (isLoading === undefined || isLoading === true) {
-      $closeLoading(axiosConfig.loadingID);
+    const isShowLoading = axiosConfig.isShowLoading;
+    if (isShowLoading === undefined || isShowLoading === true) {
+      hideLoading();
     }
     //success httprequest state
     if (status === 200) {
@@ -75,7 +75,7 @@ function responseInterceptors() {
         let redirectTime = 0;
         //存在重定向信息
         if (message) {
-          $toast({
+          toast({
             message
           });
           redirectTime = 1000;
@@ -95,7 +95,7 @@ function responseInterceptors() {
     const isTimeout = /timeout/ig.test(error.message);
     const status = isTimeout ? 'timeout' : error.response.status;
     const errorConfig = config.error;
-    $closeLoading(axiosConfig.loadingID);
+    hideLoading();
 
     //检查当前的路由标识和当前路由中的id标识是否一样
     //不一样不去执行后面异步的操作
@@ -105,9 +105,8 @@ function responseInterceptors() {
 
     //处理超时信息，重写信息,只有超时有提示
     if (isTimeout) {
-      error.message = '请求超时，请刷新页面';
-      $toast({
-        message: error.message
+      toast({
+        message: error.message = '请求超时，请刷新页面'
       });
     }
 

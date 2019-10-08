@@ -149,6 +149,11 @@ export function useInVueRouter(Router, opts = {}) {
   Router.prototype.getParam = function (key) {
     return this.currentRoute.params[key] || '';
   };
+
+  //获取meta
+  Router.prototype.getMeta = function () {
+    return this.currentRoute.meta;
+  };
 }
 
 //处理原生的History

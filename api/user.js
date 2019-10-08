@@ -4,6 +4,6 @@ import config from '@config';
 //获取用户信息
 export function apiGetUserInfo() {
   return $axios.get(config.user.url, {
-    isLoading: false
+    isShowLoading: false
   });
 }
