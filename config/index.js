@@ -2,9 +2,6 @@ import { getCurrentDevice } from '$assets/js/device';
 
 const config = {
 
-  //是否为混合开发（使用区分绑定手机和跳转登录的是跳到base还是indexPath）
-  mixedDevelopment: false,
-
   //获取用户用户信息
   user: {
     url: ''

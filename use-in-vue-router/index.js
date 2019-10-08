@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import utils from 'blue-utils';
-import config from '@config';
-import { routerToLogin } from '$assets/js/login';
 import { setCurrentViewScroll } from '$components/BvView';
 import router from '@router';
 
@@ -78,17 +76,6 @@ export function useInVueRouter(Router, opts = {}) {
     }
   });
 
-  //获取当前地址href，直接获取location.href会出现路由未更新前的地址
-  Router.prototype.getHref = function () {
-    const fullPath = this.currentRoute.fullPath;
-    const origin = location.origin;
-    if (this.mode === 'hash') {
-      return `${origin}/#${fullPath}`;
-    } else if (this.mode === 'history') {
-      return `${origin}${fullPath}`;
-    }
-  };
-
   //路由后退规则,如果有具体的路由，否则走根路径
   Router.prototype.routerBack = function () {
     if (history.length > 1) {
@@ -124,26 +111,6 @@ export function useInVueRouter(Router, opts = {}) {
     }
     return false;
   };
-
-  //混合开发设置地址跳转
-  Router.prototype.mixedDevelopmentPath = function (name) {
-    const path = config.path[name];
-    if (!path) return '/';
-    //不存在默认返回到首页
-    const Router = this.constructor;
-    const mode = this.mode;
-    const backUrlParam = Router.config.params.backUrl;
-    const currentRoute = this.currentRoute;
-    //混合模式下，使用的是indexPath的路径
-    if (config.mixedDevelopment) {
-      return `${path}?${backUrlParam}=${encodeURIComponent(`${config.path.indexPath}/${mode === 'hash' ? '#' : ''}${currentRoute.fullPath}`)}`;
-    } else {
-      return `${path}?${backUrlParam}=${encodeURIComponent(this.getHref())}`
-    }
-  };
-
-  //跳转到登录
-  Router.prototype.routerToLogin = routerToLogin;
 
   //获取params中的某个参数
   Router.prototype.getParam = function (key) {

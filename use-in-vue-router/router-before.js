@@ -58,10 +58,6 @@ export function routerBeforeEach(opts = {}) {
 export function routerBeforeHook(opts) {
   const routerNext = new RouterNext(opts);
   NProgress.start();
-  routerNext.add([
-    //绑定相关（暂时不适用这套业务）
-    bind(opts)
-  ]);
   return routerNext.nextStatus();
 }
 
