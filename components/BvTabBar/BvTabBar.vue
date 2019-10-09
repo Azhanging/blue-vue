@@ -14,7 +14,7 @@
            ]"
              :style="item.style"
              :key="`bv-tab-bar-item-${index}`"
-             @click.stop="routerTo($event, item, index)"
+             @click.stop="$routerTo($event, item, index)"
           >
 
             <!-- 方向为top的时候出现 -->

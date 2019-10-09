@@ -39,8 +39,6 @@ const config = {
 
   //登录状态
   login: {
-    //cookie通过登录后设cookie来识别登录态，token通过localStorage中对应的token key来识别登录态
-    mode: `cookie`,
     in: {
       url: ``,          //token的login api请求
     },
@@ -72,22 +70,7 @@ const config = {
     //分享相关的参数的
     params: {
       phone: 'n',                     //绑定参数
-      redirectUrl: 'redirect_url',    //绑定后重定向回来的参数
-      wantUrl: 'want_url'             //想要跳转的地址
-    }
-  },
-
-  //绑定相关
-  bind: {
-
-    //角色绑定
-    relation: {
-      url: ''
-    },
-
-    //绑定手机
-    phone: {
-      url: '/member/personal/deitor_phone'
+      backUrl: 'backUrl',    //绑定后重定向回来的参数
     }
   },
 

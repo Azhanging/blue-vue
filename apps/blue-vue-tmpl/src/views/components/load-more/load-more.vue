@@ -81,7 +81,7 @@
       }
     },
     activated() {
-      const meta = this.$router.getMeta();
+      const meta = this.$router.$getMeta();
       // 这里是为了比对两个页面的标识问题
       // 从而更新数据，不然就会走上keep-alive的问题
       if (meta.refresh.status) {

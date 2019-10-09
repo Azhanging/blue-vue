@@ -1,7 +1,6 @@
 import config from '@config';
 import store from '@store';
 import router from '@router';
-import { apiBindRelation } from '$api';
 
 //绑定手机
 export function bindPhone() {

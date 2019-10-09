@@ -27,7 +27,7 @@ export function apiLoginOut(opts = {}) {
     //登录态存储
     clearLoginStorage();
     //跳到登录页
-    router.routerTo(redirectUrl);
+    router.$routerTo(redirectUrl);
     return data;
   });
 }

@@ -29,13 +29,11 @@
       bind() {
         const router = this.$router;
         const query = router.currentRoute.query;
-        const redirect_path = query.redirect_path || '/';
+        const redirect_path = query.backUrl || '/';
         console.log(query);
         //绑定手机
-        apiBindPhone({
-          phone: this.phone
-        }).then((result) => {
-          this.$store.commit('setPhone', this.phone);
+        this.$axios.get(``).then((result) => {
+          this.$store.commit('setPhone', result.phone);
           router.replace(redirect_path);
         });
       }

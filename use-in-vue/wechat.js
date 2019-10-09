@@ -7,8 +7,6 @@ import BlueQueuePipe from 'blue-queue-pipe';
 //项目的分享成功执行
 import { shareSuccess } from '@assets/js/share';
 
-const { state } = store;
-
 //微信 分享 in vue
 export function weChatShareInVue(Vue) {
   Vue.prototype.$weChatShare = weChatShare;
@@ -73,6 +71,7 @@ export function getWeChatConfig() {
 //set wechat config
 export function setWeChatSdkConfig(opts) {
 
+  const { state } = store;
   //任务的id
   const { id } = opts;
 

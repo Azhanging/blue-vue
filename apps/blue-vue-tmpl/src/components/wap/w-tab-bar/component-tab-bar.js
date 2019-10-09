@@ -93,7 +93,7 @@ const componentTabBar = {
     }]
   },
   active() {
-    if (router.matchRoutes([
+    if (router.$matchRoutes([
         /^\/components\/scroll/,    //组件滑动路由
       ])) {
       this.activeIndex = 1;

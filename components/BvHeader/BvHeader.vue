@@ -63,9 +63,9 @@
         const router = this.$router;
         const backPath = this.leftControl.backPath;
         if (this.leftControl.backPath) {
-          router.routerTo(backPath);
+          router.$routerTo(backPath);
         } else {
-          router.routerBack();
+          router.$goBack();
         }
       },
       goHome() {

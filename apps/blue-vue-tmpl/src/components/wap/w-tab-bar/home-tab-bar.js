@@ -45,7 +45,7 @@ const homeTabBar = {
     }]
   },
   active() {
-    if (router.matchRoutes([
+    if (router.$matchRoutes([
         /^\/component.*/,    //组件路由
       ])) {
       this.activeIndex = 1;
