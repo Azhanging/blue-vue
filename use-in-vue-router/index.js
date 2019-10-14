@@ -66,8 +66,8 @@ export function useInVueRouter(Router, opts = {}) {
         backQueue.useMethod('shift');
       }
 
-      //强制刷新的列表
-      if (refresh.status !== true && refresh.unforcedList.length > 0) {
+      //非强制刷新的列表
+      if (refresh.status === true && refresh.unforcedList.length > 0) {
         refresh.status = matchUnforcedListRedirect({
           fromRoute: from,
           toRoute: to
