@@ -1,3 +1,5 @@
+import utils from 'blue-utils';
+
 //路由的刷新状态,这里涉及到beforeRouteUpdate的情况下需要使用
 //避免keep-alive的缓存机制
 export function matchParamsRefresh({
