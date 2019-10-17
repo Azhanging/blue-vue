@@ -25,7 +25,7 @@ export function setCurrentViewScroll(position = {
   y: 0
 }) {
   const lastView = getLastViewElm();
-  lastView && (lastView.scrollTop = position.x);
+  lastView && (lastView.scrollTop = position.y);
 }
 
 
@@ -41,7 +41,7 @@ export function setViewEvent() {
     this.scroll.top = scrollTop;
     //针对的keep-alive中vue针对scroll抓取pageXOffset
     if (router.currentRoute.meta.keepAlive !== false) {
-      window.pageXOffset = scrollTop;
+      window.pageYOffset = scrollTop;
     }
   }, 150);
 

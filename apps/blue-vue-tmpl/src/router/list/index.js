@@ -12,7 +12,7 @@ const list = [{
     title: '上拉刷新，下拉加载',
     refresh: {
       unforcedList: [
-        '/'
+        '/a'
       ]
     }
   }
