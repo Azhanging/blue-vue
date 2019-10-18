@@ -1,13 +1,11 @@
 import store from '@store';
 
 //计算子菜单的位置
-export function computSubMenuPosition(opts = {}) {
+export function computeSubMenuPosition(opts = {}) {
   const { menuElm } = opts;
   this.$nextTick(() => {
     //导航
     const tabBar = document.querySelector('#tabBar');
-    //子菜单内容
-    const tabBarSubmenuElm = tabBar.lastElementChild;
     //导航宽度
     const tabBarWidth = tabBar.offsetWidth;
     //item的宽度

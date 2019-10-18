@@ -106,7 +106,7 @@
 <script>
 
   import BvTabBarIcon from './BvTabBarIcon'
-  import { computSubMenuPosition, setTabBarSubmenuIndex } from './index';
+  import { computeSubMenuPosition, setTabBarSubmenuIndex } from './index';
 
   export default {
     name: "bv-tab-bar",
@@ -152,7 +152,7 @@
           //设置子菜单的状态
           setTabBarSubmenuIndex(currentIndex);
 
-          (currentIndex !== -1) && computSubMenuPosition.call(this, {
+          (currentIndex !== -1) && computeSubMenuPosition.call(this, {
             menuElm: $event.currentTarget
           });
         } else {
