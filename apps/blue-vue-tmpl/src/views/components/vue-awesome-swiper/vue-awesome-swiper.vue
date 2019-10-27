@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view :router-level="2">
+  <BvLayoutView :router-level="2">
     <BvHeader :center-control="{
 	  	title:`轮播组件`
 		}"/>
@@ -11,7 +11,7 @@
         <div class="swiper-pagination" id="pagination" slot="pagination"></div>
       </swiper>
     </BvScroll>
-  </bv-home-view>
+  </BvLayoutView>
 </template>
 
 <script>

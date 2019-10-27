@@ -8,8 +8,8 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
+        font: 'bp-icon bc-f-12 bp-icon-home',
+        activeFont: 'bc-t-base',
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
@@ -21,8 +21,8 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home.png',
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/home-active.png',
+        font: 'bp-icon bc-f-12 bp-icon-home',
+        activeFont: 'bc-t-base',
         style: 'width:20px;height:20px;',
         direction: 'bottom'
       },
@@ -35,8 +35,8 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        src: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass.png',                       //没选中的src图片
-        activeSrc: 'https://www.dtb315.com/Static/wap/home/images/bottom_btn/allclass-active.png',
+        font: 'bp-icon bc-f-12 bp-icon-menu',
+        activeFont: 'bc-t-base',
         direction: 'left',
         style: 'width:20px;height:20px;'
       },

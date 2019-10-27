@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view :router-level="2" :keep-alive="false">
+  <BvLayoutView :router-level="2" :keep-alive="false">
     <BvHeader :center-control="{
       title:`验证相关`
     }"/>
@@ -95,7 +95,7 @@
       </button>
     </div>
 
-  </bv-home-view>
+  </BvLayoutView>
 </template>
 
 <script>

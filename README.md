@@ -47,7 +47,7 @@ router中的配置问题，每个路由项中，meta的配置都关系到当前�
 - title：页面的标题，不填写会默认读取config中的view.title
 - nav：页面的导航，false || 'navName'，false为不显示导航，
 navName为你自己定义的导航名，
-具体使用查看（公共组件bv-tab-bar）和（项目组件w-tab-bar）
+具体使用查看（公共组件bv-tab-bar）和（项目组件WTabBar）
 - afterHook：router afterEach后的执行，路由走完后会走当前钩子,
 如当前路由是需要单独设置分享信息的，需要在当前的钩子执行 weChatShare方法，
 如果没有定义afterHook，路由则会走unRouterAfterHook方法

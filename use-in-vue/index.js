@@ -27,9 +27,8 @@ import { useFilter } from './filter'
 export function useInVue(opts = {}) {
   const { Vue } = opts;
   if (inBrowser()) {
-    NProgress.configure({
-      showSpinner: false
-    });
+    //进度条
+    NProgress.configure();
     //扩展微信
     useWeChatInVue(Vue);
     //use fastclick

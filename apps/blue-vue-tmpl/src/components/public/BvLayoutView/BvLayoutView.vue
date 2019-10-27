@@ -25,7 +25,7 @@
   const { mapState } = Vuex;
 
   export default {
-    name: "bv-home-view",
+    name: "BvLayoutView",
     computed: {
       ...mapState(['view'])
     },

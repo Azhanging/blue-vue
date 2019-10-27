@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view>
+	<BvLayoutView>
 		<BvHeader :center-control="{
       title:`分页组件`
     }"/>
@@ -28,7 +28,7 @@
 
 			</BvPageList>
 		</div>
-	</bv-home-view>
+	</BvLayoutView>
 </template>
 
 <script>

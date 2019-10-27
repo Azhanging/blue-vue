@@ -8,7 +8,7 @@
     </BvViewTransition>
 
     <!-- 底部导航 -->
-    <w-tab-bar></w-tab-bar>
+    <WTabBar></WTabBar>
 
     <!-- 图片预览的组件 -->
     <BluePhotoSwipe/>
@@ -23,5 +23,5 @@
 </script>
 
 <style lang="scss">
-  @import url($bp-icon-url);
+  @import url(//at.alicdn.com/t/font_1270732_8tdxo0ksvkf.css);
 </style>

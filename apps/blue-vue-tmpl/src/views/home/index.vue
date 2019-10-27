@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view>
+  <BvLayoutView>
     <BvHeader :center-control="{
       title:`首页`
     }"/>
@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-  </bv-home-view>
+  </BvLayoutView>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view :router-level="2">
+	<BvLayoutView :router-level="2">
 		<BvHeader :center-control="{
       title:`滑动组件`
     }"/>
@@ -27,7 +27,7 @@
 			</template>
 		</BvSwiperScroll>
 
-	</bv-home-view>
+	</BvLayoutView>
 </template>
 
 <script>

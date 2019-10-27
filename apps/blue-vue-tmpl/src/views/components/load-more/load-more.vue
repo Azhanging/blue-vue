@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view :router-level="2">
+  <BvLayoutView :router-level="2">
     <BvHeader :center-control="{
       title:`上拉刷新，下拉加载`
     }"/>
@@ -27,7 +27,7 @@
         </li>
       </ul>
     </mt-loadmore>
-  </bv-home-view>
+  </BvLayoutView>
 </template>
 
 <script>

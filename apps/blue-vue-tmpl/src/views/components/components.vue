@@ -1,5 +1,5 @@
 <template>
-	<bv-home-view>
+	<BvLayoutView>
 		<BvHeader :center-control="{
   		title:`组价列表`
 		}"/>
@@ -55,7 +55,7 @@
 			</div>
 
 		</div>
-	</bv-home-view>
+	</BvLayoutView>
 </template>
 
 <script>

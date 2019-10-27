@@ -1,5 +1,5 @@
 <template>
-  <bv-home-view :router-level="2">
+  <BvLayoutView :router-level="2">
     <BvHeader :center-control="{
       title:'下拉加载'
     }"/>
@@ -42,7 +42,7 @@
         </div>
       </template>
     </BvScroll>
-  </bv-home-view>
+  </BvLayoutView>
 </template>
 
 <script>

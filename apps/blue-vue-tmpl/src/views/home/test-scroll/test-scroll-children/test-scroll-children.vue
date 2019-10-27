@@ -1,9 +1,9 @@
 <template>
-	<bv-home-view :router-level="3">
+	<BvLayoutView :router-level="3">
 		<div v-for="i in 1">
 			{{i}}
 		</div>
-	</bv-home-view>
+	</BvLayoutView>
 </template>
 
 <script>
