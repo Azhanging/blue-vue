@@ -25,13 +25,13 @@ export function hideLoading(hideAllLoading = false) {
     Indicator.close();
   } else {
     loadingQueue.dequeue();
-    loadingQueue.isEmpty() && Indicator.close();;
+    loadingQueue.isEmpty() && Indicator.close();
   }
 }
 
 export function showLoading(opts = {}) {
   if (inBrowser()) {
-    if (loadingQueue.isEmpty()) {
+      if (loadingQueue.isEmpty()) {
       let config = {
         text: opts.text || '加载中...',
         spinnerType: opts.spinnerType || 'snake'

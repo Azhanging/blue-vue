@@ -1,18 +1,9 @@
 import { weChatShare } from '$wechat';
 
-const Components = () => import(`../../views/components/components.vue`);
-const Swiper = () => import(`../../views/components/vue-awesome-swiper/vue-awesome-swiper.vue`);
-const Upload = () => import(`../../views/components/vue-upload-component/vue-upload-component.vue`);
-const Scroll = () => import(`../../views/components/scroll/scroll`);
-const Picker = () => import(`../../views/components/picker/picker.vue`);
-const PageList = () => import(`../../views/components/page-list/page-list.vue`);
-const Validate = () => import(`../../views/components/validate/validate.vue`);
-const SwiperScroll = () => import(`../../views/components/swiper-scroll/swiper-scroll.vue`);
-
 const components = {
   path: '/components',
   name: 'components',
-  component: Components,
+  component: () => import(`../../views/components/components.vue`),
   meta: {
     afterHook() {
       weChatShare({
@@ -24,7 +15,7 @@ const components = {
   },
   children: [{
     path: 'blue-validate',
-    component: Validate,
+    component: () => import(`../../views/components/validate/validate.vue`),
     meta: {
       afterHook() {     //router after each 钩子
         weChatShare({       //特定的微信分享
@@ -37,7 +28,7 @@ const components = {
     }
   }, {
     path: 'page-list',
-    component: PageList,
+    component: () => import(`../../views/components/page-list/page-list.vue`),
     meta: {
       title: 'page list',
       tabBar: 'page',     //不存在的导航，默认设置为false
@@ -49,7 +40,7 @@ const components = {
     }
   }, {
     path: 'vue-awesome-swiper',
-    component: Swiper,
+    component: () => import(`../../views/components/vue-awesome-swiper/vue-awesome-swiper.vue`),
     meta: {
       title: '滑动组件',
       afterHook() {
@@ -60,7 +51,7 @@ const components = {
     }
   }, {
     path: 'vue-upload-component',
-    component: Upload,
+    component: () => import(`../../views/components/vue-upload-component/vue-upload-component.vue`),
     meta: {
       title: '上传组件',
       tabBar: false,
@@ -72,7 +63,7 @@ const components = {
     }
   }, {
     path: 'picker',
-    component: Picker,
+    component: () => import(`../../views/components/picker/picker.vue`),
     meta: {
       title: '滚动组件',
       tabBar: false,
@@ -84,14 +75,14 @@ const components = {
     }
   }, {
     path: 'swiper-scroll',
-    component: SwiperScroll,
+    component: () => import(`../../views/components/swiper-scroll/swiper-scroll.vue`),
     children: [{
       path: ':id',
-      component: SwiperScroll
+      component: () => import(`../../views/components/swiper-scroll/swiper-scroll.vue`)
     }]
   }, {
     path: 'scroll/:id',
-    component: Scroll,
+    component: () => import(`../../views/components/scroll/scroll`),
     meta: {
       title: 'scroll',
       tabBar: 'components',
@@ -107,7 +98,7 @@ const components = {
     meta: {
       title: '上拉刷新，下拉加载',
       refresh: {
-        unforcedList:[
+        unforcedList: [
           '/'
         ]
       }

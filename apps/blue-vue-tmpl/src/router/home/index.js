@@ -1,23 +1,19 @@
-const Home = () => import(`../../views/home/index.vue`);
-const TestScroll = () => import(`../../views/home/test-scroll/test-scroll.vue`);
-const TestScrollChildren = () => import(`../../views/home/test-scroll/test-scroll-children/test-scroll-children.vue`);
-const TestLogin = () => import(`../../views/home/test-login/test-login.vue`);
-
-const home = {
+const home = [{
   path: '/',
   name: 'home',
-  component: Home,
+  component: () => import(`@/views/home/Home.vue`),
   children: [{
     path: 'test-scroll',
-    component: TestScroll,
+    component: () => import(`@/views/home/test-scroll/test-scroll.vue`),
     children: [{
       path: 'test-scroll-children',
-      component: TestScrollChildren,
+      component: () => import(`@/views/home/test-scroll/test-scroll-children/test-scroll-children.vue`),
     }]
-  },{
-    path: 'test-login',
-    component: TestLogin
   }]
-};
+}, {
+  //登录
+  path: 'login',
+  component: () => import(`@/views/home/Login.vue`)
+}];
 
 export default home;

@@ -112,25 +112,23 @@
         select: '',
         validate: {
           textarea: {
-            validate: [{
-              exp: '*'
-            }]
+            validate: [{ type: '*' }]
           },
           text: {
             validate: [{
-              exp: (value) => {
+              type: (value) => {
                 return {
-                  message: '输入有误有问题',
+                  info: '输入有误有问题',
                   status: value.length === 11
                 };
               }
-            }, {
-              exp: 'm'
-            }, {
-              exp: /.+/,
-              message: '不能为空不能为空不能为空不能为空不能为空不能为空'
-            }]
+            }, { type: 'm' }, {
+              type: /.+/,
+              info: '不能为空不能为空不能为空不能为空不能为空不能为空'
+            }],
+            name: '文本框'
           },
+
         }
       }
     },
