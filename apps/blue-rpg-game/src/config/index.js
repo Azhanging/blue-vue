@@ -6,24 +6,35 @@ const env = require('./env');
 //合并公共的配置
 const config = utils.extend(publicConfig, {
   view: {
-    title: "我是项目默认标题",
+    title: "BLUE-TEXT-RPG-GAME",
     tabBar: 'home',
     keepAlive: {
-      exclude: [
-        /login|register/
-      ]
+      exclude: /.+/
     }
   },
   env,
   path: {
     base: location.origin,
-    static: location.origin
+    static: location.origin,
+    login: `/login`
   },
   share: {
     title: "blue-vue-tmpl",
     deps: "blue-vue-tmpl is vue public template",
     imgUrl: ""
-  }
+  },
+  user: {
+    url: '/member/getUserInfo'
+  },
+  login: {
+    in: {
+      url: `/admin/login/in`
+    }
+  },
+  axios: {
+    baseURL: '/api'
+  },
+  debug: true
 });
 
 export default config;

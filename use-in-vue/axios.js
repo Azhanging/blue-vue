@@ -8,13 +8,14 @@ import code from '$code/code';    //错误码
 import { codeHandler } from '$code';   //错误码处理
 import { redirect } from '$assets/js/redirect';
 
+const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`
+
 //柯里化 axios
-const $axios = axios.create({
-  timeout: config.axios.timeout,
+const $axios = axios.create(utils.extend({
   headers: {
     'X-Requested-With': 'XMLHttpRequest'
   }
-});
+}, config.axios));
 
 //拦截request
 $axios.interceptors.request.use((axiosConfig) => {
@@ -47,7 +48,9 @@ $axios.interceptors.response.use((res) => {
   }
   //success http request state
   if (status === 200) {
-    const { code: requestCode, message } = res.data;
+    const { code: requestCode, message, consoleMessage } = res.data;
+    //后台指派console信息打印
+    consoleMessage && console.log(`%cRequest Message:${consoleMessage}`,consoleStyle);
     //success code
     if (requestCode === code.SUCCESS) {
       return res.data;

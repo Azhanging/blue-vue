@@ -5,7 +5,7 @@
     }">
       <div slot="left-control"></div>
       <div slot="right-control">
-        <router-link to="/setting" class="bc-pd-15rp bc-f-14rp" >
+        <router-link to="/setting" class="bc-pd-15rp bc-f-14rp">
           设置
         </router-link>
       </div>
@@ -13,17 +13,24 @@
 
     <!-- GAME NAME -->
     <div class="bc-t-c bc-t-primary bc-pd-tb-40rp bc-f-20rp game-name">
-      TEXT "BLUE-RPG" GAME
+      <- BLUE-TEXT-RPG-GAME ->
     </div>
 
     <!-- 登录注册 -->
     <div class="bc-t-c">
-      <button class="bc-btn bc-btn-primary" @click="$router.push(`/login`)">
-        登录
-      </button>
-      <button class="bc-btn" @click="$router.push(`/register`)">
-        注册
-      </button>
+      <template v-if="!$store.getters.isLogin">
+        <button class="bc-btn bc-btn-primary" @click="$router.replace(`/login`)">
+          登录
+        </button>
+        <button class="bc-btn" @click="$router.replace(`/register`)">
+          注册
+        </button>
+      </template>
+      <template v-else>
+        <router-link to="/scene/role/list" class="bc-btn bc-btn-primary">
+          进入游戏
+        </router-link>
+      </template>
     </div>
 
     <!-- 回到 -->
@@ -38,17 +45,7 @@
 
 <script>
   export default {
-    name: "home",
-    data() {
-      return {
-        showStatus: false
-      }
-    },
-    activated() {
-      this.$axios.post(`/mock/data1`, {
-        data: 1
-      });
-    }
+    name: "home"
   }
 </script>
 
@@ -59,10 +56,10 @@
       transform-origin: 0;
     }
     40% {
-      transform: translateX(50px);
+      transform: translateX(60px);
     }
     100% {
-      transform: translateX(-50px);
+      transform: translateX(-60px);
     }
   }
 

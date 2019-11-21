@@ -12,16 +12,13 @@ const devServer = {
   open: false,
   before(app) {
     //mock-server
-    mockServer({
+    /*mockServer({
       app,
       mockDir: resolve('./mock'),          //mock路径，用于更新path使用,
       apiFilePath: resolve('./mock/api')     //api路径，用于更新path使用
-    });
+    });*/
   },
   proxy: {
-    '/mock': {
-      target: `http:localhost:${port}/mock`,
-    },
     '/api': {
       ws: false,      //避免把hot代理了
       target: `http://localhost:3000`,

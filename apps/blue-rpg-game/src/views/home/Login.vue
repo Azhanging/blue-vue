@@ -1,25 +1,26 @@
 <template>
   <BvLayoutView>
     <BvHeader :center-control="{
-      title:`登录`
+      title: `登录`
     }"/>
     <div class="bc-t-c">
       <form ref="form">
         <div class="bc-mg-t-16rp">
           <label>
-            账号：<input type="text" name="username" class="bc-input" v-blue-validate="validate.username"/>
+            邮箱：<input type="text" name="email" v-model="form.email" class="bc-input" v-blue-validate="validate.email"/>
           </label>
         </div>
         <div class="bc-mg-t-16rp">
           <label>
-            密码：<input type="password" name="password" class="bc-input" v-blue-validate="validate.password"/>
+            密码：<input type="password" name="password" v-model="form.password" class="bc-input"
+                      v-blue-validate="validate.password"/>
           </label>
         </div>
         <div class="bc-mg-t-16rp">
           <button type="button" class="bc-btn bc-btn-primary" @click="login">
             登录
           </button>
-          <button type="button" class="bc-btn">
+          <button type="button" class="bc-btn" @click="$router.push('/register')">
             注册
           </button>
         </div>
@@ -32,35 +33,47 @@
 
   import { apiLoginIn } from '$api';
 
+  function getValidate() {
+    return {
+      email: {
+        validate: [{
+          exp: /.+/,
+          message: '邮箱输入有误'
+        }]
+      },
+      password: {
+        validate: [{
+          exp: /.+/,
+          message: '密码输入有误'
+        }]
+      }
+    }
+  }
+
+  function getForm() {
+    return {
+      email: '',
+      password: '',
+      type: 'member'
+    };
+  }
+
   export default {
     name: "login",
     data() {
       return {
-        form: {
-          username: '',
-          password: ''
-        },
-        validate: {
-          username: {
-            validate: [{
-              exp: /.+/,
-              message: '账号输入有误'
-            }]
-          },
-          password: {
-            validate: [{
-              exp: /.+/,
-              message: '密码输入有误'
-            }]
-          }
-        }
+        form: getForm(),
+        validate: getValidate()
       };
     },
     methods: {
       login() {
         const validated = this.$validate(this.$refs['form']);
-        validated.status && this.$axios.post(``, this.form).then(() => {
-
+        validated.status && apiLoginIn({
+          method: 'post',
+          data: this.form
+        }).then(() => {
+          
         });
       }
     }

@@ -18,7 +18,7 @@ const home = [{
   //注册
   name: 'register',
   path: '/register',
-  component: () => import(`@/views/home/Login.vue`),
+  component: () => import(`@/views/home/Register.vue`),
   meta: {
     tabBar: false
   }
