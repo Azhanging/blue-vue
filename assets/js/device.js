@@ -167,11 +167,11 @@ function focusHook(opts) {
     )
   ) {
     if (type === 'focusout') {
-      store.commit('setTabBar', lastNav);
-      store.commit('setPageFixed', true);
+      store.commit('SET_TAB_BAR', lastNav);
+      store.commit('SET_PAGE_FIXED', true);
     } else if (type === 'focusin') {
-      store.commit('setTabBar', false);
-      store.commit('setPageFixed', false);
+      store.commit('SET_TAB_BAR', false);
+      store.commit('SET_PAGE_FIXED', false);
     }
   }
 }

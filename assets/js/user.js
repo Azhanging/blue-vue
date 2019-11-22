@@ -11,9 +11,9 @@ function setUserInfo() {
   apiGetUserInfo().then((result) => {
     const { data } = result;
     if(utils.isArray(data)){
-      store.commit('setUserInfo', {});
+      store.commit('SET_USER_INFO', {});
     } else {
-      store.commit('setUserInfo', data);
+      store.commit('SET_USER_INFO', data);
     }
   });
 }

@@ -7,7 +7,8 @@ const state = utils.extend(publicState, {
   view: {
     tabBar: 'home'
   },
-  userInfo: {}
+  //角色相关信息
+  roleInfo: {}
 });
 
 export default state;

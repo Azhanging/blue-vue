@@ -5,8 +5,8 @@ import config from '@config';
 export function tabBar(name) {
   //默认的导航配置
   if (name === undefined) {
-    store.commit('setTabBar', config.view.tabBar);
+    store.commit('SET_TAB_BAR', config.view.tabBar);
   } else {    //设置对应的导航
-    store.commit('setTabBar', name);
+    store.commit('SET_TAB_BAR', name);
   }
 }

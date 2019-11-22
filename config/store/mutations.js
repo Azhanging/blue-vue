@@ -2,32 +2,32 @@
 const mutations = {
 
   //设置微信config
-  setWeChat(state, weChat) {
+  SET_WECHAT(state, weChat) {
     state.weChat = weChat;
   },
 
   //设置导航状态
-  setTabBar(state, tabBar) {
+  SET_TAB_BAR(state, tabBar) {
     state.view.tabBar = tabBar;
   },
 
   //设置导航子菜单状态
-  setTabBarSubmenuIndex(state, index) {
+  SET_TAB_BAR_SUBMENU_INDEX(state, index) {
     state.view.tabBarSubmenuIndex = index;
   },
 
   //设置page底部fixed状态，focus相关
-  setPageFixed(state, status) {
+  SET_PAGE_FIXED(state, status) {
     state.view.pageFixed = status;
   },
 
   //设置用户信息
-  setUserInfo(state, uerInfo) {
+  SET_USER_INFO(state, uerInfo) {
     state.userInfo = uerInfo;
   },
 
   //设置用户手机
-  setPhone(state, phone) {
+  SET_PHONE(state, phone) {
     state.userInfo.phone = phone;
   }
 

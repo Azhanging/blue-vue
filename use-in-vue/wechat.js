@@ -60,7 +60,7 @@ export function getWeChatConfig() {
     isShowLoading: false
   }).then((res) => {
     const { data } = res;
-    store.commit('setWeChat', data);
+    store.commit('SET_WECHAT', data);
   }).then(() => {
     setWeChatSdkConfig({
       id: ++weChatQueue.data.id

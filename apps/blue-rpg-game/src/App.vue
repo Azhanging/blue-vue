@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bc-t-666 bc-f-14rp">
+  <div id="app" class="bc-t-333 bc-f-14rp">
 
     <BvViewTransition>
       <keep-alive :exclude="config.view.keepAlive.exclude">

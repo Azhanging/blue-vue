@@ -15,7 +15,7 @@
         <ul class="bc-reset-ul bc-t-c">
           <li class="bc-pd-tb-6rp">
             <a href="javascript:;" class="bc-t-primary bc-flex bc-flex-jc-c bc-flex-ai-c"
-               v-for="(item,index) in roleList" :key="index">
+               v-for="(item,index) in roleList" :key="index" @click="useRole(item)">
               <div class="bc-flex-1">
                 {{item.name}}
               </div>
@@ -25,7 +25,7 @@
               <div class="bc-flex-1">
                 {{`职业:${item.occupationName}`}}
               </div>
-            </a>
+            </a href="javascript:;">
           </li>
         </ul>
       </template>
@@ -65,6 +65,16 @@
         this.$axios.get(`/member/scene/role/list`).then((res) => {
           const { data } = res;
           this.roleList = data.list;
+        });
+      },
+      //使用角色
+      useRole(item) {
+        this.$axios.post(`/member/scene/role/info`, {
+          secretKey: item.secretKey
+        }).then((data) => {
+          //设置角色信息
+          this.$store.commit('SET_ROLE_INFO', data);
+          this.$router.replace(`/scene/map`);
         });
       }
     }

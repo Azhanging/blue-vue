@@ -33,7 +33,7 @@
         console.log(query);
         //绑定手机
         this.$axios.get(``).then((result) => {
-          this.$store.commit('setPhone', result.phone);
+          this.$store.commit('SET_PHONE', result.phone);
           router.replace(redirect_path);
         });
       }

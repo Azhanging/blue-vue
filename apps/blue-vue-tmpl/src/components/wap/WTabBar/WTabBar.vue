@@ -43,7 +43,7 @@
           nav.active.call(this);
         } else if (this.tabBarName !== false) {
           //没有配置到导航配置，直接设置为没有导航
-          store.commit('setTabBar', false);
+          store.commit('SET_TAB_BAR', false);
         }
       }
     },
