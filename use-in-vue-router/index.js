@@ -1,8 +1,7 @@
 import Vue from 'vue';
 import utils from 'blue-utils';
 import { setCurrentViewScroll } from '$components/BvView';
-import { extendNativeHistory } from './history';
-import { mixinVueRouteHooks } from './hooks';
+import BlueKeepAlive from './blue-keep-alive';
 
 //vue-router的config
 const routerConfig = {
@@ -17,11 +16,8 @@ export function useInVueRouter(Router, opts = {}) {
   //设置router中的配置信息
   Router.config = utils.extend(routerConfig, opts);
 
-  //处理原生的History
-  extendNativeHistory();
-
-  //针对keepAlive，处理掉组件实例化缓存问题
-  mixinVueRouteHooks(Vue);
+  //缓存机制
+  Vue.use(BlueKeepAlive);
 
   //扩展vue router
   extendVueRouter(Router);

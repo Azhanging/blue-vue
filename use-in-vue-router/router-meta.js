@@ -39,12 +39,12 @@ function setMeta(routes) {
     }
 
     //刷新页面相关
-    meta.refresh = utils.extend({
+    /*meta.refresh = utils.extend({
       //刷新状态
       status: false,
       //强制刷新的列表
       unforcedList: []
-    }, meta.refresh || {});
+    }, meta.refresh || {});*/
 
     //添加参数
     meta.query = null;
