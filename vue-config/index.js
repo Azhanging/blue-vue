@@ -22,6 +22,7 @@ node.setProcessENV({
 //$开头的为公共别名路径
 module.exports = {
   configureWebpack: {
+	  devtool: "source-map",
     resolve: {
       alias: {
         '$config': resolve(`./config`),

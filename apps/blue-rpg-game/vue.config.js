@@ -22,6 +22,7 @@ module.exports = utils.extend(publicVueConfig, {
       alias: {
         //@开头的为项目的别名路径
         '@': resolve('src'),
+        '@api': resolve('src/api'),
         '@router': resolve('src/router'),
         '@store': resolve('src/store'),
         '@config': resolve('src/config'),

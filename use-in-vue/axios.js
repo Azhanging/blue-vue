@@ -118,7 +118,7 @@ function setFormData(axiosConfig) {
 function setHeaderToken(axiosConfig) {
   const { headers } = axiosConfig;
   utils.each(config.login.storage, (key) => {
-    const getItem = localStorage.getItem(key);
+    const getItem = window.localStorage.getItem(key) || window.sessionStorage.getItem(key);
     if (getItem) {
       headers[key] = getItem;
     }

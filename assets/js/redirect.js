@@ -17,10 +17,10 @@ export function serverRedirect(opts = {}) {
 //304状态重定向
 export function redirect(opts = {}) {
   const { url } = opts;
-  const $url = url || '/';
-  if (/^http/.test($url)) {
-    location.href = $url;
+  const _url = url || '/';
+  if (/^http/.test(_url)) {
+    location.href = _url;
   } else {
-    router.replace($url);
+    router.replace(_url);
   }
 }
