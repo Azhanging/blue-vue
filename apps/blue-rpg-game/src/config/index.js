@@ -35,7 +35,8 @@ const config = utils.extend(publicConfig, {
 		}
 	},
 	axios: {
-		baseURL: '/api'
+		baseURL: '/api',
+		timeout: 999999999
 	},
 	debug: true
 });
