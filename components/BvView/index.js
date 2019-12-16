@@ -7,7 +7,10 @@ const viewScrollClassName = '.bv-view-scroll';
 
 //获取的view element
 export function getScrollElm() {
-  return this.$el.children[0];
+  if (this.$el.nodeType === 1) {
+    return this.$el.children[0];
+  }
+  return null;
 }
 
 //获取当前的view层elm
@@ -32,7 +35,7 @@ export function setCurrentViewScroll(position = {
 //set view scroll event
 export function setViewEvent() {
   const scrollElm = getScrollElm.call(this);
-
+  if (!scrollElm) return;
   //scroll 节流实现
   const scrollDebounce = utils.debounce(function (event) {
     const elm = event.target;

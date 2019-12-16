@@ -23,7 +23,7 @@ $axios.interceptors.request.use((axiosConfig) => {
   axiosConfig.routeID = routerMeta.getCurrentRouteID();
   const isShowLoading = axiosConfig.isShowLoading;
   //mode为token，设置header头
-  setHeaderToken(axiosConfig);
+  setRequestHeader(axiosConfig);
   //set form data type
   setFormData(axiosConfig);
   //是否loading显示
@@ -50,7 +50,7 @@ $axios.interceptors.response.use((res) => {
   if (status === 200) {
     const { code: requestCode, message, consoleMessage } = res.data;
     //后台指派console信息打印
-    consoleMessage && console.log(`%cRequest Message:${consoleMessage}`,consoleStyle);
+    consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
     //success code
     if (requestCode === code.SUCCESS) {
       return res.data;
@@ -115,12 +115,12 @@ function setFormData(axiosConfig) {
 }
 
 //设置header中的token
-function setHeaderToken(axiosConfig) {
+function setRequestHeader(axiosConfig) {
   const { headers } = axiosConfig;
   utils.each(config.login.storage, (key) => {
     const getItem = window.localStorage.getItem(key) || window.sessionStorage.getItem(key);
     if (getItem) {
-      headers[key] = getItem;
+      headers[key.replace(/([A-Z])/g, `-$1`).toLowerCase()] = getItem;
     }
   });
 }

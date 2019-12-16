@@ -5,7 +5,7 @@
       title: `角色列表`
     }"/>
 		<div class="bc-pd-14rp bc-bd-b-e5e">
-			<div class="bc-t-primary bc-f-b">
+			<div class="bc-t-base bc-f-b">
 				用户：{{userInfo.username}}
 			</div>
 		</div>
@@ -14,7 +14,7 @@
 			<template v-if="roleList.length > 0">
 				<ul class="bc-reset-ul bc-t-c">
 					<li class="bc-pd-tb-6rp">
-						<a href="javascript:;" class="bc-t-primary bc-flex bc-flex-jc-c bc-flex-ai-c"
+						<a href="javascript:;" class="bc-t-base bc-flex bc-flex-jc-c bc-flex-ai-c"
 						   v-for="(item,index) in roleList" :key="index" @click="useRole(item)">
 							<div class="bc-flex-1">
 								{{item.name}}

@@ -7,6 +7,7 @@ const state = utils.extend(publicState, {
   view: {
     tabBar: 'home'
   },
+  //用户信息
   userInfo: {}
 });
 

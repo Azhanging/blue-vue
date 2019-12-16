@@ -14,6 +14,6 @@ export function apiRoleInfo(data) {
 		//设置角色信息
 		store.commit('SET_ROLE_INFO', data);
 		//存储秘钥
-		window.sessionStorage.setItem('secret-key', secretKey);
+		window.sessionStorage.setItem('secretKey', secretKey);
 	});
 }
