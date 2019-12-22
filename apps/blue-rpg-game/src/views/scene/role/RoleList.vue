@@ -34,7 +34,7 @@
 			</template>
 		</div>
 		<div class="bc-t-c" v-if="roleList.length < 3">
-			<router-link to="/scene/role/create" class="bc-btn bc-btn-primary">
+			<router-link to="/scene/role/create" class="bc-btn bc-btn-base">
 				创建角色
 			</router-link>
 		</div>

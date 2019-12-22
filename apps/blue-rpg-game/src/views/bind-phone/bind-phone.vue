@@ -8,7 +8,7 @@
 				绑定手机：<input type="text" class="bc-input" v-model="phone">
 			</div>
 			<div class="bc-row bc-mg-t-10rp">
-				<button class="bc-btn bc-btn-primary" @click="bind">绑定</button>
+				<button class="bc-btn bc-btn-base" @click="bind">绑定</button>
 			</div>
 		</div>
 	</BvLayoutView>

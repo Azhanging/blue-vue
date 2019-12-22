@@ -26,7 +26,7 @@
           </label>
         </div>
         <div class="bc-mg-t-16rp bc-t-c">
-          <button type="button" class="bc-btn bc-btn-primary" @click="create">
+          <button type="button" class="bc-btn bc-btn-base" @click="create">
             创建角色
           </button>
         </div>

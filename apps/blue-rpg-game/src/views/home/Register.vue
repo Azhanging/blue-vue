@@ -23,7 +23,7 @@
           </label>
         </div>
         <div class="bc-mg-t-16rp">
-          <button type="button" class="bc-btn bc-btn-primary" @click="register">
+          <button type="button" class="bc-btn bc-btn-base" @click="register">
             注册
           </button>
         </div>

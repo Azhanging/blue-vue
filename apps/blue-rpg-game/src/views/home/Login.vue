@@ -17,7 +17,7 @@
           </label>
         </div>
         <div class="bc-mg-t-16rp">
-          <button type="button" class="bc-btn bc-btn-primary" @click="login">
+          <button type="button" class="bc-btn bc-btn-base" @click="login">
             登录
           </button>
           <button type="button" class="bc-btn" @click="$router.push('/register')">

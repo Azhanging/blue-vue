@@ -19,7 +19,7 @@
     <!-- 登录注册 -->
     <div class="bc-t-c">
       <template v-if="!$store.getters.isLogin">
-        <button class="bc-btn bc-btn-primary" @click="$router.replace(`/login`)">
+        <button class="bc-btn bc-btn-base" @click="$router.replace(`/login`)">
           登录
         </button>
         <button class="bc-btn" @click="$router.replace(`/register`)">
@@ -27,7 +27,7 @@
         </button>
       </template>
       <template v-else>
-        <router-link to="/scene/role/list" class="bc-btn bc-btn-primary">
+        <router-link to="/scene/role/list" class="bc-btn bc-btn-base">
           进入游戏
         </router-link>
       </template>
@@ -35,7 +35,7 @@
 
     <!-- 回到 -->
     <div class="bc-t-c" v-show="false">
-      <button class="bc-btn bc-btn-primary">
+      <button class="bc-btn bc-btn-base">
         回到游戏
       </button>
     </div>
