@@ -14,7 +14,7 @@ const homeTabBar = {
         value: '背包',
         fontSize: 10
       },
-      to: '/',
+      to: '/scene/knapsack',
       className: 'bc-pd-10 bc-bd-r-e5e',
       fontSize: 10
     }, {

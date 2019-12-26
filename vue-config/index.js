@@ -10,11 +10,11 @@ function resolve(dir) {
 //node中注入
 node.setProcessENV({
   ["INJECT_HEAD_NODE"]: node.genScriptOrLink({
-    injectNode: [{
+    injectNode: [/*{
       type: "script",
       url: "//res.wx.qq.com/open/js/jweixin-1.4.0.js",
       comment: `这是备注`
-    }]
+    }*/]
   })
 });
 
