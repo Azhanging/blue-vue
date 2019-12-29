@@ -53,6 +53,11 @@ $axios.interceptors.response.use((res) => {
     consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
     //success code
     if (requestCode === code.SUCCESS) {
+      if (message) {
+        toast({
+          message
+        });
+      }
       return res.data;
     } else if (requestCode === code.REDIRECT) {    //作为重定向跳转
       let redirectTime = 0;

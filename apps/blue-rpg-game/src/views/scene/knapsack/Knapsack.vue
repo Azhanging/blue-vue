@@ -10,13 +10,24 @@
           已装备
         </div>
         <!-- 已使用装备 -->
-        <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base" v-for="resource in equipmentList">
-          <div class="bc-flex-1">
-            {{resource.name}}
+        <template v-if="equipmentList.length > 0">
+          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base"
+               v-for="resource in equipmentList">
+            <div class="bc-flex-1 bc-t-333">
+              {{resource.typeName}}
+            </div>
+            <div class="bc-flex-1">
+              {{resource.name}}
+            </div>
+            <div class="bc-flex-1">
+              <a href="javascript:;" class="bc-t-base" @click="unUseEquipment(resource)">
+                卸下
+              </a>
+            </div>
           </div>
-          <div class="bc-flex-1">
-            卸下
-          </div>
+        </template>
+        <div class="bc-t-c bc-pd-tb-10rp bc-t-999" v-else>
+          无
         </div>
       </div>
 
@@ -24,21 +35,30 @@
         <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e">
           背包
         </div>
-        <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base" v-for="resource in knapsackList">
-          <div class="bc-flex-1">
-            {{resource.name}}
+        <template v-if="knapsackList.length > 0">
+          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base"
+               v-for="resource in knapsackList">
+            <div class="bc-flex-1">
+              {{resource.name}}
+            </div>
+            <div class="bc-flex-1">
+              x{{resource.amount}}
+            </div>
+            <div class="bc-flex-1">
+              <a href="javascript:;" class="bc-t-base" v-if="resource.type === 1" @click="useConsume(resource)">
+                使用
+              </a>
+              <a href="javascript:;" class="bc-t-base" @click="useEquipment(resource)" v-if="/^[3]$/.test(resource.type)">
+                装备
+              </a>
+              <a href="javascript:;" class="bc-t-base" @click="discard(resource)">
+                丢弃
+              </a>
+            </div>
           </div>
-          <div class="bc-flex-1">
-            x{{resource.amount}}
-          </div>
-          <div class="bc-flex-1">
-            <a href="javascript:;" class="bc-t-base" v-if="resource.type === 1" @click="useConsume(resource)">
-              使用
-            </a>
-            <a href="javascript:;" class="bc-t-base" @click="useEquipment(resource)" v-if="/^[3]$/.test(resource.type)">
-              装备
-            </a>
-          </div>
+        </template>
+        <div class="bc-t-c bc-pd-tb-10rp bc-t-999" v-else>
+          无
         </div>
       </div>
     </div>
@@ -77,10 +97,8 @@
       ,
       //使用消耗品
       useConsume(resource) {
-        this.$axios.get(`/member/scene/knapsack/useConsume`, {
-          params: {
-            id: resource.id
-          }
+        this.$axios.post(`/member/scene/knapsack/useConsume`, {
+          id: resource.id
         }).then(() => {
           this.getKnapsack();
         });
@@ -88,15 +106,60 @@
 
       //使用装备
       useEquipment(resource) {
-        this.$axios.get(`/member/scene/knapsack/useEquipment`, {
-          params: {
-            id: resource.id
-          }
+        this.$axios.post(`/member/scene/knapsack/useEquipment`, {
+          id: resource.id
         }).then(() => {
           this.getEquipment();
           this.getKnapsack();
         });
+      },
+
+      //卸下武器
+      unUseEquipment(resource) {
+        this.$axios.post(`/member/scene/knapsack/unUseEquipment`, {
+          id: resource.id
+        }).then(() => {
+          this.getEquipment();
+          this.getKnapsack();
+        });
+      },
+
+      //丢弃物资
+      discard(resource) {
+        if (resource.type === 3 || resource.amount === 1) {
+          this.discardResource({
+            resource,
+            amount: 1
+          });
+        } else {
+          this.$messageBox({
+            showInput: true,
+            title: '丢弃提醒',
+            message: `请输入丢弃的数量`,
+            inputType: 'number',
+            showCancelButton: true,
+            $type: 'prompt'
+          }).then(({ value }) => {
+            this.discardResource({
+              resource,
+              amount: value
+            });
+          });
+        }
+
+      },
+
+      //丢弃物资
+      discardResource(opts = {}) {
+        const { resource, amount } = opts;
+        this.$axios.post(`/member/scene/knapsack/discard`, {
+          id: resource.id,
+          amount
+        }).then(() => {
+          this.getKnapsack();
+        });
       }
+
     }
   }
 </script>

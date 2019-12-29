@@ -46,17 +46,19 @@
 		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="!isEnd">
 			<div>背包：</div>
 			<div class="bc-flex-1 bc-flex-jc-c bc-t-c bc-t-base">
-				<div class="bc-pd-b-2rp bc-flex" v-for="resource in knapsackConsume" v-if="knapsackConsume.length > 0">
-					<div class="bc-flex-1">
-						{{resource.name}}
+				<template v-if="knapsackConsume.length > 0">
+					<div class="bc-pd-b-2rp bc-flex" v-for="resource in knapsackConsume">
+						<div class="bc-flex-1">
+							{{resource.name}}
+						</div>
+						<div class="bc-flex-1">
+							x{{resource.amount}}
+						</div>
+						<div class="bc-flex-1">
+							<a href="javascript:;" class="bc-t-base" @click="useConsume(resource)">使用</a>
+						</div>
 					</div>
-					<div class="bc-flex-1">
-						x{{resource.amount}}
-					</div>
-					<div class="bc-flex-1">
-						<a href="javascript:;" class="bc-t-base" @click="useConsume(resource)">使用</a>
-					</div>
-				</div>
+				</template>
 				<template v-else>
 					暂无消耗物品
 				</template>
@@ -154,11 +156,9 @@
 			},
 			//使用消耗品
 			useConsume(resource) {
-				this.$axios.get(`/member/scene/knapsack/useConsume`, {
-					params: {
-						id: resource.id
-					}
-				}).then(()=>{
+				this.$axios.post(`/member/scene/knapsack/useConsume`, {
+          id: resource.id
+        }).then(()=>{
 					this.getFightInfo();
 					this.getKnapsackConsume();
 				});
