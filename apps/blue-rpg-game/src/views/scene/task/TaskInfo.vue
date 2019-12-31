@@ -6,11 +6,11 @@
     }"/>
 
     <!-- 对话 -->
-    <div class="bc-bd-b-e5e bc-pd-10rp">
-      <div class="bc-f-b bc-mg-b-10rp">
+    <div class="bc-bd-b-e5e bc-pd-10rpx">
+      <div class="bc-f-b bc-mg-b-10rpx">
         任务对话：
       </div>
-      <div class="bc-mg-b-10rp" v-for="(item ,index) in taskInfo.dialogue" :key="index">
+      <div class="bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.dialogue" :key="index">
         <template v-if="item.type === 1">
           NPC：
         </template>
@@ -22,12 +22,12 @@
     </div>
 
     <!-- 任务依赖 -->
-    <div class="bc-bd-b-e5e bc-pd-10rp">
-      <div class="bc-f-b bc-mg-b-10rp">
+    <div class="bc-bd-b-e5e bc-pd-10rpx" v-if="taskInfo.status !== 2">
+      <div class="bc-f-b bc-mg-b-10rpx">
         任务需求：
       </div>
       <div class="bc-t-base bc-t-c">
-        <div class="bc-flex bc-mg-b-10rp" v-for="(item ,index) in taskInfo.requirement" :key="index">
+        <div class="bc-flex bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.requirement" :key="index">
           <div class="bc-flex-1">
             {{item.typeName}}
           </div>
@@ -39,12 +39,7 @@
               {{item.amount}}
             </template>
             <template v-else>
-              <template v-if="item.type === 1 || item.type === 2">
-                ({{item.bind.count}}/{{item.amount}})
-              </template>
-              <template v-else-if="item.type === 3">
-                ({{item.money}}/{{item.amount}})
-              </template>
+              ({{item.count}}/{{item.amount}})
             </template>
           </div>
         </div>
@@ -52,12 +47,12 @@
     </div>
 
     <!-- 任务奖励 -->
-    <div class="bc-bd-b-e5e bc-pd-10rp">
-      <div class="bc-f-b bc-mg-b-10rp">
+    <div class="bc-bd-b-e5e bc-pd-10rpx">
+      <div class="bc-f-b bc-mg-b-10rpx">
         任务奖励：
       </div>
       <div class="bc-t-base bc-t-c">
-        <div class="bc-flex bc-mg-b-10rp" v-for="(item ,index) in taskInfo.reward" :key="index">
+        <div class="bc-flex bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.reward" :key="index">
           <div class="bc-flex-1">
             {{item.name}}
           </div>
@@ -70,18 +65,23 @@
 
     <!-- 任务操作 -->
     <div class="bc-w-100 bc-ps-f bc-flex" style="bottom:0;left:0;" slot="other">
-      <button class="bc-w-100 bc-btn bc-btn-base bc-flex-1" @click="taskHandler(taskInfo.status)">
+      <button class="bc-w-100 bc-btn bc-btn-base bc-flex-1" @click="taskHandler(taskInfo.status)" v-if="taskInfo.status !== 2">
         <template v-if="taskInfo.status === 0">
           接受任务
         </template>
         <template v-else-if="taskInfo.status !== 2">
-          完成任务
+          提交任务
         </template>
       </button>
       <button class="bc-w-100 bc-btn bc-btn-danger bc-flex-1" @click="taskHandler(-1)"
               v-if="taskInfo.status !== 0 && taskInfo.status !== 2 ">
         放弃任务
       </button>
+      <template v-if="taskInfo.status === 2">
+        <div class="bc-t-c bc-bg-base bc-pd-4rpx bc-t-white bc-flex-1">
+          已完成
+        </div>
+      </template>
     </div>
 
   </BvLayoutView>

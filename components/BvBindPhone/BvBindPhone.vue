@@ -2,21 +2,21 @@
 <template>
 	<div class="bv-bind-phone-container" :class="{'no-tab-bar':!view.tabBar}" v-if="showBindPhone">
 		<div class="bv-bind-phone">
-			<div class="bc-row bc-t-r bc-pd-t-17rp bc-pd-b-14rp bc-pd-lr-17rp">
-				<i class="iconfont iconclose bc-f-17rp" @click.stop="closeBindPhone"></i>
+			<div class="bc-row bc-t-r bc-pd-t-17rpx bc-pd-b-14rpx bc-pd-lr-17rpx">
+				<i class="iconfont iconclose bc-f-17rpx" @click.stop="closeBindPhone"></i>
 			</div>
 			<div class="bc-row  bc-t-base">
-				<div class="bc-pd-lr-20rp">
+				<div class="bc-pd-lr-20rpx">
 					<img :src="`${config.path.static}/img/public/bind-phone.png`" alt="" class="bv-bind-phone-img">
 				</div>
-				<div class="bc-mg-t-20rp bc-f-18rp">
+				<div class="bc-mg-t-20rpx bc-f-18rpx">
 					填写手机号码
 				</div>
-				<div class="bc-mg-t-16rp bc-f-14rp">
+				<div class="bc-mg-t-16rpx bc-f-14rpx">
 					让我们能够更好的为您提供服务
 				</div>
-				<div class="bc-mg-t-36rp bc-mg-b-20rp bc-f-14rp">
-					<a href="javascript:;" class="bc-btn bc-btn-base bc-bd-radius-5 bc-f-16rp bc-w-60" @click="bindPhone">
+				<div class="bc-mg-t-36rpx bc-mg-b-20rpx bc-f-14rpx">
+					<a href="javascript:;" class="bc-btn bc-btn-base bc-bd-radius-5 bc-f-16rpx bc-w-60" @click="bindPhone">
 						立即填写
 					</a>
 				</div>

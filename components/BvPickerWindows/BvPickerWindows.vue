@@ -10,12 +10,12 @@
 			<div class="bv-picker-windows-shadow" @click.stop="closePickerWindows">
 				<div class="bv-picker-windows">
 					<!-- 标题 -->
-					<div class="bc-flex bc-flex-ai-c bc-pd-10rp bc-t-999 bc-f-16rp bc-bd-b-e5e">
+					<div class="bc-flex bc-flex-ai-c bc-pd-10rpx bc-t-999 bc-f-16rpx bc-bd-b-e5e">
 						<div class="bc-flex-1"></div>
 						<div class="bc-flex-2 bc-t-c">
 							{{title}}
 						</div>
-						<div class="bc-flex-1 bc-t-r bc-f-21rp">
+						<div class="bc-flex-1 bc-t-r bc-f-21rpx">
 							<a href="javascript:;" class="bc-t-666" @click.stop="closePickerWindows">
 								&times;
 							</a>
@@ -56,7 +56,7 @@
 							>
 								<template slot="scroll-items">
 									<div
-										class="bc-block bc-t-hide bc-pd-tb-10rp"
+										class="bc-block bc-t-hide bc-pd-tb-10rpx"
 										v-for="(item,slotIndex) in slot.values"
 										:class="[
 										  findSlot(slot).index === slotIndex && scroll.activeClassName

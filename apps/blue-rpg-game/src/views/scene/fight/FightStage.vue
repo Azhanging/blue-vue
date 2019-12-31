@@ -5,8 +5,8 @@
       title: `战斗场景`
     }"/>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bc-pd-r-14rp">
+		<div class="bc-flex bc-pd-10rpx bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
+			<div class="bc-pd-r-14rpx">
 				{{fightData.enemy.name}}
 			</div>
 			<div class="bc-flex-1 bc-t-base">
@@ -17,8 +17,8 @@
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bc-pd-r-14rp">
+		<div class="bc-flex bc-pd-10rpx bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
+			<div class="bc-pd-r-14rpx">
 				{{$store.state.roleInfo.name}}
 			</div>
 			<div class="bc-flex-1 bc-t-base">
@@ -33,21 +33,21 @@
 		</div>
 
 		<!-- 技能 -->
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy && !isEnd">
+		<div class="bc-flex bc-pd-10rpx bc-f-b bc-bd-b-e5e" v-if="fightData.enemy && !isEnd">
 			<div>技能：</div>
 			<div class="bc-flex-1">
-				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="bc-t-base bc-mg-r-10rp"
+				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="bc-t-base bc-mg-r-10rpx"
 				   @click="useSkill(item)">
 					{{item.name}}
 				</a>
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="!isEnd">
+		<div class="bc-flex bc-pd-10rpx bc-f-b bc-bd-b-e5e" v-if="!isEnd">
 			<div>背包：</div>
 			<div class="bc-flex-1 bc-flex-jc-c bc-t-c bc-t-base">
 				<template v-if="knapsackConsume.length > 0">
-					<div class="bc-pd-b-2rp bc-flex" v-for="resource in knapsackConsume">
+					<div class="bc-pd-b-2rpx bc-flex" v-for="resource in knapsackConsume">
 						<div class="bc-flex-1">
 							{{resource.name}}
 						</div>
@@ -65,17 +65,17 @@
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-bd-b-e5e bc-f-b" v-if="fightData.reward && fightData.reward.length > 0">
+		<div class="bc-flex bc-pd-10rpx bc-bd-b-e5e bc-f-b" v-if="fightData.reward && fightData.reward.length > 0">
 			<div>奖励：</div>
 			<div class="bc-flex-1 bc-t-base">
-				<div class="bc-pd-b-2rp" v-for="reward in fightData.reward">
+				<div class="bc-pd-b-2rpx" v-for="reward in fightData.reward">
 					{{reward.name}} x{{reward.amount}}
 				</div>
 			</div>
 		</div>
 
 		<!--战斗结束-->
-		<div v-if="isEnd" class="bc-pd-10rp bc-t-c bc-f-b">
+		<div v-if="isEnd" class="bc-pd-10rpx bc-t-c bc-f-b">
       <span>
         战斗结束->
       </span>

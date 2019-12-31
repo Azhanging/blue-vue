@@ -5,18 +5,18 @@
     }"/>
     <div class="bc-t-c">
       <form ref="form">
-        <div class="bc-mg-t-16rp">
+        <div class="bc-mg-t-16rpx">
           <label>
             邮箱：<input type="text" name="email" v-model="form.email" class="bc-input" v-blue-validate="validate.email"/>
           </label>
         </div>
-        <div class="bc-mg-t-16rp">
+        <div class="bc-mg-t-16rpx">
           <label>
             密码：<input type="password" name="password" v-model="form.password" class="bc-input"
                       v-blue-validate="validate.password"/>
           </label>
         </div>
-        <div class="bc-mg-t-16rp">
+        <div class="bc-mg-t-16rpx">
           <button type="button" class="bc-btn bc-btn-base" @click="login">
             登录
           </button>

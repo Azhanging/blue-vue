@@ -4,10 +4,10 @@
       title:`绑定手机`
     }"></BvHeader>
 		<div class="bc-row bc-t-c">
-			<div class="bc-row bc-mg-t-10rp">
+			<div class="bc-row bc-mg-t-10rpx">
 				绑定手机：<input type="text" class="bc-input" v-model="phone">
 			</div>
-			<div class="bc-row bc-mg-t-10rp">
+			<div class="bc-row bc-mg-t-10rpx">
 				<button class="bc-btn bc-btn-primary" @click="bind">绑定</button>
 			</div>
 		</div>

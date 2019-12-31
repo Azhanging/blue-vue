@@ -4,7 +4,7 @@
 	  	title:`多级联动`
 		}"/>
 
-    <div class="bc-pd-10rp">
+    <div class="bc-pd-10rpx">
       select联动：
     </div>
     <div class="bc-row bc-overflow-hide">
@@ -29,7 +29,7 @@
       </BvPicker>
     </div>
 
-    <div class="bc-pd-10rp">
+    <div class="bc-pd-10rpx">
       <a href="" class="bc-btn bc-btn-primary">
         点击联动
       </a>
@@ -39,11 +39,11 @@
             :slots="slots"
             :ajax="ajax"
             :select="{
-			  className: 'bc-pd-10rp',
+			  className: 'bc-pd-10rpx',
 			  activeClassName: 'bc-t-base bc-bd-b-base'
 			}"
             :scroll="{
-			  className: 'bc-pd-10rp',
+			  className: 'bc-pd-10rpx',
 			  activeClassName: 'bc-t-base'
 			}"
     />

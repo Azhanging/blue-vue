@@ -5,31 +5,31 @@
       title: mapData.name
     }"/>
 
-    <div class="bc-pd-14rp bc-f-b bc-bd-b-e5e">
+    <div class="bc-pd-14rpx bc-f-b bc-bd-b-e5e">
       地图简介：{{mapData.description}}
     </div>
 
-    <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
+    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
       <div>周边：</div>
       <div class="bc-flex-10">
         <router-link :to="`/scene/map?id=${item.id}`" v-for="(item) in mapData.map" :key="item.id"
-                     class="bc-t-base bc-mg-r-10rp">
+                     class="bc-t-base bc-mg-r-10rpx">
           {{item.name}}
         </router-link>
       </div>
     </div>
 
-    <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
+    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
       <div>NPC：</div>
       <div class="bc-flex-10">
         <router-link :to="`/scene/npc/info?id=${item.id}`" v-for="(item) in mapData.npc" :key="item.id"
-                     class="bc-t-base bc-mg-r-10rp">
+                     class="bc-t-base bc-mg-r-10rpx">
           {{item.name}}
         </router-link>
       </div>
     </div>
 
-    <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
+    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
       <div>怪物：</div>
       <div class="bc-flex-10">
         <a href="javascript:;" @click="entryFight({

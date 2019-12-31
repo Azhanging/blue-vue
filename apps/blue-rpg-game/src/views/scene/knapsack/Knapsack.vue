@@ -4,14 +4,14 @@
     <BvHeader :center-control="{
       title: `背包`
     }"/>
-    <div class="bc-pd-lr-10rp bc-f-b bc-t-c">
+    <div class="bc-pd-lr-10rpx bc-f-b bc-t-c">
       <div>
-        <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e">
+        <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e">
           已装备
         </div>
         <!-- 已使用装备 -->
         <template v-if="equipmentList.length > 0">
-          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base"
+          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rpx bc-bd-b-e5e bc-t-base"
                v-for="resource in equipmentList">
             <div class="bc-flex-1 bc-t-333">
               {{resource.typeName}}
@@ -26,17 +26,17 @@
             </div>
           </div>
         </template>
-        <div class="bc-t-c bc-pd-tb-10rp bc-t-999" v-else>
+        <div class="bc-t-c bc-pd-tb-10rpx bc-t-999" v-else>
           无
         </div>
       </div>
 
       <div>
-        <div class="bc-flex bc-pd-14rp bc-f-b bc-bd-b-e5e">
+        <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e">
           背包
         </div>
         <template v-if="knapsackList.length > 0">
-          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rp bc-bd-b-e5e bc-t-base"
+          <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rpx bc-bd-b-e5e bc-t-base"
                v-for="resource in knapsackList">
             <div class="bc-flex-1">
               {{resource.name}}
@@ -57,7 +57,7 @@
             </div>
           </div>
         </template>
-        <div class="bc-t-c bc-pd-tb-10rp bc-t-999" v-else>
+        <div class="bc-t-c bc-pd-tb-10rpx bc-t-999" v-else>
           无
         </div>
       </div>

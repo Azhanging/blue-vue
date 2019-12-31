@@ -5,14 +5,14 @@
     }">
       <div slot="left-control"></div>
       <div slot="right-control">
-        <router-link to="/setting" class="bc-pd-15rp bc-f-14rp">
+        <router-link to="/setting" class="bc-pd-15rpx bc-f-14rpx">
           设置
         </router-link>
       </div>
     </BvHeader>
 
     <!-- GAME NAME -->
-    <div class="bc-t-c bc-t-base bc-pd-tb-40rp bc-f-20rp game-name">
+    <div class="bc-t-c bc-t-base bc-pd-tb-40rpx bc-f-20rpx game-name">
       <- BLUE-TEXT-RPG-GAME ->
     </div>
 

@@ -4,16 +4,16 @@
 		<BvHeader :center-control="{
       title: `角色列表`
     }"/>
-		<div class="bc-pd-14rp bc-bd-b-e5e">
+		<div class="bc-pd-14rpx bc-bd-b-e5e">
 			<div class="bc-t-base bc-f-b">
 				用户：{{userInfo.username}}
 			</div>
 		</div>
-		<div class="bc-pd-14rp">
+		<div class="bc-pd-14rpx">
 			请选择角色：
 			<template v-if="roleList.length > 0">
 				<ul class="bc-reset-ul bc-t-c">
-					<li class="bc-pd-tb-6rp">
+					<li class="bc-pd-tb-6rpx">
 						<a href="javascript:;" class="bc-t-base bc-flex bc-flex-jc-c bc-flex-ai-c"
 						   v-for="(item,index) in roleList" :key="index" @click="useRole(item)">
 							<div class="bc-flex-1">
