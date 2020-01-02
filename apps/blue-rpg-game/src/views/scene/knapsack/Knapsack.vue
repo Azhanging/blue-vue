@@ -33,11 +33,11 @@
 
       <div>
         <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e">
-          背包
+          背包 ({{knapsack.list.length}}/{{knapsack.capacity}})
         </div>
-        <template v-if="knapsackList.length > 0">
+        <template v-if="knapsack.list.length > 0">
           <div class="bc-flex bc-flex-jc-c bc-pd-tb-10rpx bc-bd-b-e5e bc-t-base"
-               v-for="resource in knapsackList">
+               v-for="resource in knapsack.list">
             <div class="bc-flex-1">
               {{resource.name}}
             </div>
@@ -48,7 +48,8 @@
               <a href="javascript:;" class="bc-t-base" v-if="resource.type === 1" @click="useConsume(resource)">
                 使用
               </a>
-              <a href="javascript:;" class="bc-t-base" @click="useEquipment(resource)" v-if="/^[3]$/.test(resource.type)">
+              <a href="javascript:;" class="bc-t-base" @click="useEquipment(resource)"
+                 v-if="/^[3]$/.test(resource.type)">
                 装备
               </a>
               <a href="javascript:;" class="bc-t-base" @click="discard(resource)">
@@ -72,8 +73,11 @@
       return {
         //装备列表
         equipmentList: [],
-        //背包列表
-        knapsackList: []
+        //背包
+        knapsack: {
+          list: [],
+          capacity: '-'
+        }
       };
     },
     created() {
@@ -91,7 +95,7 @@
       getKnapsack() {
         this.$axios.get(`/member/scene/knapsack/resource`).then((res) => {
           const { data } = res;
-          this.knapsackList = data.list;
+          this.knapsack = data;
         });
       }
       ,
