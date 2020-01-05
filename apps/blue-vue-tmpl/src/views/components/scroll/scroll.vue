@@ -58,7 +58,7 @@
     methods: {
       api() {
         const page = this.loadMore.params.page++;
-        return this.$axios.get('/api/index/index', {
+        return this.$axios.get('/mock/list', {
           params: {
             page: page,
             id: this.$router.$getParam(`id`)
