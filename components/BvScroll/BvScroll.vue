@@ -1,55 +1,35 @@
-<!-- 加载更多的组件 -->
+<!-- scroll组件 -->
 <template>
-	<div
-		:infinite-scroll-distance="distance"
-		infinite-scroll-disabled="disabled"
-		infinite-scroll-immediate-check="immediateCheck"
-		v-infinite-scroll="loadEvent"
-	>
-		<!-- load down slot -->
-		<slot name="load-up"></slot>
-
-		<!--main slot-->
-		<slot></slot>
-
-		<!-- load down slot -->
-		<slot name="load-down"></slot>
-
-	</div>
+  <div data-scroll-elm>
+    <!-- 内部容器 -->
+    <div data-scroll-container>
+      <slot/>
+    </div>
+  </div>
 </template>
 
 <script>
 
+  import { initScroll } from './index';
+
   export default {
-    name: "infinite-scroll",
+    name: "bv-scroll",
     props: {
       distance: {
         type: [Number, String],
-        default: 30
+        default: 50
       },
       disabled: {
         type: Boolean,
         default: false
       },
-      immediateCheck: {
-        type: [String, Boolean],
-        default: true   //会立即执行一次loadEvent
-      },
-      api: {
-        type: [Function, Boolean],
+      immediate: {
+        type: Boolean,
         default: false
       }
     },
-    methods: {
-      loadEvent() {
-        const api = this.api;
-        if (!api) return;
-        try {
-          api();
-        } catch (e) {
-          console.log(e);
-        }
-      }
+    mounted() {
+      initScroll.call(this);
     }
   }
 </script>

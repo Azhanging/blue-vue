@@ -31,5 +31,7 @@ export function computeSubMenuPosition(opts = {}) {
 
 //设置导航子菜单状态
 export function setTabBarSubmenuIndex(index) {
-  store.commit('SET_TAB_BAR_SUBMENU_INDEX', index);
+  store.commit('SET_TAB_BAR', {
+    submenuIndex: index
+  });
 }

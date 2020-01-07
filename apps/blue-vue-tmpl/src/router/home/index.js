@@ -1,19 +1,26 @@
 const home = [{
   path: '/',
   name: 'home',
-  component: () => import(`@/views/home/Home.vue`),
-  children: [{
-    path: 'test-scroll',
-    component: () => import(`@/views/home/test-scroll/test-scroll.vue`),
-    children: [{
-      path: 'test-scroll-children',
-      component: () => import(`@/views/home/test-scroll/test-scroll-children/test-scroll-children.vue`),
-    }]
-  }]
+  component: () => import(`@/views/home/Home.vue`)
+}, {
+  path: '/scroll1',
+  component: () => import(`@/views/home/Scroll1.vue`)
+}, {
+  path: '/scroll2',
+  component: () => import(`@/views/home/Scroll2.vue`),
+  meta: {
+    scroll: {
+      status: true
+    }
+  }
 }, {
   //登录
-  path: 'login',
+  path: '/login',
   component: () => import(`@/views/home/Login.vue`)
+}, {
+  path: '/bind-phone',
+  name: "bind-phone",
+  component: () => import(`@/views/home/BindPhone.vue`)
 }];
 
 export default home;

@@ -4,6 +4,7 @@ import router from './router';
 import store from './store';
 import { useInVue } from '../../../use-in-vue';
 import { device } from '$assets/js/device';
+import { view } from '$assets/js/view';
 import { useInVueProgram } from './use-in-vue-program';
 import user from '$assets/js/user';
 //公共css，项目配置项assets/scss/config
@@ -19,6 +20,9 @@ import './registerServiceWorker';
 device({
   Vue
 });
+
+//图层相关
+view();
 
 //使用插件到Vue，相对于公共的插件
 useInVue({

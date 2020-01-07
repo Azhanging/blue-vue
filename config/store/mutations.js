@@ -1,3 +1,5 @@
+import utils from 'blue-utils';
+
 //公共的mutation
 const mutations = {
 
@@ -8,7 +10,12 @@ const mutations = {
 
   //设置导航状态
   SET_TAB_BAR(state, tabBar) {
-    state.view.tabBar = tabBar;
+    state.view.tabBar = utils.extend(state.view.tabBar, tabBar);
+  },
+
+  //设置scroll
+  SET_SCROLL(state, scroll = {}) {
+    state.view.scroll = utils.extend(state.view.scroll, scroll);
   },
 
   //设置导航子菜单状态

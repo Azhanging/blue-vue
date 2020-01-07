@@ -5,7 +5,7 @@
     <BvTransition transition-name="top">
       <div class="back-to-top" v-show="backToTopShow">
         <a href="javascript:;" @click="backToTop">
-          <slot name="back-to-top"></slot>
+          <slot name="backToTop"/>
         </a>
       </div>
     </BvTransition>
@@ -19,19 +19,14 @@
   export default {
     name: "BvSuspend",
     props: {
-      //对应的m-view中的element
-      backElement: {
-        type: Element
+      scrollDistance: {
+        type: Number,
+        default: 0
       },
       //显示距离
       distance: {
         type: Number,
         default: 100
-      },
-      //当前的scroll距离
-      scrollDistance: {
-        type: Number,
-        default: 0
       }
     },
     computed: {
@@ -41,12 +36,11 @@
     },
     methods: {
       backToTop() {
-        if (!this.backElement) return;
-        Velocity(this.backElement, "scroll", {
-          container: this.backElement,
+        Velocity(document.documentElement, "scroll", {
+          container: document.documentElement,
           duration: 180,
           MobileHA: true,
-          offset: -this.backElement.scrollTop
+          offset: -document.documentElement.scrollTop
         });
       }
     }
@@ -62,5 +56,4 @@
     bottom: calc(constant(safe-area-inset-bottom) + 60px);
     bottom: calc(env(safe-area-inset-bottom) + 60px);
   }
-
 </style>

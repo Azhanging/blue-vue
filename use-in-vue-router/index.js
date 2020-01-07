@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import utils from 'blue-utils';
-import { setCurrentViewScroll } from '$components/BvView';
 import BlueKeepAlive from './blue-keep-alive';
 
 //vue-router的config
@@ -25,10 +24,7 @@ export function useInVueRouter(Router, opts = {}) {
 
 //keep-alive保存position
 export function scrollBehavior(to, from, savedPosition) {
-  if (savedPosition) {
-    //设置view层scroll
-    setCurrentViewScroll(savedPosition);
-  }
+  if (savedPosition) return savedPosition;
   return {
     x: 0,
     y: 0

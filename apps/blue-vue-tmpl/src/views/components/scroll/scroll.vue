@@ -7,7 +7,7 @@
     <div slot="top" class="mint-loadmore-top">
       下拉刷新
     </div>
-    <BvScroll :api="api" :disabled="loadMore.state.disabled">
+    <BvScroll @scrolltolower="api" :disabled="loadMore.state.disabled">
       <ul class="bc-reset-ul">
         <li v-for="item in loadMore.data.list" class="bc-pd-10">
           <a href="" class="bc-t-666">

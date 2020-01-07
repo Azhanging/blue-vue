@@ -47,7 +47,7 @@ $axios.interceptors.response.use((res) => {
     hideLoading();
   }
   //success http request state
-  if (status === 200) {
+  if (status >= 200 || status < 400) {
     const { code: requestCode, message, consoleMessage } = res.data;
     //后台指派console信息打印
     consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);

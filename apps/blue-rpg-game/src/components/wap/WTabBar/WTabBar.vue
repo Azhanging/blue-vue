@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-	<BvTabBar v-if="list" :list="list" :active-class-name="'bc-t-base'" :active-index="activeIndex"/>
+  <BvTabBar v-if="list" :list="list" :active-class-name="'bc-t-base'" :active-index="activeIndex"/>
 </template>
 
 <script>
@@ -41,7 +41,9 @@
           nav.active.call(this);
         } else if (this.tabBarName !== false) {
           //没有配置到导航配置，直接设置为没有导航
-          store.commit('SET_TAB_BAR', false);
+          store.commit('SET_TAB_BAR', {
+            name: false
+          });
         }
       }
     },

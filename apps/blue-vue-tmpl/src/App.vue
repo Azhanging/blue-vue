@@ -7,8 +7,13 @@
       </keep-alive>
     </BvViewTransition>
 
+    <!-- 浮动状态 -->
+    <BvSuspend :scrollDistance="view.scroll.distance" v-if="view.scroll.status">
+      <i class="bp-icon bp-icon-go-top bc-f-20 bc-t-666" slot="backToTop"></i>
+    </BvSuspend>
+
     <!-- 底部导航 -->
-    <WTabBar></WTabBar>
+    <WTabBar/>
 
     <!-- 图片预览的组件 -->
     <BluePhotoSwipe/>
@@ -17,8 +22,15 @@
 </template>
 
 <script>
+  import Vuex from 'vuex';
+
+  const { mapState } = Vuex;
+
   export default {
-    name: 'app'
+    name: 'app',
+    computed: {
+      ...mapState(['view'])
+    }
   };
 </script>
 
