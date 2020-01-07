@@ -22,13 +22,15 @@ export function useInVueRouter(Router, opts = {}) {
   extendVueRouter(Router);
 }
 
+const scrollTo = utils.debounce(function (resolve, savedPosition) {
+  resolve(savedPosition);
+}, 500);
+
 //keep-alive保存position
 export function scrollBehavior(to, from, savedPosition) {
-  if (savedPosition) return savedPosition;
-  return {
-    x: 0,
-    y: 0
-  };
+  return new Promise((resolve) => {
+    scrollTo(null, [resolve, savedPosition]);
+  });
 }
 
 //扩展vue router

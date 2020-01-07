@@ -51,7 +51,7 @@ function getScrollElmContainer(elm) {
 const scrollEventHandler = utils.debounce(function () {
   const currentScrollElm = getCurrentScrollElm();
   //被禁止不被触发 || 不存在节点的，不进行处理
-  if (currentScrollElm && currentScrollElm.scrollView.disabled) return;
+  if (!currentScrollElm || currentScrollElm && currentScrollElm.scrollView.disabled) return;
   //vue实例被挂载到elm中
   const scrollView = currentScrollElm.scrollView;
   let bottom, viewScrollTop;

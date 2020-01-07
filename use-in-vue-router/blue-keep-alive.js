@@ -44,14 +44,14 @@ function beforeRouteEnter(to, from, next) {
 
   meta.query = to.query;
   meta.params = to.params;
-  next((vm) => {
-    vm.$nextTick(() => {
+  next(() => {
+    setTimeout(() => {
       // 在为refresh === true的情况，在执行下一event loop就要恢复回到的false
       // 循环跳到一个view层的话，会出现back后会刷新，因为存在回环，这是正常的现象
       if (refresh.status === true) {
         refresh.status = false;
       }
-    });
+    }, 500);
   });
 }
 
