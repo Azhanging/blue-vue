@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="bc-t-666 bc-f-14rpx">
 
-    <BvViewTransition>
-      <keep-alive :exclude="config.view.keepAlive.exclude">
-        <router-view/>
-      </keep-alive>
-    </BvViewTransition>
+    <!--<BvViewTransition></BvViewTransition>-->
+
+    <keep-alive :exclude="config.app.keepAlive.exclude">
+      <router-view/>
+    </keep-alive>
 
     <!-- 浮动状态 -->
     <BvSuspend :scrollDistance="view.scroll.distance" v-if="view.scroll.status">

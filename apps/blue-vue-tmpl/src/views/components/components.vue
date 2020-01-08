@@ -1,5 +1,5 @@
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
   		title:`组价列表`
 		}"/>
@@ -15,27 +15,11 @@
 			<div v-for="i in 10" class="bc-pd-20"></div>
 
 			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/load-more/1" class="bc-t-base">load-more-1</router-link>
+				<router-link to="/components/scroll/1" class="bc-t-base">scroll-1</router-link>
 			</div>
 
 			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/load-more/2" class="bc-t-base">load-more-2</router-link>
-			</div>
-
-			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/components/load-more/1" class="bc-t-base">component-load-more-1</router-link>
-			</div>
-
-			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/components/load-more/2" class="bc-t-base">component-load-more-2</router-link>
-			</div>
-
-			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/scroll/1" class="bc-t-base">scroll-1</router-link>
-			</div>
-
-			<div class="bc-row bc-pd-10 bc-t-c">
-				<router-link to="/scroll/2" class="bc-t-base">scroll-2</router-link>
+				<router-link to="/components/scroll/2" class="bc-t-base">scroll-2</router-link>
 			</div>
 
 			<div class="bc-row bc-pd-10 bc-t-c">
@@ -55,7 +39,7 @@
 			</div>
 
 		</div>
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

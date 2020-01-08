@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView :router-level="2">
+  <BvView>
     <BvHeader :center-control="{
 	  		title:`上传图片`
 		}"/>
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

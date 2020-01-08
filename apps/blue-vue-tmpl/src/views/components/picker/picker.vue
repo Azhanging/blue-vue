@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView :router-level="2">
+  <BvView>
     <BvHeader :center-control="{
 	  	title:`多级联动`
 		}"/>
@@ -48,7 +48,7 @@
 			}"
     />
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

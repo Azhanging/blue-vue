@@ -21,39 +21,43 @@ function extendNativeHistory() {
   };
 }
 
+
+function getBeforeRouteEnter(opts = {}) {
 //enter钩子
-function beforeRouteEnter(to, from, next) {
-  const meta = to.meta;
+  return function beforeRouteEnter(to, from, next) {
+    const meta = to.meta;
 
-  //设置状态
-  meta.refresh = utils.extend({
-    //刷新状态
-    status: false,
-    //强制刷新的列表
-    unforcedList: []
-  }, meta.refresh || {});
+    //设置状态
+    meta.refresh = utils.extend({
+      //刷新状态
+      status: false,
+      //强制刷新的列表
+      unforcedList: []
+    }, meta.refresh || {});
 
-  const refresh = meta.refresh;
+    const refresh = meta.refresh;
 
-  //检查参数
-  if (refresh.status !== true) {
-    refresh.status = matchParamsRefresh({
-      route: to
+    //检查参数
+    if (refresh.status !== true) {
+      refresh.status = matchParamsRefresh({
+        route: to
+      });
+    }
+
+    meta.query = to.query;
+    meta.params = to.params;
+    next(() => {
+      setTimeout(() => {
+        // 在为refresh === true的情况，在执行下一event loop就要恢复回到的false
+        // 循环跳到一个view层的话，会出现back后会刷新，因为存在回环，这是正常的现象
+        if (refresh.status === true) {
+          refresh.status = false;
+        }
+      }, opts.tickTime || 500);
     });
   }
-
-  meta.query = to.query;
-  meta.params = to.params;
-  next(() => {
-    setTimeout(() => {
-      // 在为refresh === true的情况，在执行下一event loop就要恢复回到的false
-      // 循环跳到一个view层的话，会出现back后会刷新，因为存在回环，这是正常的现象
-      if (refresh.status === true) {
-        refresh.status = false;
-      }
-    }, 500);
-  });
 }
+
 
 //leave钩子
 function beforeRouteLeave(to, from, next) {
@@ -141,12 +145,12 @@ function matchUnforcedListRefresh({
 
 //扩展的Vue
 const BlueKeepAlive = {
-  install(Vue) {
+  install(Vue, opts = {}) {
     //扩展原生History
     extendNativeHistory();
     //针对keepAlive，处理掉组件实例化缓存问题
     Vue.mixin({
-      beforeRouteEnter,
+      beforeRouteEnter: getBeforeRouteEnter(opts),
       beforeRouteLeave
     });
   }

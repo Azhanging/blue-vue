@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView :router-level="2" :keep-alive="false">
+  <BvView :keep-alive="false">
     <BvHeader :center-control="{
       title:`验证相关`
     }"/>
@@ -90,12 +90,13 @@
     </form>
 
     <!-- 固定到底部提交按钮 -->
-    <div slot="other" class="bc-ps-f bc-row" style="left:0;bottom:0;" v-show="pageFixed">
-      <button class="bc-btn bc-btn-success bc-w-100" style="padding-top:12px;padding-bottom:12px;" @click="submit">提交
+    <div class="bc-ps-f bc-row" style="left:0;bottom:0;" v-show="pageFixed">
+      <button class="bc-btn bc-btn-success bc-w-100" style="padding-top:12px;padding-bottom:12px;" @click="submit">
+        提交
       </button>
     </div>
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView :router-level="2">
+  <BvView>
     <BvHeader :center-control="{
       title:'下拉加载'
     }"/>
@@ -7,7 +7,7 @@
     <div slot="top" class="mint-loadmore-top">
       下拉刷新
     </div>
-    <BvScroll @scrolltolower="api" :disabled="loadMore.state.disabled">
+    <BvScroll @scrolltolower="api" :disabled="loadMore.state.disabled" :immediate="true">
       <ul class="bc-reset-ul">
         <li v-for="item in loadMore.data.list" class="bc-pd-10">
           <a href="" class="bc-t-666">
@@ -42,7 +42,7 @@
         </div>
       </template>
     </BvScroll>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

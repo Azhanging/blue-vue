@@ -2,7 +2,7 @@
   <div id="app" class="bc-t-333 bc-f-14rpx">
 
     <BvViewTransition>
-      <keep-alive :exclude="config.view.keepAlive.exclude">
+      <keep-alive :exclude="config.app.keepAlive.exclude">
         <router-view/>
       </keep-alive>
     </BvViewTransition>

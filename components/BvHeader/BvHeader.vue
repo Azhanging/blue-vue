@@ -18,7 +18,7 @@
         </slot>
       </div>
       <div class="bv-header-title" :style="centerControl.style">
-        <slot name="title">{{(centerControl.title) || config.view.title}}</slot>
+        <slot name="title">{{(centerControl.title) || config.app.title}}</slot>
       </div>
       <div class="bv-header-control bc-t-r">
         <!-- 有操作的插槽 -->

@@ -15,6 +15,7 @@ import { useComponentsInVue } from './components';
 import config from '@config';
 import { share } from '$assets/js/share';
 import { login } from '$assets/js/login';
+import { view } from '$assets/js/view';
 import { useFilter } from './filter'
 
 
@@ -27,6 +28,8 @@ import { useFilter } from './filter'
 export function useInVue(opts = {}) {
   const { Vue } = opts;
   if (inBrowser()) {
+    //视图相关
+    view();
     //进度条
     NProgress.configure();
     //扩展微信

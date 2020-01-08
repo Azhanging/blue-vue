@@ -1,7 +1,7 @@
+import config from '@config';
 import Vue from 'vue';
 import utils from 'blue-utils';
 import BlueKeepAlive from './blue-keep-alive';
-
 //vue-router的config
 const routerConfig = {
   params: {
@@ -16,7 +16,9 @@ export function useInVueRouter(Router, opts = {}) {
   Router.config = utils.extend(routerConfig, opts);
 
   //缓存机制
-  Vue.use(BlueKeepAlive);
+  Vue.use(BlueKeepAlive, {
+    tickTime: config.app.tickTime
+  });
 
   //扩展vue router
   extendVueRouter(Router);
@@ -24,12 +26,15 @@ export function useInVueRouter(Router, opts = {}) {
 
 const scrollTo = utils.debounce(function (resolve, savedPosition) {
   resolve(savedPosition);
-}, 500);
+}, config.app.tickTime);
 
 //keep-alive保存position
 export function scrollBehavior(to, from, savedPosition) {
   return new Promise((resolve) => {
-    scrollTo(null, [resolve, savedPosition]);
+    scrollTo(null, [resolve, savedPosition || {
+      x: 0,
+      y: 0
+    }]);
   });
 }
 

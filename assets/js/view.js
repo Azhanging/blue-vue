@@ -43,7 +43,7 @@ export function tabBar(name) {
   store.commit('SET_TAB_BAR', (() => {
     if (name === undefined) {
       return {
-        name: config.view.tabBar
+        name: config.app.tabBar
       };
     }
     return {
