@@ -14,8 +14,8 @@ const mutations = {
   },
 
   //设置scroll
-  SET_SCROLL(state, scroll = {}) {
-    state.view.scroll = utils.extend(state.view.scroll, scroll);
+  SET_SUSPEND(state, suspend = {}) {
+    state.view.suspend = utils.extend(state.view.suspend, suspend);
   },
 
   //设置导航子菜单状态

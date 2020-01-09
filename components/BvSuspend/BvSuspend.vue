@@ -3,7 +3,7 @@
   <div class="suspend">
     <!-- 回到顶部 -->
     <BvTransition transition-name="top">
-      <div class="back-to-top" v-show="backToTopShow">
+      <div class="back-to-top" v-show="show && backToTopShow">
         <a href="javascript:;" @click="backToTop">
           <slot name="backToTop"/>
         </a>
@@ -19,6 +19,10 @@
   export default {
     name: "BvSuspend",
     props: {
+      show: {
+        type: Boolean,
+        default: false
+      },
       scrollDistance: {
         type: Number,
         default: 0
@@ -31,6 +35,7 @@
     },
     computed: {
       backToTopShow() {
+        if (this.show === false) return false;
         return this.scrollDistance > this.distance;
       }
     },

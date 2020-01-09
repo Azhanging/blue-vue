@@ -8,7 +8,7 @@
     </keep-alive>
 
     <!-- 浮动状态 -->
-    <BvSuspend :scrollDistance="view.scroll.distance" v-if="view.scroll.status">
+    <BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
       <i class="bp-icon bp-icon-go-top bc-f-20 bc-t-666" slot="backToTop"></i>
     </BvSuspend>
 

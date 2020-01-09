@@ -1,7 +1,12 @@
 const home = [{
   path: '/',
   name: 'home',
-  component: () => import(`@/views/home/Home.vue`)
+  component: () => import(`@/views/home/Home.vue`),
+  meta: {
+    suspend: {
+      status: false
+    }
+  }
 }, {
   //登录
   path: '/login',

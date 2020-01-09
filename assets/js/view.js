@@ -12,7 +12,7 @@ export function view() {
 const scrollHandler = utils.debounce(function () {
   const top = document.documentElement.scrollTop;
   //设置scroll top
-  store.commit('SET_SCROLL', {
+  store.commit('SET_SUSPEND', {
     distance: top || 0
   });
   //设置子菜单的状态
@@ -32,10 +32,9 @@ function setEvent() {
 }
 
 //浮层相关
-export function suspendStatus(status) {
-  store.commit('SET_SCROLL', {
-    status: status !== false
-  });
+export function suspend(state) {
+  if (state.status !== false) state.status = true;
+  store.commit('SET_SUSPEND', state);
 }
 
 //导航的状态

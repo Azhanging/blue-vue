@@ -5,7 +5,7 @@ const env = require('./env');
 
 //合并公共的配置
 const config = utils.extend(publicConfig, {
-  view: {
+  app: {
     title: "BLUE-TEXT-RPG-GAME",
     tabBar: 'home',
     keepAlive: {

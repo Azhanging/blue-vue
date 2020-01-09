@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :centerControl="{
       title:`BLUE-RPG-GAME`
     }">
@@ -40,7 +40,7 @@
       </button>
     </div>
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

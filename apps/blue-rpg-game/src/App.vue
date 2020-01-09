@@ -1,14 +1,19 @@
 <template>
-  <div id="app" class="bc-t-333 bc-f-14rpx">
+  <div id="app" class="bc-t-666 bc-f-14rpx">
 
-    <BvViewTransition>
-      <keep-alive :exclude="config.app.keepAlive.exclude">
-        <router-view/>
-      </keep-alive>
-    </BvViewTransition>
+    <!--<BvViewTransition></BvViewTransition>-->
+
+    <keep-alive :exclude="config.app.keepAlive.exclude">
+      <router-view/>
+    </keep-alive>
+
+    <!-- 浮动状态 -->
+    <BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
+      <i class="bp-icon bp-icon-go-top bc-f-20 bc-t-666" slot="backToTop"></i>
+    </BvSuspend>
 
     <!-- 底部导航 -->
-    <WTabBar></WTabBar>
+    <WTabBar/>
 
     <!-- 图片预览的组件 -->
     <BluePhotoSwipe/>
@@ -17,14 +22,18 @@
 </template>
 
 <script>
+  import Vuex from 'vuex';
+
+  const { mapState } = Vuex;
+
   export default {
-    name: 'app'
+    name: 'app',
+    computed: {
+      ...mapState(['view'])
+    }
   };
 </script>
 
 <style lang="scss">
   @import url(//at.alicdn.com/t/font_1270732_8tdxo0ksvkf.css);
-  a {
-    color: #333;
-  }
 </style>

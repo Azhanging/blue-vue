@@ -1,6 +1,6 @@
 <!-- 地图场景 -->
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: mapData.name
     }"/>
@@ -44,7 +44,7 @@
       </div>
     </div>
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

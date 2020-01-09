@@ -1,6 +1,6 @@
 //router after each 相关的业务
 import utils from 'blue-utils';
-import { tabBar, suspendStatus } from "$assets/js/view";
+import { tabBar, suspend } from "$assets/js/view";
 import { hideLoading } from "$use-in-vue/mint-ui/indicator";
 import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
@@ -31,7 +31,7 @@ export function routerAfterEach(opts = {}) {
 //router after hook
 export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
-  const { title, afterHook, tabBar: tabBarName, scroll = {} } = to.meta;
+  const { title, afterHook, tabBar: tabBarName, suspend: suspendState = {} } = to.meta;
   //进度条
   NProgress.done();
   //文档标题
@@ -39,7 +39,10 @@ export function routerAfterHook(opts) {
   //导航状态
   tabBar(tabBarName);
   //浮层状态
-  suspendStatus(scroll.status);
+  suspend({
+    status: suspendState.status,
+    distance: 0
+  });
   //目标路由的hook处理
   if (afterHook) {
     utils.hook(null, afterHook);

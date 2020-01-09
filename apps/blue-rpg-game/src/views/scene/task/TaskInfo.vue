@@ -1,6 +1,6 @@
 <!-- 角色列表 -->
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `${taskInfo.name}`
     }"/>
@@ -84,7 +84,7 @@
       </template>
     </div>
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <!-- NPC信息 -->
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title: `资源`
     }"/>
@@ -84,7 +84,7 @@
 
 		</div>
 
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

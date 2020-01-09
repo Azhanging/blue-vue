@@ -1,5 +1,5 @@
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title:`绑定手机`
     }"></BvHeader>
@@ -11,7 +11,7 @@
 				<button class="bc-btn bc-btn-base" @click="bind">绑定</button>
 			</div>
 		</div>
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

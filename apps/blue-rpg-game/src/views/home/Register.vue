@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `注册`
     }"/>
@@ -29,7 +29,7 @@
         </div>
       </form>
     </div>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

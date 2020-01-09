@@ -1,6 +1,6 @@
 <!-- 背包 -->
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `背包`
     }"/>
@@ -63,7 +63,7 @@
         </div>
       </div>
     </div>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

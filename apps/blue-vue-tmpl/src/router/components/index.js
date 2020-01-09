@@ -23,8 +23,7 @@ const components = [{
       });
     },
     title: '验证标题',
-    tabBar: false,
-    keepAlive: false
+    tabBar: false
   }
 }, {
   path: '/components/page-list',

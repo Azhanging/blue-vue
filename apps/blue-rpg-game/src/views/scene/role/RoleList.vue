@@ -1,6 +1,6 @@
 <!-- 角色列表 -->
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title: `角色列表`
     }"/>
@@ -38,7 +38,7 @@
 				创建角色
 			</router-link>
 		</div>
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

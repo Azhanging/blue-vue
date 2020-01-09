@@ -10,7 +10,7 @@ const state = {
   //视图相关
   view: {
     //浮层相关
-    scroll: {
+    suspend: {
       status: false,
       distance: 0
     },

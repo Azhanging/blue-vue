@@ -1,5 +1,5 @@
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `创建角色`
     }"/>
@@ -32,7 +32,7 @@
         </div>
       </form>
     </div>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

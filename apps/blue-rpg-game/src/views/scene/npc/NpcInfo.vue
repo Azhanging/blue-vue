@@ -1,6 +1,6 @@
 <!-- NPC信息 -->
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `NPC:${npcData.name}`
     }"/>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

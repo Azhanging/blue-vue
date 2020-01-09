@@ -1,6 +1,6 @@
 <!-- 战斗舞台 -->
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title: `战斗场景`
     }"/>
@@ -84,7 +84,7 @@
 			</router-link>
 		</div>
 
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>
