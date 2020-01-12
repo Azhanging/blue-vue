@@ -73,7 +73,7 @@
           method: 'post',
           data: this.form
         }).then(() => {
-          this.$router.replace('/scene/role/list');
+          this.$router.replace('/scene/zone/entry');
         });
       }
     }

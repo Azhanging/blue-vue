@@ -1,4 +1,5 @@
 /*进度条*/
+import '$assets/css/app.scss';
 import utils from 'blue-utils';
 import "nprogress/nprogress.css";
 import NProgress from 'nprogress';

@@ -4,7 +4,7 @@ const fight = [{
 	path: `${basePath}/stage`,
 	component: () => import('@/views/scene/fight/FightStage'),
 	meta: {
-		tabBar: false
+		tabBar:{name:false}
 	}
 }];
 

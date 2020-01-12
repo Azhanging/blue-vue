@@ -18,11 +18,6 @@ const mutations = {
     state.view.suspend = utils.extend(state.view.suspend, suspend);
   },
 
-  //设置导航子菜单状态
-  SET_TAB_BAR_SUBMENU_INDEX(state, index) {
-    state.view.tabBarSubmenuIndex = index;
-  },
-
   //设置page底部fixed状态，focus相关
   SET_PAGE_FIXED(state, status) {
     state.view.pageFixed = status;

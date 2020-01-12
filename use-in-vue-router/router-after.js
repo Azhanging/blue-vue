@@ -31,13 +31,13 @@ export function routerAfterEach(opts = {}) {
 //router after hook
 export function routerAfterHook(opts) {
   const { to, unAfterHook } = opts;
-  const { title, afterHook, tabBar: tabBarName, suspend: suspendState = {} } = to.meta;
+  const { title, afterHook, tabBar: tabBarState, suspend: suspendState = {} } = to.meta;
   //进度条
   NProgress.done();
   //文档标题
   docTitle(title);
   //导航状态
-  tabBar(tabBarName);
+  tabBar(tabBarState || {});
   //浮层状态
   suspend({
     status: suspendState.status,

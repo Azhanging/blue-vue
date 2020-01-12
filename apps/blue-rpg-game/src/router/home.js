@@ -4,7 +4,7 @@ const home = [{
   name: 'home',
   component: () => import(`@/views/home/Home.vue`),
   meta: {
-    tabBar: false
+    tabBar: { name: false }
   }
 }, {
   //登录
@@ -12,7 +12,7 @@ const home = [{
   name: 'login',
   component: () => import(`@/views/home/Login.vue`),
   meta: {
-    tabBar: false
+    tabBar: { name: false }
   }
 }, {
   //注册
@@ -20,7 +20,7 @@ const home = [{
   path: '/register',
   component: () => import(`@/views/home/Register.vue`),
   meta: {
-    tabBar: false
+    tabBar: { name: false }
   }
 }];
 

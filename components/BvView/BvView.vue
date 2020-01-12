@@ -16,12 +16,6 @@
 
   export default {
     name: "bv-view",
-    //高阶注入
-    inject: {
-      hasTabBar: {
-        default: true
-      }
-    },
     computed: {
       ...mapState(['view'])
     }

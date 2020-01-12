@@ -21,7 +21,7 @@
     },
     computed: {
       tabBarName() {
-        return store.state.view.tabBar;
+        return store.state.view.tabBar.name;
       },
       list() {
         const currentNav = this.allTabBar[this.tabBarName];

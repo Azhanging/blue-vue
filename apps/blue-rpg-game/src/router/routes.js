@@ -1,6 +1,7 @@
 import bindPhone from "./bind-phone";
 import home from "./home";
 import errorPage from "./error-page";
+import zone from './scene/zone';
 import role from './scene/role';
 import map from './scene/map';
 import npc from './scene/npc';
@@ -12,6 +13,7 @@ import knapsack from "./scene/knapsack";
 //一级挂载的路由
 const routes = [
   ...home,      //首页
+  ...zone,      //区域
   ...role,      //角色相关
   ...map,       //地图相关
   ...npc,       //npc

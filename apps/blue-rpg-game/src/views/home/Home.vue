@@ -13,7 +13,7 @@
 
     <!-- GAME NAME -->
     <div class="bc-t-c bc-t-base bc-pd-tb-40rpx bc-f-20rpx game-name">
-      <- BLUE-TEXT-RPG-GAME ->
+      BLUE-RPG-GAME ->
     </div>
 
     <!-- 登录注册 -->
@@ -27,7 +27,7 @@
         </button>
       </template>
       <template v-else>
-        <router-link to="/scene/role/list" class="bc-btn bc-btn-base">
+        <router-link to="/scene/zone/entry" class="bc-btn bc-btn-base">
           进入游戏
         </router-link>
       </template>

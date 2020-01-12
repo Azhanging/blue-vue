@@ -23,7 +23,7 @@ const components = [{
       });
     },
     title: '验证标题',
-    tabBar: false
+    tabBar:{name:false}
   }
 }, {
   path: '/components/page-list',
@@ -53,7 +53,7 @@ const components = [{
   component: () => import(`@/views/components/vue-upload-component/vue-upload-component.vue`),
   meta: {
     title: '上传组件',
-    tabBar: false,
+    tabBar:{name:false},
     afterHook() {
       weChatShare({       //特定的微信分享
         title: '上传组件'
@@ -65,7 +65,7 @@ const components = [{
   component: () => import(`@/views/components/picker/picker.vue`),
   meta: {
     title: '滚动组件',
-    tabBar: false,
+    tabBar:{name:false},
     afterHook() {
       weChatShare({       //特定的微信分享
         title: '滚动组件'

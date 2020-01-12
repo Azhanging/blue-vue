@@ -38,7 +38,8 @@ export function suspend(state) {
 }
 
 //导航的状态
-export function tabBar(name) {
+export function tabBar(state) {
+  const { name } = state;
   store.commit('SET_TAB_BAR', (() => {
     if (name === undefined) {
       return {
@@ -46,8 +47,8 @@ export function tabBar(name) {
       };
     }
     return {
-      name
+      name: name
     };
-  }));
+  })());
 }
 
