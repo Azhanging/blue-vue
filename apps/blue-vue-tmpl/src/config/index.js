@@ -6,7 +6,7 @@ const env = require('./env');
 //合并公共的配置
 const config = utils.extend(publicConfig, {
   app: {
-    title: "我是项目默认标题",
+    title: "DEFAULT TITLE",
     tabBar: 'home',
     keepAlive: {
       exclude: [

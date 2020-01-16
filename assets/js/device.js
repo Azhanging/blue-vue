@@ -12,7 +12,7 @@ export function device(opts) {
   if (inBrowser() && config.device.isWap) {
     //设置webview相关
     setNativeApp();
-    //设置blue-component的viewport
+    //设置blue-zone的viewport
     setViewport();
     //移动端相关的focus处理
     mobileFocus(Vue);
@@ -142,6 +142,7 @@ function getClientHeight() {
 function focusHook(opts) {
   const { type, lastNav, event } = opts;
   const target = event.target;
+  if (target === window) return;
   const tagName = target.tagName;
   const elmType = target.getAttribute('type');
 

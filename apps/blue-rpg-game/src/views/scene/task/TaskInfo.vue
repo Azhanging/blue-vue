@@ -6,11 +6,11 @@
     }"/>
 
     <!-- 对话 -->
-    <div class="bc-bd-b-e5e bc-pd-10rpx">
-      <div class="bc-f-b bc-mg-b-10rpx">
+    <div class="bz-bd-b-e5e bz-pd-20rpx">
+      <div class="bz-f-b bz-mg-b-20rpx">
         任务对话：
       </div>
-      <div class="bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.dialogue" :key="index">
+      <div class="bz-mg-b-20rpx" v-for="(item ,index) in taskInfo.dialogue" :key="index">
         <template v-if="item.type === 1">
           NPC：
         </template>
@@ -22,19 +22,19 @@
     </div>
 
     <!-- 任务依赖 -->
-    <div class="bc-bd-b-e5e bc-pd-10rpx" v-if="taskInfo.status !== 2">
-      <div class="bc-f-b bc-mg-b-10rpx">
+    <div class="bz-bd-b-e5e bz-pd-20rpx" v-if="taskInfo.status !== 2">
+      <div class="bz-f-b bz-mg-b-20rpx">
         任务需求：
       </div>
-      <div class="bc-t-base bc-t-c">
-        <div class="bc-flex bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.requirement" :key="index">
-          <div class="bc-flex-1">
+      <div class="bz-t-base bz-t-c">
+        <div class="bz-flex bz-mg-b-20rpx" v-for="(item ,index) in taskInfo.requirement" :key="index">
+          <div class="bz-flex-1">
             {{item.typeName}}
           </div>
-          <div class="bc-flex-1">
+          <div class="bz-flex-1">
             {{item.bind ? item.bind.name : '-'}}
           </div>
-          <div class="bc-flex-1">
+          <div class="bz-flex-1">
             <template v-if="taskInfo.status === 0">
               {{item.amount}}
             </template>
@@ -47,16 +47,16 @@
     </div>
 
     <!-- 任务奖励 -->
-    <div class="bc-bd-b-e5e bc-pd-10rpx">
-      <div class="bc-f-b bc-mg-b-10rpx">
+    <div class="bz-bd-b-e5e bz-pd-20rpx">
+      <div class="bz-f-b bz-mg-b-20rpx">
         任务奖励：
       </div>
-      <div class="bc-t-base bc-t-c">
-        <div class="bc-flex bc-mg-b-10rpx" v-for="(item ,index) in taskInfo.reward" :key="index">
-          <div class="bc-flex-1">
+      <div class="bz-t-base bz-t-c">
+        <div class="bz-flex bz-mg-b-20rpx" v-for="(item ,index) in taskInfo.reward" :key="index">
+          <div class="bz-flex-1">
             {{item.name}}
           </div>
-          <div class="bc-flex-1">
+          <div class="bz-flex-1">
             +{{item.amount}}
           </div>
         </div>
@@ -64,8 +64,8 @@
     </div>
 
     <!-- 任务操作 -->
-    <div class="bc-w-100 bc-ps-f bc-flex" style="bottom:0;left:0;" slot="other">
-      <button class="bc-w-100 bc-btn bc-btn-base bc-flex-1" @click="taskHandler(taskInfo.status)" v-if="taskInfo.status !== 2">
+    <div class="bz-w-100 bz-ps-f bz-flex" style="bottom:0;left:0;" slot="other">
+      <button class="bz-w-100 bz-btn bz-btn-base bz-flex-1" @click="taskHandler(taskInfo.status)" v-if="taskInfo.status !== 2">
         <template v-if="taskInfo.status === 0">
           接受任务
         </template>
@@ -73,12 +73,12 @@
           提交任务
         </template>
       </button>
-      <button class="bc-w-100 bc-btn bc-btn-danger bc-flex-1" @click="taskHandler(-1)"
+      <button class="bz-w-100 bz-btn bz-btn-danger bz-flex-1" @click="taskHandler(-1)"
               v-if="taskInfo.status !== 0 && taskInfo.status !== 2 ">
         放弃任务
       </button>
       <template v-if="taskInfo.status === 2">
-        <div class="bc-t-c bc-bg-base bc-pd-4rpx bc-t-white bc-flex-1">
+        <div class="bz-t-c bz-bg-base bz-pd-4rpx bz-t-white bz-flex-1">
           已完成
         </div>
       </template>

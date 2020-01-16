@@ -1,6 +1,6 @@
 <template>
 	<BvView>
-		<div class="bc-t-c">
+		<div class="bz-t-c">
 			测试登录跳转
 		</div>
 	</BvView>

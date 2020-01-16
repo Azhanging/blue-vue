@@ -3,10 +3,10 @@
     <BvHeader :center-control="{
 	  		title:`上传图片`
 		}"/>
-    <div class="bc-pd-10">
-      <div class="bc-row">
-        <div class="bc-pd-b-5">单个</div>
-        <div class="bc-row">
+    <div class="bz-pd-10">
+      <div class="bz-row">
+        <div class="bz-pd-b-5">单个</div>
+        <div class="bz-row">
 					<span v-for="(img,index) in uploadImg">
 						<img :src="img" alt="" width="50" height="50">
 						<a @click="removeUpload($refs['oneUpload'],uploadImg,index)">删除</a>
@@ -22,18 +22,18 @@
                   @input-file="inputOneFile"
                   :upload-data="uploadImg"
           >
-            <button class="bc-btn bc-btn-primary bc-bd-radius-4">
+            <button class="bz-btn bz-btn-primary bz-bd-radius-4">
               单张图片
             </button>
           </Upload>
         </div>
       </div>
 
-      <div class="bc-row">
-        <div class="bc-pd-b-5">多个</div>
+      <div class="bz-row">
+        <div class="bz-pd-b-5">多个</div>
         <div>
 
-          <div class="bc-row">
+          <div class="bz-row">
 					<span v-for="(img,index) in uploadImgs">
 						<img :src="img" alt="" width="50" height="50">
 						<a @click="removeUpload($refs['upload'],uploadImgs,index)">删除</a>
@@ -51,7 +51,7 @@
                   :maximum="5"
                   :upload-data="uploadImgs"
           >
-            <button class="bc-btn bc-btn-primary">上传图片</button>
+            <button class="bz-btn bz-btn-primary">上传图片</button>
           </Upload>
         </div>
       </div>

@@ -8,22 +8,22 @@
       下拉刷新
     </div>
     <BvScroll @scrolltolower="api" :disabled="loadMore.state.disabled" :immediate="true">
-      <ul class="bc-reset-ul">
-        <li v-for="item in loadMore.data.list" class="bc-pd-10">
-          <a href="" class="bc-t-666">
-            <div class="bc-media">
-              <div class="bc-media-left" v-blue-photoswipe="{itemTagName:'DIV'}">
+      <ul class="bz-reset-ul">
+        <li v-for="item in loadMore.data.list" class="bz-pd-10">
+          <a href="" class="bz-t-666">
+            <div class="bz-media">
+              <div class="bz-media-left" v-blue-photoswipe="{itemTagName:'DIV'}">
                 <div>
                   <img :src="item.src_img" width="50" data-size="0x0" :msrc="item.src_img"/>
                 </div>
               </div>
-              <div class="bc-media-body">
+              <div class="bz-media-body">
                 <span>{{item.name}}</span>
               </div>
             </div>
           </a>
 
-          <ul class="bc-reset-ul" v-blue-photoswipe="{itemTagName:'LI'}">
+          <ul class="bz-reset-ul" v-blue-photoswipe="{itemTagName:'LI'}">
             <li v-for="i in 4">
               <img :src="item.src_img" alt="" width="50" data-size="0x0" :msrc="item.src_img"
                    :title="`测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下测试一下${i}`"
@@ -34,10 +34,10 @@
         </li>
       </ul>
       <template slot="load-down">
-        <div class="bc-t-c bc-pd-10" v-if="!(loadMore.state.disabled)">
+        <div class="bz-t-c bz-pd-10" v-if="!(loadMore.state.disabled)">
           数据加载中...
         </div>
-        <div class="bc-t-c bc-pd-10" v-else>
+        <div class="bz-t-c bz-pd-10" v-else>
           暂无数据...
         </div>
       </template>

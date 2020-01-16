@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bc-t-666 bc-f-14rpx">
+  <div id="app" class="bz-t-666 bz-f-28rpx">
 
     <!--<BvViewTransition></BvViewTransition>-->
 
@@ -9,7 +9,7 @@
 
     <!-- 浮动状态 -->
     <BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
-      <i class="bp-icon bp-icon-go-top bc-f-20 bc-t-666" slot="backToTop"></i>
+      <i class="bp-icon bp-icon-go-top bz-f-20 bz-t-666" slot="backToTop"></i>
     </BvSuspend>
 
     <!-- 底部导航 -->

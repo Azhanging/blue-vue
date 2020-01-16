@@ -8,26 +8,26 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        font: 'bp-icon bc-f-12 bp-icon-home',
-        activeFont: 'bc-t-base',
+        font: 'bp-icon bz-f-12 bp-icon-home',
+        activeFont: 'bz-t-base',
         style: 'width:20px;height:20px;',
         direction: 'top'
       },
       to: '/',
-      className: 'bc-pd-5 bc-bd-r-e5e'
+      className: 'bz-pd-5 bz-bd-r-e5e'
     }, {
       content: {
         value: '首页',
         fontSize: 10
       },
       icon: {
-        font: 'bp-icon bc-f-12 bp-icon-home',
-        activeFont: 'bc-t-base',
+        font: 'bp-icon bz-f-12 bp-icon-home',
+        activeFont: 'bz-t-base',
         style: 'width:20px;height:20px;',
         direction: 'bottom'
       },
       to: '/',
-      className: 'bc-pd-5 bc-bd-r-e5e',
+      className: 'bz-pd-5 bz-bd-r-e5e',
       fontSize: 10
     }, {
       content: {
@@ -35,13 +35,13 @@ const homeTabBar = {
         fontSize: 10
       },
       icon: {
-        font: 'bp-icon bc-f-12 bp-icon-menu',
-        activeFont: 'bc-t-base',
+        font: 'bp-icon bz-f-12 bp-icon-menu',
+        activeFont: 'bz-t-base',
         direction: 'left',
         style: 'width:20px;height:20px;'
       },
       to: '/components',
-      className: 'bc-pd-5'
+      className: 'bz-pd-5'
     }]
   },
   active() {

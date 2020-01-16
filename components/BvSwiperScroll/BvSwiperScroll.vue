@@ -1,7 +1,7 @@
 <!-- 滑动组件 -->
 <template>
 	<div class="bv-swiper-scroll-container">
-		<div class="bc-row bv-swiper-scroll"
+		<div class="bz-row bv-swiper-scroll"
 		     :class="[
 		       direction== 'x' && 'direction-x',
 		       direction== 'y' && 'direction-y'

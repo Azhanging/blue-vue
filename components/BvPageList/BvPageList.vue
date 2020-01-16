@@ -6,7 +6,7 @@
 
 		<slot name="pagination">
 			<!-- 页码 -->
-			<div class="bc-row bc-t-c bv-page-list" v-show="allPage > 0">
+			<div class="bz-row bz-t-c bv-page-list" v-show="allPage > 0">
 
 				<a class="bv-page-btn active" href="javascript:void(0);" @click="pageJump(1)">
 					首页
@@ -16,7 +16,7 @@
 					上一页
 				</a>
 
-				<a v-for="index in pages" class="bv-page-btn" :class="{'active': current == index,'bc-t-666': current != index}" href="javascript:void(0);" @click="pageJump(index)">
+				<a v-for="index in pages" class="bv-page-btn" :class="{'active': current == index,'bz-t-666': current != index}" href="javascript:void(0);" @click="pageJump(index)">
 					{{index}}
 				</a>
 
@@ -30,7 +30,7 @@
 
 				<span>共 {{allPage}} 页，到第</span>
 
-				<input type="text" class="bc-input bc-t-c bc-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
+				<input type="text" class="bz-input bz-t-c bz-mg-l-5" style="width: 50px" v-model="inputPageNum" @keydown.enter="pageJump(inputPageNum)"/>
 
 				<a class="bv-page-btn active" @click="pageJump(inputPageNum)">
 					确定

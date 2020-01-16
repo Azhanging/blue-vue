@@ -7,7 +7,7 @@ import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
 import user from '$assets/js/user';
 //公共css，项目配置项assets/scss/config
-import '@/assets/css/blue-component.scss';
+import '@/assets/css/blue-zone.scss';
 //预设mint-ui中的css
 import '@/assets/css/mint-ui.scss';
 //nprogress覆盖scss

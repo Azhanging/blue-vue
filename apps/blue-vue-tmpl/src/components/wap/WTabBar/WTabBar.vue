@@ -1,6 +1,6 @@
 <!-- 主页的导航 -->
 <template>
-  <BvTabBar v-if="list" :list="list" :active-class-name="'bc-t-base'" :active-index="activeIndex"/>
+  <BvTabBar v-if="list" :list="list" :active-class-name="'bz-t-base'" :active-index="activeIndex"/>
 </template>
 
 <script>

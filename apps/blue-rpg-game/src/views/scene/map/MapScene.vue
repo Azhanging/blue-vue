@@ -5,40 +5,40 @@
       title: mapData.name
     }"/>
 
-    <div class="bc-pd-14rpx bc-f-b bc-bd-b-e5e">
+    <div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
       地图简介：{{mapData.description}}
     </div>
 
-    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
+    <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
       <div>周边：</div>
-      <div class="bc-flex-10">
+      <div class="bz-flex-10">
         <router-link :to="`/scene/map?id=${item.id}`" v-for="(item) in mapData.map" :key="item.id"
-                     class="bc-t-base bc-mg-r-10rpx">
+                     class="bz-t-base bz-mg-r-20rpx">
           {{item.name}}
         </router-link>
       </div>
     </div>
 
-    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
+    <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
       <div>NPC：</div>
-      <div class="bc-flex-10">
+      <div class="bz-flex-10">
         <router-link :to="`/scene/npc/info?id=${item.id}`" v-for="(item) in mapData.npc" :key="item.id"
-                     class="bc-t-base bc-mg-r-10rpx">
+                     class="bz-t-base bz-mg-r-20rpx">
           {{item.name}}
         </router-link>
       </div>
     </div>
 
-    <div class="bc-flex bc-pd-14rpx bc-f-b bc-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
+    <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
       <div>怪物：</div>
-      <div class="bc-flex-10">
+      <div class="bz-flex-10">
         <a href="javascript:;" @click="entryFight({
 					path: `/scene/fight/stage`,
 					query:{
 						id:item.id,
 						type:1
 					}
-				})" v-for="item in mapData.monster" :key="item.id" class="bc-t-base">
+				})" v-for="item in mapData.monster" :key="item.id" class="bz-t-base">
           {{item.name}}
         </a>
       </div>

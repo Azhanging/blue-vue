@@ -7,12 +7,12 @@
       <!-- 左边控制 -->
       <div class="bv-header-control">
         <slot name="left-control">
-          <div class="bc-flex bc-flex-ai-c">
+          <div class="bz-flex bz-flex-ai-c">
             <a class="bv-header-btn bv-header-btn-icon" @click="back">
-              <i class="bp-icon bp-icon-left bc-f-16"></i>
+              <i class="bp-icon bp-icon-left bz-f-16"></i>
             </a>
             <a class="bv-header-btn bv-header-btn-icon" @click="goHome">
-              <i class="bp-icon bp-icon-home bc-f-16"></i>
+              <i class="bp-icon bp-icon-home bz-f-16"></i>
             </a>
           </div>
         </slot>
@@ -20,7 +20,7 @@
       <div class="bv-header-title" :style="centerControl.style">
         <slot name="title">{{(centerControl.title) || config.app.title}}</slot>
       </div>
-      <div class="bv-header-control bc-t-r">
+      <div class="bv-header-control bz-t-r">
         <!-- 有操作的插槽 -->
         <slot name="right-control"/>
       </div>
