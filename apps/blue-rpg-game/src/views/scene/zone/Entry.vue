@@ -13,7 +13,7 @@
           query: {
             zoneId: item.id
           }
-        }">
+        }" :key="item.id">
           {{item.name}}
         </router-link>
       </div>

@@ -64,7 +64,7 @@
     </div>
 
     <!-- 任务操作 -->
-    <div class="bz-w-100 bz-ps-f bz-flex" style="bottom:0;left:0;" slot="other">
+    <div class="bz-w-100 bz-ps-f bz-flex" style="bottom:0;left:0;">
       <button class="bz-w-100 bz-btn bz-btn-base bz-flex-1" @click="taskHandler(taskInfo.status)" v-if="taskInfo.status !== 2">
         <template v-if="taskInfo.status === 0">
           接受任务

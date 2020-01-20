@@ -12,7 +12,7 @@
     </BvHeader>
 
     <!-- GAME NAME -->
-    <div class="bz-t-c bz-t-base bz-pd-tb-40rpx bz-f-20rpx game-name">
+    <div class="bz-t-c bz-t-base bz-pd-tb-40rpx game-name">
       BLUE-RPG-GAME ->
     </div>
 
