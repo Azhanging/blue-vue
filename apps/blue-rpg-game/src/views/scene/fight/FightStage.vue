@@ -79,7 +79,7 @@
       <span>
         战斗结束->
       </span>
-			<router-link to="/scene/map" class="bz-t-base">
+			<router-link replace to="/scene/map" class="bz-t-base">
 				回到地图
 			</router-link>
 		</div>

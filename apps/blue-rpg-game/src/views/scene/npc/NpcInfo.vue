@@ -6,7 +6,7 @@
     }"/>
 
     <div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
-      NPC简介：{{npcData.description}}
+      简介：{{npcData.description}}
     </div>
 
     <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="npcData.resource && npcData.resource.length > 0">
@@ -24,7 +24,10 @@
       <div class="bz-flex-10">
         <router-link :to="`/scene/task/info?id=${item.id}`" v-for="(item) in npcData.task" :key="item.id"
                      class="bz-t-base bz-mg-r-20rpx">
-          {{item.name}}
+          <span class="bz-t-warning" v-if="item.status === 0">? </span>
+          <span class="bz-t-999" v-if="item.status === 1">! </span>
+          <span class="bz-t-warning" v-if="item.status === 2">! </span>
+          <span>{{item.name}}</span>
         </router-link>
       </div>
     </div>

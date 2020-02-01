@@ -5,7 +5,7 @@
     }">
       <div slot="left-control"></div>
       <div slot="right-control">
-        <router-link to="/setting" class="bz-pd-30rpx bz-f-28rpx">
+        <router-link to="/setting" class="bz-pd-30rpx bz-f-28rpx bz-t-base">
           设置
         </router-link>
       </div>
