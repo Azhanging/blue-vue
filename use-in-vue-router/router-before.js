@@ -4,7 +4,6 @@ import RouterNext from './router-next';
 import { setTabBarSubmenuIndex } from '$components/BvTabBar';
 import { bind } from '$assets/js/bind';
 import { routerMeta } from '@router';
-import { serverRedirect } from '$assets/js/redirect';
 import NProgress from 'nprogress';
 
 //main
@@ -25,11 +24,6 @@ export function routerBeforeEach(opts = {}) {
       to,
       from
     });
-
-    routerNext.add([
-      //检查重定向参数
-      serverRedirect()
-    ]);
 
     routerNext.add([
       //项目内使用的before each

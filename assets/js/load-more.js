@@ -62,7 +62,7 @@ export function endHook(opts = {}) {
   };
 
   //检查result的数据是否为空对象，如果为空，不设置list里面的数据
-  if (!utils.nullPlainObject(resultData)) {
+  if (!utils.isEmptyPlainObject(resultData)) {
     loadMore.data.list = loadMore.data.list.concat(getListData({
       resultData,
       listKey

@@ -3,6 +3,7 @@
     <BvHeader :center-control="{
       title:`首页`
     }"/>
+
     <div class="bz-t-c bz-pd-10 bz-overflow-hide">
       <div class="bz-t-c bz-mg-t-20rpx">
         <router-link to="/components" class="bz-btn bz-btn-primary bz-btn-plain">
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+
   export default {
     name: "home",
     data() {

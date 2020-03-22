@@ -78,7 +78,7 @@
 		</div>
 
 		<!-- 下一个任务奖励 -->
-		<div class="bz-bd-b-e5e bz-pd-20rpx" v-if="taskInfo.status === 2">
+		<div class="bz-bd-b-e5e bz-pd-20rpx" v-if="taskInfo.nextTaskId && taskInfo.status === 2">
 			<div class="bz-f-b bz-mg-b-20rpx">
 				下一任务：
 			</div>

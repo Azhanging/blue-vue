@@ -119,7 +119,7 @@ class RouterMeta {
     routerPath = routerPath.join('/');
 
     //添加query
-    if (!utils.nullPlainObject(query)) {
+    if (!utils.isEmptyPlainObject(query)) {
       routerPath += `?${utils.stringifyParams(query)}`;
     }
     return routerPath;

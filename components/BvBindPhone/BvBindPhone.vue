@@ -47,7 +47,7 @@
       showBindPhone() {
         const state = store.state;
         const userInfo = state.userInfo;
-        return (!this.$utils.nullPlainObject(userInfo) &&
+        return (!this.$utils.isEmptyPlainObject(userInfo) &&
           !userInfo.phone &&
           this.showBindPhoneStatus
         );

@@ -21,71 +21,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
         <option value="JavaScript File" />
         <option value="SCSS File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>role</find>
-      <find>role(</find>
-      <find>&lt;BvLayoutView</find>
-      <find>&lt;/BvLayoutView&gt;</find>
-      <find>suspendS</find>
-      <find>SET_SCROLL</find>
-      <find>view.scrollTop.status</find>
-      <find>view.scroll.distance</find>
-      <find>state.view.scroll</find>
-      <find>tabBar: false</find>
-      <find>SET_TAB_BAR_SUBMENU_INDEX</find>
-      <find>/Detail</find>
-      <find>blue-component</find>
-      <find>form</find>
-      <find>bc-btn-line</find>
-      <find>rpx(18)</find>
-      <find>.bc-btn,.bc-input</find>
-      <find>14rpx</find>
-      <find>10rpx</find>
-      <find>2rpx</find>
-      <find>16rpx</find>
-      <find>28rpx</find>
-      <find>onresize</find>
-      <find>setViewport</find>
-      <find>$wx-viewport</find>
-      <find>bc-</find>
-      <find>rpx</find>
-      <find>f-20rpx</find>
-      <find>bv-</find>
-      <find>activated</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>rpx</replace>
-      <replace>config.app</replace>
-      <replace>BvView</replace>
-      <replace>&lt;BvView</replace>
-      <replace>&lt;/BvView&gt;</replace>
-      <replace>SET_SUSPEND</replace>
-      <replace>tabBar:{name:false}</replace>
-      <replace>blue-zone</replace>
-      <replace>bc-btn-plain</replace>
-      <replace>28rpx</replace>
-      <replace>20rpx</replace>
-      <replace>4rpx</replace>
-      <replace>32rpx</replace>
-      <replace>bz-</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>E:\achang\web\blue-vue-program\components</dir>
-      <dir>E:\achang\web\blue-vue-program\apps</dir>
-      <dir>E:\achang\web\blue-vue-program\apps\blue-vue-tmpl</dir>
-      <dir>E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views</dir>
-      <dir>E:\achang\github\blue-vue-program\apps</dir>
-      <dir>E:\achang\github\blue-vue-program\assets\css\blue-zone</dir>
-      <dir>E:\achang\github\blue-vue-program</dir>
-      <dir>E:\achang\web\blue-vue-program\apps\blue-rpg-game</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -106,6 +46,7 @@
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/assets/css/blue-zone/node_modules/gulp" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -115,11 +56,12 @@
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
   </component>
@@ -171,8 +113,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.serve" />
         <item itemvalue="npm.serve (1)" />
+        <item itemvalue="npm.serve" />
         <item itemvalue="Gulp.js.default" />
       </list>
     </recent_temporary>
@@ -212,10 +154,50 @@
       <workItem from="1579535355688" duration="467000" />
       <workItem from="1579828978581" duration="8286000" />
       <workItem from="1580110995925" duration="437000" />
+      <workItem from="1581149033671" duration="2620000" />
+      <workItem from="1582296045051" duration="629000" />
+      <workItem from="1583113564436" duration="8000" />
+      <workItem from="1583119738180" duration="6000" />
+      <workItem from="1583555828666" duration="1346000" />
+      <workItem from="1584106694539" duration="5491000" />
+      <workItem from="1584154962286" duration="61000" />
+      <workItem from="1584198732800" duration="715000" />
+      <workItem from="1584239164786" duration="29000" />
+      <workItem from="1584239625106" duration="1314000" />
+      <workItem from="1584277300292" duration="341000" />
+      <workItem from="1584372457907" duration="771000" />
+      <workItem from="1584451754322" duration="1230000" />
+      <workItem from="1584883867168" duration="729000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584453119217">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584453119217" />
+    <state width="1899" height="111" key="GridCell.Tab.0.bottom" timestamp="1584373229727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="111" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
+    <state width="1899" height="111" key="GridCell.Tab.0.center" timestamp="1584373229727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="111" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
+    <state width="1899" height="111" key="GridCell.Tab.0.left" timestamp="1584373229727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="111" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
+    <state width="1899" height="111" key="GridCell.Tab.0.right" timestamp="1584373229727">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="111" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
+    <state x="557" y="252" width="786" height="534" key="find.popup" timestamp="1584883995202">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="557" y="252" width="786" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584883995202" />
   </component>
 </project>
