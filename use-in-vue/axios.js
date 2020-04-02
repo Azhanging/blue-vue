@@ -7,7 +7,7 @@ import { toast } from "$use-in-vue/mint-ui/toast";
 import code from '$code/code';    //错误码
 import { codeHandler } from '$code';   //错误码处理
 
-const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`
+const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`;
 
 //柯里化 axios
 const $axios = axios.create(utils.extend({
@@ -98,7 +98,7 @@ $axios.interceptors.response.use((res) => {
 });
 
 //扩展到Vue中
-export function useAxiosInVue(Vue, opts = {}) {
+export function useAxiosInVue(Vue) {
   //axios in vue prototype
   Vue.prototype.$axios = $axios;
 }
