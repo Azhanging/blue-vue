@@ -26,7 +26,6 @@ function getBeforeRouteEnter(opts = {}) {
 //enter钩子
   return function beforeRouteEnter(to, from, next) {
     const meta = to.meta;
-
     //设置状态
     meta.refresh = utils.extend({
       //刷新状态
@@ -101,7 +100,7 @@ function matchParamsRefresh({
   const { params: metaParams, query: metaQuery } = route.meta;
 
   //检查params一致性
-  if (metaParams !== null) {
+  if (metaParams) {
     for (let key in params) {
       if (!params.hasOwnProperty(key)) continue;
       if (metaParams[key] !== params[key]) {
@@ -111,7 +110,7 @@ function matchParamsRefresh({
   }
 
   //检查query一致性
-  if (metaQuery !== null) {
+  if (metaQuery) {
     for (let key in query) {
       if (!query.hasOwnProperty(key)) continue;
       if (metaQuery[key] !== query[key]) {

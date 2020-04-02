@@ -21,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="SCSS File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -168,6 +168,7 @@
       <workItem from="1584372457907" duration="771000" />
       <workItem from="1584451754322" duration="1230000" />
       <workItem from="1584883867168" duration="729000" />
+      <workItem from="1585798914773" duration="13471000" />
     </task>
     <servers />
   </component>
@@ -179,25 +180,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584453119217" />
-    <state width="1899" height="111" key="GridCell.Tab.0.bottom" timestamp="1584373229727">
+    <state width="1899" height="226" key="GridCell.Tab.0.bottom" timestamp="1585822494276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="111" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
-    <state width="1899" height="111" key="GridCell.Tab.0.center" timestamp="1584373229727">
+    <state width="1899" height="226" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494276" />
+    <state width="1899" height="226" key="GridCell.Tab.0.center" timestamp="1585822494274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="111" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
-    <state width="1899" height="111" key="GridCell.Tab.0.left" timestamp="1584373229727">
+    <state width="1899" height="226" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state width="1899" height="226" key="GridCell.Tab.0.left" timestamp="1585822494274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="111" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
-    <state width="1899" height="111" key="GridCell.Tab.0.right" timestamp="1584373229727">
+    <state width="1899" height="226" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state width="1899" height="226" key="GridCell.Tab.0.right" timestamp="1585822494274">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="111" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584373229727" />
-    <state x="557" y="252" width="786" height="534" key="find.popup" timestamp="1584883995202">
+    <state width="1899" height="226" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1585821072548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="557" y="252" width="786" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584883995202" />
+    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585821072548" />
   </component>
 </project>
