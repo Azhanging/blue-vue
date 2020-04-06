@@ -3,6 +3,7 @@ import MintUI from 'mint-ui';
 import BvScroll from '../../components/BvScroll/BvScroll';
 import { setToast } from './toast';
 import { setIndicator } from './indicator';
+import { setMessage } from './message-box';
 import { MessageBox, Lazyload } from 'mint-ui';
 
 export function useMintUi(Vue) {
@@ -21,6 +22,8 @@ export function useMintUi(Vue) {
 
   //set Indicator
   setIndicator(Vue);
+
+  setMessage(Vue);
 
   //set message
   Vue.prototype.$messageBox = MessageBox;

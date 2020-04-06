@@ -1,17 +1,17 @@
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title:`绑定手机`
     }"></BvHeader>
-		<div class="bc-row bc-t-c">
-			<div class="bc-row bc-mg-t-10rp">
-				绑定手机：<input type="text" class="bc-input" v-model="phone">
+		<div class="bz-row bz-t-c">
+			<div class="bz-row bz-mg-t-20rpx">
+				绑定手机：<input type="text" class="bz-input" v-model="phone">
 			</div>
-			<div class="bc-row bc-mg-t-10rp">
-				<button class="bc-btn bc-btn-primary" @click="bind">绑定</button>
+			<div class="bz-row bz-mg-t-20rpx">
+				<button class="bz-btn bz-btn-primary" @click="bind">绑定</button>
 			</div>
 		</div>
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

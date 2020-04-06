@@ -1,20 +1,20 @@
 <template>
-  <BvLayoutView :router-level="2">
+  <BvView>
     <BvHeader :center-control="{
 	  	title:`多级联动`
 		}"/>
 
-    <div class="bc-pd-10rp">
+    <div class="bz-pd-20rpx">
       select联动：
     </div>
-    <div class="bc-row bc-overflow-hide">
+    <div class="bz-row bz-overflow-hide">
       <BvPicker :slots="slots" :ajax="ajax">
         <template slot-scope="scope">
           <!-- 联动的数据 -->
-          <span class="bc-select-wrap bc-select-down-icon bc-mg-10" v-for="(slot,index) in slots"
+          <span class="bz-select-wrap bz-select-down-icon bz-mg-10" v-for="(slot,index) in slots"
                 v-show="slot.values.length > 0">
 						<select
-                    class="bc-input"
+                    class="bz-input"
                     :name="slot.name"
                     v-model="slot.value"
                     @change="scope.changePicker($event,index)"
@@ -29,8 +29,8 @@
       </BvPicker>
     </div>
 
-    <div class="bc-pd-10rp">
-      <a href="" class="bc-btn bc-btn-primary">
+    <div class="bz-pd-20rpx">
+      <a href="" class="bz-btn bz-btn-primary">
         点击联动
       </a>
     </div>
@@ -39,16 +39,16 @@
             :slots="slots"
             :ajax="ajax"
             :select="{
-			  className: 'bc-pd-10rp',
-			  activeClassName: 'bc-t-base bc-bd-b-base'
+			  className: 'bz-pd-20rpx',
+			  activeClassName: 'bz-t-base bz-bd-b-base'
 			}"
             :scroll="{
-			  className: 'bc-pd-10rp',
-			  activeClassName: 'bc-t-base'
+			  className: 'bz-pd-20rpx',
+			  activeClassName: 'bz-t-base'
 			}"
     />
 
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

@@ -1,14 +1,13 @@
 import axios from 'axios';
-import router, { routerMeta } from '@router';
+import router, { routerID } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
 import { showLoading, hideLoading } from '$use-in-vue/mint-ui/indicator';
 import { toast } from "$use-in-vue/mint-ui/toast";
 import code from '$code/code';    //错误码
 import { codeHandler } from '$code';   //错误码处理
-import { redirect } from '$assets/js/redirect';
 
-const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`
+const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`;
 
 //柯里化 axios
 const $axios = axios.create(utils.extend({
@@ -20,7 +19,7 @@ const $axios = axios.create(utils.extend({
 //拦截request
 $axios.interceptors.request.use((axiosConfig) => {
   //把路由当前路由的id设置给axios config中
-  axiosConfig.routeID = routerMeta.getCurrentRouteID();
+  axiosConfig.routeID = routerID.getCurrentID();
   const isShowLoading = axiosConfig.isShowLoading;
   //mode为token，设置header头
   setRequestHeader(axiosConfig);
@@ -40,33 +39,28 @@ $axios.interceptors.request.use((axiosConfig) => {
 
 //拦截response
 $axios.interceptors.response.use((res) => {
-  const status = res.status;
-  const axiosConfig = res.config;
-  const isShowLoading = axiosConfig.isShowLoading;
+  const { status, config: axiosConfig } = res;
+  const { isShowLoading } = axiosConfig;
   if (isShowLoading === undefined || isShowLoading === true) {
     hideLoading();
   }
   //success http request state
-  if (status === 200) {
+  if (status >= 200 || status < 400) {
     const { code: requestCode, message, consoleMessage } = res.data;
     //后台指派console信息打印
     consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
     //success code
     if (requestCode === code.SUCCESS) {
-      return res.data;
-    } else if (requestCode === code.REDIRECT) {    //作为重定向跳转
-      let redirectTime = 0;
-      //存在重定向信息
       if (message) {
         toast({
           message
         });
-        redirectTime = 1000;
       }
-      setTimeout(() => {
-        redirect(res.data);
-      }, redirectTime);
-      return Promise.reject(res.data);
+      //request -> leave -> go(1) 离开不再处理
+      if (!routerID.isCurrentID(axiosConfig.routeID)) {
+        return Promise.reject(res.data);
+      }
+      return res.data;
     } else {
       //code处理
       codeHandler(res.data);
@@ -83,7 +77,7 @@ $axios.interceptors.response.use((res) => {
 
   //检查当前的路由标识和当前路由中的id标识是否一样
   //不一样不去执行后面异步的操作
-  if (!routerMeta.isCurrentRouteID(axiosConfig.routeID)) {
+  if (!routerID.isCurrentID(axiosConfig.routeID)) {
     return Promise.reject(error);
   }
 
@@ -104,7 +98,7 @@ $axios.interceptors.response.use((res) => {
 });
 
 //扩展到Vue中
-export function useAxiosInVue(Vue, opts = {}) {
+export function useAxiosInVue(Vue) {
   //axios in vue prototype
   Vue.prototype.$axios = $axios;
 }

@@ -3,8 +3,7 @@ import utils from 'blue-utils';
 import RouterNext from './router-next';
 import { setTabBarSubmenuIndex } from '$components/BvTabBar';
 import { bind } from '$assets/js/bind';
-import { routerMeta } from '@router';
-import { serverRedirect } from '$assets/js/redirect';
+import { routerID } from '@router';
 import NProgress from 'nprogress';
 
 //main
@@ -18,18 +17,13 @@ export function routerBeforeEach(opts = {}) {
     setTabBarSubmenuIndex(-1);
 
     //设置路由标识
-    routerMeta.setCurrentRouteID(to.meta.routeID);
+    routerID.setCurrentID();
 
     //实例化router next
     const routerNext = new RouterNext({
       to,
       from
     });
-
-    routerNext.add([
-      //检查重定向参数
-      serverRedirect()
-    ]);
 
     routerNext.add([
       //项目内使用的before each

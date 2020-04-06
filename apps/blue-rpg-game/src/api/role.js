@@ -1,11 +1,6 @@
 import $axios from '$axios';
 import store from '@store';
 
-//获取角色列表
-export function apiRoleList() {
-	return $axios.get(`/member/scene/role/list`);
-}
-
 //获取角色信息
 export function apiRoleInfo(data) {
 	const {secretKey} = data;

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import { weChatShare } from '$wechat';
 import { useInVueRouter, scrollBehavior } from '$use-in-vue-router';
-import RouterMeta from '$use-in-vue-router/router-meta';
+import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 import { useInVueRouterProgram } from '../use-in-vue-router-program';
@@ -16,13 +16,13 @@ Vue.use(Router);
 useInVueRouter(Router);
 
 //路由标记
-export const routerMeta = new RouterMeta();
+export const routerID = new RouterID();
 
 //路由实例
 const router = new Router({
   mode: 'history',
   namespace: true,
-  routes: routerMeta.setMeta(routes),
+  routes,
   scrollBehavior
 });
 

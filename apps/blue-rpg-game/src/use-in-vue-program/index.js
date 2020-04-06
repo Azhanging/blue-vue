@@ -1,5 +1,4 @@
 import WTabBar from '../components/wap/WTabBar/WTabBar';
-import BvLayoutView from '../components/public/BvLayoutView';
 import SelectToApi from '../components/public/SelectToApi';
 import config from '@config';
 
@@ -14,8 +13,5 @@ export function useInVueProgram(opts) {
     //PC端公共组件
 
   }
-
-  //移动PC公共使用的组件
-  Vue.component('BvLayoutView', BvLayoutView);
   Vue.component('SelectToApi', SelectToApi);
 }

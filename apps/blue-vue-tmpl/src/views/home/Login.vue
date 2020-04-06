@@ -1,9 +1,9 @@
 <template>
-	<BvLayoutView>
-		<div class="bc-t-c">
+	<BvView>
+		<div class="bz-t-c">
 			测试登录跳转
 		</div>
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>

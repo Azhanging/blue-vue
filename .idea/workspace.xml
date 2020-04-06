@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9248c9f2-200e-462f-9618-c5ccd7e9c9c7" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="3413c780-0bdb-4f25-836e-798c4f298e5d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/home/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/fight/FightStage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/fight/FightStage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/map/MapScene.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/map/MapScene.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/npc/NpcInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/npc/NpcInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/task/TaskInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/task/TaskInfo.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,170 +18,17 @@
   <component name="FavoritesManager">
     <favorites_list name="blue-vue-program" />
   </component>
-  <component name="FileEditorManager">
-          <provider selected="true" editor-type-id="text-editor">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="package_json" />
-        <option value="Blut Tmpl" />
-        <option value="HTML File" />
         <option value="SCSS File" />
         <option value="Vue Single File Component" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>extendNativeHistory</find>
-      <find>backQueue</find>
-      <find>window.pageXOffset</find>
-      <find>setCurrentViewScroll</find>
-      <find>routeID</find>
-      <find>unfor</find>
-      <find>/components</find>
-      <find>unforcedList</find>
-      <find>/load-more</find>
-      <find>keepAlive</find>
-      <find>tabBar</find>
-      <find>setTabBarSubmenuIndex</find>
-      <find>tabBarSubmenuElm</find>
-      <find>computSubMenuPosition</find>
-      <find>historyQueue</find>
-      <find>w-tab-bar</find>
-      <find>bv-home-view</find>
-      <find>$routerTo</find>
-      <find>VUE_APP_INJECT_HEAD_NODE</find>
-      <find>INJECT_HEAD_NODE</find>
-      <find>node.setProcessENV</find>
-      <find>activeFontC</find>
-      <find>fontClassName</find>
-      <find>activeSrc</find>
-      <find>bc-t-danger</find>
-      <find>rgb</find>
-      <find>ca9f75</find>
-      <find>#ca9f75</find>
-      <find>#fe6270</find>
-      <find>tab-bar-submenu-list-item</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>res.data</replace>
-      <replace>res</replace>
-      <replace>const { data: resultData } = res;</replace>
-      <replace>data.list</replace>
-      <replace>slot=&quot;other&quot;</replace>
-      <replace>template slot=&quot;other&quot;</replace>
-      <replace>weChatTask.weChatReadyStatus =</replace>
-      <replace>weChatTask.weChatTaskQueueId =</replace>
-      <replace>weChatTask.run</replace>
-      <replace>weChatQueue.data.status</replace>
-      <replace>weChatQueue.data.id</replace>
-      <replace>$axios</replace>
-      <replace>&lt;BvBindPhone</replace>
-      <replace>&lt;BvLayer</replace>
-      <replace>&lt;BvHeader</replace>
-      <replace>BvHeader&gt;</replace>
-      <replace>&lt;BvScroll</replace>
-      <replace>BvScroll&gt;</replace>
-      <replace>&lt;Upload</replace>
-      <replace>Upload&gt;</replace>
-      <replace>bp-icon</replace>
-      <replace>getCurrentRouteID</replace>
-      <replace>setCurrentRouteID</replace>
-      <replace>$hideLoading</replace>
-      <replace>$showLoading</replace>
-      <replace>isShowLoading</replace>
-      <replace>computeSubMenuPosition</replace>
-      <replace>WTabBar</replace>
-      <replace>BvLayoutView</replace>
-      <replace>#0f8cca</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>D:\achang\blue-vue-program\apps\vue-nuxt-tmpl</dir>
-      <dir>D:\achang\blue-vue-program\apps\</dir>
-      <dir>D:\achang\blue-vue-program\public\scss\blue-component\src</dir>
-      <dir>D:\achang\blue-vue-program\public</dir>
-      <dir>D:\achang\blue-vue-program\public\scss\blue-component</dir>
-      <dir>D:\achang\blue-vue-program\</dir>
-      <dir>D:\achang\blue-vue-program\apps\vue-nuxt-tmpl\pages</dir>
-      <dir>D:\achang\web\blue-vue-program\apps\life_driving_school</dir>
-      <dir>D:\achang\web\blue-vue-program\apps</dir>
-      <dir>D:\achang\web\blue-vue-program</dir>
-    </dirStrings>
-  </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/vue-config/index.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/assets/js/bind.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/assets/js/in-browser.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/vue-awesome-swiper/vue-awesome-swiper.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/vue-upload-component/vue-upload-component.vue" />
-        <option value="$PROJECT_DIR$/components/BvHeader/BvHeader.vue" />
-        <option value="$PROJECT_DIR$/components/BvView/BvView.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/public/bv-home-view/bv-home-view.vue" />
-        <option value="$PROJECT_DIR$/../blue-crawler/yase-down.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/router-before.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/router-meta.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/js/share.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/router-after.js" />
-        <option value="$PROJECT_DIR$/components/VueUploadComponent/upload.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/axios/index.js" />
-        <option value="$PROJECT_DIR$/code/index.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/mint-ui/indicator.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/mint-ui/toast.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/wechat/index.js" />
-        <option value="$PROJECT_DIR$/api/login.js" />
-        <option value="$PROJECT_DIR$/assets/js/bind.js" />
-        <option value="$PROJECT_DIR$/assets/js/login.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/components/index.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/swiper.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/wechat.js" />
-        <option value="$PROJECT_DIR$/api/bind.js" />
-        <option value="$PROJECT_DIR$/api/index.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/bind-phone/bind-phone.vue" />
-        <option value="$PROJECT_DIR$/config/index.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue" />
-        <option value="$PROJECT_DIR$/assets/js/redirect.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/axios.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/dev-server.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/config/index.js" />
-        <option value="$PROJECT_DIR$/assets/js/share.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/navigator.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/refresh.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/index.js" />
-        <option value="$PROJECT_DIR$/components/BvView/index.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/list/index.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/hooks.js" />
-        <option value="$PROJECT_DIR$/components/BvTabBar/index.js" />
-        <option value="$PROJECT_DIR$/use-in-vue-router/history.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/use-in-vue-program/index.js" />
-        <option value="$PROJECT_DIR$/components/BvTransition/BvTransition.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/index.js" />
-        <option value="$PROJECT_DIR$/components/BvTabBar/BvTabBar.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/css/config.scss" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue" />
-        <option value="$PROJECT_DIR$/components/BvTabBar/BvTabBarIcon.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/WTabBar.vue" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/home-tab-bar.js" />
-        <option value="$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/component-tab-bar.js" />
-        <option value="$PROJECT_DIR$/use-in-vue/index.js" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
-    <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
-    <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/server/package.json" />
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -186,142 +36,57 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-7" />
-    <option name="width" value="734" />
-    <option name="height" value="867" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Vue</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>AngularJS</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="blue-vue-program" type="b2602c69:ProjectViewProjectNode" />
-              <item name="blue-vue-program" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-    </panes>
+  <component name="ProjectId" id="1Wy9UyK1ofE5m66Kjn1B0gMJkPH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/assets/css/blue-zone/node_modules/gulp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
-    <property name="js.buildTools.gulp.gulp_package_dir" value="$USER_HOME$/AppData/Roaming/npm/node_modules/gulp" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/achang/web/blue-vue-program/assets/js/login.js" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\public" />
-      <recent name="E:\achang\github\blue-vue-program\use-in-vue" />
-      <recent name="$PROJECT_DIR$/components" />
-      <recent name="D:\achang\web\blue-vue-program\components\mint-ui" />
-      <recent name="D:\achang\web\blue-vue-program\mock" />
+      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
+      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\achang\github\blue-vue-program\components" />
-      <recent name="$PROJECT_DIR$/npm-package" />
-      <recent name="D:\achang\web\blue-vue-program\assets\js" />
-      <recent name="D:\achang\web\blue-vue-program\use-in-vue\mint-ui" />
-      <recent name="D:\achang\web\blue-vue-program\apps\blue-vue-tmpl\mock" />
+      <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
+      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Node.js.www">
-    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/apps/blue-vue-tmpl/src/router" />
-    <configuration name="www" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="www" working-dir="$PROJECT_DIR$/apps/blue-vue-tmpl/server/bin" />
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+  <component name="RunManager" selected="Gulp.js.default">
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
       <tasks />
       <arguments />
       <envs />
+      <method v="2" />
     </configuration>
-    <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
+    <configuration name="default" type="js.build_tools.gulp" temporary="true">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/assets/css/blue-zone/gulpfile.js</gulpfile>
+      <tasks>
+        <task>default</task>
+      </tasks>
+      <arguments />
       <envs />
+      <method v="2" />
     </configuration>
-    <configuration name="dev" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/server/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-    </configuration>
-    <configuration name="serve (2)" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+    <configuration name="serve (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
       <command value="run" />
       <scripts>
@@ -329,750 +94,111 @@
       </scripts>
       <node-interpreter value="project" />
       <envs />
+      <method v="2" />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="npm.serve (2)" />
-      <item index="1" class="java.lang.String" itemvalue="npm.build" />
-      <item index="2" class="java.lang.String" itemvalue="npm.dev" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.www" />
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/blue-rpg-game/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gulp.js.default" />
+      <item itemvalue="npm.serve" />
+      <item itemvalue="npm.serve (1)" />
     </list>
     <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="npm.serve (2)" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.www" />
-        <item index="2" class="java.lang.String" itemvalue="npm.dev" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.index.js" />
-        <item index="4" class="java.lang.String" itemvalue="npm.build" />
+      <list>
+        <item itemvalue="npm.serve (1)" />
+        <item itemvalue="npm.serve" />
+        <item itemvalue="Gulp.js.default" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9248c9f2-200e-462f-9618-c5ccd7e9c9c7" name="Default" comment="" />
-      <created>1543302963062</created>
+      <changelist id="3413c780-0bdb-4f25-836e-798c4f298e5d" name="Default" comment="" />
+      <created>1577708826337</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1543302963062</updated>
-      <workItem from="1543302964994" duration="9931000" />
-      <workItem from="1543366482549" duration="12696000" />
-      <workItem from="1543539966014" duration="8567000" />
-      <workItem from="1543558179305" duration="8250000" />
-      <workItem from="1543573626020" duration="4804000" />
-      <workItem from="1543630561649" duration="14244000" />
-      <workItem from="1543798323781" duration="20958000" />
-      <workItem from="1543885243013" duration="2911000" />
-      <workItem from="1543889056463" duration="21792000" />
-      <workItem from="1543971534939" duration="25217000" />
-      <workItem from="1544057691174" duration="3210000" />
-      <workItem from="1544427010822" duration="5936000" />
-      <workItem from="1544580109646" duration="15636000" />
-      <workItem from="1544663418761" duration="9857000" />
-      <workItem from="1544751135811" duration="9860000" />
-      <workItem from="1544835879487" duration="86000" />
-      <workItem from="1544844703134" duration="3623000" />
-      <workItem from="1545008237747" duration="15030000" />
-      <workItem from="1545094426209" duration="13322000" />
-      <workItem from="1545180731917" duration="6150000" />
-      <workItem from="1545267944346" duration="4332000" />
-      <workItem from="1545353980701" duration="17564000" />
-      <workItem from="1545441191814" duration="10705000" />
-      <workItem from="1545613643408" duration="2788000" />
-      <workItem from="1545617373494" duration="17248000" />
-      <workItem from="1545700289062" duration="1000" />
-      <workItem from="1545700313327" duration="19836000" />
-      <workItem from="1545785802666" duration="14572000" />
-      <workItem from="1545808592202" duration="2985000" />
-      <workItem from="1545811816040" duration="6645000" />
-      <workItem from="1545872020528" duration="22487000" />
-      <workItem from="1545959167786" duration="20670000" />
-      <workItem from="1546390796422" duration="15897000" />
-      <workItem from="1546476668396" duration="23546000" />
-      <workItem from="1546564099703" duration="25183000" />
-      <workItem from="1546597660872" duration="581000" />
-      <workItem from="1546649966107" duration="10561000" />
-      <workItem from="1546668092193" duration="7549000" />
-      <workItem from="1546765946835" duration="14735000" />
-      <workItem from="1546823300809" duration="6192000" />
-      <workItem from="1546829709527" duration="1289000" />
-      <workItem from="1546909703302" duration="1481000" />
-      <workItem from="1546912564349" duration="20225000" />
-      <workItem from="1546995642050" duration="19904000" />
-      <workItem from="1547081380097" duration="20088000" />
-      <workItem from="1547514401476" duration="394000" />
-      <workItem from="1547708388478" duration="2524000" />
-      <workItem from="1547772944006" duration="6608000" />
-      <workItem from="1551773392198" duration="3666000" />
-      <workItem from="1551833553003" duration="2944000" />
-      <workItem from="1551853195192" duration="6608000" />
-      <workItem from="1551951732832" duration="2702000" />
-      <workItem from="1552006182274" duration="1724000" />
-      <workItem from="1552025018434" duration="116000" />
-      <workItem from="1552026004553" duration="1902000" />
-      <workItem from="1552102487110" duration="1578000" />
-      <workItem from="1552111717678" duration="4740000" />
-      <workItem from="1552122243424" duration="13861000" />
-      <workItem from="1552211106775" duration="148000" />
-      <workItem from="1552216116820" duration="1141000" />
-      <workItem from="1552232288538" duration="836000" />
-      <workItem from="1552271800771" duration="5331000" />
-      <workItem from="1552284707867" duration="13204000" />
-      <workItem from="1552298244002" duration="1934000" />
-      <workItem from="1552300217018" duration="1126000" />
-      <workItem from="1552307257458" duration="1438000" />
-      <workItem from="1552309334568" duration="4831000" />
-      <workItem from="1552318747681" duration="461000" />
-      <workItem from="1552319269946" duration="188000" />
-      <workItem from="1552371030145" duration="1951000" />
-      <workItem from="1552379702451" duration="1534000" />
-      <workItem from="1552438396840" duration="7720000" />
-      <workItem from="1552456941660" duration="6503000" />
-      <workItem from="1552482463126" duration="6469000" />
-      <workItem from="1552526141094" duration="16657000" />
-      <workItem from="1552568804831" duration="12591000" />
-      <workItem from="1552716225776" duration="4810000" />
-      <workItem from="1552824852248" duration="10841000" />
-      <workItem from="1552960328290" duration="5312000" />
-      <workItem from="1553262784665" duration="10721000" />
-      <workItem from="1553520217904" duration="7503000" />
-      <workItem from="1554028710638" duration="2162000" />
-      <workItem from="1554044287109" duration="2984000" />
-      <workItem from="1554136768601" duration="111000" />
-      <workItem from="1554392615974" duration="1307000" />
-      <workItem from="1554439411862" duration="10701000" />
-      <workItem from="1554476662745" duration="487000" />
-      <workItem from="1554605749339" duration="5222000" />
-      <workItem from="1554898310886" duration="7266000" />
-      <workItem from="1554905663507" duration="244000" />
-      <workItem from="1554984420421" duration="10190000" />
-      <workItem from="1554998605436" duration="3340000" />
-      <workItem from="1555165780349" duration="4572000" />
-      <workItem from="1556024564658" duration="7497000" />
-      <workItem from="1556957365046" duration="1431000" />
-      <workItem from="1556960343705" duration="183000" />
-      <workItem from="1556960882491" duration="11000" />
-      <workItem from="1556967676406" duration="22000" />
-      <workItem from="1557139507753" duration="3862000" />
-      <workItem from="1557304895664" duration="1419000" />
-      <workItem from="1557366032573" duration="708000" />
-      <workItem from="1557757850885" duration="7008000" />
-      <workItem from="1560487784392" duration="7464000" />
-      <workItem from="1560559484035" duration="3451000" />
-      <workItem from="1560598487186" duration="3378000" />
-      <workItem from="1560650018036" duration="4609000" />
-      <workItem from="1560735492881" duration="1544000" />
-      <workItem from="1561440317403" duration="25723000" />
-      <workItem from="1561512510426" duration="24221000" />
-      <workItem from="1561553350914" duration="7437000" />
-      <workItem from="1561599779118" duration="885000" />
-      <workItem from="1561601607768" duration="228000" />
-      <workItem from="1561601857400" duration="27078000" />
-      <workItem from="1561686472288" duration="10553000" />
-      <workItem from="1561887849261" duration="16632000" />
-      <workItem from="1561957531199" duration="18650000" />
-      <workItem from="1561994714095" duration="1677000" />
-      <workItem from="1562032410948" duration="6311000" />
-      <workItem from="1562071987446" duration="2509000" />
-      <workItem from="1562122100613" duration="647000" />
-      <workItem from="1562123600637" duration="119000" />
-      <workItem from="1562125721223" duration="1250000" />
-      <workItem from="1562156997161" duration="3023000" />
-      <workItem from="1562163016652" duration="1096000" />
-      <workItem from="1562491424285" duration="3457000" />
-      <workItem from="1562512995271" duration="3710000" />
-      <workItem from="1562552456400" duration="3844000" />
-      <workItem from="1562580059424" duration="11572000" />
-      <workItem from="1562685144503" duration="3949000" />
-      <workItem from="1562742705229" duration="1556000" />
-      <workItem from="1563070012192" duration="1614000" />
-      <workItem from="1563183246244" duration="8866000" />
-      <workItem from="1563195158623" duration="4930000" />
-      <workItem from="1563207122430" duration="932000" />
-      <workItem from="1563244009418" duration="16698000" />
-      <workItem from="1563266441874" duration="152000" />
-      <workItem from="1563266771145" duration="21552000" />
-      <workItem from="1563327181134" duration="4285000" />
-      <workItem from="1563347711852" duration="604000" />
-      <workItem from="1563353591438" duration="22262000" />
-      <workItem from="1563415550312" duration="33539000" />
-      <workItem from="1563607273484" duration="6434000" />
-      <workItem from="1563616001624" duration="44000" />
-      <workItem from="1563616338824" duration="1252000" />
-      <workItem from="1563877613652" duration="9149000" />
-      <workItem from="1563936371161" duration="5333000" />
-      <workItem from="1563947657289" duration="9508000" />
-      <workItem from="1564020166782" duration="5292000" />
-      <workItem from="1564204003747" duration="8378000" />
-      <workItem from="1564316890270" duration="692000" />
-      <workItem from="1564362606418" duration="3185000" />
-      <workItem from="1564390295989" duration="5324000" />
-      <workItem from="1564407591153" duration="48000" />
-      <workItem from="1564455164604" duration="1302000" />
-      <workItem from="1564563203925" duration="6675000" />
-      <workItem from="1564911518477" duration="11465000" />
-      <workItem from="1564933002278" duration="7685000" />
-      <workItem from="1564992609174" duration="8388000" />
-      <workItem from="1565014673112" duration="257000" />
-      <workItem from="1565143406919" duration="1368000" />
-      <workItem from="1565161693456" duration="6049000" />
-      <workItem from="1565226862241" duration="1018000" />
-      <workItem from="1565228986140" duration="4785000" />
-      <workItem from="1565316692767" duration="5406000" />
-      <workItem from="1565572495129" duration="647000" />
-      <workItem from="1565598067132" duration="1042000" />
-      <workItem from="1565599612186" duration="13000" />
-      <workItem from="1565831215939" duration="3396000" />
-      <workItem from="1565858674291" duration="927000" />
-      <workItem from="1566113686902" duration="158000" />
-      <workItem from="1566138352337" duration="1975000" />
-      <workItem from="1566143519008" duration="2038000" />
-      <workItem from="1566309452251" duration="1048000" />
-      <workItem from="1566481265869" duration="30000" />
-      <workItem from="1566482660803" duration="1557000" />
-      <workItem from="1566487065770" duration="343000" />
-      <workItem from="1566489802924" duration="490000" />
-      <workItem from="1566568526151" duration="62000" />
-      <workItem from="1566615031017" duration="481000" />
-      <workItem from="1566628447232" duration="3932000" />
-      <workItem from="1566657396226" duration="2442000" />
-      <workItem from="1570018102270" duration="2119000" />
-      <workItem from="1570091801603" duration="4904000" />
-      <workItem from="1570155201221" duration="10594000" />
-      <workItem from="1570239705771" duration="8084000" />
-      <workItem from="1570256315615" duration="5274000" />
-      <workItem from="1570278539815" duration="4754000" />
-      <workItem from="1570330728711" duration="5844000" />
-      <workItem from="1570349938550" duration="1809000" />
-      <workItem from="1570412586361" duration="2899000" />
-      <workItem from="1570496737096" duration="19549000" />
-      <workItem from="1570539977055" duration="4380000" />
-      <workItem from="1571060995024" duration="1363000" />
-      <workItem from="1571188599160" duration="8548000" />
-      <workItem from="1571227190209" duration="4196000" />
-      <workItem from="1571274378561" duration="14969000" />
-      <workItem from="1571367532911" duration="7235000" />
+      <updated>1577708826337</updated>
+      <workItem from="1577708828724" duration="3809000" />
+      <workItem from="1577797568268" duration="2453000" />
+      <workItem from="1577967626961" duration="1252000" />
+      <workItem from="1578059434388" duration="1205000" />
+      <workItem from="1578100486518" duration="3451000" />
+      <workItem from="1578193055374" duration="5321000" />
+      <workItem from="1578272688895" duration="147000" />
+      <workItem from="1578273315413" duration="170000" />
+      <workItem from="1578290991509" duration="27065000" />
+      <workItem from="1578360589537" duration="22495000" />
+      <workItem from="1578407802733" duration="5074000" />
+      <workItem from="1578413249819" duration="9000" />
+      <workItem from="1578486395842" duration="8041000" />
+      <workItem from="1578570498916" duration="4581000" />
+      <workItem from="1578723229925" duration="5146000" />
+      <workItem from="1578795656410" duration="34000" />
+      <workItem from="1578796791297" duration="603000" />
+      <workItem from="1578799058277" duration="72000" />
+      <workItem from="1578804251079" duration="1638000" />
+      <workItem from="1578841827200" duration="613000" />
+      <workItem from="1579180210560" duration="1836000" />
+      <workItem from="1579182497804" duration="213000" />
+      <workItem from="1579535355688" duration="467000" />
+      <workItem from="1579828978581" duration="8286000" />
+      <workItem from="1580110995925" duration="437000" />
+      <workItem from="1581149033671" duration="2620000" />
+      <workItem from="1582296045051" duration="629000" />
+      <workItem from="1583113564436" duration="8000" />
+      <workItem from="1583119738180" duration="6000" />
+      <workItem from="1583555828666" duration="1346000" />
+      <workItem from="1584106694539" duration="5491000" />
+      <workItem from="1584154962286" duration="61000" />
+      <workItem from="1584198732800" duration="715000" />
+      <workItem from="1584239164786" duration="29000" />
+      <workItem from="1584239625106" duration="1314000" />
+      <workItem from="1584277300292" duration="341000" />
+      <workItem from="1584372457907" duration="771000" />
+      <workItem from="1584451754322" duration="1230000" />
+      <workItem from="1584883867168" duration="729000" />
+      <workItem from="1585798914773" duration="13471000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1453719000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24341412" sideWeight="0.44692737" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273743" sideWeight="0.41151386" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24341412" sideWeight="0.55307263" order="3" side_tool="true" content_ui="tabs" x="884" y="453" width="152" height="133" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.379021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23393045" sideWeight="0.55307263" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47132868" sideWeight="0.5231823" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8067039" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19178082" sideWeight="0.6312849" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="100" y="123" width="1166" height="504" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3273743" sideWeight="0.41151386" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23413259" sideWeight="0.43636364" order="3" side_tool="true" content_ui="tabs" x="884" y="453" width="152" height="133" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.379021" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17277856" sideWeight="0.6853147" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47132868" sideWeight="0.5231823" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19829424" sideWeight="0.54189944" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23413259" sideWeight="0.56363636" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8067039" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19178082" sideWeight="0.6312849" order="5" side_tool="true" content_ui="tabs" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="118" />
-    </breakpoint-manager>
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
-          <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/components/load-more/load-more.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/bind-phone/bind-phone.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="31" column="43" lean-forward="false" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/share.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="19" column="21" lean-forward="false" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2117">
-          <caret line="73" column="5" lean-forward="false" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/redirect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="25" lean-forward="false" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="10" column="16" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/navigator.js" />
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-after.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="e#26#57#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-meta.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2987">
-          <caret line="106" column="33" lean-forward="false" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-next.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/axios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2320">
-          <caret line="86" column="23" lean-forward="true" selection-start-line="86" selection-start-column="23" selection-end-line="86" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#37#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="66" column="19" lean-forward="true" selection-start-line="66" selection-start-column="19" selection-end-line="66" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvView/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="43" column="37" lean-forward="false" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#29#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/hooks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="62" column="21" lean-forward="false" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#73#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/tab-bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="8" column="23" lean-forward="false" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#27#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvTabBar/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="24" column="12" lean-forward="false" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="377">
-            <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/list/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/refresh.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="16" lean-forward="false" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvScroll/BvScroll.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="32" lean-forward="true" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/router-before.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvLayer/BvLayer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvPicker/BvPicker.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvErrorPage/ErrorPage404.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvBindPhone/BvBindPhone.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvSuspend/BvSuspend.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/server/views/index.tmpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/load-more.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1939">
-          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="31" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/use-in-vue-router-program/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/use-in-vue-program/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#56#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvView/BvView.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/components.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvTransition/BvTransition.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="43" lean-forward="true" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue-router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="59" column="2" lean-forward="false" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/vue.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-config/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/assets/css/config.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/WTabBar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/home-tab-bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/src/components/wap/WTabBar/component-tab-bar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="64" column="39" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvTabBar/BvTabBarIcon.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/BvTabBar/BvTabBar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="69" column="50" lean-forward="false" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/blue-vue-tmpl/public/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/use-in-vue/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#8#39#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584453119217">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584453119217" />
+    <state width="1899" height="226" key="GridCell.Tab.0.bottom" timestamp="1585822494276">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="226" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494276" />
+    <state width="1899" height="226" key="GridCell.Tab.0.center" timestamp="1585822494274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="226" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state width="1899" height="226" key="GridCell.Tab.0.left" timestamp="1585822494274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="226" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state width="1899" height="226" key="GridCell.Tab.0.right" timestamp="1585822494274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="226" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
+    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1585821072548">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585821072548" />
   </component>
 </project>

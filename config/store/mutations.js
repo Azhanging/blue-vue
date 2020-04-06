@@ -1,3 +1,5 @@
+import utils from 'blue-utils';
+
 //公共的mutation
 const mutations = {
 
@@ -8,12 +10,12 @@ const mutations = {
 
   //设置导航状态
   SET_TAB_BAR(state, tabBar) {
-    state.view.tabBar = tabBar;
+    state.view.tabBar = utils.extend(state.view.tabBar, tabBar);
   },
 
-  //设置导航子菜单状态
-  SET_TAB_BAR_SUBMENU_INDEX(state, index) {
-    state.view.tabBarSubmenuIndex = index;
+  //设置scroll
+  SET_SUSPEND(state, suspend = {}) {
+    state.view.suspend = utils.extend(state.view.suspend, suspend);
   },
 
   //设置page底部fixed状态，focus相关

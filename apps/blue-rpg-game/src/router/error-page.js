@@ -3,7 +3,7 @@ const error = {
   name: "error-page-404",
   component: () => import(`$components/BvErrorPage/ErrorPage404.vue`),
   meta: {
-    tabBar: false
+    tabBar:{name:false}
   }
 };
 

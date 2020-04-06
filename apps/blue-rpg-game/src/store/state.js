@@ -5,7 +5,9 @@ import publicState from '$config/store/state';
 const state = utils.extend(publicState, {
   /*项目相关的state*/
   view: {
-    tabBar: 'home'
+    tabBar: {
+      name: 'home'
+    }
   },
   //角色相关信息
   roleInfo: {}

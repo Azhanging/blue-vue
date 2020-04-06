@@ -4,8 +4,6 @@ import utils from 'blue-utils';
 import config from '@config';
 import { shareLink } from '$assets/js/share';
 import BlueQueuePipe from 'blue-queue-pipe';
-//项目的分享成功执行
-import { shareSuccess } from '@assets/js/share';
 
 //微信 分享 in vue
 export function weChatShareInVue(Vue) {
@@ -121,7 +119,6 @@ function setWeChatShare(opts = {}) {
       link,
       imgUrl,
       success() {
-        utils.hook(this, shareSuccess);
         utils.hook(this, opts.success);
       }
     });

@@ -8,14 +8,14 @@ const homeTabBar = {
         fontSize: 10
       },
       to: '/',
-      className: 'bc-pd-10 bc-bd-r-e5e'
+      className: 'bz-pd-10 bz-bd-r-e5e'
     }, {
       content: {
         value: '背包',
         fontSize: 10
       },
       to: '/scene/knapsack',
-      className: 'bc-pd-10 bc-bd-r-e5e',
+      className: 'bz-pd-10 bz-bd-r-e5e',
       fontSize: 10
     }, {
       content: {
@@ -23,7 +23,7 @@ const homeTabBar = {
         fontSize: 10
       },
       to: '/components',
-      className: 'bc-pd-10'
+      className: 'bz-pd-10'
     }]
   },
   active() {

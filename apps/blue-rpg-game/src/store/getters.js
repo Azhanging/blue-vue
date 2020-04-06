@@ -5,7 +5,7 @@ import utils from 'blue-utils';
 const getters = utils.extend(publicGetters, {
   /*项目相关的getters*/
   hasRoleInfo(state) {
-    return !utils.nullPlainObject(state.roleInfo);
+    return !utils.isEmptyPlainObject(state.roleInfo);
   }
 });
 

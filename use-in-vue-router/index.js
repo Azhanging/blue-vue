@@ -1,8 +1,7 @@
+import config from '@config';
 import Vue from 'vue';
 import utils from 'blue-utils';
-import { setCurrentViewScroll } from '$components/BvView';
 import BlueKeepAlive from './blue-keep-alive';
-
 //vue-router的config
 const routerConfig = {
   params: {
@@ -17,22 +16,26 @@ export function useInVueRouter(Router, opts = {}) {
   Router.config = utils.extend(routerConfig, opts);
 
   //缓存机制
-  Vue.use(BlueKeepAlive);
+  Vue.use(BlueKeepAlive, {
+    tickTime: config.app.tickTime
+  });
 
   //扩展vue router
   extendVueRouter(Router);
 }
 
+const scrollTo = utils.debounce(function (resolve, savedPosition) {
+  resolve(savedPosition);
+}, config.app.tickTime);
+
 //keep-alive保存position
 export function scrollBehavior(to, from, savedPosition) {
-  if (savedPosition) {
-    //设置view层scroll
-    setCurrentViewScroll(savedPosition);
-  }
-  return {
-    x: 0,
-    y: 0
-  };
+  return new Promise((resolve) => {
+    scrollTo(null, [resolve, savedPosition || {
+      x: 0,
+      y: 0
+    }]);
+  });
 }
 
 //扩展vue router

@@ -5,14 +5,14 @@ const role = [{
   path: `${basePath}/list`,
   component: () => import(`@/views/scene/role/RoleList`),
   meta: {
-    tabBar: false
+    tabBar:{name:false}
   }
 }, {
   //角色创建
   path: `${basePath}/create`,
   component: () => import(`@/views/scene/role/RoleCreate`),
   meta: {
-    tabBar: false
+    tabBar:{name:false}
   }
 }];
 

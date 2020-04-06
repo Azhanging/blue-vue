@@ -1,35 +1,35 @@
 <template>
-  <BvLayoutView>
+  <BvView>
     <BvHeader :center-control="{
       title: `注册`
     }"/>
-    <div class="bc-t-c">
+    <div class="bz-t-c">
       <form ref="form">
-        <div class="bc-mg-t-16rp">
+        <div class="bz-mg-t-32rpx">
           <label>
-            账号：<input type="text" name="email" v-model="form.username" class="bc-input"
+            账号：<input type="text" name="email" v-model="form.username" class="bz-input"
                       v-blue-validate="validate.username"/>
           </label>
         </div>
-        <div class="bc-mg-t-16rp">
+        <div class="bz-mg-t-32rpx">
           <label>
-            邮箱：<input type="text" name="email" v-model="form.email" class="bc-input" v-blue-validate="validate.email"/>
+            邮箱：<input type="text" name="email" v-model="form.email" class="bz-input" v-blue-validate="validate.email"/>
           </label>
         </div>
-        <div class="bc-mg-t-16rp">
+        <div class="bz-mg-t-32rpx">
           <label>
-            密码：<input type="password" name="password" v-model="form.password" class="bc-input"
+            密码：<input type="password" name="password" v-model="form.password" class="bz-input"
                       v-blue-validate="validate.password"/>
           </label>
         </div>
-        <div class="bc-mg-t-16rp">
-          <button type="button" class="bc-btn bc-btn-base" @click="register">
+        <div class="bz-mg-t-32rpx">
+          <button type="button" class="bz-btn bz-btn-base" @click="register">
             注册
           </button>
         </div>
       </form>
     </div>
-  </BvLayoutView>
+  </BvView>
 </template>
 
 <script>

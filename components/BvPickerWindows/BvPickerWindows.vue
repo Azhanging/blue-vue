@@ -10,13 +10,13 @@
 			<div class="bv-picker-windows-shadow" @click.stop="closePickerWindows">
 				<div class="bv-picker-windows">
 					<!-- 标题 -->
-					<div class="bc-flex bc-flex-ai-c bc-pd-10rp bc-t-999 bc-f-16rp bc-bd-b-e5e">
-						<div class="bc-flex-1"></div>
-						<div class="bc-flex-2 bc-t-c">
+					<div class="bz-flex bz-flex-ai-c bz-pd-10rpx bz-t-999 bz-f-16rpx bz-bd-b-e5e">
+						<div class="bz-flex-1"></div>
+						<div class="bz-flex-2 bz-t-c">
 							{{title}}
 						</div>
-						<div class="bc-flex-1 bc-t-r bc-f-21rp">
-							<a href="javascript:;" class="bc-t-666" @click.stop="closePickerWindows">
+						<div class="bz-flex-1 bz-t-r bz-f-21rpx">
+							<a href="javascript:;" class="bz-t-666" @click.stop="closePickerWindows">
 								&times;
 							</a>
 						</div>
@@ -25,9 +25,9 @@
 					<!-- 窗口内容 -->
 					<div class="bv-picker-windows-body">
 						<!-- 显示项 -->
-						<div class="bv-picker-select bc-flex bc-bd-b-e5e">
+						<div class="bv-picker-select bz-flex bz-bd-b-e5e">
 							<div
-								class="bc-t-hide"
+								class="bz-t-hide"
 								v-for="(slot,index) in slots"
 								:class="[
 							  select && select.className,
@@ -41,7 +41,7 @@
 						</div>
 
 						<!-- 选择的列表 -->
-						<div class="bv-picker-windows-body-items bc-flex">
+						<div class="bv-picker-windows-body-items bz-flex">
 							<BvSwiperScroll
 								:direction="'y'"
 								class="bv-picker-windows-body-item"
@@ -56,7 +56,7 @@
 							>
 								<template slot="scroll-items">
 									<div
-										class="bc-block bc-t-hide bc-pd-tb-10rp"
+										class="bz-block bz-t-hide bz-pd-tb-10rpx"
 										v-for="(item,slotIndex) in slot.values"
 										:class="[
 										  findSlot(slot).index === slotIndex && scroll.activeClassName

@@ -1,5 +1,5 @@
 <template>
-  <transition :name="transitionName" mode="in-out">
+  <transition :name="transitionName" mode="out-in">
     <slot/>
   </transition>
 </template>

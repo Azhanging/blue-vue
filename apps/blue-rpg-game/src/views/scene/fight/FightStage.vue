@@ -1,88 +1,90 @@
 <!-- 战斗舞台 -->
 <template>
-	<BvLayoutView>
+	<BvView>
 		<BvHeader :center-control="{
       title: `战斗场景`
     }"/>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bc-pd-r-14rp">
+		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy">
+			<div class="bz-pd-r-28rpx">
 				{{fightData.enemy.name}}
 			</div>
-			<div class="bc-flex-1 bc-t-base">
+			<div class="bz-flex-1 bz-t-base">
 				HP:{{fightData.enemy.currentHp}}/{{fightData.enemy.hp}}
 				<template v-if="fightData.enemy.harm">
-					<span class="bc-t-red">(-{{fightData.enemy.harm}})</span>
+					<span class="bz-t-red">(-{{fightData.enemy.harm}})</span>
 				</template>
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bc-pd-r-14rp">
+		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy">
+			<div class="bz-pd-r-28rpx">
 				{{$store.state.roleInfo.name}}
 			</div>
-			<div class="bc-flex-1 bc-t-base">
+			<div class="bz-flex-1 bz-t-base">
 				HP:{{fightData.my.currentHp}}/{{fightData.my.hp}}
 				<template v-if="fightData.my.harm">
-					<span class="bc-t-red">(-{{fightData.my.harm}})</span>
+					<span class="bz-t-red">(-{{fightData.my.harm}})</span>
 				</template>
 			</div>
-			<div class="bc-flex-1 bc-t-base">
+			<div class="bz-flex-1 bz-t-base">
 				MP:{{fightData.my.currentMp}}/{{fightData.my.mp}}
 			</div>
 		</div>
 
 		<!-- 技能 -->
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="fightData.enemy && !isEnd">
+		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy && !isEnd">
 			<div>技能：</div>
-			<div class="bc-flex-1">
-				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="bc-t-base bc-mg-r-10rp"
+			<div class="bz-flex-1">
+				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="bz-t-base bz-mg-r-20rpx"
 				   @click="useSkill(item)">
 					{{item.name}}
 				</a>
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-f-b bc-bd-b-e5e" v-if="!isEnd">
+		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="!isEnd">
 			<div>背包：</div>
-			<div class="bc-flex-1 bc-flex-jc-c bc-t-c bc-t-base">
-				<div class="bc-pd-b-2rp bc-flex" v-for="resource in knapsackConsume" v-if="knapsackConsume.length > 0">
-					<div class="bc-flex-1">
-						{{resource.name}}
+			<div class="bz-flex-1 bz-flex-jc-c bz-t-c bz-t-base">
+				<template v-if="knapsackConsume.length > 0">
+					<div class="bz-pd-b-4rpx bz-flex" v-for="resource in knapsackConsume">
+						<div class="bz-flex-1">
+							{{resource.name}}
+						</div>
+						<div class="bz-flex-1">
+							x{{resource.amount}}
+						</div>
+						<div class="bz-flex-1">
+							<a href="javascript:;" class="bz-t-base" @click="useConsume(resource)">使用</a>
+						</div>
 					</div>
-					<div class="bc-flex-1">
-						x{{resource.amount}}
-					</div>
-					<div class="bc-flex-1">
-						<a href="javascript:;" class="bc-t-base" @click="useConsume(resource)">使用</a>
-					</div>
-				</div>
+				</template>
 				<template v-else>
 					暂无消耗物品
 				</template>
 			</div>
 		</div>
 
-		<div class="bc-flex bc-pd-10rp bc-bd-b-e5e bc-f-b" v-if="fightData.reward && fightData.reward.length > 0">
+		<div class="bz-flex bz-pd-20rpx bz-bd-b-e5e bz-f-b" v-if="fightData.reward && fightData.reward.length > 0">
 			<div>奖励：</div>
-			<div class="bc-flex-1 bc-t-base">
-				<div class="bc-pd-b-2rp" v-for="reward in fightData.reward">
+			<div class="bz-flex-1 bz-t-base">
+				<div class="bz-pd-b-4rpx" v-for="reward in fightData.reward">
 					{{reward.name}} x{{reward.amount}}
 				</div>
 			</div>
 		</div>
 
 		<!--战斗结束-->
-		<div v-if="isEnd" class="bc-pd-10rp bc-t-c bc-f-b">
+		<div v-if="isEnd" class="bz-pd-20rpx bz-t-c bz-f-b">
       <span>
         战斗结束->
       </span>
-			<router-link to="/scene/map" class="bc-t-base">
+			<router-link replace to="/scene/map" class="bz-t-base">
 				回到地图
 			</router-link>
 		</div>
 
-	</BvLayoutView>
+	</BvView>
 </template>
 
 <script>
@@ -154,11 +156,9 @@
 			},
 			//使用消耗品
 			useConsume(resource) {
-				this.$axios.get(`/member/scene/knapsack/useConsume`, {
-					params: {
-						id: resource.id
-					}
-				}).then(()=>{
+				this.$axios.post(`/member/scene/knapsack/useConsume`, {
+          id: resource.id
+        }).then(()=>{
 					this.getFightInfo();
 					this.getKnapsackConsume();
 				});

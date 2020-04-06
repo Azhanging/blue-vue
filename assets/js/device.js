@@ -2,7 +2,6 @@ import store from '@store';
 import config from '@config';
 import inBrowser from "$assets/js/in-browser";
 import NativeApp from '$assets/js/native-app';
-import Vue from 'vue';
 
 //main
 export function device(opts) {
@@ -13,12 +12,10 @@ export function device(opts) {
   if (inBrowser() && config.device.isWap) {
     //设置webview相关
     setNativeApp();
-    //设置blue-component的viewport
+    //设置blue-zone的viewport
     setViewport();
     //移动端相关的focus处理
     mobileFocus(Vue);
-    //修复ios上的一些bug
-    fixIOSBug();
   }
 }
 
@@ -96,22 +93,16 @@ function iosFocus() {
     });
     //设置focus状态
     setFocusStatus(true);
-    //ios focus fixed bug
-    mockViewScroll();
-  });
+  }, false);
 
   document.body.addEventListener('focusout', (event) => {
     focusHook({
       type: 'focusout',
       lastNav,
       event
-    });
+    }, false);
     //设置focus状态
     setFocusStatus(false);
-    //ios focus fixed bug
-    mockViewScroll();
-    //body scroll move
-    mockBodyScroll();
   });
 
 }
@@ -151,6 +142,7 @@ function getClientHeight() {
 function focusHook(opts) {
   const { type, lastNav, event } = opts;
   const target = event.target;
+  if (target === window) return;
   const tagName = target.tagName;
   const elmType = target.getAttribute('type');
 
@@ -167,43 +159,17 @@ function focusHook(opts) {
     )
   ) {
     if (type === 'focusout') {
-      store.commit('SET_TAB_BAR', lastNav);
+      store.commit('SET_TAB_BAR', {
+        name: lastNav
+      });
       store.commit('SET_PAGE_FIXED', true);
     } else if (type === 'focusin') {
-      store.commit('SET_TAB_BAR', false);
+      store.commit('SET_TAB_BAR', {
+        name: false
+      });
       store.commit('SET_PAGE_FIXED', false);
     }
   }
-}
-
-//模拟移动，scroll中操作表单会出现偏移的情况，做一次抖动让表单正常
-export function mockViewScroll() {
-  Vue.nextTick(() => {
-    const scrollElm = document.querySelectorAll('.bv-view-scroll');
-    [].forEach.call(scrollElm, (viewElm) => {
-      viewElm.scrollTop += 1;
-      viewElm.scrollTop -= 1;
-    });
-  });
-}
-
-//模拟body scroll
-function mockBodyScroll() {
-  document.body.scrollTop = 0;
-}
-
-//修复一些ios上的bug
-function fixIOSBug() {
-  if (!(config.device.isIPhone || config.device.isIPad)) return;
-  //ios在move的时候，body层会出现1秒的无法滑稽（动）（系统在偷偷复位回弹）
-  //在end处理body层scrollTop回到0
-  let endTimer;
-  document.body.addEventListener('touchend', () => {
-    clearTimeout(endTimer);
-    endTimer = setTimeout(() => {
-      !focusStatus && mockBodyScroll();
-    }, 200);
-  });
 }
 
 //设置focus状态

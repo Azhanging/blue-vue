@@ -23,7 +23,7 @@
             </div>
 
             <!-- 内容以及左右方向的icon -->
-            <div v-if="item.content" class="bv-tab-bar-content bc-flex bc-flex-ai-c bc-flex-jc-c">
+            <div v-if="item.content" class="bv-tab-bar-content bz-flex bz-flex-ai-c bz-flex-jc-c">
 
               <!-- 方向为left的时候出现 -->
               <BvTabBarIcon :icon="item.icon" :active-index="activeIndex" :current-index="index"
@@ -63,7 +63,7 @@
                 <div class="tab-bar-submenu-list-wrap" v-if="item.children" :style="item.children.style">
                   <!--子菜单列表-->
                   <div class="tab-bar-submenu-list" :style="item.children.list.style" v-if="item.children.list">
-                    <div class="tab-bar-submenu-list-item bc-t-hide"
+                    <div class="tab-bar-submenu-list-item bz-t-hide"
                          v-if="item.children.list.items.length > 0"
                          v-for="(submenu, index) in item.children.list.items"
                          :key="`tab-bar-submenu-list-item-${index}`"
@@ -121,7 +121,7 @@
         type: Array
       },
       unActiveClassName: {
-        default: 'bc-t-666',
+        default: 'bz-t-666',
         type: String
       },
       activeClassName: {

@@ -1,6 +1,6 @@
 <!-- tab bar icon -->
 <template>
-	<span class="bc-inline-block " :class="{
+	<span class="bz-inline-block " :class="{
   	'tab-bar-icon': icon.src && icon.activeSrc
 	}">
 		<!-- 图片导航 -->

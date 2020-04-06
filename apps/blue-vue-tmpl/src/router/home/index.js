@@ -2,18 +2,19 @@ const home = [{
   path: '/',
   name: 'home',
   component: () => import(`@/views/home/Home.vue`),
-  children: [{
-    path: 'test-scroll',
-    component: () => import(`@/views/home/test-scroll/test-scroll.vue`),
-    children: [{
-      path: 'test-scroll-children',
-      component: () => import(`@/views/home/test-scroll/test-scroll-children/test-scroll-children.vue`),
-    }]
-  }]
+  meta: {
+    suspend: {
+      status: false
+    }
+  }
 }, {
   //登录
-  path: 'login',
+  path: '/login',
   component: () => import(`@/views/home/Login.vue`)
+}, {
+  path: '/bind-phone',
+  name: "bind-phone",
+  component: () => import(`@/views/home/BindPhone.vue`)
 }];
 
 export default home;
