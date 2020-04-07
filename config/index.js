@@ -10,7 +10,7 @@ const config = {
   //视图相关
   app: {
     title: "blue-vue-tmpl-title",       //默认的文档标题
-    tabBar:{name:false},                    //默认的导航名，定义到的bv-tab-bar中使用
+    tabBar: { name: false },                    //默认的导航名，定义到的bv-tab-bar中使用
     keepAlive: {                    //vue 中keepAlive设置不需要缓存的components
       exclude: []
     },
@@ -85,7 +85,8 @@ const config = {
 
   //request相关
   axios: {
-    timeout: 3000
+    timeout: 3000,
+    isShowLoading: true
   },
 
   /*

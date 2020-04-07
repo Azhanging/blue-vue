@@ -20,18 +20,15 @@ const $axios = axios.create(utils.extend({
 $axios.interceptors.request.use((axiosConfig) => {
   //把路由当前路由的id设置给axios config中
   axiosConfig.routeID = routerID.getCurrentID();
-  const isShowLoading = axiosConfig.isShowLoading;
   //mode为token，设置header头
   setRequestHeader(axiosConfig);
   //set form data type
   setFormData(axiosConfig);
   //是否loading显示
-  if (isShowLoading === undefined || isShowLoading === true) {
-    //设置当前的loading的id
-    showLoading({
-      text: false
-    });
-  }
+  //设置当前的loading的id
+  axiosConfig.isShowLoading === true && showLoading({
+    text: false
+  });
   return axiosConfig;
 }, (error) => {
   return Promise.reject(error);
@@ -40,10 +37,7 @@ $axios.interceptors.request.use((axiosConfig) => {
 //拦截response
 $axios.interceptors.response.use((res) => {
   const { status, config: axiosConfig } = res;
-  const { isShowLoading } = axiosConfig;
-  if (isShowLoading === undefined || isShowLoading === true) {
-    hideLoading();
-  }
+  axiosConfig.isShowLoading && hideLoading();
   //success http request state
   if (status >= 200 || status < 400) {
     const { code: requestCode, message, consoleMessage } = res.data;
