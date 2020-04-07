@@ -25,60 +25,66 @@ $axios.interceptors.request.use((axiosConfig) => {
   //set form data type
   setFormData(axiosConfig);
   //是否loading显示
-  //设置当前的loading的id
-  axiosConfig.isShowLoading === true && showLoading({
+  axiosConfig.isShowLoading && showLoading({
     text: false
   });
   return axiosConfig;
 }, (error) => {
+  const { axiosConfig } = error;
+  const { isShowLoading } = axiosConfig;
+  isShowLoading && hideLoading();
   return Promise.reject(error);
 });
 
 //拦截response
 $axios.interceptors.response.use((res) => {
-  const { status, config: axiosConfig } = res;
-  axiosConfig.isShowLoading && hideLoading();
+  const { config } = res;
+  const { isShowLoading, routeID } = config;
+  isShowLoading && hideLoading();
+  //匹配路由id和请求id是够一致，不一致不进行处理
+  if (!routerID.isCurrentID(routeID)) {
+    return Promise.reject(res.data);
+  }
   //success http request state
-  if (status >= 200 || status < 400) {
-    const { code: requestCode, message, consoleMessage } = res.data;
-    //后台指派console信息打印
-    consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
-    //success code
-    if (requestCode === code.SUCCESS) {
-      if (message) {
-        toast({
-          message
-        });
-      }
-      //request -> leave -> go(1) 离开不再处理
-      if (!routerID.isCurrentID(axiosConfig.routeID)) {
-        return Promise.reject(res.data);
-      }
-      return res.data;
-    } else {
-      //code处理
-      codeHandler(res.data);
-      //避免原来then上的业务，走reject
-      return Promise.reject(res.data);
-    }
+  const { code: requestCode, message, consoleMessage } = res.data;
+  //后台指派console信息打印
+  consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
+  //success code
+  if (requestCode === code.SUCCESS) {
+    //信息toast
+    message && toast({
+      message
+    });
+    return res.data;
+  } else {
+    //code处理
+    codeHandler(res.data);
+    //避免原来then上的业务，走reject
+    return Promise.reject(res.data);
   }
 }, (error) => {
   const axiosConfig = error.config;
-  const isTimeout = /timeout/ig.test(error.message);
+  const { message: errorMsg } = error;
+  const { isShowLoading, routeID } = axiosConfig;
   const status = isTimeout ? 'timeout' : error.response.status;
   const errorConfig = config.error;
-  hideLoading();
 
-  //检查当前的路由标识和当前路由中的id标识是否一样
-  //不一样不去执行后面异步的操作
-  if (!routerID.isCurrentID(axiosConfig.routeID)) {
+  //关闭loading
+  isShowLoading && hideLoading();
+
+  //匹配路由id和请求id是够一致，不一致不进行处理
+  if (!routerID.isCurrentID(routeID)) {
     return Promise.reject(error);
   }
 
   //处理超时信息，重写信息,只有超时有提示
-  if (isTimeout) {
+  if (/timeout/ig.test(errorMsg)) {
     toast({
-      message: error.message = '请求超时，请刷新页面'
+      message: '请求超时，请刷新页面'
+    });
+  } else if (/Network\sError/.test(errorMsg)) {
+    toast({
+      message: '网络已断开，请检查网络'
     });
   }
 

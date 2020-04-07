@@ -1,6 +1,6 @@
 //路由id
 class RouterID {
-  constructor(opts = {}) {
+  constructor() {
     this.id = 0;
   }
 
@@ -18,7 +18,6 @@ class RouterID {
   isCurrentID(id) {
     return this.id === id;
   }
-
 }
 
 export default RouterID;
