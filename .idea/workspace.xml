@@ -86,6 +86,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="serve (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
       <command value="run" />
@@ -110,10 +120,12 @@
       <item itemvalue="Gulp.js.default" />
       <item itemvalue="npm.serve" />
       <item itemvalue="npm.serve (1)" />
+      <item itemvalue="npm.build" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.serve (1)" />
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.serve" />
         <item itemvalue="Gulp.js.default" />
       </list>
@@ -170,6 +182,7 @@
       <workItem from="1584883867168" duration="729000" />
       <workItem from="1585798914773" duration="13471000" />
       <workItem from="1586232014516" duration="10777000" />
+      <workItem from="1587565264753" duration="1097000" />
     </task>
     <servers />
   </component>
@@ -181,25 +194,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584453119217" />
-    <state width="1899" height="226" key="GridCell.Tab.0.bottom" timestamp="1585822494276">
+    <state width="1899" height="221" key="GridCell.Tab.0.bottom" timestamp="1587565305284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="226" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494276" />
-    <state width="1899" height="226" key="GridCell.Tab.0.center" timestamp="1585822494274">
+    <state width="1899" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
+    <state width="1899" height="221" key="GridCell.Tab.0.center" timestamp="1587565305284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="226" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
-    <state width="1899" height="226" key="GridCell.Tab.0.left" timestamp="1585822494274">
+    <state width="1899" height="221" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
+    <state width="1899" height="221" key="GridCell.Tab.0.left" timestamp="1587565305284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="226" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
-    <state width="1899" height="226" key="GridCell.Tab.0.right" timestamp="1585822494274">
+    <state width="1899" height="221" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
+    <state width="1899" height="221" key="GridCell.Tab.0.right" timestamp="1587565305284">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="226" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585822494274" />
-    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1585821072548">
+    <state width="1899" height="221" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587566036272">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585821072548" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587566036272" />
+    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1587565341225">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587565341225" />
   </component>
 </project>

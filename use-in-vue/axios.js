@@ -14,7 +14,7 @@ const $axios = axios.create(utils.extend({
   headers: {
     'X-Requested-With': 'XMLHttpRequest'
   }
-}, config.axios));
+}, config.request));
 
 //拦截request
 $axios.interceptors.request.use((axiosConfig) => {
@@ -25,22 +25,22 @@ $axios.interceptors.request.use((axiosConfig) => {
   //set form data type
   setFormData(axiosConfig);
   //是否loading显示
-  axiosConfig.isShowLoading && showLoading({
+  axiosConfig.showLoading && showLoading({
     text: false
   });
   return axiosConfig;
 }, (error) => {
   const { axiosConfig } = error;
-  const { isShowLoading } = axiosConfig;
-  isShowLoading && hideLoading();
+  const { showLoading } = axiosConfig;
+  showLoading && hideLoading();
   return Promise.reject(error);
 });
 
 //拦截response
 $axios.interceptors.response.use((res) => {
   const { config } = res;
-  const { isShowLoading, routeID } = config;
-  isShowLoading && hideLoading();
+  const { showLoading, routeID } = config;
+  showLoading && hideLoading();
   //匹配路由id和请求id是够一致，不一致不进行处理
   if (!routerID.isCurrentID(routeID)) {
     return Promise.reject(res.data);
@@ -65,12 +65,13 @@ $axios.interceptors.response.use((res) => {
 }, (error) => {
   const axiosConfig = error.config;
   const { message: errorMsg } = error;
-  const { isShowLoading, routeID } = axiosConfig;
+  const { showLoading, routeID } = axiosConfig;
+  const isTimeout = /timeout/ig.test(errorMsg);
   const status = isTimeout ? 'timeout' : error.response.status;
   const errorConfig = config.error;
 
   //关闭loading
-  isShowLoading && hideLoading();
+  showLoading && hideLoading();
 
   //匹配路由id和请求id是够一致，不一致不进行处理
   if (!routerID.isCurrentID(routeID)) {

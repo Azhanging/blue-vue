@@ -84,9 +84,9 @@ const config = {
   },
 
   //request相关
-  axios: {
+  request: {
     timeout: 3000,
-    isShowLoading: true
+    showLoading: true
   },
 
   /*
