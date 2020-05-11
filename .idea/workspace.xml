@@ -24,6 +24,7 @@
         <option value="SCSS File" />
         <option value="Vue Single File Component" />
         <option value="JavaScript File" />
+        <option value="Wxml" />
       </list>
     </option>
   </component>
@@ -48,20 +49,23 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Vue" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/assets/css/blue-zone/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/use-in-vue/vant" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2019.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
-      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
+      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\achang\web\blue-vue-program\use-in-vue\vant" />
+      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
   </component>
@@ -125,8 +129,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.serve (1)" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.serve" />
+        <item itemvalue="npm.build" />
         <item itemvalue="Gulp.js.default" />
       </list>
     </recent_temporary>
@@ -182,7 +186,10 @@
       <workItem from="1584883867168" duration="729000" />
       <workItem from="1585798914773" duration="13471000" />
       <workItem from="1586232014516" duration="10777000" />
-      <workItem from="1587565264753" duration="1097000" />
+      <workItem from="1587565264753" duration="1235000" />
+      <workItem from="1589208645374" duration="2202000" />
+      <workItem from="1589210859059" duration="1894000" />
+      <workItem from="1589213092428" duration="1413000" />
     </task>
     <servers />
   </component>
@@ -190,33 +197,49 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="599" y="287" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog" timestamp="1589211043208">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="599" y="287" key="#com.intellij.ide.fileTemplates.ui.ConfigureTemplatesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589211043208" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584453119217">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584453119217" />
-    <state width="1899" height="221" key="GridCell.Tab.0.bottom" timestamp="1587565305284">
+    <state width="1899" height="260" key="GridCell.Tab.0.bottom" timestamp="1589213197264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="221" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
-    <state width="1899" height="221" key="GridCell.Tab.0.center" timestamp="1587565305284">
+    <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589213197264" />
+    <state width="1899" height="260" key="GridCell.Tab.0.center" timestamp="1589213197264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="221" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
-    <state width="1899" height="221" key="GridCell.Tab.0.left" timestamp="1587565305284">
+    <state width="1899" height="260" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589213197264" />
+    <state width="1899" height="260" key="GridCell.Tab.0.left" timestamp="1589213197263">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="221" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
-    <state width="1899" height="221" key="GridCell.Tab.0.right" timestamp="1587565305284">
+    <state width="1899" height="260" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589213197263" />
+    <state width="1899" height="260" key="GridCell.Tab.0.right" timestamp="1589213197264">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="221" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1587565305284" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587566036272">
+    <state width="1899" height="260" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589213197264" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1589213109731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587566036272" />
-    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1587565341225">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589213109731" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589214370516">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587565341225" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589214370516" />
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1" timestamp="1589208701337">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1589208701337" />
+    <state x="143" y="258" width="786" height="600" key="find.popup" timestamp="1589214521859">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="143" y="258" width="786" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589214521859" />
+    <state x="616" y="173" width="670" height="676" key="search.everywhere.popup" timestamp="1589209510030">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="173" width="670" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589209510030" />
   </component>
 </project>

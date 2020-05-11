@@ -30,7 +30,6 @@ module.exports = {
         '$load-more': resolve(`./assets/js/load-more`),
         '$page-list': resolve(`./components/m-page-list/index`),
         '$assets': resolve(`./assets`),
-        '$upload': resolve(`./components/VueUploadComponent/upload`),
         '$wechat': resolve(`./use-in-vue/wechat`),
         '$use-in-vue': resolve(`./use-in-vue`),
         '$use-in-vue-router': resolve(`./use-in-vue-router`),

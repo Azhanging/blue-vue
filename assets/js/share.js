@@ -3,7 +3,7 @@ import router from '@router';
 import store from '@store';
 import utils from 'blue-utils';
 import { Base64 } from 'js-base64';
-import { toast } from '$use-in-vue/mint-ui/toast';
+import { toast } from '$use-in-vue/vant/toast';
 
 //分享的url可能是动态需要的配置，可以为String或者Function
 export function shareLink() {

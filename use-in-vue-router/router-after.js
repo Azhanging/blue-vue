@@ -1,7 +1,7 @@
 //router after each 相关的业务
 import utils from 'blue-utils';
 import { tabBar, suspend } from "$assets/js/view";
-import { hideLoading } from "$use-in-vue/mint-ui/indicator";
+import { hideLoading } from "$use-in-vue/vant/toast";
 import { docTitle } from '$assets/js/document';
 import { getWeChatConfig } from '$wechat';
 import { setFocusStatus } from '$assets/js/device';

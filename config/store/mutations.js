@@ -32,7 +32,6 @@ const mutations = {
   SET_PHONE(state, phone) {
     state.userInfo.phone = phone;
   }
-
 };
 
 export default mutations;

@@ -5,17 +5,14 @@ import "nprogress/nprogress.css";
 import NProgress from 'nprogress';
 import BlueValidate from 'blue-validate';
 import fastclick from 'fastclick';
-import { useVueAwesomeSwiper } from './swiper';
 import { useAxiosInVue } from './axios';
-import { useMintUi } from './mint-ui';
-import { useUpload } from '$components/VueUploadComponent/upload';
+import { useInVant } from './vant';
 import { Base64 } from 'js-base64';   //base64
 import inBrowser from "$assets/js/in-browser";
 import { useWeChatInVue } from '$wechat';
 import { useComponentsInVue } from './components';
 import config from '@config';
 import { share } from '$assets/js/share';
-import { login } from '$assets/js/login';
 import { view } from '$assets/js/view';
 import { useFilter } from './filter'
 
@@ -39,10 +36,6 @@ export function useInVue(opts = {}) {
     fastclick.attach(document.body);
     //验证规则
     Vue.use(BlueValidate);
-    //upload
-    useUpload(Vue);
-    //swiper
-    useVueAwesomeSwiper(Vue);
   }
   //mixin program in Vue
   Vue.mixin({
@@ -62,7 +55,7 @@ export function useInVue(opts = {}) {
   //过滤器
   useFilter(Vue);
   //use mint
-  useMintUi(Vue);
+  useInVant(Vue);
   //axios
   useAxiosInVue(Vue);
   //components

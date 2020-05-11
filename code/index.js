@@ -2,7 +2,7 @@ import router from '@router';
 import code from './code';
 import { unLogin, loginExpire } from '$assets/js/login';
 import { bindPhone } from '$assets/js/bind';
-import { toast } from '$use-in-vue/mint-ui/toast';
+import { toast } from '$use-in-vue/vant/toast';
 import { redirect } from '$assets/js/redirect';
 
 //错误码处理

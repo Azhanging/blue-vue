@@ -2,10 +2,9 @@ import axios from 'axios';
 import router, { routerID } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
-import { showLoading, hideLoading } from '$use-in-vue/mint-ui/indicator';
-import { toast } from "$use-in-vue/mint-ui/toast";
-import code from '$code/code';    //错误码
-import { codeHandler } from '$code';   //错误码处理
+import { hideLoading, showLoading, toast } from '$use-in-vue/vant/toast';
+import code from '$code/code'; //错误码
+import { codeHandler } from '$code'; //错误码处理
 
 const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`;
 
@@ -26,7 +25,7 @@ $axios.interceptors.request.use((axiosConfig) => {
   setFormData(axiosConfig);
   //是否loading显示
   axiosConfig.showLoading && showLoading({
-    text: false
+    message: '加载中...'
   });
   return axiosConfig;
 }, (error) => {

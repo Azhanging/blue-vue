@@ -11,6 +11,7 @@ import BvTransition from '$components/BvTransition/BvTransition';
 import BvPageList from '$components/BvPageList/BvPageList';
 import BvBindPhone from '$components/BvBindPhone/BvBindPhone';
 import BvLayer from '$components/BvLayer/BvLayer';
+import BvScroll from '$components/BvScroll/BvScroll';
 
 export function useComponentsInVue(Vue) {
   //图片预览组件PhotoSwipe
@@ -18,6 +19,8 @@ export function useComponentsInVue(Vue) {
   Vue.component('BluePhotoSwipe', photoSwipeComponent);
   //公共头部
   Vue.component('BvHeader', BvHeader);
+  //滚动组件
+  Vue.component('BvScroll', BvScroll);
   //主视图
   Vue.component('BvView', BvView);
   //底部导航

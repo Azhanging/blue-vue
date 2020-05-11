@@ -38,29 +38,6 @@ const components = [{
     }
   }
 }, {
-  path: '/components/vue-awesome-swiper',
-  component: () => import(`@/views/components/vue-awesome-swiper/vue-awesome-swiper.vue`),
-  meta: {
-    title: '滑动组件',
-    afterHook() {
-      weChatShare({       //特定的微信分享
-        title: 'page-list'
-      });
-    }
-  }
-}, {
-  path: '/components/vue-upload-component',
-  component: () => import(`@/views/components/vue-upload-component/vue-upload-component.vue`),
-  meta: {
-    title: '上传组件',
-    tabBar:{name:false},
-    afterHook() {
-      weChatShare({       //特定的微信分享
-        title: '上传组件'
-      });
-    }
-  }
-}, {
   path: '/components/picker',
   component: () => import(`@/views/components/picker/picker.vue`),
   meta: {

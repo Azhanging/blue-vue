@@ -8,8 +8,7 @@ import { useInVueProgram } from './use-in-vue-program';
 import user from '$assets/js/user';
 //公共css，项目配置项assets/scss/config
 import '@/assets/css/blue-zone.scss';
-//预设mint-ui中的css
-import '@/assets/css/mint-ui.scss';
+
 //nprogress覆盖scss
 import '@/assets/css/nprogress.scss';
 //server work PWA

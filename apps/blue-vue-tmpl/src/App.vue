@@ -17,7 +17,6 @@
 
     <!-- 图片预览的组件 -->
     <BluePhotoSwipe/>
-
   </div>
 </template>
 

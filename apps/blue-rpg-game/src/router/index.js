@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import { weChatShare } from '$wechat';
 import { useInVueRouter, scrollBehavior } from '$use-in-vue-router';
-import RouterID from '$use-in-vue-router/router-meta';
+import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 import { useInVueRouterProgram } from '../use-in-vue-router-program';

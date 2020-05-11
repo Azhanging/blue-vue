@@ -1,6 +1,6 @@
 import router from '@router';
 import config from '@config';
-import { toast } from "$use-in-vue/mint-ui/toast";
+import { toast } from "$use-in-vue/vant/toast";
 import utils from 'blue-utils';
 
 //跳转到登录页面
