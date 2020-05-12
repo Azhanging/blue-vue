@@ -85,8 +85,11 @@ const config = {
 
   //request相关
   request: {
-    timeout: 3000,
-    showLoading: true
+    options: {
+      timeout: 3000,
+      showLoading: true,
+      showToast: false
+    }
   },
 
   /*

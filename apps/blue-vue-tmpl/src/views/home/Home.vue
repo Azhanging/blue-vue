@@ -11,18 +11,6 @@
         </router-link>
       </div>
 
-      <div class="bz-t-c bz-mg-t-20rpx">
-        <router-link to="/test-scroll" class="bz-btn bz-btn-danger bz-btn-plain">
-          test-scroll
-        </router-link>
-      </div>
-
-      <div class="bz-t-c bz-mg-t-20rpx">
-        <router-link to="/test-login" class="bz-btn bz-btn-danger bz-btn-plain">
-          test-login
-        </router-link>
-      </div>
-
       <div v-for="i in 10" class="bz-t-c">
         <div class="bz-pd-20rpx">
           <router-link to="/components/scroll/1" class="bz-t-base">

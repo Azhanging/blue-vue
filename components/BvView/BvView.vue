@@ -3,9 +3,7 @@
   <div class="bv-view" :class="{'no-tab-bar':!view.tabBar}">
     <slot/>
     <!-- 公共的view层子路由 -->
-    <BvViewTransition>
-      <router-view/>
-    </BvViewTransition>
+    <router-view/>
   </div>
 </template>
 
@@ -29,6 +27,7 @@
     padding-bottom: calc(constant(safe-area-inset-bottom) + 47px);
     padding-bottom: calc(env(safe-area-inset-bottom) + 47px);
     background-color: rgba(255, 255, 255, 1);
+
     &.no-tab-bar {
       padding-bottom: 0;
     }

@@ -26,18 +26,6 @@ const components = [{
     tabBar:{name:false}
   }
 }, {
-  path: '/components/page-list',
-  component: () => import(`@/views/components/page-list/page-list.vue`),
-  meta: {
-    title: 'page list',
-    tabBar: 'page',     //不存在的导航，默认设置为false
-    afterHook() {
-      weChatShare({       //特定的微信分享
-        title: 'page-list'
-      });
-    }
-  }
-}, {
   path: '/components/picker',
   component: () => import(`@/views/components/picker/picker.vue`),
   meta: {

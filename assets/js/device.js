@@ -153,10 +153,10 @@ function focusHook(opts) {
   ];
 
   if ((tagName === 'INPUT' && types.indexOf(elmType) !== -1) || (
-      tagName === 'SELECT'
-    ) || (
-      tagName === 'TEXTAREA'
-    )
+    tagName === 'SELECT'
+  ) || (
+    tagName === 'TEXTAREA'
+  )
   ) {
     if (type === 'focusout') {
       store.commit('SET_TAB_BAR', {

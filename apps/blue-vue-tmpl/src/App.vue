@@ -1,8 +1,6 @@
 <template>
   <div id="app" class="bz-t-666 bz-f-28rpx">
 
-    <!--<BvViewTransition></BvViewTransition>-->
-
     <keep-alive :exclude="config.app.keepAlive.exclude">
       <router-view/>
     </keep-alive>

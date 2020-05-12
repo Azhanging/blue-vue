@@ -6,14 +6,12 @@ import { hideLoading, showLoading, toast } from '$use-in-vue/vant/toast';
 import code from '$code/code'; //错误码
 import { codeHandler } from '$code'; //错误码处理
 
-const consoleStyle = `background-color:#0f8cca;color:white;padding:2px 4px;border-radius:4px;`;
-
 //柯里化 axios
 const $axios = axios.create(utils.extend({
   headers: {
     'X-Requested-With': 'XMLHttpRequest'
   }
-}, config.request));
+}, config.request.options));
 
 //拦截request
 $axios.interceptors.request.use((axiosConfig) => {
@@ -38,20 +36,18 @@ $axios.interceptors.request.use((axiosConfig) => {
 //拦截response
 $axios.interceptors.response.use((res) => {
   const { config } = res;
-  const { showLoading, routeID } = config;
+  const { showLoading, showToast, routeID } = config;
   showLoading && hideLoading();
   //匹配路由id和请求id是够一致，不一致不进行处理
   if (!routerID.isCurrentID(routeID)) {
     return Promise.reject(res.data);
   }
   //success http request state
-  const { code: requestCode, message, consoleMessage } = res.data;
-  //后台指派console信息打印
-  consoleMessage && console.log(`%cRequest Message:${consoleMessage}`, consoleStyle);
+  const { code: requestCode, message } = res.data;
   //success code
   if (requestCode === code.SUCCESS) {
     //信息toast
-    message && toast({
+    showToast && message && toast({
       message
     });
     return res.data;
