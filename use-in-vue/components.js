@@ -12,7 +12,7 @@ import BvOverlay from '$components/BvOverlay/BvOverlay';
 export function useComponentsInVue(Vue) {
   //图片预览组件PhotoSwipe
   Vue.use(photoSwipe);
-  Vue.component('BluePhotoSwipe', photoSwipeComponent);
+  Vue.component('BvPhotoSwipe', photoSwipeComponent);
   //公共头部
   Vue.component('BvHeader', BvHeader);
   //主视图

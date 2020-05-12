@@ -13,7 +13,7 @@
     <WTabBar/>
 
     <!-- 图片预览的组件 -->
-    <BluePhotoSwipe/>
+    <BvPhotoSwipe/>
 
   </div>
 </template>
