@@ -1,6 +1,7 @@
+import BlueQueuePipe from 'blue-queue-pipe';
+import utils from 'blue-utils';
 import { Toast } from 'vant';
 import inBrowser from "$assets/js/in-browser";
-import BlueQueuePipe from 'blue-queue-pipe';
 
 export function useToast(Vue) {
   //打开loading
@@ -20,12 +21,10 @@ const loadingQueue = new BlueQueuePipe();
 export function showLoading(opts = {}) {
   if (!inBrowser()) return;
   if (loadingQueue.isEmpty()) {
-    let config = {
-      message: opts.message || '加载中...',
-      show: true
-    };
-    !opts.message && delete config.message;
-    Toast.loading(config);
+    Toast.loading(utils.extend({
+      message: '加载中...',
+      duration: 0
+    }, opts));
   }
   loadingQueue.enqueue(true);
 }
