@@ -1,5 +1,5 @@
 import axios from 'axios';
-import router, { routerID } from '@router';
+import { routerID } from '@router';
 import config from '@config';
 import utils from 'blue-utils';
 import { hideLoading, showLoading, toast } from '$use-in-vue/vant/toast';
@@ -59,11 +59,8 @@ $axios.interceptors.response.use((res) => {
   }
 }, (error) => {
   const axiosConfig = error.config;
-  const { message: errorMsg } = error;
+  let { message } = error;
   const { showLoading, routeID } = axiosConfig;
-  const isTimeout = /timeout/ig.test(errorMsg);
-  const status = isTimeout ? 'timeout' : error.response.status;
-  const errorConfig = config.error;
 
   //关闭loading
   showLoading && hideLoading();
@@ -74,21 +71,15 @@ $axios.interceptors.response.use((res) => {
   }
 
   //处理超时信息，重写信息,只有超时有提示
-  if (/timeout/ig.test(errorMsg)) {
-    toast({
-      message: '请求超时，请刷新页面'
-    });
-  } else if (/Network\sError/.test(errorMsg)) {
-    toast({
-      message: '网络已断开，请检查网络'
-    });
+  if (/timeout/ig.test(message)) {
+    message = `请求超时，请刷新页面`;
+  } else if (/Network\sError/.test(message)) {
+    message = `网络已断开，请检查网络`;
   }
 
-  //跳转指定的错误状态页
-  if (status >= 400 && status < 600 && !config.debug) {
-    const errorPath = errorConfig[status] ? errorConfig[status].path : errorConfig[404].path;
-    router.replace(errorPath);
-  }
+  message && toast({
+    message
+  });
 
   return Promise.reject(error);
 });

@@ -1,5 +1,5 @@
 const error = [{
-  path: '/error-page/error-page-404',
+  path: '*',
   name: "error-page-404",
   component: () => import(`$components/BvErrorPage/ErrorPage404.vue`),
   meta: {

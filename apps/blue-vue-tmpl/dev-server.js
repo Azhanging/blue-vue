@@ -21,6 +21,9 @@ const devServer = {
   proxy: {
     '/mock': {
       target: `http:localhost:${port}/mock`,
+    },
+    '/yzj': {
+      target: `http://rdtest-post.youzhanjia.com/`
     }
   }
 };
