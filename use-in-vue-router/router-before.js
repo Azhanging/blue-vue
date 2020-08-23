@@ -1,8 +1,6 @@
 //router before each 相关的业务
 import utils from 'blue-utils';
 import RouterNext from './router-next';
-import { setTabBarSubmenuIndex } from '$components/BvTabBar';
-import { bind } from '$assets/js/bind';
 import { routerID } from '@router';
 import NProgress from 'nprogress';
 
@@ -12,9 +10,6 @@ export function routerBeforeEach(opts = {}) {
 
   //存在重定向的不在走router beforeEach
   router.beforeEach((to, from, next) => {
-
-    //设置子菜单的状态
-    setTabBarSubmenuIndex(-1);
 
     //设置路由标识
     routerID.setCurrentID();

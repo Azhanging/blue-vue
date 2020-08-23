@@ -1,5 +1,13 @@
 import { weChatShare } from '$wechat';
 
+const tabBar = {
+  name: `components`
+};
+
+const tabBarHidden = {
+  name: false
+};
+
 const components = [{
   path: '/components',
   name: 'components',
@@ -11,7 +19,7 @@ const components = [{
       });
     },
     title: 'component',
-    tabBar: 'components'
+    tabBar
   }
 }, {
   path: '/components/blue-validate',
@@ -23,14 +31,14 @@ const components = [{
       });
     },
     title: '验证标题',
-    tabBar:{name:false}
+    tabBar: tabBarHidden
   }
 }, {
   path: '/components/picker',
   component: () => import(`@/views/components/picker/picker.vue`),
   meta: {
     title: '滚动组件',
-    tabBar:{name:false},
+    tabBar: tabBarHidden,
     afterHook() {
       weChatShare({       //特定的微信分享
         title: '滚动组件'
@@ -49,7 +57,7 @@ const components = [{
   component: () => import(`@/views/components/scroll/scroll`),
   meta: {
     title: 'scroll',
-    tabBar: 'components',
+    tabBar,
     afterHook() {
       weChatShare({
         title: 'scroll'

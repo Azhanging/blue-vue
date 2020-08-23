@@ -41,12 +41,13 @@
     },
     methods: {
       backToTop() {
-        Velocity(document.documentElement, "scroll", {
+        document.documentElement.scrollTop = 0;
+        /*Velocity(document.documentElement, "scroll", {
           container: document.documentElement,
           duration: 180,
           MobileHA: true,
           offset: -document.documentElement.scrollTop
-        });
+        });*/
       }
     }
   }

@@ -30,7 +30,3 @@
     }
   };
 </script>
-
-<style lang="scss">
-  @import url(//at.alicdn.com/t/font_1270732_8tdxo0ksvkf.css);
-</style>

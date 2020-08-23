@@ -1,18 +1,14 @@
 <!-- tab bar icon -->
 <template>
-	<span class="bz-inline-block " :class="{
-  	'tab-bar-icon': icon.src && icon.activeSrc
-	}">
+	<span class="bz-inline-block tab-bar-icon">
 		<!-- 图片导航 -->
 		<template v-if="icon.src && icon.activeSrc">
-			<img :src="activeIndex === currentIndex ? icon.activeSrc : icon.src" class="bv-tab-bar-icon"
-           :style="icon.style"
-           :class="[icon.className]"
+			<img :src="activeIndex === currentIndex ? icon.activeSrc : icon.src" class="img-icon"
       />
 		</template>
     <!-- font图库 -->
 		<template v-else-if="icon.font">
-			<i :class='`${icon.font} ${activeIndex === currentIndex && icon.activeFont}`' :style="icon.style"></i>
+			<i :class='`font-icon ${icon.font} ${activeIndex === currentIndex && icon.activeFont}`'></i>
 		</template>
 	</span>
 </template>
@@ -26,7 +22,12 @@
 
 <style scoped lang="scss">
   .tab-bar-icon {
+    display: inline-block;
+    margin: 5px 0;
     font-size: 0;
-    line-height: 0 !important;
+  }
+
+  .font-icon {
+    font-size: 14px;
   }
 </style>

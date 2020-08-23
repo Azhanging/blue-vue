@@ -1,7 +1,6 @@
 import store from '@store';
 import utils from 'blue-utils';
 import config from '@config';
-import { setTabBarSubmenuIndex } from '$components/BvTabBar';
 
 //设置视图相关
 export function view() {
@@ -15,14 +14,10 @@ const scrollHandler = utils.debounce(function () {
   store.commit('SET_SUSPEND', {
     distance: top || 0
   });
-  //设置子菜单的状态
-  setTabBarSubmenuIndex(-1);
 }, 200);
 
 //scroll事件的处理
 const clickHandler = utils.debounce(function () {
-  //设置子菜单的状态
-  setTabBarSubmenuIndex(-1);
 }, 200);
 
 //设置scroll事件

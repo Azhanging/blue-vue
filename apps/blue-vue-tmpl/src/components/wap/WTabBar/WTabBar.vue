@@ -6,7 +6,6 @@
 <script>
 
   import store from '@store';
-  import { matchRouter } from '$components/BvTabBar';
   import homeTabBar from './home-tab-bar';
   import componentTabBar from './component-tab-bar';
 
@@ -23,7 +22,7 @@
     },
     computed: {
       tabBarName() {
-        return store.state.view.tabBar;
+        return store.state.view.tabBar.name;
       },
       list() {
         const currentNav = this.allTabBar[this.tabBarName];
