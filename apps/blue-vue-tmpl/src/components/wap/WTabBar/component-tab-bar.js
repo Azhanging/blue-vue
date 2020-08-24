@@ -3,29 +3,20 @@ import router from '@router';
 const componentTabBar = {
   list: {
     items: [{
-      content: {
-        value: '首页',
-        fontSize: 10
-      },
+      text: '首页',
       icon: {
         font: 'bp-icon bp-icon-home',
         activeFont: 'bz-t-base'
       },
       to: '/'
     }, {
-      content: {
-        value: 'scroll',
-        fontSize: 10
-      },
+      text: 'scroll',
       icon: {
         font: 'bp-icon bp-icon-home',
         activeFont: 'bz-t-base'
       }
     }, {
-      content: {
-        value: '组件',
-        fontSize: 10
-      },
+      text: '组件',
       icon: {
         font: 'bp-icon bp-icon-menu',
         activeFont: 'bz-t-base'

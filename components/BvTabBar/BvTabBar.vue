@@ -15,16 +15,12 @@
              @click.stop="routerTo($event, item)"
           >
 
-            <!-- 方向为top的时候出现 -->
             <div v-if="item.icon">
               <BvTabBarIcon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
             </div>
 
-            <!-- 内容以及左右方向的icon -->
-            <div v-if="item.content" class="bv-tab-bar-content bz-flex bz-flex-ai-c bz-flex-jc-c">
-              <span>
-		            {{item.content.value}}
-		          </span>
+            <div v-if="item.text" class="br-tab-bar-content bz-flex bz-flex-ai-c bz-flex-jc-c">
+              {{item.text}}
             </div>
           </a>
         </div>
@@ -102,7 +98,7 @@
       }
     }
 
-    .bv-tab-bar-content {
+    .br-tab-bar-content {
       font-size: 12px;
     }
   }
