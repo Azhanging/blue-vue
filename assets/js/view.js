@@ -16,14 +16,9 @@ const scrollHandler = utils.debounce(function () {
   });
 }, 200);
 
-//scroll事件的处理
-const clickHandler = utils.debounce(function () {
-}, 200);
-
 //设置scroll事件
 function setEvent() {
   window.addEventListener('scroll', scrollHandler, false);
-  window.addEventListener('click', clickHandler, false);
 }
 
 //浮层相关
@@ -37,12 +32,10 @@ export function tabBar(state) {
   const { name } = state;
   store.commit('SET_TAB_BAR', (() => {
     if (name === undefined) {
-      return {
-        name: config.app.tabBar
-      };
+      return config.app.tabBar;
     }
     return {
-      name: name
+      name
     };
   })());
 }

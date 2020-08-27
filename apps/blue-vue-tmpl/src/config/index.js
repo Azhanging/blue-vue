@@ -7,7 +7,9 @@ const env = require('./env');
 const config = utils.extend(publicConfig, {
   app: {
     title: "DEFAULT TITLE",
-    tabBar: 'home',
+    tabBar: {
+      name: `home`
+    },
     keepAlive: {
       exclude: [
         'validate'
