@@ -28,11 +28,11 @@ export function suspend(state) {
 }
 
 //导航的状态
-export function tabBar(state) {
+export function tabBar(state = {}) {
   const { name } = state;
   store.commit('SET_TAB_BAR', (() => {
     if (name === undefined) {
-      return config.app.tabBar;
+      return config.view.tabBar;
     }
     return {
       name

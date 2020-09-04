@@ -24,7 +24,7 @@ export function routerBeforeEach(opts = {}) {
       //项目内使用的before each
       utils.hook(null, beforeEach, [to, from]),
       //公共的after hook
-      routerBeforeHook({
+      beforeHook({
         to,
         from
       })
@@ -44,7 +44,7 @@ export function routerBeforeEach(opts = {}) {
 }
 
 //router after hook
-export function routerBeforeHook(opts) {
+export function beforeHook(opts) {
   const routerNext = new RouterNext(opts);
   NProgress.start();
   return routerNext.nextStatus();

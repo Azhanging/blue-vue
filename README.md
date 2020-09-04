@@ -27,7 +27,7 @@ mockServer({
 公共的配置信息，项目中的的config会extend当前配置
 
     2019-8-5 22:20:06 新增keepAlive的过滤控制
-    - config.app.keepAlive.exclude 对照 ```<keep-alive :exclude="config.keepAlive.exclude" /> 
+    - config.view.keepAlive.exclude 对照 ```<keep-alive :exclude="config.keepAlive.exclude" /> 
 
 ### ./assets
 需要走loader的公共的资源文件 js || scss || css ...

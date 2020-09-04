@@ -17,7 +17,7 @@ export function useInVueRouter(Router, opts = {}) {
 
   //缓存机制
   Vue.use(BlueKeepAlive, {
-    tickTime: config.app.tickTime
+    tickTime: config.view.tickTime
   });
 
   //扩展vue router
@@ -26,7 +26,7 @@ export function useInVueRouter(Router, opts = {}) {
 
 const scrollTo = utils.debounce(function (resolve, savedPosition) {
   resolve(savedPosition);
-}, config.app.tickTime);
+}, config.view.tickTime);
 
 //keep-alive保存position
 export function scrollBehavior(to, from, savedPosition) {

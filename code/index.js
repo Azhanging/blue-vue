@@ -32,9 +32,7 @@ export function codeHandler(res = {}) {
 
     //未绑定手机号
     case code.BIND_PHONE:
-      bindPhone({
-        to: router.currentRoute
-      });
+      bindPhone();
       break;
 
     //只做消息提醒

@@ -8,7 +8,7 @@ const config = {
   },
 
   //视图相关
-  app: {
+  view: {
     title: "blue-vue-tmpl-title",       //默认的文档标题
     tabBar: {
       name: false

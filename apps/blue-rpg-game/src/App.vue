@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="bz-t-666 bz-f-28rpx">
-    <keep-alive :exclude="config.app.keepAlive.exclude">
+    <keep-alive :exclude="config.view.keepAlive.exclude">
       <router-view/>
     </keep-alive>
 

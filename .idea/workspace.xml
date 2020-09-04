@@ -15,13 +15,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="blue-vue-program" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="SCSS File" />
         <option value="Vue Single File Component" />
         <option value="JavaScript File" />
-        <option value="Wxml" />
       </list>
     </option>
   </component>
@@ -38,31 +40,28 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Vue" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/assets/css/blue-zone/node_modules/gulp" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
-    <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\WebStorm 2019.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\achang\web\blue-vue-program\use-in-vue\vant" />
-      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
   </component>
@@ -84,16 +83,6 @@
         <task>default</task>
       </tasks>
       <arguments />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/apps/blue-vue-tmpl/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
@@ -121,13 +110,11 @@
       <item itemvalue="Gulp.js.default" />
       <item itemvalue="npm.serve" />
       <item itemvalue="npm.serve (1)" />
-      <item itemvalue="npm.build" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="npm.serve (1)" />
         <item itemvalue="npm.serve" />
-        <item itemvalue="npm.build" />
         <item itemvalue="Gulp.js.default" />
       </list>
     </recent_temporary>
@@ -182,59 +169,20 @@
       <workItem from="1584451754322" duration="1230000" />
       <workItem from="1584883867168" duration="729000" />
       <workItem from="1585798914773" duration="13471000" />
-      <workItem from="1586232014516" duration="10777000" />
-      <workItem from="1587565264753" duration="1235000" />
-      <workItem from="1589208645374" duration="2202000" />
-      <workItem from="1589210859059" duration="1894000" />
-      <workItem from="1589213092428" duration="1413000" />
-      <workItem from="1589380242929" duration="483000" />
-      <workItem from="1589380941790" duration="611000" />
-      <workItem from="1589468161783" duration="425000" />
-      <workItem from="1589468598131" duration="759000" />
-      <workItem from="1598079646046" duration="10874000" />
-      <workItem from="1598143683709" duration="8001000" />
-      <workItem from="1598171764962" duration="3089000" />
-      <workItem from="1598277938776" duration="3370000" />
-      <workItem from="1598542250412" duration="1369000" />
+      <workItem from="1586232014516" duration="11417000" />
+      <workItem from="1586310441569" duration="72000" />
+      <workItem from="1599191518381" duration="3919000" />
+      <workItem from="1599204567105" duration="5999000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="666" y="275" key="FileChooserDialogImpl" timestamp="1598147558881">
-      <screen x="0" y="0" width="1728" height="1040" />
+    <state x="636" y="253" width="786" height="534" key="find.popup" timestamp="1599208516798">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="666" y="275" key="FileChooserDialogImpl/0.0.1728.1040@0.0.1728.1040" timestamp="1598147558881" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590224762478" />
-    <state width="1707" height="323" key="GridCell.Tab.0.bottom" timestamp="1598285195024">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state width="1707" height="323" key="GridCell.Tab.0.bottom/0.0.1728.1040@0.0.1728.1040" timestamp="1598285195024" />
-    <state width="1899" height="200" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590225297885" />
-    <state width="1707" height="323" key="GridCell.Tab.0.center" timestamp="1598285195024">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state width="1707" height="323" key="GridCell.Tab.0.center/0.0.1728.1040@0.0.1728.1040" timestamp="1598285195024" />
-    <state width="1899" height="200" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590225297884" />
-    <state width="1707" height="323" key="GridCell.Tab.0.left" timestamp="1598285195024">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state width="1707" height="323" key="GridCell.Tab.0.left/0.0.1728.1040@0.0.1728.1040" timestamp="1598285195024" />
-    <state width="1899" height="200" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590225297884" />
-    <state width="1707" height="323" key="GridCell.Tab.0.right" timestamp="1598285195024">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state width="1707" height="323" key="GridCell.Tab.0.right/0.0.1728.1040@0.0.1728.1040" timestamp="1598285195024" />
-    <state width="1899" height="200" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590225297885" />
-    <state x="575" y="171" width="600" height="536" key="find.popup" timestamp="1598543546002">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state x="575" y="171" width="600" height="536" key="find.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1598543546002" />
-    <state x="521" y="174" width="670" height="676" key="search.everywhere.popup" timestamp="1598277945741">
-      <screen x="0" y="0" width="1728" height="1040" />
-    </state>
-    <state x="521" y="174" width="670" height="676" key="search.everywhere.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1598277945741" />
+    <state x="636" y="253" width="786" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599208516798" />
   </component>
 </project>
