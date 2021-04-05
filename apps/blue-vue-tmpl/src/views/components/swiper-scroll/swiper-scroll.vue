@@ -4,10 +4,10 @@
       title:`滑动组件`
     }"/>
     <!-- x-滑动 -->
-    <BvSwiperScroll :active-class-name="'bz-t-success'" :current-index="scrollIndex">
+    <BvSwiperScroll :active-class-name="'ba-t-success'" :current-index="scrollIndex">
       <template slot="scroll-items">
         <a href="javascript:;" v-for="i in 15"
-           class="bz-pd-10 bz-inline-block bz-t-base"
+           class="ba-pd-10 ba-inline-block ba-t-base"
            @click="activeIndex(i-1)"
         >
           选项{{i}}
@@ -16,11 +16,11 @@
     </BvSwiperScroll>
 
     <!-- y-滑动 -->
-    <BvSwiperScroll style="height:100px;" @scrolled="scrolled" :active-class-name="'bz-t-success'"
+    <BvSwiperScroll style="height:100px;" @scrolled="scrolled" :active-class-name="'ba-t-success'"
                     :current-index="scrollIndex" direction="y">
       <template slot="scroll-items">
         <a href="javascript:;" v-for="i in 15"
-           class="bz-pd-10 bz-block bz-t-base"
+           class="ba-pd-10 ba-block ba-t-base"
            @click="activeIndex(i-1)"
         >
           选项{{i}}

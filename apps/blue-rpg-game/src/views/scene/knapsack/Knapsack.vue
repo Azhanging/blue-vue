@@ -4,61 +4,61 @@
     <BvHeader :center-control="{
       title: `背包`
     }"/>
-    <div class="bz-pd-lr-20rpx bz-f-b bz-t-c">
+    <div class="ba-pd-lr-20rpx ba-f-b ba-t-c">
       <div>
-        <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e">
+        <div class="ba-flex ba-pd-28rpx ba-f-b ba-bd-b-e5e">
           已装备
         </div>
         <!-- 已使用装备 -->
         <template v-if="equipmentList.length > 0">
-          <div class="bz-flex bz-flex-jc-c bz-pd-tb-20rpx bz-bd-b-e5e bz-t-base"
+          <div class="ba-flex ba-flex-jc-c ba-pd-tb-20rpx ba-bd-b-e5e ba-t-base"
                v-for="resource in equipmentList">
-            <div class="bz-flex-1 bz-t-333">
+            <div class="ba-flex-1 ba-t-333">
               {{resource.typeName}}
             </div>
-            <div class="bz-flex-1">
+            <div class="ba-flex-1">
               {{resource.name}}
             </div>
-            <div class="bz-flex-1">
-              <a href="javascript:;" class="bz-t-base" @click="unUseEquipment(resource)">
+            <div class="ba-flex-1">
+              <a href="javascript:;" class="ba-t-base" @click="unUseEquipment(resource)">
                 卸下
               </a>
             </div>
           </div>
         </template>
-        <div class="bz-t-c bz-pd-tb-20rpx bz-t-999" v-else>
+        <div class="ba-t-c ba-pd-tb-20rpx ba-t-999" v-else>
           无
         </div>
       </div>
 
       <div>
-        <div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e">
+        <div class="ba-flex ba-pd-28rpx ba-f-b ba-bd-b-e5e">
           背包 ({{knapsack.list.length}}/{{knapsack.capacity}})
         </div>
         <template v-if="knapsack.list.length > 0">
-          <div class="bz-flex bz-flex-jc-c bz-pd-tb-20rpx bz-bd-b-e5e bz-t-base"
+          <div class="ba-flex ba-flex-jc-c ba-pd-tb-20rpx ba-bd-b-e5e ba-t-base"
                v-for="resource in knapsack.list">
-            <div class="bz-flex-1">
+            <div class="ba-flex-1">
               {{resource.name}}
             </div>
-            <div class="bz-flex-1">
+            <div class="ba-flex-1">
               x{{resource.amount}}
             </div>
-            <div class="bz-flex-1">
-              <a href="javascript:;" class="bz-t-base" v-if="resource.type === 1" @click="useConsume(resource)">
+            <div class="ba-flex-1">
+              <a href="javascript:;" class="ba-t-base" v-if="resource.type === 1" @click="useConsume(resource)">
                 使用
               </a>
-              <a href="javascript:;" class="bz-t-base" @click="useEquipment(resource)"
+              <a href="javascript:;" class="ba-t-base" @click="useEquipment(resource)"
                  v-if="/^[3]$/.test(resource.type)">
                 装备
               </a>
-              <a href="javascript:;" class="bz-t-base" @click="discard(resource)">
+              <a href="javascript:;" class="ba-t-base" @click="discard(resource)">
                 丢弃
               </a>
             </div>
           </div>
         </template>
-        <div class="bz-t-c bz-pd-tb-20rpx bz-t-999" v-else>
+        <div class="ba-t-c ba-pd-tb-20rpx ba-t-999" v-else>
           无
         </div>
       </div>

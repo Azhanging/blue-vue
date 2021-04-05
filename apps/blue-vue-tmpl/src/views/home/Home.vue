@@ -4,22 +4,22 @@
       title:`首页`
     }"/>
 
-    <div class="bz-t-c bz-pd-10 bz-overflow-hide">
-      <div class="bz-t-c bz-mg-t-20rpx">
-        <router-link to="/components" class="bz-btn bz-btn-primary bz-btn-plain">
+    <div class="ba-t-c ba-pd-10 ba-overflow-hide">
+      <div class="ba-t-c ba-mg-t-20rpx">
+        <router-link to="/components" class="ba-btn ba-btn-primary ba-btn-plain">
           components
         </router-link>
       </div>
 
-      <div v-for="i in 10" class="bz-t-c">
-        <div class="bz-pd-20rpx">
-          <router-link to="/components/scroll/1" class="bz-t-base">
+      <div v-for="i in 10" class="ba-t-c">
+        <div class="ba-pd-20rpx">
+          <router-link to="/components/scroll/1" class="ba-t-base">
             测试keep-alive scroll
           </router-link>
         </div>
 
-        <div class="bz-pd-20rpx">
-          <router-link to="/components" class="bz-t-base">
+        <div class="ba-pd-20rpx">
+          <router-link to="/components" class="ba-t-base">
             测试keep-alive components
           </router-link>
         </div>

@@ -1,6 +1,6 @@
 <!-- tab bar icon -->
 <template>
-	<span class="bz-inline-block br-tab-bar-icon">
+	<span class="ba-inline-block br-tab-bar-icon">
 		<!-- 图片导航 -->
 		<template v-if="icon.src && icon.activeSrc">
 			<img :src="activeIndex === currentIndex ? icon.activeSrc : icon.src" class="img-icon"

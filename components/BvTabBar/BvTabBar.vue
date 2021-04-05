@@ -19,7 +19,7 @@
               <BvTabBarIcon :icon="item.icon" :active-index="activeIndex" :current-index="index"/>
             </div>
 
-            <div v-if="item.text" class="br-tab-bar-content bz-flex bz-flex-ai-c bz-flex-jc-c">
+            <div v-if="item.text" class="br-tab-bar-content ba-flex ba-flex-ai-c ba-flex-jc-c">
               {{item.text}}
             </div>
           </a>
@@ -46,7 +46,7 @@
         type: Array
       },
       unActiveClassName: {
-        default: 'bz-t-666',
+        default: 'ba-t-666',
         type: String
       },
       activeClassName: {

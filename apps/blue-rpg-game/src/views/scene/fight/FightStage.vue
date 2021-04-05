@@ -5,57 +5,57 @@
       title: `战斗场景`
     }"/>
 
-		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bz-pd-r-28rpx">
+		<div class="ba-flex ba-pd-20rpx ba-f-b ba-bd-b-e5e" v-if="fightData.enemy">
+			<div class="ba-pd-r-28rpx">
 				{{fightData.enemy.name}}
 			</div>
-			<div class="bz-flex-1 bz-t-base">
+			<div class="ba-flex-1 ba-t-base">
 				HP:{{fightData.enemy.currentHp}}/{{fightData.enemy.hp}}
 				<template v-if="fightData.enemy.harm">
-					<span class="bz-t-red">(-{{fightData.enemy.harm}})</span>
+					<span class="ba-t-red">(-{{fightData.enemy.harm}})</span>
 				</template>
 			</div>
 		</div>
 
-		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy">
-			<div class="bz-pd-r-28rpx">
+		<div class="ba-flex ba-pd-20rpx ba-f-b ba-bd-b-e5e" v-if="fightData.enemy">
+			<div class="ba-pd-r-28rpx">
 				{{$store.state.roleInfo.name}}
 			</div>
-			<div class="bz-flex-1 bz-t-base">
+			<div class="ba-flex-1 ba-t-base">
 				HP:{{fightData.my.currentHp}}/{{fightData.my.hp}}
 				<template v-if="fightData.my.harm">
-					<span class="bz-t-red">(-{{fightData.my.harm}})</span>
+					<span class="ba-t-red">(-{{fightData.my.harm}})</span>
 				</template>
 			</div>
-			<div class="bz-flex-1 bz-t-base">
+			<div class="ba-flex-1 ba-t-base">
 				MP:{{fightData.my.currentMp}}/{{fightData.my.mp}}
 			</div>
 		</div>
 
 		<!-- 技能 -->
-		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="fightData.enemy && !isEnd">
+		<div class="ba-flex ba-pd-20rpx ba-f-b ba-bd-b-e5e" v-if="fightData.enemy && !isEnd">
 			<div>技能：</div>
-			<div class="bz-flex-1">
-				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="bz-t-base bz-mg-r-20rpx"
+			<div class="ba-flex-1">
+				<a href="javascript:;" v-for="item in skillList" :key="item.id" class="ba-t-base ba-mg-r-20rpx"
 				   @click="useSkill(item)">
 					{{item.name}}
 				</a>
 			</div>
 		</div>
 
-		<div class="bz-flex bz-pd-20rpx bz-f-b bz-bd-b-e5e" v-if="!isEnd">
+		<div class="ba-flex ba-pd-20rpx ba-f-b ba-bd-b-e5e" v-if="!isEnd">
 			<div>背包：</div>
-			<div class="bz-flex-1 bz-flex-jc-c bz-t-c bz-t-base">
+			<div class="ba-flex-1 ba-flex-jc-c ba-t-c ba-t-base">
 				<template v-if="knapsackConsume.length > 0">
-					<div class="bz-pd-b-4rpx bz-flex" v-for="resource in knapsackConsume">
-						<div class="bz-flex-1">
+					<div class="ba-pd-b-4rpx ba-flex" v-for="resource in knapsackConsume">
+						<div class="ba-flex-1">
 							{{resource.name}}
 						</div>
-						<div class="bz-flex-1">
+						<div class="ba-flex-1">
 							x{{resource.amount}}
 						</div>
-						<div class="bz-flex-1">
-							<a href="javascript:;" class="bz-t-base" @click="useConsume(resource)">使用</a>
+						<div class="ba-flex-1">
+							<a href="javascript:;" class="ba-t-base" @click="useConsume(resource)">使用</a>
 						</div>
 					</div>
 				</template>
@@ -65,21 +65,21 @@
 			</div>
 		</div>
 
-		<div class="bz-flex bz-pd-20rpx bz-bd-b-e5e bz-f-b" v-if="fightData.reward && fightData.reward.length > 0">
+		<div class="ba-flex ba-pd-20rpx ba-bd-b-e5e ba-f-b" v-if="fightData.reward && fightData.reward.length > 0">
 			<div>奖励：</div>
-			<div class="bz-flex-1 bz-t-base">
-				<div class="bz-pd-b-4rpx" v-for="reward in fightData.reward">
+			<div class="ba-flex-1 ba-t-base">
+				<div class="ba-pd-b-4rpx" v-for="reward in fightData.reward">
 					{{reward.name}} x{{reward.amount}}
 				</div>
 			</div>
 		</div>
 
 		<!--战斗结束-->
-		<div v-if="isEnd" class="bz-pd-20rpx bz-t-c bz-f-b">
+		<div v-if="isEnd" class="ba-pd-20rpx ba-t-c ba-f-b">
       <span>
         战斗结束->
       </span>
-			<router-link replace to="/scene/map" class="bz-t-base">
+			<router-link replace to="/scene/map" class="ba-t-base">
 				回到地图
 			</router-link>
 		</div>

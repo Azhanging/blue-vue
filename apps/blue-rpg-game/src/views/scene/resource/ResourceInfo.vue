@@ -5,80 +5,80 @@
       title: `资源`
     }"/>
 
-		<div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
+		<div class="ba-pd-28rpx ba-f-b ba-bd-b-e5e">
 			资源名称：{{resourceData.name}}
 		</div>
 
-		<div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
+		<div class="ba-pd-28rpx ba-f-b ba-bd-b-e5e">
 			资源简介：{{resourceData.description}}
 		</div>
 
-		<div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
-			<div class="bz-pd-tb-4rpx">
+		<div class="ba-pd-28rpx ba-f-b ba-bd-b-e5e">
+			<div class="ba-pd-tb-4rpx">
 				属性：
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.type === 3">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.type === 3">
 				适用职业：{{resourceData.occupationName}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx">
+			<div class="ba-pd-tb-4rpx">
 				售价：{{resourceData.price}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx">
+			<div class="ba-pd-tb-4rpx">
 				出售价：{{resourceData.marketPrice}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx">
+			<div class="ba-pd-tb-4rpx">
 				时效类型：{{resourceData.durationTypeText}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.durationType === 3">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.durationType === 3">
 				时效：{{resourceData.duration}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.hp">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.hp">
 				hp：{{resourceData.hp}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.mp">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.mp">
 				mp：{{resourceData.mp}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.exp">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.exp">
 				exp：{{resourceData.exp}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.physicalAttack">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.physicalAttack">
 				物理攻击：{{resourceData.physicalAttack}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.physicalDefense">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.physicalDefense">
 				物理防御：{{resourceData.physicalDefense}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.magicAttack">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.magicAttack">
 				法术攻击：{{resourceData.magicAttack}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.magicDefense">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.magicDefense">
 				法术防御：{{resourceData.magicDefense}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.crit">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.crit">
 				暴击率:{{resourceData.crit}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.hit">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.hit">
 				命中率:{{resourceData.hit}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.dodge">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.dodge">
 				闪避率:{{resourceData.dodge}}
 			</div>
 
-			<div class="bz-pd-tb-4rpx" v-if="resourceData.critResistance">
+			<div class="ba-pd-tb-4rpx" v-if="resourceData.critResistance">
 				暴抗率:{{resourceData.critResistance}}
 			</div>
 

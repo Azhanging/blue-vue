@@ -16,21 +16,21 @@
             finished-text="没有更多了"
             @load="load"
     >
-      <ul class="bz-reset-ul">
-        <li v-for="item in listData.list" class="bz-pd-10">
-          <a href="" class="bz-t-666">
-            <div class="bz-media">
-              <div class="bz-media-left" v-blue-photoswipe="{itemTagName:'DIV'}">
+      <ul class="ba-reset-ul">
+        <li v-for="item in listData.list" class="ba-pd-10">
+          <a href="" class="ba-t-666">
+            <div class="ba-media">
+              <div class="ba-media-left" v-blue-photoswipe="{itemTagName:'DIV'}">
                 <div>
                   <img :src="item.src_img" width="50" data-size="0x0" :msrc="item.src_img"/>
                 </div>
               </div>
-              <div class="bz-media-body">
+              <div class="ba-media-body">
                 <span>{{item.name}}</span>
               </div>
             </div>
           </a>
-          <ul class="bz-reset-ul" v-blue-photoswipe="{itemTagName:'LI'}">
+          <ul class="ba-reset-ul" v-blue-photoswipe="{itemTagName:'LI'}">
             <li v-for="i in 4">
               <img :src="item.src_img" alt="" width="50" data-size="0x0" :msrc="item.src_img"
                    :title="`测试一下${i}`"

@@ -5,37 +5,37 @@
     }">
       <div slot="left-control"></div>
       <div slot="right-control">
-        <router-link to="/setting" class="bz-pd-30rpx bz-f-28rpx bz-t-base">
+        <router-link to="/setting" class="ba-pd-30rpx ba-f-28rpx ba-t-base">
           设置
         </router-link>
       </div>
     </BvHeader>
 
     <!-- GAME NAME -->
-    <div class="bz-t-c bz-t-base bz-pd-tb-40rpx game-name">
+    <div class="ba-t-c ba-t-base ba-pd-tb-40rpx game-name">
       BLUE-RPG-GAME ->
     </div>
 
     <!-- 登录注册 -->
-    <div class="bz-t-c">
+    <div class="ba-t-c">
       <template v-if="!$store.getters.isLogin">
-        <button class="bz-btn bz-btn-base" @click="$router.replace(`/login`)">
+        <button class="ba-btn ba-btn-base" @click="$router.replace(`/login`)">
           登录
         </button>
-        <button class="bz-btn" @click="$router.replace(`/register`)">
+        <button class="ba-btn" @click="$router.replace(`/register`)">
           注册
         </button>
       </template>
       <template v-else>
-        <router-link to="/scene/zone/entry" class="bz-btn bz-btn-base">
+        <router-link to="/scene/zone/entry" class="ba-btn ba-btn-base">
           进入游戏
         </router-link>
       </template>
     </div>
 
     <!-- 回到 -->
-    <div class="bz-t-c" v-show="false">
-      <button class="bz-btn bz-btn-base">
+    <div class="ba-t-c" v-show="false">
+      <button class="ba-btn ba-btn-base">
         回到游戏
       </button>
     </div>

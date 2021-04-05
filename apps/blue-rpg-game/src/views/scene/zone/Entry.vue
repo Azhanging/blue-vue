@@ -3,11 +3,11 @@
     <BvHeader :centerControl="{
       title: `游戏选区`
     }"/>
-    <div class="bz-flex bz-pd-28rpx">
+    <div class="ba-flex ba-pd-28rpx">
       <div>
         请选择游戏区：
       </div>
-      <div class="bz-flex-1">
+      <div class="ba-flex-1">
         <router-link v-for="item in zoneList" :to="{
           path: `/scene/role/list`,
           query: {

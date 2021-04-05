@@ -3,24 +3,24 @@
     <BvHeader :center-control="{
       title: `登录`
     }"/>
-    <div class="bz-t-c">
+    <div class="ba-t-c">
       <form ref="form">
-        <div class="bz-mg-t-32rpx">
+        <div class="ba-mg-t-32rpx">
           <label>
-            邮箱：<input type="text" name="email" v-model="form.email" class="bz-input" v-blue-validate="validate.email"/>
+            邮箱：<input type="text" name="email" v-model="form.email" class="ba-input" v-blue-validate="validate.email"/>
           </label>
         </div>
-        <div class="bz-mg-t-32rpx">
+        <div class="ba-mg-t-32rpx">
           <label>
-            密码：<input type="password" name="password" v-model="form.password" class="bz-input"
+            密码：<input type="password" name="password" v-model="form.password" class="ba-input"
                       v-blue-validate="validate.password"/>
           </label>
         </div>
-        <div class="bz-mg-t-32rpx">
-          <button type="button" class="bz-btn bz-btn-base" @click="login">
+        <div class="ba-mg-t-32rpx">
+          <button type="button" class="ba-btn ba-btn-base" @click="login">
             登录
           </button>
-          <button type="button" class="bz-btn" @click="$router.push('/register')">
+          <button type="button" class="ba-btn" @click="$router.push('/register')">
             注册
           </button>
         </div>

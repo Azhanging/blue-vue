@@ -15,9 +15,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="blue-vue-program" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -48,11 +45,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/assets/css/blue-zone/node_modules/gulp" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blue-utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -118,6 +116,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -173,36 +172,33 @@
       <workItem from="1599191518381" duration="3919000" />
       <workItem from="1599204567105" duration="5999000" />
       <workItem from="1599487198220" duration="940000" />
+      <workItem from="1617591115382" duration="4824000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="645" y="275" key="FileChooserDialogImpl" timestamp="1599487850941">
+    <state width="1707" height="231" key="GridCell.Tab.0.bottom" timestamp="1617609175533">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state x="645" y="275" key="FileChooserDialogImpl/0.0.1728.1040@0.0.1728.1040" timestamp="1599487850941" />
-    <state width="1707" height="312" key="GridCell.Tab.0.bottom" timestamp="1599487544976">
+    <state width="1707" height="231" key="GridCell.Tab.0.bottom/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
+    <state width="1707" height="231" key="GridCell.Tab.0.center" timestamp="1617609175533">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="312" key="GridCell.Tab.0.bottom/0.0.1728.1040@0.0.1728.1040" timestamp="1599487544976" />
-    <state width="1707" height="312" key="GridCell.Tab.0.center" timestamp="1599487544976">
+    <state width="1707" height="231" key="GridCell.Tab.0.center/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
+    <state width="1707" height="231" key="GridCell.Tab.0.left" timestamp="1617609175533">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="312" key="GridCell.Tab.0.center/0.0.1728.1040@0.0.1728.1040" timestamp="1599487544976" />
-    <state width="1707" height="312" key="GridCell.Tab.0.left" timestamp="1599487544976">
+    <state width="1707" height="231" key="GridCell.Tab.0.left/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
+    <state width="1707" height="231" key="GridCell.Tab.0.right" timestamp="1617609175533">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="312" key="GridCell.Tab.0.left/0.0.1728.1040@0.0.1728.1040" timestamp="1599487544976" />
-    <state width="1707" height="312" key="GridCell.Tab.0.right" timestamp="1599487544976">
+    <state width="1707" height="231" key="GridCell.Tab.0.right/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
+    <state x="564" y="252" width="600" height="536" key="find.popup" timestamp="1617610174807">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="312" key="GridCell.Tab.0.right/0.0.1728.1040@0.0.1728.1040" timestamp="1599487544976" />
-    <state x="636" y="253" width="786" height="534" key="find.popup" timestamp="1599208516798">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="636" y="253" width="786" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1599208516798" />
+    <state x="564" y="252" width="600" height="536" key="find.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1617610174807" />
   </component>
 </project>

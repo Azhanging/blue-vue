@@ -5,30 +5,30 @@
       title: mapData.name
     }"/>
 
-		<div class="bz-pd-28rpx bz-f-b bz-bd-b-e5e">
+		<div class="ba-pd-28rpx ba-f-b ba-bd-b-e5e">
 			地图简介：{{mapData.description}}
 		</div>
 
-		<div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
+		<div class="ba-flex ba-pd-28rpx ba-f-b ba-bd-b-e5e" v-if="mapData.map && mapData.map.length > 0">
 			<div>周边：</div>
-			<div class="bz-flex-10">
+			<div class="ba-flex-10">
 				<router-link :to="`/scene/map?id=${item.id}`" v-for="(item) in mapData.map" :key="item.id"
-				             class="bz-t-base bz-mg-r-20rpx">
+				             class="ba-t-base ba-mg-r-20rpx">
 					{{item.name}}
 				</router-link>
 			</div>
 		</div>
 
-		<div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
+		<div class="ba-flex ba-pd-28rpx ba-f-b ba-bd-b-e5e" v-if="mapData.npc && mapData.npc.length > 0">
 			<div>NPC：</div>
-			<div class="bz-flex-10">
+			<div class="ba-flex-10">
 				<router-link :to="`/scene/npc/info?id=${item.id}`" v-for="(item) in mapData.npc" :key="item.id"
-				             class="bz-t-base bz-mg-r-20rpx">
+				             class="ba-t-base ba-mg-r-20rpx">
 					<!-- NPC任务状态 -->
 					<template v-for="status in item.taskStatus">
-						<span class="bz-t-warning" v-if="status === 0">? </span>
-						<span class="bz-t-999" v-if="status === 1">! </span>
-						<span class="bz-t-warning" v-if="status === 2">! </span>
+						<span class="ba-t-warning" v-if="status === 0">? </span>
+						<span class="ba-t-999" v-if="status === 1">! </span>
+						<span class="ba-t-warning" v-if="status === 2">! </span>
 					</template>
 
 					<span>{{item.name}}</span>
@@ -36,16 +36,16 @@
 			</div>
 		</div>
 
-		<div class="bz-flex bz-pd-28rpx bz-f-b bz-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
+		<div class="ba-flex ba-pd-28rpx ba-f-b ba-bd-b-e5e" v-if="mapData.monster && mapData.monster.length > 0">
 			<div>怪物：</div>
-			<div class="bz-flex-10">
+			<div class="ba-flex-10">
 				<a href="javascript:;" @click="entryFight({
 					path: `/scene/fight/stage`,
 					query:{
 						id:item.id,
 						type:1
 					}
-				})" v-for="item in mapData.monster" :key="item.id" class="bz-t-base">
+				})" v-for="item in mapData.monster" :key="item.id" class="ba-t-base">
 					{{item.name}}
 				</a>
 			</div>

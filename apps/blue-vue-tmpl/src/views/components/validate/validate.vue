@@ -4,11 +4,11 @@
       title:`验证相关`
     }"/>
 
-    <form action="" class="bz-v-m">
+    <form action="" class="ba-v-m">
 
-      <div class="bz-pd-10">
+      <div class="ba-pd-10">
         <span>textarea：</span>
-        <textarea name="textarea" class="bz-input" cols="30" rows="10"
+        <textarea name="textarea" class="ba-input" cols="30" rows="10"
                   v-blue-validate="validate.textarea"
                   v-model="input"></textarea>
         <a @click="change">
@@ -16,15 +16,15 @@
         </a>
       </div>
 
-      <div class="bz-pd-10">
+      <div class="ba-pd-10">
         <span>input-text：</span>
         <input type="text"
                name="text"
-               class="bz-input"
+               class="ba-input"
                v-blue-validate="validate.text">
       </div>
 
-      <div class="bz-pd-10 v-m">
+      <div class="ba-pd-10 v-m">
         <span>radio：</span>
         <label>
           <input type="radio" v-blue-validate name="radio0" v-model="radio0" value="1">
@@ -36,11 +36,11 @@
         </label>
       </div>
 
-      <div class="bz-pd-10">
+      <div class="ba-pd-10">
         <span>checked：</span>
         <label>
           <input type="checkbox" v-blue-validate name="checkbox0" v-model="checkbox" value="1" id="checkbox"
-                 class="bz-checkbox">
+                 class="ba-checkbox">
           <span>checkbox1</span>
         </label>
         <label>
@@ -49,28 +49,28 @@
         </label>
       </div>
 
-      <div class="bz-pd-10">
+      <div class="ba-pd-10">
 
         <span>select：</span>
 
-        <span class="bz-select-down-icon">
-					<select name="select0" class="bz-input" v-model="select">
+        <span class="ba-select-down-icon">
+					<select name="select0" class="ba-input" v-model="select">
 						<option value="">请选择</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 					</select>
 				</span>
 
-        <span class="bz-select-down-icon bz-mg-l-10">
-					<select name="select1" v-blue-validate class="bz-input" v-model="select">
+        <span class="ba-select-down-icon ba-mg-l-10">
+					<select name="select1" v-blue-validate class="ba-input" v-model="select">
 						<option value="">请选择</option>
 						<option value="1">111111111111111111111111111111</option>
 						<option value="2">2</option>
 					</select>
 				</span>
 
-        <span class="bz-select-down-icon bz-mg-l-10">
-					<select name="select2" v-blue-validate class="bz-input">
+        <span class="ba-select-down-icon ba-mg-l-10">
+					<select name="select2" v-blue-validate class="ba-input">
 						<option value="">请选择</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -79,19 +79,19 @@
 
       </div>
 
-      <div class="bz-pd-10">
-        <input type="text" value="123" class="bz-input">
+      <div class="ba-pd-10">
+        <input type="text" value="123" class="ba-input">
       </div>
 
-      <div class="bz-pd-10">
-        <input type="text" value="456" class="bz-input">
+      <div class="ba-pd-10">
+        <input type="text" value="456" class="ba-input">
       </div>
 
     </form>
 
     <!-- 固定到底部提交按钮 -->
-    <div class="bz-ps-f bz-row" style="left:0;bottom:0;" v-show="pageFixed">
-      <button class="bz-btn bz-btn-success bz-w-100" style="padding-top:12px;padding-bottom:12px;" @click="submit">
+    <div class="ba-ps-f ba-row" style="left:0;bottom:0;" v-show="pageFixed">
+      <button class="ba-btn ba-btn-success ba-w-100" style="padding-top:12px;padding-bottom:12px;" @click="submit">
         提交
       </button>
     </div>

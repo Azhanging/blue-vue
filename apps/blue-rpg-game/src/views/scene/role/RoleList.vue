@@ -4,25 +4,25 @@
     <BvHeader :center-control="{
       title: `角色列表`
     }"/>
-    <div class="bz-pd-28rpx bz-bd-b-e5e">
-      <div class="bz-t-base bz-f-b">
+    <div class="ba-pd-28rpx ba-bd-b-e5e">
+      <div class="ba-t-base ba-f-b">
         用户：{{userInfo.username}}
       </div>
     </div>
-    <div class="bz-pd-28rpx">
+    <div class="ba-pd-28rpx">
       请选择角色：
       <template v-if="roleList.length > 0">
-        <ul class="bz-reset-ul bz-t-c">
-          <li class="bz-pd-tb-6rpx">
-            <a href="javascript:;" class="bz-t-base bz-flex bz-flex-jc-c bz-flex-ai-c"
+        <ul class="ba-reset-ul ba-t-c">
+          <li class="ba-pd-tb-6rpx">
+            <a href="javascript:;" class="ba-t-base ba-flex ba-flex-jc-c ba-flex-ai-c"
                v-for="(item,index) in roleList" :key="index" @click="useRole(item)">
-              <div class="bz-flex-1">
+              <div class="ba-flex-1">
                 {{item.name}}
               </div>
-              <div class="bz-flex-1">
+              <div class="ba-flex-1">
                 {{`Level:${item.level}`}}
               </div>
-              <div class="bz-flex-1">
+              <div class="ba-flex-1">
                 {{`职业:${item.occupationName}`}}
               </div>
             </a>
@@ -33,8 +33,8 @@
         无
       </template>
     </div>
-    <div class="bz-t-c" v-if="roleList.length < 3">
-      <router-link to="/scene/role/create" class="bz-btn bz-btn-base">
+    <div class="ba-t-c" v-if="roleList.length < 3">
+      <router-link to="/scene/role/create" class="ba-btn ba-btn-base">
         创建角色
       </router-link>
     </div>

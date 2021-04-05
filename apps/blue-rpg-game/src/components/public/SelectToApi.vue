@@ -1,5 +1,5 @@
 <template>
-  <select v-model="currentValue" @change="change" class="bz-input">
+  <select v-model="currentValue" @change="change" class="ba-input">
     <option v-for="(item,index) in data" :value="item[valueKey]" :label="getLabelKey(item)" :key="index"/>
   </select>
 </template>

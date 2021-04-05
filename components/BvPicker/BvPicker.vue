@@ -125,7 +125,7 @@
 </script>
 
 <style scoped lang="scss">
-	.bz-select-wrap {
+	.ba-select-wrap {
 		display: inline-block;
 	}
 </style>

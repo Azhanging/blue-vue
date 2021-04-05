@@ -3,30 +3,30 @@
     <BvHeader :center-control="{
       title: `创建角色`
     }"/>
-    <div class="bz-row bz-pd-lr-28rpx">
+    <div class="ba-row ba-pd-lr-28rpx">
       <form ref="form">
-        <div class="bz-mg-t-28rpx">
-          <label class="bz-flex bz-flex-ai-c">
+        <div class="ba-mg-t-28rpx">
+          <label class="ba-flex ba-flex-ai-c">
             <span>昵称：</span>
-            <input type="text" name="email" v-model="form.name" class="bz-input"
+            <input type="text" name="email" v-model="form.name" class="ba-input"
                    v-blue-validate="validate.name"/>
           </label>
         </div>
-        <div class="bz-mg-t-32rpx">
-          <label class="bz-flex bz-flex-ai-c">
+        <div class="ba-mg-t-32rpx">
+          <label class="ba-flex ba-flex-ai-c">
             <span>简介：</span>
-            <input type="text" name="description" v-model="form.description" class="bz-input"/>
+            <input type="text" name="description" v-model="form.description" class="ba-input"/>
           </label>
         </div>
-        <div class="bz-mg-t-32rpx">
-          <label class="bz-flex bz-flex-ai-c">
+        <div class="ba-mg-t-32rpx">
+          <label class="ba-flex ba-flex-ai-c">
             <span>职业：</span>
             <SelectToApi api="/member/scene/occupation/list" v-model="form.occupationId" name="occupationId"
                          v-blue-validate="validate.occupationId"/>
           </label>
         </div>
-        <div class="bz-mg-t-32rpx bz-t-c">
-          <button type="button" class="bz-btn bz-btn-base" @click="create">
+        <div class="ba-mg-t-32rpx ba-t-c">
+          <button type="button" class="ba-btn ba-btn-base" @click="create">
             创建角色
           </button>
         </div>

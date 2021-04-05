@@ -1,12 +1,12 @@
 <template>
-  <div id="app" class="bz-t-666 bz-f-28rpx">
+  <div id="app" class="ba-t-666 ba-f-28rpx">
     <keep-alive :exclude="config.view.keepAlive.exclude">
       <router-view/>
     </keep-alive>
 
     <!-- 浮动状态 -->
     <BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
-      <i class="bp-icon bp-icon-go-top bz-f-20 bz-t-666" slot="backToTop"></i>
+      <i class="bp-icon bp-icon-go-top ba-f-20 ba-t-666" slot="backToTop"></i>
     </BvSuspend>
 
     <!-- 底部导航 -->

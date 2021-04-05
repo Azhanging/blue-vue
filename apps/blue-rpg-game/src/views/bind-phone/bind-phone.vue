@@ -3,12 +3,12 @@
 		<BvHeader :center-control="{
       title:`绑定手机`
     }"></BvHeader>
-		<div class="bz-row bz-t-c">
-			<div class="bz-row bz-mg-t-20rpx">
-				绑定手机：<input type="text" class="bz-input" v-model="phone">
+		<div class="ba-row ba-t-c">
+			<div class="ba-row ba-mg-t-20rpx">
+				绑定手机：<input type="text" class="ba-input" v-model="phone">
 			</div>
-			<div class="bz-row bz-mg-t-20rpx">
-				<button class="bz-btn bz-btn-base" @click="bind">绑定</button>
+			<div class="ba-row ba-mg-t-20rpx">
+				<button class="ba-btn ba-btn-base" @click="bind">绑定</button>
 			</div>
 		</div>
 	</BvView>
