@@ -16,12 +16,6 @@ import { share } from '$assets/js/share';
 import { view } from '$assets/js/view';
 import { useFilter } from './filter'
 
-
-// 注：
-// 修改过两个对应的插件
-// npm install 后，使用前从npm-package/vue-upload-component/vue-upload-component.js复制到node_modules指定的包中
-// 具体查看包的package主入口使用
-
 //使用插件到vue上
 export function useInVue(opts = {}) {
   const { Vue } = opts;

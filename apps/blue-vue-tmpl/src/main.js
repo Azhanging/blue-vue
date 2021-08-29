@@ -2,9 +2,11 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import { useInVue } from '../../../use-in-vue';
+import { useInVue } from '$use-in-vue';
 import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
+//这里加载微信sdk
+import '$wechat';
 import user from '$assets/js/user';
 //公共css，项目配置项assets/scss/config
 import '@/assets/css/blue-zone.scss';

@@ -1,32 +1,32 @@
 <template>
-  <div id="app" class="ba-t-666 ba-f-28rpx">
+	<div id="app" class="ba-t-666 ba-f-28rpx">
 
-    <keep-alive :exclude="config.view.keepAlive.exclude">
-      <router-view/>
-    </keep-alive>
+		<keep-alive :exclude="config.view.keepAlive.exclude">
+			<router-view/>
+		</keep-alive>
 
-    <!-- 浮动状态 -->
-    <BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
-      <i class="bp-icon bp-icon-go-top ba-f-20 ba-t-666" slot="backToTop"></i>
-    </BvSuspend>
+		<!-- 浮动状态 -->
+		<BvSuspend :scrollDistance="view.suspend.distance" :show="view.suspend.status">
+			<i class="bp-icon bp-icon-go-top ba-f-20 ba-t-666" slot="backToTop"></i>
+		</BvSuspend>
 
-    <!-- 底部导航 -->
-    <WTabBar/>
+		<!-- 底部导航 -->
+		<WTabBar/>
 
-    <!-- 图片预览的组件 -->
-    <BvPhotoSwipe/>
-  </div>
+		<!-- 图片预览的组件 -->
+		<BvPhotoSwipe/>
+	</div>
 </template>
 
 <script>
-  import Vuex from 'vuex';
+import Vuex from 'vuex';
 
-  const { mapState } = Vuex;
+const { mapState } = Vuex;
 
-  export default {
-    name: 'app',
-    computed: {
-      ...mapState(['view'])
-    }
-  };
+export default {
+  name: 'app',
+  computed: {
+    ...mapState(['view'])
+  }
+};
 </script>

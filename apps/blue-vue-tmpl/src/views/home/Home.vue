@@ -3,6 +3,10 @@
     <BvHeader :center-control="{
       title:`首页`
     }"/>
+	  
+	  <div @click="getLocation">
+		  定位
+	  </div>
 
     <div class="ba-t-c ba-pd-10 ba-overflow-hide">
       <div class="ba-t-c ba-mg-t-20rpx">
@@ -41,6 +45,17 @@
       this.$axios.post(`/mock/data1`, {
         data: 1
       });
-    }
+    },
+	  methods:{
+      getLocation(){
+        AlipayJSBridge.call('getCurrentLocation', { bizType: '$s' }, function(result) {
+          if (result.error) {
+            console.log(result.errorMessage);
+            return;
+          }
+          console.log(result);
+        });
+      }
+	  }
   }
 </script>

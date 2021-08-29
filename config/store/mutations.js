@@ -3,11 +3,6 @@ import utils from 'blue-utils';
 //公共的mutation
 const mutations = {
 
-  //设置微信config
-  SET_WECHAT(state, weChat) {
-    state.weChat = weChat;
-  },
-
   //设置导航状态
   SET_TAB_BAR(state, tabBar) {
     state.view.tabBar = utils.extend(state.view.tabBar, tabBar);

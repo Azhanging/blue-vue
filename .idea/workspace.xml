@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:apps" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:apps" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:blue-rpg-game" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:npm_and_yarn" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:apps" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:blue-vue-tmpl" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3413c780-0bdb-4f25-836e-798c4f298e5d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/use-in-vue/open-api/wechat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/home/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/fight/FightStage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/fight/FightStage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/map/MapScene.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/map/MapScene.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/npc/NpcInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/npc/NpcInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/task/TaskInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-rpg-game/src/views/scene/task/TaskInfo.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/apps/blue-vue-tmpl/src/views/home/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/share.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/share.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/node.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/store/mutations.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/store/mutations.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/store/state.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/store/state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use-in-vue/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/use-in-vue/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/use-in-vue/wechat.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-config/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +117,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
-      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\achang\github\blue-vue-program\assets\css\blue-zone\src\extend" />
+      <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\achang\web\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
       <recent name="E:\achang\github\blue-vue-program\apps\blue-vue-tmpl\src\views\home" />
     </key>
   </component>
@@ -172,33 +236,56 @@
       <workItem from="1599191518381" duration="3919000" />
       <workItem from="1599204567105" duration="5999000" />
       <workItem from="1599487198220" duration="940000" />
-      <workItem from="1617591115382" duration="4824000" />
+      <workItem from="1617591115382" duration="5426000" />
+      <workItem from="1617716925761" duration="49000" />
+      <workItem from="1623858016933" duration="797000" />
+      <workItem from="1630128611151" duration="12163000" />
+      <workItem from="1630208591227" duration="16811000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1707" height="231" key="GridCell.Tab.0.bottom" timestamp="1617609175533">
+    <state x="645" y="275" key="FileChooserDialogImpl" timestamp="1623858821233">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="231" key="GridCell.Tab.0.bottom/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
-    <state width="1707" height="231" key="GridCell.Tab.0.center" timestamp="1617609175533">
+    <state x="645" y="275" key="FileChooserDialogImpl/0.0.1728.1040@0.0.1728.1040" timestamp="1623858821233" />
+    <state width="1707" height="139" key="GridCell.Tab.0.bottom" timestamp="1630221884779">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="231" key="GridCell.Tab.0.center/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
-    <state width="1707" height="231" key="GridCell.Tab.0.left" timestamp="1617609175533">
+    <state width="1707" height="139" key="GridCell.Tab.0.bottom/0.0.1728.1040@0.0.1728.1040" timestamp="1630221884779" />
+    <state width="1707" height="139" key="GridCell.Tab.0.center" timestamp="1630221884779">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="231" key="GridCell.Tab.0.left/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
-    <state width="1707" height="231" key="GridCell.Tab.0.right" timestamp="1617609175533">
+    <state width="1707" height="139" key="GridCell.Tab.0.center/0.0.1728.1040@0.0.1728.1040" timestamp="1630221884779" />
+    <state width="1707" height="139" key="GridCell.Tab.0.left" timestamp="1630221884779">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state width="1707" height="231" key="GridCell.Tab.0.right/0.0.1728.1040@0.0.1728.1040" timestamp="1617609175533" />
-    <state x="564" y="252" width="600" height="536" key="find.popup" timestamp="1617610174807">
+    <state width="1707" height="139" key="GridCell.Tab.0.left/0.0.1728.1040@0.0.1728.1040" timestamp="1630221884779" />
+    <state width="1707" height="139" key="GridCell.Tab.0.right" timestamp="1630221884779">
       <screen x="0" y="0" width="1728" height="1040" />
     </state>
-    <state x="564" y="252" width="600" height="536" key="find.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1617610174807" />
+    <state width="1707" height="139" key="GridCell.Tab.0.right/0.0.1728.1040@0.0.1728.1040" timestamp="1630221884779" />
+    <state x="564" y="252" width="600" height="536" key="find.popup" timestamp="1630220776118">
+      <screen x="0" y="0" width="1728" height="1040" />
+    </state>
+    <state x="564" y="252" width="600" height="536" key="find.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1630220776118" />
+    <state x="527" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1630213177231">
+      <screen x="0" y="0" width="1728" height="1040" />
+    </state>
+    <state x="527" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1728.1040@0.0.1728.1040" timestamp="1630213177231" />
   </component>
 </project>

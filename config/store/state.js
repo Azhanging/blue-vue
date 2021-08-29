@@ -1,12 +1,5 @@
 //public store state
 const state = {
-  //微信相关配置
-  weChat: {
-    appId: "",
-    timestamp: '',
-    nonceStr: '',
-    signature: ''
-  },
   //视图相关
   view: {
     //浮层相关

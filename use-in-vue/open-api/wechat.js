@@ -1,13 +1,39 @@
-import store from '@store';
-import $axios from '$axios';
-import utils from 'blue-utils';
-import config from '@config';
-import { shareLink } from '$assets/js/share';
+//加载微信
+import config from "@config/index";
+import $axios from "$use-in-vue/axios";
 import BlueQueuePipe from 'blue-queue-pipe';
+import { shareLink } from "$assets/js/share";
+
+//加载微信sdk
+function loadWeChatSDK() {
+  const script = document.createElement(`script`);
+  script.src = `//res.wx.qq.com/open/js/jweixin-1.4.0.js`;
+  script.onload = () => {
+    getWeChatConfig();
+  };
+  document.body.appendChild(script);
+}
+
+//加载微信sdk
+loadWeChatSDK();
 
 //微信 分享 in vue
 export function weChatShareInVue(Vue) {
   Vue.prototype.$weChatShare = weChatShare;
+}
+
+//if in wechat ,get wechat config in program
+export function useWeChatInVue(Vue) {
+  weChatShareInVue(Vue);
+  try {
+    if (config.device.isWeChat && wx) {
+      window.alert = (e) => {
+        console.log(`wechat error:`, e);
+      };
+    }
+  } catch (e) {
+    console.warn(e);
+  }
 }
 
 //微信任务队列
@@ -24,25 +50,10 @@ const weChatQueue = new BlueQueuePipe({
     }
   },
   ran() {
-    if (this.isEmpty()) {
-      this.useMethod('reset');
-    }
+    if (!this.isEmpty()) return;
+    this.useMethod('reset');
   }
 });
-
-//if in wechat ,get wechat config in program
-export function useWeChatInVue(Vue) {
-  weChatShareInVue(Vue);
-  try {
-    if (config.device.isWeChat && wx) {
-      window.alert = (e) => {
-        console.log(`wechat error:`, e);
-      };
-    }
-  } catch (e) {
-    console.warn(e);
-  }
-}
 
 //get wechat config in server
 export function getWeChatConfig() {
@@ -58,27 +69,24 @@ export function getWeChatConfig() {
     isShowLoading: false
   }).then((res) => {
     const { data } = res;
-    store.commit('SET_WECHAT', data);
-  }).then(() => {
     setWeChatSdkConfig({
-      id: ++weChatQueue.data.id
+      id: ++weChatQueue.data.id,
+      weChatData: data
     });
   });
 }
 
 //set wechat config
 export function setWeChatSdkConfig(opts) {
-
-  const { state } = store;
   //任务的id
-  const { id } = opts;
+  const { id, weChatData } = opts;
 
   wx.config({
     debug: config.env.prod,
-    appId: state.weChat.appId,
-    timestamp: state.weChat.timestamp,
-    nonceStr: state.weChat.nonceStr,
-    signature: state.weChat.signature,
+    appId: weChatData.appId,
+    timestamp: weChatData.timestamp,
+    nonceStr: weChatData.nonceStr,
+    signature: weChatData.signature,
     jsApiList: [
       'onMenuShareTimeline',
       'onMenuShareAppMessage'
@@ -140,7 +148,3 @@ function setWeChatShare(opts = {}) {
     console.warn(e);
   }
 }
-
-
-
-

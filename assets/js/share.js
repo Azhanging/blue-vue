@@ -28,25 +28,9 @@ function shareLinkParams() {
 }
 
 //公共的分享 app 分享 || 普通浏览器和微信提示分享操作
-export function share(opts) {
+export function share() {
   const device = config.device;
-  const shareConfig = config.share;
-
-  //webview分享
-  if (config.device.isApp) {
-    try {
-      dtb.iPhoneShare(JSON.stringify({
-        title: opts.title || shareConfig.title,
-        descr: opts.descr || shareConfig.deps,
-        thumImage: opts.thumImage || shareConfig.imgUrl,
-        shareUrl: shareLink({
-          link: opts.shareUrl
-        })
-      }));
-    } catch (e) {
-      console.warn(`share error:`, e);
-    }
-  } else if (device.isWeChat) { // 微信端
+  if (device.isWeChat) { // 微信端
     toast({
       message: '点击右上角“...”分享按钮进行转发'
     });
