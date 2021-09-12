@@ -10,7 +10,6 @@ const tabBarHidden = {
 
 const components = [{
   path: '/components',
-  name: 'components',
   component: () => import(`@/views/components/components.vue`),
   meta: {
     afterHook() {
@@ -19,7 +18,8 @@ const components = [{
       });
     },
     title: 'component',
-    tabBar
+    tabBar,
+    name: `components`
   }
 }, {
   path: '/components/blue-validate',

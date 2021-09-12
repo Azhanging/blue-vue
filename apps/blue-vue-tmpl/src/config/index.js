@@ -12,7 +12,8 @@ const config = utils.extend(publicConfig, {
     },
     keepAlive: {
       exclude: [
-        'validate'
+        'validate',
+        `page3`
       ]
     }
   },

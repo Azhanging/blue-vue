@@ -1,7 +1,6 @@
 import config from '@config';
 import Vue from 'vue';
 import utils from 'blue-utils';
-import BlueKeepAlive from './blue-keep-alive';
 //vue-router的config
 const routerConfig = {
   params: {
@@ -14,11 +13,6 @@ export function useInVueRouter(Router, opts = {}) {
 
   //设置router中的配置信息
   Router.config = utils.extend(routerConfig, opts);
-
-  //缓存机制
-  Vue.use(BlueKeepAlive, {
-    tickTime: config.view.tickTime
-  });
 
   //扩展vue router
   extendVueRouter(Router);

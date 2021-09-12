@@ -5,7 +5,8 @@ const home = [{
   meta: {
     suspend: {
       status: false
-    }
+    },
+    name: `home`
   }
 }, {
   //登录

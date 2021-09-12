@@ -6,6 +6,8 @@ import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
 import { useInVueRouterProgram } from '../use-in-vue-router-program';
+import RouterKeepAlive from '$use-in-vue-router/router-keep-alive';
+import store from '@store';
 
 //路由地址
 import routes from './routes';
@@ -24,6 +26,12 @@ const router = new Router({
   namespace: true,
   routes,
   scrollBehavior
+});
+
+//路由缓存
+export const routerKeepAlive = new RouterKeepAlive({
+  router,
+  store
 });
 
 //项目扩展router
