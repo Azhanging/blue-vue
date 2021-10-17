@@ -4,6 +4,13 @@
       Page1 {{random}}
     </div>
     <div class="ba-t-c">
+      <div
+        v-for="item in count"
+        :key="item"
+        class="ba-pd-30rpx"
+      >
+        {{item}}
+      </div>
       <a @click="routerToPage1">
         Page1
       </a>
@@ -20,9 +27,14 @@
 <script>
 export default {
   name: `page1`,
+  beforeCreate() {
+    debugger;
+    console.log(this);
+  },
   data() {
     return {
       random: Math.random(),
+      count: Math.ceil(Math.random() * 10 + 1),
     };
   },
   methods: {
@@ -36,7 +48,7 @@ export default {
   activated() {
     console.log(`activated`, this.$options.name);
   },
-  beforeRouteUpdate(to,form,next) {
+  beforeRouteUpdate(to, form, next) {
     console.log(`beforeRouteUpdate`, this.$options.name);
     this.random = Math.random();
     next();

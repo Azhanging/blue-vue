@@ -4,7 +4,10 @@
     class="ba-t-666 ba-f-28rpx"
   >
 
-    <keep-alive :exclude="exclude" ref="keepAlive">
+    <keep-alive
+      :exclude="exclude"
+      ref="keepAlive"
+    >
       <router-view />
     </keep-alive>
 

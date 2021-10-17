@@ -1,6 +1,9 @@
 export default [{
   path: `/keep-alive/page1`,
-  component: () => import(`@/views/keep-alive/Page1`),
+  component: () => {
+    console.log(import(`@/views/keep-alive/Page1`));
+    return import(`@/views/keep-alive/Page1`);
+  },
   meta: {
     name: `page1`
   }

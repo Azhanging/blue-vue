@@ -16,8 +16,6 @@
 
 <script>
 
-	import { apiBindPhone } from '$api';
-
   export default {
     name: "bind-phone",
     data() {

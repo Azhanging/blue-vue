@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import { weChatShare } from '$wechat';
 import { useInVueRouter, scrollBehavior } from '$use-in-vue-router';
 import RouterID from '$use-in-vue-router/router-id';
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
@@ -52,14 +51,7 @@ routerBeforeEach({
 
 //router after each
 routerAfterEach({
-  router,
-  //根据项目需要的after each（可选）
-  afterEach(to, from) {
-    //console.log(to, from);
-  },
-  unAfterHook() {
-    weChatShare();
-  }
+  router
 });
 
 export default router;

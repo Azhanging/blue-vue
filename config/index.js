@@ -42,15 +42,7 @@ const config = {
   },
 
   //登录状态
-  login: {
-    in: {
-      url: ``,          //token的login api请求
-    },
-    //登录退出相关
-    out: {
-      url: ``,    //请求url
-      redirectUrl: ``   //退出后到的路由地址，不存在跳回到首页
-    },
+  auth: {
     storage: {
       ['token']: `token`
     }

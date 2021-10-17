@@ -12,11 +12,6 @@ const components = [{
   path: '/components',
   component: () => import(`@/views/components/components.vue`),
   meta: {
-    afterHook() {
-      weChatShare({
-        title: 'components'
-      });
-    },
     title: 'component',
     tabBar,
     name: `components`
@@ -25,11 +20,6 @@ const components = [{
   path: '/components/blue-validate',
   component: () => import(`@/views/components/validate/validate.vue`),
   meta: {
-    afterHook() {     //router after each 钩子
-      weChatShare({       //特定的微信分享
-        title: 'blue-validate'
-      });
-    },
     title: '验证标题',
     tabBar: tabBarHidden
   }
@@ -38,12 +28,7 @@ const components = [{
   component: () => import(`@/views/components/picker/picker.vue`),
   meta: {
     title: '滚动组件',
-    tabBar: tabBarHidden,
-    afterHook() {
-      weChatShare({       //特定的微信分享
-        title: '滚动组件'
-      });
-    }
+    tabBar: tabBarHidden
   }
 }, {
   path: '/components/swiper-scroll',
@@ -57,12 +42,7 @@ const components = [{
   component: () => import(`@/views/components/scroll/scroll`),
   meta: {
     title: 'scroll',
-    tabBar,
-    afterHook() {
-      weChatShare({
-        title: 'scroll'
-      });
-    }
+    tabBar
   }
 }];
 

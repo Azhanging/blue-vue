@@ -7,10 +7,8 @@ import { device } from '$assets/js/device';
 import { useInVueProgram } from './use-in-vue-program';
 //这里加载微信sdk
 import '$wechat';
-import user from '$assets/js/user';
 //公共css，项目配置项assets/scss/config
 import '@/assets/css/blue-zone.scss';
-
 //nprogress覆盖scss
 import '@/assets/css/nprogress.scss';
 //server work PWA

@@ -36,5 +36,8 @@ export default {
     this.random = Math.random();
     next();
   },
+  destroyed(){
+    console.log(`destroyed page2`);
+  }
 };
 </script>

@@ -98,7 +98,7 @@ function setFormData(axiosConfig) {
 //设置header中的token
 function setRequestHeader(axiosConfig) {
   const { headers } = axiosConfig;
-  utils.each(config.login.storage, (key) => {
+  utils.each(config.auth.storage, (key) => {
     const getItem = window.localStorage.getItem(key) || window.sessionStorage.getItem(key);
     if (getItem) {
       headers[key.replace(/([A-Z])/g, `-$1`).toLowerCase()] = getItem;
