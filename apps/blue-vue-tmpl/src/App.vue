@@ -32,7 +32,7 @@
 
 <script>
 import Vuex from "vuex";
-import { routerKeepAlive } from "@router";
+import { blueRetreat } from "@router";
 import config from "@config";
 
 const { mapState } = Vuex;
@@ -43,7 +43,7 @@ export default {
     ...mapState(["view"]),
     //不进行缓存
     exclude() {
-      const exclude = routerKeepAlive.getExcludeState();
+      const exclude = blueRetreat.getExcludeState();
       return exclude.concat(config.app.keepAlive.exclude);
     },
   },
