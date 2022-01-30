@@ -1,15 +1,15 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import BlueRetreat from 'blue-retreat';
-import { useInVueRouter, scrollBehavior } from '$use-in-vue-router';
-import RouterID from '$use-in-vue-router/router-id';
+import Vue from "vue";
+import Router from "vue-router";
+import { initBlueRetreat } from "blue-retreat";
+import { useInVueRouter, scrollBehavior } from "$use-in-vue-router";
+import RouterID from "$use-in-vue-router/router-id";
 import { routerBeforeEach } from "$use-in-vue-router/router-before";
 import { routerAfterEach } from "$use-in-vue-router/router-after";
-import { useInVueRouterProgram } from '../use-in-vue-router-program';
-import store from '@store';
+import { useInVueRouterProgram } from "../use-in-vue-router-program";
+import store from "@store";
 
 //路由地址
-import routes from './routes';
+import routes from "./routes";
 
 Vue.use(Router);
 
@@ -21,21 +21,21 @@ export const routerID = new RouterID();
 
 //路由实例
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   namespace: true,
   routes,
-  scrollBehavior
+  scrollBehavior,
 });
 
 //路由缓存
-export const blueRetreat = new BlueRetreat({
+initBlueRetreat({
   router,
-  store
+  store,
 });
 
 //项目扩展router
 useInVueRouterProgram({
-  Router
+  Router,
 });
 
 //router before each
@@ -46,12 +46,12 @@ routerBeforeEach({
     // true 或者 undefined 走默认的next()处理
     //处理多层级的的next状态查看一下RouterNext的处理
     return true;
-  }
+  },
 });
 
 //router after each
 routerAfterEach({
-  router
+  router,
 });
 
 export default router;
